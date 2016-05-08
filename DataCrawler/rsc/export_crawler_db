@@ -1,0 +1,2 @@
+/Library/MongoDB/mongodb-osx-x86_64-3.2.1/bin/mongoexport --db data_catalog --collection datasets --out /Users/lapaesleme/OneDrive/Data/dumps/data_catalog/datasets.json --jsonArray --pretty
+/Library/MongoDB/mongodb-osx-x86_64-3.2.1/bin/mongoexport --db data_catalog --collection voids --out /Users/lapaesleme/OneDrive/Data/dumps/data_catalog/voids.json --jsonArray --pretty

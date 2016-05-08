@@ -1,0 +1,16 @@
+#!/bin/sh
+
+echo "Do you want to upload data_catalog DB? (yes/no)"
+read -e ANSWER
+
+if test "$ANSWER" == "yes"
+    then
+        echo "Are you sure? (yes/no)"
+        read -e ANSWER
+
+        if test "$ANSWER" == "yes" 
+        then
+            /Library/MongoDB/mongodb-osx-x86_64-3.2.1/bin/mongoimport --db data_catalog --collection datasets --file /Users/lapaesleme/OneDrive/Data/dumps/data_catalog/datasets.json --jsonArray
+            /Library/MongoDB/mongodb-osx-x86_64-3.2.1/bin/mongoimport --db data_catalog --collection voids --file /Users/lapaesleme/OneDrive/Data/dumps/data_catalog/voids.json --jsonArray
+    fi
+fi

@@ -1,0 +1,66 @@
+[
+  {
+    "name": "Mannheim Linked Data Catalog",
+    "home": "http://linkeddatacatalog.dws.informatik.uni-mannheim.de",
+    "search_api": "/api/search/dataset?q=metadata_modified:[{}%20TO%20NOW]&sort=metadata_modified%20desc&offset={}&limit={}",
+    "dataset_api": "/api/rest/dataset/{}",
+    "dataset_api_3": "/api/3/action/package_show?id={}",
+    "dataset_wui": "/dataset/{}"
+  },
+  {
+    "name": "DataHub",
+    "home": "https://datahub.io",
+    "search_api": "/api/search/dataset?q=metadata_modified:[{}%20TO%20NOW]&sort=metadata_modified%20desc&offset={}&limit={}",
+    "dataset_api": "/api/rest/dataset/{}",
+    "dataset_api_3": "/api/3/action/package_show?id={}",
+    "dataset_wui": "/dataset/{}"
+  },
+  {
+    "name": " Portal de dados abertos da Prefeitura do Rio",
+    "home": "http://data.rio",
+    "search_api": "/api/search/dataset?q=metadata_modified:[{}%20TO%20NOW]&sort=metadata_modified%20desc&offset={}&limit={}",
+    "dataset_api": "/api/rest/dataset/{}",
+    "dataset_api_3": "/api/3/action/package_show?id={}",
+    "dataset_wui": "/dataset/{}"
+  },
+  {
+    "name": "PORTAL BRASILEIRO DE DADOS ABERTOS",
+    "home": "http://dados.gov.br",
+    "search_api": "/api/search/dataset?q=metadata_modified:[{}%20TO%20NOW]&sort=metadata_modified%20desc&offset={}&limit={}",
+    "dataset_api": "/api/rest/dataset/{}",
+    "dataset_api_3": "/api/3/action/package_show?id={}",
+    "dataset_wui": "/dataset/{}"
+  },
+  {
+    "name": "Dados Abertos da Saúde",
+    "home": "http://dados.saude.gov.br",
+    "search_api": "/api/search/dataset?q=metadata_modified:[{}%20TO%20NOW]&sort=metadata_modified%20desc&offset={}&limit={}",
+    "dataset_api": "/api/rest/dataset/{}",
+    "dataset_api_3": "/api/3/action/package_show?id={}",
+    "dataset_wui": "/dataset/{}"
+  },
+  {
+    "name": "Tesouro Transparente",
+    "home": "http://www.tesourotransparente.gov.br/ckan",
+    "search_api": "/api/search/dataset?q=metadata_modified:[{}%20TO%20NOW]&sort=metadata_modified%20desc&offset={}&limit={}",
+    "dataset_api": "/api/rest/dataset/{}",
+    "dataset_api_3": "/api/3/action/package_show?id={}",
+    "dataset_wui": "/dataset/{}"
+  },
+  {
+    "name": "Dados Abertos Legislativos",
+    "home": "http://dadosabertos.senado.leg.br",
+    "search_api": "/api/search/dataset?q=metadata_modified:[{}%20TO%20NOW]&sort=metadata_modified%20desc&offset={}&limit={}",
+    "dataset_api": "/api/rest/dataset/{}",
+    "dataset_api_3": "/api/3/action/package_show?id={}",
+    "dataset_wui": "/dataset/{}"
+  },
+  {
+    "name": "EUROPEAN DATA PORTAL",
+    "home": "https://publicdata.eu",
+    "search_api": "/api/search/dataset?q=metadata_modified:[{}%20TO%20NOW]&sort=metadata_modified%20desc&offset={}&limit={}",
+    "dataset_api": "/api/rest/dataset/{}",
+    "dataset_api_3": "/api/3/action/package_show?id={}",
+    "dataset_wui": "/dataset/{}"
+  }
+]
