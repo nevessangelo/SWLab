@@ -33,7 +33,7 @@
 
 			List<NameValuePair> params = new ArrayList<NameValuePair>(2);
 			params.add(new BasicNameValuePair("content", writer.toString()));
-			
+
 			httppost.setEntity(new UrlEncodedFormEntity(params, "UTF-8"));
 			HttpResponse response = httpclient.execute(httppost);
 			HttpEntity entity = response.getEntity();
@@ -51,10 +51,15 @@
 	String scheme = request.getScheme();
 	String serverName = request.getServerName();
 	String django = scheme + "://" + serverName + ":4040";
+	String rdfa = "";
 
-	Model model = ModelFactory.createDefaultModel();
-	model.read("http://localhost:" + port + "/void.ttl");
-	String rdfa = writeRDFa(model);
+	try {
+		Model model = ModelFactory.createDefaultModel();
+		model.read("http://localhost:" + port + "/void.ttl");
+		rdfa = writeRDFa(model);
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
 %>
 <html>
 <head>
