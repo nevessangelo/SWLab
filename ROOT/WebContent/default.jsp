@@ -23,27 +23,29 @@
 <%@page import="java.io.InputStreamReader"%>
 <%@page import="java.net.URL"%>
 <%!public String writeRDFa(Model model) {
+		String rdfa = "";
+		
 		StringWriter writer = new StringWriter();
 		model.write(writer, Lang.RDFXML.getName());
 
 		HttpClient httpclient = new DefaultHttpClient();
 		HttpPost httppost = new HttpPost("http://rdf-translator.appspot.com/convert/detect/rdfa/content");
+
 		List<NameValuePair> params = new ArrayList<NameValuePair>(2);
 		params.add(new BasicNameValuePair("content", writer.toString()));
-		try {
-			httppost.setEntity(new UrlEncodedFormEntity(params, "UTF-8"));
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
 
 		try {
+			httppost.setEntity(new UrlEncodedFormEntity(params, "UTF-8"));
 			HttpResponse response = httpclient.execute(httppost);
 			HttpEntity entity = response.getEntity();
-			if (entity != null) return EntityUtils.toString(entity);
+			if (entity != null)
+				rdfa = EntityUtils.toString(entity);
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return "";
+		return rdfa;
 	}%>
 <%
 	int port = request.getLocalPort();
@@ -53,7 +55,6 @@
 
 	Model model = ModelFactory.createDefaultModel();
 	model.read("http://localhost:" + port + "/void.ttl");
-
 	String rdfa = writeRDFa(model);
 %>
 <html>
