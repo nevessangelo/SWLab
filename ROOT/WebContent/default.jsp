@@ -24,17 +24,16 @@
 <%@page import="java.net.URL"%>
 <%!public String writeRDFa(Model model) {
 		String rdfa = "";
-		
-		StringWriter writer = new StringWriter();
-		model.write(writer, Lang.RDFXML.getName());
-
-		HttpClient httpclient = new DefaultHttpClient();
-		HttpPost httppost = new HttpPost("http://rdf-translator.appspot.com/convert/detect/rdfa/content");
-
-		List<NameValuePair> params = new ArrayList<NameValuePair>(2);
-		params.add(new BasicNameValuePair("content", writer.toString()));
-
 		try {
+			StringWriter writer = new StringWriter();
+			model.write(writer, Lang.RDFXML.getName());
+
+			HttpClient httpclient = new DefaultHttpClient();
+			HttpPost httppost = new HttpPost("http://rdf-translator.appspot.com/convert/detect/rdfa/content");
+
+			List<NameValuePair> params = new ArrayList<NameValuePair>(2);
+			params.add(new BasicNameValuePair("content", writer.toString()));
+			
 			httppost.setEntity(new UrlEncodedFormEntity(params, "UTF-8"));
 			HttpResponse response = httpclient.execute(httppost);
 			HttpEntity entity = response.getEntity();
