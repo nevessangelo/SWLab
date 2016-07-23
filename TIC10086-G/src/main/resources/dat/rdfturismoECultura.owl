@@ -1,0 +1,978 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="owlapi:ontology#ont279625313619878"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="owlapi:ontology#ont279625313619878">
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/54bf0183-3a97-4982-ab0b-5fea73fe5ce9"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/f8cd77ff-b8e4-4ed7-ad46-d2c1248d94e4"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/67237824-61a9-4e86-9c09-6486d3df81ba"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/22229a5c-a233-4065-bd24-87691bfaadab"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/0412d202-00eb-49fd-8a0c-3659ab1a6b6b"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://dbpedia.org/ontology/"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/e8b6da10-2e82-480c-9bfb-5bd59951bc05"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/122590a9-d9c6-4197-aacf-fdd23189ee7f"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/b4a41db3-d940-4594-ba25-912e047008de"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/680292f3-b78d-4648-9563-56017be61e0d"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/f82de905-8637-46aa-a2a2-7174a1c2333c"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/c23f4ab7-776c-412d-bec3-8a72c562317a"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/349fc828-3c72-43bb-82d1-1e4d6d229c61"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/70e3f01d-7f2b-40bd-bfdb-20839b83d3ec"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/cc7da052-ac36-4e45-94e7-1024533dab34"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/85699b64-c588-49bf-9afd-bcfecce3eb13"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/328f5bd3-8cb2-43c0-bd88-83b97cef2482"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/4cd37e6f-1d55-4c32-9f6b-4760d4dfe277"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/5a4cf13f-94e9-44f8-a14d-fab7ebe0137d"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/5bc6e5a1-a30a-4796-b3dc-92df2e57a6bf"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/29d112b4-f395-4d2f-8eb5-d69900541c38"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/4cb2034d-ac45-412e-ab04-24d3201e7229"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/1acda62a-2cf6-4897-b3ef-b22950f76015"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/39baaf95-4a68-4e06-a518-5fb9849d3d22"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/d3bda5c3-2632-418e-9e13-7d9e7763f2bc"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/af46562d-9327-4e83-9cee-fefcf9843eb3"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/a10f80cd-70c3-4884-bfef-c0e10bdf2ae2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/a630b39f-c309-40a9-9ec5-a8c1e0f15143"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/bb051087-2971-4ac4-acd4-1113d9ea75b0"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/3b125915-c91b-4840-acbd-06a4b0d7bdc4"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/60abc299-a1f1-4313-92a7-6e6d32f6d612"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/29c6a9e1-3278-4787-b5f8-f00a8eb0adeb"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/b0df725e-0e20-43a2-9544-a81bc54c979e"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/fb47377f-67ca-4d9a-a4fc-6e183da01b4c"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/b1435518-6195-4887-b90e-b91addb0cf1f"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/3c1d9375-cf36-47c4-bc01-1a03fc71d5dc"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/8757b1dd-f420-4802-8f5d-0fdc91b18268"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/bf449312-a07b-4b0d-93e4-8d5fbdef656b"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/8941fd6f-fc38-4d5e-9277-50aa8215aebb"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/dcb1396c-ae95-4e33-8328-26b60b07758d"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/2da8156b-7dfa-4ea7-9f6d-e43bdc5f831f"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/6c478aae-2786-47ab-9365-6bba0c79b783"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/e166a802-8ef2-465c-9bab-447c19dc3717"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/acfe1d43-e39b-487a-a9d2-a816decdf7f2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/936a0300-7fc0-4cca-bc51-dbb570b9ddee"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/8512b22d-b044-45aa-b435-2f77a35e6408"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/7377910a-ffaa-436d-8d81-e0c171c9168d"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/fc07bba8-3cc9-4268-bdc1-3a504e0e267e"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/5ae73d00-935d-4e68-b9dc-6a40183ebdb6"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/ed915887-d06a-42c0-bed6-c9a06a5b22c3"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/41f8978f-2702-41ff-8020-bf84fbb9129c"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/0922b7a6-f00c-41db-9f36-0a16993d6e22"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/482791eb-fd7a-420d-996a-442751d7755f"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/5756ce95-3037-45ad-95a0-59feeb23fe02"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/23ec6933-1d2f-4dd1-bcc0-d1e03350e097"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/d628d93e-2e16-481f-a586-707ba8bbc2ff"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/a5335d14-7bfe-412e-8cea-5560cfb00581"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/c935781b-64bb-41b1-8b08-bbb2f2d13b93"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/a2c8cf62-90e5-40be-a9bf-3b028b7e4c3e"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/c2447599-c868-4ab2-a29b-302c58d7dbff"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/830da90e-4acc-4cc8-883f-3e92a86db871"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/02d5d347-6a7c-4778-b84d-ad30157e7c8e"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/9146a1ae-d04f-40eb-9815-2325cb7d44c4"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/973bf96f-bcea-4f75-a943-0d7cb504c411"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/f6dd03c0-34d4-41ea-989a-b1f86899975b"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/6683fa4b-92ba-4b61-b297-f90b38204ea2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/19547809-dcfb-4aa7-bb0c-06da32bce438"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/ed39e907-9559-4722-b526-41225e047086"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/8aec8b18-7b71-41b4-b7ed-455f6466b548"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/0243d5d7-8f4d-4b2d-aec8-7d6ff4d2bb82"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/fd5e3ab2-874c-47e5-83fb-3f9f2ba6ced1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/18da5bec-b071-40fa-bd80-1b77717aa27b"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://purl.org/vocommons/voaf#Vocabulary"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/cfbbacaf-41d8-44b2-995f-541f6d87ee29"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/fe2274ac-e67e-4e92-afc0-8e0af17ebbe5"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/8e7cf7de-424a-43e0-a538-6c1ac403d414"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/4b0ea5af-62d5-4d12-b8ad-f74dc8863b2e"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/4bbae019-a2dc-44e2-b68b-a34ca05311e9"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/ec6770bb-234d-44e1-8283-a15a4ecc02ba"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/18a3ef39-e47c-45b1-ba6c-a4660f357da7"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/36ff3a99-b73d-4a83-b4eb-b27550891ada"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/04b36141-e117-463e-9d42-7566bf22591b"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/f4a8402f-5723-4edb-80ff-690a59c2205b"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/bbaf46d5-8842-4ee7-af45-67ce4be7b38c"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/d6dcbf81-e234-4b5c-9fb2-803d6fb96aba"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/42b0b328-8382-4af8-9030-ce872075f906"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/c667228c-9200-42c0-bcc2-9ea513fb2d9d"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/c18fb90d-45d6-4838-8df8-18bf9bb14c92"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/4c0e940d-6c44-428c-8a31-d21a14b35a59"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/09c5cf87-ada6-4b7c-9023-a43eb7d10b17"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/a0d30ed7-0305-4a1a-9a3f-ad6322a88dfa"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/aa21ce04-b9dc-4584-8f1f-13cb6d7212d2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/f952933c-3cc2-4e3d-92b8-3f8d39171b0f"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/f0e33189-d0b1-4fbe-a802-9ca1532578be"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/0b024253-215c-414d-8d42-5b0a9594bdc7"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/a2d79aff-87a7-4689-85a3-9c212b4b61f1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/e6af1ed9-5771-4299-9b48-7a783848bc74"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/a27f0e85-b7d7-40a8-985a-5a45ba2a2c37"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/af2ee574-5828-4ebf-8d67-5a890ef24f75"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/15271021-c15d-44f5-bb18-b10ddc9db919"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/9b88757e-e3d5-433b-9c03-4ab14f07bc78"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/b9b81930-f3b8-4b2f-8d50-4126e3af5329"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/f3b14b74-cb16-42ae-a356-cebac011831d"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/6a4b632e-3b30-4bee-8e36-386681c110d5"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/a78ee099-14f1-47a4-84c6-86e859228f29"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/f97fa389-1869-4903-8689-8bc8e34b6dd8"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/84236ec7-d39c-449f-900b-44e3596341b6"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/95c36147-6a64-4f6b-a506-c063c56eae3d"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/39d678dc-078a-4306-b520-1de5cd4ca7e6"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/36990107-ecef-4aaf-80cd-1a91de26feca"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/fac00e41-6558-4307-9c66-350814f714dc"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/868ff463-5ed9-4c6a-8a23-70fa9d1c908d"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/68a087b0-48b4-4c12-bf22-69476c73b9c1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/4a2943fe-168b-4a84-a5bb-15b59f0fb1dd"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/b2e987cd-bf95-479f-9964-84a694a709ae"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/fabc6174-bb49-4634-9e7c-d8e668759362"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/eb8906dc-5e9e-4102-99a0-0f62049d895b"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/f1b3223a-275e-4b94-a59b-366cbc8f0582"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/1d675d22-e236-4169-9325-cfb68c2665cd"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/c0a25ab6-3062-444e-8d40-a26d7582474a"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/a9bc44d4-c49e-4068-8634-e24e41f1fd31"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/7da6f0c9-6073-4b62-a0d9-6d0d07d2ae69"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/d7da10ec-c288-4edc-9eaa-f80bacc9c8ed"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/3e172da0-ff6d-4659-aa35-cb17cda4aff7"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/55853c47-0700-4fb6-855b-394bb32d4503"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/be5073b4-b575-440e-b566-c329f7a60850"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/c5f533f9-1ea0-4a03-81a5-b657c34c93a6"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/a2d000f3-c69e-4f62-9a86-273f735ceba6"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/0e3daee5-45ac-4d3a-b985-26e16070fa19"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/755b09c4-e5ac-4808-abab-ea1b236acb63"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/b91f792b-0cb2-496e-b13b-b283e72a98a8"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/ad5e5ed0-afaf-4190-9e78-aaed7f113fd8"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/0625239b-dfb7-4663-830f-8250e4c169c9"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/0c732d70-e442-4b52-92fa-aa43ed4c5f62"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/9dc4a838-e2db-40d9-9304-42dfd9d2ae70"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/c25f52a1-3f36-47fc-86b7-73eb21fc5e39"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="http://localhost:8080/24fa6151-4b7a-4eab-89d5-59769f6ce7e4"/>
+    </Declaration>
+    <ClassAssertion>
+        <Class IRI="http://purl.org/vocommons/voaf#Vocabulary"/>
+        <NamedIndividual IRI="http://dbpedia.org/ontology/"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/a0d30ed7-0305-4a1a-9a3f-ad6322a88dfa"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/a10f80cd-70c3-4884-bfef-c0e10bdf2ae2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/a27f0e85-b7d7-40a8-985a-5a45ba2a2c37"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/a2c8cf62-90e5-40be-a9bf-3b028b7e4c3e"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/a2d000f3-c69e-4f62-9a86-273f735ceba6"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/a2d79aff-87a7-4689-85a3-9c212b4b61f1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/a5335d14-7bfe-412e-8cea-5560cfb00581"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/a630b39f-c309-40a9-9ec5-a8c1e0f15143"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/a78ee099-14f1-47a4-84c6-86e859228f29"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/a9bc44d4-c49e-4068-8634-e24e41f1fd31"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/aa21ce04-b9dc-4584-8f1f-13cb6d7212d2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/acfe1d43-e39b-487a-a9d2-a816decdf7f2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/ad5e5ed0-afaf-4190-9e78-aaed7f113fd8"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/af2ee574-5828-4ebf-8d67-5a890ef24f75"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/af46562d-9327-4e83-9cee-fefcf9843eb3"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/b0df725e-0e20-43a2-9544-a81bc54c979e"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/b1435518-6195-4887-b90e-b91addb0cf1f"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/b2e987cd-bf95-479f-9964-84a694a709ae"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/b4a41db3-d940-4594-ba25-912e047008de"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/b91f792b-0cb2-496e-b13b-b283e72a98a8"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/b9b81930-f3b8-4b2f-8d50-4126e3af5329"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/bb051087-2971-4ac4-acd4-1113d9ea75b0"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/bbaf46d5-8842-4ee7-af45-67ce4be7b38c"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/be5073b4-b575-440e-b566-c329f7a60850"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/bf449312-a07b-4b0d-93e4-8d5fbdef656b"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/c0a25ab6-3062-444e-8d40-a26d7582474a"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/c18fb90d-45d6-4838-8df8-18bf9bb14c92"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/c23f4ab7-776c-412d-bec3-8a72c562317a"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/c2447599-c868-4ab2-a29b-302c58d7dbff"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/c25f52a1-3f36-47fc-86b7-73eb21fc5e39"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/c5f533f9-1ea0-4a03-81a5-b657c34c93a6"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/c667228c-9200-42c0-bcc2-9ea513fb2d9d"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/c935781b-64bb-41b1-8b08-bbb2f2d13b93"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/cc7da052-ac36-4e45-94e7-1024533dab34"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/cfbbacaf-41d8-44b2-995f-541f6d87ee29"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/d3bda5c3-2632-418e-9e13-7d9e7763f2bc"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/d628d93e-2e16-481f-a586-707ba8bbc2ff"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/d6dcbf81-e234-4b5c-9fb2-803d6fb96aba"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/d7da10ec-c288-4edc-9eaa-f80bacc9c8ed"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/dcb1396c-ae95-4e33-8328-26b60b07758d"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/e166a802-8ef2-465c-9bab-447c19dc3717"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/e6af1ed9-5771-4299-9b48-7a783848bc74"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/e8b6da10-2e82-480c-9bfb-5bd59951bc05"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/eb8906dc-5e9e-4102-99a0-0f62049d895b"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/ec6770bb-234d-44e1-8283-a15a4ecc02ba"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/ed39e907-9559-4722-b526-41225e047086"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/ed915887-d06a-42c0-bed6-c9a06a5b22c3"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/f0e33189-d0b1-4fbe-a802-9ca1532578be"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/f1b3223a-275e-4b94-a59b-366cbc8f0582"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/f3b14b74-cb16-42ae-a356-cebac011831d"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/f4a8402f-5723-4edb-80ff-690a59c2205b"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/f6dd03c0-34d4-41ea-989a-b1f86899975b"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/f82de905-8637-46aa-a2a2-7174a1c2333c"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/f8cd77ff-b8e4-4ed7-ad46-d2c1248d94e4"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/f952933c-3cc2-4e3d-92b8-3f8d39171b0f"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/f97fa389-1869-4903-8689-8bc8e34b6dd8"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/fabc6174-bb49-4634-9e7c-d8e668759362"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/fac00e41-6558-4307-9c66-350814f714dc"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/fb47377f-67ca-4d9a-a4fc-6e183da01b4c"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/fc07bba8-3cc9-4268-bdc1-3a504e0e267e"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/fd5e3ab2-874c-47e5-83fb-3f9f2ba6ced1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/fe2274ac-e67e-4e92-afc0-8e0af17ebbe5"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/0b024253-215c-414d-8d42-5b0a9594bdc7"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/0c732d70-e442-4b52-92fa-aa43ed4c5f62"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/0e3daee5-45ac-4d3a-b985-26e16070fa19"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/02d5d347-6a7c-4778-b84d-ad30157e7c8e"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/0243d5d7-8f4d-4b2d-aec8-7d6ff4d2bb82"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/04b36141-e117-463e-9d42-7566bf22591b"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/0412d202-00eb-49fd-8a0c-3659ab1a6b6b"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/0625239b-dfb7-4663-830f-8250e4c169c9"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/09c5cf87-ada6-4b7c-9023-a43eb7d10b17"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/0922b7a6-f00c-41db-9f36-0a16993d6e22"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/1acda62a-2cf6-4897-b3ef-b22950f76015"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/1d675d22-e236-4169-9325-cfb68c2665cd"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/122590a9-d9c6-4197-aacf-fdd23189ee7f"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/15271021-c15d-44f5-bb18-b10ddc9db919"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/18a3ef39-e47c-45b1-ba6c-a4660f357da7"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/18da5bec-b071-40fa-bd80-1b77717aa27b"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/19547809-dcfb-4aa7-bb0c-06da32bce438"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/2da8156b-7dfa-4ea7-9f6d-e43bdc5f831f"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/22229a5c-a233-4065-bd24-87691bfaadab"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/23ec6933-1d2f-4dd1-bcc0-d1e03350e097"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/24fa6151-4b7a-4eab-89d5-59769f6ce7e4"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/29c6a9e1-3278-4787-b5f8-f00a8eb0adeb"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/29d112b4-f395-4d2f-8eb5-d69900541c38"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/3b125915-c91b-4840-acbd-06a4b0d7bdc4"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/3c1d9375-cf36-47c4-bc01-1a03fc71d5dc"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/3e172da0-ff6d-4659-aa35-cb17cda4aff7"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/328f5bd3-8cb2-43c0-bd88-83b97cef2482"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/349fc828-3c72-43bb-82d1-1e4d6d229c61"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/36ff3a99-b73d-4a83-b4eb-b27550891ada"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/36990107-ecef-4aaf-80cd-1a91de26feca"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/39baaf95-4a68-4e06-a518-5fb9849d3d22"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/39d678dc-078a-4306-b520-1de5cd4ca7e6"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/4a2943fe-168b-4a84-a5bb-15b59f0fb1dd"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/4b0ea5af-62d5-4d12-b8ad-f74dc8863b2e"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/4bbae019-a2dc-44e2-b68b-a34ca05311e9"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/4c0e940d-6c44-428c-8a31-d21a14b35a59"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/4cb2034d-ac45-412e-ab04-24d3201e7229"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/4cd37e6f-1d55-4c32-9f6b-4760d4dfe277"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/41f8978f-2702-41ff-8020-bf84fbb9129c"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/42b0b328-8382-4af8-9030-ce872075f906"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/482791eb-fd7a-420d-996a-442751d7755f"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/5a4cf13f-94e9-44f8-a14d-fab7ebe0137d"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/5ae73d00-935d-4e68-b9dc-6a40183ebdb6"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/5bc6e5a1-a30a-4796-b3dc-92df2e57a6bf"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/54bf0183-3a97-4982-ab0b-5fea73fe5ce9"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/55853c47-0700-4fb6-855b-394bb32d4503"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/5756ce95-3037-45ad-95a0-59feeb23fe02"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/6a4b632e-3b30-4bee-8e36-386681c110d5"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/6c478aae-2786-47ab-9365-6bba0c79b783"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/60abc299-a1f1-4313-92a7-6e6d32f6d612"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/6683fa4b-92ba-4b61-b297-f90b38204ea2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/67237824-61a9-4e86-9c09-6486d3df81ba"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/68a087b0-48b4-4c12-bf22-69476c73b9c1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/680292f3-b78d-4648-9563-56017be61e0d"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/7da6f0c9-6073-4b62-a0d9-6d0d07d2ae69"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/70e3f01d-7f2b-40bd-bfdb-20839b83d3ec"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/7377910a-ffaa-436d-8d81-e0c171c9168d"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/755b09c4-e5ac-4808-abab-ea1b236acb63"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/8aec8b18-7b71-41b4-b7ed-455f6466b548"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/8e7cf7de-424a-43e0-a538-6c1ac403d414"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/830da90e-4acc-4cc8-883f-3e92a86db871"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/84236ec7-d39c-449f-900b-44e3596341b6"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/8512b22d-b044-45aa-b435-2f77a35e6408"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/85699b64-c588-49bf-9afd-bcfecce3eb13"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/868ff463-5ed9-4c6a-8a23-70fa9d1c908d"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/8757b1dd-f420-4802-8f5d-0fdc91b18268"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/8941fd6f-fc38-4d5e-9277-50aa8215aebb"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/9b88757e-e3d5-433b-9c03-4ab14f07bc78"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/9dc4a838-e2db-40d9-9304-42dfd9d2ae70"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/9146a1ae-d04f-40eb-9815-2325cb7d44c4"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/936a0300-7fc0-4cca-bc51-dbb570b9ddee"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/95c36147-6a64-4f6b-a506-c063c56eae3d"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <NamedIndividual IRI="http://localhost:8080/973bf96f-bcea-4f75-a943-0d7cb504c411"/>
+    </ClassAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 5.0.2.20160507-1747) https://github.com/owlcs/owlapi/ -->
+
+

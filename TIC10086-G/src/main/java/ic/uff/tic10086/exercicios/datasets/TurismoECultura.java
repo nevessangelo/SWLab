@@ -26,19 +26,24 @@ import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.model.OWLOntologyStorageException;
+import org.semanticweb.owlapi.model.parameters.Imports;
 
 public class TurismoECultura {
 
     public static final Lang EXPORT_LANG = Lang.TTL;
-    private static final String DIRECTORY = "./src/main/resources/dat/rdf";
+    private static final String RDF = "./src/main/resources/dat/rdf";
+    private static final String OWL = "./src/main/resources/dat/owl";
+
+    public static final String DBPEDIA_NS = "http://dbpedia.org/ontology/";
+    public static final String SCHEMA_NS = "http://schema.org/";
 
     public static final String LOCAL_NAME = "turismoECultura";
     public static final String BASE_URI = "http://localhost:8080/";
+    public static final String DATASET_URL_STRING = "http://dadosabertos.rio.rj.gov.br/apiCultura/apresentacao/csv/turismoECultura_.csv";
 
-    public static final String DBPEDIA_NS = "http://dbpedia.org/ontology/";
-
-    public static final String SCHEMA_NS = "http://schema.org/";
-    public static final String SCHEMA_URL_STRING = "http://dadosabertos.rio.rj.gov.br/apiCultura/apresentacao/csv/turismoECultura_.csv";
+    public static void init() {
+        org.apache.log4j.Logger.getRootLogger().setLevel(org.apache.log4j.Level.OFF);
+    }
 
     public static void main(String[] args) throws FileNotFoundException, IOException, MalformedURLException, CompressorException, OWLOntologyCreationException, OWLOntologyStorageException {
         init();
@@ -47,16 +52,11 @@ public class TurismoECultura {
     }
 
     public static void convertToDBpedia() throws IOException, MalformedURLException, CompressorException, OWLOntologyCreationException, OWLOntologyStorageException {
-        OWLOntology ontology = OWLAPIOntology.getOntology("http://downloads.dbpedia.org/2014/dbpedia_2014.owl.bz2");
+        OWLOntology ontology = OWLAPIOntology.getDBpedia();
         OWLOntologyManager manager = ontology.getOWLOntologyManager();
-
-        System.out.println("Ontology Loaded...");
-        System.out.println("Ontology : " + ontology.getOntologyID());
-        System.out.println("Format      : " + manager.getOntologyFormat(ontology));
-        System.out.println("Axioms count: " + ontology.getAxiomCount());
-
         OWLDataFactory df = manager.getOWLDataFactory();
-        URL url = new URL(SCHEMA_URL_STRING);
+
+        URL url = new URL(DATASET_URL_STRING);
         try (
                 InputStreamReader in = new InputStreamReader(url.openStream(), "Windows-1252");
                 BufferedReader buff = new BufferedReader(in);
@@ -87,8 +87,8 @@ public class TurismoECultura {
                 }
         }
         try {
-            IRI iri = IRI.create(new File(DIRECTORY + "/saved_pizza.owl"));
-            manager.saveOntology(ontology, new OWLXMLDocumentFormat(), iri);
+            IRI iri = IRI.create(new File(OWL + "/" + LOCAL_NAME + ".owl"));
+            manager.saveOntology(manager.createOntology(ontology.aboxAxioms(Imports.INCLUDED)), new OWLXMLDocumentFormat(), iri);
         } catch (Exception e) {
             System.out.println(e.toString());
             e.printStackTrace();
@@ -101,7 +101,7 @@ public class TurismoECultura {
         model.setNsPrefix("schema", SCHEMA_NS);
         model.setNsPrefix("", BASE_URI);
 
-        URL url = new URL(SCHEMA_URL_STRING);
+        URL url = new URL(DATASET_URL_STRING);
         try (
                 InputStreamReader in = new InputStreamReader(url.openStream(), "Windows-1252");
                 BufferedReader buff = new BufferedReader(in);
@@ -139,11 +139,7 @@ public class TurismoECultura {
                 }
         }
 
-        RDFDataMgr.write(new FileOutputStream(new File(DIRECTORY + "/" + LOCAL_NAME + "." + EXPORT_LANG.getFileExtensions().get(0))), model, EXPORT_LANG);
-    }
-
-    public static void init() {
-        org.apache.log4j.Logger.getRootLogger().setLevel(org.apache.log4j.Level.OFF);
+        RDFDataMgr.write(new FileOutputStream(new File(RDF + "/" + LOCAL_NAME + "." + EXPORT_LANG.getFileExtensions().get(0))), model, EXPORT_LANG);
     }
 
     private static String detectSchemaOrgClass(String name) {
