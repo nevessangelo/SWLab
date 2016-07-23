@@ -17,13 +17,15 @@ import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
-import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.formats.OWLXMLDocumentFormat;
 import org.semanticweb.owlapi.model.IRI;
+import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLDataFactory;
 import org.semanticweb.owlapi.model.OWLIndividual;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
+import org.semanticweb.owlapi.model.OWLOntologyStorageException;
 
 public class TurismoECultura {
 
@@ -32,16 +34,19 @@ public class TurismoECultura {
 
     public static final String LOCAL_NAME = "turismoECultura";
     public static final String BASE_URI = "http://localhost:8080/";
+
+    public static final String DBPEDIA_NS = "http://dbpedia.org/ontology/";
+
     public static final String SCHEMA_NS = "http://schema.org/";
     public static final String SCHEMA_URL_STRING = "http://dadosabertos.rio.rj.gov.br/apiCultura/apresentacao/csv/turismoECultura_.csv";
 
-    public static void main(String[] args) throws FileNotFoundException, IOException, MalformedURLException, CompressorException, OWLOntologyCreationException {
+    public static void main(String[] args) throws FileNotFoundException, IOException, MalformedURLException, CompressorException, OWLOntologyCreationException, OWLOntologyStorageException {
         init();
         convertToDBpedia();
         //convertToSchema();
     }
 
-    public static void convertToDBpedia() throws IOException, MalformedURLException, CompressorException, OWLOntologyCreationException {
+    public static void convertToDBpedia() throws IOException, MalformedURLException, CompressorException, OWLOntologyCreationException, OWLOntologyStorageException {
         OWLOntology ontology = OWLAPIOntology.getOntology("http://downloads.dbpedia.org/2014/dbpedia_2014.owl.bz2");
         OWLOntologyManager manager = ontology.getOWLOntologyManager();
 
@@ -50,7 +55,7 @@ public class TurismoECultura {
         System.out.println("Format      : " + manager.getOntologyFormat(ontology));
         System.out.println("Axioms count: " + ontology.getAxiomCount());
 
-        OWLDataFactory df = OWLManager.getOWLDataFactory();
+        OWLDataFactory df = manager.getOWLDataFactory();
         URL url = new URL(SCHEMA_URL_STRING);
         try (
                 InputStreamReader in = new InputStreamReader(url.openStream(), "Windows-1252");
@@ -73,13 +78,21 @@ public class TurismoECultura {
                     uri2 = BASE_URI + UUID.randomUUID();
                     uri3 = BASE_URI + UUID.randomUUID();
 
-                    OWLIndividual place = df.getOWLNamedIndividual(IRI.create(uri1));
+                    OWLIndividual p = df.getOWLNamedIndividual(IRI.create(uri1));
+                    OWLClass place = df.getOWLClass(DBPEDIA_NS + "Place");
+                    ontology.addAxiom(df.getOWLClassAssertionAxiom(place, p));
 
                 } catch (Exception e) {
 
                 }
         }
-
+        try {
+            IRI iri = IRI.create(new File(DIRECTORY + "/saved_pizza.owl"));
+            manager.saveOntology(ontology, new OWLXMLDocumentFormat(), iri);
+        } catch (Exception e) {
+            System.out.println(e.toString());
+            e.printStackTrace();
+        }
     }
 
     public static void convertToSchema() throws MalformedURLException, FileNotFoundException, IOException {
