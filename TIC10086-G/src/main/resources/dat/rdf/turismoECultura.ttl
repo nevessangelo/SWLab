@@ -1,0 +1,2432 @@
+@prefix :      <http://localhost:8080/> .
+@prefix schema: <http://schema.org/> .
+
+:ac909d77-89ea-4d4b-b6ce-5262b0926ed3
+        a               schema:Place ;
+        schema:address  :0d4be1a3-fc33-4135-8c71-9d56f1c6d31b ;
+        schema:geo      :2b61d97c-3bbe-4e65-8ba0-e27226e57988 ;
+        schema:name     "Ilha Fiscal" .
+
+:8863e986-2dbb-44ea-8fe8-f0671c833545
+        a               schema:Museum ;
+        schema:address  :4c2661b4-48ec-44e7-92ba-564dc015609b ;
+        schema:geo      :53d2b40d-ae9b-494d-8ab6-0fcfbb32568d ;
+        schema:name     "Museu da Chácara do Céu" .
+
+:f81ae43c-408d-422e-966f-d74e101d0101
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Campo de São Cristóvão, 177, São Cristóvão" .
+
+:9de95f4a-5a00-456d-9b62-b1e94b4fea7c
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.990025" ;
+        schema:longitude  "-43.366205" ;
+        schema:telephone  "2432-4000" .
+
+:7f5a202b-a6f3-4ce3-9482-1b87759d655e
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.909770" ;
+        schema:longitude  "-43.175689" ;
+        schema:telephone  "3095-3879" .
+
+:6dde0105-dfc1-48a2-acb8-b5ef754ed02a
+        a               schema:PerformingArtsTheater ;
+        schema:address  :a55285dc-15ab-4802-bbe0-d78589323ad9 ;
+        schema:geo      :4a4bb140-c15d-4db8-968f-292315e91a6c ;
+        schema:name     "Teatro das Artes" .
+
+:822682e3-0428-4e90-9f31-fe9a6696ee7c
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida Atlântica, , Leme" .
+
+:ae2a9b4e-9002-44ec-bd53-2bd2a11af2e1
+        a               schema:PerformingArtsTheater ;
+        schema:address  :4725ad89-4c3f-498c-a76e-cc53d72dbab8 ;
+        schema:geo      :bfb5b6e6-0b99-4e80-b9fb-854ae45183b6 ;
+        schema:name     "Teatro Gláucio Gil" .
+
+:1820e828-c795-4347-9663-6fa647ff5d0d
+        a               schema:Beach ;
+        schema:address  :c47a0958-4f82-4b56-a1c8-144e64bec137 ;
+        schema:geo      :86deccf6-f309-41ce-8463-22821725882e ;
+        schema:name     "Praia da Joatinga" .
+
+:c7ddacd1-0fc1-4086-bc38-c8628b4b4ce7
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua das Palmeiras, 55, Botafogo" .
+
+:54b2e963-414a-435e-b45b-29933648137c
+        a               schema:Beach ;
+        schema:address  :baff3d18-5cc6-41e6-a962-a5e820f4fb9d ;
+        schema:geo      :9b4d6613-137c-4e7b-b0ba-c4997fe68156 ;
+        schema:name     "Praia do Leblon" .
+
+:fa4594f4-19be-455f-a3a5-04c05ccf121b
+        a               schema:Place ;
+        schema:address  :3793e790-88a2-4a62-b36d-e82285495c92 ;
+        schema:geo      :4d68a452-e3ad-42a1-a88c-43dfd05890ba ;
+        schema:name     "Cidade das Artes" .
+
+:c56fc23a-dcfc-4458-a319-f088374e9418
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.901083" ;
+        schema:longitude  "-43.174447" ;
+        schema:telephone  "2104-6721" .
+
+:a55285dc-15ab-4802-bbe0-d78589323ad9
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua Marquês de São Vicente, 52, Gávea" .
+
+:6e8833b5-e71f-4bc8-9379-f73fa154239b
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Estrada do Pontal, , Recreio dos Bandeirantes" .
+
+:a850fac7-a8de-421f-809f-6047838f9e9d
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.931401" ;
+        schema:longitude  "-43.182485" ;
+        schema:telephone  "" .
+
+:4e747e96-84fa-41bd-8ab2-a5f4e9aa0b77
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.979878" ;
+        schema:longitude  "-43.222715" ;
+        schema:telephone  "2274-4022" .
+
+:665ad39b-07fe-44cc-a222-5171f624279d
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua Primeiro de Março, , Centro" .
+
+:b82eba88-264f-4117-b47c-418aa5786cd7
+        a               schema:EventVenue ;
+        schema:address  :f2251c75-288f-4f50-89a8-d128ab79cd0d ;
+        schema:geo      :c7629ccd-274a-468a-b31d-b5d1cbd8eeb1 ;
+        schema:name     "Centro Cultural dos Correios" .
+
+:c867326f-5677-453f-909a-1e3ad1b34d1f
+        a               schema:CatholicChurch ;
+        schema:address  :93436f79-d759-4332-a251-f22644850272 ;
+        schema:geo      :d402f9fc-a84f-4527-9925-8e4584af0396 ;
+        schema:name     "Igreja Nossa Senhora da Candelária" .
+
+:f16dfaa8-7222-4e6c-bc8b-a7ec5e678bab
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.931944" ;
+        schema:longitude  "-43.198056" ;
+        schema:telephone  "" .
+
+:305793d2-27b9-4db1-8a88-fcdd55beee77
+        a               schema:Beach ;
+        schema:address  :6e8833b5-e71f-4bc8-9379-f73fa154239b ;
+        schema:geo      :c6c564ce-479d-42da-b425-3408454e54ea ;
+        schema:name     "Praia da Macumba" .
+
+:cc8b0231-53f6-40bb-a4bd-b3c5860b9b89
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.955588" ;
+        schema:longitude  "-43.166875" ;
+        schema:telephone  "2546-8400" .
+
+:924e3b3d-7da0-4534-a17d-4ebf7473290c
+        a               schema:PerformingArtsTheater ;
+        schema:address  :897506eb-0544-4a52-8784-a3afcf6968bc ;
+        schema:geo      :dcfe66b8-ce23-460e-bdc7-68599da55e90 ;
+        schema:name     "Teatro Leblon" .
+
+:46ac5a1f-ffc7-47e8-9f7d-a209b340ed80
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua Victor Alves, 454, Campo Grande" .
+
+:8f6423ee-0181-4577-90a5-95d6b55d2e0a
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.917560" ;
+        schema:longitude  "-43.182462" ;
+        schema:telephone  "" .
+
+:bfb5b6e6-0b99-4e80-b9fb-854ae45183b6
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.965395" ;
+        schema:longitude  "-43.180805" ;
+        schema:telephone  "2332-7904" .
+
+:907a93f7-cec3-451c-8718-bb115c9a4b07
+        a               schema:PerformingArtsTheater ;
+        schema:address  :5b7add86-3c8b-4da6-8a3a-68dba06472b5 ;
+        schema:geo      :be7f9cc8-d13d-4723-b41b-b913a70c1dba ;
+        schema:name     "Teatro Dulcina" .
+
+:c7629ccd-274a-468a-b31d-b5d1cbd8eeb1
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.901291" ;
+        schema:longitude  "-43.175839" ;
+        schema:telephone  "2253-1580" .
+
+:e07aef69-02d6-44fa-a8fd-450fdbe78c9d
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Quinta da Boa Vista, , São Cristóvão" .
+
+:4d3c34f1-e815-43da-8530-b17a58e6b650
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Pavilhão de São Cristóvão, , São Cristóvão" .
+
+:8fb9a80d-35e8-443b-acda-e26c55cb0539
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida Vieira Souto, , Ipanema" .
+
+:4e96027b-dcb9-4476-8d18-f9ab905757e3
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua do Catete, 160, Catete" .
+
+:f455392b-292c-4b1d-a2e2-d42f05772fff
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida das Américas, 2603, Barra da Tijuca" .
+
+:a64ef797-f364-4a8c-84cf-e74e488e3b07
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Praça Coronel Eugênio Franco, 1, Copacabana" .
+
+:74c545b9-152c-4c5d-a82f-a71d85e81a6f
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.900394" ;
+        schema:longitude  "-43.175986" ;
+        schema:telephone  "2332-5120" .
+
+:f9e2aa3f-dcd2-47e3-b093-f5e4a0d983aa
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.905466" ;
+        schema:longitude  "-43.182171" ;
+        schema:telephone  "2221-3138" .
+
+:9b3588f7-4731-4814-a834-60902cc27ddc
+        a               schema:PerformingArtsTheater ;
+        schema:address  :ce91412a-4227-4a5c-ba29-e6471ea82c63 ;
+        schema:geo      :bea9d925-6478-449c-9639-a8c50a8a6339 ;
+        schema:name     "Teatro dos Grandes Atores" .
+
+:637a5f0f-e98d-440e-a266-059d93983919
+        a               schema:Beach ;
+        schema:address  :22ef14c2-f5a8-45f9-9643-12b3a16a4afa ;
+        schema:geo      :09768123-47a7-4253-b11f-e8f0d1e4ffb2 ;
+        schema:name     "Praia Vermelha" .
+
+:f963f269-00eb-438c-ad63-3e14bfc9f253
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida do Pepê, , Barra da Tijuca" .
+
+:ecb03ff3-037b-427a-bfb7-dff8efa43b90
+        a               schema:Place ;
+        schema:address  :55cdb092-4c00-4748-aca2-4eb103f652fb ;
+        schema:geo      :bc288f75-3114-450f-8c8a-e2cb03f95558 ;
+        schema:name     "Mirante Dona Marta" .
+
+:2fb9b51d-4f16-4e3a-aefc-d9c7c70adf8a
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.906390" ;
+        schema:longitude  "-43.182289" ;
+        schema:telephone  "2332-9166" .
+
+:8da28603-3986-45c9-8ae7-4ddd971bf7a6
+        a               schema:Place ;
+        schema:address  :165c76c5-71f4-4bfe-b09b-37f982ca93e2 ;
+        schema:geo      :f16dfaa8-7222-4e6c-bc8b-a7ec5e678bab ;
+        schema:name     "Santa Teresa" .
+
+:7c51aa0b-4810-4529-a402-012fb7e467bb
+        a               schema:Beach ;
+        schema:address  :15dcaf0f-b84d-4b44-b82f-81c6f567c633 ;
+        schema:geo      :df6d4f2a-69e7-4419-9870-e83cae5ed5c5 ;
+        schema:name     "Praia da Urca" .
+
+:ec3b06b8-7ee1-46ef-b967-9c3266d3c2b3
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua Marquês de São Vicente, 52, Gávea" .
+
+:25500a3d-c4f2-4dca-ac57-9e40ffd70b1c
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-23.024675" ;
+        schema:longitude  "-43.509948" ;
+        schema:telephone  "2490-3278" .
+
+:f88002b6-199e-47ab-b2cb-a5fcd9592b0a
+        a               schema:CatholicChurch ;
+        schema:address  :06e8ec70-bd58-4189-b6cf-5f6fbda0a1e0 ;
+        schema:geo      :432bb7ff-db85-4025-a917-7d46b8aa910c ;
+        schema:name     "Catedral Metropolitana" .
+
+:a3757756-a35a-4b66-8723-a6b8d9f97dd2
+        a               schema:PerformingArtsTheater ;
+        schema:address  :b97489cf-db91-4c2b-b44e-d36dcbd0fcd8 ;
+        schema:geo      :3c82331d-9b23-4d16-9522-12060f7db73f ;
+        schema:name     "Teatro Vanucci" .
+
+:d6e93191-0b32-4c1f-8704-e4aea7e7e504
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.907265" ;
+        schema:longitude  "-43.176726" ;
+        schema:telephone  "2220-0259" .
+
+:7332c224-ad1f-40f1-a388-b76fdd5d6c96
+        a               schema:CatholicChurch ;
+        schema:address  :ac1efa51-ebf5-4b1c-a6cc-d8b07454294f ;
+        schema:geo      :e52ed5e7-252d-42db-8a43-56e815678788 ;
+        schema:name     "Igreja Nossa Senhora da Glória do Outeiro" .
+
+:fb9990db-3231-4bf1-876f-519ded1bcea2
+        a               schema:CatholicChurch ;
+        schema:address  :d6046aa7-b327-4b65-8519-83812b3aacd9 ;
+        schema:geo      :8d29b029-338a-4d4f-bb16-357d461e3e19 ;
+        schema:name     "Igreja Nossa Senhora do Carmo da Antiga Sé" .
+
+:89a95bf9-dc0c-4e28-89b4-407fb5c561b3
+        a               schema:Place ;
+        schema:address  :a3be0405-0f3a-4255-8092-7ce850637c9f ;
+        schema:geo      :ff796ca1-ce36-4c1a-a148-6a81d235c6e4 ;
+        schema:name     "Pedra da Gávea" .
+
+:4dd3d2d1-5f29-449f-bd0a-04edc57b4b36
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua Dom Gerardo, 68, Centro" .
+
+:51473aa5-b91d-4e30-9e3a-9dd0b8a9b055
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.986681" ;
+        schema:longitude  "-43.199243" ;
+        schema:telephone  "2522-3180" .
+
+:1f352c90-99de-4fc8-aa46-72d89fb4f40f
+        a               schema:PerformingArtsTheater ;
+        schema:address  :c624543a-1fc5-425b-b42b-e46f10380adf ;
+        schema:geo      :f21a8f15-f2fc-4d2b-adbb-5c940f522f53 ;
+        schema:name     "Teatro Princesa Isabel" .
+
+:79db145b-fa51-4793-8ce4-ce2be991b947
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua do Catete, 181, Catete" .
+
+:394e5aed-705d-4c0f-977f-4bbc4f333274
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua Cosme Velho, 513, Cosme Velho" .
+
+:3ee2de55-2ceb-461e-b9e7-3c80122a0b8e
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Estrada Lagoa Barra, , São Conrado" .
+
+:170fcfa8-a143-4ffb-828f-9e4cfcc3b237
+        a               schema:Place ;
+        schema:address  :fb4c068f-8bbc-40c7-ad03-1e293cd20c09 ;
+        schema:geo      :deb5d397-fb44-4b7a-80fa-d96886aaba76 ;
+        schema:name     "Jockey Club Brasileiro" .
+
+:17f9a36d-2cd8-4cae-b2fc-8042a9633d55
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Estrada Roberto Burle Marx, 2019, Barra de Guaratiba" .
+
+:8b30b31e-1c97-4253-a99f-029406977065
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.959831" ;
+        schema:longitude  "-43.278288" ;
+        schema:telephone  "2491-1700" .
+
+:3274da3c-fbbb-4cdd-9321-95305b8b8172
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida Lineu de Paula Machado, 795, Lagoa" .
+
+:4f905b17-de93-4045-be26-012aca8dbff8
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.925868" ;
+        schema:longitude  "-43.176447" ;
+        schema:telephone  "2558-6350" .
+
+:4048bd61-a56f-4b17-b35c-ef4c514b235f
+        a               schema:EventVenue ;
+        schema:address  :e3a979c3-468d-4235-bfab-22b1f919cadf ;
+        schema:geo      :ef99e6ee-6786-4757-822e-cd09115cf60e ;
+        schema:name     "Espaço Cultura Sergio Porto" .
+
+:9a5b1cef-4020-4d13-abad-716b46959a97
+        a               schema:Place ;
+        schema:address  :934490c9-2746-42a5-9a17-35a6ce268a80 ;
+        schema:geo      :f9e2aa3f-dcd2-47e3-b093-f5e4a0d983aa ;
+        schema:name     "Real Gabinete Português de Leitura" .
+
+:88ea90df-f1e4-4290-9cc1-3810b13efc52
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-23.015442" ;
+        schema:longitude  "-43.305255" ;
+        schema:telephone  "" .
+
+:60db923d-a0ed-47bd-ada7-57c2366eb82f
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-23.021841" ;
+        schema:longitude  "-43.546139" ;
+        schema:telephone  "2410-1412" .
+
+:5fe9debd-bb0f-4e96-a120-d8dd568763f3
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida Infante Dom Henrique, 85, Flamengo" .
+
+:df6d4f2a-69e7-4419-9870-e83cae5ed5c5
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.947778" ;
+        schema:longitude  "-43.163056" ;
+        schema:telephone  "" .
+
+:bf119953-0243-4413-8960-ee699b960ebd
+        a               schema:Museum ;
+        schema:address  :c8b1e938-9150-4b7f-82ab-cfbf40268a31 ;
+        schema:geo      :5fcc1648-d467-49ce-ac0a-4965930b242a ;
+        schema:name     "Museu Nacional de Belas Artes" .
+
+:0c15d900-0f89-49ea-96bb-e2634cf238ef
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida Estado da Guanabara, , Recreio dos Bandeirantes" .
+
+:abec5b4f-1045-4d0b-b466-5240a2a5754f
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.929425" ;
+        schema:longitude  "-43.171299" ;
+        schema:telephone  "" .
+
+:4c2661b4-48ec-44e7-92ba-564dc015609b
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua Murtinho Nobre, 93, Santa Teresa" .
+
+:321a506e-edb8-462b-974d-1166f8ee0b4d
+        a               schema:PerformingArtsTheater ;
+        schema:address  :2d4dfea1-f9b7-478b-8101-f951357682b0 ;
+        schema:geo      :723d652a-babf-4cc5-aa61-82771f07989a ;
+        schema:name     "Teatro Armando Gonzaga" .
+
+:bc288f75-3114-450f-8c8a-e2cb03f95558
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.945913" ;
+        schema:longitude  "-43.197438" ;
+        schema:telephone  "" .
+
+:256954ae-de81-4275-aa40-4a3298ee9cad
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.887453" ;
+        schema:longitude  "-43.283012" ;
+        schema:telephone  "2597-4452" .
+
+:baaafac4-c82a-43e6-87ec-baddfcea3e76
+        a               schema:Place ;
+        schema:address  :15b83bec-e5fc-4e66-addf-a51759fdfe4f ;
+        schema:geo      :b23f6a67-662f-49ca-a947-f4ce2558736e ;
+        schema:name     "Fundação Casa de Rui Barbosa" .
+
+:eddc232f-2216-445b-ae1e-b772e6011ab6
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Quinta da Boa Vista, , São Cristóvão" .
+
+:07efc402-ee67-44c1-a298-db12c6e96265
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.978839" ;
+        schema:longitude  "-43.230247" ;
+        schema:telephone  "2274-0046" .
+
+:279fc384-330f-4d81-bf88-78ad2bf90f34
+        a               schema:PerformingArtsTheater ;
+        schema:address  :46ac5a1f-ffc7-47e8-9f7d-a209b340ed80 ;
+        schema:geo      :37aff781-7404-4d1a-954a-807f242ee77f ;
+        schema:name     "Teatro Arthur Azevedo" .
+
+:5fe8686d-9dd3-4683-9245-7d1c3a355ca9
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua Primeiro de Março, 66, Centro" .
+
+:35742fc2-d0df-40f7-b3fb-5c53ee202ab5
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.911470" ;
+        schema:longitude  "-43.196838" ;
+        schema:telephone  "2546-8080" .
+
+:e079a45d-b263-4c90-8cb7-a177b185ea9a
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua Gérson Ferreira, , Maré" .
+
+:09768123-47a7-4253-b11f-e8f0d1e4ffb2
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.955079" ;
+        schema:longitude  "-43.164673" ;
+        schema:telephone  "" .
+
+:82c13966-9d3b-4ccd-960c-c664b50b5ab2
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida Vieira Souto, 176, Ipanema" .
+
+:e877e437-ec1f-4b4d-b11d-ddc2c1d457dd
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.922971" ;
+        schema:longitude  "-43.172697" ;
+        schema:telephone  "2555-7262" .
+
+:ca5054e5-cdcc-466c-a723-c608e151cbd2
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.983817" ;
+        schema:longitude  "-43.217927" ;
+        schema:telephone  "2294-4480" .
+
+:c3269ebd-844d-4da9-8b53-6929e3a682cd
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.977920" ;
+        schema:longitude  "-43.191293" ;
+        schema:telephone  "2493-0334" .
+
+:6bc6cb98-ff96-458d-8432-8a673537df63
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua Francisco Sá, , Copacabana" .
+
+:60a2e070-2d6a-4573-b58a-31fa6e91f509
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.910731" ;
+        schema:longitude  "-43.237617" ;
+        schema:telephone  "2587-7693" .
+
+:213ea56a-d11a-4e75-aa55-50cdd5fd7475
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida das Américas, KM6.5, Barra da Tijuca" .
+
+:b5529f5e-3dc3-4b12-8f1b-a42de4083855
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.925532" ;
+        schema:longitude  "-43.711149" ;
+        schema:telephone  "3078-0389" .
+
+:deb5d397-fb44-4b7a-80fa-d96886aaba76
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.973863" ;
+        schema:longitude  "-43.225714" ;
+        schema:telephone  "3534-9000" .
+
+:c39574eb-bdc4-4678-9d08-5ed765ee5b62
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida Augusto Severo, , Glória" .
+
+:17658428-0fd5-46c9-b329-b4a412c60eb2
+        a               schema:EventVenue ;
+        schema:address  :73553cbb-d4a7-4c4a-85b9-f477a00e5097 ;
+        schema:geo      :73591eb8-f7c3-48d8-ab06-5719764a56cd ;
+        schema:name     "Centro Cultural Candido Mendes" .
+
+:f3d4d08e-1d4d-4a38-ad4a-5f6fad40f364
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.967121" ;
+        schema:longitude  "-43.180619" ;
+        schema:telephone  "2548-0421" .
+
+:15b83bec-e5fc-4e66-addf-a51759fdfe4f
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua São Clemente, 134, Botafogo" .
+
+:61986ac8-41d2-478b-b9c2-4c32caf07bc9
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua Álvaro Alvim, 33, Cinelândia" .
+
+:e7090bad-56e0-472f-835f-0b81f09a6832
+        a               schema:PerformingArtsTheater ;
+        schema:address  :42da2076-b7e4-4343-b0d6-c97e07291a62 ;
+        schema:geo      :e877e437-ec1f-4b4d-b11d-ddc2c1d457dd ;
+        schema:name     "Teatro Glória" .
+
+:be99f39a-af87-4110-877b-231f1724d8c8
+        a               schema:Place ;
+        schema:address  :a64ef797-f364-4a8c-84cf-e74e488e3b07 ;
+        schema:geo      :f3194b22-c8d0-4042-904a-de623b421809 ;
+        schema:name     "Forte de Copacabana" .
+
+:59b9029f-3eed-4e8c-872f-572eb866f75b
+        a               schema:Place ;
+        schema:address  :213ea56a-d11a-4e75-aa55-50cdd5fd7475 ;
+        schema:geo      :0fc5a43a-0472-4772-a8e4-122f7c81d968 ;
+        schema:name     "Bosque da Barra" .
+
+:2d4dfea1-f9b7-478b-8101-f951357682b0
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida General Oswaldo Cordeiro de Faria, 511, Marechal Hermes" .
+
+:b600c3a1-9e50-40e4-b1d4-fc7f7cab9783
+        a               schema:Place ;
+        schema:address  :1b7ab894-f9af-477a-aa61-1dea39aad00a ;
+        schema:geo      :80c12999-8f93-4300-801c-a4c4be91c7db ;
+        schema:name     "Fundação Eva Klabin Rapaport" .
+
+:934490c9-2746-42a5-9a17-35a6ce268a80
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua Luís de Camões, 30, Centro" .
+
+:ace66d24-bb48-41c6-b54e-29bfd6b11583
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.845459" ;
+        schema:longitude  "-43.277835" ;
+        schema:telephone  "3887-5155" .
+
+:51ead79d-8552-48e4-ae1e-1f1d78b09600
+        a               schema:StadiumOrArena ;
+        schema:address  :7d0074c2-8c0c-4719-bdb6-aa843a46be71 ;
+        schema:geo      :3a96bb6d-a508-4fef-8427-a65b3acf75b3 ;
+        schema:name     "Estádio do Maracanã" .
+
+:a650be5c-6763-41dd-964e-b195109265de
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.977500" ;
+        schema:longitude  "-43.245556" ;
+        schema:telephone  "2259-9295" .
+
+:7842f88c-02fe-4873-9925-e6c11bc2aaf7
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.975621" ;
+        schema:longitude  "-43.228071" ;
+        schema:telephone  "2274-9696" .
+
+:af6ada22-0d30-4a08-9994-3e8d6a9fa2ba
+        a               schema:Place ;
+        schema:address  :8fdc29b6-8598-402c-be3c-a9fc6e9be7f2 ;
+        schema:geo      :07efc402-ee67-44c1-a298-db12c6e96265 ;
+        schema:name     "Planetário" .
+
+:141a7acf-11a4-4c67-b7d1-7305f8e308d1
+        a               schema:EventVenue ;
+        schema:address  :66bf52c1-d9ba-4eba-ae8e-1149ad47bc61 ;
+        schema:geo      :c56fc23a-dcfc-4458-a319-f088374e9418 ;
+        schema:name     "Espaço Cultural da Marinha" .
+
+:89530b1d-eee1-4260-b862-89b33eb7f928
+        a               schema:Park ;
+        schema:address  :56f60e2f-7cb4-4b16-9848-444fd4106350 ;
+        schema:geo      :a850fac7-a8de-421f-809f-6047838f9e9d ;
+        schema:name     "Parque Eduardo Guinle" .
+
+:7520f757-ddf1-4eab-a87d-b2f2009d4946
+        a               schema:Place ;
+        schema:address  :2e422a7e-0929-4adc-9f63-fa6639f98240 ;
+        schema:geo      :b5529f5e-3dc3-4b12-8f1b-a42de4083855 ;
+        schema:name     "Hangar do Zeppelin" .
+
+:f3012fa8-62dd-46fc-b398-bf6398e0a215
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida Lúcio Costa, , Barra da Tijuca" .
+
+:32c96b37-7b13-4bf1-8815-ac2cb04d5456
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua Visconde de Itaboraí, 78, Centro" .
+
+:d06bca7d-729d-4e9b-97a7-6070e69cf804
+        a               schema:PerformingArtsTheater ;
+        schema:address  :0f455357-71d9-4839-ab76-af00c656c821 ;
+        schema:geo      :a0d54c24-2cfa-402f-90ae-c55b49def9de ;
+        schema:name     "Teatro Thiago de Mello" .
+
+:42054389-7284-4e13-8b69-16667b8d8be7
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Estrada Santa Marinha, 505, Gávea" .
+
+:f21a8f15-f2fc-4d2b-adbb-5c940f522f53
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.963013" ;
+        schema:longitude  "-43.174309" ;
+        schema:telephone  "2275-3346" .
+
+:5b7add86-3c8b-4da6-8a3a-68dba06472b5
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua Alcindo Guanabara, 17, Centro" .
+
+:ef99e6ee-6786-4757-822e-cd09115cf60e
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.958328" ;
+        schema:longitude  "-43.199558" ;
+        schema:telephone  "2535-3846" .
+
+:84bec9bd-31da-4ced-b61b-a90292a711c3
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida Presidente Vargas, , Centro" .
+
+:d4374f29-6843-418c-889c-f743b1fd9baa
+        a               schema:Park ;
+        schema:address  :6bc6cb98-ff96-458d-8432-8a673537df63 ;
+        schema:geo      :28374638-821a-4893-920b-af8ac057186c ;
+        schema:name     "Parque Peter Pan" .
+
+:1b7ab894-f9af-477a-aa61-1dea39aad00a
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida Epitácio Pessoa, 2480, Lagoa" .
+
+:763faae1-cbe4-46fd-bf07-76a149f41cdf
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.917222" ;
+        schema:longitude  "-43.175833" ;
+        schema:telephone  "" .
+
+:add5b0e1-5d6b-474d-80e1-cb3f12453db3
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Estrada do Pontal, 3295, Recreio dos Bandeirantes" .
+
+:8d29b029-338a-4d4f-bb16-357d461e3e19
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.903240" ;
+        schema:longitude  "-43.175264" ;
+        schema:telephone  "2242-4828" .
+
+:746a9f1b-4419-4264-b82e-60be0e586da6
+        a               schema:Beach ;
+        schema:address  :f3012fa8-62dd-46fc-b398-bf6398e0a215 ;
+        schema:geo      :7deb8c9d-87f4-45f8-adf9-a55892531835 ;
+        schema:name     "Praia da Barra da Tijuca" .
+
+:d0e8253e-1151-40fc-86fc-259e3b9e3ce0
+        a               schema:PerformingArtsTheater ;
+        schema:address  :55eff749-e5b0-443a-b8f3-aa99334d8895 ;
+        schema:geo      :35440966-9360-4c5a-a029-eeb4f08dad90 ;
+        schema:name     "Teatro Bibi Ferreira" .
+
+:ff22f750-b1d5-48b6-9d9e-24cc14bc73c6
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua Prudente de Morais, 824, Ipanema" .
+
+:4d68a452-e3ad-42a1-a88c-43dfd05890ba
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.998611" ;
+        schema:longitude  "-43.365556" ;
+        schema:telephone  "3325-0102" .
+
+:b23f6a67-662f-49ca-a947-f4ce2558736e
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.949440" ;
+        schema:longitude  "-43.186908" ;
+        schema:telephone  "3289-4600" .
+
+:5fcc1648-d467-49ce-ac0a-4965930b242a
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.908900" ;
+        schema:longitude  "-43.176096" ;
+        schema:telephone  "2219-8474" .
+
+:20d63617-cdd5-49a0-b5af-2d4803a453ed
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.904393" ;
+        schema:longitude  "-43.228820" ;
+        schema:telephone  "3878-4200" .
+
+:0a51cf50-dc46-4567-9f34-e34ad47c886c
+        a               schema:Beach ;
+        schema:address  :c91248cb-b3d7-45a9-96ab-fd46e0a5f57d ;
+        schema:geo      :708f670e-a973-486c-a3b6-1742e8d6df7e ;
+        schema:name     "Praia da Barra de Guaratiba" .
+
+:2e422a7e-0929-4adc-9f63-fa6639f98240
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Estrada do Zepelim, , Santa Cruz" .
+
+:64b31181-50d6-4150-a3fc-fe71c0b9abb7
+        a               schema:PerformingArtsTheater ;
+        schema:address  :1427cfec-cb79-4cf5-917b-2f86207f75df ;
+        schema:geo      :90919474-bbed-49c9-85f9-ca38bfac5e32 ;
+        schema:name     "Teatro Carlos Gomes" .
+
+:4df4373d-067c-4218-a0e6-90f6e9fe399a
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Praça Tiradentes, , Centro" .
+
+:780e4193-e49f-4df6-b9f9-b422b89aeaef
+        a               schema:Park ;
+        schema:address  :c39574eb-bdc4-4678-9d08-5ed765ee5b62 ;
+        schema:geo      :763faae1-cbe4-46fd-bf07-76a149f41cdf ;
+        schema:name     "Praça Paris" .
+
+:aa5429f5-1d05-45ed-a883-2ab53aa524ee
+        a               schema:PerformingArtsTheater ;
+        schema:address  :ea9c92f6-0e8c-4aef-b579-1a1f7dcf920d ;
+        schema:geo      :9de95f4a-5a00-456d-9b62-b1e94b4fea7c ;
+        schema:name     "Teatro CEC Antonio Fagundes" .
+
+:7047bbdd-b371-4af9-86d8-d624f342f9a2
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.905556" ;
+        schema:longitude  "-43.169444" ;
+        schema:telephone  "2550-9220" .
+
+:93436f79-d759-4332-a251-f22644850272
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Praça Pio X, , Centro" .
+
+:10f031f1-8128-4e36-81a4-ac5422a925d1
+        a               schema:PerformingArtsTheater ;
+        schema:address  :61986ac8-41d2-478b-b9c2-4c32caf07bc9 ;
+        schema:geo      :5c2940a9-556f-4c3d-86fd-b99dd8518e82 ;
+        schema:name     "Teatro Rival Petrobras" .
+
+:5e877081-1b24-45fb-b25d-20541f3c5a55
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.974058" ;
+        schema:longitude  "-43.226980" ;
+        schema:telephone  "2239-3511" .
+
+:0f455357-71d9-4839-ab76-af00c656c821
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida das Américas, 19400, Recreio dos Bandeirantes" .
+
+:27152325-d60d-4293-bb50-bbe9b9defa74
+        a               schema:PerformingArtsTheater ;
+        schema:address  :1cb19bf0-0368-4d89-806e-639802016bf5 ;
+        schema:geo      :60a2e070-2d6a-4573-b58a-31fa6e91f509 ;
+        schema:name     "Teatro Noel Rosa" .
+
+:c53a5998-a248-4342-bd7f-f3995c9e2d38
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Largo da Penha, 19, Penha" .
+
+:43a08a3a-e400-47a2-affe-3f608704b575
+        a               schema:Place ;
+        schema:address  :665ad39b-07fe-44cc-a222-5171f624279d ;
+        schema:geo      :9c34ff9b-6360-4564-8460-e3a86d9b3131 ;
+        schema:name     "Palácio Tiradentes" .
+
+:a1fe48ea-9eee-4000-a76a-2ae00ee1f43a
+        a               schema:Place ;
+        schema:address  :97acc34f-fa03-4de5-a065-fb9902dd5fb6 ;
+        schema:geo      :aa9e98ef-1a13-4c39-a9d2-81440e5de3a6 ;
+        schema:name     "Memorial dos Pretos Novos" .
+
+:1d58e82e-244f-4f99-bd5d-46e6aebefcb3
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.945115" ;
+        schema:longitude  "-43.180842" ;
+        schema:telephone  "" .
+
+:0919455c-17fd-42f5-9578-92906fdcc195
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.983633" ;
+        schema:longitude  "-43.193341" ;
+        schema:telephone  "2267-7749" .
+
+:db3dacf4-5746-424a-b075-b2b9a5ffc140
+        a               schema:PerformingArtsTheater ;
+        schema:address  :436049d8-5099-4cbb-864d-ebb750079c9a ;
+        schema:geo      :dfcae164-d7ea-4c53-8271-5bdf2beac981 ;
+        schema:name     "Teatro dos Quatro" .
+
+:6c264f18-43a9-4d2c-af70-e73deb2baa73
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-23.000926" ;
+        schema:longitude  "-43.271189" ;
+        schema:telephone  "" .
+
+:43468c33-0c11-41b9-a526-5cf87c400d88
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida Atlântica, , Copacabana" .
+
+:756c44af-c7c0-4c2f-9e58-621f6701d993
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-23.000965" ;
+        schema:longitude  "-43.334382" ;
+        schema:telephone  "2439-8002" .
+
+:41d7cbc9-01f8-4ba8-91bd-c2b9cc33c45c
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.899178" ;
+        schema:longitude  "-43.220859" ;
+        schema:telephone  "3891-1028" .
+
+:723d652a-babf-4cc5-aa61-82771f07989a
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.865847" ;
+        schema:longitude  "-43.373184" ;
+        schema:telephone  "2332-1040" .
+
+:8ab26939-2fd8-4f8c-afc4-02dcaafbc6a9
+        a               schema:Place ;
+        schema:address  :17f9a36d-2cd8-4cae-b2fc-8042a9633d55 ;
+        schema:geo      :60db923d-a0ed-47bd-ada7-57c2366eb82f ;
+        schema:name     "Sítio Roberto Burle Marx" .
+
+:43168772-9ce7-4ff7-9ae5-1b2d8d13ce60
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.896809" ;
+        schema:longitude  "-43.219341" ;
+        schema:telephone  "2580-5335" .
+
+:dd4f3a67-61be-4e84-b6cf-0cde8d1ddf61
+        a               schema:Place ;
+        schema:address  :aa68f3e3-7fad-46f3-ad60-8c158a95181d ;
+        schema:geo      :436937c8-612f-4d69-8e89-4101a9cf221c ;
+        schema:name     "Arcos da Lapa" .
+
+:7b728dec-0d10-4580-9c5f-8dd8052f2ca9
+        a               schema:Beach ;
+        schema:address  :e079a45d-b263-4c90-8cb7-a177b185ea9a ;
+        schema:geo      :ea2bea73-993f-4fae-9b26-9610d08cb99b ;
+        schema:name     "Praia de Ramos" .
+
+:06e8ec70-bd58-4189-b6cf-5f6fbda0a1e0
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida República do Chile, 245, Centro" .
+
+:a3be0405-0f3a-4255-8092-7ce850637c9f
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Estrada Do Joá, 1045, Barra da Tijuca" .
+
+:f3194b22-c8d0-4042-904a-de623b421809
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.985822" ;
+        schema:longitude  "-43.187846" ;
+        schema:telephone  "2521-1032" .
+
+:bb9c182e-b444-4e85-ae7e-31692e9b7413
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua Marquês de Sapucaí, , Santo Cristo" .
+
+:0980a7e8-2543-40ba-9c11-b21264b870f7
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.940278" ;
+        schema:longitude  "-43.151389" ;
+        schema:telephone  "2543-3323" .
+
+:3546dced-b517-4031-a7fc-0910dd19e0a9
+        a               schema:Place ;
+        schema:address  :77306f75-31f2-4496-be2a-5b3b0ecb1a76 ;
+        schema:geo      :61015e53-c375-4a6b-b058-834f42814a60 ;
+        schema:name     "Confeitaria Colombo" .
+
+:9703d8aa-eb1e-4eb7-bee1-9fc50c1b0e04
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.941391" ;
+        schema:longitude  "-43.172410" ;
+        schema:telephone  "2299-5586" .
+
+:c8b1e938-9150-4b7f-82ab-cfbf40268a31
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida Rio Branco, 199, Centro" .
+
+:42da2076-b7e4-4343-b0d6-c97e07291a62
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua do Russel, 632, Glória" .
+
+:6ef40872-a178-4157-b037-13afc52bd06a
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida Princesa Isabel, 440, Copacabana" .
+
+:1dcda716-1c6f-4c5a-a100-93c36a14883e
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida Pasteur, 350, Urca" .
+
+:8fdc29b6-8598-402c-be3c-a9fc6e9be7f2
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua Vice-governador Rubens Berardo, 100, Gávea" .
+
+:e3a979c3-468d-4235-bfab-22b1f919cadf
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua Humaitá, 163, Humaitá" .
+
+:162f6287-09f0-48a3-b5ad-e6921d739fef
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua Jardim Botânico, 414, Jardim Botânico" .
+
+:c33278e8-b290-4f6f-b60f-506106e5e199
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.885358" ;
+        schema:longitude  "-43.485030" ;
+        schema:telephone  "" .
+
+:e2c3d0f9-ecc9-4764-99b3-c70a34f242ec
+        a               schema:Place ;
+        schema:address  :6eda1bdd-d1fc-4db7-b0a4-ce8ce39d4479 ;
+        schema:geo      :c5c8c06c-ca2a-4414-bd67-9f8d1ec3a588 ;
+        schema:name     "Aterro do Flamengo" .
+
+:20b33c47-c140-4dfe-9991-8a0555150dcd
+        a               schema:Place ;
+        schema:address  :4aaff21a-1b12-431f-809a-9f590cd102e2 ;
+        schema:geo      :670816e0-f8e7-4df6-a14b-32636c906805 ;
+        schema:name     "Monumento aos Pracinhas" .
+
+:c47a0958-4f82-4b56-a1c8-144e64bec137
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Estrada do Joá, , Joatinga" .
+
+:2676a7a1-5b08-4a9f-a9c8-f2a380407e07
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.986681" ;
+        schema:longitude  "-43.199243" ;
+        schema:telephone  "2522-3180" .
+
+:aa718d7a-48c4-42cf-bed9-702033774c63
+        a               schema:Museum ;
+        schema:address  :a929895c-9b02-498e-9a0d-4a7622aeb0df ;
+        schema:geo      :9703d8aa-eb1e-4eb7-bee1-9fc50c1b0e04 ;
+        schema:name     "Museu Carmem Miranda" .
+
+:94922bb4-0de5-4905-a7ca-8a8000248465
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Estrada do Mato Alto, 6024, Guaratiba" .
+
+:2ee11494-d7a6-4faf-b10b-34a4108595f8
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.963619" ;
+        schema:longitude  "-43.282738" ;
+        schema:telephone  "2492-2119" .
+
+:3793e790-88a2-4a62-b36d-e82285495c92
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida das Américas, , Barra da Tijuca" .
+
+:be7f9cc8-d13d-4723-b41b-b913a70c1dba
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.910700" ;
+        schema:longitude  "-43.177058" ;
+        schema:telephone  "2240-4879" .
+
+:3663cceb-d69d-4cc4-a8f2-b662c818080c
+        a               schema:CatholicChurch ;
+        schema:address  :4dd3d2d1-5f29-449f-bd0a-04edc57b4b36 ;
+        schema:geo      :9be0579d-fb0c-4916-9da2-d9cf124e17cf ;
+        schema:name     "Mosteiro de São Bento" .
+
+:bea9d925-6478-449c-9639-a8c50a8a6339
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-23.000442" ;
+        schema:longitude  "-43.349943" ;
+        schema:telephone  "3325-1645" .
+
+:baff3d18-5cc6-41e6-a962-a5e820f4fb9d
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida Delfim Moreira, , Leblon" .
+
+:3d944a06-6287-4bcd-9e25-6c960de3da6c
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida Lúcio Costa, , Recreio dos Bandeirantes" .
+
+:55cdb092-4c00-4748-aca2-4eb103f652fb
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Estrada Mirante Dona Marta, , Santa Teresa" .
+
+:b81bfaad-be5f-4ed0-8a68-9c554ef72ced
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.920947" ;
+        schema:longitude  "-43.223917" ;
+        schema:telephone  "2254-5399" .
+
+:47266868-c3b6-472c-9c12-8b17ce68b35c
+        a               schema:Place ;
+        schema:address  :eddc232f-2216-445b-ae1e-b772e6011ab6 ;
+        schema:geo      :8e30e67e-0861-4418-a1fe-4f74b171add1 ;
+        schema:name     "Quinta da Boa Vista/Museu Nacional" .
+
+:84b83c8b-64da-40e6-8071-3150785cbb32
+        a               schema:PerformingArtsTheater ;
+        schema:address  :97f2c913-91c5-47eb-901d-b43f014cd508 ;
+        schema:geo      :b81bfaad-be5f-4ed0-8a68-9c554ef72ced ;
+        schema:name     "Teatro Ziembinski" .
+
+:f9570cb7-224d-4b8f-86c1-46d3f15e54bf
+        a               schema:PerformingArtsTheater ;
+        schema:address  :4df4373d-067c-4218-a0e6-90f6e9fe399a ;
+        schema:geo      :2fb9b51d-4f16-4e3a-aefc-d9c7c70adf8a ;
+        schema:name     "Teatro João Caetano" .
+
+:66ee5bb7-4acd-49a0-a0a2-1a73c307e9a4
+        a               schema:Place ;
+        schema:address  :394e5aed-705d-4c0f-977f-4bbc4f333274 ;
+        schema:geo      :c83a4b5b-0017-47c8-a5a9-c8d4b2f1fb60 ;
+        schema:name     "Cristo Redentor (Corcovado)" .
+
+:c2aba2d4-57ad-4cb7-8094-4f2e635cbc8c
+        a               schema:Place ;
+        schema:address  :e07aef69-02d6-44fa-a8fd-450fdbe78c9d ;
+        schema:geo      :20d63617-cdd5-49a0-b5af-2d4803a453ed ;
+        schema:name     "Jardim Zoológico (Riozoo)" .
+
+:7deb8c9d-87f4-45f8-adf9-a55892531835
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-23.011216" ;
+        schema:longitude  "-43.366134" ;
+        schema:telephone  "" .
+
+:1cb19bf0-0368-4d89-806e-639802016bf5
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua São Francisco Xavier, 524, Maracanã" .
+
+:d6046aa7-b327-4b65-8519-83812b3aacd9
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua 7 de Setembro, 12, Centro" .
+
+:43f99c13-2fff-4652-9d53-f702efae9f73
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.759444" ;
+        schema:longitude  "-43.108056" ;
+        schema:telephone  "0800-7211012" .
+
+:11fa8e45-bea4-44b4-8587-fddf4aa9380f
+        a               schema:CatholicChurch ;
+        schema:address  :1c3b6c9f-07bb-443b-8690-3498317401d7 ;
+        schema:geo      :bee91eba-f999-480d-a43a-67c341fe8fec ;
+        schema:name     "Igreja e Convento de Santa Teresa" .
+
+:750c291c-bb35-4bac-9954-fdda4b03d582
+        a               schema:CatholicChurch ;
+        schema:address  :c53a5998-a248-4342-bd7f-f3995c9e2d38 ;
+        schema:geo      :ace66d24-bb48-41c6-b54e-29bfd6b11583 ;
+        schema:name     "Igreja Nossa Senhora da Penha" .
+
+:a889626b-c88e-4f9d-83d5-fa45d912dca6
+        a               schema:Museum ;
+        schema:address  :add5b0e1-5d6b-474d-80e1-cb3f12453db3 ;
+        schema:geo      :25500a3d-c4f2-4dca-ac57-9e40ffd70b1c ;
+        schema:name     "Museu de Arte Popular da Casa do Pontal" .
+
+:f24e353f-3111-4f19-b38e-c6ea1fc242a3
+        a               schema:PerformingArtsTheater ;
+        schema:address  :ec3b06b8-7ee1-46ef-b967-9c3266d3c2b3 ;
+        schema:geo      :7842f88c-02fe-4873-9925-e6c11bc2aaf7 ;
+        schema:name     "Teatro Clara Nunes" .
+
+:f7916185-a0e9-4cd2-8a70-e18e3ba7a75a
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua Miguel Lemos, 51, Copacabana" .
+
+:e7e41a47-8d4b-458d-ae1c-e49ddb67b065
+        a               schema:Place ;
+        schema:address  :44b8616b-22b8-4d9e-9efb-49ec6e08098a ;
+        schema:geo      :b8c9eaae-b326-4636-b16b-dc34d6ea71b5 ;
+        schema:name     "Prainha" .
+
+:ca258bd5-09c9-4d37-aa92-66f2d710f181
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.973255" ;
+        schema:longitude  "-43.249548" ;
+        schema:telephone  "2492-2253" .
+
+:36bd874d-d971-4a36-bbff-94bade287173
+        a               schema:PerformingArtsTheater ;
+        schema:address  :530b205d-ed64-4c12-bc35-f8cbfd6f26e3 ;
+        schema:geo      :1e653f46-42ea-4298-8b5a-faa06cbd7b03 ;
+        schema:name     "Teatro Maria Clara Machado" .
+
+:3f0e5b27-2688-4cdd-9816-29b4d712b653
+        a               schema:Place ;
+        schema:address  :7c69addd-7091-4d67-85ac-0691c85934aa ;
+        schema:geo      :cc8b0231-53f6-40bb-a4bd-b3c5860b9b89 ;
+        schema:name     "Pão de Açúcar" .
+
+:887343f6-06b4-4508-a088-55d72f8f506d
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida Marechal Fontenele, 2000, Campo dos Afonsos" .
+
+:87108f9a-0779-4555-9290-f9ef0b8774c9
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida Francisco Bering, , Ipanema" .
+
+:8e30e67e-0861-4418-a1fe-4f74b171add1
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.905441" ;
+        schema:longitude  "-43.224884" ;
+        schema:telephone  "2562-6900" .
+
+:2c0799aa-d17b-4106-aaf0-cc834739d68d
+        a               schema:Beach ;
+        schema:address  :43468c33-0c11-41b9-a526-5cf87c400d88 ;
+        schema:geo      :f12af5d0-8a9e-41e4-ab43-4fb0f63c9b50 ;
+        schema:name     "Praia de Copacabana" .
+
+:84c1e96c-ea3e-47c6-9b4d-de0d8ef414bc
+        a               schema:Beach ;
+        schema:address  :822682e3-0428-4e90-9f31-fe9a6696ee7c ;
+        schema:geo      :d858a262-8766-43af-a6f7-a3b32614fc99 ;
+        schema:name     "Praia Leme" .
+
+:ff796ca1-ce36-4c1a-a148-6a81d235c6e4
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.997666" ;
+        schema:longitude  "-43.283865" ;
+        schema:telephone  "2491-1700" .
+
+:66bf52c1-d9ba-4eba-ae8e-1149ad47bc61
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida Alfred Agache, , Centro" .
+
+:2b877521-8475-4511-8d9f-80b709e65ca6
+        a               schema:Museum ;
+        schema:address  :5d0bf445-d629-4a36-adf3-4eeafcb330e8 ;
+        schema:geo      :f6ed6728-d268-4536-8c4b-4996743a8ccf ;
+        schema:name     "Museu de Arte do Rio" .
+
+:907224c5-bf3e-40a9-a167-0f284f9f8b4c
+        a               schema:Place ;
+        schema:address  :4d3c34f1-e815-43da-8530-b17a58e6b650 ;
+        schema:geo      :43168772-9ce7-4ff7-9ae5-1b2d8d13ce60 ;
+        schema:name     "Centro Luiz Gonzaga de Tradições Nordestinas" .
+
+:7cd228ea-cd19-4215-8e99-c8d6e168e008
+        a               schema:Park ;
+        schema:address  :42054389-7284-4e13-8b69-16667b8d8be7 ;
+        schema:geo      :a650be5c-6763-41dd-964e-b195109265de ;
+        schema:name     "Parque da Cidade" .
+
+:64e04c63-81fe-4d02-9a9f-77b39155cdb7
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.903544" ;
+        schema:longitude  "-43.174265" ;
+        schema:telephone  "2533-4359" .
+
+:436049d8-5099-4cbb-864d-ebb750079c9a
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua Marquês de São Vicente, 52, Gávea" .
+
+:021bbd04-38f7-4993-ab90-b53d5fcac976
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua São Francisco Xavier, 524, Maracanã" .
+
+:d993d79b-b0a1-4b46-a53a-41cf84ee893e
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.906667" ;
+        schema:longitude  "-43.188333" ;
+        schema:telephone  "" .
+
+:f7aefa42-259f-4a86-86e1-b2713ff3dc65
+        a               schema:Place ;
+        schema:address  :bb9c182e-b444-4e85-ae7e-31692e9b7413 ;
+        schema:geo      :35742fc2-d0df-40f7-b3fb-5c53ee202ab5 ;
+        schema:name     "Sambódromo" .
+
+:23f89a2b-9855-4de3-bb29-64ff9c08e187
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.894338" ;
+        schema:longitude  "-43.197015" ;
+        schema:telephone  "2213-2503" .
+
+:2f7bd9a9-52c2-49e5-86be-ffdd19f13c4b
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Largo da Carioca, 5, Centro" .
+
+:b474f1fc-d46c-4d10-b7cf-c994d7a1996f
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida Infante Dom Henrique, , Flamengo" .
+
+:897506eb-0544-4a52-8784-a3afcf6968bc
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua Conde de Bernadotte, 26, Leblon" .
+
+:b97489cf-db91-4c2b-b44e-d36dcbd0fcd8
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua Marquês de São Vicente, 52, Gávea" .
+
+:092d37e5-4000-4fdd-a286-3314086209d3
+        a               schema:PerformingArtsTheater ;
+        schema:address  :3274da3c-fbbb-4cdd-9321-95305b8b8172 ;
+        schema:geo      :58f141c0-2f5b-4873-b01a-c95cc8312ab9 ;
+        schema:name     "Teatro Amador O Tablado" .
+
+:c91248cb-b3d7-45a9-96ab-fd46e0a5f57d
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Estrada da Barra de Guaratiba, , Guaratiba" .
+
+:e47579ac-73c9-4885-bac6-ee17ffa1a6dd
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Estrada da Cascatinha, 850, Alto da Boa Vista" .
+
+:fb4c068f-8bbc-40c7-ad03-1e293cd20c09
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Praça Santos Dumont, , Gávea" .
+
+:84bdbce5-a6f0-4e6d-ae24-964a1e15fc6e
+        a               schema:CatholicChurch ;
+        schema:address  :2f7bd9a9-52c2-49e5-86be-ffdd19f13c4b ;
+        schema:geo      :d3b2e2ff-76d3-479f-9120-0a271ab412ed ;
+        schema:name     "Igreja de São Francisco da Penitência" .
+
+:6eda1bdd-d1fc-4db7-b0a4-ce8ce39d4479
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida Infante Dom Henrique, , Flamengo" .
+
+:dd041a7e-df90-43af-931b-a290d612c443
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua Marmiári, 221, Senador Camará" .
+
+:80c3eb4b-5867-49d9-b096-de2791212114
+        a               schema:Museum ;
+        schema:address  :887343f6-06b4-4508-a088-55d72f8f506d ;
+        schema:geo      :97e798c7-c072-485c-8f9d-752b93ffba6c ;
+        schema:name     "Museu Aeroespacial" .
+
+:5c2940a9-556f-4c3d-86fd-b99dd8518e82
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.911194" ;
+        schema:longitude  "-43.176263" ;
+        schema:telephone  "2240-4469" .
+
+:5b05336c-f1d3-462c-bf81-a24f41574caf
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua Jardim Botânico, 1008, Jardim Botânico" .
+
+:53a6aded-d888-4568-b719-fbcece6f8a7f
+        a               schema:Beach ;
+        schema:address  :87108f9a-0779-4555-9290-f9ef0b8774c9 ;
+        schema:geo      :39ee9562-e310-4f89-b2a5-ce7448580802 ;
+        schema:name     "Praia do Arpoador" .
+
+:44b8616b-22b8-4d9e-9efb-49ec6e08098a
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida Estado da Guanabara, , Recreio dos Bandeirantes" .
+
+:4d615307-37dd-4bbc-a648-a37e76a1aaf4
+        a               schema:PerformingArtsTheater ;
+        schema:address  :3459c722-9690-4f71-9388-898d8f085e04 ;
+        schema:geo      :256954ae-de81-4275-aa40-4a3298ee9cad ;
+        schema:name     "Teatro Miguel Falabella" .
+
+:7d0074c2-8c0c-4719-bdb6-aa843a46be71
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua Professor Eurico Rabelo, , Maracanã" .
+
+:c5c8c06c-ca2a-4414-bd67-9f8d1ec3a588
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.928990" ;
+        schema:longitude  "-43.171813" ;
+        schema:telephone  "2285-7029" .
+
+:5d0bf445-d629-4a36-adf3-4eeafcb330e8
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Praça Mauá, 5, Centro" .
+
+:b0701dff-be00-413a-a87e-8dcb416181a4
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida Rio Branco, 179, Centro" .
+
+:bee91eba-f999-480d-a43a-67c341fe8fec
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.915657" ;
+        schema:longitude  "-43.180307" ;
+        schema:telephone  "2509-2183" .
+
+:c5aacdb5-8949-4c16-ac12-c6e9e1838a2c
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida das Nações Unidas, , Botafogo" .
+
+:0d4be1a3-fc33-4135-8c71-9d56f1c6d31b
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida Alfred Agache, , Centro" .
+
+:7f1dffbf-4f40-4298-b05f-84bd29b63e1e
+        a               schema:MusicVenue ;
+        schema:address  :499dd1e3-96ef-4acb-9f23-d4d6051e061a ;
+        schema:geo      :f3d4d08e-1d4d-4a38-ad4a-5f6fad40f364 ;
+        schema:name     "Sala Baden Powell" .
+
+:553aedeb-592f-4314-ad06-2f72f88abbc7
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.909392" ;
+        schema:longitude  "-43.176388" ;
+        schema:telephone  "2332-9191" .
+
+:0fc5a43a-0472-4772-a8e4-122f7c81d968
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.999839" ;
+        schema:longitude  "-43.371817" ;
+        schema:telephone  "2503-2779" .
+
+:9be0579d-fb0c-4916-9da2-d9cf124e17cf
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.896747" ;
+        schema:longitude  "-43.177885" ;
+        schema:telephone  "2206-8100" .
+
+:4b667779-fb4b-4472-a163-de8572f6d436
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida Rio Branco, 219, Centro" .
+
+:499dd1e3-96ef-4acb-9f23-d4d6051e061a
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida Nossa Senhora de Copacabana, 360, Copacabana" .
+
+:35440966-9360-4c5a-a029-eeb4f08dad90
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.946069" ;
+        schema:longitude  "-43.185328" ;
+        schema:telephone  "2539-4591" .
+
+:c6c564ce-479d-42da-b425-3408454e54ea
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-23.033769" ;
+        schema:longitude  "-43.486358" ;
+        schema:telephone  "" .
+
+:891f4bb3-3325-468f-af87-f94e440355a9
+        a               schema:PerformingArtsTheater ;
+        schema:address  :1dcda716-1c6f-4c5a-a100-93c36a14883e ;
+        schema:geo      :c2388be1-59f5-4bf0-84f6-be5cb9878590 ;
+        schema:name     "Teatro do Instituto Benjamin Constant" .
+
+:835730b7-cfec-48ce-a244-366f34fa1f2f
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Praça Santos Dumont, 116, Gávea" .
+
+:1216132c-8d69-4aea-8758-cf89207bdd8a
+        a               schema:Beach ;
+        schema:address  :b474f1fc-d46c-4d10-b7cf-c994d7a1996f ;
+        schema:geo      :abec5b4f-1045-4d0b-b466-5240a2a5754f ;
+        schema:name     "Praia do Flamengo" .
+
+:f7fff759-bb4f-4f9b-85b5-cc4ef43661d7
+        a               schema:Beach ;
+        schema:address  :3ee2de55-2ceb-461e-b9e7-3c80122a0b8e ;
+        schema:geo      :6c264f18-43a9-4d2c-af70-e73deb2baa73 ;
+        schema:name     "Praia do Pepino" .
+
+:b14d3ac7-e9ca-44f0-b4cb-f670f49bbc6f
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Praça Marechal Âncora, , Centro" .
+
+:a912e28c-d937-4e69-96d8-efe43353dd78
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.900606" ;
+        schema:longitude  "-43.176517" ;
+        schema:telephone  "3808-2020" .
+
+:45b34058-1a08-4171-87af-2ddf338d934a
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.914348" ;
+        schema:longitude  "-43.178233" ;
+        schema:telephone  "2332-9223" .
+
+:61015e53-c375-4a6b-b058-834f42814a60
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.905249" ;
+        schema:longitude  "-43.178803" ;
+        schema:telephone  "2505-1500" .
+
+:61e890c4-ba01-4148-b537-bc4087d18286
+        a               schema:Museum ;
+        schema:address  :b14d3ac7-e9ca-44f0-b4cb-f670f49bbc6f ;
+        schema:geo      :7047bbdd-b371-4af9-86d8-d624f342f9a2 ;
+        schema:name     "Museu Histórico Nacional" .
+
+:c9f2dac9-e911-4ac1-a04e-0723df69d5d1
+        a               schema:PerformingArtsTheater ;
+        schema:address  :ff22f750-b1d5-48b6-9d9e-24cc14bc73c6 ;
+        schema:geo      :99f4e7a1-00d0-4a2c-85f0-89b1505c5f8a ;
+        schema:name     "Teatro Ipanema" .
+
+:1312fc77-bab9-4628-a353-8dba8313fff9
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua Adalberto Ferreira, 32, Leblon" .
+
+:634b576d-f439-4cff-bd60-5d01cc761b2a
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida Epitácio Pessoa, , Lagoa" .
+
+:7c69addd-7091-4d67-85ac-0691c85934aa
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida Pasteur, 520, Urca" .
+
+:13db3e0d-119d-465d-8454-ff98eff82406
+        a               schema:Place ;
+        schema:address  :94922bb4-0de5-4905-a7ca-8a8000248465 ;
+        schema:geo      :b6711ccd-8ca4-4dfd-893c-7a156ad533ba ;
+        schema:name     "Capela Magdelena Roberto de Regina" .
+
+:e9137ddf-e914-4925-a17d-9da8295547ed
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.930000" ;
+        schema:longitude  "-43.176389" ;
+        schema:telephone  "3131-3060" .
+
+:d858a262-8766-43af-a6f7-a3b32614fc99
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.963194" ;
+        schema:longitude  "-43.166596" ;
+        schema:telephone  "" .
+
+:d3b2e2ff-76d3-479f-9120-0a271ab412ed
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.906907" ;
+        schema:longitude  "-43.179261" ;
+        schema:telephone  "" .
+
+:8ccc2145-02c8-458a-b4f3-ce8002bfebc9
+        a               schema:Beach ;
+        schema:address  :0c15d900-0f89-49ea-96bb-e2634cf238ef ;
+        schema:geo      :24ffd260-7e9b-4387-85ec-db3884e05fef ;
+        schema:name     "Praia de Grumari" .
+
+:500f6cdb-a623-4042-8323-3abe67c11551
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Praça XV, , Centro" .
+
+:ac1efa51-ebf5-4b1c-a6cc-d8b07454294f
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Ladeira da Glória, , Glória" .
+
+:2b61d97c-3bbe-4e65-8ba0-e27226e57988
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.896944" ;
+        schema:longitude  "-43.166111" ;
+        schema:telephone  "2233-9165" .
+
+:27819ae5-e69b-41fa-8750-ed07a36e83a2
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida Presidente Wilson, 203, Centro" .
+
+:2014f0c9-4e48-4ecb-9205-0658be035ab2
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida Ataulfo de Paiva, 269, Leblon" .
+
+:596d8c30-9454-4b4d-86c9-828785d6253f
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua Bartolomeu Mitre, 1110, Jardim Botânico" .
+
+:24ffd260-7e9b-4387-85ec-db3884e05fef
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-23.049722" ;
+        schema:longitude  "-43.526389" ;
+        schema:telephone  "" .
+
+:c371e4a9-070d-432a-8e51-3e816ec4d9ea
+        a               schema:MusicVenue ;
+        schema:address  :12d233a0-59b3-4f06-abe3-34ca1cb3717b ;
+        schema:geo      :45b34058-1a08-4171-87af-2ddf338d934a ;
+        schema:name     "Sala Cecília Meireles" .
+
+:37aff781-7404-4d1a-954a-807f242ee77f
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.898420" ;
+        schema:longitude  "-43.563562" ;
+        schema:telephone  "2332-7516" .
+
+:3a96bb6d-a508-4fef-8427-a65b3acf75b3
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.913604" ;
+        schema:longitude  "-43.231068" ;
+        schema:telephone  "8871-3950" .
+
+:907e40ca-5ab2-47c0-b04f-72f9e9cf0653
+        a               schema:Museum ;
+        schema:address  :c7ddacd1-0fc1-4086-bc38-c8628b4b4ce7 ;
+        schema:geo      :f5f05eba-ec7f-47da-9642-3376f9edc94e ;
+        schema:name     "Museu do Índio" .
+
+:56f60e2f-7cb4-4b16-9848-444fd4106350
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua Gago Coutinho, 66, Laranjeiras" .
+
+:c624543a-1fc5-425b-b42b-e46f10380adf
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida Princesa Isabel, 186, Copacabana" .
+
+:d402f9fc-a84f-4527-9925-8e4584af0396
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.900735" ;
+        schema:longitude  "-43.177643" ;
+        schema:telephone  "2233-2324" .
+
+:e00365c1-56a3-440e-9405-314519eaa97b
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua Rivadávia Correia, 60, Gamboa" .
+
+:c83a4b5b-0017-47c8-a5a9-c8d4b2f1fb60
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.940436" ;
+        schema:longitude  "-43.198484" ;
+        schema:telephone  "2558-1329" .
+
+:b8c9eaae-b326-4636-b16b-dc34d6ea71b5
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-23.040344" ;
+        schema:longitude  "-43.504503" ;
+        schema:telephone  "" .
+
+:2824c43d-1943-41a7-af63-decd604907fc
+        a               schema:PerformingArtsTheater ;
+        schema:address  :1312fc77-bab9-4628-a353-8dba8313fff9 ;
+        schema:geo      :4e747e96-84fa-41bd-8ab2-a5f4e9aa0b77 ;
+        schema:name     "Teatro Casa do Riso" .
+
+:f344ff3f-8e2b-4af7-a389-577c8a1620e7
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.910556" ;
+        schema:longitude  "-43.235000" ;
+        schema:telephone  "2334-0728" .
+
+:9b4d6613-137c-4e7b-b0ba-c4997fe68156
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.987276" ;
+        schema:longitude  "-43.221914" ;
+        schema:telephone  "" .
+
+:436937c8-612f-4d69-8e89-4101a9cf221c
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.912867" ;
+        schema:longitude  "-43.179908" ;
+        schema:telephone  "" .
+
+:6885592d-6f7e-4226-9150-fc6c49e11426
+        a               schema:Beach ;
+        schema:address  :f963f269-00eb-438c-ad63-3e14bfc9f253 ;
+        schema:geo      :88ea90df-f1e4-4290-9cc1-3810b13efc52 ;
+        schema:name     "Praia do Pepê" .
+
+:dfcae164-d7ea-4c53-8271-5bdf2beac981
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.975678" ;
+        schema:longitude  "-43.228018" ;
+        schema:telephone  "2239-1095" .
+
+:c2388be1-59f5-4bf0-84f6-be5cb9878590
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.953049" ;
+        schema:longitude  "-43.171969" ;
+        schema:telephone  "3478-4442" .
+
+:4cafb103-2f74-4c47-8765-740d337d3d7f
+        a               schema:EventVenue ;
+        schema:address  :f455392b-292c-4b1d-a2e2-d42f05772fff ;
+        schema:geo      :756c44af-c7c0-4c2f-9e58-621f6701d993 ;
+        schema:name     "Centro Cultural Anglo Americano (Suassuna)" .
+
+:066b3e97-9257-4a6e-9a6a-1ee821a51945
+        a               schema:Place ;
+        schema:address  :5b05336c-f1d3-462c-bf81-a24f41574caf ;
+        schema:geo      :2fdcf61d-7dc7-4560-9146-9e811cec2d80 ;
+        schema:name     "Jardim Botânico" .
+
+:edc1285f-defd-436e-8ffb-ad42aa80cd1c
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.913817" ;
+        schema:longitude  "-43.173207" ;
+        schema:telephone  "2240-4899" .
+
+:dcfe66b8-ce23-460e-bdc7-68599da55e90
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.980851" ;
+        schema:longitude  "-43.222653" ;
+        schema:telephone  "2529-7700" .
+
+:ce91412a-4227-4a5c-ba29-e6471ea82c63
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida das Américas,  3555, Barra da Tijuca" .
+
+:a7ecf049-ff49-44d7-b8b4-85d54d968a69
+        a               schema:EventVenue ;
+        schema:address  :5fe8686d-9dd3-4683-9245-7d1c3a355ca9 ;
+        schema:geo      :a912e28c-d937-4e69-96d8-efe43353dd78 ;
+        schema:name     "Centro Cultural Banco do Brasil" .
+
+:f5f05eba-ec7f-47da-9642-3376f9edc94e
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.952010" ;
+        schema:longitude  "-43.191312" ;
+        schema:telephone  "3214-8702" .
+
+:0892ad0e-57f8-4647-84eb-6e58d5f303f0
+        a               schema:EventVenue ;
+        schema:address  :32c96b37-7b13-4bf1-8815-ac2cb04d5456 ;
+        schema:geo      :74c545b9-152c-4c5d-a82f-a71d85e81a6f ;
+        schema:name     "Casa França Brasil" .
+
+:3459c722-9690-4f71-9388-898d8f085e04
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida Dom Hélder Câmara, 5474, Cachambi" .
+
+:f2420256-1fa5-4c07-89fb-f2eecff994df
+        a               schema:EventVenue ;
+        schema:address  :82c13966-9d3b-4ccd-960c-c664b50b5ab2 ;
+        schema:geo      :51473aa5-b91d-4e30-9e3a-9dd0b8a9b055 ;
+        schema:name     "Casa Laura Alvin" .
+
+:b9f5e4f6-e693-40a5-b582-cbeca8189014
+        a               schema:PerformingArtsTheater ;
+        schema:address  :af447388-2161-43fa-a727-68e59894060e ;
+        schema:geo      :553aedeb-592f-4314-ad06-2f72f88abbc7 ;
+        schema:name     "Teatro Municipal" .
+
+:4725ad89-4c3f-498c-a76e-cc53d72dbab8
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Praça Cardeal Arcoverde, , Copacabana" .
+
+:20fcf4b2-204e-4788-9c57-616390cab7a3
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.976997" ;
+        schema:longitude  "-43.224933" ;
+        schema:telephone  "2540-9853" .
+
+:f12af5d0-8a9e-41e4-ab43-4fb0f63c9b50
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.968588" ;
+        schema:longitude  "-43.179109" ;
+        schema:telephone  "" .
+
+:a2b687df-3fd7-4677-8c81-9437b55d6bf2
+        a               schema:EventVenue ;
+        schema:address  :dd0ff51c-e6f0-4347-bb85-ed9183ad2c90 ;
+        schema:geo      :2676a7a1-5b08-4a9f-a9c8-f2a380407e07 ;
+        schema:name     "Casa Laura Alvin" .
+
+:515c5ba6-b2c5-4fc0-9ae1-d1c05c0a4eab
+        a               schema:Place ;
+        schema:address  :c9249cbf-d433-4566-aa2c-bd57ea7afa24 ;
+        schema:geo      :ca258bd5-09c9-4d37-aa92-66f2d710f181 ;
+        schema:name     "Vista Chinesa" .
+
+:9c34ff9b-6360-4564-8460-e3a86d9b3131
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.904107" ;
+        schema:longitude  "-43.174227" ;
+        schema:telephone  "2588-1251" .
+
+:39ee9562-e310-4f89-b2a5-ce7448580802
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.988889" ;
+        schema:longitude  "-43.192778" ;
+        schema:telephone  "" .
+
+:58f141c0-2f5b-4873-b01a-c95cc8312ab9
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.965087" ;
+        schema:longitude  "-43.216575" ;
+        schema:telephone  "2294-7847" .
+
+:530b205d-ed64-4c12-bc35-f8cbfd6f26e3
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida Padre Leonel Franca, 240, Gávea" .
+
+:99f4e7a1-00d0-4a2c-85f0-89b1505c5f8a
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.985310" ;
+        schema:longitude  "-43.204790" ;
+        schema:telephone  "2523-9794" .
+
+:919c94bb-eec0-4b44-905e-8ab152e03cb7
+        a               schema:Park ;
+        schema:address  :e47579ac-73c9-4885-bac6-ee17ffa1a6dd ;
+        schema:geo      :8b30b31e-1c97-4253-a99f-029406977065 ;
+        schema:name     "Parque Nacional da Tijuca" .
+
+:aa68f3e3-7fad-46f3-ad60-8c158a95181d
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Praça Cardeal Câmara, , Lapa" .
+
+:cb0aff7b-cc83-4f9c-bbf4-83e490d42783
+        a               schema:Place ;
+        schema:address  :634b576d-f439-4cff-bd60-5d01cc761b2a ;
+        schema:geo      :1c322509-56d3-4325-904d-191f54d5585f ;
+        schema:name     "Lagoa Rodrigo de Freitas" .
+
+:922a646f-5da2-42cf-8446-4aa17a06798b
+        a               schema:Place ;
+        schema:address  :84bec9bd-31da-4ced-b61b-a90292a711c3 ;
+        schema:geo      :d993d79b-b0a1-4b46-a53a-41cf84ee893e ;
+        schema:name     "Campo de Santana" .
+
+:f2251c75-288f-4f50-89a8-d128ab79cd0d
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua Visconde de Itaboraí, 20, Centro" .
+
+:8f178877-3bb7-4962-81b6-245af990aa31
+        a               schema:PerformingArtsTheater ;
+        schema:address  :f81ae43c-408d-422e-966f-d74e101d0101 ;
+        schema:geo      :41d7cbc9-01f8-4ba8-91bd-c2b9cc33c45c ;
+        schema:name     "Teatro Mário Lago" .
+
+:4a4bb140-c15d-4db8-968f-292315e91a6c
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.975730" ;
+        schema:longitude  "-43.228284" ;
+        schema:telephone  "2540-6004" .
+
+:3727e37c-afc0-40c3-b322-6acffd56f11c
+        a               schema:Beach ;
+        schema:address  :75eca1bf-86c4-4b2b-ae5f-f87ae508aada ;
+        schema:geo      :6277a117-51ff-496f-b335-84868dcc18de ;
+        schema:name     "Praia de São Conrado" .
+
+:81eb2b2c-3dcb-4a8b-b47c-6d9da6c21c35
+        a               schema:Beach ;
+        schema:address  :3d944a06-6287-4bcd-9e25-6c960de3da6c ;
+        schema:geo      :fd73afa0-7a5d-4691-9e46-4d1958758992 ;
+        schema:name     "Praia Recreio dos Bandeirantes" .
+
+:b6711ccd-8ca4-4dfd-893c-7a156ad533ba
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.977599" ;
+        schema:longitude  "-43.589773" ;
+        schema:telephone  "2410-7183" .
+
+:af447388-2161-43fa-a727-68e59894060e
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Praça Marechal Floriano, , Centro" .
+
+:edcc7c9d-343c-4c9c-bdf6-9e50d0b7bd6d
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida almirante Barroso, 63, Centro" .
+
+:2e28475b-c2c8-436f-907c-1504178d559e
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Estrada do Açude, 764, Alto da Boa Vista" .
+
+:2fdcf61d-7dc7-4560-9146-9e811cec2d80
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.970885" ;
+        schema:longitude  "-43.223279" ;
+        schema:telephone  "3874-1808" .
+
+:a816390c-c733-4c2f-82ce-1d4553693c10
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.961308" ;
+        schema:longitude  "-43.175283" ;
+        schema:telephone  "2334-7153" .
+
+:5c235884-6f54-4144-b75b-db6a82d3bc0f
+        a               schema:Beach ;
+        schema:address  :c5aacdb5-8949-4c16-ac12-c6e9e1838a2c ;
+        schema:geo      :1d58e82e-244f-4f99-bd5d-46e6aebefcb3 ;
+        schema:name     "Praia de Botafogo" .
+
+:edacf136-b1a9-47b6-bc53-5cb7dd0d7ad3
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.926054" ;
+        schema:longitude  "-43.176409" ;
+        schema:telephone  "2285-0441" .
+
+:1c322509-56d3-4325-904d-191f54d5585f
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.971314" ;
+        schema:longitude  "-43.211725" ;
+        schema:telephone  "" .
+
+:1ed0ba97-0b5d-4db5-953e-8d4cab384a3f
+        a               schema:Museum ;
+        schema:address  :edcc7c9d-343c-4c9c-bdf6-9e50d0b7bd6d ;
+        schema:geo      :88f5269e-b2a7-47f3-bc81-28dc8a3b43f5 ;
+        schema:name     "Museu do Clube Naval" .
+
+:3c82331d-9b23-4d16-9522-12060f7db73f
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.975678" ;
+        schema:longitude  "-43.228262" ;
+        schema:telephone  "2274-7246" .
+
+:be496355-93db-4bfd-9b05-cc05b388a5ca
+        a               schema:PerformingArtsTheater ;
+        schema:address  :596d8c30-9454-4b4d-86c9-828785d6253f ;
+        schema:geo      :20fcf4b2-204e-4788-9c57-616390cab7a3 ;
+        schema:name     "Teatro do Jockey" .
+
+:799a1b75-9518-43eb-8fd0-8e6f475bcba6
+        a               schema:PerformingArtsTheater ;
+        schema:address  :b0701dff-be00-413a-a87e-8dcb416181a4 ;
+        schema:geo      :d6e93191-0b32-4c1f-8704-e4aea7e7e504 ;
+        schema:name     "Teatro Glauce Rocha" .
+
+:0aed1017-7be8-44b7-b3b3-460d6a65b76a
+        a               schema:Place ;
+        schema:address  :0f859847-c7cf-4b9a-9d42-571e534a9c7e ;
+        schema:geo      :e9137ddf-e914-4925-a17d-9da8295547ed ;
+        schema:name     "Oi Futuro" .
+
+:75eca1bf-86c4-4b2b-ae5f-f87ae508aada
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Estrada Lagoa Barra, , São Conrado" .
+
+:211dce2a-4e14-40f3-a21d-19aa6d94f07f
+        a               schema:Place ;
+        schema:address  :500f6cdb-a623-4042-8323-3abe67c11551 ;
+        schema:geo      :64e04c63-81fe-4d02-9a9f-77b39155cdb7 ;
+        schema:name     "Paço Imperial" .
+
+:6277a117-51ff-496f-b335-84868dcc18de
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-23.000348" ;
+        schema:longitude  "-43.268882" ;
+        schema:telephone  "" .
+
+:1e653f46-42ea-4298-8b5a-faa06cbd7b03
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.978844" ;
+        schema:longitude  "-43.230249" ;
+        schema:telephone  "2274-7722" .
+
+:ea2bea73-993f-4fae-9b26-9610d08cb99b
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.838716" ;
+        schema:longitude  "-43.250386" ;
+        schema:telephone  "" .
+
+:9b23c442-422f-4bf3-a8d3-1217b4b236b4
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.910877" ;
+        schema:longitude  "-43.172971" ;
+        schema:telephone  "3974-2500" .
+
+:fd73afa0-7a5d-4691-9e46-4d1958758992
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-23.026462" ;
+        schema:longitude  "-43.459303" ;
+        schema:telephone  "" .
+
+:670816e0-f8e7-4df6-a14b-32636c906805
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.916495" ;
+        schema:longitude  "-43.174055" ;
+        schema:telephone  "2240-1283" .
+
+:774ff7f3-7700-4f07-82e2-15fc14c76103
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida João Luís Alves, , Urca" .
+
+:a7792082-d8f2-49f5-b8e3-0d511a2124af
+        a               schema:PerformingArtsTheater ;
+        schema:address  :6ef40872-a178-4157-b037-13afc52bd06a ;
+        schema:geo      :a816390c-c733-4c2f-82ce-1d4553693c10 ;
+        schema:name     "Teatro Villa Lobos" .
+
+:a0d54c24-2cfa-402f-90ae-c55b49def9de
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-23.020125" ;
+        schema:longitude  "-43.501737" ;
+        schema:telephone  "2490-9250" .
+
+:62b99f1a-2fce-47c6-91c3-5f98f6440be7
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.961288" ;
+        schema:longitude  "-43.213113" ;
+        schema:telephone  "3257-1800" .
+
+:15a8c616-926f-4c1f-a062-89723675ad3e
+        a               schema:Park ;
+        schema:address  :37d2bc3f-c59b-417d-9b10-20adfba95712 ;
+        schema:geo      :8f6423ee-0181-4577-90a5-95d6b55d2e0a ;
+        schema:name     "Parque das Ruínas" .
+
+:a929895c-9b02-498e-9a0d-4a7622aeb0df
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida Rui Barbosa, , Flamengo" .
+
+:88faa486-d5f1-4732-8276-cb0dd83ee76a
+        a               schema:PerformingArtsTheater ;
+        schema:address  :34241bdc-6398-4555-a4ee-665a9d86e932 ;
+        schema:geo      :0919455c-17fd-42f5-9578-92906fdcc195 ;
+        schema:name     "Teatro da Praia" .
+
+:73591eb8-f7c3-48d8-ab06-5719764a56cd
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.984857" ;
+        schema:longitude  "-43.205058" ;
+        schema:telephone  "2267-7295" .
+
+:4d9b9dc8-4425-4b29-a9bb-5c81de0bc7be
+        a               schema:Museum ;
+        schema:address  :79db145b-fa51-4793-8ce4-ce2be991b947 ;
+        schema:geo      :edacf136-b1a9-47b6-bc53-5cb7dd0d7ad3 ;
+        schema:name     "Museu de Folclore Edison Carneiro" .
+
+:97f2c913-91c5-47eb-901d-b43f014cd508
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida Heitor Beltrão, , Tijuca" .
+
+:90919474-bbed-49c9-85f9-ca38bfac5e32
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.907223" ;
+        schema:longitude  "-43.182519" ;
+        schema:telephone  "2232-8701" .
+
+:97acc34f-fa03-4de5-a065-fb9902dd5fb6
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua Pedro Ernesto, 34, Gamboa" .
+
+:53d2b40d-ae9b-494d-8ab6-0fcfbb32568d
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.917345" ;
+        schema:longitude  "-43.184135" ;
+        schema:telephone  "3970-1126" .
+
+:165c76c5-71f4-4bfe-b09b-37f982ca93e2
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Santa Teresa, , Santa Teresa" .
+
+:77306f75-31f2-4496-be2a-5b3b0ecb1a76
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua Gonçalves Dias, 32, Centro" .
+
+:c9249cbf-d433-4566-aa2c-bd57ea7afa24
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Estrada da Vista Chinesa, 789, Alto da Boa Vista" .
+
+:2ecf06c3-1ef5-45a9-8a51-78e5b9772435
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.987197" ;
+        schema:longitude  "-43.203228" ;
+        schema:telephone  "" .
+
+:6c41441c-b93b-4ba6-ae9e-baead16726fe
+        a               schema:PerformingArtsTheater ;
+        schema:address  :f7916185-a0e9-4cd2-8a70-e18e3ba7a75a ;
+        schema:geo      :c3269ebd-844d-4da9-8b53-6929e3a682cd ;
+        schema:name     "Teatro Brigitte Blair" .
+
+:37d2bc3f-c59b-417d-9b10-20adfba95712
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua Murtinho Nobre, 169, Santa Teresa" .
+
+:86deccf6-f309-41ce-8463-22821725882e
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-23.015000" ;
+        schema:longitude  "-43.290833" ;
+        schema:telephone  "" .
+
+:af6c3b81-e6e5-47eb-8e02-1432f5af3c98
+        a               schema:Place ;
+        schema:address  :774ff7f3-7700-4f07-82e2-15fc14c76103 ;
+        schema:geo      :0980a7e8-2543-40ba-9c11-b21264b870f7 ;
+        schema:name     "Fortaleza de São João" .
+
+:22ef14c2-f5a8-45f9-9643-12b3a16a4afa
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Praça General Tibúrcio, , Urca" .
+
+:eb400624-cbc1-4471-a02b-126e31d99925
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Acesso feito por barca na Praça XV, , " .
+
+:53bfbd9f-860b-4b7d-ba5d-b2558d25e2e8
+        a               schema:Museum ;
+        schema:address  :5fe9debd-bb0f-4e96-a120-d8dd568763f3 ;
+        schema:geo      :edc1285f-defd-436e-8ffb-ad42aa80cd1c ;
+        schema:name     "Museu de Arte Moderna" .
+
+:aa9e98ef-1a13-4c39-a9d2-81440e5de3a6
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.896071" ;
+        schema:longitude  "-43.192958" ;
+        schema:telephone  "2516-7089" .
+
+:4aaff21a-1b12-431f-809a-9f590cd102e2
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Aterro do Flamengo, , Flamengo" .
+
+:e52ed5e7-252d-42db-8a43-56e815678788
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.921327" ;
+        schema:longitude  "-43.175339" ;
+        schema:telephone  "2225-2869" .
+
+:432bb7ff-db85-4025-a917-7d46b8aa910c
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.910887" ;
+        schema:longitude  "-43.180728" ;
+        schema:telephone  "2240-2669" .
+
+:708f670e-a973-486c-a3b6-1742e8d6df7e
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-23.067778" ;
+        schema:longitude  "-43.568056" ;
+        schema:telephone  "" .
+
+:72d2f1b5-0198-4a02-ae92-803b6303ecb8
+        a               schema:Park ;
+        schema:address  :dd041a7e-df90-43af-931b-a290d612c443 ;
+        schema:geo      :c33278e8-b290-4f6f-b60f-506106e5e199 ;
+        schema:name     "Parque Municipal Fazenda do Viegas" .
+
+:f6ed6728-d268-4536-8c4b-4996743a8ccf
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.896174" ;
+        schema:longitude  "-43.181736" ;
+        schema:telephone  "3031-2741" .
+
+:34241bdc-6398-4555-a4ee-665a9d86e932
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua Francisco Sá, 88, Copacabana" .
+
+:f8e57169-4906-4388-93c8-61659564fbc3
+        a               schema:Place ;
+        schema:address  :27819ae5-e69b-41fa-8750-ed07a36e83a2 ;
+        schema:geo      :9b23c442-422f-4bf3-a8d3-1217b4b236b4 ;
+        schema:name     "Academia Brasileira de Letras" .
+
+:55eff749-e5b0-443a-b8f3-aa99334d8895
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua Visconde de Ouro Preto, 78, Botafogo" .
+
+:12d233a0-59b3-4f06-abe3-34ca1cb3717b
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua da Lapa, 47, Lapa" .
+
+:73553cbb-d4a7-4c4a-85b9-f477a00e5097
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua Joana Angélica, 63, Ipanema" .
+
+:80c12999-8f93-4300-801c-a4c4be91c7db
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.975969" ;
+        schema:longitude  "-43.198141" ;
+        schema:telephone  "3202-8550" .
+
+:28374638-821a-4893-920b-af8ac057186c
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.983185" ;
+        schema:longitude  "-43.192067" ;
+        schema:telephone  "" .
+
+:ea9c92f6-0e8c-4aef-b579-1a1f7dcf920d
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida Ayrton Senna, 2541A, Barra da Tijuca" .
+
+:8e0c8aec-e46e-4ac0-b9ab-8e91303a7612
+        a               schema:Park ;
+        schema:address  :162f6287-09f0-48a3-b5ad-e6921d739fef ;
+        schema:geo      :62b99f1a-2fce-47c6-91c3-5f98f6440be7 ;
+        schema:name     "Parque Lage" .
+
+:ae179aba-0578-4cc6-99da-f83765505f44
+        a               schema:PerformingArtsTheater ;
+        schema:address  :835730b7-cfec-48ce-a244-366f34fa1f2f ;
+        schema:geo      :5e877081-1b24-45fb-b25d-20541f3c5a55 ;
+        schema:name     "Teatro Casa da Gávea" .
+
+:e94decaf-9100-449b-8b2a-0b5a07c10cc5
+        a               schema:Museum ;
+        schema:address  :2e28475b-c2c8-436f-907c-1504178d559e ;
+        schema:geo      :2ee11494-d7a6-4faf-b10b-34a4108595f8 ;
+        schema:name     "Museu do Açude" .
+
+:06f5d713-13de-47f3-aa3d-8034599c5384
+        a               schema:Library ;
+        schema:address  :4b667779-fb4b-4472-a163-de8572f6d436 ;
+        schema:geo      :7f5a202b-a6f3-4ce3-9482-1b87759d655e ;
+        schema:name     "Biblioteca Nacional" .
+
+:97e798c7-c072-485c-8f9d-752b93ffba6c
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.885071" ;
+        schema:longitude  "-43.388112" ;
+        schema:telephone  "2108-8954" .
+
+:1427cfec-cb79-4cf5-917b-2f86207f75df
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua Pedro Primeiro, 4A, Centro" .
+
+:fdafc6b3-1a1e-4db1-9b04-8840cb242f61
+        a               schema:PerformingArtsTheater ;
+        schema:address  :021bbd04-38f7-4993-ab90-b53d5fcac976 ;
+        schema:geo      :f344ff3f-8e2b-4af7-a389-577c8a1620e7 ;
+        schema:name     "Teatro Odylo Costa Filho" .
+
+:9d2618b3-d08e-441f-aedc-748d331b8996
+        a               schema:Place ;
+        schema:address  :eb400624-cbc1-4471-a02b-126e31d99925 ;
+        schema:geo      :43f99c13-2fff-4652-9d53-f702efae9f73 ;
+        schema:name     "Ilha de Paquetá" .
+
+:0f859847-c7cf-4b9a-9d42-571e534a9c7e
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Rua Dois de Dezembro, 63, Flamengo" .
+
+:88f5269e-b2a7-47f3-bc81-28dc8a3b43f5
+        a                 schema:GeoCoordinates ;
+        schema:latitude   "-22.908181" ;
+        schema:longitude  "-43.176617" ;
+        schema:telephone  "2112-2400" .
+
+:dd0ff51c-e6f0-4347-bb85-ed9183ad2c90
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida Vieira Souto, 176, Ipanema" .
+
+:1c3b6c9f-07bb-443b-8690-3498317401d7
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Ladeira de Santa Teresa, 52, Santa Teresa" .
+
+:d432f023-aaa0-4a50-98a4-2351ff8753d3
+        a               schema:Place ;
+        schema:address  :e00365c1-56a3-440e-9405-314519eaa97b ;
+        schema:geo      :23f89a2b-9855-4de3-bb29-64ff9c08e187 ;
+        schema:name     "Cidade do Samba" .
+
+:219a0d76-1596-48d0-8cc2-043fad0a46ad
+        a               schema:Beach ;
+        schema:address  :8fb9a80d-35e8-443b-acda-e26c55cb0539 ;
+        schema:geo      :2ecf06c3-1ef5-45a9-8a51-78e5b9772435 ;
+        schema:name     "Praia de Ipanema" .
+
+:c8f40653-aaa2-4726-a523-292bbf5e7594
+        a               schema:Museum ;
+        schema:address  :4e96027b-dcb9-4476-8d18-f9ab905757e3 ;
+        schema:geo      :4f905b17-de93-4045-be26-012aca8dbff8 ;
+        schema:name     "Museu da República" .
+
+:15dcaf0f-b84d-4b44-b82f-81c6f567c633
+        a                       schema:PostalAddress ;
+        schema:addressLocality  "Rio de Janeiro" ;
+        schema:addressRegion    "RJ " ;
+        schema:streetAddress    "Avenida João Luís Alves, 33, Urca" .
+
+:96e6b22d-262c-4960-a7fd-142aecb61407
+        a               schema:PerformingArtsTheater ;
+        schema:address  :2014f0c9-4e48-4ecb-9205-0658be035ab2 ;
+        schema:geo      :ca5054e5-cdcc-466c-a723-c608e151cbd2 ;
+        schema:name     "Teatro Café Pequeno" .

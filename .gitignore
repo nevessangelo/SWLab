@@ -5,3 +5,4 @@ __pycache__/
 .pydevproject
 *.log
 *.class
+/TIC10086-G/target/
