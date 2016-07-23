@@ -18,7 +18,7 @@ import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
 
-public class Ontologies {
+public class JenaSchema {
 
     public static final Lang EXPORT_LANG = Lang.RDFXML;
     private static final String DIRECTORY = "./src/main/resources/dat/rdf";
@@ -34,24 +34,24 @@ public class Ontologies {
     public static void main(String[] args) throws IOException, MalformedURLException, CompressorException {
         //getSchemaOntology();
         //getDBpediaOntology();
-        getOntology("http://protege.stanford.edu/ontologies/pizza/pizza.owl", "http://www.co-ode.org/ontologies/pizza/pizza.owl", "pizza");
+        getSchema("http://protege.stanford.edu/ontologies/pizza/pizza.owl", "http://www.co-ode.org/ontologies/pizza/pizza.owl", "pizza");
     }
 
-    public static Model getSchemaOntology() throws UnsupportedEncodingException, FileNotFoundException {
-        return loadSchemaOntology(SCHEMA_LOCAL_NAME);
+    public static Model getSchemaOrg() throws UnsupportedEncodingException, FileNotFoundException {
+        return loadSchemaOrg(SCHEMA_LOCAL_NAME);
     }
 
-    private static Model loadSchemaOntology(String localName) throws UnsupportedEncodingException, FileNotFoundException {
+    private static Model loadSchemaOrg(String localName) throws UnsupportedEncodingException, FileNotFoundException {
         Model model = ModelFactory.createDefaultModel();
         try {
             RDFDataMgr.read(model, new FileInputStream(DIRECTORY + "/" + localName + "." + EXPORT_LANG.getFileExtensions().get(0)), EXPORT_LANG);
         } catch (FileNotFoundException ex) {
-            model = downloadSchemaOntology(localName);
+            model = downloadSchemaOrg(localName);
         }
         return model;
     }
 
-    private static Model downloadSchemaOntology(String localName) throws UnsupportedEncodingException, FileNotFoundException {
+    private static Model downloadSchemaOrg(String localName) throws UnsupportedEncodingException, FileNotFoundException {
         Model model = ModelFactory.createDefaultModel();
         try {
             String url = URLEncoder.encode(SCHEMA_URL_STRING, "UTF-8");
@@ -62,31 +62,31 @@ public class Ontologies {
         return model;
     }
 
-    public static Model getDBpediaOntology() throws IOException, MalformedURLException, CompressorException {
-        return getOntology(DBPEDIA_URL_STRING, DBPEDIA_BASE_URI, DBPEDIA_LOCAL_NAME);
+    public static Model getDBpedia() throws IOException, MalformedURLException, CompressorException {
+        return getSchema(DBPEDIA_URL_STRING, DBPEDIA_BASE_URI, DBPEDIA_LOCAL_NAME);
     }
 
-    public static Model getOntology(String urlString, String base, String localName) throws IOException, MalformedURLException, CompressorException {
-        return loadOntology(urlString, base, localName);
+    public static Model getSchema(String urlString, String base, String localName) throws IOException, MalformedURLException, CompressorException {
+        return loadSchema(urlString, base, localName);
     }
 
-    private static Model loadOntology(String urlString, String base, String localName) throws IOException, MalformedURLException, CompressorException {
+    private static Model loadSchema(String urlString, String base, String localName) throws IOException, MalformedURLException, CompressorException {
         Model model = ModelFactory.createDefaultModel();
         try {
             RDFDataMgr.read(model, new FileInputStream(DIRECTORY + localName + "." + EXPORT_LANG.getFileExtensions().get(0)), DBPEDIA_BASE_URI, EXPORT_LANG);
         } catch (FileNotFoundException ex) {
-            model = downloadOntology(urlString, base, localName);
+            model = downloadSchema(urlString, base, localName);
         }
         return model;
     }
 
-    private static Model downloadOntology(String urlString, String base, String localName) throws MalformedURLException, IOException, CompressorException {
+    private static Model downloadSchema(String urlString, String base, String localName) throws MalformedURLException, IOException, CompressorException {
         Model model = ModelFactory.createDefaultModel();
         URL url = new URL(urlString);
         try (BufferedInputStream bis = new BufferedInputStream(url.openStream());) {
             model.read(bis, base);
             RDFDataMgr.write(new FileOutputStream(new File(DIRECTORY + "/" + localName + "." + EXPORT_LANG.getFileExtensions().get(0))), model, EXPORT_LANG);
-        } catch (IOException ex) {
+        } catch (Exception ex) {
             try (
                     BufferedInputStream bis = new BufferedInputStream(url.openStream());
                     CompressorInputStream input = new CompressorStreamFactory().createCompressorInputStream(bis);) {

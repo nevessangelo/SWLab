@@ -1,6 +1,8 @@
 package ic.uff.tic10086.exercicios.datasets;
 
 import com.opencsv.CSVReader;
+import ic.uff.tic10086.utils.JenaSchema;
+import ic.uff.tic10086.utils.OWLAPIOntology;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -17,10 +19,11 @@ import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.IRI;
+import org.semanticweb.owlapi.model.OWLDataFactory;
+import org.semanticweb.owlapi.model.OWLIndividual;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
-import ic.uff.tic10086.utils.Ontologies;
 
 public class TurismoECultura {
 
@@ -34,19 +37,53 @@ public class TurismoECultura {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, MalformedURLException, CompressorException, OWLOntologyCreationException {
         init();
-        //convertToDBpedia();
-        convertToSchema();
+        convertToDBpedia();
+        //convertToSchema();
     }
 
     public static void convertToDBpedia() throws IOException, MalformedURLException, CompressorException, OWLOntologyCreationException {
-        IRI documentIRI = IRI.create("http://protege.stanford.edu/ontologies/pizza/pizza.owl");
-        OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
-        OWLOntology ontology = manager.loadOntologyFromOntologyDocument(documentIRI);
+        OWLOntology ontology = OWLAPIOntology.getOntology("http://downloads.dbpedia.org/2014/dbpedia_2014.owl.bz2");
+        OWLOntologyManager manager = ontology.getOWLOntologyManager();
+
+        System.out.println("Ontology Loaded...");
+        System.out.println("Ontology : " + ontology.getOntologyID());
+        System.out.println("Format      : " + manager.getOntologyFormat(ontology));
+        System.out.println("Axioms count: " + ontology.getAxiomCount());
+
+        OWLDataFactory df = OWLManager.getOWLDataFactory();
+        URL url = new URL(SCHEMA_URL_STRING);
+        try (
+                InputStreamReader in = new InputStreamReader(url.openStream(), "Windows-1252");
+                BufferedReader buff = new BufferedReader(in);
+                CSVReader reader = new CSVReader(buff, ',', '"', 1);) {
+
+            String[] nextLine;
+            String uri1, uri2, uri3, name, street, number, neighborhood, telephone, latitude, longitude;
+            while ((nextLine = reader.readNext()) != null)
+                try {
+                    name = nextLine[0];
+                    street = nextLine[1];
+                    number = nextLine[2];
+                    neighborhood = nextLine[3];
+                    telephone = nextLine[4];
+                    latitude = nextLine[5];
+                    longitude = nextLine[6];
+
+                    uri1 = BASE_URI + UUID.randomUUID();
+                    uri2 = BASE_URI + UUID.randomUUID();
+                    uri3 = BASE_URI + UUID.randomUUID();
+
+                    OWLIndividual place = df.getOWLNamedIndividual(IRI.create(uri1));
+
+                } catch (Exception e) {
+
+                }
+        }
 
     }
 
     public static void convertToSchema() throws MalformedURLException, FileNotFoundException, IOException {
-        Model schema = Ontologies.getSchemaOntology();
+        Model schema = JenaSchema.getSchemaOrg();
         Model model = ModelFactory.createDefaultModel();
         model.setNsPrefix("schema", SCHEMA_NS);
         model.setNsPrefix("", BASE_URI);
@@ -73,7 +110,7 @@ public class TurismoECultura {
                     uri2 = BASE_URI + UUID.randomUUID();
                     uri3 = BASE_URI + UUID.randomUUID();
 
-                    model.createResource(uri1, schema.getResource(detectClass(name)))
+                    model.createResource(uri1, schema.getResource(detectSchemaOrgClass(name)))
                             .addProperty(schema.getProperty(SCHEMA_NS + "name"), name)
                             .addProperty(schema.getProperty(SCHEMA_NS + "address"), model.createResource(uri2, schema.getResource(SCHEMA_NS + "PostalAddress"))
                                     .addProperty(schema.getProperty(SCHEMA_NS + "addressLocality"), "Rio de Janeiro")
@@ -96,7 +133,7 @@ public class TurismoECultura {
         org.apache.log4j.Logger.getRootLogger().setLevel(org.apache.log4j.Level.OFF);
     }
 
-    private static String detectClass(String name) {
+    private static String detectSchemaOrgClass(String name) {
         String uri;
         if (name.startsWith("Teatro "))
             uri = SCHEMA_NS + "PerformingArtsTheater";
