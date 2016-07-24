@@ -1,974 +1,1665 @@
 <?xml version="1.0"?>
 <Ontology xmlns="http://www.w3.org/2002/07/owl#"
-     xml:base="owlapi:ontology#ont279781038377516"
+     xml:base="owlapi:ontology#ont324174951227007"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     ontologyIRI="owlapi:ontology#ont279781038377516">
+     ontologyIRI="owlapi:ontology#ont324174951227007">
+    <Prefix name="" IRI="http://localhost:8080/"/>
+    <Prefix name="cc" IRI="http://creativecommons.org/ns#"/>
+    <Prefix name="d0" IRI="http://www.ontologydesignpatterns.org/ont/d0.owl#"/>
+    <Prefix name="dc" IRI="http://purl.org/dc/elements/1.1/"/>
+    <Prefix name="dbp" IRI="http://dbpedia.org/ontology/"/>
+    <Prefix name="dul" IRI="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
     <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="foaf" IRI="http://xmlns.com/foaf/0.1/"/>
+    <Prefix name="prov" IRI="http://www.w3.org/ns/prov#"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Prefix name="vann" IRI="http://purl.org/vocab/vann/"/>
+    <Prefix name="dcterms" IRI="http://purl.org/dc/terms/"/>
+    <Prefix name="cidoccrm" IRI="http://purl.org/NET/cidoc-crm/core#"/>
+    <Prefix name="wgs84pos" IRI="http://www.w3.org/2003/01/geo/wgs84_pos#"/>
+    <Prefix name="wikidata" IRI="http://www.wikidata.org/entity/"/>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/96ab7167-0125-45f6-b295-e835069a8b21"/>
+        <NamedIndividual abbreviatedIRI=":id-dc93874e-3a5d-4637-8725-1f4ce2a9da0a"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/fa0fe11d-9fe3-4631-a07e-cfb7f2015a71"/>
+        <NamedIndividual abbreviatedIRI=":id-4864b431-a7a0-4840-9637-dfa5e537ee8b"/>
     </Declaration>
     <Declaration>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
+        <Class abbreviatedIRI="dbp:Place"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/543c6e50-a30e-4b29-9f27-7fc8ee211c68"/>
+        <NamedIndividual abbreviatedIRI=":id-507b1971-0e96-4241-8e74-a473de8be74a"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/09e50384-d7c4-4940-8e88-650acc367734"/>
+        <NamedIndividual abbreviatedIRI=":id-29302e3b-9d97-4958-9995-5cdad2c1812a"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/b9e7d65e-08dd-4a6f-ac40-323d60cf78f9"/>
+        <NamedIndividual abbreviatedIRI=":id-97101105-2954-40bf-9410-60b42f16db74"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://dbpedia.org/ontology/"/>
+        <NamedIndividual abbreviatedIRI="dbp:"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/152e2614-0454-4336-abe0-7339f0b78460"/>
+        <NamedIndividual abbreviatedIRI=":id-24983d29-d951-4ea7-a960-c4b56d3cf0b9"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/27380f29-5828-4657-88a3-83225e29bfdc"/>
+        <NamedIndividual abbreviatedIRI=":id-18c268aa-b98e-4bc5-ae47-d4da3d05186c"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/03f1fdc9-c1f2-4bb7-8a0b-15fc8e1e433c"/>
+        <NamedIndividual abbreviatedIRI=":id-aa7251d3-27b1-448c-a29d-a57e56910065"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/5d0d72cc-d5e2-4954-868e-e9a6b5ec327f"/>
+        <NamedIndividual abbreviatedIRI=":id-ca4b3417-4dbc-4047-92f8-1bcffd7ddf99"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/6c29d928-64e1-452d-aaf0-f93b951bdd9a"/>
+        <NamedIndividual abbreviatedIRI=":id-ae487928-5685-4316-bfd9-7abca7d94cb0"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/f37b591f-116f-4fb6-8fc8-1bc32316ebcd"/>
+        <NamedIndividual abbreviatedIRI=":id-678294a6-edc0-444e-9085-34d4aa5d8efe"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/25bd2516-f84d-4831-8c51-ff4e42f5a6ae"/>
+        <NamedIndividual abbreviatedIRI=":id-935b38c0-53da-477b-9a80-33e866a8a3f5"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/f71ad932-8545-4570-82fb-463c2b54cd3b"/>
+        <NamedIndividual abbreviatedIRI=":id-a2cc1d36-51a7-456c-aab9-3e9f50e2c149"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/a7e2c105-5ae0-499f-b656-e1bd43542bb4"/>
+        <NamedIndividual abbreviatedIRI=":id-9221897b-3d9c-46c9-936b-4764a5deeda7"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/a4d819f7-2a91-4b12-90f2-b2d9ffe46623"/>
+        <NamedIndividual abbreviatedIRI=":id-68085bed-c82b-4f51-972b-b748863f9695"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/e64ccd4b-763a-4342-bd5c-0c6cab7709be"/>
+        <NamedIndividual abbreviatedIRI=":id-11ce2457-66ad-4876-90b3-4e7769b9eeee"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/c9970948-e60c-4eaf-b9c1-a75813021625"/>
+        <NamedIndividual abbreviatedIRI=":id-7d745d96-e2b5-48e8-b0bf-ed656cd964cb"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/7de5110e-0ff7-42fe-ab18-67560e809482"/>
+        <NamedIndividual abbreviatedIRI=":id-f421a264-05d2-46aa-9a7e-b5ccb9ed5ac9"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/efc7257a-f7fb-4df8-bd49-bbcc40654b98"/>
+        <NamedIndividual abbreviatedIRI=":id-451208e6-bb47-4109-9859-b0d6ef3b910d"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/782ed16b-e60c-4fb9-bedd-8834a27bac57"/>
+        <NamedIndividual abbreviatedIRI=":id-7f9d27be-4747-4257-b0f3-560781de20eb"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/afe5b15f-37d7-4ff1-b8c9-c6cf78e6da54"/>
+        <NamedIndividual abbreviatedIRI=":id-6875dea9-3ad4-4576-ae18-5fef5aded2d3"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/72988e71-59e1-41d8-a568-6095965967cf"/>
+        <NamedIndividual abbreviatedIRI=":id-1454705e-8ade-4970-9cd2-db827df23c1d"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/8e83baeb-3acc-4994-a20e-42c14a8191c7"/>
+        <NamedIndividual abbreviatedIRI=":id-fd31aa35-d171-4a86-8766-d45703302b20"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/6b5a703b-e87b-41dc-8720-25a1fb6d0216"/>
+        <NamedIndividual abbreviatedIRI=":id-ce45c2ac-5532-480e-bfaa-a8b359ea0fbc"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/8ef33bea-406a-4625-8438-dfe84d7c0fab"/>
+        <NamedIndividual abbreviatedIRI=":id-6a871d1d-8f15-492c-aa35-da7123202866"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/ca2f9d6a-6c80-4170-89a0-ddb6ec8db114"/>
+        <NamedIndividual abbreviatedIRI=":id-74c97164-964f-4fb8-8afd-f36f3f3c6037"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/f1b886b6-541c-4943-821f-60ae89fd2918"/>
+        <NamedIndividual abbreviatedIRI=":id-0803c90a-cafe-4731-aea9-32e5913d3c15"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/06dae37e-a797-470b-b9b3-cde9958d6910"/>
+        <NamedIndividual abbreviatedIRI=":id-3e32fe88-700a-44b3-b628-742a9bb46e73"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/7a828307-8931-408c-b945-6eba3ea5ae5c"/>
+        <NamedIndividual abbreviatedIRI=":id-76cb6fc4-9999-4dc6-8073-9fdaf795f5a2"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/24875af9-35b5-4827-9f43-cf5d195e1429"/>
+        <NamedIndividual abbreviatedIRI=":id-2e172f78-b837-4629-983f-f1caed406973"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/992de1e3-4502-48c8-b8a4-e6b1e0a7f2cd"/>
+        <NamedIndividual abbreviatedIRI=":id-4fd69d81-8eda-48c3-b1ab-7d7eda58a523"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/8dd23826-976a-4ae6-86a0-e9fa6e71b89b"/>
+        <NamedIndividual abbreviatedIRI=":id-d478158a-c062-41ed-8be8-bfc1180fe9f5"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/0ce8358d-8735-457d-8fda-9b8e5306b557"/>
+        <NamedIndividual abbreviatedIRI=":id-1538d251-b378-456f-9584-bdc58f28d7a8"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/89feedf4-091a-4af5-91af-3c61b9992357"/>
+        <NamedIndividual abbreviatedIRI=":id-1cd03b04-19af-4182-959a-a73bb0a81624"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/f4257345-ddc5-4750-a0b3-f6fdd41d828f"/>
+        <NamedIndividual abbreviatedIRI=":id-a03f3a20-990d-4e43-9ea0-3256419feddb"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/f30703e6-0735-490f-b947-d3daaaba13da"/>
+        <NamedIndividual abbreviatedIRI=":id-a4119f26-0644-42b6-8744-d39fc57c6a45"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/6d3f7e91-f9d4-470e-86f8-056d895b7fa5"/>
+        <NamedIndividual abbreviatedIRI=":id-e3d2ed9d-ba35-40df-b825-846f303b81ca"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/b97663fb-143b-460a-b1f2-78222cdd4666"/>
+        <NamedIndividual abbreviatedIRI=":id-102def50-906e-48d6-ac68-a288c1d87939"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/02061986-99a1-4611-9d54-d1e42571af6c"/>
+        <NamedIndividual abbreviatedIRI=":id-b5b7c78f-46d8-4cd7-9a3c-42c0bffaec55"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/29dc8c0a-251d-4c03-8860-ead2773f218f"/>
+        <NamedIndividual abbreviatedIRI=":id-99e127ad-2f7a-4a63-b9d7-3f9e6d33166a"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/aba59397-43c6-4454-8f24-7548558d1bc5"/>
+        <NamedIndividual abbreviatedIRI=":id-89cb27d6-f7d0-435a-94a2-0a0789105799"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/160fae50-bf0b-405b-b224-74d9fdb2e10e"/>
+        <NamedIndividual abbreviatedIRI=":id-c27237f4-f1fd-4907-ba7f-e43bd1b2144d"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/9f23dbec-27d0-4d80-92dc-c417b963772d"/>
+        <NamedIndividual abbreviatedIRI=":id-2aee586b-f90d-4953-a49b-7ea680224671"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/7733c710-d203-4759-a133-2fe138e8097d"/>
+        <NamedIndividual abbreviatedIRI=":id-bd91e589-c009-4dc0-98e3-c92878c81e18"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/03bd21b3-920d-4e5e-bba9-a6be30920a05"/>
+        <NamedIndividual abbreviatedIRI=":id-5e350803-ea42-4547-8352-bbda61aed243"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/1ee48ddd-5c32-4801-bf1b-0556ab43cc30"/>
+        <NamedIndividual abbreviatedIRI=":id-7d9b7237-0ddb-4387-aa3d-ed652d60c49c"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/23ee4825-5e6d-40c9-8d5b-c42f199a8434"/>
+        <NamedIndividual abbreviatedIRI=":id-7aaf51a0-8c1b-4f45-bbb9-2165444ff0cf"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/ffedf96f-fa15-4eec-851f-6de8282766e7"/>
+        <DataProperty abbreviatedIRI="dbp:name"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/8846c456-d5ff-4ad1-b730-6b1b863bf46a"/>
+        <NamedIndividual abbreviatedIRI=":id-df06d789-a01a-4d4c-bff9-c1e485cc475c"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/c68fc5da-2d7f-4096-bd6f-107afdb74fc1"/>
+        <NamedIndividual abbreviatedIRI=":id-33fb9fe1-dcca-4a2e-a57a-780632623d6b"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/8826ce55-d1f4-48a8-98e8-56c15685afdf"/>
+        <NamedIndividual abbreviatedIRI=":id-64835a55-34b6-4665-b8aa-0c7ed8e3b9f6"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/07b65573-9504-4de8-bbfa-8f928c9235cc"/>
+        <NamedIndividual abbreviatedIRI=":id-d7972ef1-ec69-4ec1-9622-42041f9131f3"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/09d5dac2-4656-4822-907f-f3829060e3bb"/>
+        <NamedIndividual abbreviatedIRI=":id-f79a3485-aaf0-495b-b4e9-6a4330c3f395"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/6b9e1629-680c-4c37-bad7-e04081cc1094"/>
+        <NamedIndividual abbreviatedIRI=":id-70736a6f-fd86-480c-a8d3-8e130e867c09"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/8f820b9d-4092-4c3b-8f8c-7ac077b2b5f9"/>
+        <NamedIndividual abbreviatedIRI=":id-94a05959-ca38-4505-a8e7-c87735fa6346"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/ee08a9f4-f69a-44b6-89fa-ff2ed1891b14"/>
+        <NamedIndividual abbreviatedIRI=":id-7a1d98c1-40b5-4772-bee3-6a1fa81d63ac"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/212702b5-cb24-47c5-b791-da106ef2e9f4"/>
+        <NamedIndividual abbreviatedIRI=":id-264159a8-a1a1-41eb-a13f-b245720e5aa7"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/d731c4cb-0482-41fe-a6a9-48b565b507ba"/>
+        <NamedIndividual abbreviatedIRI=":id-a9edefd8-fef9-45ab-8215-4c533ee08b71"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/05b1a5e1-fbae-4e04-b02f-cad607d034e7"/>
+        <NamedIndividual abbreviatedIRI=":id-582bca4c-112f-4d41-b4a8-dc89df4c4ef3"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/f03ef148-d6b4-48ea-bb89-ccb43de17d4e"/>
+        <NamedIndividual abbreviatedIRI=":id-be709434-99e7-4b91-bf90-fbbeec3daa13"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/08d2dc0e-ec97-4867-826c-d09f1399fc5b"/>
+        <NamedIndividual abbreviatedIRI=":id-7201c5e4-865c-40f2-a125-afd30e7077bc"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/ad9fe3a8-5642-4680-ba5c-05632419e5b4"/>
+        <NamedIndividual abbreviatedIRI=":id-e23d4bab-64ad-462c-bf84-613007d159da"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/2066f731-96e5-468f-919f-9c7ecf9d5bb1"/>
+        <NamedIndividual abbreviatedIRI=":id-7ab6ccce-9caa-4ddf-83a5-4e34d785b21c"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/4cb8b94e-1431-4879-9351-9249d7cc4ede"/>
+        <NamedIndividual abbreviatedIRI=":id-533418ca-441a-4684-b6d5-4d1dda1c86dd"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/590828a3-fce7-4964-85b8-0039cc8bdc69"/>
+        <NamedIndividual abbreviatedIRI=":id-d1af0141-3b2b-4c22-a711-831087a8f912"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/c2cce2b7-2f38-409a-a2f8-2039dfcc0e58"/>
+        <NamedIndividual abbreviatedIRI=":id-ee98133e-82d4-45b0-b9b4-477df7b4c445"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/062393d1-3c07-4edf-9a6d-2d94465dfc7e"/>
+        <NamedIndividual abbreviatedIRI=":id-1c197781-2198-4df1-a628-889533ef6db3"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/162b5c75-b88d-449c-9221-9c02d657da2a"/>
+        <NamedIndividual abbreviatedIRI=":id-88c67347-962b-4f14-920e-d2ee7fd73130"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/90ea41d0-6a0a-465d-9bc7-d850e44c9f9f"/>
+        <NamedIndividual abbreviatedIRI=":id-34caa83a-4456-427e-a94b-9f9a3d632e51"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/3e374885-b5c4-48ad-9792-5010362351c3"/>
+        <NamedIndividual abbreviatedIRI=":id-6c21bfc8-2195-4277-a047-cf286adb8bad"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/0d50a296-eb2f-4e4e-b536-9e5d3c04b13b"/>
+        <NamedIndividual abbreviatedIRI=":id-f43d6b64-479f-406d-a0c3-1d424281ccb4"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/8771f2b8-d426-4036-b37a-5e97a93db227"/>
+        <NamedIndividual abbreviatedIRI=":id-6e7a686f-d0c9-44be-869b-4a1207ee2f22"/>
     </Declaration>
     <Declaration>
         <Class IRI="http://purl.org/vocommons/voaf#Vocabulary"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/37fc5735-5d83-4fe3-80d4-e75ca10fab8d"/>
+        <NamedIndividual abbreviatedIRI=":id-075b21c8-6b0a-4611-9b94-376cc26fa812"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/3debbde0-dd0c-4a0d-b973-3a83d82ea3d7"/>
+        <NamedIndividual abbreviatedIRI=":id-79b12bcf-be34-432a-92a0-6526c3737f8b"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/7835ffd2-0ee2-4720-a701-3ea4ecd21215"/>
+        <NamedIndividual abbreviatedIRI=":id-4942e214-16d1-4987-8921-6224d39d35ca"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/7793e69a-ca9c-4823-8fc2-2e22be01b009"/>
+        <NamedIndividual abbreviatedIRI=":id-5d4ca913-971e-4fda-8d47-da437d4a5a8a"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/7ddfcc3f-135c-4fe2-82e2-640829ec0fbd"/>
+        <NamedIndividual abbreviatedIRI=":id-936160d1-38da-43d8-b013-ff2c982bcf1a"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/666cb342-5221-42f8-b8cc-70f02b1c2d91"/>
+        <NamedIndividual abbreviatedIRI=":id-ab2e8890-5241-4ddb-b3a2-010839224633"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/67a2ac6b-e81a-4145-ba7f-2e9703f6c6e7"/>
+        <NamedIndividual abbreviatedIRI=":id-9c2250d8-e32b-4424-890c-acd97a0c8d79"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/f7caed23-6e98-43c3-8d7a-f8934b8fe9d6"/>
+        <NamedIndividual abbreviatedIRI=":id-62e0703d-0a22-4435-a2b2-c7b1687b0a9d"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/5e6d6cc5-1b3b-45c0-8785-8ded013a07ed"/>
+        <NamedIndividual abbreviatedIRI=":id-bb31f203-4650-44b6-86bf-1015e23d38b4"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/6d96ff67-7bf1-40a7-ab23-28b0830d1ff8"/>
+        <NamedIndividual abbreviatedIRI=":id-4cb46ea9-7b97-459e-943e-c83560d88f89"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/a4630c17-4504-4f0f-a65e-654e591bd393"/>
+        <NamedIndividual abbreviatedIRI=":id-7a6203cf-a0bd-4fe3-82ce-6188e27ee55d"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/b2a9fb9b-889a-4cbb-8d16-8c106db06a35"/>
+        <NamedIndividual abbreviatedIRI=":id-ceaa3096-dc91-47b1-a14f-0b62c61f653d"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/6d750ab5-05b4-463f-9b8a-f85caadf9135"/>
+        <NamedIndividual abbreviatedIRI=":id-2f16f47a-b24f-44a9-bb03-bce315ce2dcb"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/fb4cefa1-ba60-43ac-a732-133e580409a3"/>
+        <NamedIndividual abbreviatedIRI=":id-2468e049-5199-4063-bdf4-98651c2105e8"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/9c1d1e4c-1408-4b9b-a9b0-5b08bf19d53f"/>
+        <NamedIndividual abbreviatedIRI=":id-f0afa6f0-5b41-4c46-9b1b-881a1f757776"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/3645f685-ca8b-4a1b-893f-28f0d8035c0e"/>
+        <NamedIndividual abbreviatedIRI=":id-e2158fe4-0567-48c1-931a-98729c0dcc60"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/6c2844af-0c3b-43ae-adce-a15acc5c8311"/>
+        <NamedIndividual abbreviatedIRI=":id-38412158-4b64-4c5a-a8c1-1597dcc3347a"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/318a5326-cde8-4608-8c06-ee149d99dd2c"/>
+        <NamedIndividual abbreviatedIRI=":id-7e7dcbb0-94b2-4513-8813-b18c85f5dc7b"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/f29a5b2e-9d70-40db-b8cc-d5f5bcd0dbf1"/>
+        <NamedIndividual abbreviatedIRI=":id-f81a9fe3-3f1d-48a1-a3de-14d7f6284390"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/112726c8-50c8-47cd-bd7e-74f43a4bcd9e"/>
+        <NamedIndividual abbreviatedIRI=":id-fb42727e-78e7-4fc2-a290-4e40cf069ece"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/908a26ca-0d52-40ce-a9c1-2ecd6783fc93"/>
+        <NamedIndividual abbreviatedIRI=":id-0661626d-2762-4ffc-8533-6a2457937ca5"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/8c0fa3c2-b4e2-4254-a5ff-d17afc548443"/>
+        <NamedIndividual abbreviatedIRI=":id-f13f5b11-01f4-4fbf-a0fe-f0fa3d9decaa"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/d3dcdb91-10b5-4e9a-b05b-33f5c27f7bbb"/>
+        <NamedIndividual abbreviatedIRI=":id-64f496c1-c248-4056-ac3e-ba121e8e8fe2"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/88f6d70e-ad20-4bff-aa63-46c1a3a159b4"/>
+        <NamedIndividual abbreviatedIRI=":id-077ad5d8-dbd1-4d66-89b0-e4fa4f564e88"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/2a810303-8718-4b68-a197-b61d7c400f5d"/>
+        <NamedIndividual abbreviatedIRI=":id-e7b31e92-e1b3-4669-b9f9-151092f07291"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/ae8ed434-7e03-4edc-86ad-cb68af66c61c"/>
+        <NamedIndividual abbreviatedIRI=":id-18897bd3-ecc5-49b1-a121-6f1f358c7c69"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/ce563a43-e9ae-438f-85d7-20468f900cb7"/>
+        <NamedIndividual abbreviatedIRI=":id-191b810d-b979-41cc-a400-a039785b6d6a"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/e9e654d2-7898-46c0-b17a-47ad7bb5c16c"/>
+        <NamedIndividual abbreviatedIRI=":id-e9934ae3-9e70-4da3-9742-8ccf0c79681c"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/b06464ba-ba0f-4912-8413-da5c7978c9ae"/>
+        <NamedIndividual abbreviatedIRI=":id-ea829618-5677-49b0-8f01-82f1f3638466"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/4053b378-89ac-4ac6-b7ad-07c7da492209"/>
+        <NamedIndividual abbreviatedIRI=":id-090d153b-d9e3-4d95-8267-1e5f2b6618c1"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/34a97f38-f994-49e1-ae08-4ce9a57fbd4c"/>
+        <NamedIndividual abbreviatedIRI=":id-b6304d60-2efe-4069-bd9f-d58ed404bcd6"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/7428aab9-fc5a-46d1-964e-2bc968b1a127"/>
+        <NamedIndividual abbreviatedIRI=":id-6636cc2c-8edd-40bd-b42e-3f5dc400b36b"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/4de3fee1-cb14-4494-8e28-a7054aaff9bc"/>
+        <NamedIndividual abbreviatedIRI=":id-91fb0ed0-2d40-458c-a35b-0546fe6b1d65"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/61d54347-b613-4f4f-88a6-4165ff46b1d7"/>
+        <NamedIndividual abbreviatedIRI=":id-adadfa41-4d3a-4233-a6af-84287a1c41a0"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/ea82e826-f428-4a93-8422-dc4194584af1"/>
+        <NamedIndividual abbreviatedIRI=":id-d643b5f0-6c30-4abe-9b9b-d4289db2f855"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/69935fd7-e2d4-466f-95f6-68e82ee22780"/>
+        <NamedIndividual abbreviatedIRI=":id-4860b103-1299-4457-8227-539e671ace4c"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/de534ad2-92a8-4b79-9e3f-7fe00d099e2b"/>
+        <NamedIndividual abbreviatedIRI=":id-71bf6ce4-e6b1-4347-ae23-cd9183725258"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/94e13e51-dd1b-495e-b16f-7a83606c5c3d"/>
+        <NamedIndividual abbreviatedIRI=":id-ec08855e-843a-4449-a937-eff8f31290be"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/0c2dc17b-1ca4-4008-8ab3-5ae3aeede57a"/>
+        <NamedIndividual abbreviatedIRI=":id-1782e1a4-7b5d-4d49-808a-5c7df6e17852"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/bd235519-ac2c-4252-8338-30ed3d991965"/>
+        <NamedIndividual abbreviatedIRI=":id-836c1524-16f8-4bc2-868f-d09fa7a2a1a3"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/a2c1bb3f-c3c4-4f24-9b2d-6fb0118b5c4d"/>
+        <NamedIndividual abbreviatedIRI=":id-dde4bfca-bb9f-4de8-9a98-e6b7f7f85513"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/3cd611f0-0cbe-4c3d-bd90-1a16d36d57e0"/>
+        <NamedIndividual abbreviatedIRI=":id-5c2d3a6c-2fd9-4b3b-a703-3b781bfa4b58"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/f5526d29-13bf-4630-b1cb-6c0507d04590"/>
+        <NamedIndividual abbreviatedIRI=":id-ca8f20a4-6cbc-45a7-8292-1a58a5bbdaf0"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/6a634b81-ace8-4ed4-b9dd-bf1f5006aaa9"/>
+        <NamedIndividual abbreviatedIRI=":id-c08a1c72-c6e2-4245-869d-6d1137788bed"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/df5c5d6c-2e78-428a-a027-6f745dc15969"/>
+        <NamedIndividual abbreviatedIRI=":id-34954a75-8579-4c8f-98d1-178c7840798b"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/193b5000-12db-4df4-9b17-6e69438ec638"/>
+        <NamedIndividual abbreviatedIRI=":id-88203267-313e-4458-9a3a-98cdf0e85dac"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/d4d70217-a0b4-4eaa-94b5-ed7e6a464cb9"/>
+        <NamedIndividual abbreviatedIRI=":id-a92cdf33-28e5-4f90-94ee-a6a04c444791"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/2a3890b1-14f0-4bd8-8312-6c782381b6c5"/>
+        <NamedIndividual abbreviatedIRI=":id-a356ca2b-5c0b-4fe1-ab05-25a00ec10115"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/e85c09df-cba3-4fa8-abfc-7609a673e48d"/>
+        <NamedIndividual abbreviatedIRI=":id-c32298cc-db43-40ff-82f4-8836a003f3ce"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/0f3af8ec-fce1-4edf-a613-7fe76cffd145"/>
+        <NamedIndividual abbreviatedIRI=":id-c319e278-54d3-4922-9ff9-0282ca00fe8e"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/6512b18c-1626-40cf-8a95-6ce77c47eee2"/>
+        <NamedIndividual abbreviatedIRI=":id-431cf571-a462-4804-a7fe-7b128371c819"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/93583791-c6e2-4de0-a005-6c5356c58dea"/>
+        <NamedIndividual abbreviatedIRI=":id-430a8da3-f06f-44e6-b769-efc74db3fc7f"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/ed35d8b5-0cc0-40b3-9927-2378fc684a12"/>
+        <NamedIndividual abbreviatedIRI=":id-739f97da-83eb-4a27-a080-b948ee6aa32e"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/3bb4140e-a0c3-4866-93a1-5ca8f75915f8"/>
+        <NamedIndividual abbreviatedIRI=":id-e1bd215b-dc8a-4645-b453-4ec7c751f4f5"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/56277e64-2894-4a98-9ae1-e7484aa45e05"/>
+        <NamedIndividual abbreviatedIRI=":id-73d59c43-79a4-45c2-bbc6-eba979451574"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/c8f02b45-f0c0-40f5-8dd3-abb4a46d7719"/>
+        <NamedIndividual abbreviatedIRI=":id-35950b9e-2d7e-4a56-bfbd-b7a5393da97a"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/54e5bc9b-39b7-49fa-853c-a2cc54f1674c"/>
+        <NamedIndividual abbreviatedIRI=":id-f6ed6562-fcbd-4c2b-8bcb-f1fb24d4c8df"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/3d16bf02-67f6-4166-8189-57768115cb57"/>
+        <NamedIndividual abbreviatedIRI=":id-46492a47-8e42-433a-acbb-383d644dce05"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/0e63f5c1-3b79-4273-8d59-588ce2d7c42f"/>
+        <NamedIndividual abbreviatedIRI=":id-2340ce2b-ffc5-411d-ae71-ae54afc32900"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/e25bc602-02e2-45f4-bbcd-c6d6dc3d0e98"/>
+        <NamedIndividual abbreviatedIRI=":id-e2a54640-82cc-4a9b-9b89-acda9725c155"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/a1f112bc-851f-4c5b-a5ee-82525aad925c"/>
+        <NamedIndividual abbreviatedIRI=":id-c5437dbb-e0fc-4c71-8086-130d68473241"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/16b7cf9f-bc98-4190-a44c-2e3c59f9bab0"/>
+        <NamedIndividual abbreviatedIRI=":id-142f04a0-87f4-4208-9deb-37e1ef0e3b5c"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://localhost:8080/3e3b15e3-bcc0-4845-aa5c-9ac6da656e85"/>
+        <NamedIndividual abbreviatedIRI=":id-4530aa5c-f853-4993-8c8e-debd3a9ad444"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI=":id-d49cc651-555e-4d69-a1b1-fc38efe2e22d"/>
     </Declaration>
     <ClassAssertion>
         <Class IRI="http://purl.org/vocommons/voaf#Vocabulary"/>
-        <NamedIndividual IRI="http://dbpedia.org/ontology/"/>
+        <NamedIndividual abbreviatedIRI="dbp:"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/a1f112bc-851f-4c5b-a5ee-82525aad925c"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-0661626d-2762-4ffc-8533-6a2457937ca5"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/a2c1bb3f-c3c4-4f24-9b2d-6fb0118b5c4d"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-075b21c8-6b0a-4611-9b94-376cc26fa812"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/a4630c17-4504-4f0f-a65e-654e591bd393"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-077ad5d8-dbd1-4d66-89b0-e4fa4f564e88"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/a4d819f7-2a91-4b12-90f2-b2d9ffe46623"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-0803c90a-cafe-4731-aea9-32e5913d3c15"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/a7e2c105-5ae0-499f-b656-e1bd43542bb4"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-090d153b-d9e3-4d95-8267-1e5f2b6618c1"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/aba59397-43c6-4454-8f24-7548558d1bc5"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-102def50-906e-48d6-ac68-a288c1d87939"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/ad9fe3a8-5642-4680-ba5c-05632419e5b4"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-11ce2457-66ad-4876-90b3-4e7769b9eeee"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/ae8ed434-7e03-4edc-86ad-cb68af66c61c"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-142f04a0-87f4-4208-9deb-37e1ef0e3b5c"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/afe5b15f-37d7-4ff1-b8c9-c6cf78e6da54"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-1454705e-8ade-4970-9cd2-db827df23c1d"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/b06464ba-ba0f-4912-8413-da5c7978c9ae"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-1538d251-b378-456f-9584-bdc58f28d7a8"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/b2a9fb9b-889a-4cbb-8d16-8c106db06a35"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-1782e1a4-7b5d-4d49-808a-5c7df6e17852"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/b97663fb-143b-460a-b1f2-78222cdd4666"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-18897bd3-ecc5-49b1-a121-6f1f358c7c69"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/b9e7d65e-08dd-4a6f-ac40-323d60cf78f9"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-18c268aa-b98e-4bc5-ae47-d4da3d05186c"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/bd235519-ac2c-4252-8338-30ed3d991965"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-191b810d-b979-41cc-a400-a039785b6d6a"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/c2cce2b7-2f38-409a-a2f8-2039dfcc0e58"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-1c197781-2198-4df1-a628-889533ef6db3"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/c68fc5da-2d7f-4096-bd6f-107afdb74fc1"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-1cd03b04-19af-4182-959a-a73bb0a81624"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/c8f02b45-f0c0-40f5-8dd3-abb4a46d7719"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-2340ce2b-ffc5-411d-ae71-ae54afc32900"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/c9970948-e60c-4eaf-b9c1-a75813021625"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-2468e049-5199-4063-bdf4-98651c2105e8"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/ca2f9d6a-6c80-4170-89a0-ddb6ec8db114"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-24983d29-d951-4ea7-a960-c4b56d3cf0b9"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/ce563a43-e9ae-438f-85d7-20468f900cb7"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-264159a8-a1a1-41eb-a13f-b245720e5aa7"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/d3dcdb91-10b5-4e9a-b05b-33f5c27f7bbb"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-29302e3b-9d97-4958-9995-5cdad2c1812a"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/d4d70217-a0b4-4eaa-94b5-ed7e6a464cb9"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-2aee586b-f90d-4953-a49b-7ea680224671"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/d731c4cb-0482-41fe-a6a9-48b565b507ba"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-2e172f78-b837-4629-983f-f1caed406973"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/de534ad2-92a8-4b79-9e3f-7fe00d099e2b"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-2f16f47a-b24f-44a9-bb03-bce315ce2dcb"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/df5c5d6c-2e78-428a-a027-6f745dc15969"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-33fb9fe1-dcca-4a2e-a57a-780632623d6b"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/e25bc602-02e2-45f4-bbcd-c6d6dc3d0e98"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-34954a75-8579-4c8f-98d1-178c7840798b"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/e64ccd4b-763a-4342-bd5c-0c6cab7709be"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-34caa83a-4456-427e-a94b-9f9a3d632e51"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/e85c09df-cba3-4fa8-abfc-7609a673e48d"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-35950b9e-2d7e-4a56-bfbd-b7a5393da97a"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/e9e654d2-7898-46c0-b17a-47ad7bb5c16c"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-38412158-4b64-4c5a-a8c1-1597dcc3347a"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/ea82e826-f428-4a93-8422-dc4194584af1"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-3e32fe88-700a-44b3-b628-742a9bb46e73"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/ed35d8b5-0cc0-40b3-9927-2378fc684a12"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-430a8da3-f06f-44e6-b769-efc74db3fc7f"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/ee08a9f4-f69a-44b6-89fa-ff2ed1891b14"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-431cf571-a462-4804-a7fe-7b128371c819"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/efc7257a-f7fb-4df8-bd49-bbcc40654b98"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-451208e6-bb47-4109-9859-b0d6ef3b910d"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/f03ef148-d6b4-48ea-bb89-ccb43de17d4e"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-4530aa5c-f853-4993-8c8e-debd3a9ad444"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/f1b886b6-541c-4943-821f-60ae89fd2918"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-46492a47-8e42-433a-acbb-383d644dce05"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/f29a5b2e-9d70-40db-b8cc-d5f5bcd0dbf1"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-4860b103-1299-4457-8227-539e671ace4c"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/f30703e6-0735-490f-b947-d3daaaba13da"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-4864b431-a7a0-4840-9637-dfa5e537ee8b"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/f37b591f-116f-4fb6-8fc8-1bc32316ebcd"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-4942e214-16d1-4987-8921-6224d39d35ca"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/f4257345-ddc5-4750-a0b3-f6fdd41d828f"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-4cb46ea9-7b97-459e-943e-c83560d88f89"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/f5526d29-13bf-4630-b1cb-6c0507d04590"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-4fd69d81-8eda-48c3-b1ab-7d7eda58a523"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/f71ad932-8545-4570-82fb-463c2b54cd3b"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-507b1971-0e96-4241-8e74-a473de8be74a"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/f7caed23-6e98-43c3-8d7a-f8934b8fe9d6"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-533418ca-441a-4684-b6d5-4d1dda1c86dd"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/fa0fe11d-9fe3-4631-a07e-cfb7f2015a71"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-582bca4c-112f-4d41-b4a8-dc89df4c4ef3"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/fb4cefa1-ba60-43ac-a732-133e580409a3"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-5c2d3a6c-2fd9-4b3b-a703-3b781bfa4b58"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/ffedf96f-fa15-4eec-851f-6de8282766e7"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-5d4ca913-971e-4fda-8d47-da437d4a5a8a"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/0c2dc17b-1ca4-4008-8ab3-5ae3aeede57a"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-5e350803-ea42-4547-8352-bbda61aed243"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/0ce8358d-8735-457d-8fda-9b8e5306b557"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-62e0703d-0a22-4435-a2b2-c7b1687b0a9d"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/0d50a296-eb2f-4e4e-b536-9e5d3c04b13b"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-64835a55-34b6-4665-b8aa-0c7ed8e3b9f6"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/0e63f5c1-3b79-4273-8d59-588ce2d7c42f"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-64f496c1-c248-4056-ac3e-ba121e8e8fe2"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/0f3af8ec-fce1-4edf-a613-7fe76cffd145"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-6636cc2c-8edd-40bd-b42e-3f5dc400b36b"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/02061986-99a1-4611-9d54-d1e42571af6c"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-678294a6-edc0-444e-9085-34d4aa5d8efe"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/03bd21b3-920d-4e5e-bba9-a6be30920a05"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-68085bed-c82b-4f51-972b-b748863f9695"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/03f1fdc9-c1f2-4bb7-8a0b-15fc8e1e433c"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-6875dea9-3ad4-4576-ae18-5fef5aded2d3"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/05b1a5e1-fbae-4e04-b02f-cad607d034e7"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-6a871d1d-8f15-492c-aa35-da7123202866"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/06dae37e-a797-470b-b9b3-cde9958d6910"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-6c21bfc8-2195-4277-a047-cf286adb8bad"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/062393d1-3c07-4edf-9a6d-2d94465dfc7e"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-6e7a686f-d0c9-44be-869b-4a1207ee2f22"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/07b65573-9504-4de8-bbfa-8f928c9235cc"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-70736a6f-fd86-480c-a8d3-8e130e867c09"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/08d2dc0e-ec97-4867-826c-d09f1399fc5b"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-71bf6ce4-e6b1-4347-ae23-cd9183725258"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/09d5dac2-4656-4822-907f-f3829060e3bb"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-7201c5e4-865c-40f2-a125-afd30e7077bc"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/09e50384-d7c4-4940-8e88-650acc367734"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-739f97da-83eb-4a27-a080-b948ee6aa32e"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/1ee48ddd-5c32-4801-bf1b-0556ab43cc30"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-73d59c43-79a4-45c2-bbc6-eba979451574"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/112726c8-50c8-47cd-bd7e-74f43a4bcd9e"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-74c97164-964f-4fb8-8afd-f36f3f3c6037"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/152e2614-0454-4336-abe0-7339f0b78460"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-76cb6fc4-9999-4dc6-8073-9fdaf795f5a2"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/16b7cf9f-bc98-4190-a44c-2e3c59f9bab0"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-79b12bcf-be34-432a-92a0-6526c3737f8b"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/160fae50-bf0b-405b-b224-74d9fdb2e10e"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-7a1d98c1-40b5-4772-bee3-6a1fa81d63ac"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/162b5c75-b88d-449c-9221-9c02d657da2a"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-7a6203cf-a0bd-4fe3-82ce-6188e27ee55d"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/193b5000-12db-4df4-9b17-6e69438ec638"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-7aaf51a0-8c1b-4f45-bbb9-2165444ff0cf"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/2a3890b1-14f0-4bd8-8312-6c782381b6c5"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-7ab6ccce-9caa-4ddf-83a5-4e34d785b21c"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/2a810303-8718-4b68-a197-b61d7c400f5d"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-7d745d96-e2b5-48e8-b0bf-ed656cd964cb"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/2066f731-96e5-468f-919f-9c7ecf9d5bb1"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-7d9b7237-0ddb-4387-aa3d-ed652d60c49c"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/212702b5-cb24-47c5-b791-da106ef2e9f4"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-7e7dcbb0-94b2-4513-8813-b18c85f5dc7b"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/23ee4825-5e6d-40c9-8d5b-c42f199a8434"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-7f9d27be-4747-4257-b0f3-560781de20eb"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/24875af9-35b5-4827-9f43-cf5d195e1429"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-836c1524-16f8-4bc2-868f-d09fa7a2a1a3"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/25bd2516-f84d-4831-8c51-ff4e42f5a6ae"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-88203267-313e-4458-9a3a-98cdf0e85dac"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/27380f29-5828-4657-88a3-83225e29bfdc"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-88c67347-962b-4f14-920e-d2ee7fd73130"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/29dc8c0a-251d-4c03-8860-ead2773f218f"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-89cb27d6-f7d0-435a-94a2-0a0789105799"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/3bb4140e-a0c3-4866-93a1-5ca8f75915f8"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-91fb0ed0-2d40-458c-a35b-0546fe6b1d65"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/3cd611f0-0cbe-4c3d-bd90-1a16d36d57e0"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-9221897b-3d9c-46c9-936b-4764a5deeda7"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/3d16bf02-67f6-4166-8189-57768115cb57"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-935b38c0-53da-477b-9a80-33e866a8a3f5"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/3debbde0-dd0c-4a0d-b973-3a83d82ea3d7"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-936160d1-38da-43d8-b013-ff2c982bcf1a"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/3e374885-b5c4-48ad-9792-5010362351c3"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-94a05959-ca38-4505-a8e7-c87735fa6346"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/3e3b15e3-bcc0-4845-aa5c-9ac6da656e85"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-97101105-2954-40bf-9410-60b42f16db74"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/318a5326-cde8-4608-8c06-ee149d99dd2c"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-99e127ad-2f7a-4a63-b9d7-3f9e6d33166a"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/34a97f38-f994-49e1-ae08-4ce9a57fbd4c"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-9c2250d8-e32b-4424-890c-acd97a0c8d79"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/3645f685-ca8b-4a1b-893f-28f0d8035c0e"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-a03f3a20-990d-4e43-9ea0-3256419feddb"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/37fc5735-5d83-4fe3-80d4-e75ca10fab8d"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-a2cc1d36-51a7-456c-aab9-3e9f50e2c149"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/4cb8b94e-1431-4879-9351-9249d7cc4ede"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-a356ca2b-5c0b-4fe1-ab05-25a00ec10115"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/4de3fee1-cb14-4494-8e28-a7054aaff9bc"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-a4119f26-0644-42b6-8744-d39fc57c6a45"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/4053b378-89ac-4ac6-b7ad-07c7da492209"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-a92cdf33-28e5-4f90-94ee-a6a04c444791"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/5d0d72cc-d5e2-4954-868e-e9a6b5ec327f"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-a9edefd8-fef9-45ab-8215-4c533ee08b71"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/5e6d6cc5-1b3b-45c0-8785-8ded013a07ed"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-aa7251d3-27b1-448c-a29d-a57e56910065"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/54e5bc9b-39b7-49fa-853c-a2cc54f1674c"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-ab2e8890-5241-4ddb-b3a2-010839224633"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/543c6e50-a30e-4b29-9f27-7fc8ee211c68"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-adadfa41-4d3a-4233-a6af-84287a1c41a0"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/56277e64-2894-4a98-9ae1-e7484aa45e05"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-ae487928-5685-4316-bfd9-7abca7d94cb0"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/590828a3-fce7-4964-85b8-0039cc8bdc69"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-b5b7c78f-46d8-4cd7-9a3c-42c0bffaec55"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/6a634b81-ace8-4ed4-b9dd-bf1f5006aaa9"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-b6304d60-2efe-4069-bd9f-d58ed404bcd6"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/6b5a703b-e87b-41dc-8720-25a1fb6d0216"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-bb31f203-4650-44b6-86bf-1015e23d38b4"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/6b9e1629-680c-4c37-bad7-e04081cc1094"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-bd91e589-c009-4dc0-98e3-c92878c81e18"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/6c2844af-0c3b-43ae-adce-a15acc5c8311"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-be709434-99e7-4b91-bf90-fbbeec3daa13"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/6c29d928-64e1-452d-aaf0-f93b951bdd9a"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-c08a1c72-c6e2-4245-869d-6d1137788bed"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/6d3f7e91-f9d4-470e-86f8-056d895b7fa5"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-c27237f4-f1fd-4907-ba7f-e43bd1b2144d"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/6d750ab5-05b4-463f-9b8a-f85caadf9135"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-c319e278-54d3-4922-9ff9-0282ca00fe8e"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/6d96ff67-7bf1-40a7-ab23-28b0830d1ff8"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-c32298cc-db43-40ff-82f4-8836a003f3ce"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/61d54347-b613-4f4f-88a6-4165ff46b1d7"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-c5437dbb-e0fc-4c71-8086-130d68473241"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/6512b18c-1626-40cf-8a95-6ce77c47eee2"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-ca4b3417-4dbc-4047-92f8-1bcffd7ddf99"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/666cb342-5221-42f8-b8cc-70f02b1c2d91"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-ca8f20a4-6cbc-45a7-8292-1a58a5bbdaf0"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/67a2ac6b-e81a-4145-ba7f-2e9703f6c6e7"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-ce45c2ac-5532-480e-bfaa-a8b359ea0fbc"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/69935fd7-e2d4-466f-95f6-68e82ee22780"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-ceaa3096-dc91-47b1-a14f-0b62c61f653d"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/7a828307-8931-408c-b945-6eba3ea5ae5c"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-d1af0141-3b2b-4c22-a711-831087a8f912"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/7ddfcc3f-135c-4fe2-82e2-640829ec0fbd"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-d478158a-c062-41ed-8be8-bfc1180fe9f5"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/7de5110e-0ff7-42fe-ab18-67560e809482"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-d49cc651-555e-4d69-a1b1-fc38efe2e22d"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/72988e71-59e1-41d8-a568-6095965967cf"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-d643b5f0-6c30-4abe-9b9b-d4289db2f855"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/7428aab9-fc5a-46d1-964e-2bc968b1a127"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-d7972ef1-ec69-4ec1-9622-42041f9131f3"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/7733c710-d203-4759-a133-2fe138e8097d"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-dc93874e-3a5d-4637-8725-1f4ce2a9da0a"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/7793e69a-ca9c-4823-8fc2-2e22be01b009"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-dde4bfca-bb9f-4de8-9a98-e6b7f7f85513"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/782ed16b-e60c-4fb9-bedd-8834a27bac57"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-df06d789-a01a-4d4c-bff9-c1e485cc475c"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/7835ffd2-0ee2-4720-a701-3ea4ecd21215"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-e1bd215b-dc8a-4645-b453-4ec7c751f4f5"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/8c0fa3c2-b4e2-4254-a5ff-d17afc548443"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-e2158fe4-0567-48c1-931a-98729c0dcc60"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/8dd23826-976a-4ae6-86a0-e9fa6e71b89b"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-e23d4bab-64ad-462c-bf84-613007d159da"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/8e83baeb-3acc-4994-a20e-42c14a8191c7"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-e2a54640-82cc-4a9b-9b89-acda9725c155"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/8ef33bea-406a-4625-8438-dfe84d7c0fab"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-e3d2ed9d-ba35-40df-b825-846f303b81ca"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/8f820b9d-4092-4c3b-8f8c-7ac077b2b5f9"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-e7b31e92-e1b3-4669-b9f9-151092f07291"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/8771f2b8-d426-4036-b37a-5e97a93db227"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-e9934ae3-9e70-4da3-9742-8ccf0c79681c"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/88f6d70e-ad20-4bff-aa63-46c1a3a159b4"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-ea829618-5677-49b0-8f01-82f1f3638466"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/8826ce55-d1f4-48a8-98e8-56c15685afdf"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-ec08855e-843a-4449-a937-eff8f31290be"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/8846c456-d5ff-4ad1-b730-6b1b863bf46a"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-ee98133e-82d4-45b0-b9b4-477df7b4c445"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/89feedf4-091a-4af5-91af-3c61b9992357"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-f0afa6f0-5b41-4c46-9b1b-881a1f757776"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/9c1d1e4c-1408-4b9b-a9b0-5b08bf19d53f"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-f13f5b11-01f4-4fbf-a0fe-f0fa3d9decaa"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/9f23dbec-27d0-4d80-92dc-c417b963772d"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-f421a264-05d2-46aa-9a7e-b5ccb9ed5ac9"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/90ea41d0-6a0a-465d-9bc7-d850e44c9f9f"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-f43d6b64-479f-406d-a0c3-1d424281ccb4"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/908a26ca-0d52-40ce-a9c1-2ecd6783fc93"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-f6ed6562-fcbd-4c2b-8bcb-f1fb24d4c8df"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/93583791-c6e2-4de0-a005-6c5356c58dea"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-f79a3485-aaf0-495b-b4e9-6a4330c3f395"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/94e13e51-dd1b-495e-b16f-7a83606c5c3d"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-f81a9fe3-3f1d-48a1-a3de-14d7f6284390"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/96ab7167-0125-45f6-b295-e835069a8b21"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-fb42727e-78e7-4fc2-a290-4e40cf069ece"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="http://dbpedia.org/ontology/Place"/>
-        <NamedIndividual IRI="http://localhost:8080/992de1e3-4502-48c8-b8a4-e6b1e0a7f2cd"/>
+        <Class abbreviatedIRI="dbp:Place"/>
+        <NamedIndividual abbreviatedIRI=":id-fd31aa35-d171-4a86-8766-d45703302b20"/>
     </ClassAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-0661626d-2762-4ffc-8533-6a2457937ca5"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Teatro Casa do Riso</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-075b21c8-6b0a-4611-9b94-376cc26fa812"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Teatro Maria Clara Machado</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-077ad5d8-dbd1-4d66-89b0-e4fa4f564e88"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Praça Paris</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-0803c90a-cafe-4731-aea9-32e5913d3c15"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Museu do Índio</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-090d153b-d9e3-4d95-8267-1e5f2b6618c1"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Fortaleza de São João</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-102def50-906e-48d6-ac68-a288c1d87939"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Teatro Arthur Azevedo</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-11ce2457-66ad-4876-90b3-4e7769b9eeee"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Centro Luiz Gonzaga de Tradições Nordestinas</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-142f04a0-87f4-4208-9deb-37e1ef0e3b5c"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Teatro Gláucio Gil</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-1454705e-8ade-4970-9cd2-db827df23c1d"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Praia do Flamengo</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-1538d251-b378-456f-9584-bdc58f28d7a8"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Praia Leme</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-1782e1a4-7b5d-4d49-808a-5c7df6e17852"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Praia do Pepê</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-18897bd3-ecc5-49b1-a121-6f1f358c7c69"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Paço Imperial</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-18c268aa-b98e-4bc5-ae47-d4da3d05186c"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Biblioteca Nacional</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-191b810d-b979-41cc-a400-a039785b6d6a"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Santa Teresa</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-1c197781-2198-4df1-a628-889533ef6db3"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Ilha de Paquetá</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-1cd03b04-19af-4182-959a-a73bb0a81624"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Centro Cultural Candido Mendes</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-2340ce2b-ffc5-411d-ae71-ae54afc32900"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Praia da Barra de Guaratiba</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-2468e049-5199-4063-bdf4-98651c2105e8"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Cidade das Artes</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-24983d29-d951-4ea7-a960-c4b56d3cf0b9"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Parque das Ruínas</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-264159a8-a1a1-41eb-a13f-b245720e5aa7"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Planetário</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-29302e3b-9d97-4958-9995-5cdad2c1812a"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Casa França Brasil</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-2aee586b-f90d-4953-a49b-7ea680224671"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Lagoa Rodrigo de Freitas</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-2e172f78-b837-4629-983f-f1caed406973"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Teatro Odylo Costa Filho</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-2f16f47a-b24f-44a9-bb03-bce315ce2dcb"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Jockey Club Brasileiro</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-33fb9fe1-dcca-4a2e-a57a-780632623d6b"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Centro Cultural Banco do Brasil</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-34954a75-8579-4c8f-98d1-178c7840798b"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Praia da Urca</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-34caa83a-4456-427e-a94b-9f9a3d632e51"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Teatro Café Pequeno</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-35950b9e-2d7e-4a56-bfbd-b7a5393da97a"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Espaço Cultura Sergio Porto</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-38412158-4b64-4c5a-a8c1-1597dcc3347a"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Vista Chinesa</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-3e32fe88-700a-44b3-b628-742a9bb46e73"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Teatro CEC Antonio Fagundes</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-430a8da3-f06f-44e6-b769-efc74db3fc7f"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Teatro Carlos Gomes</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-431cf571-a462-4804-a7fe-7b128371c819"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Sala Cecília Meireles</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-451208e6-bb47-4109-9859-b0d6ef3b910d"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Teatro Leblon</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-4530aa5c-f853-4993-8c8e-debd3a9ad444"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Parque da Cidade</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-46492a47-8e42-433a-acbb-383d644dce05"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Teatro Mário Lago</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-4860b103-1299-4457-8227-539e671ace4c"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Casa Laura Alvin</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-4864b431-a7a0-4840-9637-dfa5e537ee8b"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Praia de Copacabana</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-4942e214-16d1-4987-8921-6224d39d35ca"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Teatro Miguel Falabella</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-4cb46ea9-7b97-459e-943e-c83560d88f89"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Forte de Copacabana</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-4fd69d81-8eda-48c3-b1ab-7d7eda58a523"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Museu de Folclore Edison Carneiro</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-507b1971-0e96-4241-8e74-a473de8be74a"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Museu do Clube Naval</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-533418ca-441a-4684-b6d5-4d1dda1c86dd"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Teatro Glória</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-582bca4c-112f-4d41-b4a8-dc89df4c4ef3"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Museu Carmem Miranda</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-5c2d3a6c-2fd9-4b3b-a703-3b781bfa4b58"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Cidade do Samba</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-5d4ca913-971e-4fda-8d47-da437d4a5a8a"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Museu de Arte Moderna</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-5e350803-ea42-4547-8352-bbda61aed243"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Museu Histórico Nacional</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-62e0703d-0a22-4435-a2b2-c7b1687b0a9d"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Teatro Amador O Tablado</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-64835a55-34b6-4665-b8aa-0c7ed8e3b9f6"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Parque Eduardo Guinle</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-64f496c1-c248-4056-ac3e-ba121e8e8fe2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Arcos da Lapa</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-6636cc2c-8edd-40bd-b42e-3f5dc400b36b"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Museu de Arte do Rio</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-678294a6-edc0-444e-9085-34d4aa5d8efe"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Quinta da Boa Vista/Museu Nacional</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-68085bed-c82b-4f51-972b-b748863f9695"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Teatro Glauce Rocha</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-6875dea9-3ad4-4576-ae18-5fef5aded2d3"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Praia Recreio dos Bandeirantes</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-6a871d1d-8f15-492c-aa35-da7123202866"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Museu de Arte Popular da Casa do Pontal</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-6c21bfc8-2195-4277-a047-cf286adb8bad"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Mirante Dona Marta</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-6e7a686f-d0c9-44be-869b-4a1207ee2f22"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Pão de Açúcar</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-70736a6f-fd86-480c-a8d3-8e130e867c09"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Museu do Açude</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-71bf6ce4-e6b1-4347-ae23-cd9183725258"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Sítio Roberto Burle Marx</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-7201c5e4-865c-40f2-a125-afd30e7077bc"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Parque Lage</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-739f97da-83eb-4a27-a080-b948ee6aa32e"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Teatro João Caetano</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-73d59c43-79a4-45c2-bbc6-eba979451574"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Fundação Eva Klabin Rapaport</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-74c97164-964f-4fb8-8afd-f36f3f3c6037"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Teatro Villa Lobos</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-76cb6fc4-9999-4dc6-8073-9fdaf795f5a2"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Campo de Santana</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-79b12bcf-be34-432a-92a0-6526c3737f8b"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Teatro do Instituto Benjamin Constant</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-7a1d98c1-40b5-4772-bee3-6a1fa81d63ac"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Palácio Tiradentes</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-7a6203cf-a0bd-4fe3-82ce-6188e27ee55d"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Praia da Joatinga</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-7aaf51a0-8c1b-4f45-bbb9-2165444ff0cf"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Teatro Casa da Gávea</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-7ab6ccce-9caa-4ddf-83a5-4e34d785b21c"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Praia de Grumari</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-7d745d96-e2b5-48e8-b0bf-ed656cd964cb"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Praia da Barra da Tijuca</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-7d9b7237-0ddb-4387-aa3d-ed652d60c49c"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Igreja de São Francisco da Penitência</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-7e7dcbb0-94b2-4513-8813-b18c85f5dc7b"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Estádio do Maracanã</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-7f9d27be-4747-4257-b0f3-560781de20eb"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Academia Brasileira de Letras</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-836c1524-16f8-4bc2-868f-d09fa7a2a1a3"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Praia do Leblon</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-88203267-313e-4458-9a3a-98cdf0e85dac"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Centro Cultural dos Correios</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-88c67347-962b-4f14-920e-d2ee7fd73130"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Oi Futuro</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-89cb27d6-f7d0-435a-94a2-0a0789105799"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Teatro Ipanema</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-91fb0ed0-2d40-458c-a35b-0546fe6b1d65"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Teatro dos Quatro</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-9221897b-3d9c-46c9-936b-4764a5deeda7"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Aterro do Flamengo</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-935b38c0-53da-477b-9a80-33e866a8a3f5"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Parque Peter Pan</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-936160d1-38da-43d8-b013-ff2c982bcf1a"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Igreja Nossa Senhora do Carmo da Antiga Sé</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-94a05959-ca38-4505-a8e7-c87735fa6346"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Casa Laura Alvin</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-97101105-2954-40bf-9410-60b42f16db74"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Fundação Casa de Rui Barbosa</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-99e127ad-2f7a-4a63-b9d7-3f9e6d33166a"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Museu da Chácara do Céu</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-9c2250d8-e32b-4424-890c-acd97a0c8d79"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Teatro dos Grandes Atores</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-a03f3a20-990d-4e43-9ea0-3256419feddb"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Jardim Botânico</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-a2cc1d36-51a7-456c-aab9-3e9f50e2c149"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Sambódromo</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-a356ca2b-5c0b-4fe1-ab05-25a00ec10115"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Teatro Noel Rosa</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-a4119f26-0644-42b6-8744-d39fc57c6a45"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Museu Aeroespacial</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-a92cdf33-28e5-4f90-94ee-a6a04c444791"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Praia Vermelha</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-a9edefd8-fef9-45ab-8215-4c533ee08b71"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Capela Magdelena Roberto de Regina</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-aa7251d3-27b1-448c-a29d-a57e56910065"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Igreja e Convento de Santa Teresa</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-ab2e8890-5241-4ddb-b3a2-010839224633"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Teatro do Jockey</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-adadfa41-4d3a-4233-a6af-84287a1c41a0"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Museu Nacional de Belas Artes</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-ae487928-5685-4316-bfd9-7abca7d94cb0"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Igreja Nossa Senhora da Penha</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-b5b7c78f-46d8-4cd7-9a3c-42c0bffaec55"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Teatro Thiago de Mello</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-b6304d60-2efe-4069-bd9f-d58ed404bcd6"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Confeitaria Colombo</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-bb31f203-4650-44b6-86bf-1015e23d38b4"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Teatro Dulcina</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-bd91e589-c009-4dc0-98e3-c92878c81e18"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Praia da Macumba</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-be709434-99e7-4b91-bf90-fbbeec3daa13"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Real Gabinete Português de Leitura</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-c08a1c72-c6e2-4245-869d-6d1137788bed"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Hangar do Zeppelin</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-c27237f4-f1fd-4907-ba7f-e43bd1b2144d"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Sala Baden Powell</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-c319e278-54d3-4922-9ff9-0282ca00fe8e"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Teatro das Artes</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-c32298cc-db43-40ff-82f4-8836a003f3ce"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Praia do Pepino</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-c5437dbb-e0fc-4c71-8086-130d68473241"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Bosque da Barra</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-ca4b3417-4dbc-4047-92f8-1bcffd7ddf99"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Teatro Ziembinski</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-ca8f20a4-6cbc-45a7-8292-1a58a5bbdaf0"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Teatro Armando Gonzaga</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-ce45c2ac-5532-480e-bfaa-a8b359ea0fbc"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Teatro Bibi Ferreira</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-ceaa3096-dc91-47b1-a14f-0b62c61f653d"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Praia de São Conrado</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-d1af0141-3b2b-4c22-a711-831087a8f912"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Praia de Ramos</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-d478158a-c062-41ed-8be8-bfc1180fe9f5"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Ilha Fiscal</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-d49cc651-555e-4d69-a1b1-fc38efe2e22d"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Centro Cultural Anglo Americano (Suassuna)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-d643b5f0-6c30-4abe-9b9b-d4289db2f855"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Teatro da Praia</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-d7972ef1-ec69-4ec1-9622-42041f9131f3"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Memorial dos Pretos Novos</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-dc93874e-3a5d-4637-8725-1f4ce2a9da0a"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Jardim Zoológico (Riozoo)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-dde4bfca-bb9f-4de8-9a98-e6b7f7f85513"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Pedra da Gávea</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-df06d789-a01a-4d4c-bff9-c1e485cc475c"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Museu da República</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-e1bd215b-dc8a-4645-b453-4ec7c751f4f5"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Teatro Brigitte Blair</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-e2158fe4-0567-48c1-931a-98729c0dcc60"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Igreja Nossa Senhora da Candelária</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-e23d4bab-64ad-462c-bf84-613007d159da"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Praia do Arpoador</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-e2a54640-82cc-4a9b-9b89-acda9725c155"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Parque Nacional da Tijuca</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-e3d2ed9d-ba35-40df-b825-846f303b81ca"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Teatro Vanucci</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-e7b31e92-e1b3-4669-b9f9-151092f07291"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Teatro Princesa Isabel</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-e9934ae3-9e70-4da3-9742-8ccf0c79681c"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Cristo Redentor (Corcovado)</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-ea829618-5677-49b0-8f01-82f1f3638466"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Espaço Cultural da Marinha</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-ec08855e-843a-4449-a937-eff8f31290be"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Teatro Rival Petrobras</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-ee98133e-82d4-45b0-b9b4-477df7b4c445"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Catedral Metropolitana</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-f0afa6f0-5b41-4c46-9b1b-881a1f757776"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Parque Municipal Fazenda do Viegas</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-f13f5b11-01f4-4fbf-a0fe-f0fa3d9decaa"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Teatro Municipal</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-f421a264-05d2-46aa-9a7e-b5ccb9ed5ac9"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Praia de Ipanema</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-f43d6b64-479f-406d-a0c3-1d424281ccb4"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Teatro Clara Nunes</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-f6ed6562-fcbd-4c2b-8bcb-f1fb24d4c8df"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Prainha</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-f79a3485-aaf0-495b-b4e9-6a4330c3f395"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Praia de Botafogo</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-f81a9fe3-3f1d-48a1-a3de-14d7f6284390"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Igreja Nossa Senhora da Glória do Outeiro</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-fb42727e-78e7-4fc2-a290-4e40cf069ece"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Mosteiro de São Bento</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="dbp:name"/>
+        <NamedIndividual abbreviatedIRI=":id-fd31aa35-d171-4a86-8766-d45703302b20"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Monumento aos Pracinhas</Literal>
+    </DataPropertyAssertion>
 </Ontology>
 
 

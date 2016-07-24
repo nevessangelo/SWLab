@@ -18,9 +18,11 @@ import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
 import org.semanticweb.owlapi.formats.OWLXMLDocumentFormat;
+import org.semanticweb.owlapi.formats.PrefixDocumentFormat;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLDataFactory;
+import org.semanticweb.owlapi.model.OWLDataProperty;
 import org.semanticweb.owlapi.model.OWLIndividual;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
@@ -55,6 +57,11 @@ public class TurismoECultura {
         OWLOntology ontology = OWLAPIOntology.getDBpedia();
         OWLOntologyManager manager = ontology.getOWLOntologyManager();
         OWLDataFactory df = manager.getOWLDataFactory();
+        PrefixDocumentFormat pm = (PrefixDocumentFormat) manager.getOntologyFormat(ontology);
+        if (pm != null) {
+            pm.setDefaultPrefix(BASE_URI);
+            pm.setPrefix("dbp", DBPEDIA_NS);
+        }
 
         URL url = new URL(DATASET_URL_STRING);
         try (
@@ -74,21 +81,29 @@ public class TurismoECultura {
                     latitude = nextLine[5];
                     longitude = nextLine[6];
 
-                    uri1 = BASE_URI + UUID.randomUUID();
-                    uri2 = BASE_URI + UUID.randomUUID();
-                    uri3 = BASE_URI + UUID.randomUUID();
+                    uri1 = ":id-" + UUID.randomUUID().toString();
+                    uri2 = ":id-" + UUID.randomUUID().toString();
+                    uri3 = ":id-" + UUID.randomUUID().toString();
 
-                    OWLIndividual p = df.getOWLNamedIndividual(IRI.create(uri1));
-                    OWLClass place = df.getOWLClass(DBPEDIA_NS + "Place");
-                    ontology.addAxiom(df.getOWLClassAssertionAxiom(place, p));
+                    OWLIndividual p = df.getOWLNamedIndividual(uri1, pm);
+                    OWLClass cplace = df.getOWLClass("dbp:Place", pm);
+                    OWLDataProperty pname = df.getOWLDataProperty("dbp:name", pm);
+                    ontology.addAxiom(df.getOWLClassAssertionAxiom(cplace, p));
+                    ontology.addAxiom(df.getOWLDataPropertyAssertionAxiom(pname, p, name));
 
                 } catch (Exception e) {
 
                 }
         }
         try {
+            OWLOntology ontologyToSave = manager.createOntology(ontology.aboxAxioms(Imports.INCLUDED));
+            manager.setOntologyDocumentIRI(ontologyToSave, IRI.create(BASE_URI));
+
+            OWLXMLDocumentFormat owl = new OWLXMLDocumentFormat();
+            owl.copyPrefixesFrom(pm);
+            //format.setDefaultPrefix(BASE_URI);
             IRI iri = IRI.create(new File(OWL + "/" + LOCAL_NAME + ".owl"));
-            manager.saveOntology(manager.createOntology(ontology.aboxAxioms(Imports.INCLUDED)), new OWLXMLDocumentFormat(), iri);
+            manager.saveOntology(ontologyToSave, owl, iri);
         } catch (Exception e) {
             System.out.println(e.toString());
             e.printStackTrace();

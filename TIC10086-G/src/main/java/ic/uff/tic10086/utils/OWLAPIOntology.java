@@ -54,7 +54,7 @@ public class OWLAPIOntology {
         return ontology;
     }
 
-    public static OWLOntology downloadOntology(String urlString, String localName) throws MalformedURLException, IOException, CompressorException, OWLOntologyCreationException, OWLOntologyStorageException {
+    private static OWLOntology downloadOntology(String urlString, String localName) throws MalformedURLException, IOException, CompressorException, OWLOntologyCreationException, OWLOntologyStorageException {
         OWLOntology ontology;
         URL url = new URL(urlString);
         try (BufferedInputStream bis = new BufferedInputStream(url.openStream());) {
