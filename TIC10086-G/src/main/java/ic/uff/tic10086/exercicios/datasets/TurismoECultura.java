@@ -49,8 +49,8 @@ public class TurismoECultura {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, MalformedURLException, CompressorException, OWLOntologyCreationException, OWLOntologyStorageException {
         init();
-        convertToDBpedia();
-        //convertToSchema();
+        //convertToDBpedia();
+        convertToSchema();
     }
 
     public static void convertToDBpedia() throws IOException, MalformedURLException, CompressorException, OWLOntologyCreationException, OWLOntologyStorageException {
@@ -60,7 +60,7 @@ public class TurismoECultura {
         PrefixDocumentFormat pm = (PrefixDocumentFormat) manager.getOntologyFormat(ontology);
         if (pm != null) {
             pm.setDefaultPrefix(BASE_URI);
-            pm.setPrefix("dbp", DBPEDIA_NS);
+            pm.setPrefix("dbo", DBPEDIA_NS);
         }
 
         URL url = new URL(DATASET_URL_STRING);
@@ -86,7 +86,7 @@ public class TurismoECultura {
                     uri3 = ":id-" + UUID.randomUUID().toString();
 
                     OWLIndividual p = df.getOWLNamedIndividual(uri1, pm);
-                    OWLClass cplace = df.getOWLClass("dbp:Place", pm);
+                    OWLClass cplace = df.getOWLClass("dbp:ArchitecturalStructure", pm);
                     OWLDataProperty pname = df.getOWLDataProperty("dbp:name", pm);
                     ontology.addAxiom(df.getOWLClassAssertionAxiom(cplace, p));
                     ontology.addAxiom(df.getOWLDataPropertyAssertionAxiom(pname, p, name));
@@ -113,7 +113,7 @@ public class TurismoECultura {
     public static void convertToSchema() throws MalformedURLException, FileNotFoundException, IOException {
         Model schema = JenaSchema.getSchemaOrg();
         Model model = ModelFactory.createDefaultModel();
-        model.setNsPrefix("schema", SCHEMA_NS);
+        model.setNsPrefix("sch", SCHEMA_NS);
         model.setNsPrefix("", BASE_URI);
 
         URL url = new URL(DATASET_URL_STRING);
@@ -140,17 +140,16 @@ public class TurismoECultura {
 
                     model.createResource(uri1, schema.getResource(detectSchemaOrgClass(name)))
                             .addProperty(schema.getProperty(SCHEMA_NS + "name"), name)
-                            .addProperty(schema.getProperty(SCHEMA_NS + "address"), model.createResource(uri2, schema.getResource(SCHEMA_NS + "PostalAddress"))
+                            .addProperty(schema.getProperty(SCHEMA_NS + "telephone"), telephone)
+                            .addProperty(schema.getProperty(SCHEMA_NS + "address"), model.createResource(schema.getResource(SCHEMA_NS + "PostalAddress"))
                                     .addProperty(schema.getProperty(SCHEMA_NS + "addressLocality"), "Rio de Janeiro")
                                     .addProperty(schema.getProperty(SCHEMA_NS + "addressRegion"), "RJ ")
                                     .addProperty(schema.getProperty(SCHEMA_NS + "streetAddress"), street + ", " + number + ", " + neighborhood))
-                            .addProperty(schema.getProperty(SCHEMA_NS + "geo"), model.createResource(uri3, schema.getResource(SCHEMA_NS + "GeoCoordinates"))
+                            .addProperty(schema.getProperty(SCHEMA_NS + "geo"), model.createResource(schema.getResource(SCHEMA_NS + "GeoCoordinates"))
                                     .addProperty(schema.getProperty(SCHEMA_NS + "latitude"), latitude)
-                                    .addProperty(schema.getProperty(SCHEMA_NS + "longitude"), longitude)
-                                    .addProperty(schema.getProperty(SCHEMA_NS + "telephone"), telephone)
-                            );
+                                    .addProperty(schema.getProperty(SCHEMA_NS + "longitude"), longitude));
                 } catch (Exception e) {
-
+                    e.printStackTrace();
                 }
         }
 
