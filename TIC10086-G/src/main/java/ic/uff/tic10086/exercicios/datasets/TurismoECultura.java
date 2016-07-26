@@ -24,6 +24,7 @@ import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLDataFactory;
 import org.semanticweb.owlapi.model.OWLDataProperty;
 import org.semanticweb.owlapi.model.OWLIndividual;
+import org.semanticweb.owlapi.model.OWLObjectProperty;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
@@ -43,17 +44,17 @@ public class TurismoECultura {
     public static final String BASE_URI = "http://localhost:8080/";
     public static final String DATASET_URL_STRING = "http://dadosabertos.rio.rj.gov.br/apiCultura/apresentacao/csv/turismoECultura_.csv";
 
-    public static void init() {
+    private static void init() {
         org.apache.log4j.Logger.getRootLogger().setLevel(org.apache.log4j.Level.OFF);
     }
 
     public static void main(String[] args) throws FileNotFoundException, IOException, MalformedURLException, CompressorException, OWLOntologyCreationException, OWLOntologyStorageException {
         init();
-        //convertToDBpedia();
-        convertToSchema();
+        saveAsDBpediaOntology();
+        saveAsSchemaOrgGraph();
     }
 
-    public static void convertToDBpedia() throws IOException, MalformedURLException, CompressorException, OWLOntologyCreationException, OWLOntologyStorageException {
+    public static void saveAsDBpediaOntology() throws IOException, MalformedURLException, CompressorException, OWLOntologyCreationException, OWLOntologyStorageException {
         OWLOntology ontology = OWLAPIOntology.getDBpedia();
         OWLOntologyManager manager = ontology.getOWLOntologyManager();
         OWLDataFactory df = manager.getOWLDataFactory();
@@ -82,14 +83,31 @@ public class TurismoECultura {
                     longitude = nextLine[6];
 
                     uri1 = ":id-" + UUID.randomUUID().toString();
-                    uri2 = ":id-" + UUID.randomUUID().toString();
-                    uri3 = ":id-" + UUID.randomUUID().toString();
-
                     OWLIndividual p = df.getOWLNamedIndividual(uri1, pm);
-                    OWLClass cplace = df.getOWLClass("dbp:ArchitecturalStructure", pm);
-                    OWLDataProperty pname = df.getOWLDataProperty("dbp:name", pm);
+                    OWLClass cplace = df.getOWLClass("dbo:Place", pm);
                     ontology.addAxiom(df.getOWLClassAssertionAxiom(cplace, p));
+                    OWLDataProperty pname = df.getOWLDataProperty("dbo:name", pm);
                     ontology.addAxiom(df.getOWLDataPropertyAssertionAxiom(pname, p, name));
+                    OWLDataProperty paddress = df.getOWLDataProperty("dbo:address", pm);
+                    ontology.addAxiom(df.getOWLDataPropertyAssertionAxiom(paddress, p, street + (number == null || number.equals("") ? "" : ", " + number) + ", " + neighborhood));
+                    OWLDataProperty pcoordinates = df.getOWLDataProperty("dbo:coordinates", pm);
+                    ontology.addAxiom(df.getOWLDataPropertyAssertionAxiom(pcoordinates, p, "(" + latitude + "," + longitude + ")"));
+
+                    uri2 = ":id-" + UUID.randomUUID().toString();
+                    OWLIndividual c = df.getOWLNamedIndividual(uri2, pm);
+                    OWLClass ccity = df.getOWLClass("dbo:City", pm);
+                    ontology.addAxiom(df.getOWLClassAssertionAxiom(ccity, c));
+                    ontology.addAxiom(df.getOWLDataPropertyAssertionAxiom(pname, c, "Rio de Janeiro"));
+                    OWLObjectProperty plocationCity = df.getOWLObjectProperty("dbo:locationCity", pm);
+                    ontology.addAxiom(df.getOWLObjectPropertyAssertionAxiom(plocationCity, p, c));
+
+                    uri3 = ":id-" + UUID.randomUUID().toString();
+                    OWLIndividual cc = df.getOWLNamedIndividual(uri3, pm);
+                    OWLClass ccountry = df.getOWLClass("dbo:Country", pm);
+                    ontology.addAxiom(df.getOWLClassAssertionAxiom(ccountry, cc));
+                    ontology.addAxiom(df.getOWLDataPropertyAssertionAxiom(pname, cc, "Brasil"));
+                    OWLObjectProperty plocationCountry = df.getOWLObjectProperty("dbo:locationCountry", pm);
+                    ontology.addAxiom(df.getOWLObjectPropertyAssertionAxiom(plocationCountry, p, cc));
 
                 } catch (Exception e) {
 
@@ -97,11 +115,10 @@ public class TurismoECultura {
         }
         try {
             OWLOntology ontologyToSave = manager.createOntology(ontology.aboxAxioms(Imports.INCLUDED));
-            manager.setOntologyDocumentIRI(ontologyToSave, IRI.create(BASE_URI));
+            manager.setOntologyDocumentIRI(ontologyToSave, IRI.create(BASE_URI + "TurismoECultura.owl"));
 
             OWLXMLDocumentFormat owl = new OWLXMLDocumentFormat();
             owl.copyPrefixesFrom(pm);
-            //format.setDefaultPrefix(BASE_URI);
             IRI iri = IRI.create(new File(OWL + "/" + LOCAL_NAME + ".owl"));
             manager.saveOntology(ontologyToSave, owl, iri);
         } catch (Exception e) {
@@ -110,7 +127,7 @@ public class TurismoECultura {
         }
     }
 
-    public static void convertToSchema() throws MalformedURLException, FileNotFoundException, IOException {
+    public static void saveAsSchemaOrgGraph() throws MalformedURLException, FileNotFoundException, IOException, CompressorException {
         Model schema = JenaSchema.getSchemaOrg();
         Model model = ModelFactory.createDefaultModel();
         model.setNsPrefix("sch", SCHEMA_NS);
@@ -143,13 +160,13 @@ public class TurismoECultura {
                             .addProperty(schema.getProperty(SCHEMA_NS + "telephone"), telephone)
                             .addProperty(schema.getProperty(SCHEMA_NS + "address"), model.createResource(schema.getResource(SCHEMA_NS + "PostalAddress"))
                                     .addProperty(schema.getProperty(SCHEMA_NS + "addressLocality"), "Rio de Janeiro")
-                                    .addProperty(schema.getProperty(SCHEMA_NS + "addressRegion"), "RJ ")
-                                    .addProperty(schema.getProperty(SCHEMA_NS + "streetAddress"), street + ", " + number + ", " + neighborhood))
+                                    .addProperty(schema.getProperty(SCHEMA_NS + "addressRegion"), "RJ")
+                                    .addProperty(schema.getProperty(SCHEMA_NS + "addressCountry"), "Brasil")
+                                    .addProperty(schema.getProperty(SCHEMA_NS + "streetAddress"), street + (number == null || number.equals("") ? "" : ", " + number) + ", " + neighborhood))
                             .addProperty(schema.getProperty(SCHEMA_NS + "geo"), model.createResource(schema.getResource(SCHEMA_NS + "GeoCoordinates"))
                                     .addProperty(schema.getProperty(SCHEMA_NS + "latitude"), latitude)
                                     .addProperty(schema.getProperty(SCHEMA_NS + "longitude"), longitude));
                 } catch (Exception e) {
-                    e.printStackTrace();
                 }
         }
 
@@ -187,8 +204,8 @@ public class TurismoECultura {
         else if (name.startsWith("Estádio "))
             uri = SCHEMA_NS + "StadiumOrArena";
         else {
-            System.out.println(name);
             uri = SCHEMA_NS + "Place";
+            System.out.println(name);
         }
         return uri;
     }

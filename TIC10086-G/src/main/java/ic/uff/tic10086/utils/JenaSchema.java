@@ -23,19 +23,13 @@ public class JenaSchema {
     public static final Lang EXPORT_LANG = Lang.RDFXML;
     private static final String DIRECTORY = "./src/main/resources/dat/rdf";
 
-    public static final String SCHEMA_LOCAL_NAME = "schema";
+    public static final String SCHEMA_LOCAL_NAME = "schemaOrg";
     public static final String SCHEMA_BASE_URI = "http://schema.org/";
     public static final String SCHEMA_URL_STRING = "https://github.com/schemaorg/schemaorg/raw/sdo-makemake/data/schema.rdfa";
 
     public static final String DBPEDIA_LOCAL_NAME = "dbpedia";
     public static final String DBPEDIA_BASE_URI = "http://dbpedia.org/ontology/";
-    public static final String DBPEDIA_URL_STRING = "http://downloads.dbpedia.org/2014/dbpedia_2014.owl.bz2";
-
-    public static void main(String[] args) throws IOException, MalformedURLException, CompressorException {
-        //getSchemaOntology();
-        //getDBpediaOntology();
-        getSchema("http://protege.stanford.edu/ontologies/pizza/pizza.owl", "http://www.co-ode.org/ontologies/pizza/pizza.owl", "pizza");
-    }
+    public static final String DBPEDIA_URL_STRING = "http://downloads.dbpedia.org/2015-10/dbpedia_2015-10.owl";
 
     public static Model getSchemaOrg() throws UnsupportedEncodingException, FileNotFoundException {
         return loadSchemaOrg(SCHEMA_LOCAL_NAME);

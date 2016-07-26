@@ -25,7 +25,7 @@ public class OWLAPIOntology {
 
     public static final String DBPEDIA_LOCAL_NAME = "dbpedia";
     public static final String DBPEDIA_BASE_URI = "http://dbpedia.org/ontology/";
-    public static final String DBPEDIA_URL_STRING = "http://downloads.dbpedia.org/2014/dbpedia_2014.owl.bz2";
+    public static final String DBPEDIA_URL_STRING = "http://downloads.dbpedia.org/2015-10/dbpedia_2015-10.owl";
 
     private static OWLOntologyManager getOntologyManager() {
         if (MANAGER == null) {
