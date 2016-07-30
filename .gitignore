@@ -6,3 +6,4 @@ __pycache__/
 *.log
 *.class
 /TIC10086-G/target/
+/TIC10086-Virtuoso/target/

@@ -1,0 +1,4 @@
+@prefix :      <urn:x-hp-jena:eg/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+
+:a      :p      "foo" .

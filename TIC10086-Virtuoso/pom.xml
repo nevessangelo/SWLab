@@ -19,11 +19,6 @@
         </dependency>
         <dependency>
             <groupId>org.apache.clerezza</groupId>
-            <artifactId>rdf.virtuoso.storage</artifactId>
-            <version>0.3</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.clerezza</groupId>
             <artifactId>ext.virtuoso.jdbc</artifactId>
             <version>0.3</version>
         </dependency>
