@@ -20,7 +20,8 @@ import org.apache.jena.riot.RDFDataMgr;
 
 public class JenaSchema {
 
-    public static final Lang EXPORT_LANG = Lang.RDFXML;
+    public static final Lang IMPORT_LANG = Lang.RDFXML;
+    public static final Lang EXPORT_LANG = Lang.TTL;
     private static final String DIRECTORY = "./src/main/resources/dat/rdf";
 
     public static final String SCHEMA_LOCAL_NAME = "schemaOrg";
@@ -57,17 +58,17 @@ public class JenaSchema {
     }
 
     public static Model getDBpedia() throws IOException, MalformedURLException, CompressorException {
-        return getSchema(DBPEDIA_URL_STRING, DBPEDIA_BASE_URI, DBPEDIA_LOCAL_NAME);
+        return getSchema(DBPEDIA_URL_STRING, DBPEDIA_BASE_URI, DBPEDIA_LOCAL_NAME, IMPORT_LANG);
     }
 
-    public static Model getSchema(String urlString, String base, String localName) throws IOException, MalformedURLException, CompressorException {
-        return loadSchema(urlString, base, localName);
+    public static Model getSchema(String urlString, String base, String localName, Lang importLang) throws IOException, MalformedURLException, CompressorException {
+        return loadSchema(urlString, base, localName, importLang);
     }
 
-    private static Model loadSchema(String urlString, String base, String localName) throws IOException, MalformedURLException, CompressorException {
+    private static Model loadSchema(String urlString, String base, String localName, Lang importLang) throws IOException, MalformedURLException, CompressorException {
         Model model = ModelFactory.createDefaultModel();
         try {
-            RDFDataMgr.read(model, new FileInputStream(DIRECTORY + localName + "." + EXPORT_LANG.getFileExtensions().get(0)), DBPEDIA_BASE_URI, EXPORT_LANG);
+            RDFDataMgr.read(model, new FileInputStream(DIRECTORY + localName + "." + importLang.getFileExtensions().get(0)), DBPEDIA_BASE_URI, EXPORT_LANG);
         } catch (FileNotFoundException ex) {
             model = downloadSchema(urlString, base, localName);
         }
