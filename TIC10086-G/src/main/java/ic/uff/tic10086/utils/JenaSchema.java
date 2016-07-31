@@ -20,9 +20,9 @@ import org.apache.jena.riot.RDFDataMgr;
 
 public class JenaSchema {
 
+    private static final String RDF_DIR = "./src/main/resources/dat/rdf";
     public static final Lang IMPORT_LANG = Lang.RDFXML;
     public static final Lang EXPORT_LANG = Lang.TTL;
-    private static final String DIRECTORY = "./src/main/resources/dat/rdf";
 
     public static final String SCHEMA_LOCAL_NAME = "schemaOrg";
     public static final String SCHEMA_BASE_URI = "http://schema.org/";
@@ -39,7 +39,7 @@ public class JenaSchema {
     private static Model loadSchemaOrg(String localName) throws UnsupportedEncodingException, FileNotFoundException {
         Model model = ModelFactory.createDefaultModel();
         try {
-            RDFDataMgr.read(model, new FileInputStream(DIRECTORY + "/" + localName + "." + EXPORT_LANG.getFileExtensions().get(0)), EXPORT_LANG);
+            RDFDataMgr.read(model, new FileInputStream(RDF_DIR + "/" + localName + "." + EXPORT_LANG.getFileExtensions().get(0)), EXPORT_LANG);
         } catch (FileNotFoundException ex) {
             model = downloadSchemaOrg(localName);
         }
@@ -51,7 +51,7 @@ public class JenaSchema {
         try {
             String url = URLEncoder.encode(SCHEMA_URL_STRING, "UTF-8");
             model.read("http://rdf-translator.appspot.com/convert/rdfa/xml/" + url);
-            RDFDataMgr.write(new FileOutputStream(new File(DIRECTORY + "/" + localName + "." + EXPORT_LANG.getFileExtensions().get(0))), model, EXPORT_LANG);
+            RDFDataMgr.write(new FileOutputStream(new File(RDF_DIR + "/" + localName + "." + EXPORT_LANG.getFileExtensions().get(0))), model, EXPORT_LANG);
         } finally {
         }
         return model;
@@ -68,7 +68,7 @@ public class JenaSchema {
     private static Model loadSchema(String urlString, String base, String localName, Lang importLang) throws IOException, MalformedURLException, CompressorException {
         Model model = ModelFactory.createDefaultModel();
         try {
-            RDFDataMgr.read(model, new FileInputStream(DIRECTORY + localName + "." + importLang.getFileExtensions().get(0)), DBPEDIA_BASE_URI, EXPORT_LANG);
+            RDFDataMgr.read(model, new FileInputStream(RDF_DIR + localName + "." + importLang.getFileExtensions().get(0)), DBPEDIA_BASE_URI, EXPORT_LANG);
         } catch (FileNotFoundException ex) {
             model = downloadSchema(urlString, base, localName);
         }
@@ -80,13 +80,13 @@ public class JenaSchema {
         URL url = new URL(urlString);
         try (BufferedInputStream bis = new BufferedInputStream(url.openStream());) {
             model.read(bis, base);
-            RDFDataMgr.write(new FileOutputStream(new File(DIRECTORY + "/" + localName + "." + EXPORT_LANG.getFileExtensions().get(0))), model, EXPORT_LANG);
+            RDFDataMgr.write(new FileOutputStream(new File(RDF_DIR + "/" + localName + "." + EXPORT_LANG.getFileExtensions().get(0))), model, EXPORT_LANG);
         } catch (Exception ex) {
             try (
                     BufferedInputStream bis = new BufferedInputStream(url.openStream());
                     CompressorInputStream input = new CompressorStreamFactory().createCompressorInputStream(bis);) {
                 model.read(input, base);
-                RDFDataMgr.write(new FileOutputStream(new File(DIRECTORY + "/" + localName + "." + EXPORT_LANG.getFileExtensions().get(0))), model, EXPORT_LANG);
+                RDFDataMgr.write(new FileOutputStream(new File(RDF_DIR + "/" + localName + "." + EXPORT_LANG.getFileExtensions().get(0))), model, EXPORT_LANG);
             }
         }
         return model;
