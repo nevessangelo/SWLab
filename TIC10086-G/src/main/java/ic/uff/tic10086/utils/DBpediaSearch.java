@@ -29,7 +29,6 @@ public class DBpediaSearch {
                 try {
                     Resource resource = rs.next().getResource("s");
                     String resourceURI = resource.toString();
-                    System.out.println(resourceURI);
 
                     queryString = String.format("construct {<%1s> ?p ?o} where {<%2s> ?p ?o. }", resourceURI, resourceURI);
                     QueryExecution q = QueryExecutionFactory.sparqlService(SPARQL_ENDPOINT_URL, queryString);
