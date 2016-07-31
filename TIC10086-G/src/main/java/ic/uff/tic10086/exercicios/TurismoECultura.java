@@ -41,7 +41,7 @@ public class TurismoECultura {
     public static final Lang EXPORT_LANG = Lang.TTL;
 
     public static final String FILENAME = "turismoECultura";
-    public static final String BASE_URI = "http://localhost:8080/";
+    public static final String BASE_URI = "http://localhost:8080/id/";
     public static final String DATASET_URL = "http://dadosabertos.rio.rj.gov.br/apiCultura/apresentacao/csv/turismoECultura_.csv";
 
     public static final String DBPEDIA_NS = "http://dbpedia.org/ontology/";
