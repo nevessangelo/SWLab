@@ -37,6 +37,7 @@ public class TurismoECultura {
 
     private static final String RDF_DIR = "./src/main/resources/dat/rdf";
     private static final String OWL_DIR = "./src/main/resources/dat/owl";
+    public static final Lang IMPORT_LANG = Lang.RDFXML;
     public static final Lang EXPORT_LANG = Lang.TTL;
 
     public static final String FILENAME = "turismoECultura";
@@ -49,18 +50,97 @@ public class TurismoECultura {
     public static void main(String[] args) {
         try {
             Logger.getRootLogger().setLevel(Level.OFF);
-            run();
+            saveAsSchemaOrgGraph();
+            saveAsDBpediaOntology();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public static void run() throws FileNotFoundException, IOException, MalformedURLException, CompressorException, OWLOntologyCreationException, OWLOntologyStorageException {
-        saveAsDBpediaOntology();
-        saveAsSchemaOrgGraph();
+    public static void saveAsSchemaOrgGraph() throws MalformedURLException, FileNotFoundException, IOException, CompressorException {
+        Model schema = JenaSchema.getSchemaOrg();
+        Model model = ModelFactory.createDefaultModel();
+        model.setNsPrefix("sch", SCHEMA_ORG_NS);
+        model.setNsPrefix("", BASE_URI);
+
+        URL url = new URL(DATASET_URL);
+        try (
+                InputStreamReader in = new InputStreamReader(url.openStream(), "Windows-1252");
+                BufferedReader buff = new BufferedReader(in);
+                CSVReader reader = new CSVReader(buff, ',', '"', 1);) {
+
+            String[] nextLine;
+            String uri1, uri2, uri3, name, street, number, neighborhood, telephone, latitude, longitude;
+            while ((nextLine = reader.readNext()) != null)
+                try {
+                    name = nextLine[0];
+                    street = nextLine[1];
+                    number = nextLine[2];
+                    neighborhood = nextLine[3];
+                    telephone = nextLine[4];
+                    latitude = nextLine[5];
+                    longitude = nextLine[6];
+
+                    uri1 = BASE_URI + UUID.randomUUID();
+                    uri2 = BASE_URI + UUID.randomUUID();
+                    uri3 = BASE_URI + UUID.randomUUID();
+
+                    model.createResource(uri1, schema.getResource(detectSchemaOrgClass(name)))
+                            .addProperty(schema.getProperty(SCHEMA_ORG_NS + "name"), name)
+                            .addProperty(schema.getProperty(SCHEMA_ORG_NS + "telephone"), telephone)
+                            .addProperty(schema.getProperty(SCHEMA_ORG_NS + "address"), model.createResource(uri2, schema.getResource(SCHEMA_ORG_NS + "PostalAddress"))
+                                    .addProperty(schema.getProperty(SCHEMA_ORG_NS + "addressLocality"), "Rio de Janeiro")
+                                    .addProperty(schema.getProperty(SCHEMA_ORG_NS + "addressRegion"), "RJ")
+                                    .addProperty(schema.getProperty(SCHEMA_ORG_NS + "addressCountry"), "Brasil")
+                                    .addProperty(schema.getProperty(SCHEMA_ORG_NS + "streetAddress"), street + (number == null || number.equals("") ? "" : ", " + number) + ", " + neighborhood))
+                            .addProperty(schema.getProperty(SCHEMA_ORG_NS + "geo"), model.createResource(uri3, schema.getResource(SCHEMA_ORG_NS + "GeoCoordinates"))
+                                    .addProperty(schema.getProperty(SCHEMA_ORG_NS + "latitude"), latitude)
+                                    .addProperty(schema.getProperty(SCHEMA_ORG_NS + "longitude"), longitude));
+                } catch (Exception e) {
+                }
+        }
+
+        RDFDataMgr.write(new FileOutputStream(new File(RDF_DIR + "/" + FILENAME + "." + EXPORT_LANG.getFileExtensions().get(0))), model, EXPORT_LANG);
     }
 
-    private static void saveAsDBpediaOntology() throws IOException, MalformedURLException, CompressorException, OWLOntologyCreationException, OWLOntologyStorageException {
+    private static String detectSchemaOrgClass(String name) {
+        String uri;
+        if (name.startsWith("Teatro "))
+            uri = SCHEMA_ORG_NS + "PerformingArtsTheater";
+        else if (name.startsWith("Praia "))
+            uri = SCHEMA_ORG_NS + "Beach";
+        else if (name.startsWith("Museu "))
+            uri = SCHEMA_ORG_NS + "Museum";
+        else if (name.startsWith("Igreja "))
+            uri = SCHEMA_ORG_NS + "CatholicChurch";
+        else if (name.startsWith("Mosteiro "))
+            uri = SCHEMA_ORG_NS + "CatholicChurch";
+        else if (name.startsWith("Catedral "))
+            uri = SCHEMA_ORG_NS + "CatholicChurch";
+        else if (name.startsWith("Biblioteca "))
+            uri = SCHEMA_ORG_NS + "Library";
+        else if (name.startsWith("Centro Cultural "))
+            uri = SCHEMA_ORG_NS + "EventVenue";
+        else if (name.startsWith("Casa "))
+            uri = SCHEMA_ORG_NS + "EventVenue";
+        else if (name.startsWith("Espaço "))
+            uri = SCHEMA_ORG_NS + "EventVenue";
+        else if (name.startsWith("Parque "))
+            uri = SCHEMA_ORG_NS + "Park";
+        else if (name.startsWith("Praça "))
+            uri = SCHEMA_ORG_NS + "Park";
+        else if (name.startsWith("Sala "))
+            uri = SCHEMA_ORG_NS + "MusicVenue";
+        else if (name.startsWith("Estádio "))
+            uri = SCHEMA_ORG_NS + "StadiumOrArena";
+        else {
+            uri = SCHEMA_ORG_NS + "Place";
+            System.out.println(name);
+        }
+        return uri;
+    }
+
+    public static void saveAsDBpediaOntology() throws IOException, MalformedURLException, CompressorException, OWLOntologyCreationException, OWLOntologyStorageException {
         OWLOntology ontology = OWLAPIOntology.getDBpedia();
         OWLOntologyManager manager = ontology.getOWLOntologyManager();
         OWLDataFactory df = manager.getOWLDataFactory();
@@ -131,88 +211,5 @@ public class TurismoECultura {
             System.out.println(e.toString());
             e.printStackTrace();
         }
-    }
-
-    private static void saveAsSchemaOrgGraph() throws MalformedURLException, FileNotFoundException, IOException, CompressorException {
-        Model schema = JenaSchema.getSchemaOrg();
-        Model model = ModelFactory.createDefaultModel();
-        model.setNsPrefix("sch", SCHEMA_ORG_NS);
-        model.setNsPrefix("", BASE_URI);
-
-        URL url = new URL(DATASET_URL);
-        try (
-                InputStreamReader in = new InputStreamReader(url.openStream(), "Windows-1252");
-                BufferedReader buff = new BufferedReader(in);
-                CSVReader reader = new CSVReader(buff, ',', '"', 1);) {
-
-            String[] nextLine;
-            String uri1, uri2, uri3, name, street, number, neighborhood, telephone, latitude, longitude;
-            while ((nextLine = reader.readNext()) != null)
-                try {
-                    name = nextLine[0];
-                    street = nextLine[1];
-                    number = nextLine[2];
-                    neighborhood = nextLine[3];
-                    telephone = nextLine[4];
-                    latitude = nextLine[5];
-                    longitude = nextLine[6];
-
-                    uri1 = BASE_URI + UUID.randomUUID();
-                    uri2 = BASE_URI + UUID.randomUUID();
-                    uri3 = BASE_URI + UUID.randomUUID();
-
-                    model.createResource(uri1, schema.getResource(detectSchemaOrgClass(name)))
-                            .addProperty(schema.getProperty(SCHEMA_ORG_NS + "name"), name)
-                            .addProperty(schema.getProperty(SCHEMA_ORG_NS + "telephone"), telephone)
-                            .addProperty(schema.getProperty(SCHEMA_ORG_NS + "address"), model.createResource(schema.getResource(SCHEMA_ORG_NS + "PostalAddress"))
-                                    .addProperty(schema.getProperty(SCHEMA_ORG_NS + "addressLocality"), "Rio de Janeiro")
-                                    .addProperty(schema.getProperty(SCHEMA_ORG_NS + "addressRegion"), "RJ")
-                                    .addProperty(schema.getProperty(SCHEMA_ORG_NS + "addressCountry"), "Brasil")
-                                    .addProperty(schema.getProperty(SCHEMA_ORG_NS + "streetAddress"), street + (number == null || number.equals("") ? "" : ", " + number) + ", " + neighborhood))
-                            .addProperty(schema.getProperty(SCHEMA_ORG_NS + "geo"), model.createResource(schema.getResource(SCHEMA_ORG_NS + "GeoCoordinates"))
-                                    .addProperty(schema.getProperty(SCHEMA_ORG_NS + "latitude"), latitude)
-                                    .addProperty(schema.getProperty(SCHEMA_ORG_NS + "longitude"), longitude));
-                } catch (Exception e) {
-                }
-        }
-
-        RDFDataMgr.write(new FileOutputStream(new File(RDF_DIR + "/" + FILENAME + "." + EXPORT_LANG.getFileExtensions().get(0))), model, EXPORT_LANG);
-    }
-
-    private static String detectSchemaOrgClass(String name) {
-        String uri;
-        if (name.startsWith("Teatro "))
-            uri = SCHEMA_ORG_NS + "PerformingArtsTheater";
-        else if (name.startsWith("Praia "))
-            uri = SCHEMA_ORG_NS + "Beach";
-        else if (name.startsWith("Museu "))
-            uri = SCHEMA_ORG_NS + "Museum";
-        else if (name.startsWith("Igreja "))
-            uri = SCHEMA_ORG_NS + "CatholicChurch";
-        else if (name.startsWith("Mosteiro "))
-            uri = SCHEMA_ORG_NS + "CatholicChurch";
-        else if (name.startsWith("Catedral "))
-            uri = SCHEMA_ORG_NS + "CatholicChurch";
-        else if (name.startsWith("Biblioteca "))
-            uri = SCHEMA_ORG_NS + "Library";
-        else if (name.startsWith("Centro Cultural "))
-            uri = SCHEMA_ORG_NS + "EventVenue";
-        else if (name.startsWith("Casa "))
-            uri = SCHEMA_ORG_NS + "EventVenue";
-        else if (name.startsWith("Espaço "))
-            uri = SCHEMA_ORG_NS + "EventVenue";
-        else if (name.startsWith("Parque "))
-            uri = SCHEMA_ORG_NS + "Park";
-        else if (name.startsWith("Praça "))
-            uri = SCHEMA_ORG_NS + "Park";
-        else if (name.startsWith("Sala "))
-            uri = SCHEMA_ORG_NS + "MusicVenue";
-        else if (name.startsWith("Estádio "))
-            uri = SCHEMA_ORG_NS + "StadiumOrArena";
-        else {
-            uri = SCHEMA_ORG_NS + "Place";
-            System.out.println(name);
-        }
-        return uri;
     }
 }
