@@ -34,7 +34,6 @@ public class ConnectToTDB {
         // The same assembler description will work in Fuseki.
         String assemblerFile = "./src/main/resources/conf/tdb-assembler.ttl";
         Dataset dataset = TDBFactory.assembleDataset(assemblerFile);
-
         // Get model inside the transaction
         Model model = dataset.getDefaultModel();
         //Model model = dataset.getNamedModel("http://localhost:3030/graph97");

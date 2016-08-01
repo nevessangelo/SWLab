@@ -9,10 +9,13 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.UUID;
 import org.apache.commons.compress.compressors.CompressorException;
+import org.apache.jena.query.DatasetAccessor;
+import org.apache.jena.query.DatasetAccessorFactory;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.riot.Lang;
@@ -43,6 +46,8 @@ public class TurismoECultura {
     public static final String FILENAME = "turismoECultura";
     public static final String BASE_URI = "http://localhost:8080/id/";
     public static final String DATASET_URL = "http://dadosabertos.rio.rj.gov.br/apiCultura/apresentacao/csv/turismoECultura_.csv";
+    public static final String UPDATE_URL = "http://localhost:3030/turismoECultura/update";
+    public static final String DATA_URL = "http://localhost:3030/turismoECultura/data";
 
     public static final String DBPEDIA_NS = "http://dbpedia.org/ontology/";
     public static final String SCHEMA_ORG_NS = "http://schema.org/";
@@ -99,8 +104,11 @@ public class TurismoECultura {
                 } catch (Exception e) {
                 }
         }
+        OutputStream out = new FileOutputStream(new File(RDF_DIR + "/" + FILENAME + "." + EXPORT_LANG.getFileExtensions().get(0)));
+        RDFDataMgr.write(out, model, EXPORT_LANG);
 
-        RDFDataMgr.write(new FileOutputStream(new File(RDF_DIR + "/" + FILENAME + "." + EXPORT_LANG.getFileExtensions().get(0))), model, EXPORT_LANG);
+        DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(DATA_URL);
+        accessor.putModel(model);
     }
 
     private static String detectSchemaOrgClass(String name) {
