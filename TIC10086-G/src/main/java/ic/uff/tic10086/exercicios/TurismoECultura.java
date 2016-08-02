@@ -19,7 +19,6 @@ import org.apache.jena.query.DatasetAccessor;
 import org.apache.jena.query.DatasetAccessorFactory;
 import org.apache.jena.query.ReadWrite;
 import org.apache.jena.rdf.model.Model;
-import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.tdb.TDBFactory;
 import org.apache.log4j.Level;
@@ -38,14 +37,9 @@ import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.model.OWLOntologyStorageException;
 import org.semanticweb.owlapi.model.parameters.Imports;
 
-public class TurismoECultura {
+public class TurismoECultura extends MyDataset {
 
-    private static final String RDF_DIR = "./src/main/resources/dat/rdf";
-    private static final String OWL_DIR = "./src/main/resources/dat/owl";
-    public static final Lang IMPORT_LANG = Lang.RDFXML;
-    public static final Lang EXPORT_LANG = Lang.TTL;
-
-    public static final String BASE_URI = "http://localhost:8080/id/";
+    public static final String BASE_URI = "http://localhost:8080/resource/";
     public static final String DATASET_URL = "http://dadosabertos.rio.rj.gov.br/apiCultura/apresentacao/csv/turismoECultura_.csv";
     public static final String FILENAME = "turismoECultura";
     public static final String TDB_ASSEMPLER_FILE = "./src/main/resources/conf/turismoECultura.ttl";

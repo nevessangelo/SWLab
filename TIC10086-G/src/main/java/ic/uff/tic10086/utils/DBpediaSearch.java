@@ -21,6 +21,29 @@ public class DBpediaSearch {
             + "limit %2d \n"
             + "offset %3d";
 
+    private static String prepareSearchQuery(String keywordsString, int limit, int offset) {
+        String[] keywords = keywordsString.split("\\s");
+        List<String> keywords2 = new ArrayList<>();
+        for (String keyword : keywords)
+            if (keyword != null && !keyword.equals(""))
+                keywords2.add(keyword.toUpperCase());
+        String keywordsConjunction = Joiner.on(" AND ").join(keywords2);
+        String query = String.format(searchQueryPrototype, keywordsConjunction, limit, offset);
+        return query;
+    }
+
+    /**
+     * Searches for descriptions of DBpedia resources. The relevant resources
+     * are ranked according to the given keywords and the description graph of
+     * each resource is added to the given model.
+     *
+     * @param keywordsString The keywords string.
+     * @param limit Number of relevant resources to be retrieved.
+     * @param offset The number of relevant resources to be skipped starting
+     * from the top of the ranking.
+     * @param model The RDF model for adding the description graphs.
+     * @return The given model to allow cascading calls.
+     */
     public static Model search(String keywordsString, int limit, int offset, Model model) {
         String queryString = prepareSearchQuery(keywordsString, limit, offset);
         try (QueryExecution exec = new QueryEngineHTTP(SPARQL_ENDPOINT_URL, queryString)) {
@@ -39,16 +62,5 @@ public class DBpediaSearch {
             System.out.println("Error: " + keywordsString);
         }
         return model;
-    }
-
-    private static String prepareSearchQuery(String keywordsString, int limit, int offset) {
-        String[] keywords = keywordsString.split("\\s");
-        List<String> keywords2 = new ArrayList<>();
-        for (String keyword : keywords)
-            if (keyword != null && !keyword.equals(""))
-                keywords2.add(keyword.toUpperCase());
-        String keywordsConjunction = Joiner.on(" AND ").join(keywords2);
-        String query = String.format(searchQueryPrototype, keywordsConjunction, limit, offset);
-        return query;
     }
 }
