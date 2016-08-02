@@ -30,53 +30,52 @@ public class DBpedia extends MyDataset {
     public static void main(String[] args) {
         try {
             init();
-            extractSample();
+
+            Dataset dataset = TDBFactory.assembleDataset(TDB_ASSEMPLER_FILE);
+            extractResources(dataset);
+            exportResources(dataset);
+            dataset.close();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public static void extractSample() throws FileNotFoundException, MalformedURLException, IOException {
-        Dataset dataset = TDBFactory.assembleDataset(TDB_ASSEMPLER_FILE);
+    private static void extractResources(Dataset dataset) throws IOException, MalformedURLException {
+        dataset.begin(ReadWrite.WRITE);
+        Model model = dataset.getDefaultModel();
+        model.getNsPrefixMap().clear();
+        model.removeAll();
+        URL url = new URL(SEEDS_URL);
+        try (
+                InputStreamReader in = new InputStreamReader(url.openStream(), "Windows-1252");
+                BufferedReader buff = new BufferedReader(in);
+                CSVReader reader = new CSVReader(buff, ',', '"', 1);) {
 
-        {
-            dataset.begin(ReadWrite.WRITE);
-            Model model = dataset.getDefaultModel();
-            model.getNsPrefixMap().clear();
-            model.removeAll();
-            URL url = new URL(SEEDS_URL);
-            try (
-                    InputStreamReader in = new InputStreamReader(url.openStream(), "Windows-1252");
-                    BufferedReader buff = new BufferedReader(in);
-                    CSVReader reader = new CSVReader(buff, ',', '"', 1);) {
-
-                String name;
-                String[] nextLine;
-                while ((nextLine = reader.readNext()) != null)
-                    try {
-                        name = nextLine[0];
-                        if (name != null && !name.equals(""))
-                            DBpediaSearch.search(name, 7, 0, model);
-                    } catch (Exception e) {
-                        System.out.println("Error reding CSV.");
-                    }
-            }
-            dataset.commit();
-            dataset.end();
+            String name;
+            String[] nextLine;
+            while ((nextLine = reader.readNext()) != null)
+                try {
+                    name = nextLine[0];
+                    if (name != null && !name.equals(""))
+                        DBpediaSearch.search(name, 7, 0, model);
+                } catch (Exception e) {
+                    System.out.println("Error reding CSV.");
+                }
         }
+        dataset.commit();
+        dataset.end();
+    }
 
-        {
-            dataset.begin(ReadWrite.READ);
+    private static void exportResources(Dataset dataset) throws FileNotFoundException {
+        dataset.begin(ReadWrite.READ);
 
-            Model model = dataset.getDefaultModel();
-            OutputStream out = new FileOutputStream(new File(RDF_DIR + "/" + FILENAME + "." + EXPORT_LANG.getFileExtensions().get(0)));
-            RDFDataMgr.write(out, model, EXPORT_LANG);
-            DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(FUSEKI_DATA_URL);
-            accessor.putModel(model);
+        Model model = dataset.getDefaultModel();
+        OutputStream out = new FileOutputStream(new File(RDF_DIR + "/" + FILENAME + "." + EXPORT_LANG.getFileExtensions().get(0)));
+        RDFDataMgr.write(out, model, EXPORT_LANG);
+        DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(FUSEKI_DATA_URL);
+        accessor.putModel(model);
 
-            dataset.end();
-        }
-
-        dataset.close();
+        dataset.end();
     }
 }

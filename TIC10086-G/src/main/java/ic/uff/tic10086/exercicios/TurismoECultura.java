@@ -1,6 +1,7 @@
 package ic.uff.tic10086.exercicios;
 
 import com.opencsv.CSVReader;
+import static ic.uff.tic10086.exercicios.MyDataset.RDF_DIR;
 import ic.uff.tic10086.utils.JenaSchema;
 import ic.uff.tic10086.utils.OWLAPIOntology;
 import java.io.BufferedReader;
@@ -10,6 +11,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.UUID;
@@ -50,16 +52,25 @@ public class TurismoECultura extends MyDataset {
     public static void main(String[] args) {
         try {
             init();
+
             saveAsSchemaOrgGraph();
             saveAsDBpediaOntology();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public static void saveAsSchemaOrgGraph() throws MalformedURLException, FileNotFoundException, IOException, CompressorException {
+    private static void saveAsSchemaOrgGraph() throws MalformedURLException, FileNotFoundException, IOException, CompressorException {
         Dataset dataset = TDBFactory.assembleDataset(TDB_ASSEMPLER_FILE);
 
+        convertToRDF(dataset);
+        exportResources(dataset);
+
+        dataset.close();
+    }
+
+    private static void convertToRDF(Dataset dataset) throws MalformedURLException, FileNotFoundException, IOException, UnsupportedEncodingException {
         dataset.begin(ReadWrite.WRITE);
         Model schema = JenaSchema.getSchemaOrg();
         Model model = dataset.getDefaultModel();
@@ -106,14 +117,6 @@ public class TurismoECultura extends MyDataset {
         }
         dataset.commit();
         dataset.end();
-
-        OutputStream out = new FileOutputStream(new File(RDF_DIR + "/" + FILENAME + "." + EXPORT_LANG.getFileExtensions().get(0)));
-        RDFDataMgr.write(out, model, EXPORT_LANG);
-
-        DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(FUSEKI_DATA_URL);
-        accessor.putModel(model);
-
-        dataset.close();
     }
 
     private static String detectSchemaOrgClass(String name) {
@@ -153,7 +156,19 @@ public class TurismoECultura extends MyDataset {
         return uri;
     }
 
-    public static void saveAsDBpediaOntology() throws IOException, MalformedURLException, CompressorException, OWLOntologyCreationException, OWLOntologyStorageException {
+    private static void exportResources(Dataset dataset) throws FileNotFoundException {
+        dataset.begin(ReadWrite.READ);
+
+        Model model = dataset.getDefaultModel();
+        OutputStream out = new FileOutputStream(new File(RDF_DIR + "/" + FILENAME + "." + EXPORT_LANG.getFileExtensions().get(0)));
+        RDFDataMgr.write(out, model, EXPORT_LANG);
+        DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(FUSEKI_DATA_URL);
+        accessor.putModel(model);
+
+        dataset.end();
+    }
+
+    private static void saveAsDBpediaOntology() throws IOException, MalformedURLException, CompressorException, OWLOntologyCreationException, OWLOntologyStorageException {
         OWLOntology ontology = OWLAPIOntology.getDBpedia();
         OWLOntologyManager manager = ontology.getOWLOntologyManager();
         OWLDataFactory df = manager.getOWLDataFactory();
