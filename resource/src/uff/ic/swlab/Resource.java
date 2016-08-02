@@ -26,13 +26,10 @@ import org.apache.jena.riot.RDFLanguages;
 public class Resource extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	private String ns = "http://swlab.ic.uff.br/resource/";
-
-	private ServletContext ctx = null;
+	private static final String NS = "http://localhost:8080/resource/";
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-		ctx = config.getServletContext();
 		org.apache.log4j.Logger.getRootLogger().setLevel(org.apache.log4j.Level.OFF);
 		Lang lang = LangBuilder.create("RDFa", "text/html").addFileExtensions("htm", "html", "xhtml", "xhtm").build();
 		RDFLanguages.register(lang);
@@ -42,7 +39,7 @@ public class Resource extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String uri = ns + request.getParameter("id");
+		String uri = NS + request.getParameter("id");
 		String accept = request.getHeader("Accept");
 		Lang lang = detectLang(accept);
 
