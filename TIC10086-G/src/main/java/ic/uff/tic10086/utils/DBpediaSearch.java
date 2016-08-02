@@ -34,6 +34,16 @@ public class DBpediaSearch {
         return query;
     }
 
+    private static String clean(String s) {
+        StringTokenizer defaultTokenizer = new StringTokenizer(s, " ://.-");
+        List<String> l = new ArrayList<>();
+        while (defaultTokenizer.hasMoreTokens())
+            l.add(defaultTokenizer.nextToken());
+        s = String.join(" ", l);
+        s = StringUtils.stripAccents(s);
+        return s;
+    }
+
     /**
      * Searches for descriptions of DBpedia resources. The relevant resources
      * are ranked according to the given keywords and the description graph of
@@ -65,15 +75,5 @@ public class DBpediaSearch {
             System.out.println("Error: " + keywordsString);
         }
         return model;
-    }
-
-    private static String clean(String s) {
-        StringTokenizer defaultTokenizer = new StringTokenizer(s, " ://.-");
-        List<String> l = new ArrayList<>();
-        while (defaultTokenizer.hasMoreTokens())
-            l.add(defaultTokenizer.nextToken());
-        s = String.join(" ", l);
-        s = StringUtils.stripAccents(s);
-        return s;
     }
 }
