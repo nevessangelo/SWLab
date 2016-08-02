@@ -23,10 +23,10 @@ import org.apache.jena.riot.LangBuilder;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.RDFLanguages;
 
-public class Id extends HttpServlet {
+public class Resource extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	private String ns = "http://swlab.ic.uff.br/id/";
+	private String ns = "http://swlab.ic.uff.br/resource/";
 
 	private ServletContext ctx = null;
 
