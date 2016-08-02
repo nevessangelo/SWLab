@@ -18,8 +18,6 @@ import org.apache.jena.query.ReadWrite;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.tdb.TDBFactory;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
 
 public class DBpedia extends MyDataset {
 
@@ -31,7 +29,7 @@ public class DBpedia extends MyDataset {
 
     public static void main(String[] args) {
         try {
-            Logger.getRootLogger().setLevel(Level.OFF);
+            init();
             extractSample();
         } catch (Exception e) {
             e.printStackTrace();
@@ -57,7 +55,8 @@ public class DBpedia extends MyDataset {
                 while ((nextLine = reader.readNext()) != null)
                     try {
                         name = nextLine[0];
-                        DBpediaSearch.search(name, 7, 0, model);
+                        if (name != null && !name.equals(""))
+                            DBpediaSearch.search(name, 7, 0, model);
                     } catch (Exception e) {
                         System.out.println("Error reding CSV.");
                     }

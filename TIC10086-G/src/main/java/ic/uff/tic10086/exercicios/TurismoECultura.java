@@ -21,8 +21,6 @@ import org.apache.jena.query.ReadWrite;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.tdb.TDBFactory;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
 import org.semanticweb.owlapi.formats.OWLXMLDocumentFormat;
 import org.semanticweb.owlapi.formats.PrefixDocumentFormat;
 import org.semanticweb.owlapi.model.IRI;
@@ -51,7 +49,7 @@ public class TurismoECultura extends MyDataset {
 
     public static void main(String[] args) {
         try {
-            Logger.getRootLogger().setLevel(Level.OFF);
+            init();
             saveAsSchemaOrgGraph();
             saveAsDBpediaOntology();
         } catch (Exception e) {

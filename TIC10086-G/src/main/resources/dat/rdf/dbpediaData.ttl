@@ -1,21 +1,6 @@
 @prefix res:   <http://www.w3.org/2005/sparql-results#> .
-@prefix owl:   <http://www.w3.org/2002/07/owl#> .
-@prefix georss: <http://www.georss.org/georss/> .
-@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
-@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix ns6:   <http://dbpedia.org/property/thrust/> .
-@prefix geo:   <http://www.w3.org/2003/01/geo/wgs84_pos#> .
-@prefix dbo:   <http://dbpedia.org/ontology/> .
-@prefix ns8:   <http://dbpedia.org/ontology/Work/> .
-@prefix dbp:   <http://dbpedia.org/property/> .
-@prefix dct:   <http://purl.org/dc/terms/> .
 @prefix dbr:   <http://dbpedia.org/resource/> .
-@prefix ns9:   <http://dbpedia.org/ontology/PopulatedPlace/> .
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix ns10:  <http://dbpedia.org/ontology/Person/> .
-@prefix prov:  <http://www.w3.org/ns/prov#> .
-@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
-@prefix dc:    <http://purl.org/dc/elements/1.1/> .
 
 [ a                   res:ResultSet ;
   res:resultVariable  "s" ;
@@ -6540,6 +6525,26 @@
                                        res:variable  "s"
                                      ] ] ;
   res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Prainha_(Angra_do_Heroismo)> ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:National_Museum_of_Brazil ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Quinta_da_Boa_Vista ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:National_Museum_of_Brazil ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Quinta_da_Boa_Vista ;
                                        res:variable  "s"
                                      ] ]
 ] .
