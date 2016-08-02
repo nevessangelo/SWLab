@@ -58,15 +58,17 @@ public class DBpediaSearch {
      */
     public static Model search(String keywordsString, int limit, int offset, Model model) {
         keywordsString = clean(keywordsString);
-        String queryString = prepareSearchQuery(keywordsString, limit, offset);
-        try (QueryExecution exec = new QueryEngineHTTP(SPARQL_ENDPOINT_URL, queryString)) {
-            ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeJSONLD);
+        String searchQuery = prepareSearchQuery(keywordsString, limit, offset);
+        try (QueryExecution exec = new QueryEngineHTTP(SPARQL_ENDPOINT_URL, searchQuery)) {
+            ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeTurtle);
             ResultSet rs = exec.execSelect();
+
             while (rs.hasNext()) {
-                String queryString2 = String.format("describe <%1s>", rs.next().get("s"));
-                try (QueryExecution exec2 = new QueryEngineHTTP(SPARQL_ENDPOINT_URL, queryString);) {
-                    ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeJSONLD);
+                String describeQuery = String.format("describe <%1s>", rs.next().get("s"));
+                try (QueryExecution exec2 = new QueryEngineHTTP(SPARQL_ENDPOINT_URL, describeQuery);) {
+                    ((QueryEngineHTTP) exec2).setModelContentType(WebContent.contentTypeJSONLD);
                     exec2.execDescribe(model);
+
                 } catch (Exception e) {
                     System.out.println("*** Error while describing resource. ****");
                 }
