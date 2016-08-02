@@ -914,6 +914,45 @@
 
 [ a                   res:ResultSet ;
   res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Sri_Lankan_Portuguese_creole ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Rodrigo_da_Câmara ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Igreja_do_Imaculado_Coração_de_Maria_(São_Paulo)> ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Sri_Lankan_Portuguese_creole ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Rodrigo_da_Câmara ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Igreja_do_Imaculado_Coração_de_Maria_(São_Paulo)> ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Sri_Lankan_Portuguese_creole ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Rodrigo_da_Câmara ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Igreja_do_Imaculado_Coração_de_Maria_(São_Paulo)> ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
   res:solution        [ res:binding  [ res:value     dbr:Argentina ;
                                        res:variable  "s"
                                      ] ] ;
@@ -1711,6 +1750,20 @@
                                        res:variable  "s"
                                      ] ] ;
   res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Christ_the_King_(Świebodzin)> ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Estadio_do_Maracana ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Fortaleza_de_Sao_Joao_(Rio_de_Janeiro)> ;
                                        res:variable  "s"
                                      ] ]
 ] .
@@ -1899,25 +1952,7 @@
 
 [ a                   res:ResultSet ;
   res:resultVariable  "s" ;
-  res:solution        [ res:binding  [ res:value     dbr:Roman_Catholic_Diocese_of_Crato ;
-                                       res:variable  "s"
-                                     ] ] ;
-  res:solution        [ res:binding  [ res:value     dbr:Vila_Velha ;
-                                       res:variable  "s"
-                                     ] ] ;
-  res:solution        [ res:binding  [ res:value     dbr:Água_Retorta ;
-                                       res:variable  "s"
-                                     ] ] ;
-  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/St._Dominic's_Church,_Macau> ;
-                                       res:variable  "s"
-                                     ] ] ;
-  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Church_of_Nosso_Senhor_do_Bonfim,_Salvador> ;
-                                       res:variable  "s"
-                                     ] ] ;
-  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Faial_(Santana)> ;
-                                       res:variable  "s"
-                                     ] ] ;
-  res:solution        [ res:binding  [ res:value     dbr:Fernando_Iório_Rodrigues ;
+  res:solution        [ res:binding  [ res:value     dbr:Virgin_of_Candelaria ;
                                        res:variable  "s"
                                      ] ]
 ] .
@@ -2068,6 +2103,51 @@
                                        res:variable  "s"
                                      ] ] ;
   res:solution        [ res:binding  [ res:value     dbr:Fernando_Iório_Rodrigues ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Roman_Catholic_Diocese_of_Crato ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Vila_Velha ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Água_Retorta ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/St._Dominic's_Church,_Macau> ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Church_of_Nosso_Senhor_do_Bonfim,_Salvador> ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Faial_(Santana)> ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Fernando_Iório_Rodrigues ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Old_Cathedral_of_Rio_de_Janeiro ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Przemyśl ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Old_Cathedral_of_Rio_de_Janeiro ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Przemyśl ;
                                        res:variable  "s"
                                      ] ]
 ] .
@@ -2243,6 +2323,181 @@
                                        res:variable  "s"
                                      ] ] ;
   res:solution        [ res:binding  [ res:value     dbr:Michael_II ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Jardim_Botanico_(Cape_Verde)> ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Jardim_Botanico ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Jardim_Botanico_do_Rio_de_Janeiro ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Jardim_Botanico,_Rio_de_Janeiro> ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Jardim_Botanico_da_Universidade_de_Coimbra ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Jardim_Botanico_de_Coimbra ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Jardim_Botanico,_Porto_Alegre> ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Jardim_Botanico_(Cape_Verde)> ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Jardim_Botanico ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Jardim_Botanico_do_Rio_de_Janeiro ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Jardim_Botanico,_Rio_de_Janeiro> ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Jardim_Botanico_da_Universidade_de_Coimbra ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Jardim_Botanico_de_Coimbra ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Jardim_Botanico,_Porto_Alegre> ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Jardim_Botanico_(Cape_Verde)> ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Jardim_Botanico ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Jardim_Botanico_do_Rio_de_Janeiro ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Jardim_Botanico,_Rio_de_Janeiro> ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Jardim_Botanico_da_Universidade_de_Coimbra ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Jardim_Botanico_de_Coimbra ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Jardim_Botanico,_Porto_Alegre> ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Jardim_Botanico_(Cape_Verde)> ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Jardim_Botanico ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Jardim_Botanico_do_Rio_de_Janeiro ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Jardim_Botanico,_Rio_de_Janeiro> ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Jardim_Botanico_da_Universidade_de_Coimbra ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Jardim_Botanico_de_Coimbra ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Jardim_Botanico,_Porto_Alegre> ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Jardim_Botanico_(Cape_Verde)> ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Jardim_Botanico ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Jardim_Botanico_do_Rio_de_Janeiro ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Jardim_Botanico,_Rio_de_Janeiro> ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Jardim_Botanico_da_Universidade_de_Coimbra ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Jardim_Botanico_de_Coimbra ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Jardim_Botanico,_Porto_Alegre> ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Jardim_Botanico_(Cape_Verde)> ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Jardim_Botanico ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Jardim_Botanico_do_Rio_de_Janeiro ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Jardim_Botanico,_Rio_de_Janeiro> ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Jardim_Botanico_da_Universidade_de_Coimbra ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Jardim_Botanico_de_Coimbra ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Jardim_Botanico,_Porto_Alegre> ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Jardim_Botanico_(Cape_Verde)> ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Jardim_Botanico ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Jardim_Botanico_do_Rio_de_Janeiro ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Jardim_Botanico,_Rio_de_Janeiro> ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Jardim_Botanico_da_Universidade_de_Coimbra ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Jardim_Botanico_de_Coimbra ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Jardim_Botanico,_Porto_Alegre> ;
                                        res:variable  "s"
                                      ] ]
 ] .
@@ -2606,6 +2861,13 @@
 
 [ a                   res:ResultSet ;
   res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Mosteiro_de_Sao_Bento_(Sao_Paulo)> ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
   res:solution        [ res:binding  [ res:value     dbr:Museu_Aeroespacial ;
                                        res:variable  "s"
                                      ] ] ;
@@ -2963,25 +3225,7 @@
 
 [ a                   res:ResultSet ;
   res:resultVariable  "s" ;
-  res:solution        [ res:binding  [ res:value     dbr:Museum_of_Modern_Art ;
-                                       res:variable  "s"
-                                     ] ] ;
-  res:solution        [ res:binding  [ res:value     dbr:Museo_Nacional_Centro_de_Arte_Reina_Sofía ;
-                                       res:variable  "s"
-                                     ] ] ;
-  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/National_Museum_of_Modern_Art,_Tokyo> ;
-                                       res:variable  "s"
-                                     ] ] ;
-  res:solution        [ res:binding  [ res:value     dbr:Moderna_Museet ;
-                                       res:variable  "s"
-                                     ] ] ;
-  res:solution        [ res:binding  [ res:value     dbr:Museu_de_Arte_Moderna_de_Sao_Paulo ;
-                                       res:variable  "s"
-                                     ] ] ;
-  res:solution        [ res:binding  [ res:value     dbr:Tate ;
-                                       res:variable  "s"
-                                     ] ] ;
-  res:solution        [ res:binding  [ res:value     dbr:São_Paulo_Museum_of_Modern_Art ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Lagos,_Portugal> ;
                                        res:variable  "s"
                                      ] ]
 ] .
@@ -3132,6 +3376,58 @@
                                        res:variable  "s"
                                      ] ] ;
   res:solution        [ res:binding  [ res:value     dbr:São_Paulo_Museum_of_Modern_Art ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Museum_of_Modern_Art ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Museo_Nacional_Centro_de_Arte_Reina_Sofía ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/National_Museum_of_Modern_Art,_Tokyo> ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Moderna_Museet ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Museu_de_Arte_Moderna_de_Sao_Paulo ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Tate ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:São_Paulo_Museum_of_Modern_Art ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Museu_do_Indio ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Museu_do_Índio ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Museu_do_Indio ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Museu_do_Índio ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Jordi_Forniés ;
                                        res:variable  "s"
                                      ] ]
 ] .
@@ -3488,25 +3784,166 @@
 
 [ a                   res:ResultSet ;
   res:resultVariable  "s" ;
-  res:solution        [ res:binding  [ res:value     dbr:Natal_City_Park ;
+  res:solution        [ res:binding  [ res:value     dbr:Paco_Imperial ;
                                        res:variable  "s"
                                      ] ] ;
-  res:solution        [ res:binding  [ res:value     dbr:Parque_da_cidade ;
+  res:solution        [ res:binding  [ res:value     dbr:List_of_songs_about_Paris ;
                                        res:variable  "s"
                                      ] ] ;
-  res:solution        [ res:binding  [ res:value     dbr:Parque_del_Oeste ;
+  res:solution        [ res:binding  [ res:value     dbr:Athanassios_S._Fokas ;
                                        res:variable  "s"
                                      ] ] ;
-  res:solution        [ res:binding  [ res:value     dbr:Club_Atlético_Huracán ;
+  res:solution        [ res:binding  [ res:value     dbr:CD_Llosetense ;
                                        res:variable  "s"
                                      ] ] ;
-  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Presidente_Prudente,_São_Paulo> ;
+  res:solution        [ res:binding  [ res:value     dbr:Fierro_Group ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Paco_Imperial ;
                                        res:variable  "s"
                                      ] ] ;
-  res:solution        [ res:binding  [ res:value     dbr:Deportivo_Merlo ;
+  res:solution        [ res:binding  [ res:value     dbr:List_of_songs_about_Paris ;
                                        res:variable  "s"
                                      ] ] ;
-  res:solution        [ res:binding  [ res:value     dbr:Metro_Parque_de_los_Venados ;
+  res:solution        [ res:binding  [ res:value     dbr:Athanassios_S._Fokas ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:CD_Llosetense ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Fierro_Group ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Paco_Imperial ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:List_of_songs_about_Paris ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Athanassios_S._Fokas ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:CD_Llosetense ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Fierro_Group ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Paco_Imperial ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:List_of_songs_about_Paris ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Athanassios_S._Fokas ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:CD_Llosetense ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Fierro_Group ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Paco_Imperial ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:List_of_songs_about_Paris ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Athanassios_S._Fokas ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:CD_Llosetense ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Fierro_Group ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Legislative_Assembly_of_Rio_de_Janeiro ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Pao_de_Acucar ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Pao_de_Acucar,_Alagoas> ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Pao_de_Acucar_(disambiguation)> ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Grupo_Pao_de_Acucar ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Pao_de_Acucar ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Pao_de_Acucar,_Alagoas> ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Pao_de_Acucar_(disambiguation)> ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Grupo_Pao_de_Acucar ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Pao_de_Acucar ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Pao_de_Acucar,_Alagoas> ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Pao_de_Acucar_(disambiguation)> ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Grupo_Pao_de_Acucar ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Pao_de_Acucar ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Pao_de_Acucar,_Alagoas> ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Pao_de_Acucar_(disambiguation)> ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Grupo_Pao_de_Acucar ;
                                        res:variable  "s"
                                      ] ]
 ] .
@@ -3657,6 +4094,38 @@
                                        res:variable  "s"
                                      ] ] ;
   res:solution        [ res:binding  [ res:value     dbr:Metro_Parque_de_los_Venados ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Natal_City_Park ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Parque_da_cidade ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Parque_del_Oeste ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Club_Atlético_Huracán ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Presidente_Prudente,_São_Paulo> ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Deportivo_Merlo ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Metro_Parque_de_los_Venados ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Faial_(Santana)> ;
                                        res:variable  "s"
                                      ] ]
 ] .
@@ -4059,6 +4528,315 @@
 
 [ a                   res:ResultSet ;
   res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Pedra_da_Gavea ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Archaeological_interest_of_Pedra_da_Gavea ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Pedra_da_Gávea ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Pedra_da_Gavea ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Archaeological_interest_of_Pedra_da_Gavea ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Pedra_da_Gávea ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Pedra_da_Gavea ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Archaeological_interest_of_Pedra_da_Gavea ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Pedra_da_Gávea ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Nile_Rodgers ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Barbra_Streisand ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Planetarium ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Eise_Eisinga ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Leona_Lewis ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Ring_system_(astronomy)> ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Epicyclic_gearing ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Nile_Rodgers ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Barbra_Streisand ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Planetarium ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Eise_Eisinga ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Leona_Lewis ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Ring_system_(astronomy)> ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Epicyclic_gearing ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Nile_Rodgers ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Barbra_Streisand ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Planetarium ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Eise_Eisinga ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Leona_Lewis ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Ring_system_(astronomy)> ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Epicyclic_gearing ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Nile_Rodgers ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Barbra_Streisand ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Planetarium ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Eise_Eisinga ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Leona_Lewis ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Ring_system_(astronomy)> ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Epicyclic_gearing ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Nile_Rodgers ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Barbra_Streisand ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Planetarium ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Eise_Eisinga ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Leona_Lewis ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Ring_system_(astronomy)> ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Epicyclic_gearing ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Nile_Rodgers ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Barbra_Streisand ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Planetarium ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Eise_Eisinga ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Leona_Lewis ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Ring_system_(astronomy)> ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Epicyclic_gearing ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Nile_Rodgers ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Barbra_Streisand ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Planetarium ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Eise_Eisinga ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Leona_Lewis ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Ring_system_(astronomy)> ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Epicyclic_gearing ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Jacques_Rancière ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Gröbner_basis ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Bruno_Pelletier ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Abraham_Lempel ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:François_Fertiault ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Jacques_Rancière ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Gröbner_basis ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Bruno_Pelletier ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Abraham_Lempel ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:François_Fertiault ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Jacques_Rancière ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Gröbner_basis ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Bruno_Pelletier ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Abraham_Lempel ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:François_Fertiault ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Jacques_Rancière ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Gröbner_basis ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Bruno_Pelletier ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Abraham_Lempel ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:François_Fertiault ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Jacques_Rancière ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Gröbner_basis ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Bruno_Pelletier ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Abraham_Lempel ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:François_Fertiault ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
   res:solution        [ res:binding  [ res:value     dbr:Praia_do_Abricó ;
                                        res:variable  "s"
                                      ] ] ;
@@ -5762,6 +6540,158 @@
                                        res:variable  "s"
                                      ] ] ;
   res:solution        [ res:binding  [ res:value     <http://dbpedia.org/resource/Prainha_(Angra_do_Heroismo)> ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Sala_Cecilia_Meireles ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Isaac_Chueke ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Sala_Cecilia_Meireles ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Isaac_Chueke ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Sambadrome_Marquês_de_Sapucaí ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Sambodromo ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Sambodromo_da_Marques_de_Sapucai ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Sambadrome ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Samba_school ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Bahian_Carnival ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Sambadrome_Marquês_de_Sapucaí ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Sambodromo ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Sambodromo_da_Marques_de_Sapucai ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Sambadrome ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Samba_school ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Bahian_Carnival ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Sambadrome_Marquês_de_Sapucaí ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Sambodromo ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Sambodromo_da_Marques_de_Sapucai ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Sambadrome ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Samba_school ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Bahian_Carnival ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Sambadrome_Marquês_de_Sapucaí ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Sambodromo ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Sambodromo_da_Marques_de_Sapucai ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Sambadrome ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Samba_school ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Bahian_Carnival ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Sambadrome_Marquês_de_Sapucaí ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Sambodromo ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Sambodromo_da_Marques_de_Sapucai ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Sambadrome ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Samba_school ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Bahian_Carnival ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Sambadrome_Marquês_de_Sapucaí ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Sambodromo ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Sambodromo_da_Marques_de_Sapucai ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Sambadrome ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Samba_school ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Bahian_Carnival ;
                                        res:variable  "s"
                                      ] ]
 ] .
@@ -6846,13 +7776,175 @@
 
 [ a                   res:ResultSet ;
   res:resultVariable  "s" ;
-  res:solution        [ res:binding  [ res:value     dbr:Joaquim_Pimentel ;
+  res:solution        [ res:binding  [ res:value     dbr:Gloria_Grahame ;
                                        res:variable  "s"
                                      ] ] ;
-  res:solution        [ res:binding  [ res:value     dbr:Lúcio_Cardoso ;
+  res:solution        [ res:binding  [ res:value     dbr:Gloria_Stuart ;
                                        res:variable  "s"
                                      ] ] ;
-  res:solution        [ res:binding  [ res:value     dbr:Rosa_Passos ;
+  res:solution        [ res:binding  [ res:value     dbr:Annabella_Sciorra ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Mickey_Rooney ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Proscenium ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Special_effect ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Gena_Rowlands ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Gloria_Grahame ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Gloria_Stuart ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Annabella_Sciorra ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Mickey_Rooney ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Proscenium ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Special_effect ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Gena_Rowlands ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Gloria_Grahame ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Gloria_Stuart ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Annabella_Sciorra ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Mickey_Rooney ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Proscenium ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Special_effect ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Gena_Rowlands ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Gloria_Grahame ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Gloria_Stuart ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Annabella_Sciorra ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Mickey_Rooney ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Proscenium ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Special_effect ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Gena_Rowlands ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Gloria_Grahame ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Gloria_Stuart ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Annabella_Sciorra ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Mickey_Rooney ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Proscenium ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Special_effect ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Gena_Rowlands ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Gloria_Grahame ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Gloria_Stuart ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Annabella_Sciorra ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Mickey_Rooney ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Proscenium ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Special_effect ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Gena_Rowlands ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Gloria_Grahame ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Gloria_Stuart ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Annabella_Sciorra ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Mickey_Rooney ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Proscenium ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Special_effect ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Gena_Rowlands ;
                                        res:variable  "s"
                                      ] ]
 ] .
@@ -6879,6 +7971,26 @@
                                        res:variable  "s"
                                      ] ] ;
   res:solution        [ res:binding  [ res:value     dbr:Rosa_Passos ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Joaquim_Pimentel ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Lúcio_Cardoso ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Rosa_Passos ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:Teatro_Joao_Caetano ;
                                        res:variable  "s"
                                      ] ]
 ] .
@@ -6994,6 +8106,138 @@
                                        res:variable  "s"
                                      ] ] ;
   res:solution        [ res:binding  [ res:value     dbr:Guilherme_Fontes ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:La_Scala ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Festival_Puccini ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Anthony_Corleone ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Roberto_Abbado ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Matilde_di_Shabran ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Rubén_Domínguez ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:La_Scala ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Festival_Puccini ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Anthony_Corleone ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Roberto_Abbado ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Matilde_di_Shabran ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Rubén_Domínguez ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:La_Scala ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Festival_Puccini ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Anthony_Corleone ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Roberto_Abbado ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Matilde_di_Shabran ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Rubén_Domínguez ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:La_Scala ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Festival_Puccini ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Anthony_Corleone ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Roberto_Abbado ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Matilde_di_Shabran ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Rubén_Domínguez ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:La_Scala ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Festival_Puccini ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Anthony_Corleone ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Roberto_Abbado ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Matilde_di_Shabran ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Rubén_Domínguez ;
+                                       res:variable  "s"
+                                     ] ]
+] .
+
+[ a                   res:ResultSet ;
+  res:resultVariable  "s" ;
+  res:solution        [ res:binding  [ res:value     dbr:La_Scala ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Festival_Puccini ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Anthony_Corleone ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Roberto_Abbado ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Matilde_di_Shabran ;
+                                       res:variable  "s"
+                                     ] ] ;
+  res:solution        [ res:binding  [ res:value     dbr:Rubén_Domínguez ;
                                        res:variable  "s"
                                      ] ]
 ] .

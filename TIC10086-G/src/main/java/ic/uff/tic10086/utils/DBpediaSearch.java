@@ -2,6 +2,8 @@ package ic.uff.tic10086.utils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.jena.ext.com.google.common.base.Joiner;
 import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.ResultSet;
@@ -45,6 +47,7 @@ public class DBpediaSearch {
      * @return The given model to allow cascading calls.
      */
     public static Model search(String keywordsString, int limit, int offset, Model model) {
+        keywordsString = clean(keywordsString);
         String queryString = prepareSearchQuery(keywordsString, limit, offset);
         try (QueryExecution exec = new QueryEngineHTTP(SPARQL_ENDPOINT_URL, queryString)) {
             ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeJSONLD);
@@ -62,5 +65,15 @@ public class DBpediaSearch {
             System.out.println("Error: " + keywordsString);
         }
         return model;
+    }
+
+    private static String clean(String s) {
+        StringTokenizer defaultTokenizer = new StringTokenizer(s, " ://.-");
+        List<String> l = new ArrayList<>();
+        while (defaultTokenizer.hasMoreTokens())
+            l.add(defaultTokenizer.nextToken());
+        s = String.join(" ", l);
+        s = StringUtils.stripAccents(s);
+        return s;
     }
 }
