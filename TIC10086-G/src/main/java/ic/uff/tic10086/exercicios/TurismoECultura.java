@@ -14,12 +14,14 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.UUID;
 import org.apache.commons.compress.compressors.CompressorException;
+import org.apache.jena.query.Dataset;
 import org.apache.jena.query.DatasetAccessor;
 import org.apache.jena.query.DatasetAccessorFactory;
+import org.apache.jena.query.ReadWrite;
 import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
+import org.apache.jena.tdb.TDBFactory;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.semanticweb.owlapi.formats.OWLXMLDocumentFormat;
@@ -43,11 +45,12 @@ public class TurismoECultura {
     public static final Lang IMPORT_LANG = Lang.RDFXML;
     public static final Lang EXPORT_LANG = Lang.TTL;
 
-    public static final String FILENAME = "turismoECultura";
     public static final String BASE_URI = "http://localhost:8080/id/";
     public static final String DATASET_URL = "http://dadosabertos.rio.rj.gov.br/apiCultura/apresentacao/csv/turismoECultura_.csv";
-    public static final String UPDATE_URL = "http://localhost:3030/turismoECultura/update";
-    public static final String DATA_URL = "http://localhost:3030/turismoECultura/data";
+    public static final String FILENAME = "turismoECultura";
+    public static final String TDB_ASSEMPLER_FILE = "./src/main/resources/conf/turismoECultura.ttl";
+    public static final String FUSEKI_UPDATE_URL = "http://localhost:3030/turismoECultura/update";
+    public static final String FUSEKI_DATA_URL = "http://localhost:3030/turismoECultura/data";
 
     public static final String DBPEDIA_NS = "http://dbpedia.org/ontology/";
     public static final String SCHEMA_ORG_NS = "http://schema.org/";
@@ -63,8 +66,13 @@ public class TurismoECultura {
     }
 
     public static void saveAsSchemaOrgGraph() throws MalformedURLException, FileNotFoundException, IOException, CompressorException {
+        Dataset dataset = TDBFactory.assembleDataset(TDB_ASSEMPLER_FILE);
+
+        dataset.begin(ReadWrite.WRITE);
         Model schema = JenaSchema.getSchemaOrg();
-        Model model = ModelFactory.createDefaultModel();
+        Model model = dataset.getDefaultModel();
+        model.getNsPrefixMap().clear();
+        model.removeAll();
         model.setNsPrefix("sch", SCHEMA_ORG_NS);
         model.setNsPrefix("", BASE_URI);
 
@@ -104,11 +112,16 @@ public class TurismoECultura {
                 } catch (Exception e) {
                 }
         }
+        dataset.commit();
+        dataset.end();
+
         OutputStream out = new FileOutputStream(new File(RDF_DIR + "/" + FILENAME + "." + EXPORT_LANG.getFileExtensions().get(0)));
         RDFDataMgr.write(out, model, EXPORT_LANG);
 
-        DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(DATA_URL);
+        DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(FUSEKI_DATA_URL);
         accessor.putModel(model);
+
+        dataset.close();
     }
 
     private static String detectSchemaOrgClass(String name) {
@@ -202,9 +215,7 @@ public class TurismoECultura {
                     ontology.addAxiom(df.getOWLDataPropertyAssertionAxiom(pname, cc, "Brasil"));
                     OWLObjectProperty plocationCountry = df.getOWLObjectProperty("dbo:locationCountry", pm);
                     ontology.addAxiom(df.getOWLObjectPropertyAssertionAxiom(plocationCountry, p, cc));
-
                 } catch (Exception e) {
-
                 }
         }
         try {

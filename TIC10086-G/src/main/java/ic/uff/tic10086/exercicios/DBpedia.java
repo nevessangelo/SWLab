@@ -11,9 +11,11 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.jena.query.Dataset;
 import org.apache.jena.query.DatasetAccessor;
 import org.apache.jena.query.DatasetAccessorFactory;
+import org.apache.jena.query.ReadWrite;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
@@ -27,10 +29,11 @@ public class DBpedia {
     private static final String OWL_DIR = "./src/main/resources/dat/owl";
     public static final Lang EXPORT_LANG = Lang.TTL;
 
-    public static final String FILENAME = "dbpediaData";
     public static final String SEEDS_URL = "http://dadosabertos.rio.rj.gov.br/apiCultura/apresentacao/csv/turismoECultura_.csv";
-    public static final String UPDATE_URL = "http://localhost:3030/dbpediaData/update";
-    public static final String DATA_URL = "http://localhost:3030/dbpediaData/data";
+    public static final String FILENAME = "dbpediaData";
+    public static final String TDB_ASSEMPLER_FILE = "./src/main/resources/conf/dbpedia.ttl";
+    public static final String FUSEKI_UPDATE_URL = "http://localhost:3030/dbpedia/update";
+    public static final String FUSEKI_DATA_URL = "http://localhost:3030/dbpedia/data";
 
     public static void main(String[] args) {
         try {
@@ -42,12 +45,13 @@ public class DBpedia {
     }
 
     public static void extractSample() throws FileNotFoundException, MalformedURLException, IOException {
-        String assemblerFile = "./src/main/resources/conf/dbpedia.ttl";
-        Dataset dataset = TDBFactory.assembleDataset(assemblerFile);
+        Dataset dataset = TDBFactory.assembleDataset(TDB_ASSEMPLER_FILE);
+
+        dataset.begin(ReadWrite.WRITE);
         Model model = dataset.getDefaultModel();
         model.getNsPrefixMap().clear();
         model.removeAll();
-        int limit = 20, offset = 0;
+        int limit = 7, offset = 0;
 
         URL url = new URL(SEEDS_URL);
         try (
@@ -56,27 +60,24 @@ public class DBpedia {
                 CSVReader reader = new CSVReader(buff, ',', '"', 1);) {
 
             String[] nextLine;
-            String uri1, uri2, uri3, name, street, number, neighborhood, telephone, latitude, longitude;
+            String name;
             while ((nextLine = reader.readNext()) != null)
                 try {
                     name = nextLine[0];
+                    name = StringUtils.stripAccents(name);
                     search(name, limit, offset, model);
                 } catch (Exception e) {
                 }
         }
+        dataset.commit();
+        dataset.end();
+
         OutputStream out = new FileOutputStream(new File(RDF_DIR + "/" + FILENAME + "." + EXPORT_LANG.getFileExtensions().get(0)));
         RDFDataMgr.write(out, model, EXPORT_LANG);
 
-        DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(DATA_URL);
+        DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(FUSEKI_DATA_URL);
         accessor.putModel(model);
-        /*DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(UPDATE_URL);
-        Model modelFuseki = accessor.getModel();
-        modelFuseki.setNsPrefixes(model.getNsPrefixMap());
-        StmtIterator stmts = model.listStatements();
-        while (stmts.hasNext())
-            try {
-                modelFuseki.add(stmts.next());
-            } catch (Exception e) {
-            }*/
+
+        dataset.close();
     }
 }
