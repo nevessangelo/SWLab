@@ -2,14 +2,22 @@ package ic.uff.tic10086.exercicios;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.OutputStream;
 import java.util.List;
 import org.apache.jena.query.Dataset;
 import org.apache.jena.query.DatasetAccessor;
 import org.apache.jena.query.DatasetAccessorFactory;
 import org.apache.jena.query.ReadWrite;
+import org.apache.jena.rdf.model.InfModel;
 import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.reasoner.Reasoner;
+import org.apache.jena.reasoner.rulesys.GenericRuleReasoner;
 import org.apache.jena.reasoner.rulesys.Rule;
+import org.apache.jena.riot.Lang;
+import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.tdb.TDBFactory;
 
 public class Mashup extends MyDataset {
@@ -21,6 +29,7 @@ public class Mashup extends MyDataset {
     public static final String REFERENCE_LINKS_FUSEKI_DATA_URL = "http://localhost:3030/referenceLinks/data";
 
     public static final String ALIGNMENT_TO_SAME_AS_RULES = "./src/main/resources/dat/rdf/alignmentToSameAs.rules";
+    public static final String DBPEDIA_TO_SCHEMA_ORG_RULES = "./src/main/resources/dat/rdf/dbpediaToSchemaOrg.rules";
 
     public static void main(String[] args) {
         try {
@@ -57,8 +66,41 @@ public class Mashup extends MyDataset {
 
     private static void mergeDatasets(Dataset source, Dataset target, Dataset referenceLinks, Dataset mashup) throws FileNotFoundException {
 
-        BufferedReader br = new BufferedReader(new FileReader(ALIGNMENT_TO_SAME_AS_RULES));
-        List rules = Rule.parseRules(Rule.rulesParserFromReader(br));
+        mashup.begin(ReadWrite.WRITE);
+        Model mashupModel = mashup.getDefaultModel();
+        mashupModel.getNsPrefixMap().clear();
+        mashupModel.removeAll();
+        mashupModel.setNsPrefix("sch", "http://schema.org/");
+        mashupModel.setNsPrefix("dbr", "http://dbpedia.org/resource/");
+        mashupModel.setNsPrefix("", "http://localhost:8080/resource/");
+        {
+            BufferedReader br = new BufferedReader(new FileReader(ALIGNMENT_TO_SAME_AS_RULES));
+            List rules = Rule.parseRules(Rule.rulesParserFromReader(br));
+            // Infer sameAS links from mappings
+            referenceLinks.begin(ReadWrite.READ);
+            Model linksModel = referenceLinks.getDefaultModel();
+            Reasoner reasoner = new GenericRuleReasoner(rules);
+            reasoner.setDerivationLogging(true);
+            InfModel inf = ModelFactory.createInfModel(reasoner, linksModel);
+            Model deductions = inf.getDeductionsModel();
+            mashupModel.add(deductions);
+            referenceLinks.end();
+        }
+        {
+            BufferedReader br = new BufferedReader(new FileReader(DBPEDIA_TO_SCHEMA_ORG_RULES));
+            List rules = Rule.parseRules(Rule.rulesParserFromReader(br));
+            // Convert DBpedia schema to Schema.org schema.
+            Model sourceModel = source.getDefaultModel();
+            Reasoner reasoner = new GenericRuleReasoner(rules);
+            reasoner.setDerivationLogging(true);
+            InfModel inf = ModelFactory.createInfModel(reasoner, sourceModel);
+            inf.rebind();
+            Model deductions = inf.getDeductionsModel();
+            mashupModel.add(deductions);
+            source.end();
+        }
+
+        mashup.commit();
 
     }
 
@@ -68,6 +110,8 @@ public class Mashup extends MyDataset {
         model.getNsPrefixMap().clear();
         model.removeAll();
         model.read(REFERENCE_LINKS_FILENAME);
+        OutputStream out = new FileOutputStream("./src/main/resources/dat/rdf/referenceLinks.ttl");
+        RDFDataMgr.write(out, model, Lang.TTL);
         DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(REFERENCE_LINKS_FUSEKI_DATA_URL);
         accessor.putModel(model);
         referenceLinks.commit();

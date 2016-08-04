@@ -1,0 +1,157 @@
+@prefix :      <http://localhost:8080/resource/> .
+@prefix schema: <http://schema.org/> .
+@prefix dbr:   <http://dbpedia.org/resource/> .
+@prefix sch:   <http://schema.org/> .
+
+dbr:Flamengo_Park  <http://www.w3.org/2002/07/owl#sameAs>
+                :a7d8c5b4-de85-450b-b7cb-b7831f56828f .
+
+dbr:Teatro_Miguel_Falabella
+        <http://www.w3.org/2002/07/owl#sameAs>
+                :e54ec797-abe1-4064-a5bc-d38071113499 .
+
+dbr:Museu_Aeroespacial
+        <http://www.w3.org/2002/07/owl#sameAs>
+                :09065b06-3308-4e9d-862d-1e8d2192802b .
+
+dbr:Museu_Nacional_de_Belas_Artes
+        <http://www.w3.org/2002/07/owl#sameAs>
+                :71ec2f89-93b1-408e-bfa9-52f9b121cd71 .
+
+dbr:Planetarium  <http://www.w3.org/2002/07/owl#sameAs>
+                :db050562-4ecd-4a98-8a15-436864f58fc6 .
+
+dbr:Teatro_dos_Grandes_Atores
+        <http://www.w3.org/2002/07/owl#sameAs>
+                :78814151-05fa-41a2-8aba-707bd6159fce .
+
+dbr:Pedra_da_Gavea  <http://www.w3.org/2002/07/owl#sameAs>
+                :a0a95687-941d-490d-bf9c-e8854b014e17 .
+
+dbr:Paco_Imperial  <http://www.w3.org/2002/07/owl#sameAs>
+                :cfdfc9e4-f0e8-4459-a6cd-77ec2fa5c82e .
+
+dbr:Carioca_Aqueduct  <http://www.w3.org/2002/07/owl#sameAs>
+                :fba7a758-c02c-4ab2-a109-9d1a23f8637a .
+
+dbr:Sambadrome  <http://www.w3.org/2002/07/owl#sameAs>
+                :c73c0514-cecd-4d21-b158-281e06d7aad1 .
+
+dbr:Teatro_Ziembinski
+        <http://www.w3.org/2002/07/owl#sameAs>
+                :4e66cbc8-8d4e-4efb-8a85-7b336dc4d7d7 .
+
+dbr:Parque_da_cidade  <http://www.w3.org/2002/07/owl#sameAs>
+                :94bd46c0-8fa0-4ad9-9dc3-da5887706ae8 .
+
+dbr:Teatro_Joao_Caetano
+        <http://www.w3.org/2002/07/owl#sameAs>
+                :3bd8da45-5a4f-4919-a1c5-4ba8d10c0b32 .
+
+dbr:National_library  <http://www.w3.org/2002/07/owl#sameAs>
+                :57b5970a-50d1-4b17-97b4-93f80830ba43 .
+
+dbr:Sugarloaf_Mountain
+        <http://www.w3.org/2002/07/owl#sameAs>
+                :4eed612e-a4b1-46de-a6d7-7ce3c5cd71a9 .
+
+dbr:Cidade_das_Artes  <http://www.w3.org/2002/07/owl#sameAs>
+                :081423fc-f802-4a00-a536-2cb75c885119 .
+
+dbr:Vista_Chinesa  <http://www.w3.org/2002/07/owl#sameAs>
+                :986bb1ab-1794-43fb-9f26-f7242b9c430e .
+
+dbr:Arcos_da_Lapa  <http://www.w3.org/2002/07/owl#sameAs>
+                :fba7a758-c02c-4ab2-a109-9d1a23f8637a .
+
+dbr:Lagoa_rodrigo_de_freitas
+        <http://www.w3.org/2002/07/owl#sameAs>
+                :16689eb7-2bd2-4236-bad8-2057ad9d50ea .
+
+dbr:Academia_brasileira_de_letras
+        <http://www.w3.org/2002/07/owl#sameAs>
+                :41faecd6-62f6-48ee-b62a-50a9997e0fb9 .
+
+dbr:Pao_de_Acucar  <http://www.w3.org/2002/07/owl#sameAs>
+                :4eed612e-a4b1-46de-a6d7-7ce3c5cd71a9 .
+
+dbr:Centro_Cultural_Banco_do_Brasil
+        <http://www.w3.org/2002/07/owl#sameAs>
+                :98b61822-7427-4626-9d44-5087f9f9e446 .
+
+dbr:Fort_Copacabana  <http://www.w3.org/2002/07/owl#sameAs>
+                :c25a3d6c-1a13-4adc-ab4e-6ef8e4e57c91 .
+
+dbr:Rodrigo_de_Freitas_Lagoon
+        <http://www.w3.org/2002/07/owl#sameAs>
+                :16689eb7-2bd2-4236-bad8-2057ad9d50ea .
+
+dbr:Museu_do_Indio  <http://www.w3.org/2002/07/owl#sameAs>
+                :a56890cb-0e69-4612-83b1-2ae392b1c662 .
+
+dbr:Teatro_Villa-Lobos
+        <http://www.w3.org/2002/07/owl#sameAs>
+                :00080260-9fdb-45b6-97b7-58bc4a155c1f .
+
+dbr:Sambodromo  <http://www.w3.org/2002/07/owl#sameAs>
+                :c73c0514-cecd-4d21-b158-281e06d7aad1 .
+
+dbr:Ilha_Fiscal  <http://www.w3.org/2002/07/owl#sameAs>
+                :79cedc49-55f1-4583-a9ae-d10ff3d9ed0d .
+
+dbr:Aterro_do_Flamengo
+        <http://www.w3.org/2002/07/owl#sameAs>
+                :a7d8c5b4-de85-450b-b7cb-b7831f56828f .
+
+dbr:Museo_de_Bellas_Artes
+        <http://www.w3.org/2002/07/owl#sameAs>
+                :71ec2f89-93b1-408e-bfa9-52f9b121cd71 .
+
+dbr:Forte_de_Copacabana
+        <http://www.w3.org/2002/07/owl#sameAs>
+                :c25a3d6c-1a13-4adc-ab4e-6ef8e4e57c91 .
+
+dbr:Jardim_Botanico  <http://www.w3.org/2002/07/owl#sameAs>
+                :c10b7b29-008c-490f-8606-379fd66369cd .
+
+dbr:Lagoa_Rodrigo_de_Freitas
+        <http://www.w3.org/2002/07/owl#sameAs>
+                :16689eb7-2bd2-4236-bad8-2057ad9d50ea .
+
+dbr:Estadio_do_Maracana
+        <http://www.w3.org/2002/07/owl#sameAs>
+                :b167b9bf-f8cb-4e5d-8448-79a029878ac7 .
+
+dbr:Sambadrome_Marquês_de_Sapucaí
+        <http://www.w3.org/2002/07/owl#sameAs>
+                :c73c0514-cecd-4d21-b158-281e06d7aad1 .
+
+dbr:Sala_Cecilia_Meireles
+        <http://www.w3.org/2002/07/owl#sameAs>
+                :c657c503-306b-4693-9e26-f4141f1b9596 .
+
+dbr:Parque_Lage  <http://www.w3.org/2002/07/owl#sameAs>
+                :bf76fd83-daa1-425b-a117-0b47e5ad354e .
+
+dbr:Pedra_da_Gávea  <http://www.w3.org/2002/07/owl#sameAs>
+                :a0a95687-941d-490d-bf9c-e8854b014e17 .
+
+dbr:Museu_do_Índio  <http://www.w3.org/2002/07/owl#sameAs>
+                :a56890cb-0e69-4612-83b1-2ae392b1c662 .
+
+dbr:Cidade_do_Samba  <http://www.w3.org/2002/07/owl#sameAs>
+                :ab846dba-ffdd-4a55-9957-100dba0dd52f .
+
+<http://dbpedia.org/resource/Teatro_Carlos_Gomes_(Rio_de_Janeiro)>
+        <http://www.w3.org/2002/07/owl#sameAs>
+                :dc8fd7e5-b913-4e2d-bb98-282c4249f0ab .
+
+dbr:Campo_de_Santana  <http://www.w3.org/2002/07/owl#sameAs>
+                :004a206b-eac0-4e97-9e15-5b60d2f81b20 .
+
+dbr:Academia_Brasileira_de_Letras
+        <http://www.w3.org/2002/07/owl#sameAs>
+                :41faecd6-62f6-48ee-b62a-50a9997e0fb9 .
+
+dbr:Tacima  <http://www.w3.org/2002/07/owl#sameAs>
+                :004a206b-eac0-4e97-9e15-5b60d2f81b20 .
