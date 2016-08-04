@@ -1,27 +1,21 @@
 package ic.uff.tic10086.exercicios;
 
 import com.opencsv.CSVReader;
-import static ic.uff.tic10086.exercicios.MyDataset.RDF_DIR;
 import ic.uff.tic10086.utils.JenaSchema;
 import ic.uff.tic10086.utils.OWLAPIOntology;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.UUID;
 import org.apache.commons.compress.compressors.CompressorException;
 import org.apache.jena.query.Dataset;
-import org.apache.jena.query.DatasetAccessor;
-import org.apache.jena.query.DatasetAccessorFactory;
 import org.apache.jena.query.ReadWrite;
 import org.apache.jena.rdf.model.Model;
-import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.tdb.TDBFactory;
 import org.semanticweb.owlapi.formats.OWLXMLDocumentFormat;
 import org.semanticweb.owlapi.formats.PrefixDocumentFormat;
@@ -41,10 +35,6 @@ public class TurismoECultura extends MyDataset {
 
     public static final String BASE_URI = "http://localhost:8080/resource/";
     public static final String DATASET_URL = "http://dadosabertos.rio.rj.gov.br/apiCultura/apresentacao/csv/turismoECultura_.csv";
-    public static final String FILENAME = "turismoECultura";
-    public static final String TDB_ASSEMPLER_FILE = "./src/main/resources/conf/turismoECultura.ttl";
-    public static final String FUSEKI_UPDATE_URL = "http://localhost:3030/turismoECultura/update";
-    public static final String FUSEKI_DATA_URL = "http://localhost:3030/turismoECultura/data";
 
     public static final String DBPEDIA_NS = "http://dbpedia.org/ontology/";
     public static final String SCHEMA_ORG_NS = "http://schema.org/";
@@ -53,21 +43,25 @@ public class TurismoECultura extends MyDataset {
         try {
             init();
 
-            saveAsSchemaOrgGraph();
+            FILENAME = "turismoECultura";
+            TDB_ASSEMPLER_FILE = "./src/main/resources/conf/turismoECultura.ttl";
+            FUSEKI_UPDATE_URL = "http://localhost:3030/turismoECultura/update";
+            FUSEKI_DATA_URL = "http://localhost:3030/turismoECultura/data";
+
+            Dataset dataset = TDBFactory.assembleDataset(TDB_ASSEMPLER_FILE);
+            try {
+                convertToRDF(dataset);
+                exportResources(dataset);
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                dataset.close();
+            }
             saveAsDBpediaOntology();
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    private static void saveAsSchemaOrgGraph() throws MalformedURLException, FileNotFoundException, IOException, CompressorException {
-        Dataset dataset = TDBFactory.assembleDataset(TDB_ASSEMPLER_FILE);
-
-        convertToRDF(dataset);
-        exportResources(dataset);
-
-        dataset.close();
     }
 
     private static void convertToRDF(Dataset dataset) throws MalformedURLException, FileNotFoundException, IOException, UnsupportedEncodingException {
@@ -154,18 +148,6 @@ public class TurismoECultura extends MyDataset {
             System.out.println(name);
         }
         return uri;
-    }
-
-    private static void exportResources(Dataset dataset) throws FileNotFoundException {
-        dataset.begin(ReadWrite.READ);
-
-        Model model = dataset.getDefaultModel();
-        OutputStream out = new FileOutputStream(new File(RDF_DIR + "/" + FILENAME + "." + EXPORT_LANG.getFileExtensions().get(0)));
-        RDFDataMgr.write(out, model, EXPORT_LANG);
-        DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(FUSEKI_DATA_URL);
-        accessor.putModel(model);
-
-        dataset.end();
     }
 
     private static void saveAsDBpediaOntology() throws IOException, MalformedURLException, CompressorException, OWLOntologyCreationException, OWLOntologyStorageException {

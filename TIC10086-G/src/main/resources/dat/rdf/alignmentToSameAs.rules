@@ -1,0 +1,8 @@
+@prefix ha: <http://knowledgeweb.semanticweb.org/heterogeneity/alignment#>.
+
+[matching: (?alignment a ha:Alignment)
+           , (?alignment ha:map ?cell)
+           , (?cell a ha:Cell)
+           , (?cell ha:entity1 ?e1)
+           , (?cell ha:entity1 ?e2)
+           -> (?e1 owl:sameAs ?e2) ]
