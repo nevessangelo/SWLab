@@ -20,11 +20,9 @@
 @prefix ns19:  <http://dbpedia.org/ontology/Building/> .
 @prefix foaf:  <http://xmlns.com/foaf/0.1/> .
 
-@include <RDFS>.
-
-[r01: (?s1 owl:sameAs ?s2) -> (?s2 owl:sameAS ?s1)]
-[r02: (?s1 owl:sameAs ?s2), (?s2 owl:sameAs ?s3) -> (?s1 owl:sameAs ?s3)]
-[r03: (?s1 owl:sameAs ?s2), (?s2 ?p ?o) -> (?s1 ?p ?o)]
+[r-2: (?s2 owl:sameAS ?s1) -> (?s1 owl:sameAs ?s2) ]
+[r-1: (?s1 owl:sameAs ?s2), (?s2 owl:sameAs ?s3) -> (?s1 owl:sameAs ?s3)]
+[r0: (?s1 ?p ?o), (?s1 owl:sameAs ?s2), strConcat(?s2, ?l), regex(?l, "http://localhost:8080/resource/.*") -> (?s2 ?p ?o)]
 [r1: (?s rdf:type dbo:Place) -> (?s rdf:type sch:Place)]
 [r2: (?s rdf:type dbo:Location) -> (?s rdf:type sch:Place)]
 [r3: (?s rdf:type dbo:PopulatedPlace) -> (?s rdf:type sch:Place)]
@@ -35,4 +33,12 @@
 [r8: (?s rdf:type dbo:NaturalPlace) -> (?s rdf:type sch:Place)]
 [r9: (?s rdf:type dbo:Settlement) -> (?s rdf:type sch:Place)]
 [r10: (?s rdf:type dbo:Park) -> (?s rdf:type sch:Park)]
+[r11: (?s dbo:abstract ?o) -> (?s sch:description ?o)]
+[r12: (?s geo:lat ?o1)
+       , (?s geo:long ?o2)
+       , makeSkolem(?x, ?o1, ?o2)
+       , uriConcat("http://localhost:8080/resource/id-",?x ?t) -> (?s sch:geo ?t)
+                                                                  , (?t rdf:type sch:GeoCoordinates)
+                                                                  , (?t sch:latitude ?o1)
+                                                                  , (?t sch:longitude ?o2)]
 

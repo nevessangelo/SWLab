@@ -91,9 +91,9 @@ public class TurismoECultura extends MyDataset {
                     latitude = nextLine[5];
                     longitude = nextLine[6];
 
-                    uri1 = BASE_URI + UUID.randomUUID();
-                    uri2 = BASE_URI + UUID.randomUUID();
-                    uri3 = BASE_URI + UUID.randomUUID();
+                    uri1 = BASE_URI + "id-" + UUID.randomUUID();
+                    uri2 = BASE_URI + "id-" + UUID.randomUUID();
+                    uri3 = BASE_URI + "id-" + UUID.randomUUID();
 
                     model.createResource(uri1, schema.getResource(detectSchemaOrgClass(name)))
                             .addProperty(schema.getProperty(SCHEMA_ORG_NS + "name"), name)

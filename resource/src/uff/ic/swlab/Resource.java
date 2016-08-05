@@ -3,11 +3,12 @@ package uff.ic.swlab;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletConfig;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -40,6 +41,7 @@ public class Resource extends HttpServlet {
 			throws ServletException, IOException {
 
 		String uri = NS + request.getParameter("id");
+		System.out.println(uri);
 		String accept = request.getHeader("Accept");
 		Lang lang = detectLang(accept);
 
@@ -73,27 +75,28 @@ public class Resource extends HttpServlet {
 		return null;
 	}
 
-	private static Model getDescription(HttpServletRequest request, String uri) {
+	private static Model getDescription(HttpServletRequest request, String uri) throws UnsupportedEncodingException {
 		String serviceURIBase = "http://localhost:3030/%1s";
 		Model model = ModelFactory.createDefaultModel();
-
+	
 		for (String service : listFusekiServices(request))
 			try {
 				String serviceURI = String.format(serviceURIBase, service);
-				model.setNsPrefix("my", "http://swlab.ic.uff.br/id/");
+				model.setNsPrefix("my", NS);
 				model.setNsPrefix("owl", "http://www.w3.org/2002/07/owl#");
 				model.setNsPrefix("dcterms", "http://purl.org/dc/terms/");
 				model.setNsPrefix("foaf", "http://xmlns.com/foaf/0.1/");
 				model.setNsPrefix("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
 
 				String query = ""
-						+ "construct {?s ?p ?o.} "
-						+ "where { " + "{?s ?p ?o. filter(?s = <%1s>)} "
-						+ "UNION {?s ?p ?o. filter(?o = <%2s>)} "
-						+ "UNION {GRAPH ?g {?s ?p ?o. filter(?s = <%3s>) }} "
-						+ "UNION {GRAPH ?g {?s ?p ?o. filter(?o = <%4s>) }} "
+						+ "construct {?s ?p ?o.}\n"
+						+ "where { " + "{?s ?p ?o. filter(?s = <%1s>)}\n"
+						+ "UNION {?s ?p ?o. filter(?o = <%2s>)}\n"
+						+ "UNION {GRAPH ?g {?s ?p ?o. filter(?s = <%3s>) }}\n"
+						+ "UNION {GRAPH ?g {?s ?p ?o. filter(?o = <%4s>) }}\n"
 						+ "}";
 				query = String.format(query, uri, uri, uri, uri);
+				System.out.println(query);
 				QueryExecution q = QueryExecutionFactory.sparqlService(serviceURI, query);
 				q.execConstruct(model);
 			} catch (Exception e) {

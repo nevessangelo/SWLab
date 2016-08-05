@@ -23,6 +23,7 @@ import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.tdb.TDBFactory;
 import org.apache.jena.update.UpdateExecutionFactory;
 import org.apache.jena.update.UpdateFactory;
+import org.apache.jena.vocabulary.ReasonerVocabulary;
 
 public class Mashup extends MyDataset {
 
@@ -78,9 +79,9 @@ public class Mashup extends MyDataset {
         mashup.begin(ReadWrite.WRITE);
         Model mashupModel = mashup.getDefaultModel();
         mashupModel.getNsPrefixMap().clear();
-        mashupModel.setNsPrefix("sch", "http://schema.org/");
-        mashupModel.setNsPrefix("dbr", "http://dbpedia.org/resource/");
         mashupModel.setNsPrefix("", "http://localhost:8080/resource/");
+        mashupModel.setNsPrefix("dbr", "http://dbpedia.org/resource/");
+        mashupModel.setNsPrefix("sch", "http://schema.org/");
 
         draft.begin(ReadWrite.WRITE);
         Model draftModel = draft.getDefaultModel();
@@ -88,6 +89,7 @@ public class Mashup extends MyDataset {
         List rules = Rule.parseRules(Rule.rulesParserFromReader(br));
         // Convert DBpedia schema to Schema.org schema.
         Reasoner reasoner = new GenericRuleReasoner(rules);
+        reasoner.setParameter(ReasonerVocabulary.PROPruleMode, "hybrid");
         reasoner.setDerivationLogging(true);
         InfModel inf = ModelFactory.createInfModel(reasoner, draftModel);
 
@@ -115,7 +117,9 @@ public class Mashup extends MyDataset {
                 + "\n"
                 + "CONSTRUCT {?s ?p ?o.}\n"
                 + "WHERE {?s ?p ?o.\n"
-                + "       FILTER REGEX(str(?s), \"http://localhost:8080/resource/\")}";
+                + "       FILTER REGEX(str(?s), \"http://localhost:8080/resource/\")"
+                //+ "       FILTER (REGEX(str(?p), \"http://schema.org/\") || REGEX(str(?o), \"http://schema.org/\"))"
+                + "}";
         QueryExecution exec = QueryExecutionFactory.create(query, inf);
         exec.execConstruct(mashupModel);
         draft.end();
@@ -130,6 +134,8 @@ public class Mashup extends MyDataset {
         model.getNsPrefixMap().clear();
         model.removeAll();
         model.read(REFERENCE_LINKS_FILENAME);
+        model.setNsPrefix("", "http://localhost:8080/resource/");
+        model.setNsPrefix("dbr", "http://dbpedia.org/resource/");
         OutputStream out = new FileOutputStream("./src/main/resources/dat/rdf/referenceLinks.ttl");
         RDFDataMgr.write(out, model, Lang.TTL);
         DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(REFERENCE_LINKS_FUSEKI_DATA_URL);

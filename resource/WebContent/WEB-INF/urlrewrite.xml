@@ -25,7 +25,7 @@
 
 	<rule>
 		<from>/(.+)</from>
-		<to type="seeother-redirect">%{context-path}?id=$1</to>
+		<to type="seeother-redirect">%{context-path}?id=${escape:utf8:$1}</to>
 	</rule>
 	
 </urlrewrite>

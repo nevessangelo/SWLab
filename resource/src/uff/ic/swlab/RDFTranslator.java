@@ -67,6 +67,7 @@ public class RDFTranslator {
 		response += "<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">";
 		response += "<html>";
 		response += "<head>";
+		response += "<style> table td {word-wrap:break-word;} </style>";
 		response += "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\">";
 		response += "<title>Entity description</title>";
 		response += "<link href=\"/swlab.css\" rel=\"stylesheet\" type=\"text/css\" />";
@@ -79,12 +80,12 @@ public class RDFTranslator {
 		response += "<br>";
 		response += "<br>";
 
-		response += "<table align=\"center\" border=\"0\" style=\"width: 70%\">\n";
+		response += "<table align=\"center\" border=\"0\">\n";
 		response += "<tr>\n";
-		response += "<td style=\"width: 50%\">\n";
-		response += "<h2>Satements</h2>\n";
+		response += "<td>\n";
+		response += "<center><h2>Satements</h2></center>\n";
 
-		response += "<table cellpadding=\"5\" align=\"center\" border=\"2\">\n";
+		response += "<table cellpadding=\"5\" align=\"center\" border=\"2\" style=\"table-layout: fixed; width: 80%;\">\n";
 		response += "<tr><th>subject</th><th>predicate</th><th>object</th></tr>\n";
 		StmtIterator iter = model.listStatements();
 		while (iter.hasNext()) {
@@ -94,12 +95,12 @@ public class RDFTranslator {
 			RDFNode object = stmt.getObject();
 
 			String data1 = "<td><a href=\"%1s\">%2s</a></td>\n";
-			String data2 = "<td>%1s</td>\n";
+			String data2 = "<td><a href=\"%1s\">%1s</a></td>\n";
 			String data3 = null;
 			String data31 = "<td><a href=\"%1s\">%2s</a></td>\n";
 			String data32 = "<td>%1s</td>\n";
 			data1 = String.format(data1, subject.toString(), subject.toString());
-			data2 = String.format(data2, predicate.toString());
+			data2 = String.format(data2, predicate.toString(), predicate.toString());
 			if (object instanceof Resource)
 				data3 = String.format(data31, object.toString(), object.toString());
 			else

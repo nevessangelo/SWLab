@@ -1,402 +1,679 @@
-@prefix :      <http://knowledgeweb.semanticweb.org/heterogeneity/alignment#> .
+@prefix :      <http://localhost:8080/resource/> .
+@prefix dbr:   <http://dbpedia.org/resource/> .
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
 @prefix align: <http://knowledgeweb.semanticweb.org/heterogeneity/alignment#> .
 
 [ a          align:Alignment ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Rodrigo_de_Freitas_Lagoon> ;
-               align:entity2   <http://localhost:8080/resource/16689eb7-2bd2-4236-bad8-2057ad9d50ea> ;
+               align:entity1   dbr:Ilha_Fiscal ;
+               align:entity2   :id-9bb90c35-ff60-46d7-9990-3e78eabfb5d3 ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Sambodromo> ;
-               align:entity2   <http://localhost:8080/resource/c73c0514-cecd-4d21-b158-281e06d7aad1> ;
+               align:entity1   dbr:Sambodromo ;
+               align:entity2   :id-34da0350-e6c9-4577-bf27-892877f2765c ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Campo_de_Santana> ;
-               align:entity2   <http://localhost:8080/resource/004a206b-eac0-4e97-9e15-5b60d2f81b20> ;
+               align:entity1   dbr:Jardim_Botanico ;
+               align:entity2   :id-20a9e25f-bb27-4a8a-9aba-162b2aca98d4 ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Carioca_Aqueduct> ;
-               align:entity2   <http://localhost:8080/resource/fba7a758-c02c-4ab2-a109-9d1a23f8637a> ;
+               align:entity1   dbr:Pao_de_Acucar ;
+               align:entity2   :id-fcc06568-c98f-4c2a-957e-820267281a9c ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Pedra_da_Gavea> ;
-               align:entity2   <http://localhost:8080/resource/a0a95687-941d-490d-bf9c-e8854b014e17> ;
+               align:entity1   dbr:Academia_Brasileira_de_Letras ;
+               align:entity2   :id-beefa6a8-5beb-4c6a-ad1d-5d7195687a9c ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Fort_Copacabana> ;
-               align:entity2   <http://localhost:8080/resource/c25a3d6c-1a13-4adc-ab4e-6ef8e4e57c91> ;
+               align:entity1   dbr:Museu_do_Indio ;
+               align:entity2   :id-e33c0e3b-8f98-4773-9d01-8275a84ad909 ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Flamengo_Park> ;
-               align:entity2   <http://localhost:8080/resource/a7d8c5b4-de85-450b-b7cb-b7831f56828f> ;
+               align:entity1   dbr:Teatro_dos_Grandes_Atores ;
+               align:entity2   :id-0a72dd5a-4f3d-402d-a42b-8be4fde72c5a ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Cidade_das_Artes> ;
-               align:entity2   <http://localhost:8080/resource/081423fc-f802-4a00-a536-2cb75c885119> ;
+               align:entity1   dbr:National_library ;
+               align:entity2   :id-c1948424-3664-4e05-a92f-00cdd03b0fd5 ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Sambadrome_Marquês_de_Sapucaí> ;
-               align:entity2   <http://localhost:8080/resource/c73c0514-cecd-4d21-b158-281e06d7aad1> ;
+               align:entity1   dbr:Parque_Lage ;
+               align:entity2   :id-be8f0652-40f8-44a3-abbc-965f03922660 ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/National_library> ;
-               align:entity2   <http://localhost:8080/resource/57b5970a-50d1-4b17-97b4-93f80830ba43> ;
+               align:entity1   dbr:Arcos_da_Lapa ;
+               align:entity2   :id-11950a03-48a9-4259-91d0-459b77ae6382 ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Academia_Brasileira_de_Letras> ;
-               align:entity2   <http://localhost:8080/resource/41faecd6-62f6-48ee-b62a-50a9997e0fb9> ;
+               align:entity1   dbr:Cidade_das_Artes ;
+               align:entity2   :id-2d26fd59-9b80-4d9c-b7f8-613d51a4c29d ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Teatro_Joao_Caetano> ;
-               align:entity2   <http://localhost:8080/resource/3bd8da45-5a4f-4919-a1c5-4ba8d10c0b32> ;
+               align:entity1   <http://dbpedia.org/resource/Museum_of_Modern_Art,_Rio_de_Janeiro> ;
+               align:entity2   :id-2953468b-eb4d-4608-aa74-bc8270bf4a94 ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Pedra_da_Gávea> ;
-               align:entity2   <http://localhost:8080/resource/a0a95687-941d-490d-bf9c-e8854b014e17> ;
+               align:entity1   dbr:Teatro_Ziembinski ;
+               align:entity2   :id-c69bdc6e-14ce-4a35-8e3f-0a90d8dab6f3 ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Lagoa_rodrigo_de_freitas> ;
-               align:entity2   <http://localhost:8080/resource/16689eb7-2bd2-4236-bad8-2057ad9d50ea> ;
+               align:entity1   dbr:Lagoa_Rodrigo_de_Freitas ;
+               align:entity2   :id-765c5a7e-c39e-4ead-848c-723e2fa30d5b ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Estadio_do_Maracana> ;
-               align:entity2   <http://localhost:8080/resource/b167b9bf-f8cb-4e5d-8448-79a029878ac7> ;
+               align:entity1   dbr:Museu_do_Índio ;
+               align:entity2   :id-e33c0e3b-8f98-4773-9d01-8275a84ad909 ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Academia_brasileira_de_letras> ;
-               align:entity2   <http://localhost:8080/resource/41faecd6-62f6-48ee-b62a-50a9997e0fb9> ;
+               align:entity1   dbr:Paco_Imperial ;
+               align:entity2   :id-3c915768-5fdb-46fa-a8a7-4063d3024f37 ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Planetarium> ;
-               align:entity2   <http://localhost:8080/resource/db050562-4ecd-4a98-8a15-436864f58fc6> ;
+               align:entity1   dbr:Sambadrome ;
+               align:entity2   :id-34da0350-e6c9-4577-bf27-892877f2765c ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Teatro_Villa-Lobos> ;
-               align:entity2   <http://localhost:8080/resource/00080260-9fdb-45b6-97b7-58bc4a155c1f> ;
+               align:entity1   dbr:Teatro_Miguel_Falabella ;
+               align:entity2   :id-ced0377f-953b-4c3d-afbf-b9b26f5561bd ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Paco_Imperial> ;
-               align:entity2   <http://localhost:8080/resource/cfdfc9e4-f0e8-4459-a6cd-77ec2fa5c82e> ;
+               align:entity1   dbr:Aterro_do_Flamengo ;
+               align:entity2   :id-5f531854-0853-41d2-b79f-95e009c00916 ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Jardim_Botanico> ;
-               align:entity2   <http://localhost:8080/resource/c10b7b29-008c-490f-8606-379fd66369cd> ;
+               align:entity1   dbr:Rodrigo_de_Freitas_Lagoon ;
+               align:entity2   :id-765c5a7e-c39e-4ead-848c-723e2fa30d5b ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Vista_Chinesa> ;
-               align:entity2   <http://localhost:8080/resource/986bb1ab-1794-43fb-9f26-f7242b9c430e> ;
+               align:entity1   dbr:Teatro_O_Tablado ;
+               align:entity2   :id-9bd0c508-7843-4753-a0fc-d35e96eca6c8 ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Sambadrome> ;
-               align:entity2   <http://localhost:8080/resource/c73c0514-cecd-4d21-b158-281e06d7aad1> ;
+               align:entity1   dbr:Planetarium ;
+               align:entity2   :id-952068fb-2aaf-4e9c-9ab8-45fefe3e426b ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Museo_de_Bellas_Artes> ;
-               align:entity2   <http://localhost:8080/resource/71ec2f89-93b1-408e-bfa9-52f9b121cd71> ;
+               align:entity1   dbr:Museu_Nacional_de_Belas_Artes ;
+               align:entity2   :id-aa257f4a-0155-4c36-a7fb-0131a7b59dc7 ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Pao_de_Acucar> ;
-               align:entity2   <http://localhost:8080/resource/4eed612e-a4b1-46de-a6d7-7ce3c5cd71a9> ;
+               align:entity1   dbr:Fort_Copacabana ;
+               align:entity2   :id-12774d7c-5580-496e-9ce8-f142b5346425 ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Centro_Cultural_Banco_do_Brasil> ;
-               align:entity2   <http://localhost:8080/resource/98b61822-7427-4626-9d44-5087f9f9e446> ;
+               align:entity1   dbr:Centro_Cultural_Banco_do_Brasil ;
+               align:entity2   :id-2fa94d4f-4f76-473c-bea3-9ef989e51c18 ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Arcos_da_Lapa> ;
-               align:entity2   <http://localhost:8080/resource/fba7a758-c02c-4ab2-a109-9d1a23f8637a> ;
-               align:measure   "0.0"^^xsd:float ;
-               align:relation  "="
-             ] ;
-  align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Museu_Nacional_de_Belas_Artes> ;
-               align:entity2   <http://localhost:8080/resource/71ec2f89-93b1-408e-bfa9-52f9b121cd71> ;
-               align:measure   "0.0"^^xsd:float ;
-               align:relation  "="
-             ] ;
-  align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Teatro_dos_Grandes_Atores> ;
-               align:entity2   <http://localhost:8080/resource/78814151-05fa-41a2-8aba-707bd6159fce> ;
-               align:measure   "0.0"^^xsd:float ;
-               align:relation  "="
-             ] ;
-  align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Forte_de_Copacabana> ;
-               align:entity2   <http://localhost:8080/resource/c25a3d6c-1a13-4adc-ab4e-6ef8e4e57c91> ;
-               align:measure   "0.0"^^xsd:float ;
-               align:relation  "="
-             ] ;
-  align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Parque_Lage> ;
-               align:entity2   <http://localhost:8080/resource/bf76fd83-daa1-425b-a117-0b47e5ad354e> ;
-               align:measure   "0.0"^^xsd:float ;
-               align:relation  "="
-             ] ;
-  align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Parque_da_cidade> ;
-               align:entity2   <http://localhost:8080/resource/94bd46c0-8fa0-4ad9-9dc3-da5887706ae8> ;
-               align:measure   "0.0"^^xsd:float ;
-               align:relation  "="
-             ] ;
-  align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Aterro_do_Flamengo> ;
-               align:entity2   <http://localhost:8080/resource/a7d8c5b4-de85-450b-b7cb-b7831f56828f> ;
-               align:measure   "0.0"^^xsd:float ;
-               align:relation  "="
-             ] ;
-  align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Teatro_Miguel_Falabella> ;
-               align:entity2   <http://localhost:8080/resource/e54ec797-abe1-4064-a5bc-d38071113499> ;
-               align:measure   "0.0"^^xsd:float ;
-               align:relation  "="
-             ] ;
-  align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Lagoa_Rodrigo_de_Freitas> ;
-               align:entity2   <http://localhost:8080/resource/16689eb7-2bd2-4236-bad8-2057ad9d50ea> ;
-               align:measure   "0.0"^^xsd:float ;
-               align:relation  "="
-             ] ;
-  align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Cidade_do_Samba> ;
-               align:entity2   <http://localhost:8080/resource/ab846dba-ffdd-4a55-9957-100dba0dd52f> ;
-               align:measure   "0.0"^^xsd:float ;
-               align:relation  "="
-             ] ;
-  align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Sala_Cecilia_Meireles> ;
-               align:entity2   <http://localhost:8080/resource/c657c503-306b-4693-9e26-f4141f1b9596> ;
-               align:measure   "0.0"^^xsd:float ;
-               align:relation  "="
-             ] ;
-  align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Museu_do_Indio> ;
-               align:entity2   <http://localhost:8080/resource/a56890cb-0e69-4612-83b1-2ae392b1c662> ;
-               align:measure   "0.0"^^xsd:float ;
-               align:relation  "="
-             ] ;
-  align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Museu_do_Índio> ;
-               align:entity2   <http://localhost:8080/resource/a56890cb-0e69-4612-83b1-2ae392b1c662> ;
+               align:entity1   dbr:Teatro_Joao_Caetano ;
+               align:entity2   :id-631887d6-d0fe-4570-bb23-4f2e1006ea67 ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "="
              ] ;
   align:map  [ a               align:Cell ;
                align:entity1   <http://dbpedia.org/resource/Teatro_Carlos_Gomes_(Rio_de_Janeiro)> ;
-               align:entity2   <http://localhost:8080/resource/dc8fd7e5-b913-4e2d-bb98-282c4249f0ab> ;
+               align:entity2   :id-8c8d203e-87aa-4bbf-babb-589e1c7b25e4 ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Teatro_Ziembinski> ;
-               align:entity2   <http://localhost:8080/resource/4e66cbc8-8d4e-4efb-8a85-7b336dc4d7d7> ;
+               align:entity1   <http://dbpedia.org/resource/Campo_de_Santana_(park)> ;
+               align:entity2   :id-f812b5f5-4878-4a21-bff6-2711e03a055f ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Museu_Aeroespacial> ;
-               align:entity2   <http://localhost:8080/resource/09065b06-3308-4e9d-862d-1e8d2192802b> ;
+               align:entity1   dbr:Sambadrome_Marquês_de_Sapucaí ;
+               align:entity2   :id-34da0350-e6c9-4577-bf27-892877f2765c ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Sugarloaf_Mountain> ;
-               align:entity2   <http://localhost:8080/resource/4eed612e-a4b1-46de-a6d7-7ce3c5cd71a9> ;
+               align:entity1   dbr:Vista_Chinesa ;
+               align:entity2   :id-f87ce3a0-9a42-4738-9017-ce2204815a3c ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Tacima> ;
-               align:entity2   <http://localhost:8080/resource/004a206b-eac0-4e97-9e15-5b60d2f81b20> ;
+               align:entity1   dbr:Sugarloaf_Mountain ;
+               align:entity2   :id-fcc06568-c98f-4c2a-957e-820267281a9c ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Ilha_Fiscal> ;
-               align:entity2   <http://localhost:8080/resource/79cedc49-55f1-4583-a9ae-d10ff3d9ed0d> ;
+               align:entity1   dbr:Cidade_do_Samba ;
+               align:entity2   :id-2070d1b3-9ab4-4b73-a110-debaee47bf9f ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Carlos_Eduardo_Imperial> ;
-               align:entity2   <http://localhost:8080/resource/cfdfc9e4-f0e8-4459-a6cd-77ec2fa5c82e> ;
+               align:entity1   dbr:Tacima ;
+               align:entity2   :id-f812b5f5-4878-4a21-bff6-2711e03a055f ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Flamengo_Park ;
+               align:entity2   :id-5f531854-0853-41d2-b79f-95e009c00916 ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Teatro_Villa-Lobos ;
+               align:entity2   :id-29eb16d2-eb42-4582-8e09-a4ceb4207c7e ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Parque_da_cidade ;
+               align:entity2   :id-c097c096-7e71-411d-a5d4-08f2a6b4b204 ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Estadio_do_Maracana ;
+               align:entity2   :id-45b726a3-050f-4d9a-a7fe-2ff3ad1af68d ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   <http://dbpedia.org/resource/Christ_the_Redeemer_(statue)> ;
+               align:entity2   :id-329ce8b3-44ed-4b77-baf8-4166d095fab1 ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Museu_Aeroespacial ;
+               align:entity2   :id-b8100737-bd2c-4f7e-8971-199c2d39ecd8 ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Pedra_da_Gávea ;
+               align:entity2   :id-463881f5-91a1-44d8-bb28-1c8af481d6a9 ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Academia_brasileira_de_letras ;
+               align:entity2   :id-beefa6a8-5beb-4c6a-ad1d-5d7195687a9c ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Pedra_da_Gavea ;
+               align:entity2   :id-463881f5-91a1-44d8-bb28-1c8af481d6a9 ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Carioca_Aqueduct ;
+               align:entity2   :id-11950a03-48a9-4259-91d0-459b77ae6382 ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Museo_de_Bellas_Artes ;
+               align:entity2   :id-aa257f4a-0155-4c36-a7fb-0131a7b59dc7 ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Campo_de_Santana ;
+               align:entity2   :id-f812b5f5-4878-4a21-bff6-2711e03a055f ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Lagoa_rodrigo_de_freitas ;
+               align:entity2   :id-765c5a7e-c39e-4ead-848c-723e2fa30d5b ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Forte_de_Copacabana ;
+               align:entity2   :id-12774d7c-5580-496e-9ce8-f142b5346425 ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Sala_Cecilia_Meireles ;
+               align:entity2   :id-734fabdf-2de6-467c-9fe1-9b565ae5ad12 ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   <http://dbpedia.org/resource/Museu_Nacional_de_Belas_Artes_(Brasil)> ;
+               align:entity2   :id-aa257f4a-0155-4c36-a7fb-0131a7b59dc7 ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Broadway_theatre ;
+               align:entity2   :id-fbe9b763-feef-4cec-8376-563d671adf61 ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "!="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Museum_of_Flight> ;
-               align:entity2   <http://localhost:8080/resource/1d66b956-2f7a-43ed-b599-4b58f5957c34> ;
+               align:entity1   dbr:Copacabana_Stadium ;
+               align:entity2   :id-eba6c95e-13f4-4f49-8302-d43d5bd2c24d ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "!="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Praia_do_Abricó> ;
-               align:entity2   <http://localhost:8080/resource/f053ec3a-a832-4ea4-ab04-788658dc72c8> ;
+               align:entity1   dbr:Cidade_das_Artes ;
+               align:entity2   :id-32c2a590-7d97-49b2-8c9d-c8fc55d9863e ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "!="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Praia_do_Abricó> ;
-               align:entity2   <http://localhost:8080/resource/ace9af90-6419-4ef9-afb3-8a7acfb8c1f5> ;
+               align:entity1   dbr:São_Paulo_Museum_of_Modern_Art ;
+               align:entity2   :id-1c35ca2b-529a-49c7-8ac0-cb4b5d0592ca ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "!="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/National_Library_of_Russia> ;
-               align:entity2   <http://localhost:8080/resource/57b5970a-50d1-4b17-97b4-93f80830ba43> ;
+               align:entity1   dbr:Praia_do_Abricó ;
+               align:entity2   :id-c7e08af2-b96b-4983-8844-356b851642a5 ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "!="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Santa_Teresa_CD> ;
-               align:entity2   <http://localhost:8080/resource/d0b53bfa-8f5f-4ab6-bef4-e12c68fc3646> ;
+               align:entity1   dbr:Museum_of_Flight ;
+               align:entity2   :id-37db3d1d-a58a-4970-8983-6f191e70be22 ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "!="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Ring_system_(astronomy)> ;
-               align:entity2   <http://localhost:8080/resource/db050562-4ecd-4a98-8a15-436864f58fc6> ;
+               align:entity1   dbr:Old_Cathedral_of_Rio_de_Janeiro ;
+               align:entity2   :id-e4685221-b399-401c-a4cf-cfc42b44f3f3 ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "!="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Tacima> ;
-               align:entity2   <http://localhost:8080/resource/e1424604-9da3-4a37-a6d0-587936381e37> ;
+               align:entity1   dbr:Praia_do_Abricó ;
+               align:entity2   :id-5e754a00-2658-4f87-b9de-744fd43f2ec4 ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "!="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Forte_de_Copacabana> ;
-               align:entity2   <http://localhost:8080/resource/821985c9-5f0d-49ec-8673-2bd6704fc1e0> ;
+               align:entity1   dbr:Flamengo_Station ;
+               align:entity2   :id-f2b0f147-82da-4c9e-bf0f-885e209fdd87 ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "!="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Museu_do_Indio> ;
-               align:entity2   <http://localhost:8080/resource/1d66b956-2f7a-43ed-b599-4b58f5957c34> ;
+               align:entity1   dbr:Grupo_Pao_de_Acucar ;
+               align:entity2   :id-fcc06568-c98f-4c2a-957e-820267281a9c ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "!="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Belmond_Copacabana_Palace> ;
-               align:entity2   <http://localhost:8080/resource/821985c9-5f0d-49ec-8673-2bd6704fc1e0> ;
+               align:entity1   dbr:Museu_do_Índio ;
+               align:entity2   :id-37db3d1d-a58a-4970-8983-6f191e70be22 ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "!="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Museum_of_Flight> ;
-               align:entity2   <http://localhost:8080/resource/a56890cb-0e69-4612-83b1-2ae392b1c662> ;
+               align:entity1   dbr:Revue ;
+               align:entity2   :id-4ee8cf8d-8ab7-4e87-b391-e6f7b21f41f6 ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "!="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Senta_Berger> ;
-               align:entity2   <http://localhost:8080/resource/d0b53bfa-8f5f-4ab6-bef4-e12c68fc3646> ;
+               align:entity1   dbr:Forte_de_Copacabana ;
+               align:entity2   :id-eba6c95e-13f4-4f49-8302-d43d5bd2c24d ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "!="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Broadway_theatre> ;
-               align:entity2   <http://localhost:8080/resource/adfa3fcf-032b-40de-a363-5288da43f69c> ;
+               align:entity1   dbr:Guatemala_City ;
+               align:entity2   :id-2070d1b3-9ab4-4b73-a110-debaee47bf9f ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "!="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Museu_do_Índio> ;
-               align:entity2   <http://localhost:8080/resource/1d66b956-2f7a-43ed-b599-4b58f5957c34> ;
+               align:entity1   dbr:Maria_Clara_Machado ;
+               align:entity2   :id-57e30376-5f8f-45c9-8b3e-bc89c1c51800 ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "!="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Fort_Copacabana> ;
-               align:entity2   <http://localhost:8080/resource/821985c9-5f0d-49ec-8673-2bd6704fc1e0> ;
+               align:entity1   <http://dbpedia.org/resource/Teatro_Carlos_Gomes_(Rio_de_Janeiro)> ;
+               align:entity2   :id-6c8cf9a4-d633-445a-9755-61f4cb170587 ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "!="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Gávea> ;
-               align:entity2   <http://localhost:8080/resource/e1424604-9da3-4a37-a6d0-587936381e37> ;
+               align:entity1   dbr:Barra_da_Tijuca ;
+               align:entity2   :id-51c27d5e-a16a-4fe1-856b-5205c7bcb420 ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "!="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Carlos_Eduardo_Imperial ;
+               align:entity2   :id-3c915768-5fdb-46fa-a8a7-4063d3024f37 ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "!="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:National_Museum_of_Brazil ;
+               align:entity2   :id-aa257f4a-0155-4c36-a7fb-0131a7b59dc7 ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "!="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Praia_do_Abricó ;
+               align:entity2   :id-487bedcd-5ce0-4574-92f8-db40957e22fc ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "!="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Glauce_Rocha ;
+               align:entity2   :id-aa4aed02-a14c-4378-8885-65e64cfabb8b ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "!="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Museu_de_Arte_Moderna_de_Sao_Paulo ;
+               align:entity2   :id-1c35ca2b-529a-49c7-8ac0-cb4b5d0592ca ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "!="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Schinus_terebinthifolius ;
+               align:entity2   :id-b4c88555-8007-4d23-8cc7-21fefb7b92ef ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "!="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Pedra_da_Gavea ;
+               align:entity2   :id-c9afb67f-1f27-4967-b706-dcb38bb4de04 ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "!="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:La_Scala ;
+               align:entity2   :id-4ee8cf8d-8ab7-4e87-b391-e6f7b21f41f6 ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "!="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Teatro_Municipal_de_Lima ;
+               align:entity2   :id-3364c726-aa2f-4123-839f-e0e93785e5e6 ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "!="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Catete_Palace ;
+               align:entity2   :id-cbc5124e-1251-4e7c-9770-f511a8b7e544 ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "!="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Estádio_Eduardo_Guinle ;
+               align:entity2   :id-411cf8b7-4be3-4c25-a7d5-a9ef92799c80 ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "!="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   <http://dbpedia.org/resource/Mosteiro_de_Sao_Bento_(Sao_Paulo)> ;
+               align:entity2   :id-85d94a49-cbad-4d6e-91f1-93aec35ae66d ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "!="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Museu_da_Tabanka ;
+               align:entity2   :id-2ee2b5ab-b2bd-4ebf-9108-96ce8aaf359c ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "!="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Centro_Cultural_Banco_do_Brasil ;
+               align:entity2   :id-68d23e82-8112-44ba-9810-4a024d647dc0 ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "!="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Flamengo_Park ;
+               align:entity2   :id-f2b0f147-82da-4c9e-bf0f-885e209fdd87 ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "!="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Austrian_National_Library ;
+               align:entity2   :id-c1948424-3664-4e05-a92f-00cdd03b0fd5 ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "!="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Museum_of_Flight ;
+               align:entity2   :id-e33c0e3b-8f98-4773-9d01-8275a84ad909 ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "!="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Palacio_de_Bellas_Artes ;
+               align:entity2   :id-aa257f4a-0155-4c36-a7fb-0131a7b59dc7 ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "!="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Museo_Nacional_de_Bellas_Artes_de_La_Habana ;
+               align:entity2   :id-aa257f4a-0155-4c36-a7fb-0131a7b59dc7 ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "!="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   <http://dbpedia.org/resource/Teatro_Carlos_Gomes_(Rio_de_Janeiro)> ;
+               align:entity2   :id-c9afb67f-1f27-4967-b706-dcb38bb4de04 ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "!="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Chilean_National_Museum_of_Fine_Arts ;
+               align:entity2   :id-aa257f4a-0155-4c36-a7fb-0131a7b59dc7 ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "!="
              ] ;
   align:map  [ a               align:Cell ;
                align:entity1   <http://dbpedia.org/resource/Museum_of_Modern_Art,_Rio_de_Janeiro> ;
-               align:entity2   <http://localhost:8080/resource/eb45e573-5086-4514-bfb7-742f34938039> ;
+               align:entity2   :id-1c35ca2b-529a-49c7-8ac0-cb4b5d0592ca ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "!="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Bahia> ;
-               align:entity2   <http://localhost:8080/resource/e1424604-9da3-4a37-a6d0-587936381e37> ;
+               align:entity1   dbr:Praia_do_Abricó ;
+               align:entity2   :id-d51c50c5-996c-4cbb-9f3d-b293fde333b0 ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "!="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Dance> ;
-               align:entity2   <http://localhost:8080/resource/e1424604-9da3-4a37-a6d0-587936381e37> ;
+               align:entity1   <http://dbpedia.org/resource/Ring_system_(astronomy)> ;
+               align:entity2   :id-952068fb-2aaf-4e9c-9ab8-45fefe3e426b ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "!="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Urca> ;
-               align:entity2   <http://localhost:8080/resource/e1424604-9da3-4a37-a6d0-587936381e37> ;
+               align:entity1   dbr:Old_Cathedral_of_Rio_de_Janeiro ;
+               align:entity2   :id-dcc6e1d7-72bb-454a-a3dc-a59b784a5c1d ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "!="
              ] ;
   align:map  [ a               align:Cell ;
-               align:entity1   <http://dbpedia.org/resource/Pistoia> ;
-               align:entity2   <http://localhost:8080/resource/e1424604-9da3-4a37-a6d0-587936381e37> ;
+               align:entity1   <http://dbpedia.org/resource/Teatro_Carlos_Gomes_(Rio_de_Janeiro)> ;
+               align:entity2   :id-32c2a590-7d97-49b2-8c9d-c8fc55d9863e ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "!="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Museum_of_Modern_Art ;
+               align:entity2   :id-1c35ca2b-529a-49c7-8ac0-cb4b5d0592ca ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "!="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Bibliothèque_nationale_de_France ;
+               align:entity2   :id-c1948424-3664-4e05-a92f-00cdd03b0fd5 ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "!="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Museu_do_Indio ;
+               align:entity2   :id-37db3d1d-a58a-4970-8983-6f191e70be22 ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "!="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Santa_Teresa_CD ;
+               align:entity2   :id-e89298eb-cb7c-4028-a69e-341474561023 ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "!="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:National_Library_of_Russia ;
+               align:entity2   :id-c1948424-3664-4e05-a92f-00cdd03b0fd5 ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "!="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Aterro_do_Flamengo ;
+               align:entity2   :id-f2b0f147-82da-4c9e-bf0f-885e209fdd87 ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "!="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Parque_da_cidade ;
+               align:entity2   :id-8b819c1f-a221-4145-981f-fe5a0270edeb ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "!="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Centro_Cultural_Banco_do_Brasil ;
+               align:entity2   :id-3405368c-2712-4cc6-8ab5-6ffa2bc3e524 ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "!="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:La_Scala ;
+               align:entity2   :id-29eb16d2-eb42-4582-8e09-a4ceb4207c7e ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "!="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Copacabana_Stadium ;
+               align:entity2   :id-12774d7c-5580-496e-9ce8-f142b5346425 ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "!="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   <http://dbpedia.org/resource/Museo_Nacional_de_Bellas_Artes_(Buenos_Aires)> ;
+               align:entity2   :id-aa257f4a-0155-4c36-a7fb-0131a7b59dc7 ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "!="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Fort_Copacabana ;
+               align:entity2   :id-eba6c95e-13f4-4f49-8302-d43d5bd2c24d ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "!="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Nationalmuseum ;
+               align:entity2   :id-aa257f4a-0155-4c36-a7fb-0131a7b59dc7 ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "!="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Belmond_Copacabana_Palace ;
+               align:entity2   :id-eba6c95e-13f4-4f49-8302-d43d5bd2c24d ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "!="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Broadway_theatre ;
+               align:entity2   :id-4ee8cf8d-8ab7-4e87-b391-e6f7b21f41f6 ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "!="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Old_Cathedral_of_Rio_de_Janeiro ;
+               align:entity2   :id-03caf5eb-49a9-4e9b-9ce8-9fd8fd8082a1 ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "!="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:National_Library_of_Greece ;
+               align:entity2   :id-c1948424-3664-4e05-a92f-00cdd03b0fd5 ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "!="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   <http://dbpedia.org/resource/Church_of_Nosso_Senhor_do_Bonfim,_Salvador> ;
+               align:entity2   :id-dcc6e1d7-72bb-454a-a3dc-a59b784a5c1d ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "!="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Hipódromo_da_Gávea ;
+               align:entity2   :id-463881f5-91a1-44d8-bb28-1c8af481d6a9 ;
+               align:measure   "0.0"^^xsd:float ;
+               align:relation  "!="
+             ] ;
+  align:map  [ a               align:Cell ;
+               align:entity1   dbr:Praia_do_Abricó ;
+               align:entity2   :id-1ca52d7a-d1e4-4c35-9d96-d785d1278d71 ;
                align:measure   "0.0"^^xsd:float ;
                align:relation  "!="
              ]
