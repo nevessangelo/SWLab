@@ -23,7 +23,7 @@ public abstract class MyDataset {
     protected static final String TDB_DIR = "./src/main/resources/dat/tdb";
 
     public static String FILENAME = null;
-    public static String TDB_ASSEMPLER_FILE = null;
+    public static String TDB_ASSEMBLER_FILE = null;
     public static String FUSEKI_UPDATE_URL = null;
     public static String FUSEKI_DATA_URL = null;
 

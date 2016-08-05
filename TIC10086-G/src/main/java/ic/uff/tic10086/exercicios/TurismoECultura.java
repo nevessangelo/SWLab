@@ -44,11 +44,11 @@ public class TurismoECultura extends MyDataset {
             init();
 
             FILENAME = "turismoECultura";
-            TDB_ASSEMPLER_FILE = "./src/main/resources/conf/turismoECultura.ttl";
+            TDB_ASSEMBLER_FILE = "./src/main/resources/conf/turismoECultura.ttl";
             FUSEKI_UPDATE_URL = "http://localhost:3030/turismoECultura/update";
             FUSEKI_DATA_URL = "http://localhost:3030/turismoECultura/data";
 
-            Dataset dataset = TDBFactory.assembleDataset(TDB_ASSEMPLER_FILE);
+            Dataset dataset = TDBFactory.assembleDataset(TDB_ASSEMBLER_FILE);
             try {
                 convertToRDF(dataset);
                 exportResources(dataset);

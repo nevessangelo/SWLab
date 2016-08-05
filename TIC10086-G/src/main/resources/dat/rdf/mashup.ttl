@@ -1,157 +1,628 @@
+@prefix dbo:   <http://dbpedia.org/ontology/> .
 @prefix :      <http://localhost:8080/resource/> .
 @prefix schema: <http://schema.org/> .
+@prefix res:   <http://www.w3.org/2005/sparql-results#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix dbr:   <http://dbpedia.org/resource/> .
 @prefix sch:   <http://schema.org/> .
 
-dbr:Flamengo_Park  <http://www.w3.org/2002/07/owl#sameAs>
-                :a7d8c5b4-de85-450b-b7cb-b7831f56828f .
+:a7d8c5b4-de85-450b-b7cb-b7831f56828f
+        a              sch:Place , sch:Park ;
+        sch:address    :a3f12401-beda-423f-99d2-f4b91650dfff ;
+        sch:geo        :514dea71-4056-4c51-98ac-85f37fd56797 ;
+        sch:name       "Aterro do Flamengo" ;
+        sch:telephone  "2285-7029" ;
+        owl:sameAs     :a7d8c5b4-de85-450b-b7cb-b7831f56828f , <http://rdf.freebase.com/ns/m.02w9g_0> , <http://pt.dbpedia.org/resource/Aterro_do_Flamengo> , <http://wikidata.dbpedia.org/resource/Q5457206> , <http://es.dbpedia.org/resource/Parque_Brigadier_Eduardo_Gomes> , <http://yago-knowledge.org/resource/Flamengo_Park> , <http://www.wikidata.org/entity/Q5457206> .
 
-dbr:Teatro_Miguel_Falabella
-        <http://www.w3.org/2002/07/owl#sameAs>
-                :e54ec797-abe1-4064-a5bc-d38071113499 .
+:e54ec797-abe1-4064-a5bc-d38071113499
+        a              sch:PerformingArtsTheater ;
+        sch:address    :1bcfb904-0151-408d-90c1-643cde94323d ;
+        sch:geo        :1cbe3f80-e7fe-4c9e-bef7-f22d4579e2bc ;
+        sch:name       "Teatro Miguel Falabella" ;
+        sch:telephone  "2597-4452" ;
+        owl:sameAs     :e54ec797-abe1-4064-a5bc-d38071113499 , <http://www.wikidata.org/entity/Q7691930> , <http://pt.dbpedia.org/resource/Teatro_Miguel_Falabella> , <http://rdf.freebase.com/ns/m.0lqfzy4> , <http://wikidata.dbpedia.org/resource/Q7691930> .
 
-dbr:Museu_Aeroespacial
-        <http://www.w3.org/2002/07/owl#sameAs>
-                :09065b06-3308-4e9d-862d-1e8d2192802b .
+:09065b06-3308-4e9d-862d-1e8d2192802b
+        a              sch:Place , sch:Museum ;
+        sch:address    :ca7c057c-74a8-4501-af0e-a5fea7c65d01 ;
+        sch:geo        :01c3c0fc-d648-43e6-90ba-f7b6788a9407 ;
+        sch:name       "Museu Aeroespacial" ;
+        sch:telephone  "2108-8954" ;
+        owl:sameAs     :09065b06-3308-4e9d-862d-1e8d2192802b , <http://yago-knowledge.org/resource/Museu_Aeroespacial> , <http://rdf.freebase.com/ns/m.06zs1yf> , <http://wikidata.dbpedia.org/resource/Q6940593> , <http://pt.dbpedia.org/resource/Museu_Aeroespacial> , <http://www.wikidata.org/entity/Q6940593> .
 
-dbr:Museu_Nacional_de_Belas_Artes
-        <http://www.w3.org/2002/07/owl#sameAs>
-                :71ec2f89-93b1-408e-bfa9-52f9b121cd71 .
+:71ec2f89-93b1-408e-bfa9-52f9b121cd71
+        a              sch:Place , sch:Museum ;
+        sch:address    :f07d6b2d-1bc5-4eea-b325-bb419a895385 ;
+        sch:geo        :60dd3f5d-694d-4894-b9ed-4095512797e6 ;
+        sch:name       "Museu Nacional de Belas Artes" ;
+        sch:telephone  "2219-8474" ;
+        owl:sameAs     :71ec2f89-93b1-408e-bfa9-52f9b121cd71 , <http://www.wikidata.org/entity/Q1954370> , <http://wikidata.dbpedia.org/resource/Q1954370> , <http://de.dbpedia.org/resource/Museu_Nacional_de_Belas_Artes> , <http://it.dbpedia.org/resource/Museo_nazionale_delle_belle_arti_(Brasile)> , <http://rdf.freebase.com/ns/m.027ycp5> , <http://pt.dbpedia.org/resource/Museu_Nacional_de_Belas_Artes_(Brasil)> , <http://yago-knowledge.org/resource/Museu_Nacional_de_Belas_Artes> , <http://it.dbpedia.org/resource/Museo_nazionale_delle_Belle_Arti> , <http://de.dbpedia.org/resource/Museo_Nacional_de_Bellas_Artes> , <http://es.dbpedia.org/resource/Museo_Nacional_de_Bellas_Artes> , <http://nl.dbpedia.org/resource/Museo_de_Bellas_Artes> , <http://pt.dbpedia.org/resource/Museu_Nacional_de_Belas_Artes> , <http://wikidata.dbpedia.org/resource/Q414876> , <http://www.wikidata.org/entity/Q414876> .
 
-dbr:Planetarium  <http://www.w3.org/2002/07/owl#sameAs>
-                :db050562-4ecd-4a98-8a15-436864f58fc6 .
+:db050562-4ecd-4a98-8a15-436864f58fc6
+        a              sch:Place ;
+        sch:address    :d73cd882-5840-4444-9365-75f83fb72eee ;
+        sch:geo        :0d606d31-eda3-40b3-b738-98c99c4f53fd ;
+        sch:name       "Planetário" ;
+        sch:telephone  "2274-0046" ;
+        owl:sameAs     :db050562-4ecd-4a98-8a15-436864f58fc6 , <http://eu.dbpedia.org/resource/Planetario> , <http://pl.dbpedia.org/resource/Planetarium> , <http://ja.dbpedia.org/resource/プラネタリウム> , <http://id.dbpedia.org/resource/Planetarium> , <http://el.dbpedia.org/resource/Πλανητάριο> , <http://ko.dbpedia.org/resource/천체투영관> , <http://cs.dbpedia.org/resource/Planetárium> , <http://nl.dbpedia.org/resource/Planetarium> , <http://wikidata.dbpedia.org/resource/Q148319> , <http://de.dbpedia.org/resource/Planetarium> , <http://es.dbpedia.org/resource/Planetario> , <http://pt.dbpedia.org/resource/Planetário> , <http://it.dbpedia.org/resource/Planetario> , <http://fr.dbpedia.org/resource/Planétarium> , <http://www.wikidata.org/entity/Q148319> , <http://rdf.freebase.com/ns/m.0gfxd> .
 
-dbr:Teatro_dos_Grandes_Atores
-        <http://www.w3.org/2002/07/owl#sameAs>
-                :78814151-05fa-41a2-8aba-707bd6159fce .
+:78814151-05fa-41a2-8aba-707bd6159fce
+        a              sch:PerformingArtsTheater ;
+        sch:address    :74ead1bc-f173-41e3-bb62-1cc56f8785c8 ;
+        sch:geo        :9097a2fd-f008-4a55-af00-3a025d0b9648 ;
+        sch:name       "Teatro dos Grandes Atores" ;
+        sch:telephone  "3325-1645" ;
+        owl:sameAs     :78814151-05fa-41a2-8aba-707bd6159fce , <http://wikidata.dbpedia.org/resource/Q7691986> , <http://pt.dbpedia.org/resource/Teatro_dos_Grandes_Atores> , <http://www.wikidata.org/entity/Q7691986> , <http://rdf.freebase.com/ns/m.0lqcbbh> .
 
-dbr:Pedra_da_Gavea  <http://www.w3.org/2002/07/owl#sameAs>
-                :a0a95687-941d-490d-bf9c-e8854b014e17 .
+:a0a95687-941d-490d-bf9c-e8854b014e17
+        a              sch:Place , sch:Mountain ;
+        sch:address    :5665d989-f4e3-47b0-aad6-c9bed11bbc87 ;
+        sch:geo        :47ddcdaf-e2cb-4bdb-b2de-de5e44d36aa8 ;
+        sch:name       "Pedra da Gávea" ;
+        sch:telephone  "2491-1700" ;
+        owl:sameAs     dbr:Pedra_da_Gávea , :a0a95687-941d-490d-bf9c-e8854b014e17 , <http://rdf.freebase.com/ns/m.0dn50k> , <http://pl.dbpedia.org/resource/Pedra_da_Gavea> , <http://fr.dbpedia.org/resource/Pedra_da_Gávea> , <http://es.dbpedia.org/resource/Pedra_da_Gávea> , <http://yago-knowledge.org/resource/Pedra_da_Gávea> , <http://pt.dbpedia.org/resource/Pedra_da_Gávea> , <http://sws.geonames.org/3462515/> , <http://it.dbpedia.org/resource/Pedra_da_Gávea> , <http://wikidata.dbpedia.org/resource/Q2066357> , <http://www.wikidata.org/entity/Q2066357> , <http://de.dbpedia.org/resource/Pedra_da_Gávea> .
 
-dbr:Paco_Imperial  <http://www.w3.org/2002/07/owl#sameAs>
-                :cfdfc9e4-f0e8-4459-a6cd-77ec2fa5c82e .
+:cfdfc9e4-f0e8-4459-a6cd-77ec2fa5c82e
+        a              sch:Place ;
+        sch:address    :b6225003-3bd7-4f38-b5f6-d3fbf466b979 ;
+        sch:geo        :01462b61-57c2-431c-b2e4-4fa7131daa1b ;
+        sch:name       "Paço Imperial" ;
+        sch:telephone  "2533-4359" ;
+        owl:sameAs     :cfdfc9e4-f0e8-4459-a6cd-77ec2fa5c82e , <http://rdf.freebase.com/ns/m.027x05r> .
 
-dbr:Carioca_Aqueduct  <http://www.w3.org/2002/07/owl#sameAs>
-                :fba7a758-c02c-4ab2-a109-9d1a23f8637a .
+:fba7a758-c02c-4ab2-a109-9d1a23f8637a
+        a              sch:Place ;
+        sch:address    :9c42bf55-a68c-4809-858c-2ce3f5e53b5f ;
+        sch:geo        :356a236c-9cea-4c01-a481-45d896374484 ;
+        sch:name       "Arcos da Lapa" ;
+        sch:telephone  "" ;
+        owl:sameAs     :fba7a758-c02c-4ab2-a109-9d1a23f8637a , <http://rdf.freebase.com/ns/m.02z7pc6> , <http://it.dbpedia.org/resource/Archi_di_Lapa> , <http://pt.dbpedia.org/resource/Aqueduto_da_Carioca> , <http://es.dbpedia.org/resource/Acueducto_Carioca> , <http://www.wikidata.org/entity/Q1579892> , <http://yago-knowledge.org/resource/Carioca_Aqueduct> , <http://wikidata.dbpedia.org/resource/Q1579892> .
 
-dbr:Sambadrome  <http://www.w3.org/2002/07/owl#sameAs>
-                :c73c0514-cecd-4d21-b158-281e06d7aad1 .
+:c73c0514-cecd-4d21-b158-281e06d7aad1
+        a              sch:Place ;
+        sch:address    :28032136-eb4a-44d4-a059-2b543335574c ;
+        sch:geo        :8ce1d367-4333-4c72-a7d5-fb31bbd9a1b0 ;
+        sch:name       "Sambódromo" ;
+        sch:telephone  "2546-8080" ;
+        owl:sameAs     dbr:Sambadrome_Marquês_de_Sapucaí , :c73c0514-cecd-4d21-b158-281e06d7aad1 , <http://es.dbpedia.org/resource/Sambódromo_da_Marquês_de_Sapucaí> , <http://pt.dbpedia.org/resource/Sambódromo_da_Marquês_de_Sapucaí> , <http://rdf.freebase.com/ns/m.0bpwqp> , <http://wikidata.dbpedia.org/resource/Q281521> , <http://ja.dbpedia.org/resource/サンボードロモ・ダ・マルケス・ジ・サプカイ> , <http://de.dbpedia.org/resource/Sambódromo> , <http://fr.dbpedia.org/resource/Sambodrome_Marquês-de-Sapucaí> , <http://it.dbpedia.org/resource/Sambodromo_di_Rio_de_Janeiro> , <http://yago-knowledge.org/resource/Sambadrome_Marquês_de_Sapucaí> , <http://www.wikidata.org/entity/Q281521> , <http://rdf.freebase.com/ns/m.05_5y77> , <http://ja.dbpedia.org/resource/サンボードロモ> , <http://cs.dbpedia.org/resource/Sambodrom> , <http://it.dbpedia.org/resource/Sambodromo> , <http://es.dbpedia.org/resource/Sambódromo> , <http://pt.dbpedia.org/resource/Sambódromo> , <http://www.wikidata.org/entity/Q1180029> , <http://fr.dbpedia.org/resource/Sambodrome> , <http://wikidata.dbpedia.org/resource/Q1180029> .
 
-dbr:Teatro_Ziembinski
-        <http://www.w3.org/2002/07/owl#sameAs>
-                :4e66cbc8-8d4e-4efb-8a85-7b336dc4d7d7 .
+:4e66cbc8-8d4e-4efb-8a85-7b336dc4d7d7
+        a              sch:PerformingArtsTheater ;
+        sch:address    :abec32f8-96e6-4bf4-9029-e2ac21a82bce ;
+        sch:geo        :871055de-bb83-4f5c-94bd-bd93fd2d4c12 ;
+        sch:name       "Teatro Ziembinski" ;
+        sch:telephone  "2254-5399" ;
+        owl:sameAs     :4e66cbc8-8d4e-4efb-8a85-7b336dc4d7d7 , <http://wikidata.dbpedia.org/resource/Q7691970> , <http://pt.dbpedia.org/resource/Teatro_Ziembinski> , <http://rdf.freebase.com/ns/m.0lqfgzn> , <http://www.wikidata.org/entity/Q7691970> .
 
-dbr:Parque_da_cidade  <http://www.w3.org/2002/07/owl#sameAs>
-                :94bd46c0-8fa0-4ad9-9dc3-da5887706ae8 .
+:94bd46c0-8fa0-4ad9-9dc3-da5887706ae8
+        a              sch:Park ;
+        sch:address    :3960a943-d20a-4124-a0b3-911d047378cf ;
+        sch:geo        :db901574-03b1-4ed8-93af-3e459d8fd04e ;
+        sch:name       "Parque da Cidade" ;
+        sch:telephone  "2259-9295" ;
+        owl:sameAs     :94bd46c0-8fa0-4ad9-9dc3-da5887706ae8 , <http://rdf.freebase.com/ns/m.0g6cfw> .
 
-dbr:Teatro_Joao_Caetano
-        <http://www.w3.org/2002/07/owl#sameAs>
-                :3bd8da45-5a4f-4919-a1c5-4ba8d10c0b32 .
+:3bd8da45-5a4f-4919-a1c5-4ba8d10c0b32
+        a              sch:PerformingArtsTheater ;
+        sch:address    :00efcea6-4e07-40df-bff2-a8c098919c45 ;
+        sch:geo        :b739975e-6188-4a5b-8aed-8cf68f89a268 ;
+        sch:name       "Teatro João Caetano" ;
+        sch:telephone  "2332-9166" ;
+        owl:sameAs     :3bd8da45-5a4f-4919-a1c5-4ba8d10c0b32 , <http://rdf.freebase.com/ns/m.0lqhy98> .
 
-dbr:National_library  <http://www.w3.org/2002/07/owl#sameAs>
-                :57b5970a-50d1-4b17-97b4-93f80830ba43 .
+:57b5970a-50d1-4b17-97b4-93f80830ba43
+        a              sch:Place , sch:Library , sch:Country ;
+        sch:address    :f013bdfa-ad39-4644-be25-61807fdd3979 ;
+        sch:geo        :b98aa82f-8960-4c56-9659-daaf25238674 ;
+        sch:name       "Biblioteca Nacional" ;
+        sch:telephone  "3095-3879" ;
+        owl:sameAs     :57b5970a-50d1-4b17-97b4-93f80830ba43 , <http://nl.dbpedia.org/resource/Nationale_bibliotheek> , <http://cs.dbpedia.org/resource/Seznam_národních_knihoven> , <http://ko.dbpedia.org/resource/국립도서관> , <http://de.dbpedia.org/resource/Nationalbibliothek> , <http://www.wikidata.org/entity/Q22806> , <http://wikidata.dbpedia.org/resource/Q22806> , <http://fr.dbpedia.org/resource/Bibliothèque_nationale> , <http://es.dbpedia.org/resource/Biblioteca_Nacional> , <http://id.dbpedia.org/resource/Perpustakaan_nasional> , <http://it.dbpedia.org/resource/Biblioteca_nazionale> , <http://pt.dbpedia.org/resource/Biblioteca_nacional> , <http://ja.dbpedia.org/resource/国立図書館> , <http://rdf.freebase.com/ns/m.03gs51> , <http://el.dbpedia.org/resource/Εθνική_βιβλιοθήκη> , <http://pl.dbpedia.org/resource/Biblioteka_narodowa> , <http://yago-knowledge.org/resource/National_library> .
 
-dbr:Sugarloaf_Mountain
-        <http://www.w3.org/2002/07/owl#sameAs>
-                :4eed612e-a4b1-46de-a6d7-7ce3c5cd71a9 .
+:4eed612e-a4b1-46de-a6d7-7ce3c5cd71a9
+        a              sch:Place , sch:Mountain ;
+        sch:address    :6b2dcd92-5394-4e97-b78d-be6cc20d4aff ;
+        sch:geo        :db44ae81-f518-45bd-a878-e172f3708180 ;
+        sch:name       "Pão de Açúcar" ;
+        sch:telephone  "2546-8400" ;
+        owl:sameAs     :4eed612e-a4b1-46de-a6d7-7ce3c5cd71a9 , <http://ja.dbpedia.org/resource/ポン・ヂ・アスーカル> , <http://pl.dbpedia.org/resource/Głowa_Cukru_(Rio_de_Janeiro)> , <http://rdf.freebase.com/ns/m.0634k2> , <http://fr.dbpedia.org/resource/Mont_du_Pain_de_Sucre> , <http://ko.dbpedia.org/resource/팡지아수카르_산> , <http://wikidata.dbpedia.org/resource/Q210722> , <http://it.dbpedia.org/resource/Pan_di_Zucchero_(Rio_de_Janeiro)> , <http://de.dbpedia.org/resource/Zuckerhut_(Felsen)> , <http://es.dbpedia.org/resource/Pan_de_Azúcar_(Brasil)> , <http://id.dbpedia.org/resource/Sugarloaf_Mountain> , <http://www.wikidata.org/entity/Q210722> , <http://sws.geonames.org/3455217/> , <http://el.dbpedia.org/resource/Πάο_ντε_Ασούκαρ> , <http://nl.dbpedia.org/resource/Suikerbroodberg> , <http://pt.dbpedia.org/resource/Pão_de_Açúcar> , <http://cs.dbpedia.org/resource/Cukrová_homole_(hora)> .
 
-dbr:Cidade_das_Artes  <http://www.w3.org/2002/07/owl#sameAs>
-                :081423fc-f802-4a00-a536-2cb75c885119 .
+:081423fc-f802-4a00-a536-2cb75c885119
+        a              sch:Place ;
+        sch:address    :0ee04591-8dca-43f8-ba1f-b7e7be9e5c02 ;
+        sch:geo        :4e841a36-6eb4-469d-b50f-6292bc268b2d ;
+        sch:name       "Cidade das Artes" ;
+        sch:telephone  "3325-0102" ;
+        owl:sameAs     :081423fc-f802-4a00-a536-2cb75c885119 , <http://rdf.freebase.com/ns/m.09k4zxx> , <http://www.wikidata.org/entity/Q2582536> , <http://pt.dbpedia.org/resource/Cidade_das_Artes> , <http://wikidata.dbpedia.org/resource/Q2582536> .
 
-dbr:Vista_Chinesa  <http://www.w3.org/2002/07/owl#sameAs>
-                :986bb1ab-1794-43fb-9f26-f7242b9c430e .
+:986bb1ab-1794-43fb-9f26-f7242b9c430e
+        a              sch:Place ;
+        sch:address    :f716823d-0a69-4148-ac3d-f01c61c2262f ;
+        sch:geo        :4062a7a4-751b-4265-ae62-21ef34f23601 ;
+        sch:name       "Vista Chinesa" ;
+        sch:telephone  "2492-2253" ;
+        owl:sameAs     :986bb1ab-1794-43fb-9f26-f7242b9c430e , <http://www.wikidata.org/entity/Q7936437> , <http://rdf.freebase.com/ns/m.04ghpdc> , <http://pt.dbpedia.org/resource/Vista_Chinesa> , <http://wikidata.dbpedia.org/resource/Q7936437> .
 
-dbr:Arcos_da_Lapa  <http://www.w3.org/2002/07/owl#sameAs>
-                :fba7a758-c02c-4ab2-a109-9d1a23f8637a .
+:16689eb7-2bd2-4236-bad8-2057ad9d50ea
+        a              sch:Place ;
+        sch:address    :ef02f417-d998-4a8d-8e0b-89bad767daf2 ;
+        sch:geo        :69e2ed02-dc4b-4a2c-bc74-9eccee2fb18a ;
+        sch:name       "Lagoa Rodrigo de Freitas" ;
+        sch:telephone  "" ;
+        owl:sameAs     :16689eb7-2bd2-4236-bad8-2057ad9d50ea , <http://rdf.freebase.com/ns/m.08dpvs> , <http://yago-knowledge.org/resource/Lagoa_Rodrigo_de_Freitas> , <http://sws.geonames.org/3450970/> , <http://fr.dbpedia.org/resource/Lagoa_Rodrigo_de_Freitas> , <http://pt.dbpedia.org/resource/Lagoa_Rodrigo_de_Freitas> , <http://www.wikidata.org/entity/Q429897> , <http://wikidata.dbpedia.org/resource/Q429897> .
 
-dbr:Lagoa_rodrigo_de_freitas
-        <http://www.w3.org/2002/07/owl#sameAs>
-                :16689eb7-2bd2-4236-bad8-2057ad9d50ea .
+:41faecd6-62f6-48ee-b62a-50a9997e0fb9
+        a              sch:Organization , sch:Place , sch:LocalBusiness ;
+        sch:address    :dd31bdac-4ccb-4cf8-b4c4-f8018438f0c2 ;
+        sch:geo        :16c946be-e683-477e-85cd-230ce052f6f9 ;
+        sch:name       "Academia Brasileira de Letras" ;
+        sch:telephone  "3974-2500" ;
+        owl:sameAs     <http://www.wikidata.org/entity/Q337224> , :41faecd6-62f6-48ee-b62a-50a9997e0fb9 , <http://rdf.freebase.com/ns/m.04vcjc> , <http://fr.dbpedia.org/resource/Académie_brésilienne_des_lettres> , <http://es.dbpedia.org/resource/Academia_Brasileña_de_Letras> , <http://wikidata.dbpedia.org/resource/Q337224> , <http://it.dbpedia.org/resource/Accademia_brasiliana_delle_lettere> , <http://de.dbpedia.org/resource/Academia_Brasileira_de_Letras> , <http://pt.dbpedia.org/resource/Academia_Brasileira_de_Letras> , <http://yago-knowledge.org/resource/Academia_Brasileira_de_Letras> , <http://ja.dbpedia.org/resource/ブラジル文学アカデミー> .
 
-dbr:Academia_brasileira_de_letras
-        <http://www.w3.org/2002/07/owl#sameAs>
-                :41faecd6-62f6-48ee-b62a-50a9997e0fb9 .
+:98b61822-7427-4626-9d44-5087f9f9e446
+        a              sch:Place , sch:EventVenue , sch:Museum ;
+        sch:address    :0a216469-41fb-427e-b277-7c0694eeb5f5 ;
+        sch:geo        :d22bc75b-cb95-47d3-af51-93a1322a8eeb ;
+        sch:name       "Centro Cultural Banco do Brasil" ;
+        sch:telephone  "3808-2020" ;
+        owl:sameAs     :98b61822-7427-4626-9d44-5087f9f9e446 , <http://www.wikidata.org/entity/Q2946151> , <http://fr.dbpedia.org/resource/Centro_Cultural_Banco_do_Brasil> , <http://yago-knowledge.org/resource/Centro_Cultural_Banco_do_Brasil> , <http://wikidata.dbpedia.org/resource/Q2946151> , <http://rdf.freebase.com/ns/m.0gy0qfv> , <http://pt.dbpedia.org/resource/Centro_Cultural_Banco_do_Brasil> .
 
-dbr:Pao_de_Acucar  <http://www.w3.org/2002/07/owl#sameAs>
-                :4eed612e-a4b1-46de-a6d7-7ce3c5cd71a9 .
+:c25a3d6c-1a13-4adc-ab4e-6ef8e4e57c91
+        a              sch:Place ;
+        sch:address    :47f115b7-f180-49e4-95ed-d2be2dce6a3b ;
+        sch:geo        :3ef637a3-a3eb-426b-a985-e8a9ee5b4db4 ;
+        sch:name       "Forte de Copacabana" ;
+        sch:telephone  "2521-1032" ;
+        owl:sameAs     :c25a3d6c-1a13-4adc-ab4e-6ef8e4e57c91 , <http://rdf.freebase.com/ns/m.0cc6486> , <http://wikidata.dbpedia.org/resource/Q5470982> , <http://pt.dbpedia.org/resource/Forte_de_Copacabana> , <http://www.wikidata.org/entity/Q5470982> , <http://yago-knowledge.org/resource/Fort_Copacabana> .
 
-dbr:Centro_Cultural_Banco_do_Brasil
-        <http://www.w3.org/2002/07/owl#sameAs>
-                :98b61822-7427-4626-9d44-5087f9f9e446 .
+:a56890cb-0e69-4612-83b1-2ae392b1c662
+        a              sch:Museum ;
+        sch:address    :c26d6747-c793-4f4d-8930-7c29352cafc5 ;
+        sch:geo        :5b0c7666-cdc6-4b55-b531-21671c74d31c ;
+        sch:name       "Museu do Índio" ;
+        sch:telephone  "3214-8702" ;
+        owl:sameAs     dbr:Museu_do_Índio , :a56890cb-0e69-4612-83b1-2ae392b1c662 , <http://rdf.freebase.com/ns/m.03y7qkh> , <http://it.dbpedia.org/resource/Museo_degli_indigeni> , <http://wikidata.dbpedia.org/resource/Q6940631> , <http://www.wikidata.org/entity/Q6940631> , <http://pt.dbpedia.org/resource/Museu_do_Índio_(Rio_de_Janeiro)> , <http://yago-knowledge.org/resource/Museu_do_Índio> .
 
-dbr:Fort_Copacabana  <http://www.w3.org/2002/07/owl#sameAs>
-                :c25a3d6c-1a13-4adc-ab4e-6ef8e4e57c91 .
+:00080260-9fdb-45b6-97b7-58bc4a155c1f
+        a              sch:PerformingArtsTheater ;
+        sch:address    :d3e06f65-1118-4868-a591-f931db4249da ;
+        sch:geo        :127c5b82-26c3-48f3-81d5-59d435a32d73 ;
+        sch:name       "Teatro Villa Lobos" ;
+        sch:telephone  "2334-7153" ;
+        owl:sameAs     :00080260-9fdb-45b6-97b7-58bc4a155c1f , <http://www.wikidata.org/entity/Q7691969> , <http://pt.dbpedia.org/resource/Teatro_Villa-Lobos> , <http://rdf.freebase.com/ns/m.0lqgxbf> , <http://wikidata.dbpedia.org/resource/Q7691969> .
 
-dbr:Rodrigo_de_Freitas_Lagoon
-        <http://www.w3.org/2002/07/owl#sameAs>
-                :16689eb7-2bd2-4236-bad8-2057ad9d50ea .
+:79cedc49-55f1-4583-a9ae-d10ff3d9ed0d
+        a              sch:Place ;
+        sch:address    :6fee1294-e721-4643-a8bb-2877224a9ef1 ;
+        sch:geo        :9a32e6fb-d3a5-4644-9297-a749bade5b82 ;
+        sch:name       "Ilha Fiscal" ;
+        sch:telephone  "2233-9165" ;
+        owl:sameAs     <http://www.wikidata.org/entity/Q985128> , :79cedc49-55f1-4583-a9ae-d10ff3d9ed0d , <http://wikidata.dbpedia.org/resource/Q985128> , <http://yago-knowledge.org/resource/Ilha_Fiscal> , <http://es.dbpedia.org/resource/Isla_Fiscal> , <http://rdf.freebase.com/ns/m.0hr5wts> , <http://de.dbpedia.org/resource/Ilha_Fiscal> , <http://sws.geonames.org/3463324/> , <http://pt.dbpedia.org/resource/Ilha_Fiscal> .
 
-dbr:Museu_do_Indio  <http://www.w3.org/2002/07/owl#sameAs>
-                :a56890cb-0e69-4612-83b1-2ae392b1c662 .
+:c10b7b29-008c-490f-8606-379fd66369cd
+        a              sch:Place ;
+        sch:address    :380734fd-27c8-4db6-a40e-9e1a82c2f5f0 ;
+        sch:geo        :db09160d-e5ba-4b24-a54e-1b8eea299adb ;
+        sch:name       "Jardim Botânico" ;
+        sch:telephone  "3874-1808" ;
+        owl:sameAs     :c10b7b29-008c-490f-8606-379fd66369cd .
 
-dbr:Teatro_Villa-Lobos
-        <http://www.w3.org/2002/07/owl#sameAs>
-                :00080260-9fdb-45b6-97b7-58bc4a155c1f .
+:b167b9bf-f8cb-4e5d-8448-79a029878ac7
+        a              sch:StadiumOrArena ;
+        sch:address    :b391a782-51c4-41ae-9c07-c53ebc4bf8b9 ;
+        sch:geo        :e3f3b9ca-8c3a-4959-b699-a6590d6865d8 ;
+        sch:name       "Estádio do Maracanã" ;
+        sch:telephone  "8871-3950" ;
+        owl:sameAs     :b167b9bf-f8cb-4e5d-8448-79a029878ac7 , <http://rdf.freebase.com/ns/m.01qv4y> .
 
-dbr:Sambodromo  <http://www.w3.org/2002/07/owl#sameAs>
-                :c73c0514-cecd-4d21-b158-281e06d7aad1 .
+:c657c503-306b-4693-9e26-f4141f1b9596
+        a              sch:MusicVenue ;
+        sch:address    :4a5b6d73-cfa8-4ea9-83df-01041cffb93e ;
+        sch:geo        :5dc6d3e0-1ca9-4860-903f-905d33a16046 ;
+        sch:name       "Sala Cecília Meireles" ;
+        sch:telephone  "2332-9223" ;
+        owl:sameAs     :c657c503-306b-4693-9e26-f4141f1b9596 , <http://rdf.freebase.com/ns/m.0lqgq_h> .
 
-dbr:Ilha_Fiscal  <http://www.w3.org/2002/07/owl#sameAs>
-                :79cedc49-55f1-4583-a9ae-d10ff3d9ed0d .
+:bf76fd83-daa1-425b-a117-0b47e5ad354e
+        a              sch:Park ;
+        sch:address    :23ab6661-7924-4e10-ab4c-721094fb711e ;
+        sch:geo        :cb20ac56-e5b0-4ca2-ab79-fc4f614ecfe5 ;
+        sch:name       "Parque Lage" ;
+        sch:telephone  "3257-1800" ;
+        owl:sameAs     :bf76fd83-daa1-425b-a117-0b47e5ad354e , <http://wikidata.dbpedia.org/resource/Q7139641> , <http://sws.geonames.org/7538582/> , <http://pt.dbpedia.org/resource/Parque_Lage> , <http://yago-knowledge.org/resource/Parque_Lage> , <http://www.wikidata.org/entity/Q7139641> , <http://rdf.freebase.com/ns/m.03hm8hl> .
 
-dbr:Aterro_do_Flamengo
-        <http://www.w3.org/2002/07/owl#sameAs>
-                :a7d8c5b4-de85-450b-b7cb-b7831f56828f .
+:ab846dba-ffdd-4a55-9957-100dba0dd52f
+        a              sch:Place ;
+        sch:address    :c057e9b2-b13f-4443-ba44-2f4bf656eb3d ;
+        sch:geo        :f992d2d9-3ccd-4db1-a05b-d364b52c3584 ;
+        sch:name       "Cidade do Samba" ;
+        sch:telephone  "2213-2503" ;
+        owl:sameAs     :ab846dba-ffdd-4a55-9957-100dba0dd52f , <http://pt.dbpedia.org/resource/Cidade_do_Samba_Joãozinho_Trinta> , <http://rdf.freebase.com/ns/m.0gfj4mg> , <http://www.wikidata.org/entity/Q5119509> , <http://sws.geonames.org/7538666/> , <http://yago-knowledge.org/resource/Cidade_do_Samba> , <http://wikidata.dbpedia.org/resource/Q5119509> .
 
-dbr:Museo_de_Bellas_Artes
-        <http://www.w3.org/2002/07/owl#sameAs>
-                :71ec2f89-93b1-408e-bfa9-52f9b121cd71 .
+:dc8fd7e5-b913-4e2d-bb98-282c4249f0ab
+        a              sch:PerformingArtsTheater ;
+        sch:address    :6d47bfaf-3fce-4c39-921d-359cbdd1feda ;
+        sch:geo        :5b56ee48-9736-4569-834f-183118d6d1c4 ;
+        sch:name       "Teatro Carlos Gomes" ;
+        sch:telephone  "2232-8701" ;
+        owl:sameAs     :dc8fd7e5-b913-4e2d-bb98-282c4249f0ab , <http://rdf.freebase.com/ns/m.0lqctpm> , <http://pt.dbpedia.org/resource/Teatro_Carlos_Gomes_(Rio_de_Janeiro)> , <http://www.wikidata.org/entity/Q7691903> , <http://wikidata.dbpedia.org/resource/Q7691903> , <http://es.dbpedia.org/resource/Teatro_Carlos_Gomes> .
 
-dbr:Forte_de_Copacabana
-        <http://www.w3.org/2002/07/owl#sameAs>
-                :c25a3d6c-1a13-4adc-ab4e-6ef8e4e57c91 .
+:004a206b-eac0-4e97-9e15-5b60d2f81b20
+        a              sch:Place ;
+        sch:address    :5d7dc1d2-4ef3-4595-8c8d-2ee9aac7f40e ;
+        sch:geo        :132be15f-9720-409b-8863-5aa44ab73d35 ;
+        sch:name       "Campo de Santana" ;
+        sch:telephone  "" ;
+        owl:sameAs     :004a206b-eac0-4e97-9e15-5b60d2f81b20 , <http://yago-knowledge.org/resource/Campo_de_Santana> , <http://rdf.freebase.com/ns/m.09rtldk> , <http://pt.dbpedia.org/resource/Tacima> , <http://sws.geonames.org/6320439/> , <http://www.wikidata.org/entity/Q1816133> , <http://sws.geonames.org/3386961/> , <http://fr.dbpedia.org/resource/Campo_de_Santana> , <http://nl.dbpedia.org/resource/Campo_de_Santana> , <http://it.dbpedia.org/resource/Tacima> , <http://wikidata.dbpedia.org/resource/Q1816133> .
 
-dbr:Jardim_Botanico  <http://www.w3.org/2002/07/owl#sameAs>
-                :c10b7b29-008c-490f-8606-379fd66369cd .
+:dd31bdac-4ccb-4cf8-b4c4-f8018438f0c2
+        a                    sch:PostalAddress ;
+        sch:addressCountry   "Brasil" ;
+        sch:addressLocality  "Rio de Janeiro" ;
+        sch:addressRegion    "RJ" ;
+        sch:streetAddress    "Avenida Presidente Wilson, 203, Centro" .
 
-dbr:Lagoa_Rodrigo_de_Freitas
-        <http://www.w3.org/2002/07/owl#sameAs>
-                :16689eb7-2bd2-4236-bad8-2057ad9d50ea .
+:16c946be-e683-477e-85cd-230ce052f6f9
+        a              sch:GeoCoordinates ;
+        sch:latitude   "-22.910877" ;
+        sch:longitude  "-43.172971" .
 
-dbr:Estadio_do_Maracana
-        <http://www.w3.org/2002/07/owl#sameAs>
-                :b167b9bf-f8cb-4e5d-8448-79a029878ac7 .
+:9c42bf55-a68c-4809-858c-2ce3f5e53b5f
+        a                    sch:PostalAddress ;
+        sch:addressCountry   "Brasil" ;
+        sch:addressLocality  "Rio de Janeiro" ;
+        sch:addressRegion    "RJ" ;
+        sch:streetAddress    "Praça Cardeal Câmara, Lapa" .
 
-dbr:Sambadrome_Marquês_de_Sapucaí
-        <http://www.w3.org/2002/07/owl#sameAs>
-                :c73c0514-cecd-4d21-b158-281e06d7aad1 .
+:356a236c-9cea-4c01-a481-45d896374484
+        a              sch:GeoCoordinates ;
+        sch:latitude   "-22.912867" ;
+        sch:longitude  "-43.179908" .
 
-dbr:Sala_Cecilia_Meireles
-        <http://www.w3.org/2002/07/owl#sameAs>
-                :c657c503-306b-4693-9e26-f4141f1b9596 .
+:a3f12401-beda-423f-99d2-f4b91650dfff
+        a                    sch:PostalAddress ;
+        sch:addressCountry   "Brasil" ;
+        sch:addressLocality  "Rio de Janeiro" ;
+        sch:addressRegion    "RJ" ;
+        sch:streetAddress    "Avenida Infante Dom Henrique, Flamengo" .
 
-dbr:Parque_Lage  <http://www.w3.org/2002/07/owl#sameAs>
-                :bf76fd83-daa1-425b-a117-0b47e5ad354e .
+:514dea71-4056-4c51-98ac-85f37fd56797
+        a              sch:GeoCoordinates ;
+        sch:latitude   "-22.928990" ;
+        sch:longitude  "-43.171813" .
 
-dbr:Pedra_da_Gávea  <http://www.w3.org/2002/07/owl#sameAs>
-                :a0a95687-941d-490d-bf9c-e8854b014e17 .
+:f013bdfa-ad39-4644-be25-61807fdd3979
+        a                    sch:PostalAddress ;
+        sch:addressCountry   "Brasil" ;
+        sch:addressLocality  "Rio de Janeiro" ;
+        sch:addressRegion    "RJ" ;
+        sch:streetAddress    "Avenida Rio Branco, 219, Centro" .
 
-dbr:Museu_do_Índio  <http://www.w3.org/2002/07/owl#sameAs>
-                :a56890cb-0e69-4612-83b1-2ae392b1c662 .
+:b98aa82f-8960-4c56-9659-daaf25238674
+        a              sch:GeoCoordinates ;
+        sch:latitude   "-22.909770" ;
+        sch:longitude  "-43.175689" .
 
-dbr:Cidade_do_Samba  <http://www.w3.org/2002/07/owl#sameAs>
-                :ab846dba-ffdd-4a55-9957-100dba0dd52f .
+:5d7dc1d2-4ef3-4595-8c8d-2ee9aac7f40e
+        a                    sch:PostalAddress ;
+        sch:addressCountry   "Brasil" ;
+        sch:addressLocality  "Rio de Janeiro" ;
+        sch:addressRegion    "RJ" ;
+        sch:streetAddress    "Avenida Presidente Vargas, Centro" .
 
-<http://dbpedia.org/resource/Teatro_Carlos_Gomes_(Rio_de_Janeiro)>
-        <http://www.w3.org/2002/07/owl#sameAs>
-                :dc8fd7e5-b913-4e2d-bb98-282c4249f0ab .
+:132be15f-9720-409b-8863-5aa44ab73d35
+        a              sch:GeoCoordinates ;
+        sch:latitude   "-22.906667" ;
+        sch:longitude  "-43.188333" .
 
-dbr:Campo_de_Santana  <http://www.w3.org/2002/07/owl#sameAs>
-                :004a206b-eac0-4e97-9e15-5b60d2f81b20 .
+:0a216469-41fb-427e-b277-7c0694eeb5f5
+        a                    sch:PostalAddress ;
+        sch:addressCountry   "Brasil" ;
+        sch:addressLocality  "Rio de Janeiro" ;
+        sch:addressRegion    "RJ" ;
+        sch:streetAddress    "Rua Primeiro de Março, 66, Centro" .
 
-dbr:Academia_Brasileira_de_Letras
-        <http://www.w3.org/2002/07/owl#sameAs>
-                :41faecd6-62f6-48ee-b62a-50a9997e0fb9 .
+:d22bc75b-cb95-47d3-af51-93a1322a8eeb
+        a              sch:GeoCoordinates ;
+        sch:latitude   "-22.900606" ;
+        sch:longitude  "-43.176517" .
 
-dbr:Tacima  <http://www.w3.org/2002/07/owl#sameAs>
-                :004a206b-eac0-4e97-9e15-5b60d2f81b20 .
+:0ee04591-8dca-43f8-ba1f-b7e7be9e5c02
+        a                    sch:PostalAddress ;
+        sch:addressCountry   "Brasil" ;
+        sch:addressLocality  "Rio de Janeiro" ;
+        sch:addressRegion    "RJ" ;
+        sch:streetAddress    "Avenida das Américas, Barra da Tijuca" .
+
+:4e841a36-6eb4-469d-b50f-6292bc268b2d
+        a              sch:GeoCoordinates ;
+        sch:latitude   "-22.998611" ;
+        sch:longitude  "-43.365556" .
+
+:c057e9b2-b13f-4443-ba44-2f4bf656eb3d
+        a                    sch:PostalAddress ;
+        sch:addressCountry   "Brasil" ;
+        sch:addressLocality  "Rio de Janeiro" ;
+        sch:addressRegion    "RJ" ;
+        sch:streetAddress    "Rua Rivadávia Correia, 60, Gamboa" .
+
+:f992d2d9-3ccd-4db1-a05b-d364b52c3584
+        a              sch:GeoCoordinates ;
+        sch:latitude   "-22.894338" ;
+        sch:longitude  "-43.197015" .
+
+:b391a782-51c4-41ae-9c07-c53ebc4bf8b9
+        a                    sch:PostalAddress ;
+        sch:addressCountry   "Brasil" ;
+        sch:addressLocality  "Rio de Janeiro" ;
+        sch:addressRegion    "RJ" ;
+        sch:streetAddress    "Rua Professor Eurico Rabelo, Maracanã" .
+
+:e3f3b9ca-8c3a-4959-b699-a6590d6865d8
+        a              sch:GeoCoordinates ;
+        sch:latitude   "-22.913604" ;
+        sch:longitude  "-43.231068" .
+
+:47f115b7-f180-49e4-95ed-d2be2dce6a3b
+        a                    sch:PostalAddress ;
+        sch:addressCountry   "Brasil" ;
+        sch:addressLocality  "Rio de Janeiro" ;
+        sch:addressRegion    "RJ" ;
+        sch:streetAddress    "Praça Coronel Eugênio Franco, 1, Copacabana" .
+
+:3ef637a3-a3eb-426b-a985-e8a9ee5b4db4
+        a              sch:GeoCoordinates ;
+        sch:latitude   "-22.985822" ;
+        sch:longitude  "-43.187846" .
+
+:6fee1294-e721-4643-a8bb-2877224a9ef1
+        a                    sch:PostalAddress ;
+        sch:addressCountry   "Brasil" ;
+        sch:addressLocality  "Rio de Janeiro" ;
+        sch:addressRegion    "RJ" ;
+        sch:streetAddress    "Avenida Alfred Agache, Centro" .
+
+:9a32e6fb-d3a5-4644-9297-a749bade5b82
+        a              sch:GeoCoordinates ;
+        sch:latitude   "-22.896944" ;
+        sch:longitude  "-43.166111" .
+
+:380734fd-27c8-4db6-a40e-9e1a82c2f5f0
+        a                    sch:PostalAddress ;
+        sch:addressCountry   "Brasil" ;
+        sch:addressLocality  "Rio de Janeiro" ;
+        sch:addressRegion    "RJ" ;
+        sch:streetAddress    "Rua Jardim Botânico, 1008, Jardim Botânico" .
+
+:db09160d-e5ba-4b24-a54e-1b8eea299adb
+        a              sch:GeoCoordinates ;
+        sch:latitude   "-22.970885" ;
+        sch:longitude  "-43.223279" .
+
+:ef02f417-d998-4a8d-8e0b-89bad767daf2
+        a                    sch:PostalAddress ;
+        sch:addressCountry   "Brasil" ;
+        sch:addressLocality  "Rio de Janeiro" ;
+        sch:addressRegion    "RJ" ;
+        sch:streetAddress    "Avenida Epitácio Pessoa, Lagoa" .
+
+:69e2ed02-dc4b-4a2c-bc74-9eccee2fb18a
+        a              sch:GeoCoordinates ;
+        sch:latitude   "-22.971314" ;
+        sch:longitude  "-43.211725" .
+
+:ca7c057c-74a8-4501-af0e-a5fea7c65d01
+        a                    sch:PostalAddress ;
+        sch:addressCountry   "Brasil" ;
+        sch:addressLocality  "Rio de Janeiro" ;
+        sch:addressRegion    "RJ" ;
+        sch:streetAddress    "Avenida Marechal Fontenele, 2000, Campo dos Afonsos" .
+
+:01c3c0fc-d648-43e6-90ba-f7b6788a9407
+        a              sch:GeoCoordinates ;
+        sch:latitude   "-22.885071" ;
+        sch:longitude  "-43.388112" .
+
+:c26d6747-c793-4f4d-8930-7c29352cafc5
+        a                    sch:PostalAddress ;
+        sch:addressCountry   "Brasil" ;
+        sch:addressLocality  "Rio de Janeiro" ;
+        sch:addressRegion    "RJ" ;
+        sch:streetAddress    "Rua das Palmeiras, 55, Botafogo" .
+
+:5b0c7666-cdc6-4b55-b531-21671c74d31c
+        a              sch:GeoCoordinates ;
+        sch:latitude   "-22.952010" ;
+        sch:longitude  "-43.191312" .
+
+:f07d6b2d-1bc5-4eea-b325-bb419a895385
+        a                    sch:PostalAddress ;
+        sch:addressCountry   "Brasil" ;
+        sch:addressLocality  "Rio de Janeiro" ;
+        sch:addressRegion    "RJ" ;
+        sch:streetAddress    "Avenida Rio Branco, 199, Centro" .
+
+:60dd3f5d-694d-4894-b9ed-4095512797e6
+        a              sch:GeoCoordinates ;
+        sch:latitude   "-22.908900" ;
+        sch:longitude  "-43.176096" .
+
+:b6225003-3bd7-4f38-b5f6-d3fbf466b979
+        a                    sch:PostalAddress ;
+        sch:addressCountry   "Brasil" ;
+        sch:addressLocality  "Rio de Janeiro" ;
+        sch:addressRegion    "RJ" ;
+        sch:streetAddress    "Praça XV, Centro" .
+
+:01462b61-57c2-431c-b2e4-4fa7131daa1b
+        a              sch:GeoCoordinates ;
+        sch:latitude   "-22.903544" ;
+        sch:longitude  "-43.174265" .
+
+:6b2dcd92-5394-4e97-b78d-be6cc20d4aff
+        a                    sch:PostalAddress ;
+        sch:addressCountry   "Brasil" ;
+        sch:addressLocality  "Rio de Janeiro" ;
+        sch:addressRegion    "RJ" ;
+        sch:streetAddress    "Avenida Pasteur, 520, Urca" .
+
+:db44ae81-f518-45bd-a878-e172f3708180
+        a              sch:GeoCoordinates ;
+        sch:latitude   "-22.955588" ;
+        sch:longitude  "-43.166875" .
+
+:3960a943-d20a-4124-a0b3-911d047378cf
+        a                    sch:PostalAddress ;
+        sch:addressCountry   "Brasil" ;
+        sch:addressLocality  "Rio de Janeiro" ;
+        sch:addressRegion    "RJ" ;
+        sch:streetAddress    "Estrada Santa Marinha, 505, Gávea" .
+
+:db901574-03b1-4ed8-93af-3e459d8fd04e
+        a              sch:GeoCoordinates ;
+        sch:latitude   "-22.977500" ;
+        sch:longitude  "-43.245556" .
+
+:23ab6661-7924-4e10-ab4c-721094fb711e
+        a                    sch:PostalAddress ;
+        sch:addressCountry   "Brasil" ;
+        sch:addressLocality  "Rio de Janeiro" ;
+        sch:addressRegion    "RJ" ;
+        sch:streetAddress    "Rua Jardim Botânico, 414, Jardim Botânico" .
+
+:cb20ac56-e5b0-4ca2-ab79-fc4f614ecfe5
+        a              sch:GeoCoordinates ;
+        sch:latitude   "-22.961288" ;
+        sch:longitude  "-43.213113" .
+
+:5665d989-f4e3-47b0-aad6-c9bed11bbc87
+        a                    sch:PostalAddress ;
+        sch:addressCountry   "Brasil" ;
+        sch:addressLocality  "Rio de Janeiro" ;
+        sch:addressRegion    "RJ" ;
+        sch:streetAddress    "Estrada Do Joá, 1045, Barra da Tijuca" .
+
+:47ddcdaf-e2cb-4bdb-b2de-de5e44d36aa8
+        a              sch:GeoCoordinates ;
+        sch:latitude   "-22.997666" ;
+        sch:longitude  "-43.283865" .
+
+:d73cd882-5840-4444-9365-75f83fb72eee
+        a                    sch:PostalAddress ;
+        sch:addressCountry   "Brasil" ;
+        sch:addressLocality  "Rio de Janeiro" ;
+        sch:addressRegion    "RJ" ;
+        sch:streetAddress    "Rua Vice-governador Rubens Berardo, 100, Gávea" .
+
+:0d606d31-eda3-40b3-b738-98c99c4f53fd
+        a              sch:GeoCoordinates ;
+        sch:latitude   "-22.978839" ;
+        sch:longitude  "-43.230247" .
+
+:4a5b6d73-cfa8-4ea9-83df-01041cffb93e
+        a                    sch:PostalAddress ;
+        sch:addressCountry   "Brasil" ;
+        sch:addressLocality  "Rio de Janeiro" ;
+        sch:addressRegion    "RJ" ;
+        sch:streetAddress    "Rua da Lapa, 47, Lapa" .
+
+:5dc6d3e0-1ca9-4860-903f-905d33a16046
+        a              sch:GeoCoordinates ;
+        sch:latitude   "-22.914348" ;
+        sch:longitude  "-43.178233" .
+
+:28032136-eb4a-44d4-a059-2b543335574c
+        a                    sch:PostalAddress ;
+        sch:addressCountry   "Brasil" ;
+        sch:addressLocality  "Rio de Janeiro" ;
+        sch:addressRegion    "RJ" ;
+        sch:streetAddress    "Rua Marquês de Sapucaí, Santo Cristo" .
+
+:8ce1d367-4333-4c72-a7d5-fb31bbd9a1b0
+        a              sch:GeoCoordinates ;
+        sch:latitude   "-22.911470" ;
+        sch:longitude  "-43.196838" .
+
+:6d47bfaf-3fce-4c39-921d-359cbdd1feda
+        a                    sch:PostalAddress ;
+        sch:addressCountry   "Brasil" ;
+        sch:addressLocality  "Rio de Janeiro" ;
+        sch:addressRegion    "RJ" ;
+        sch:streetAddress    "Rua Pedro Primeiro, 4A, Centro" .
+
+:5b56ee48-9736-4569-834f-183118d6d1c4
+        a              sch:GeoCoordinates ;
+        sch:latitude   "-22.907223" ;
+        sch:longitude  "-43.182519" .
+
+:74ead1bc-f173-41e3-bb62-1cc56f8785c8
+        a                    sch:PostalAddress ;
+        sch:addressCountry   "Brasil" ;
+        sch:addressLocality  "Rio de Janeiro" ;
+        sch:addressRegion    "RJ" ;
+        sch:streetAddress    "Avenida das Américas,  3555, Barra da Tijuca" .
+
+:9097a2fd-f008-4a55-af00-3a025d0b9648
+        a              sch:GeoCoordinates ;
+        sch:latitude   "-23.000442" ;
+        sch:longitude  "-43.349943" .
+
+:00efcea6-4e07-40df-bff2-a8c098919c45
+        a                    sch:PostalAddress ;
+        sch:addressCountry   "Brasil" ;
+        sch:addressLocality  "Rio de Janeiro" ;
+        sch:addressRegion    "RJ" ;
+        sch:streetAddress    "Praça Tiradentes, Centro" .
+
+:b739975e-6188-4a5b-8aed-8cf68f89a268
+        a              sch:GeoCoordinates ;
+        sch:latitude   "-22.906390" ;
+        sch:longitude  "-43.182289" .
+
+:1bcfb904-0151-408d-90c1-643cde94323d
+        a                    sch:PostalAddress ;
+        sch:addressCountry   "Brasil" ;
+        sch:addressLocality  "Rio de Janeiro" ;
+        sch:addressRegion    "RJ" ;
+        sch:streetAddress    "Avenida Dom Hélder Câmara, 5474, Cachambi" .
+
+:1cbe3f80-e7fe-4c9e-bef7-f22d4579e2bc
+        a              sch:GeoCoordinates ;
+        sch:latitude   "-22.887453" ;
+        sch:longitude  "-43.283012" .
+
+:d3e06f65-1118-4868-a591-f931db4249da
+        a                    sch:PostalAddress ;
+        sch:addressCountry   "Brasil" ;
+        sch:addressLocality  "Rio de Janeiro" ;
+        sch:addressRegion    "RJ" ;
+        sch:streetAddress    "Avenida Princesa Isabel, 440, Copacabana" .
+
+:127c5b82-26c3-48f3-81d5-59d435a32d73
+        a              sch:GeoCoordinates ;
+        sch:latitude   "-22.961308" ;
+        sch:longitude  "-43.175283" .
+
+:abec32f8-96e6-4bf4-9029-e2ac21a82bce
+        a                    sch:PostalAddress ;
+        sch:addressCountry   "Brasil" ;
+        sch:addressLocality  "Rio de Janeiro" ;
+        sch:addressRegion    "RJ" ;
+        sch:streetAddress    "Avenida Heitor Beltrão, Tijuca" .
+
+:871055de-bb83-4f5c-94bd-bd93fd2d4c12
+        a              sch:GeoCoordinates ;
+        sch:latitude   "-22.920947" ;
+        sch:longitude  "-43.223917" .
+
+:f716823d-0a69-4148-ac3d-f01c61c2262f
+        a                    sch:PostalAddress ;
+        sch:addressCountry   "Brasil" ;
+        sch:addressLocality  "Rio de Janeiro" ;
+        sch:addressRegion    "RJ" ;
+        sch:streetAddress    "Estrada da Vista Chinesa, 789, Alto da Boa Vista" .
+
+:4062a7a4-751b-4265-ae62-21ef34f23601
+        a              sch:GeoCoordinates ;
+        sch:latitude   "-22.973255" ;
+        sch:longitude  "-43.249548" .

@@ -21,11 +21,11 @@ public class DBpedia extends MyDataset {
             init();
 
             FILENAME = "dbpediaData";
-            TDB_ASSEMPLER_FILE = "./src/main/resources/conf/dbpedia.ttl";
+            TDB_ASSEMBLER_FILE = "./src/main/resources/conf/dbpedia.ttl";
             FUSEKI_UPDATE_URL = "http://localhost:3030/dbpedia/update";
             FUSEKI_DATA_URL = "http://localhost:3030/dbpedia/data";
 
-            Dataset dataset = TDBFactory.assembleDataset(TDB_ASSEMPLER_FILE);
+            Dataset dataset = TDBFactory.assembleDataset(TDB_ASSEMBLER_FILE);
             try {
                 extractResources(dataset);
                 exportResources(dataset);

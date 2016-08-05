@@ -21,5 +21,14 @@
 @prefix foaf:  <http://xmlns.com/foaf/0.1/> .
 
 
-[r1: (?s rdf:type dbo:Place) -> (?s rdf#type sch:Place)]
-[r2: (?s rdf:type dbo:Place) -> (?s rdf#type sch:PerformingArtsTheater)]
+[r1: (?s rdf:type dbo:Place) -> (?s rdf:type sch:Place)]
+[r2: (?s rdf:type dbo:Location) -> (?s rdf:type sch:Place)]
+[r3: (?s rdf:type dbo:PopulatedPlace) -> (?s rdf:type sch:Place)]
+[r4: (?s rdf:type dbo:Building) -> (?s rdf:type sch:Place)]
+[r5: (?s rdf:type dbo:ArchitecturalStructure) -> (?s rdf:type sch:Place)]
+[r6: (?s rdf:type dbo:Organisation) -> (?s rdf:type sch:LocalBusiness)]
+[r7: (?s rdf:type dbo:Museum) -> (?s rdf:type sch:Museum)]
+[r8: (?s rdf:type dbo:NaturalPlace) -> (?s rdf:type sch:Place)]
+[r9: (?s rdf:type dbo:Settlement) -> (?s rdf:type sch:Place)]
+[r10: (?s rdf:type dbo:Park) -> (?s rdf:type sch:Park)]
+
