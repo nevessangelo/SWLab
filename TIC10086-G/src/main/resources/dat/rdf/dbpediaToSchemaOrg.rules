@@ -20,7 +20,11 @@
 @prefix ns19:  <http://dbpedia.org/ontology/Building/> .
 @prefix foaf:  <http://xmlns.com/foaf/0.1/> .
 
+@include <RDFS>.
 
+[r01: (?s1 owl:sameAs ?s2) -> (?s2 owl:sameAS ?s1)]
+[r02: (?s1 owl:sameAs ?s2), (?s2 owl:sameAs ?s3) -> (?s1 owl:sameAs ?s3)]
+[r03: (?s1 owl:sameAs ?s2), (?s2 ?p ?o) -> (?s1 ?p ?o)]
 [r1: (?s rdf:type dbo:Place) -> (?s rdf:type sch:Place)]
 [r2: (?s rdf:type dbo:Location) -> (?s rdf:type sch:Place)]
 [r3: (?s rdf:type dbo:PopulatedPlace) -> (?s rdf:type sch:Place)]

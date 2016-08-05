@@ -107,6 +107,15 @@ public class Mashup extends MyDataset {
                 + "       FILTER (regex(str(?p), \"http://schema.org/\") \n"
                 + "               || regex(str(?o), \"http://schema.org/\")\n"
                 + "               || ?p = owl:sameAs)}\n";
+        query = ""
+                + "PREFIX sch: <http://schema.org/>\n"
+                + "PREFIX dbo: <http://dbpedia.org/ontology/>\n"
+                + "PREFIX owl: <http://www.w3.org/2002/07/owl#>\n"
+                + "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
+                + "\n"
+                + "CONSTRUCT {?s ?p ?o.}\n"
+                + "WHERE {?s ?p ?o.\n"
+                + "       FILTER REGEX(str(?s), \"http://localhost:8080/resource/\")}";
         QueryExecution exec = QueryExecutionFactory.create(query, inf);
         exec.execConstruct(mashupModel);
         draft.end();
