@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,8 +25,11 @@ import org.apache.jena.riot.RDFLanguages;
 
 public class Resource extends HttpServlet {
 
+	private static final String DOMAIN = "swlab.ic.uff.br";
+	private static final String DEREF_PORT = "";
+	private static final String SPARQL_PORT = ":3030";
 	private static final long serialVersionUID = 1L;
-	private static final String NS = "http://localhost:8080/resource/";
+	private static final String NS = "http://" + DOMAIN + DEREF_PORT + "/resource/";
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
@@ -41,7 +43,6 @@ public class Resource extends HttpServlet {
 			throws ServletException, IOException {
 
 		String uri = NS + request.getParameter("id");
-		System.out.println(uri);
 		String accept = request.getHeader("Accept");
 		Lang lang = detectLang(accept);
 
@@ -76,9 +77,9 @@ public class Resource extends HttpServlet {
 	}
 
 	private static Model getDescription(HttpServletRequest request, String uri) throws UnsupportedEncodingException {
-		String serviceURIBase = "http://localhost:3030/%1s";
+		String serviceURIBase = "http://" + DOMAIN + SPARQL_PORT + "/%1s";
 		Model model = ModelFactory.createDefaultModel();
-	
+
 		for (String service : listFusekiServices(request))
 			try {
 				String serviceURI = String.format(serviceURIBase, service);
@@ -129,8 +130,12 @@ public class Resource extends HttpServlet {
 						+ "}";
 				QueryExecution q = QueryExecutionFactory.create(query, model);
 				ResultSet result = q.execSelect();
-				while (result.hasNext())
-					services.add(result.next().get("name").toString());
+				String name;
+				while (result.hasNext()) {
+					name = result.next().get("name").toString();
+					if (!name.contains(".temp"))
+						services.add(name);
+				}
 			} catch (Exception e) {
 			}
 		return services;

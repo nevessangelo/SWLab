@@ -27,25 +27,26 @@ import org.apache.jena.vocabulary.ReasonerVocabulary;
 
 public class Mashup extends MyDataset {
 
-    public static final String SOURCE_ASSEMBLER_FILE = "./src/main/resources/conf/dbpedia.ttl";
-    public static final String TARGET_ASSEMBLER_FILE = "./src/main/resources/conf/turismoECultura.ttl";
-    public static final String REFERENCE_LINKS_ASSEMBLER_FILE = "./src/main/resources/conf/referenceLinks.ttl";
-    public static final String REFERENCE_LINKS_FILENAME = "./src/main/resources/dat/rdf/referenceLinks.xml";
-    public static final String REFERENCE_LINKS_FUSEKI_DATA_URL = "http://localhost:3030/referenceLinks/data";
-    public static final String DRAFT_ASSEMBLER_FILE = "./src/main/resources/conf/draft.ttl";
-    public static final String DRAFT_FUSEKI_DATA_URL = "http://localhost:3030/draft/data";
+    public static final String SOURCE_ASSEMBLER_FILE = CONF_DIR + "/dbpedia.ttl";
+    public static final String TARGET_ASSEMBLER_FILE = CONF_DIR + "/turismoECultura.ttl";
+    public static final String REFERENCE_LINKS_ASSEMBLER_FILE = CONF_DIR + "/referenceLinks.ttl";
+    public static final String REFERENCE_LINKS_FILENAME = RDF_DIR + "/referenceLinks.xml";
+    public static final String REFERENCE_LINKS_FUSEKI_DATA_URL = "http://" + DOMAIN + ":3030/referenceLinks/data";
+    public static final String DRAFT_ASSEMBLER_FILE = CONF_DIR + "/draft.ttl";
+    public static final String DRAFT_FUSEKI_DATA_URL = "http://" + DOMAIN + SPARQL_PORT + "/draft/data";
 
-    public static final String ALIGNMENT_TO_SAME_AS_RULES = "./src/main/resources/dat/rdf/alignmentToSameAs.rules";
-    public static final String DBPEDIA_TO_SCHEMA_ORG_RULES = "./src/main/resources/dat/rdf/dbpediaToSchemaOrg.rules";
+    public static final String ALIGNMENT_TO_SAME_AS_RULES = RDF_DIR + "/alignmentToSameAs.rules";
+    public static final String DBPEDIA_TO_SCHEMA_ORG_RULES = RDF_DIR + "/dbpediaToSchemaOrg.rules";
 
     public static void main(String[] args) {
         try {
             init();
 
             FILENAME = "mashup";
-            TDB_ASSEMBLER_FILE = "./src/main/resources/conf/mashup.ttl";
-            FUSEKI_UPDATE_URL = "http://localhost:3030/mashup/update";
-            FUSEKI_DATA_URL = "http://localhost:3030/mashup/data";
+            DEFAULT_NS = "http://" + DOMAIN + DEREF_PORT + "/resource/";
+            TDB_ASSEMBLER_FILE = CONF_DIR + "/mashup.ttl";
+            FUSEKI_UPDATE_URL = "http://" + DOMAIN + SPARQL_PORT + "/mashup/update";
+            FUSEKI_DATA_URL = "http://" + DOMAIN + SPARQL_PORT + "/mashup/data";
 
             Dataset source = TDBFactory.assembleDataset(SOURCE_ASSEMBLER_FILE);
             Dataset target = TDBFactory.assembleDataset(TARGET_ASSEMBLER_FILE);
@@ -79,7 +80,7 @@ public class Mashup extends MyDataset {
         mashup.begin(ReadWrite.WRITE);
         Model mashupModel = mashup.getDefaultModel();
         mashupModel.getNsPrefixMap().clear();
-        mashupModel.setNsPrefix("", "http://localhost:8080/resource/");
+        mashupModel.setNsPrefix("", DEFAULT_NS);
         mashupModel.setNsPrefix("dbr", "http://dbpedia.org/resource/");
         mashupModel.setNsPrefix("sch", "http://schema.org/");
 
@@ -102,10 +103,10 @@ public class Mashup extends MyDataset {
                 + "construct {?s1 ?p ?o. ?o ?p2 ?o2}\n"
                 + "where {?s2 ?p ?o.\n"
                 + "       optional {?o ?p2 ?o2.\n"
-                + "                 FILTER regex(str(?o), \"http://localhost:8080/resource/\")} {\n"
+                + "                 FILTER regex(str(?o), \"" + DOMAIN + "\")} {\n"
                 + "       select ?s1 ?s2\n"
                 + "       where {?s1 (owl:sameAs| ^owl:sameAs)+ ?s2.\n"
-                + "              FILTER regex(str(?s1), \"http://localhost:8080/resource/\")}}\n"
+                + "              FILTER regex(str(?s1), \"" + DOMAIN + "/\")}}\n"
                 + "       FILTER (regex(str(?p), \"http://schema.org/\") \n"
                 + "               || regex(str(?o), \"http://schema.org/\")\n"
                 + "               || ?p = owl:sameAs)}\n";
@@ -117,7 +118,7 @@ public class Mashup extends MyDataset {
                 + "\n"
                 + "CONSTRUCT {?s ?p ?o.}\n"
                 + "WHERE {?s ?p ?o.\n"
-                + "       FILTER REGEX(str(?s), \"http://localhost:8080/resource/\")"
+                + "       FILTER REGEX(str(?s), \"" + DOMAIN + "/\")"
                 //+ "       FILTER (REGEX(str(?p), \"http://schema.org/\") || REGEX(str(?o), \"http://schema.org/\"))"
                 + "}";
         QueryExecution exec = QueryExecutionFactory.create(query, inf);
@@ -134,9 +135,9 @@ public class Mashup extends MyDataset {
         model.getNsPrefixMap().clear();
         model.removeAll();
         model.read(REFERENCE_LINKS_FILENAME);
-        model.setNsPrefix("", "http://localhost:8080/resource/");
+        model.setNsPrefix("", DEFAULT_NS);
         model.setNsPrefix("dbr", "http://dbpedia.org/resource/");
-        OutputStream out = new FileOutputStream("./src/main/resources/dat/rdf/referenceLinks.ttl");
+        OutputStream out = new FileOutputStream(RDF_DIR + "/referenceLinks.ttl");
         RDFDataMgr.write(out, model, Lang.TTL);
         DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(REFERENCE_LINKS_FUSEKI_DATA_URL);
         accessor.putModel(model);

@@ -33,7 +33,6 @@ import org.semanticweb.owlapi.model.parameters.Imports;
 
 public class TurismoECultura extends MyDataset {
 
-    public static final String BASE_URI = "http://localhost:8080/resource/";
     public static final String DATASET_URL = "http://dadosabertos.rio.rj.gov.br/apiCultura/apresentacao/csv/turismoECultura_.csv";
 
     public static final String DBPEDIA_NS = "http://dbpedia.org/ontology/";
@@ -44,9 +43,10 @@ public class TurismoECultura extends MyDataset {
             init();
 
             FILENAME = "turismoECultura";
-            TDB_ASSEMBLER_FILE = "./src/main/resources/conf/turismoECultura.ttl";
-            FUSEKI_UPDATE_URL = "http://localhost:3030/turismoECultura/update";
-            FUSEKI_DATA_URL = "http://localhost:3030/turismoECultura/data";
+            DEFAULT_NS = "http://" + DOMAIN + DEREF_PORT + "/resource/";
+            TDB_ASSEMBLER_FILE = CONF_DIR + "/turismoECultura.ttl";
+            FUSEKI_UPDATE_URL = "http://" + DOMAIN + SPARQL_PORT + "/turismoECultura.temp/update";
+            FUSEKI_DATA_URL = "http://" + DOMAIN + SPARQL_PORT + "/turismoECultura.temp/data";
 
             Dataset dataset = TDBFactory.assembleDataset(TDB_ASSEMBLER_FILE);
             try {
@@ -71,7 +71,7 @@ public class TurismoECultura extends MyDataset {
         model.getNsPrefixMap().clear();
         model.removeAll();
         model.setNsPrefix("sch", SCHEMA_ORG_NS);
-        model.setNsPrefix("", BASE_URI);
+        model.setNsPrefix("", DEFAULT_NS);
 
         URL url = new URL(DATASET_URL);
         try (
@@ -91,9 +91,9 @@ public class TurismoECultura extends MyDataset {
                     latitude = nextLine[5];
                     longitude = nextLine[6];
 
-                    uri1 = BASE_URI + "id-" + UUID.randomUUID();
-                    uri2 = BASE_URI + "id-" + UUID.randomUUID();
-                    uri3 = BASE_URI + "id-" + UUID.randomUUID();
+                    uri1 = DEFAULT_NS + "id-" + UUID.randomUUID();
+                    uri2 = DEFAULT_NS + "id-" + UUID.randomUUID();
+                    uri3 = DEFAULT_NS + "id-" + UUID.randomUUID();
 
                     model.createResource(uri1, schema.getResource(detectSchemaOrgClass(name)))
                             .addProperty(schema.getProperty(SCHEMA_ORG_NS + "name"), name)
@@ -156,7 +156,7 @@ public class TurismoECultura extends MyDataset {
         OWLDataFactory df = manager.getOWLDataFactory();
         PrefixDocumentFormat pm = (PrefixDocumentFormat) manager.getOntologyFormat(ontology);
         if (pm != null) {
-            pm.setDefaultPrefix(BASE_URI);
+            pm.setDefaultPrefix(DEFAULT_NS);
             pm.setPrefix("dbo", DBPEDIA_NS);
         }
 
@@ -209,7 +209,7 @@ public class TurismoECultura extends MyDataset {
         }
         try {
             OWLOntology ontologyToSave = manager.createOntology(ontology.aboxAxioms(Imports.INCLUDED));
-            manager.setOntologyDocumentIRI(ontologyToSave, IRI.create(BASE_URI + "TurismoECultura.owl"));
+            manager.setOntologyDocumentIRI(ontologyToSave, IRI.create(DEFAULT_NS + "TurismoECultura.owl"));
 
             OWLXMLDocumentFormat owl = new OWLXMLDocumentFormat();
             owl.copyPrefixesFrom(pm);
