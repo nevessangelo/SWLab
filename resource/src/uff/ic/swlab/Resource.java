@@ -25,8 +25,8 @@ import org.apache.jena.riot.RDFLanguages;
 
 public class Resource extends HttpServlet {
 
-	private static final String DOMAIN = "swlab.ic.uff.br";
-	private static final String DEREF_PORT = "";
+	private static final String DOMAIN = "localhost";
+	private static final String DEREF_PORT = ":8080";
 	private static final String SPARQL_PORT = ":3030";
 	private static final long serialVersionUID = 1L;
 	private static final String NS = "http://" + DOMAIN + DEREF_PORT + "/resource/";
@@ -130,12 +130,8 @@ public class Resource extends HttpServlet {
 						+ "}";
 				QueryExecution q = QueryExecutionFactory.create(query, model);
 				ResultSet result = q.execSelect();
-				String name;
-				while (result.hasNext()) {
-					name = result.next().get("name").toString();
-					if (!name.contains(".temp"))
-						services.add(name);
-				}
+				while (result.hasNext())
+					services.add(result.next().get("name").toString());
 			} catch (Exception e) {
 			}
 		return services;

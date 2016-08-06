@@ -1,0 +1,805 @@
+<rdf:RDF xmlns:align="http://knowledgeweb.semanticweb.org/heterogeneity/alignment#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://knowledgeweb.semanticweb.org/heterogeneity/alignment#">
+      <Alignment>
+        <map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Museu_do_Índio"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-8f4a77d5-32d9-4bd1-a0f6-71d01457a4b7"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Ilha_Fiscal"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-7dd72517-d4fb-4098-b8ca-af3f01f4a5b6"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Museum_of_Modern_Art,_Rio_de_Janeiro"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-58def90f-5fe0-447a-8b25-57db30949f25"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Museu_do_Indio"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-8f4a77d5-32d9-4bd1-a0f6-71d01457a4b7"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Flamengo_Park"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-a1f619b4-7324-4470-8009-b2a879316b4a"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Sugarloaf_Mountain"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-d4a98e32-8631-4006-b89a-40764ab2815a"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Sambadrome_Marquês_de_Sapucaí"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-1a502273-e257-422f-965d-37243cd36fde"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Academia_brasileira_de_letras"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-956e2804-2277-4db1-96e0-4340ee04b77c"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Centro_Cultural_Banco_do_Brasil"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-bd567a5e-d4f9-41dd-bc81-4b786a41563a"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Campo_de_Santana_(park)"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-bb1a3169-ee3e-4eee-8acc-d6e629be26cd"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Arcos_da_Lapa"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-13c0aedc-88b8-45ad-93f6-cc257a28b8d3"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Teatro_Villa-Lobos"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-5e5fdc37-55a0-4824-aa88-3f36bb55c6bb"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Paco_Imperial"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-4a11b84c-4956-4d6c-bc3b-a74fca372b39"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Teatro_Ziembinski"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-1afa3706-629a-4eb8-9410-4d6de96aa3b0"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Estadio_do_Maracana"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-9086d014-5fd4-450c-9371-5bf77ae09612"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Museu_Nacional_de_Belas_Artes"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-19eaa9f1-8d98-44bb-84d3-869686fc54f4"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Pao_de_Acucar"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-d4a98e32-8631-4006-b89a-40764ab2815a"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Tacima"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-bb1a3169-ee3e-4eee-8acc-d6e629be26cd"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Academia_Brasileira_de_Letras"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-956e2804-2277-4db1-96e0-4340ee04b77c"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Parque_da_cidade"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-17a10cf6-d9e5-45e1-9526-c0934a102d8d"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Parque_Lage"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-652ab880-aa3e-4e75-a4be-3bde6f1afd2a"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Teatro_Carlos_Gomes_(Rio_de_Janeiro)"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-87251eed-3aae-4a24-95d0-93365d94ae8b"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Lagoa_Rodrigo_de_Freitas"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-34e5c62c-c549-4000-8e12-662ffbfcb60e"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Teatro_O_Tablado"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-bfb68f86-d104-4e22-ae33-ea3e2dfe326f"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Sambodromo"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-1a502273-e257-422f-965d-37243cd36fde"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Pedra_da_Gavea"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-bf9a410e-bcfa-4846-a64e-5409a0847a41"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Sambadrome"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-1a502273-e257-422f-965d-37243cd36fde"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Teatro_dos_Grandes_Atores"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-f170f97c-7149-413b-9d8a-62c13b28d15d"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Museu_Aeroespacial"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-f6a25807-50f1-4a3f-a5d8-75208169abec"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Teatro_Joao_Caetano"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-fb00c802-0287-4901-a734-22d804352d6a"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Jardim_Botanico"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-04e22edf-3fd3-4c40-ae6b-270ee894d9f6"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Lagoa_rodrigo_de_freitas"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-34e5c62c-c549-4000-8e12-662ffbfcb60e"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Campo_de_Santana"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-bb1a3169-ee3e-4eee-8acc-d6e629be26cd"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Aterro_do_Flamengo"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-a1f619b4-7324-4470-8009-b2a879316b4a"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Planetarium"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-1af0ab8a-4093-4c73-9902-079d47dc51d9"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Sala_Cecilia_Meireles"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-e75922f7-0ffe-4a92-9c7d-48f2232cc50d"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Christ_the_Redeemer_(statue)"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-f922da0e-9252-4c59-be8c-f754d3411ee5"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Cidade_do_Samba"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-93b6217c-e71c-465c-9bbc-317212f3e0e4"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Museu_Nacional_de_Belas_Artes_(Brasil)"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-19eaa9f1-8d98-44bb-84d3-869686fc54f4"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Rodrigo_de_Freitas_Lagoon"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-34e5c62c-c549-4000-8e12-662ffbfcb60e"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Carioca_Aqueduct"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-13c0aedc-88b8-45ad-93f6-cc257a28b8d3"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Cidade_das_Artes"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-2505523a-f64c-4115-842c-ab9f52a100fe"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Fort_Copacabana"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-b6f19631-ff07-4764-90a7-3e55be482b86"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Pedra_da_Gávea"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-bf9a410e-bcfa-4846-a64e-5409a0847a41"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Forte_de_Copacabana"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-b6f19631-ff07-4764-90a7-3e55be482b86"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Teatro_Miguel_Falabella"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-888937ad-1203-467e-8f87-6fbb521514e1"/>
+          <relation>=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map>
+        <map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Belmond_Copacabana_Palace"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-258dbc2d-4593-4616-b38e-2471195e77a7"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Museu_da_Tabanka"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-7b0ce93f-8e20-46ed-95b3-14e4ae3141e9"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Centro_Cultural_Banco_do_Brasil"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-7aeb2592-7c1b-4a64-a578-36b428fc1cb2"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Museu_do_Índio"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-f2dac2e3-6868-492f-a9f7-5ad1fef03a43"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Praia_do_Abricó"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-3bef1cba-c3be-4728-859c-6a94c26710dd"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Barra_da_Tijuca"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-ffefc61c-2658-4145-92d5-2e9bea40d3b4"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Glauce_Rocha"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-a21471b7-d6bc-417e-9d8d-b5a0bd4db4dc"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/National_Library_of_Greece"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-a268f9dc-6200-40e6-8099-028ee5e50844"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Copacabana_Stadium"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-258dbc2d-4593-4616-b38e-2471195e77a7"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Ring_system_(astronomy)"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-1af0ab8a-4093-4c73-9902-079d47dc51d9"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Aterro_do_Flamengo"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-1bc597d2-15dd-4c8a-9b20-884c0fe518ad"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Hipódromo_da_Gávea"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-bf9a410e-bcfa-4846-a64e-5409a0847a41"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Broadway_theatre"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-9de45514-e65d-42b1-a8aa-36c595532821"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Centro_Cultural_Banco_do_Brasil"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-44fd2254-e05c-4b0d-8841-02d0dad89af9"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Museum_of_Modern_Art,_Rio_de_Janeiro"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-7d692031-ab14-408f-9c4f-8750960a1639"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Guatemala_City"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-93b6217c-e71c-465c-9bbc-317212f3e0e4"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Broadway_theatre"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-958440c1-465f-4a90-bce9-1752127e71a4"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Old_Cathedral_of_Rio_de_Janeiro"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-b4ef5d15-5ae8-4f98-8c82-f32f900be065"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Teatro_Carlos_Gomes_(Rio_de_Janeiro)"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-f898b637-e7c2-48b8-87b2-b050fa5c5031"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Fort_Copacabana"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-258dbc2d-4593-4616-b38e-2471195e77a7"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Museo_Nacional_de_Bellas_Artes_(Buenos_Aires)"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-19eaa9f1-8d98-44bb-84d3-869686fc54f4"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Museo_Nacional_de_Bellas_Artes_de_La_Habana"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-19eaa9f1-8d98-44bb-84d3-869686fc54f4"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Parque_da_cidade"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-42bc0a9a-8a34-408b-9b3e-4f0679092a32"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Maria_Clara_Machado"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-22df2a0d-5a5f-4883-8a18-306b1d3f480e"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Schinus_terebinthifolius"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-1853c662-8a00-4121-9714-6d20f3c1d4b6"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Palacio_de_Bellas_Artes"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-19eaa9f1-8d98-44bb-84d3-869686fc54f4"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Forte_de_Copacabana"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-258dbc2d-4593-4616-b38e-2471195e77a7"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/São_Paulo_Museum_of_Modern_Art"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-7d692031-ab14-408f-9c4f-8750960a1639"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Flamengo_Station"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-1bc597d2-15dd-4c8a-9b20-884c0fe518ad"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Carlos_Eduardo_Imperial"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-4a11b84c-4956-4d6c-bc3b-a74fca372b39"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Austrian_National_Library"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-a268f9dc-6200-40e6-8099-028ee5e50844"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Praia_do_Abricó"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-b65f602a-4b62-4722-aa24-d64fb0d017fd"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Museu_de_Arte_Moderna_de_Sao_Paulo"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-7d692031-ab14-408f-9c4f-8750960a1639"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Museum_of_Modern_Art"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-7d692031-ab14-408f-9c4f-8750960a1639"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Santa_Teresa_CD"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-e0115e2f-1a8c-475e-a6e1-6fdcf110497b"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Catete_Palace"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-071fec07-03e0-4348-bf2a-f1f148c7b785"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/La_Scala"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-9de45514-e65d-42b1-a8aa-36c595532821"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Cidade_das_Artes"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-0d2a38ea-945b-478b-8c94-7077393c236d"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Church_of_Nosso_Senhor_do_Bonfim,_Salvador"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-b4ef5d15-5ae8-4f98-8c82-f32f900be065"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Copacabana_Stadium"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-b6f19631-ff07-4764-90a7-3e55be482b86"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Teatro_Municipal_de_Lima"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-26fd9b35-b74b-4902-8f83-13b946a104a9"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Bibliothèque_nationale_de_France"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-a268f9dc-6200-40e6-8099-028ee5e50844"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Praia_do_Abricó"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-4f2975c6-3ffb-4495-92d2-62ecf3270597"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Vista_Chinesa"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-9e262f2c-d864-4785-9f29-24460e6c3f2f"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Moderna_Museet"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-7d692031-ab14-408f-9c4f-8750960a1639"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Museum_of_Flight"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-8f4a77d5-32d9-4bd1-a0f6-71d01457a4b7"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Grupo_Pao_de_Acucar"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-d4a98e32-8631-4006-b89a-40764ab2815a"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Nationalmuseum"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-19eaa9f1-8d98-44bb-84d3-869686fc54f4"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Chilean_National_Museum_of_Fine_Arts"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-19eaa9f1-8d98-44bb-84d3-869686fc54f4"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Praia_do_Abricó"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-fc93d4c8-0ffc-47cd-8a9d-e7449ec4b2cb"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Museum_of_Flight"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-f2dac2e3-6868-492f-a9f7-5ad1fef03a43"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Teatro_Carlos_Gomes_(Rio_de_Janeiro)"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-1d979050-265c-4569-ad4f-54d595e42245"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Old_Cathedral_of_Rio_de_Janeiro"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-4809e8b7-253f-4240-a2eb-82013492275c"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Estádio_Eduardo_Guinle"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-cae92730-7558-4632-b283-b11bde44e7d3"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Teatro_Carlos_Gomes_(Rio_de_Janeiro)"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-0d2a38ea-945b-478b-8c94-7077393c236d"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/National_Museum_of_Brazil"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-19eaa9f1-8d98-44bb-84d3-869686fc54f4"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Praia_do_Abricó"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-1544e2ff-07d2-4178-b605-f49f48c1642e"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Old_Cathedral_of_Rio_de_Janeiro"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-6f28e8de-b3ec-45f1-bc90-e077d208da7a"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Revue"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-9de45514-e65d-42b1-a8aa-36c595532821"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Flamengo_Park"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-1bc597d2-15dd-4c8a-9b20-884c0fe518ad"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Museo_de_Bellas_Artes"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-19eaa9f1-8d98-44bb-84d3-869686fc54f4"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Pedra_da_Gavea"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-1d979050-265c-4569-ad4f-54d595e42245"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/La_Scala"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-5e5fdc37-55a0-4824-aa88-3f36bb55c6bb"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Mosteiro_de_Sao_Bento_(Sao_Paulo)"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-24dd4ccd-9efd-43ee-aaae-0474fb0450cb"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/National_Library_of_Russia"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-a268f9dc-6200-40e6-8099-028ee5e50844"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Museu_do_Indio"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-f2dac2e3-6868-492f-a9f7-5ad1fef03a43"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/Pedra_da_Gávea"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-1d979050-265c-4569-ad4f-54d595e42245"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map><map>
+        <Cell>
+          <entity1 rdf:resource="http://dbpedia.org/resource/National_library"/>
+          <entity2 rdf:resource="http://swlab.ic.uff.br/resource/id-a268f9dc-6200-40e6-8099-028ee5e50844"/>
+          <relation>!=</relation>
+          <measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</measure>
+        </Cell>
+      </map>
+        
+      </Alignment>
+    </rdf:RDF>

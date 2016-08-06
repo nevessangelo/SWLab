@@ -30,10 +30,10 @@ public class Mashup extends MyDataset {
     public static final String SOURCE_ASSEMBLER_FILE = CONF_DIR + "/dbpedia.ttl";
     public static final String TARGET_ASSEMBLER_FILE = CONF_DIR + "/turismoECultura.ttl";
     public static final String REFERENCE_LINKS_ASSEMBLER_FILE = CONF_DIR + "/referenceLinks.ttl";
-    public static final String REFERENCE_LINKS_FILENAME = RDF_DIR + "/referenceLinks.xml";
-    public static final String REFERENCE_LINKS_FUSEKI_DATA_URL = "http://" + DOMAIN + ":3030/referenceLinks/data";
+    public static final String REFERENCE_LINKS_FILENAME = RDF_DIR + "/referenceLinks-swlab.xml";
+    public static final String REFERENCE_LINKS_FUSEKI_DATA_URL = "http://" + DOMAIN + SPARQL_PORT + "/referenceLinks.temp/data";
     public static final String DRAFT_ASSEMBLER_FILE = CONF_DIR + "/draft.ttl";
-    public static final String DRAFT_FUSEKI_DATA_URL = "http://" + DOMAIN + SPARQL_PORT + "/draft/data";
+    public static final String DRAFT_FUSEKI_DATA_URL = "http://" + DOMAIN + SPARQL_PORT + "/draft.temp/data";
 
     public static final String ALIGNMENT_TO_SAME_AS_RULES = RDF_DIR + "/alignmentToSameAs.rules";
     public static final String DBPEDIA_TO_SCHEMA_ORG_RULES = RDF_DIR + "/dbpediaToSchemaOrg.rules";
@@ -118,7 +118,7 @@ public class Mashup extends MyDataset {
                 + "\n"
                 + "CONSTRUCT {?s ?p ?o.}\n"
                 + "WHERE {?s ?p ?o.\n"
-                + "       FILTER REGEX(str(?s), \"" + DOMAIN + "/\")"
+                + "       FILTER REGEX(str(?s), \"" + DOMAIN + "/mshid-\")"
                 //+ "       FILTER (REGEX(str(?p), \"http://schema.org/\") || REGEX(str(?o), \"http://schema.org/\"))"
                 + "}";
         QueryExecution exec = QueryExecutionFactory.create(query, inf);
