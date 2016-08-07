@@ -20,33 +20,26 @@
 @prefix ns19:  <http://dbpedia.org/ontology/Building/> .
 @prefix foaf:  <http://xmlns.com/foaf/0.1/> .
 
-[r-3: (?s1 ?p ?o)
-      , strConcat(?s1, ?l)
-      , regex(?l, "http://swlab.ic.uff.br/resource/id-.*")
-      , makeSkolem(?sk, ?s1)
-      , uriConcat("http://swlab.ic.uff.br/resource/mshid-",?sk, ?s2) -> (?s2 owl:sameAs ?s1)]
-[r-2: (?s2 owl:sameAS ?s1) -> (?s1 owl:sameAs ?s2) ]
-[r-1: (?s1 owl:sameAs ?s2), (?s2 owl:sameAs ?s3) -> (?s1 owl:sameAs ?s3)]
-[r0: (?s1 owl:sameAs ?s2)
+[r1: (?s1 ?p ?o)
      , strConcat(?s1, ?l)
-     , regex(?l, "http://swlab.ic.uff.br/resource/mshid-.*")
+     , regex(?l, "http://swlab.ic.uff.br/resource/id2-.*")
+     , (?s1 owl:sameAs ?s2)
      , (?s2 ?p ?o) -> (?s1 ?p ?o)]
-[r1: (?s rdf:type dbo:Place) -> (?s rdf:type sch:Place)]
-[r2: (?s rdf:type dbo:Location) -> (?s rdf:type sch:Place)]
-[r3: (?s rdf:type dbo:PopulatedPlace) -> (?s rdf:type sch:Place)]
-[r4: (?s rdf:type dbo:Building) -> (?s rdf:type sch:Place)]
-[r5: (?s rdf:type dbo:ArchitecturalStructure) -> (?s rdf:type sch:Place)]
-[r6: (?s rdf:type dbo:Organisation) -> (?s rdf:type sch:LocalBusiness)]
-[r7: (?s rdf:type dbo:Museum) -> (?s rdf:type sch:Museum)]
-[r8: (?s rdf:type dbo:NaturalPlace) -> (?s rdf:type sch:Place)]
-[r9: (?s rdf:type dbo:Settlement) -> (?s rdf:type sch:Place)]
-[r10: (?s rdf:type dbo:Park) -> (?s rdf:type sch:Park)]
-[r11: (?s dbo:abstract ?o) -> (?s sch:description ?o)]
-[r12: (?s geo:lat ?o1)
+[r2: (?s rdf:type dbo:Place) -> (?s rdf:type sch:Place)]
+[r3: (?s rdf:type dbo:Location) -> (?s rdf:type sch:Place)]
+[r4: (?s rdf:type dbo:PopulatedPlace) -> (?s rdf:type sch:Place)]
+[r5: (?s rdf:type dbo:Building) -> (?s rdf:type sch:Place)]
+[r6: (?s rdf:type dbo:ArchitecturalStructure) -> (?s rdf:type sch:Place)]
+[r7: (?s rdf:type dbo:Organisation) -> (?s rdf:type sch:LocalBusiness)]
+[r8: (?s rdf:type dbo:Museum) -> (?s rdf:type sch:Museum)]
+[r9: (?s rdf:type dbo:NaturalPlace) -> (?s rdf:type sch:Place)]
+[r10: (?s rdf:type dbo:Settlement) -> (?s rdf:type sch:Place)]
+[r11: (?s rdf:type dbo:Park) -> (?s rdf:type sch:Park)]
+[r12: (?s dbo:abstract ?o) -> (?s sch:description ?o)]
+[r13: (?s geo:lat ?o1)
       , (?s geo:long ?o2)
       , makeSkolem(?sk, ?o1, ?o2)
-      , uriConcat("http://swlab.ic.uff.br/resource/mshid-",?sk, ?g) -> (?s sch:geo ?g)
-                                                                           , (?t rdf:type sch:GeoCoordinates)
-                                                                           , (?t sch:latitude ?o1)
-                                                                           , (?t sch:longitude ?o2)]
-
+      , uriConcat("http://swlab.ic.uff.br/resource/id2-",?sk, ?g) -> (?s sch:geo ?g)
+                                                                      , (?t rdf:type sch:GeoCoordinates)
+                                                                      , (?t sch:latitude ?o1)
+                                                                      , (?t sch:longitude ?o2)]
