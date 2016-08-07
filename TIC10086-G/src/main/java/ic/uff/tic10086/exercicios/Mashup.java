@@ -4,10 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
 import java.util.List;
 import org.apache.jena.query.Dataset;
 import org.apache.jena.query.DatasetAccessor;
@@ -22,6 +19,8 @@ import org.apache.jena.reasoner.Reasoner;
 import org.apache.jena.reasoner.rulesys.GenericRuleReasoner;
 import org.apache.jena.reasoner.rulesys.Rule;
 import org.apache.jena.riot.Lang;
+import org.apache.jena.riot.WebContent;
+import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
 import org.apache.jena.tdb.TDBFactory;
 import org.apache.jena.update.UpdateExecutionFactory;
 import org.apache.jena.update.UpdateFactory;
@@ -30,19 +29,22 @@ import org.apache.jena.vocabulary.ReasonerVocabulary;
 public class Mashup extends MyDataset {
 
     public static final String SOURCE_ASSEMBLER_FILE = CONF_DIR + "/dbpedia.ttl";
+    public static final String SOURCE_FUSEKI_SPARQL_URL = "http://" + DOMAIN + SPARQL_PORT + "/dbpedia.temp/sparql";
     public static final String SOURCE_FUSEKI_DATA_URL = "http://" + DOMAIN + SPARQL_PORT + "/dbpedia.temp/data";
     public static final String TARGET_ASSEMBLER_FILE = CONF_DIR + "/turismoECultura.ttl";
+    public static final String TARGET_FUSEKI_SPARQL_URL = "http://" + DOMAIN + SPARQL_PORT + "/turismoECultura.temp/sparql";
     public static final String TARGET_FUSEKI_DATA_URL = "http://" + DOMAIN + SPARQL_PORT + "/turismoECultura.temp/data";
     public static final String REFERENCE_LINKS_ASSEMBLER_FILE = CONF_DIR + "/referenceLinks.ttl";
     public static final String REFERENCE_LINKS_FILENAME = RDF_DIR + "/referenceLinks-swlab.xml";
+    public static final String REFERENCE_LINKS_FUSEKI_SPARQL_URL = "http://" + DOMAIN + SPARQL_PORT + "/referenceLinks.temp/sparql";
     public static final String REFERENCE_LINKS_FUSEKI_DATA_URL = "http://" + DOMAIN + SPARQL_PORT + "/referenceLinks.temp/data";
     public static final String DRAFT_ASSEMBLER_FILE = CONF_DIR + "/draft.ttl";
     public static final String DRAFT_FUSEKI_DATA_URL = "http://" + DOMAIN + SPARQL_PORT + "/draft.temp/data";
 
     public static final String ALIGNMENT_TO_SAME_AS_RULES = RDF_DIR + "/alignmentToSameAs.rules";
     public static final String DBPEDIA_TO_SCHEMA_ORG_RULES = RDF_DIR + "/dbpediaToSchemaOrg.rules";
-    public static final String SAME_AS_RULES = RDF_DIR + "/sameAs1.rules";
-    public static final String SAME_AS_RULES2 = RDF_DIR + "/sameAs2.rules";
+    public static final String SKOLEMIZATION_RULES = RDF_DIR + "/skolemizationMashupEntities.rules";
+    public static final String SAME_AS_RULES = RDF_DIR + "/sameAs.rules";
 
     public static void main(String[] args) {
         try {
@@ -90,32 +92,32 @@ public class Mashup extends MyDataset {
         mashupModel.setNsPrefix("dbr", "http://dbpedia.org/resource/");
         mashupModel.setNsPrefix("sch", "http://schema.org/");
 
-        draft.begin(ReadWrite.WRITE);
+        draft.begin(ReadWrite.READ);
         Model draftModel = draft.getDefaultModel();
 
-        BufferedReader br = new BufferedReader(new FileReader(SAME_AS_RULES));
+        BufferedReader br = new BufferedReader(new FileReader(SKOLEMIZATION_RULES));
         List rules = Rule.parseRules(Rule.rulesParserFromReader(br));
         // Convert DBpedia schema to Schema.org schema.
         Reasoner reasoner = new GenericRuleReasoner(rules);
         reasoner.setParameter(ReasonerVocabulary.PROPruleMode, "forward");
-        reasoner.setDerivationLogging(true);
+        //reasoner.setDerivationLogging(true);
         InfModel inf = ModelFactory.createInfModel(reasoner, draftModel);
 
-        BufferedReader br2 = new BufferedReader(new FileReader(SAME_AS_RULES2));
+        BufferedReader br2 = new BufferedReader(new FileReader(SAME_AS_RULES));
         List rules2 = Rule.parseRules(Rule.rulesParserFromReader(br2));
         // Convert DBpedia schema to Schema.org schema.
         Reasoner reasoner2 = new GenericRuleReasoner(rules2);
         reasoner2.setParameter(ReasonerVocabulary.PROPruleMode, "forward");
-        reasoner2.setDerivationLogging(true);
-        InfModel inf2 = ModelFactory.createInfModel(reasoner, inf);
+        //reasoner2.setDerivationLogging(true);
+        InfModel inf2 = ModelFactory.createInfModel(reasoner2, inf);
 
         BufferedReader br3 = new BufferedReader(new FileReader(DBPEDIA_TO_SCHEMA_ORG_RULES));
         List rules3 = Rule.parseRules(Rule.rulesParserFromReader(br3));
         // Convert DBpedia schema to Schema.org schema.
         Reasoner reasoner3 = new GenericRuleReasoner(rules3);
-        reasoner3.setParameter(ReasonerVocabulary.PROPruleMode, "forward");
-        reasoner3.setDerivationLogging(true);
-        InfModel inf3 = ModelFactory.createInfModel(reasoner, inf2);
+        reasoner3.setParameter(ReasonerVocabulary.PROPruleMode, "hybrid");
+        //reasoner3.setDerivationLogging(true);
+        InfModel inf3 = ModelFactory.createInfModel(reasoner3, inf2);
 
         String query = ""
                 + "prefix sch: <http://schema.org/>\n"
@@ -141,7 +143,7 @@ public class Mashup extends MyDataset {
                 + "\n"
                 + "CONSTRUCT {?s ?p ?o.}\n"
                 + "WHERE {?s ?p ?o.\n"
-                + "       FILTER REGEX(str(?s), \"http://" + DOMAIN + "/resource/id2-\")"
+                //+ "       FILTER REGEX(str(?s), \"http://" + DOMAIN + "/resource/id2-\")"
                 //+ "       FILTER (REGEX(str(?p), \"http://schema.org/\") || REGEX(str(?o), \"http://schema.org/\"))"
                 + "}";
         QueryExecution exec = QueryExecutionFactory.create(query, inf3);
@@ -167,6 +169,7 @@ public class Mashup extends MyDataset {
 
     private static void prepareDraft(Dataset source, Dataset target, Dataset referenceLinks, Dataset draft) throws FileNotFoundException, MalformedURLException, IOException {
         UpdateExecutionFactory.create(UpdateFactory.create("clear all"), draft).execute();
+        Lang lang = Lang.JSONLD;
 
         {
             draft.begin(ReadWrite.WRITE);
@@ -175,38 +178,25 @@ public class Mashup extends MyDataset {
         }
 
         {
-            Lang lang = Lang.JSONLD;
             draft.begin(ReadWrite.WRITE);
-            URLConnection yc = (new URL(SOURCE_FUSEKI_DATA_URL)).openConnection();
-            yc.setRequestProperty("Accept", lang.getHeaderString());
-            BufferedReader in = new BufferedReader(new InputStreamReader(yc.getInputStream()));
-            draft.getDefaultModel().read(in, null, lang.getName());
+            loadDataset(SOURCE_FUSEKI_SPARQL_URL, draft.getDefaultModel());
             draft.commit();
         }
 
         {
-            Lang lang = Lang.JSONLD;
             draft.begin(ReadWrite.WRITE);
-            URLConnection yc = (new URL(TARGET_FUSEKI_DATA_URL)).openConnection();
-            yc.setRequestProperty("Accept", lang.getHeaderString());
-            BufferedReader in = new BufferedReader(new InputStreamReader(yc.getInputStream()));
-            draft.getDefaultModel().read(in, null, lang.getName());
+            loadDataset(TARGET_FUSEKI_SPARQL_URL, draft.getDefaultModel());
             draft.commit();
         }
 
         {
-            Lang lang = Lang.JSONLD;
             draft.begin(ReadWrite.WRITE);
             BufferedReader br = new BufferedReader(new FileReader(ALIGNMENT_TO_SAME_AS_RULES));
             List rules = Rule.parseRules(Rule.rulesParserFromReader(br));
             // Infer sameAS links from mappings
-            URLConnection yc = (new URL(REFERENCE_LINKS_FUSEKI_DATA_URL)).openConnection();
-            yc.setRequestProperty("Accept", lang.getHeaderString());
-            BufferedReader in = new BufferedReader(new InputStreamReader(yc.getInputStream()));
             Model linksModel = ModelFactory.createDefaultModel();
-            linksModel.read(in, null, lang.getHeaderString());
+            loadDataset(REFERENCE_LINKS_FUSEKI_SPARQL_URL, linksModel);
             Reasoner reasoner = new GenericRuleReasoner(rules);
-            reasoner.setDerivationLogging(true);
             InfModel inf = ModelFactory.createInfModel(reasoner, linksModel);
             draft.getDefaultModel().add(inf.getDeductionsModel());
             draft.commit();
@@ -216,5 +206,16 @@ public class Mashup extends MyDataset {
         DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(DRAFT_FUSEKI_DATA_URL);
         accessor.putModel(draft.getDefaultModel());
         draft.end();
+    }
+
+    private static Model loadDataset(String sparql, Model model) {
+        String describeQuery = "construct {?s ?p ?o.} where {?s ?p ?o.}";
+        try (QueryExecution exec = new QueryEngineHTTP(sparql, describeQuery);) {
+            ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
+            exec.execConstruct(model);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return model;
     }
 }

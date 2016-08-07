@@ -20,11 +20,12 @@
 @prefix ns19:  <http://dbpedia.org/ontology/Building/> .
 @prefix foaf:  <http://xmlns.com/foaf/0.1/> .
 
-[r1: (?s1 ?p ?o)
-     , strConcat(?s1, ?l)
-     , regex(?l, "http://swlab.ic.uff.br/resource/id2-.*")
+
+[r0: (?s1 ?p ?o)
      , (?s1 owl:sameAs ?s2)
-     , (?s2 ?p ?o) -> (?s1 ?p ?o)]
+     , strConcat(?s2, ?l)
+     , regex(?l, "http://swlab.ic.uff.br/resource/id2-.*") -> (?s2 ?p ?o)
+                                                               , [(?s3 ?p2 ?s2) <- (?s3 ?p2 ?s1)]]
 [r2: (?s rdf:type dbo:Place) -> (?s rdf:type sch:Place)]
 [r3: (?s rdf:type dbo:Location) -> (?s rdf:type sch:Place)]
 [r4: (?s rdf:type dbo:PopulatedPlace) -> (?s rdf:type sch:Place)]

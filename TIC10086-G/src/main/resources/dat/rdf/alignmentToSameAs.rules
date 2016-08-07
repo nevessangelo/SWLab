@@ -7,4 +7,4 @@
           , (?cell ha:entity1 ?e1)
           , (?cell ha:entity2 ?e2)
           , (?cell ha:relation "=")
-           -> (?e1 owl:sameAs ?e2) ]
+           -> (?e1 owl:sameAs ?e2), (?e2 owl:sameAs ?e1) ]

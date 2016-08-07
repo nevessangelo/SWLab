@@ -41,6 +41,7 @@ public class DBpediaSearch {
             l.add(defaultTokenizer.nextToken());
         s = String.join(" ", l);
         s = StringUtils.stripAccents(s);
+        s = s.toLowerCase();
         return s;
     }
 
@@ -60,13 +61,13 @@ public class DBpediaSearch {
         keywordsString = clean(keywordsString);
         String searchQuery = prepareSearchQuery(keywordsString, limit, offset);
         try (QueryExecution exec = new QueryEngineHTTP(SPARQL_ENDPOINT_URL, searchQuery)) {
-            ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeTurtle);
+            ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
             ResultSet rs = exec.execSelect();
 
             while (rs.hasNext()) {
                 String describeQuery = String.format("describe <%1s>", rs.next().get("s"));
                 try (QueryExecution exec2 = new QueryEngineHTTP(SPARQL_ENDPOINT_URL, describeQuery);) {
-                    ((QueryEngineHTTP) exec2).setModelContentType(WebContent.contentTypeJSONLD);
+                    ((QueryEngineHTTP) exec2).setModelContentType(WebContent.contentTypeRDFXML);
                     exec2.execDescribe(model);
 
                 } catch (Exception e) {
