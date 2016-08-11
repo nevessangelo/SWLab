@@ -16,9 +16,9 @@ import org.apache.log4j.Logger;
 
 public abstract class MyDataset {
 
-    public static final String DOMAIN = "swlab.ic.uff.br";
-    public static final String DEREF_PORT = "";
-    public static final String SPARQL_PORT = ":3030";
+    public static final String DOMAIN = "localhost";
+    public static final String DEREF_PORT = ":8080";
+    public static final String SPARQL_PORT = ":8080";
     public static final Lang EXPORT_LANG = Lang.TTL;
     public static final Lang IMPORT_LANG = Lang.RDFXML;
     protected static final String OWL_DIR = "./src/main/resources/dat/owl";

@@ -67,7 +67,6 @@ public class RDFTranslator {
 		response += "<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">";
 		response += "<html>";
 		response += "<head>";
-		response += "<style> table td {word-wrap:break-word;} </style>";
 		response += "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\">";
 		response += "<title>Entity description</title>";
 		response += "<link href=\"/swlab.css\" rel=\"stylesheet\" type=\"text/css\" />";
@@ -85,7 +84,7 @@ public class RDFTranslator {
 		response += "<td>\n";
 		response += "<center><h2>Satements</h2></center>\n";
 
-		response += "<table cellpadding=\"5\" align=\"center\" border=\"2\" style=\"table-layout: fixed; width: 80%;\">\n";
+		response += "<table cellpadding=\"5\" align=\"center\" border=\"2\" style=\"word-wrap:break-word; table-layout: fixed; width: 80%;\">\n";
 		response += "<tr><th>subject</th><th>predicate</th><th>object</th></tr>\n";
 		StmtIterator iter = model.listStatements();
 		while (iter.hasNext()) {
@@ -119,7 +118,6 @@ public class RDFTranslator {
 		response += "</body>";
 		response += "</html>";
 
-		
 		try {
 			OutputStreamWriter writer = new OutputStreamWriter(output);
 			writer.write(response);

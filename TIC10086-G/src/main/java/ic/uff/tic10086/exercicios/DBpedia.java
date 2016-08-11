@@ -23,8 +23,8 @@ public class DBpedia extends MyDataset {
             FILENAME = "dbpediaData";
             DEFAULT_NS = "http://" + DOMAIN + DEREF_PORT + "/resource/";
             TDB_ASSEMBLER_FILE = CONF_DIR + "/dbpedia.ttl";
-            FUSEKI_UPDATE_URL = "http://" + DOMAIN + SPARQL_PORT + "/dbpedia.temp/update";
-            FUSEKI_DATA_URL = "http://" + DOMAIN + SPARQL_PORT + "/dbpedia.temp/data";
+            FUSEKI_UPDATE_URL = "http://" + DOMAIN + SPARQL_PORT + "/fuseki/dbpedia.temp/update";
+            FUSEKI_DATA_URL = "http://" + DOMAIN + SPARQL_PORT + "/fuseki/dbpedia.temp/data";
 
             Dataset dataset = TDBFactory.assembleDataset(TDB_ASSEMBLER_FILE);
             try {

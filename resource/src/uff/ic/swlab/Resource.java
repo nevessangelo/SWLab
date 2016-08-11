@@ -25,11 +25,10 @@ import org.apache.jena.riot.RDFLanguages;
 
 public class Resource extends HttpServlet {
 
-	private static final String DOMAIN = "localhost";
-	private static final String DEREF_PORT = ":8080";
-	private static final String SPARQL_PORT = ":3030";
 	private static final long serialVersionUID = 1L;
-	private static final String NS = "http://" + DOMAIN + DEREF_PORT + "/resource/";
+	private static final String DOMAIN = "localhost";
+	private static final String SPARQL_PORT = ":8080";
+	private static final String SPARQL_URL_TEMPLATE = "http://" + DOMAIN + SPARQL_PORT + "/fuseki/%1s";
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
@@ -42,7 +41,7 @@ public class Resource extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String uri = NS + request.getParameter("id");
+		String uri = request.getParameter("id");
 		String accept = request.getHeader("Accept");
 		Lang lang = detectLang(accept);
 
@@ -77,31 +76,23 @@ public class Resource extends HttpServlet {
 	}
 
 	private static Model getDescription(HttpServletRequest request, String uri) throws UnsupportedEncodingException {
-		String serviceURIBase = "http://" + DOMAIN + SPARQL_PORT + "/%1s";
+
 		Model model = ModelFactory.createDefaultModel();
 
 		for (String service : listFusekiServices(request))
 			try {
-				String serviceURI = String.format(serviceURIBase, service);
-				model.setNsPrefix("my", NS);
-				model.setNsPrefix("owl", "http://www.w3.org/2002/07/owl#");
-				model.setNsPrefix("dcterms", "http://purl.org/dc/terms/");
-				model.setNsPrefix("foaf", "http://xmlns.com/foaf/0.1/");
-				model.setNsPrefix("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
-
+				String sparqlURL = String.format(SPARQL_URL_TEMPLATE, service);
 				String query = ""
 						+ "construct {?s ?p ?o.}\n"
-						+ "where { " + "{?s ?p ?o. filter(?s = <%1s>)}\n"
-						+ "UNION {?s ?p ?o. filter(?o = <%2s>)}\n"
-						+ "UNION {GRAPH ?g {?s ?p ?o. filter(?s = <%3s>) }}\n"
-						+ "UNION {GRAPH ?g {?s ?p ?o. filter(?o = <%4s>) }}\n"
+						+ "where {{?s ?p ?o.}\n"
+						+ "       UNION {GRAPH ?g {?s ?p ?o.}}\n"
+						+ "       filter(regex(str(?s), \"/resource/%1s$\")\n"
+						+ "              || regex(str(?o), \"/resource/%2s$\"))\n"
 						+ "}";
-				query = String.format(query, uri, uri, uri, uri);
-				System.out.println(query);
-				QueryExecution q = QueryExecutionFactory.sparqlService(serviceURI, query);
+				query = String.format(query, uri, uri);
+				QueryExecution q = QueryExecutionFactory.sparqlService(sparqlURL, query);
 				q.execConstruct(model);
 			} catch (Exception e) {
-				System.out.println(e);
 			}
 		return model;
 	}
@@ -109,8 +100,8 @@ public class Resource extends HttpServlet {
 	private static List<String> listFusekiServices(HttpServletRequest request) {
 		List<String> services = new ArrayList<>();
 		List<String> configFiles = new ArrayList<>();
-		String fuseki_home = System.getenv("FUSEKI_HOME");
-		File dir = new File(fuseki_home + "/run/configuration");
+		String fuseki_home = System.getenv("FUSEKI_BASE");
+		File dir = new File(fuseki_home + "/configuration");
 
 		try {
 			for (File file : dir.listFiles())
@@ -121,12 +112,12 @@ public class Resource extends HttpServlet {
 		for (String configFile : configFiles)
 			try {
 				Model model = ModelFactory.createDefaultModel();
-				model.read("file:///" + fuseki_home + "/run/configuration/" + configFile);
+				model.read("file:///" + fuseki_home + "/configuration/" + configFile);
 				String query = ""
-						+ "prefix fuseki: <http://jena.apache.org/fuseki#> "
-						+ "select ?name "
-						+ "where {[] a fuseki:Service; "
-						+ "fuseki:name ?name. "
+						+ "prefix fuseki: <http://jena.apache.org/fuseki#>\n"
+						+ "select ?name\n"
+						+ "where {[] a fuseki:Service;\n"
+						+ "       fuseki:name ?name.\n"
 						+ "}";
 				QueryExecution q = QueryExecutionFactory.create(query, model);
 				ResultSet result = q.execSelect();

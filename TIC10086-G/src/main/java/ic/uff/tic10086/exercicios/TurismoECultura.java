@@ -45,8 +45,8 @@ public class TurismoECultura extends MyDataset {
             FILENAME = "turismoECultura";
             DEFAULT_NS = "http://" + DOMAIN + DEREF_PORT + "/resource/";
             TDB_ASSEMBLER_FILE = CONF_DIR + "/turismoECultura.ttl";
-            FUSEKI_UPDATE_URL = "http://" + DOMAIN + SPARQL_PORT + "/turismoECultura.temp/update";
-            FUSEKI_DATA_URL = "http://" + DOMAIN + SPARQL_PORT + "/turismoECultura.temp/data";
+            FUSEKI_UPDATE_URL = "http://" + DOMAIN + SPARQL_PORT + "/fuseki/turismoECultura.temp/update";
+            FUSEKI_DATA_URL = "http://" + DOMAIN + SPARQL_PORT + "/fuseki/turismoECultura.temp/data";
 
             Dataset dataset = TDBFactory.assembleDataset(TDB_ASSEMBLER_FILE);
             try {
