@@ -21,11 +21,7 @@
 @prefix foaf:  <http://xmlns.com/foaf/0.1/> .
 
 
-[r0: (?s1 ?p ?o)
-     , (?s1 owl:sameAs ?s2)
-     , strConcat(?s2, ?l)
-     , regex(?l, "http://swlab.ic.uff.br/resource/id2-.*") -> (?s2 ?p ?o)
-                                                               , [(?s3 ?p2 ?s2) <- (?s3 ?p2 ?s1)]]
+
 [r2: (?s rdf:type dbo:Place) -> (?s rdf:type sch:Place)]
 [r3: (?s rdf:type dbo:Location) -> (?s rdf:type sch:Place)]
 [r4: (?s rdf:type dbo:PopulatedPlace) -> (?s rdf:type sch:Place)]
@@ -41,6 +37,11 @@
       , (?s geo:long ?o2)
       , makeSkolem(?sk, ?o1, ?o2)
       , uriConcat("http://swlab.ic.uff.br/resource/id2-",?sk, ?g) -> (?s sch:geo ?g)
-                                                                      , (?t rdf:type sch:GeoCoordinates)
-                                                                      , (?t sch:latitude ?o1)
-                                                                      , (?t sch:longitude ?o2)]
+                                                                      , (?g rdf:type sch:GeoCoordinates)
+                                                                      , (?g sch:latitude ?o1)
+                                                                      , (?g sch:longitude ?o2)]
+[r0: (?s1 ?p ?o)
+     , (?s1 owl:sameAs ?s2)
+     , strConcat(?s2, ?l)
+     , regex(?l, "http://swlab.ic.uff.br/resource/id2-.*") -> (?s2 ?p ?o)
+                                                               , [(?s3 ?p2 ?s2) <- (?s3 ?p2 ?s1)]]
