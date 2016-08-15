@@ -7,4 +7,6 @@ __pycache__/
 *.class
 /TIC10086-G/target/
 /TIC10086-G/src/main/resources/dat/tdb/
+/TIC10086/target/
+/TIC10086/src/main/resources/dat/tdb/
 
