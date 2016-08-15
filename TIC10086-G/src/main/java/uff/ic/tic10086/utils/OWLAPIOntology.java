@@ -1,4 +1,4 @@
-package ic.uff.tic10086.utils;
+package uff.ic.tic10086.utils;
 
 import java.io.BufferedInputStream;
 import java.io.File;

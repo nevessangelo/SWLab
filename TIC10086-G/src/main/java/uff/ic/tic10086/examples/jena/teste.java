@@ -1,4 +1,4 @@
-package ic.uff.tic10086.examples.jena;
+package uff.ic.tic10086.examples.jena;
 
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;

@@ -1,4 +1,4 @@
-package ic.uff.tic10086.examples.jena;
+package uff.ic.tic10086.examples.jena;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

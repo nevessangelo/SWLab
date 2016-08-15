@@ -1,7 +1,7 @@
-package ic.uff.tic10086.exercicios;
+package uff.ic.tic10086.exercicios;
 
 import com.opencsv.CSVReader;
-import ic.uff.tic10086.utils.DBpediaSearch;
+import uff.ic.tic10086.utils.DBpediaSearch;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

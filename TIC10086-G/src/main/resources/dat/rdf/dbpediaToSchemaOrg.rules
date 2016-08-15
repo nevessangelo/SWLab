@@ -45,3 +45,10 @@
      , strConcat(?s2, ?l)
      , regex(?l, "http://swlab.ic.uff.br/resource/id2-.*") -> (?s2 ?p ?o)
                                                                , [(?s3 ?p2 ?s2) <- (?s3 ?p2 ?s1)]]
+
+[r0: (?s ?p ?s1)
+     , (?s1 owl:sameAs ?s2)
+     , strConcat(?s2, ?l)
+     , regex(?l, "http://swlab.ic.uff.br/resource/id2-.*") -> (?s ?p ?s2)]
+
+

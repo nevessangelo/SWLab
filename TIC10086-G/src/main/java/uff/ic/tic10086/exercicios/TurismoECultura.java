@@ -1,8 +1,8 @@
-package ic.uff.tic10086.exercicios;
+package uff.ic.tic10086.exercicios;
 
 import com.opencsv.CSVReader;
-import ic.uff.tic10086.utils.JenaSchema;
-import ic.uff.tic10086.utils.OWLAPIOntology;
+import uff.ic.tic10086.utils.JenaSchema;
+import uff.ic.tic10086.utils.OWLAPIOntology;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;

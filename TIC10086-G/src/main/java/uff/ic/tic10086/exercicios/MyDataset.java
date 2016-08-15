@@ -1,4 +1,4 @@
-package ic.uff.tic10086.exercicios;
+package uff.ic.tic10086.exercicios;
 
 import java.io.File;
 import java.io.FileNotFoundException;

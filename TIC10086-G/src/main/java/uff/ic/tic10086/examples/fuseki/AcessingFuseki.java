@@ -1,4 +1,4 @@
-package ic.uff.tic10086.examples.fuseki;
+package uff.ic.tic10086.examples.fuseki;
 
 import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.QueryExecutionFactory;

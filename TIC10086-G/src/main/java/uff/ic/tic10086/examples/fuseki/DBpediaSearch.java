@@ -1,4 +1,4 @@
-package ic.uff.tic10086.examples.fuseki;
+package uff.ic.tic10086.examples.fuseki;
 
 import java.util.ArrayList;
 import java.util.List;
