@@ -6,6 +6,8 @@ __pycache__/
 *.log
 *.class
 
+/resource/target
+/.well-known/target
 /TIC10086-G/target/
 /TIC10086-G/src/main/resources/dat/tdb/
 
