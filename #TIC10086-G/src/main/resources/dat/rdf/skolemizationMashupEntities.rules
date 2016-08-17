@@ -1,0 +1,27 @@
+@prefix sch: <http://schema.org/> .
+@prefix dbc:   <http://dbpedia.org/resource/Category:> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix georss: <http://www.georss.org/georss/> .
+@prefix wikipedia-en: <http://en.wikipedia.org/wiki/> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix geo:   <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix dbo:   <http://dbpedia.org/ontology/> .
+@prefix dbp:   <http://dbpedia.org/property/> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix ns12:  <http://dbpedia.org/datatype/> .
+@prefix dbr:   <http://dbpedia.org/resource/> .
+@prefix virtrdf: <http://www.openlinksw.com/schemas/virtrdf#> .
+@prefix dbpedia-wikidata: <http://wikidata.dbpedia.org/resource/> .
+@prefix dbpedia-pt: <http://pt.dbpedia.org/resource/> .
+@prefix prov:  <http://www.w3.org/ns/prov#> .
+@prefix wikidata: <http://www.wikidata.org/entity/> .
+@prefix ns19:  <http://dbpedia.org/ontology/Building/> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+
+[r0: (?s1 ?p ?o)
+     , strConcat(?s1, ?l)
+     , regex(?l, "http://swlab.ic.uff.br/resource/id-.*")
+     , makeSkolem(?sk, ?s1)
+     , uriConcat("http://swlab.ic.uff.br/resource/id2-",?sk, ?s2) -> (?s2 owl:sameAs ?s1), (?s1 owl:sameAs ?s2)]

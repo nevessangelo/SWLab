@@ -1,0 +1,284 @@
+@prefix :      <http://localhost:3030/myontology/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vcard: <http://www.w3.org/2001/vcard-rdf/3.0#> .
+
+<http://www.w3.org/2001/vcard-rdf/REV>
+        a           rdf:Property ;
+        rdfs:label  "Revision" .
+
+<http://www.w3.org/2001/vcard-rdf/SOURCE>
+        a           rdf:Property ;
+        rdfs:label  "Source" .
+
+<http://www.w3.org/2001/vcard-rdf/internet>
+        a       vcard:EMAILTYPES .
+
+<http://www.w3.org/2001/vcard-rdf/home>
+        a       vcard:TELTYPES , vcard:ADRTYPES .
+
+<http://www.w3.org/2001/vcard-rdf/Street>
+        a                rdf:Property ;
+        rdfs:label       "Street" ;
+        rdfs:subClassOf  vcard:ADRPROPERTIES .
+
+<http://www.w3.org/2001/vcard-rdf/Other>
+        a                rdf:Property ;
+        rdfs:label       "Other Names" ;
+        rdfs:subClassOf  vcard:NPROPERTIES .
+
+<http://www.w3.org/2001/vcard-rdf/ORGPROPERTIES>
+        a       rdfs:Class .
+
+<http://www.w3.org/2001/vcard-rdf/NOTE>
+        a           rdf:Property ;
+        rdfs:label  "Notes" .
+
+<http://www.w3.org/2001/vcard-rdf/CATEGORIES>
+        a           rdf:Property ;
+        rdfs:label  "Categories" .
+
+<http://www.w3.org/2001/vcard-rdf/PRODID>
+        a           rdf:Property ;
+        rdfs:label  "Product ID" .
+
+<http://www.w3.org/2001/vcard-rdf/TEL>
+        a           rdf:Property ;
+        rdfs:label  "Telephone" ;
+        rdfs:range  vcard:TELTYPES .
+
+<http://www.w3.org/2001/vcard-rdf/Country>
+        a                rdf:Property ;
+        rdfs:label       "Country" ;
+        rdfs:subClassOf  vcard:ADRPROPERTIES .
+
+<http://www.w3.org/2001/vcard-rdf/NAME>
+        a           rdf:Property ;
+        rdfs:label  "vCard Name" .
+
+<http://www.w3.org/2001/vcard-rdf/msg>
+        a       vcard:TELTYPES .
+
+<http://www.w3.org/2001/vcard-rdf/isdn>
+        a       vcard:TELTYPES .
+
+<http://www.w3.org/2001/vcard-rdf/Prefix>
+        a                rdf:Property ;
+        rdfs:label       "Prefix Name" ;
+        rdfs:subClassOf  vcard:NPROPERTIES .
+
+<http://www.w3.org/2001/vcard-rdf/ADR>
+        a           rdf:Property ;
+        rdfs:label  "Address" ;
+        rdfs:range  vcard:ADRTYPES .
+
+<http://www.w3.org/2001/vcard-rdf/ADRPROPERTIES>
+        a                rdfs:Class ;
+        rdfs:subClassOf  vcard:ADRTYPES .
+
+<http://www.w3.org/2001/vcard-rdf/LABEL>
+        a           rdf:Property ;
+        rdfs:label  "Address Label" ;
+        rdfs:range  vcard:ADRTYPES .
+
+<http://www.w3.org/2001/vcard-rdf/TZ>
+        a           rdf:Property ;
+        rdfs:label  "Timezone" ;
+        rdfs:range  vcard:TZTYPES .
+
+<http://www.w3.org/2001/vcard-rdf/Orgname>
+        a                rdf:Property ;
+        rdfs:label       "Organisation Name" ;
+        rdfs:subClassOf  vcard:ORGPROPERTIES .
+
+<http://www.w3.org/2001/vcard-rdf/car>
+        a       vcard:TELTYPES .
+
+<http://www.w3.org/2001/vcard-rdf/Pobox>
+        a                rdf:Property ;
+        rdfs:label       "Post Office Box" ;
+        rdfs:subClassOf  vcard:ADRPROPERTIES .
+
+<http://www.w3.org/2001/vcard-rdf/Family>
+        a                rdf:Property ;
+        rdfs:label       "Family Name" ;
+        rdfs:subClassOf  vcard:NPROPERTIES .
+
+<http://www.w3.org/2001/vcard-rdf/LOGO>
+        a           rdf:Property ;
+        rdfs:label  "Logo Image" .
+
+<http://www.w3.org/2001/vcard-rdf/Region>
+        a                rdf:Property ;
+        rdfs:label       "Region/State" ;
+        rdfs:subClassOf  vcard:ADRPROPERTIES .
+
+<http://www.w3.org/2001/vcard-rdf/pref>
+        a       vcard:EMAILTYPES , vcard:ADRTYPES .
+
+<http://www.w3.org/2001/vcard-rdf/PHOTO>
+        a           rdf:Property ;
+        rdfs:label  "Photograph" .
+
+<http://www.w3.org/2001/vcard-rdf/Locality>
+        a                rdf:Property ;
+        rdfs:label       "Locality/Suburb" ;
+        rdfs:subClassOf  vcard:ADRPROPERTIES .
+
+<http://www.w3.org/2001/vcard-rdf/cell>
+        a       vcard:TELTYPES .
+
+<http://www.w3.org/2001/vcard-rdf/SORT-STRING>
+        a           rdf:Property ;
+        rdfs:label  "Sort String" .
+
+<http://www.w3.org/2001/vcard-rdf/FN>
+        a           rdf:Property ;
+        rdfs:label  "Formatted Name" .
+
+<http://www.w3.org/2001/vcard-rdf/TITLE>
+        a           rdf:Property ;
+        rdfs:label  "Position Title" .
+
+<http://www.w3.org/2001/vcard-rdf/GROUP>
+        a           rdf:Property ;
+        rdfs:label  "Group vCard Properties" .
+
+<http://www.w3.org/2001/vcard-rdf/SOUND>
+        a           rdf:Property ;
+        rdfs:label  "Audio Sound" .
+
+<http://www.w3.org/2001/vcard-rdf/BDAY>
+        a           rdf:Property ;
+        rdfs:label  "Birthday" .
+
+<http://www.w3.org/2001/vcard-rdf/AGENT>
+        a           rdf:Property ;
+        rdfs:label  "Agent" .
+
+<http://www.w3.org/2001/vcard-rdf/fax>
+        a       vcard:TELTYPES .
+
+<http://www.w3.org/2001/vcard-rdf/ORG>
+        a           rdf:Property ;
+        rdfs:label  "Organisation" ;
+        rdfs:range  vcard:ORGPROPERTIES .
+
+<http://www.w3.org/2001/vcard-rdf/N>
+        a           rdf:Property ;
+        rdfs:label  "Name" ;
+        rdfs:range  vcard:NPROPERTIES .
+
+<http://www.w3.org/2001/vcard-rdf/GEO>
+        a           rdf:Property ;
+        rdfs:label  "Geographical Information" .
+
+<http://www.w3.org/2001/vcard-rdf/ADRTYPES>
+        a       rdfs:Class .
+
+<http://www.w3.org/2001/vcard-rdf/video>
+        a       vcard:TELTYPES .
+
+<http://www.w3.org/2001/vcard-rdf/EMAIL>
+        a           rdf:Property ;
+        rdfs:label  "Email Address" ;
+        rdfs:range  vcard:EMAILTYPES .
+
+<http://www.w3.org/2001/vcard-rdf/pager>
+        a       vcard:TELTYPES .
+
+<http://www.w3.org/2001/vcard-rdf/Extadd>
+        a                rdf:Property ;
+        rdfs:label       "Extended Address" ;
+        rdfs:subClassOf  vcard:ADRPROPERTIES .
+
+<http://www.w3.org/2001/vcard-rdf/CLASS>
+        a           rdf:Property ;
+        rdfs:label  "Class" .
+
+<http://www.w3.org/2001/vcard-rdf/Orgunit>
+        a                rdf:Property ;
+        rdfs:label       "Organisation Unit" ;
+        rdfs:subClassOf  vcard:ORGPROPERTIES .
+
+<http://www.w3.org/2001/vcard-rdf/work>
+        a       vcard:TELTYPES , vcard:ADRTYPES .
+
+<http://www.w3.org/2001/vcard-rdf/text>
+        a       vcard:TZTYPES .
+
+<http://www.w3.org/2001/vcard-rdf/NICKNAME>
+        a           rdf:Property ;
+        rdfs:label  "Nickname" .
+
+<http://www.w3.org/2001/vcard-rdf/Given>
+        a                rdf:Property ;
+        rdfs:label       "Given Name" ;
+        rdfs:subClassOf  vcard:NPROPERTIES .
+
+<http://www.w3.org/2001/vcard-rdf/ROLE>
+        a           rdf:Property ;
+        rdfs:label  "Position Role" .
+
+<http://www.w3.org/2001/vcard-rdf/parcel>
+        a       vcard:ADRTYPES .
+
+<http://www.w3.org/2001/vcard-rdf/x400>
+        a       vcard:EMAILTYPES .
+
+<http://www.w3.org/2001/vcard-rdf/modem>
+        a       vcard:TELTYPES .
+
+<http://www.w3.org/2001/vcard-rdf/Suffix>
+        a                rdf:Property ;
+        rdfs:label       "Suffix Name" ;
+        rdfs:subClassOf  vcard:NPROPERTIES .
+
+<http://www.w3.org/2001/vcard-rdf/KEY>
+        a           rdf:Property ;
+        rdfs:label  "Public Key" .
+
+<http://www.w3.org/2001/vcard-rdf/bbs>
+        a       vcard:TELTYPES .
+
+<http://www.w3.org/2001/vcard-rdf/Pcode>
+        a                rdf:Property ;
+        rdfs:label       "Postal Code" ;
+        rdfs:subClassOf  vcard:ADRPROPERTIES .
+
+<http://www.w3.org/2001/vcard-rdf/pcs>
+        a       vcard:TELTYPES .
+
+<http://www.w3.org/2001/vcard-rdf/TELTYPES>
+        a       rdfs:Class .
+
+<http://www.w3.org/2001/vcard-rdf/EMAILTYPES>
+        a       rdfs:Class .
+
+<http://www.w3.org/2001/vcard-rdf/MAILER>
+        a           rdf:Property ;
+        rdfs:label  "EMail Program" .
+
+<http://www.w3.org/2001/vcard-rdf/UID>
+        a           rdf:Property ;
+        rdfs:label  "Unique ID" .
+
+<http://www.w3.org/2001/vcard-rdf/TZTYPES>
+        a       rdfs:Class .
+
+<http://www.w3.org/2001/vcard-rdf/intl>
+        a       vcard:ADRTYPES .
+
+<http://www.w3.org/2001/vcard-rdf/postal>
+        a       vcard:ADRTYPES .
+
+<http://www.w3.org/2001/vcard-rdf/dom>
+        a       vcard:ADRTYPES .
+
+<http://www.w3.org/2001/vcard-rdf/NPROPERTIES>
+        a       rdfs:Class .
+
+:JohnSmith  vcard:FN  "John Smith" ;
+        vcard:N   [ vcard:Family  "Smith" ;
+                    vcard:Given   "John"
+                  ] .
