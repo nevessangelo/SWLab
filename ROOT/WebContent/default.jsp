@@ -70,13 +70,11 @@
         <link href="swlab.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
-    <center>
-        <h1>IC/UFF Semantic Web Lab (SWLab)</h1>
-    </center>
+    <h1 style="text-align: center">IC/UFF Semantic Web Lab (SWLab)</h1>
     <br>
     <br>
     <br>
-    <table align="center" border="0" style="width: 70%">
+    <table style="border: 0px; text-align: center; width: 70%">
         <tr>
             <td style="width: 50%">
                 <h2>Applications</h2>
