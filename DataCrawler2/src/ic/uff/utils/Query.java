@@ -1,6 +1,6 @@
-package datacrawler.profiler;
+package ic.uff.utils;
 
-public class Main {
+public class Query {
 	
 	public static void main(String[] args){
 		// Input: data_catalog.datasets (MongoDB)
