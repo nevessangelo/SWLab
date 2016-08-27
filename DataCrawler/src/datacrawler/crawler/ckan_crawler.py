@@ -4,16 +4,19 @@ Created on 17 de fev de 2016
 @author: Luiz Leme
 @email: lapaesleme@ic.uff.br
 '''
+from datetime import datetime
 import logging
+
+from ckanapi import RemoteCKAN
+
 from datacrawler.crawler import db_name, INSERT, UPSERT, REPLACE, BEGINING, RECENTLY
+from datacrawler.utils import normalize_url
+
 
 def _load_catalogs():
     from datacrawler.utils import load_data, get_proj_path
     return load_data(get_proj_path('dat', 'catalogs.json'), verbose=False)
 
-from datetime import datetime
-from ckanapi import RemoteCKAN
-from datacrawler.utils import normalize_url
 def _feed_json_db(oper, _datasets, _dataset_ids, dataset_ids, catalog):
     _catalog = RemoteCKAN(catalog['home'], user_agent='datacrawler')
     
@@ -36,7 +39,13 @@ def _feed_json_db(oper, _datasets, _dataset_ids, dataset_ids, catalog):
         extras2['catalog_dataset_api'] = catalog['home'] + catalog['dataset_api']
         extras2['catalog_dataset_api_3'] = catalog['home'] + catalog['dataset_api_3']
         extras2['last_modified_at'] = str(datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f'))
+        extras2['namespaces'] = [metadata['extras']['namespace']] if 'extras' in metadata and 'namespace' in metadata_old['extras']  else []
+        extras2['homepage'] = normalize_url(metadata['url'])
         extras2['url'] = normalize_url(metadata['url'])
+        extras2['voids'] = next(r['url'] for r in metadata['resources']
+                                if ('description' in r and 'void' in r['description']) 
+                                or ('format' in r and 'void' in r['format']) 
+                                or ('url' in r and 'void' in r['url'])) if 'resources' in metadata else []
         metadata['extras2'] = extras2
             
         if (not metadata_old):
