@@ -9,7 +9,7 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 
-public class MontoTeste {
+public class MongoTeste {
 
 	public static void main(String[] args) {
 		Logger.getRootLogger().setLevel(Level.OFF);
@@ -19,7 +19,8 @@ public class MontoTeste {
 		MongoCursor<Document> cursor = datasets.find().iterator();
 		try {
 			while (cursor.hasNext()) {
-				System.out.println(cursor.next().toJson());
+				Document doc = cursor.next();
+
 			}
 		} finally {
 			cursor.close();
