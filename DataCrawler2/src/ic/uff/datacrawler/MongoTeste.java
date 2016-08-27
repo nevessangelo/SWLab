@@ -19,8 +19,9 @@ public class MongoTeste {
 		MongoCursor<Document> cursor = datasets.find().iterator();
 		try {
 			while (cursor.hasNext()) {
-				Document doc = cursor.next();
-
+				Document dataset = cursor.next();
+				Document extras2 = dataset.get("extras2", Document.class);
+				System.out.println(extras2.get("name_uri").toString());
 			}
 		} finally {
 			cursor.close();
