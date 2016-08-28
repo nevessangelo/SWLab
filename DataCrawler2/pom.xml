@@ -1,29 +1,29 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>uff.ic.swlab</groupId>
-	<artifactId>icswlab-data-crawler</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
-	<name>icswlab-data-crawler</name>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>uff.ic.swlab</groupId>
+    <artifactId>icswlab-data-crawler</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>DataCrawler2</name>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
-	</properties>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
 
-	<dependencies>
-		<dependency>
-			<groupId>uff.ic.swlab</groupId>
-			<artifactId>icswlab-utils</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-	</dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>uff.ic.swlab</groupId>
+            <artifactId>icswlab-utils</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
-	<build>
-		<sourceDirectory>/src/main/java</sourceDirectory>
-		<testSourceDirectory>/src/test/java</testSourceDirectory>
-	</build>
+    <build>
+        <sourceDirectory>/src/main/java</sourceDirectory>
+        <testSourceDirectory>/src/test/java</testSourceDirectory>
+    </build>
 </project>
