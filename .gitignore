@@ -8,8 +8,9 @@ __pycache__/
 
 /resource/target
 /.well-known/target
-/TIC10086-G/target/
-/TIC10086-G/src/main/resources/dat/tdb/
-
 
 /#TIC10086-G/target/
+/#TIC10086-G/src/main/resources/dat/tdb/
+
+/DataCrawler2/target/
+/DataCrawler2/src/main/resources/dat/tdb/

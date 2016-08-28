@@ -29,10 +29,13 @@ public class Main {
 			while (cursor.hasNext()) {
 				Document dataset = cursor.next();
 				Document extras2 = dataset.get("extras2", Document.class);
+				String name_uri = extras2.getString("name_uri");
+
 				String[] urls = extractURLs(extras2);
 				String[] sparqlEndPoints = extractSparqlEndPoints(extras2);
 
 				Model void_ = VoID.getVoID(sparqlEndPoints, urls);
+				// TODO Guardar void_ em um grafo nomeado do TDB
 			}
 		} finally {
 			cursor.close();
