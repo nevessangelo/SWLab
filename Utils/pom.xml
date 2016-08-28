@@ -4,10 +4,10 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>uff.ic.swlab</groupId>
-	<artifactId>swlab-utils</artifactId>
+	<artifactId>icswlab-utils</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
-	<name>swlab-utils</name>
+	<name>icswswlab-utils</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -47,7 +47,7 @@
 	</dependencies>
 
 	<build>
-		<sourceDirectory>/src_main</sourceDirectory>
-		<testSourceDirectory>/src_test</testSourceDirectory>
+		<sourceDirectory>/src/main/java</sourceDirectory>
+		<testSourceDirectory>/src/test/java</testSourceDirectory>
 	</build>
 </project>
