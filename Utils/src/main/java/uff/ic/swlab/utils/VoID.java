@@ -19,11 +19,11 @@ import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
 
 public class VoID {
 
-	public static Model getVoID(String sparqlEndPoint, String[] urls) {
+	public static Model getVoID(String[] sparqlEndPoints, String[] urls) {
 		Model void_ = ModelFactory.createDefaultModel();
 
 		void_.add(VoID.getVoidFromFile(urls));
-		void_.add(VoID.getVoidFromSparql(sparqlEndPoint));
+		void_.add(VoID.getVoidFromSparql(sparqlEndPoints));
 
 		return void_;
 	}
@@ -54,21 +54,25 @@ public class VoID {
 		return void_;
 	}
 
-	private static Model getVoidFromSparql(String sparqlEndPoint) {
+	private static Model getVoidFromSparql(String[] sparqlEndPoints) {
 		String from = "";
 		String queryString = "construct {?s ?p ?o}\n %1swhere {?s ?p ?o.}";
-		for (String n : listVoIDGraphURIs(sparqlEndPoint))
-			from += String.format("from <%1s>\n", n);
-		queryString = String.format(queryString, from);
+		Model model = ModelFactory.createDefaultModel();
 
-		try (QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, queryString)) {
-			((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
-			((QueryEngineHTTP) exec).setTimeout(20000);
-			return exec.execConstruct();
-		} catch (Exception e) {
+		for (String sparqlEndPoint : sparqlEndPoints) {
+			for (String n : listVoIDGraphURIs(sparqlEndPoint))
+				from += String.format("from <%1s>\n", n);
+			queryString = String.format(queryString, from);
+
+			try (QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, queryString)) {
+				((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
+				((QueryEngineHTTP) exec).setTimeout(20000);
+				exec.execConstruct(model);
+			} catch (Exception e) {
+			}
 		}
 
-		return ModelFactory.createDefaultModel();
+		return model;
 	}
 
 	private static void readRDFa(Model model, String urlString) throws UnsupportedEncodingException {

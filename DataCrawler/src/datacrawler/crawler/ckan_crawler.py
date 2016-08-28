@@ -42,6 +42,10 @@ def _feed_json_db(oper, _datasets, _dataset_ids, dataset_ids, catalog):
         extras2['homepage'] = normalize_url(metadata['url'])
         extras2['url'] = normalize_url(metadata['url'])
         extras2['namespaces'] = [metadata['extras']['namespace']] if 'extras' in metadata and 'namespace' in metadata_old['extras']  else []
+        extras2['examples'] = [r['url'] for r in metadata['resources'] 
+                            if ('description' in r and 'example' in r['description']) 
+                            or ('format' in r and 'example' in r['format']) 
+                            or ('url' in r and 'example' in r['url'])] if 'resources' in metadata else []
         extras2['voids'] = [r['url'] for r in metadata['resources'] 
                             if ('description' in r and 'void' in r['description']) 
                             or ('format' in r and 'void' in r['format']) 
