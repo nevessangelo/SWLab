@@ -3,17 +3,17 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>uff.ic.swlab</groupId>
-	<artifactId>data-crawler</artifactId>
+	<artifactId>icswlab-data-crawler</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
-	<name>data-crawler</name>
-	
+	<name>icswlab-data-crawler</name>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>uff.ic.swlab</groupId>
@@ -21,4 +21,9 @@
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
+
+	<build>
+		<sourceDirectory>/src/main/java</sourceDirectory>
+		<testSourceDirectory>/src/test/java</testSourceDirectory>
+	</build>
 </project>
