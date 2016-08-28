@@ -1,4 +1,4 @@
-package ic.uff.datacrawler;
+package uff.ic.swlab.datacrawler;
 
 import java.net.MalformedURLException;
 
@@ -7,7 +7,7 @@ import org.apache.jena.rdf.model.StmtIterator;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
-import ic.uff.utils.VoID;
+import uff.ic.swlab.utils.VoID;
 
 public class Main {
 

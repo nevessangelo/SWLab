@@ -1,4 +1,4 @@
-package ic.uff.utils;
+package uff.ic.swlab.utils;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URL;

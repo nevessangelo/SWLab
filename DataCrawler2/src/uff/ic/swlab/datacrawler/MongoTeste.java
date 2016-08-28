@@ -1,4 +1,4 @@
-package ic.uff.datacrawler;
+package uff.ic.swlab.datacrawler;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;

@@ -39,13 +39,17 @@ def _feed_json_db(oper, _datasets, _dataset_ids, dataset_ids, catalog):
         extras2['catalog_dataset_api'] = catalog['home'] + catalog['dataset_api']
         extras2['catalog_dataset_api_3'] = catalog['home'] + catalog['dataset_api_3']
         extras2['last_modified_at'] = str(datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f'))
-        extras2['namespaces'] = [metadata['extras']['namespace']] if 'extras' in metadata and 'namespace' in metadata_old['extras']  else []
         extras2['homepage'] = normalize_url(metadata['url'])
         extras2['url'] = normalize_url(metadata['url'])
-        extras2['voids'] = next(r['url'] for r in metadata['resources']
-                                if ('description' in r and 'void' in r['description']) 
-                                or ('format' in r and 'void' in r['format']) 
-                                or ('url' in r and 'void' in r['url'])) if 'resources' in metadata else []
+        extras2['namespaces'] = [metadata['extras']['namespace']] if 'extras' in metadata and 'namespace' in metadata_old['extras']  else []
+        extras2['voids'] = [r['url'] for r in metadata['resources'] 
+                            if ('description' in r and 'void' in r['description']) 
+                            or ('format' in r and 'void' in r['format']) 
+                            or ('url' in r and 'void' in r['url'])] if 'resources' in metadata else []
+        extras2['sparqlEndPoints'] = [r['url'] for r in metadata['resources'] 
+                                      if ('description' in r and 'sparql' in r['description']) 
+                                      or ('format' in r and 'sparql' in r['format']) 
+                                      or ('url' in r and 'sparql' in r['url'])] if 'resources' in metadata else []
         metadata['extras2'] = extras2
             
         if (not metadata_old):
