@@ -7,8 +7,6 @@ Created on 19 de jan de 2016
 import logging
 from datacrawler.crawler import db_name, INSERT, UPSERT, REPLACE, BEGINING, RECENTLY, stats
 
-__updated__ = ''
-
 logging.basicConfig(filename='data_crawler.log', filemode='w', level=logging.INFO)
 logging.info('Data_Crawler version: 0.0.1')
 

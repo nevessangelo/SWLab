@@ -1,5 +1,13 @@
 [
   {
+    "name": "Mannheim Linked Data Catalog",
+    "home": "http://linkeddatacatalog.dws.informatik.uni-mannheim.de",
+    "search_api": "/api/search/dataset?q=metadata_modified:[{}%20TO%20NOW]&sort=metadata_modified%20desc&offset={}&limit={}",
+    "dataset_api": "/api/rest/dataset/{}",
+    "dataset_api_3": "/api/3/action/package_show?id={}",
+    "dataset_wui": "/dataset/{}"
+  },
+  {
     "name": "DataHub",
     "home": "https://datahub.io",
     "search_api": "/api/search/dataset?q=metadata_modified:[{}%20TO%20NOW]&sort=metadata_modified%20desc&offset={}&limit={}",
