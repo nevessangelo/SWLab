@@ -34,6 +34,11 @@
 			<version>1.7.20</version>
 		</dependency>
 		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-compress</artifactId>
+			<version>1.12</version>
+		</dependency>
+		<dependency>
 			<groupId>org.mongodb</groupId>
 			<artifactId>mongo-java-driver</artifactId>
 			<version>3.2.2</version>
@@ -43,6 +48,11 @@
 			<artifactId>apache-jena-libs</artifactId>
 			<type>pom</type>
 			<version>3.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sourceforge.owlapi</groupId>
+			<artifactId>owlapi-distribution</artifactId>
+			<version>5.0.2</version>
 		</dependency>
 	</dependencies>
 

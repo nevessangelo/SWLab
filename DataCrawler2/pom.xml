@@ -17,7 +17,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>uff.ic.swlab</groupId>
-			<artifactId>swlab-utils</artifactId>
+			<artifactId>icswlab-utils</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>

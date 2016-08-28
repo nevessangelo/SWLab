@@ -1,8 +1,6 @@
 package uff.ic.tic10086.exercicios;
 
 import com.opencsv.CSVReader;
-import uff.ic.tic10086.utils.JenaSchema;
-import uff.ic.tic10086.utils.OWLAPIOntology;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -30,6 +28,8 @@ import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.model.OWLOntologyStorageException;
 import org.semanticweb.owlapi.model.parameters.Imports;
+import uff.ic.swlab.utils.JenaSchema;
+import uff.ic.swlab.utils.OWLAPIOntology;
 
 public class TurismoECultura extends MyDataset {
 

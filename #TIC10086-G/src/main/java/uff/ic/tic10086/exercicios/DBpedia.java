@@ -1,7 +1,6 @@
 package uff.ic.tic10086.exercicios;
 
 import com.opencsv.CSVReader;
-import uff.ic.tic10086.utils.DBpediaSearch;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -11,6 +10,7 @@ import org.apache.jena.query.Dataset;
 import org.apache.jena.query.ReadWrite;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.tdb.TDBFactory;
+import uff.ic.swlab.utils.DBpediaSearch;
 
 public class DBpedia extends MyDataset {
 
