@@ -40,6 +40,15 @@ public class Dataset {
         }
     }
 
+    public String[] getExamples() {
+        try {
+            String[] examples = doc.get("extras2", Document.class).get("examples", String[].class);
+            return examples != null ? examples : new String[0];
+        } catch (Exception e) {
+            return new String[0];
+        }
+    }
+
     public String[] getVoids() {
         try {
             String[] voids = doc.get("extras2", Document.class).get("voids", String[].class);

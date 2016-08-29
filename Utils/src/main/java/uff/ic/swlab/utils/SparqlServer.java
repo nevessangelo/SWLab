@@ -22,7 +22,12 @@ public class SparqlServer {
     public void putModel(String graphUri, Model model) {
         if (model.size() > 0) {
             DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(dataURL);
-            accessor.putModel(graphUri, model);
+            try {
+                accessor.putModel(graphUri, model);
+            } catch (Exception e) {
+                System.out.println("========================= Model discarded ==============================");
+                model.write(System.out, "TURTLE");
+            }
         }
     }
 }
