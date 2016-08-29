@@ -58,7 +58,7 @@ public class Main {
                             .filter(line -> line != null)
                             .collect(Collectors.toSet()).toArray(args);
 
-                    server.putModel("<" + name_uri + "/>", VoID.getVoID(sparqlEndPoints, urls));
+                    server.putModel(name_uri, VoID.getVoID(sparqlEndPoints, urls));
                 }
             }
         }
