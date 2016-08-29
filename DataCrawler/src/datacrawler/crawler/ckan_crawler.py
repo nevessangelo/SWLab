@@ -50,7 +50,7 @@ def _feed_json_db(oper, _datasets, _dataset_ids, dataset_ids, catalog):
                             if ('description' in r and 'void' in r['description'])
                             or ('format' in r and 'void' in r['format'])
                             or ('url' in r and 'void' in r['url'])] if 'resources' in metadata else []
-        extras2['sparqlEndPoints'] = [r['url'] for r in metadata['resources']
+        extras2['sparql_endpoints'] = [r['url'] for r in metadata['resources']
                                       if ('description' in r and 'sparql' in r['description'])
                                       or ('format' in r and 'sparql' in r['format'])
                                       or ('url' in r and 'sparql' in r['url'])] if 'resources' in metadata else []
