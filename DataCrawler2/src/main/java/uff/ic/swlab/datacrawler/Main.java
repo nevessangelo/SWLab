@@ -1,64 +1,83 @@
 package uff.ic.swlab.datacrawler;
 
-import java.net.MalformedURLException;
-
-import org.apache.jena.rdf.model.Model;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
-import org.bson.Document;
-
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
-
+import java.net.MalformedURLException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.bson.Document;
+import uff.ic.swlab.utils.SparqlServer;
 import uff.ic.swlab.utils.VoID;
 
 public class Main {
 
-	public static void main(String[] args) throws MalformedURLException {
-		Logger.getRootLogger().setLevel(Level.OFF);
+    public static void main(String[] args) {
+        try {
+            run(args);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-		Logger.getRootLogger().setLevel(Level.OFF);
-		MongoClient mongo = new MongoClient("localhost", 27017);
-		MongoDatabase db = mongo.getDatabase("data_catalog");
-		MongoCollection<Document> datasets = db.getCollection("datasets");
-		MongoCursor<Document> cursor = datasets.find().iterator();
+    public static void run(String[] args) throws MalformedURLException {
+        Logger.getRootLogger().setLevel(Level.OFF);
 
-		try {
-			while (cursor.hasNext()) {
-				Document dataset = cursor.next();
-				Document extras2 = dataset.get("extras2", Document.class);
-				String name_uri = extras2.getString("name_uri");
+        SparqlServer sparql = new SparqlServer();
+        sparql.dataURL = "";
 
-				String[] urls = extractURLs(extras2);
-				String[] sparqlEndPoints = extractSparqlEndPoints(extras2);
+        MongoClient mongo = new MongoClient("localhost", 27017);
+        MongoDatabase db = mongo.getDatabase("data_catalog");
+        MongoCollection<Document> datasets = db.getCollection("datasets");
+        MongoCursor<Document> cursor = datasets.find().iterator();
 
-				Model void_ = VoID.getVoID(sparqlEndPoints, urls);
-				// TODO Guardar void_ em um grafo nomeado do TDB
-			}
-		} finally {
-			cursor.close();
-		}
-		mongo.close();
+        try {
+            while (cursor.hasNext()) {
+                Dataset dataset = new Dataset(cursor.next());
 
-	}
+                String name_uri = dataset.getNameURI();
 
-	public static String[] extractURLs(Document doc) {
-		String[] urls = null;
+                Set<String> u = new HashSet<>();
+                u.add(dataset.getHomepage());
+                u.addAll(Arrays.asList(dataset.getNamespaces()));
+                u.addAll(Arrays.asList(dataset.getVoids()));
+                u = u.stream()
+                        .filter(line -> line != null)
+                        .collect(Collectors.toSet());
+                String[] urls = u.toArray(args);
 
-		// TODO Extrair urls das chaves 'homepage', 'voids', 'namespaces',
-		// 'examples' e 'voids' do doc informado.
+                String[] sparqlEndPoints = Arrays.asList(dataset.getSparqlEndPoints())
+                        .stream()
+                        .filter(line -> line != null)
+                        .collect(Collectors.toSet()).toArray(args);
 
-		return urls;
-	}
+                sparql.putModel(name_uri, VoID.getVoID(sparqlEndPoints, urls));
 
-	public static String[] extractSparqlEndPoints(Document doc) {
-		String[] urls = null;
+            }
+        } finally {
+            cursor.close();
+        }
+        mongo.close();
+    }
 
-		// TODO Extrair valor da chave 'sparqlEndPoints' do doc informado.
+    public static String[] extractURLs(Document doc) {
+        String[] urls = null;
 
-		return urls;
-	}
+        // TODO Extrair urls das chaves 'homepage', 'voids', 'namespaces',
+        // 'examples' e 'voids' do doc informado.
+        return urls;
+    }
+
+    public static String[] extractSparqlEndPoints(Document doc) {
+        String[] urls = null;
+
+        // TODO Extrair valor da chave 'sparqlEndPoints' do doc informado.
+        return urls;
+    }
 
 }

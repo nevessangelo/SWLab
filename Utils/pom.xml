@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>uff.ic.swlab</groupId>
-    <artifactId>icswlab-utils</artifactId>
+    <artifactId>icswlab-linkeddata-utils</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Utils</name>
@@ -57,7 +57,7 @@
     </dependencies>
 
     <build>
-        <sourceDirectory>/src/main/java</sourceDirectory>
-        <testSourceDirectory>/src/test/java</testSourceDirectory>
+        <sourceDirectory>./src/main/java</sourceDirectory>
+        <testSourceDirectory>./src/test/java</testSourceDirectory>
     </build>
 </project>

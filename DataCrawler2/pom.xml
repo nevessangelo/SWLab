@@ -2,8 +2,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
+
     <groupId>uff.ic.swlab</groupId>
-    <artifactId>icswlab-data-crawler</artifactId>
+    <artifactId>icswlab-data-crawler-core</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>DataCrawler2</name>
@@ -17,13 +18,18 @@
     <dependencies>
         <dependency>
             <groupId>uff.ic.swlab</groupId>
-            <artifactId>icswlab-utils</artifactId>
+            <artifactId>icswlab-linkeddata-utils</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
     <build>
-        <sourceDirectory>/src/main/java</sourceDirectory>
-        <testSourceDirectory>/src/test/java</testSourceDirectory>
+        <sourceDirectory>./src/main/java</sourceDirectory>
+        <testSourceDirectory>./src/test/java</testSourceDirectory>
+        <resources>
+            <resource>
+                <directory>./src/main/resources</directory>
+            </resource>
+        </resources>
     </build>
 </project>
