@@ -24,7 +24,7 @@ public class Dataset {
 
     public String[] getSparqlEndPoints() {
         try {
-            String[] sparqlEndPoints = doc.get("extras2", Document.class).get("sparqlEndPoints", String[].class);
+            String[] sparqlEndPoints = doc.get("extras2", Document.class).get("sparql_endpoints", String[].class);
             return sparqlEndPoints != null ? sparqlEndPoints : new String[0];
         } catch (Exception e) {
             return new String[0];
