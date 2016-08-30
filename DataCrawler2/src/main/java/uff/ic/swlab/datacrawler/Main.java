@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.bson.Document;
+import uff.ic.swlab.utils.Resource;
 import uff.ic.swlab.utils.SparqlServer;
 import uff.ic.swlab.utils.VoID;
 
@@ -42,24 +43,22 @@ public class Main {
                 while (cursor.hasNext()) {
                     Dataset dataset = new Dataset(cursor.next());
 
-                    String name_uri = dataset.getNameURI();
-
-                    Set<String> u = new HashSet<>();
-                    u.add(dataset.getHomepage());
-                    u.addAll(Arrays.asList(dataset.getNamespaces()));
-                    u.addAll(Arrays.asList(dataset.getExamples()));
-                    u.addAll(Arrays.asList(dataset.getVoids()));
-                    u = u.stream()
+                    Set<String> set = new HashSet<>();
+                    set.add(dataset.getHomepage());
+                    set.addAll(Arrays.asList(dataset.getNamespaces()));
+                    set.addAll(Arrays.asList(dataset.getExamples()));
+                    set.addAll(Arrays.asList(dataset.getVoids()));
+                    set = set.stream()
                             .filter(line -> line != null)
                             .collect(Collectors.toSet());
-                    String[] urls = u.toArray(args);
+                    String[] urls = set.toArray(new String[0]);
 
                     String[] sparqlEndPoints = Arrays.asList(dataset.getSparqlEndPoints())
                             .stream()
                             .filter(line -> line != null)
-                            .collect(Collectors.toSet()).toArray(args);
+                            .collect(Collectors.toSet()).toArray(new String[0]);
 
-                    server.putModel(name_uri, VoID.getVoID(sparqlEndPoints, urls));
+                    server.putModel(Resource.getAuthority(urls), VoID.getVoID(sparqlEndPoints, urls));
                 }
             }
         }

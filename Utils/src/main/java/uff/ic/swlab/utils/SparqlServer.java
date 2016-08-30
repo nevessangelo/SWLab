@@ -3,6 +3,8 @@ package uff.ic.swlab.utils;
 import org.apache.jena.query.DatasetAccessor;
 import org.apache.jena.query.DatasetAccessorFactory;
 import org.apache.jena.rdf.model.Model;
+import org.apache.log4j.Logger;
+import org.apache.log4j.Priority;
 
 public class SparqlServer {
 
@@ -25,9 +27,14 @@ public class SparqlServer {
             try {
                 accessor.putModel(graphUri, model);
             } catch (Exception e) {
+                Logger.getRootLogger().log(Priority.INFO, "Auuthority " + graphUri + " error VoID.");
+                System.out.println(graphUri);
                 //System.out.println("========================= Model discarded ==============================");
                 //model.write(System.out, "TURTLE");
             }
+        } else {
+            Logger.getRootLogger().log(Priority.INFO, graphUri + " no VoID.");
+            System.out.println("Auuthority " + graphUri + " no VoID.");
         }
     }
 }

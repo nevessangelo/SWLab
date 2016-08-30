@@ -21,7 +21,8 @@ public class Resource {
         Comparator<Entry<String, Integer>> comparator = (Entry<String, Integer> o1, Entry<String, Integer> o2) -> o2.getValue().compareTo(o1.getValue());
         SortedSet<Entry<String, Integer>> authorities = new TreeSet<>(comparator);
         authorities.addAll(hist.entrySet());
-        return authorities.first().getKey();
+
+        return authorities.size() > 0 ? authorities.first().getKey() : null;
     }
 
     private static String getAuthority(String urlString) {

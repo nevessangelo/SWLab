@@ -1,5 +1,6 @@
 package uff.ic.swlab.datacrawler;
 
+import java.util.ArrayList;
 import org.bson.Document;
 
 public class Dataset {
@@ -24,8 +25,8 @@ public class Dataset {
 
     public String[] getSparqlEndPoints() {
         try {
-            String[] sparqlEndPoints = doc.get("extras2", Document.class).get("sparql_endpoints", String[].class);
-            return sparqlEndPoints != null ? sparqlEndPoints : new String[0];
+            ArrayList<String> sparqlEndPoints = doc.get("extras2", Document.class).get("sparql_endpoints", ArrayList.class);
+            return sparqlEndPoints != null ? sparqlEndPoints.toArray(new String[0]) : new String[0];
         } catch (Exception e) {
             return new String[0];
         }
@@ -33,8 +34,8 @@ public class Dataset {
 
     public String[] getNamespaces() {
         try {
-            String[] namespaces = doc.get("extras2", Document.class).get("namespaces", String[].class);
-            return namespaces != null ? namespaces : new String[0];
+            ArrayList<String> namespaces = doc.get("extras2", Document.class).get("namespaces", ArrayList.class);
+            return namespaces != null ? namespaces.toArray(new String[0]) : new String[0];
         } catch (Exception e) {
             return new String[0];
         }
@@ -42,8 +43,8 @@ public class Dataset {
 
     public String[] getExamples() {
         try {
-            String[] examples = doc.get("extras2", Document.class).get("examples", String[].class);
-            return examples != null ? examples : new String[0];
+            ArrayList<String> examples = doc.get("extras2", Document.class).get("examples", ArrayList.class);
+            return examples != null ? examples.toArray(new String[0]) : new String[0];
         } catch (Exception e) {
             return new String[0];
         }
@@ -51,8 +52,8 @@ public class Dataset {
 
     public String[] getVoids() {
         try {
-            String[] voids = doc.get("extras2", Document.class).get("voids", String[].class);
-            return voids != null ? voids : new String[0];
+            ArrayList<String> voids = doc.get("extras2", Document.class).get("voids", ArrayList.class);
+            return voids != null ? voids.toArray(new String[0]) : new String[0];
         } catch (Exception e) {
             return new String[0];
         }
