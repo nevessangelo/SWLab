@@ -1,8 +1,6 @@
 package uff.ic.swlab.utils;
 
-import java.io.UnsupportedEncodingException;
 import java.net.URL;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -37,27 +35,28 @@ public class VoID {
             try {
                 RDFDataMgr.read(void_, url);
             } catch (Exception e1) {
-                Lang[] langs = {Lang.TURTLE, Lang.RDFXML, Lang.NTRIPLES, Lang.JSONLD,
-                    Lang.NQUADS, Lang.TRIG, Lang.TRIX, Lang.RDFJSON, Lang.RDFTHRIFT};
                 Model tempModel;
+                Lang[] langs = {Lang.TURTLE, Lang.TRIG, Lang.RDFXML, Lang.NTRIPLES,
+                    Lang.NQUADS, Lang.JSONLD, Lang.RDFJSON, Lang.TRIX, Lang.RDFTHRIFT};
                 boolean read = false;
                 for (Lang l : langs)
                     try {
                         tempModel = ModelFactory.createDefaultModel();
                         RDFDataMgr.read(tempModel, url, l);
-                        read = true;
-                        if (tempModel.size() > 5)
+                        if (tempModel.size() > 5) {
                             void_.add(tempModel);
-                        break;
+                            read = true;
+                            break;
+                        }
                     } catch (Exception e2) {
                     }
                 if (!read)
                     try {
                         tempModel = ModelFactory.createDefaultModel();
-                        readRDFa(tempModel, url);
+                        RDFaTranslator.read(tempModel, url);
                         if (tempModel.size() > 5)
                             void_.add(tempModel);
-                    } catch (Exception e) {
+                    } catch (Exception e3) {
                     }
             }
         return void_;
@@ -84,11 +83,6 @@ public class VoID {
         }
 
         return void_;
-    }
-
-    private static void readRDFa(Model model, String urlString) throws UnsupportedEncodingException {
-        String url = URLEncoder.encode(urlString, "UTF-8");
-        model.read("http://rdf-translator.appspot.com/convert/rdfa/xml/" + url);
     }
 
     private static List<String> listVoIDGraphURIs(String sparqlEndPoint) {

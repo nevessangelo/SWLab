@@ -20,7 +20,11 @@ public class Dataset {
     }
 
     public String getHomepage() {
-        return doc.get("extras2", Document.class).getString("homepage");
+        try {
+            return doc.get("extras2", Document.class).getString("homepage");
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     public String[] getSparqlEndPoints() {

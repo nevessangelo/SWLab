@@ -38,7 +38,7 @@ public class Main {
             MongoDatabase db = mongo.getDatabase("data_catalog");
             MongoCollection<Document> datasets = db.getCollection("datasets");
 
-            try (MongoCursor<Document> cursor = datasets.find().iterator()) {
+            try (MongoCursor<Document> cursor = datasets.find().noCursorTimeout(true).iterator()) {
 
                 while (cursor.hasNext()) {
                     Dataset dataset = new Dataset(cursor.next());
