@@ -26,7 +26,7 @@ import org.apache.jena.rdf.model.StmtIterator;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFLanguages;
 
-public class RDFaTranslator {
+public class RDFaDataMgr {
 
     public static void write(OutputStream output, Model model, Lang lang) {
         if (lang == RDFLanguages.nameToLang("RDFa"))

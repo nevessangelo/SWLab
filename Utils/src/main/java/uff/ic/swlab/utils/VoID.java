@@ -53,7 +53,7 @@ public class VoID {
                 if (!read)
                     try {
                         tempModel = ModelFactory.createDefaultModel();
-                        RDFaTranslator.read(tempModel, url);
+                        RDFaDataMgr.read(tempModel, url);
                         if (tempModel.size() > 5)
                             void_.add(tempModel);
                     } catch (Exception e3) {

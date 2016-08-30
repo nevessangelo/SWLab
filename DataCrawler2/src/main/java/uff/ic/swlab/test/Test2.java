@@ -1,4 +1,4 @@
-package uff.ic.swlab.datacrawler;
+package uff.ic.swlab.test;
 
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
@@ -8,6 +8,7 @@ import java.net.MalformedURLException;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.bson.Document;
+import uff.ic.swlab.datacrawler.Dataset;
 
 public class Test2 {
 
