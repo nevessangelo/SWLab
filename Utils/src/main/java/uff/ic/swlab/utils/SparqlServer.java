@@ -27,14 +27,11 @@ public class SparqlServer {
             try {
                 accessor.putModel(graphUri, model);
             } catch (Exception e) {
-                Logger.getRootLogger().log(Priority.INFO, "Auuthority " + graphUri + " error VoID.");
+                Logger.getRootLogger().log(Priority.INFO, "Authority " + graphUri + " error VoID.");
                 System.out.println(graphUri);
                 //System.out.println("========================= Model discarded ==============================");
                 //model.write(System.out, "TURTLE");
             }
-        } else {
-            Logger.getRootLogger().log(Priority.INFO, graphUri + " no VoID.");
-            System.out.println("Auuthority " + graphUri + " no VoID.");
         }
     }
 }
