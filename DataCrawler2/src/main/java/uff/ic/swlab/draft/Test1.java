@@ -1,4 +1,4 @@
-package uff.ic.swlab.test;
+package uff.ic.swlab.draft;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;

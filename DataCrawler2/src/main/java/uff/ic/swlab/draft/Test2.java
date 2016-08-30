@@ -1,4 +1,4 @@
-package uff.ic.swlab.test;
+package uff.ic.swlab.draft;
 
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
