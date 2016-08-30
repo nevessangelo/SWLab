@@ -32,6 +32,9 @@ public class SparqlServer {
                 //System.out.println("========================= Model discarded ==============================");
                 //model.write(System.out, "TURTLE");
             }
+        } else if (model.size() <= 5 && graphUri != null && !graphUri.equals("")) {
+            Logger.getRootLogger().log(Priority.INFO, "Authority " + graphUri + " no VoID.");
+            System.out.println(graphUri);
         }
     }
 }
