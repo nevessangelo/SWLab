@@ -20,7 +20,7 @@ import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
 
-public class JenaSchema {
+public class JenaDataMgr {
 
 	private static final String RDF_DIR = "./src/main/resources/dat/rdf";
 	public static final Lang IMPORT_LANG = Lang.RDFXML;
