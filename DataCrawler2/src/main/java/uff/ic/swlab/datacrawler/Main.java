@@ -27,6 +27,7 @@ public class Main {
 
     public static void run(String[] args) throws MalformedURLException {
         Logger.getRootLogger().setLevel(Level.OFF);
+        System.out.println("Crawler started.");
 
         SparqlServer server = new SparqlServer();
         server.dataURL = "http://localhost:8080/fuseki/void/data";
@@ -62,5 +63,6 @@ public class Main {
                 }
             }
         }
+        System.out.println("Done.");
     }
 }

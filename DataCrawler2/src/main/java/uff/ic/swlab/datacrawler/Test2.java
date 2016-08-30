@@ -2,7 +2,7 @@ package uff.ic.swlab.datacrawler;
 
 import org.apache.jena.riot.Lang;
 
-public class NewClass {
+public class Test2 {
 
     public static void main(String[] args) {
         Lang[] langs = {Lang.TURTLE, Lang.RDFXML, Lang.NTRIPLES, Lang.JSONLD,

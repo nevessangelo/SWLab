@@ -29,7 +29,6 @@ public class VoID {
 
     private static Model getVoidFromFile(String[] urls) {
         Set<String> voidURLs = listPossibleVoIDURLs(urls);
-
         Model void_ = ModelFactory.createDefaultModel();
         for (String url : voidURLs)
             try {
