@@ -35,7 +35,8 @@ public class VoID {
             try {
                 RDFDataMgr.read(void_, url);
             } catch (Exception e1) {
-                Lang[] langs = {Lang.TTL, Lang.RDFXML, Lang.N3, Lang.JSONLD, Lang.TRIG};
+                Lang[] langs = {Lang.TURTLE, Lang.RDFXML, Lang.NTRIPLES, Lang.JSONLD,
+                    Lang.NQUADS, Lang.TRIG, Lang.TRIX, Lang.RDFJSON, Lang.RDFTHRIFT};
                 boolean read = false;
                 for (Lang l : langs)
                     try {
@@ -111,14 +112,20 @@ public class VoID {
                 voidURLs.add(newPath);
                 voidURLs.add(newPath + "/.well-known/void");
                 voidURLs.add(newPath + "/.well-known/void.ttl");
+                voidURLs.add(newPath + "/.well-known/void.rdf");
                 voidURLs.add(newPath + "/void");
                 voidURLs.add(newPath + "/void.ttl");
+                voidURLs.add(newPath + "/void.rdf");
+                voidURLs.add(newPath + "/models/void");
+                voidURLs.add(newPath + "/models/void.ttl");
+                voidURLs.add(newPath + "/models/void.rdf");
                 String[] path = url.getPath().split("/");
                 for (int i = 1; i < path.length; i++)
                     if (!path[i].contains("void")) {
                         newPath += "/" + path[i];
                         voidURLs.add(newPath + "/void");
                         voidURLs.add(newPath + "/void.ttl");
+                        voidURLs.add(newPath + "/void.rdf");
                     } else {
                         voidURLs.add(newPath + "/" + path[i]);
                         break;
