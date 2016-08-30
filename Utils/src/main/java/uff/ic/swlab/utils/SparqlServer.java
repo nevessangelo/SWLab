@@ -28,13 +28,11 @@ public class SparqlServer {
                 accessor.putModel(graphUri, model);
             } catch (Exception e) {
                 Logger.getRootLogger().log(Priority.INFO, "Authority " + graphUri + " error VoID.");
-                System.out.println(graphUri);
-                //System.out.println("========================= Model discarded ==============================");
-                //model.write(System.out, "TURTLE");
+                System.out.println("Authority " + graphUri + " error VoID.");
             }
         } else if (model.size() <= 5 && graphUri != null && !graphUri.equals("")) {
             Logger.getRootLogger().log(Priority.INFO, "Authority " + graphUri + " no VoID.");
-            System.out.println(graphUri);
+            System.out.println("Authority " + graphUri + " no VoID.");
         }
     }
 }
