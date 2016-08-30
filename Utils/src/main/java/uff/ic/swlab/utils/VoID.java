@@ -28,25 +28,32 @@ public class VoID {
     }
 
     private static Model getVoidFromFile(String[] urls) {
-        Set<String> voidURLs = listPossibleVoIDURLs(urls);
         Model void_ = ModelFactory.createDefaultModel();
+        if (urls == null)
+            return void_;
+
+        String[] voidURLs = listPotentialVoIDURLs(urls);
         for (String url : voidURLs)
             try {
                 RDFDataMgr.read(void_, url);
             } catch (Exception e1) {
                 Lang[] langs = {Lang.TURTLE, Lang.RDFXML, Lang.NTRIPLES, Lang.JSONLD,
                     Lang.NQUADS, Lang.TRIG, Lang.TRIX, Lang.RDFJSON, Lang.RDFTHRIFT};
+                Model tempModel;
                 boolean read = false;
                 for (Lang l : langs)
                     try {
-                        RDFDataMgr.read(void_, url, l);
+                        tempModel = ModelFactory.createDefaultModel();
+                        RDFDataMgr.read(tempModel, url, l);
                         read = true;
+                        if (tempModel.size() > 5)
+                            void_.add(tempModel);
                         break;
                     } catch (Exception e2) {
                     }
                 if (!read)
                     try {
-                        Model tempModel = ModelFactory.createDefaultModel();
+                        tempModel = ModelFactory.createDefaultModel();
                         readRDFa(tempModel, url);
                         if (tempModel.size() > 5)
                             void_.add(tempModel);
@@ -57,10 +64,12 @@ public class VoID {
     }
 
     private static Model getVoidFromSparql(String[] sparqlEndPoints) {
+        Model void_ = ModelFactory.createDefaultModel();
+        if (sparqlEndPoints == null)
+            return void_;
+
         String from = "";
         String queryString = "construct {?s ?p ?o}\n %1swhere {?s ?p ?o.}";
-        Model model = ModelFactory.createDefaultModel();
-
         for (String sparqlEndPoint : sparqlEndPoints) {
             for (String n : listVoIDGraphURIs(sparqlEndPoint))
                 from += String.format("from <%1s>\n", n);
@@ -69,12 +78,12 @@ public class VoID {
             try (QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, queryString)) {
                 ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
                 ((QueryEngineHTTP) exec).setTimeout(20000);
-                exec.execConstruct(model);
+                exec.execConstruct(void_);
             } catch (Exception e) {
             }
         }
 
-        return model;
+        return void_;
     }
 
     private static void readRDFa(Model model, String urlString) throws UnsupportedEncodingException {
@@ -102,9 +111,8 @@ public class VoID {
         return graphNames;
     }
 
-    private static Set<String> listPossibleVoIDURLs(String[] urls) {
+    private static String[] listPotentialVoIDURLs(String[] urls) {
         Set<String> voidURLs = new HashSet<>();
-
         try {
             for (String u : urls) {
                 URL url = new URL(u);
@@ -112,29 +120,31 @@ public class VoID {
                 String auth = url.getAuthority();
                 String newPath = protocol + "://" + auth;
                 voidURLs.add(newPath);
-//                voidURLs.add(newPath + "/.well-known/void");
-//                voidURLs.add(newPath + "/.well-known/void.ttl");
-//                voidURLs.add(newPath + "/.well-known/void.rdf");
-//                voidURLs.add(newPath + "/void");
-//                voidURLs.add(newPath + "/void.ttl");
-//                voidURLs.add(newPath + "/void.rdf");
-//                voidURLs.add(newPath + "/models/void");
+                voidURLs.add(newPath + "/.well-known/void");
+                voidURLs.add(newPath + "/.well-known/void.ttl");
+                voidURLs.add(newPath + "/.well-known/void.rdf");
+                voidURLs.add(newPath + "/void");
+                voidURLs.add(newPath + "/void.ttl");
+                voidURLs.add(newPath + "/void.rdf");
+                voidURLs.add(newPath + "/models/void");
                 voidURLs.add(newPath + "/models/void.ttl");
-//                voidURLs.add(newPath + "/models/void.rdf");
+                voidURLs.add(newPath + "/models/void.rdf");
                 String[] path = url.getPath().split("/");
                 for (int i = 1; i < path.length; i++)
-                    if (!path[i].contains("void"))
-                        newPath += "/" + path[i]; //voidURLs.add(newPath + "/void");
-                    //voidURLs.add(newPath + "/void.ttl");
-                    //voidURLs.add(newPath + "/void.rdf");
-                    else
-                        //voidURLs.add(newPath + "/" + path[i]);
+                    if (!path[i].contains("void")) {
+                        newPath += "/" + path[i];
+                        voidURLs.add(newPath + "/void");
+                        voidURLs.add(newPath + "/void.ttl");
+                        voidURLs.add(newPath + "/void.rdf");
+                    } else {
+                        voidURLs.add(newPath + "/" + path[i]);
                         break;
+                    }
             }
         } catch (Exception e) {
         }
 
-        return voidURLs;
+        return voidURLs.toArray(new String[0]);
     }
 
 }
