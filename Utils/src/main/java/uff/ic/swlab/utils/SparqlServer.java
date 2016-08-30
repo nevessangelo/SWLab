@@ -27,6 +27,7 @@ public class SparqlServer {
             } catch (Exception e) {
                 //System.out.println("========================= Model discarded ==============================");
                 //model.write(System.out, "TURTLE");
+                e.printStackTrace();
             }
         }
     }

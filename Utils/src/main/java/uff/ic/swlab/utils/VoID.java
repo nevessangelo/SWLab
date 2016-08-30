@@ -41,13 +41,15 @@ public class VoID {
                     try {
                         RDFDataMgr.read(void_, url, l);
                         read = true;
-                        System.out.println(url);
                         break;
                     } catch (Exception e2) {
                     }
                 if (!read)
                     try {
-                        readRDFa(void_, url);
+                        Model tempModel = ModelFactory.createDefaultModel();
+                        readRDFa(tempModel, url);
+                        if (tempModel.size() > 5)
+                            void_.add(tempModel);
                     } catch (Exception e) {
                     }
             }
@@ -110,25 +112,24 @@ public class VoID {
                 String auth = url.getAuthority();
                 String newPath = protocol + "://" + auth;
                 voidURLs.add(newPath);
-                voidURLs.add(newPath + "/.well-known/void");
-                voidURLs.add(newPath + "/.well-known/void.ttl");
-                voidURLs.add(newPath + "/.well-known/void.rdf");
-                voidURLs.add(newPath + "/void");
-                voidURLs.add(newPath + "/void.ttl");
-                voidURLs.add(newPath + "/void.rdf");
-                voidURLs.add(newPath + "/models/void");
+//                voidURLs.add(newPath + "/.well-known/void");
+//                voidURLs.add(newPath + "/.well-known/void.ttl");
+//                voidURLs.add(newPath + "/.well-known/void.rdf");
+//                voidURLs.add(newPath + "/void");
+//                voidURLs.add(newPath + "/void.ttl");
+//                voidURLs.add(newPath + "/void.rdf");
+//                voidURLs.add(newPath + "/models/void");
                 voidURLs.add(newPath + "/models/void.ttl");
-                voidURLs.add(newPath + "/models/void.rdf");
+//                voidURLs.add(newPath + "/models/void.rdf");
                 String[] path = url.getPath().split("/");
                 for (int i = 1; i < path.length; i++)
-                    if (!path[i].contains("void")) {
+                    if (!path[i].contains("void"))
                         newPath += "/" + path[i]; //voidURLs.add(newPath + "/void");
-                        voidURLs.add(newPath + "/void.ttl");
-                        voidURLs.add(newPath + "/void.rdf");
-                    } else {
-                        voidURLs.add(newPath + "/" + path[i]);
+                    //voidURLs.add(newPath + "/void.ttl");
+                    //voidURLs.add(newPath + "/void.rdf");
+                    else
+                        //voidURLs.add(newPath + "/" + path[i]);
                         break;
-                    }
             }
         } catch (Exception e) {
         }
