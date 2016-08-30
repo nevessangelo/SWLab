@@ -19,8 +19,8 @@ public class Test1 {
     public static void run(String[] args) {
         Logger.getRootLogger().setLevel(Level.OFF);
         System.out.println("Test1 started.");
-        //String[] sparqls = {"http://acm.rkbexplorer.com/sparql"};
-        String[] sparqls = {};
+        String[] sparqls = {"http://acm.rkbexplorer.com/sparql"};
+        //String[] sparqls = {};
         String[] urls = {"http://acm.rkbexplorer.com/id/999"};
 
         SparqlServer server = new SparqlServer();

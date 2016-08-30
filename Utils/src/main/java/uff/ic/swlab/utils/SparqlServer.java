@@ -20,14 +20,13 @@ public class SparqlServer {
     }
 
     public void putModel(String graphUri, Model model) {
-        if (model.size() > 0) {
+        if (model.size() > 5 && graphUri != null && !graphUri.equals("")) {
             DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(dataURL);
             try {
                 accessor.putModel(graphUri, model);
             } catch (Exception e) {
-                System.out.println("========================= Model discarded ==============================");
-                model.write(System.out, "TURTLE");
-                e.printStackTrace();
+                //System.out.println("========================= Model discarded ==============================");
+                //model.write(System.out, "TURTLE");
             }
         }
     }
