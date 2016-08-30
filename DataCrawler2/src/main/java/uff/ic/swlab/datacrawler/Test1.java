@@ -10,7 +10,7 @@ public class Test1 {
 
     public static void main(String[] args) {
         Logger.getRootLogger().setLevel(Level.OFF);
-        System.out.println("Starting test1...");
+        System.out.println("Test1 started.");
         String[] sparqls = {"http://acm.rkbexplorer.com/sparql"};
         String[] urls = {"http://acm.rkbexplorer.com/id/999"};
         Model model = VoID.getVoID(sparqls, urls);
