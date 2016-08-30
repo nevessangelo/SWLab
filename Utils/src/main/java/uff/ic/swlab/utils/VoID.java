@@ -122,8 +122,7 @@ public class VoID {
                 String[] path = url.getPath().split("/");
                 for (int i = 1; i < path.length; i++)
                     if (!path[i].contains("void")) {
-                        newPath += "/" + path[i];
-                        voidURLs.add(newPath + "/void");
+                        newPath += "/" + path[i]; //voidURLs.add(newPath + "/void");
                         voidURLs.add(newPath + "/void.ttl");
                         voidURLs.add(newPath + "/void.rdf");
                     } else {
