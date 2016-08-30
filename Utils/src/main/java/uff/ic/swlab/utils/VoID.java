@@ -42,6 +42,7 @@ public class VoID {
                     try {
                         RDFDataMgr.read(void_, url, l);
                         read = true;
+                        System.out.println(url);
                         break;
                     } catch (Exception e2) {
                     }
