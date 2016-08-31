@@ -21,7 +21,9 @@ public class Test1 {
         System.out.println("Test1 started.");
         //String[] sparqls = {"http://acm.rkbexplorer.com/sparql"};
         String[] sparqls = {};
-        String[] urls = {"http://acm.rkbexplorer.com/id/999"};
+        String[] urls = {"http://acm.rkbexplorer.com/models/void.ttl",
+            "http://acm.rkbexplorer.com/id/998550",
+            "http://acm.rkbexplorer.com/id/"};
 
         SparqlServer server = new SparqlServer();
         server.dataURL = "http://localhost:8080/fuseki/void/data";

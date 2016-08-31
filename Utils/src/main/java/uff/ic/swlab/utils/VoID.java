@@ -13,6 +13,7 @@ import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.WebContent;
 import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
+import org.apache.jena.vocabulary.RDF;
 
 public class VoID {
 
@@ -43,7 +44,7 @@ public class VoID {
                     try {
                         tempModel = ModelFactory.createDefaultModel();
                         RDFDataMgr.read(tempModel, url, l);
-                        if (tempModel.size() > 5) {
+                        if (tempModel.size() > 5 && isVoID(tempModel)) {
                             void_.add(tempModel);
                             read = true;
                             break;
@@ -54,7 +55,7 @@ public class VoID {
                     try {
                         tempModel = ModelFactory.createDefaultModel();
                         RDFaDataMgr.read(tempModel, url);
-                        if (tempModel.size() > 5)
+                        if (tempModel.size() > 5 && isVoID(tempModel))
                             void_.add(tempModel);
                     } catch (Exception e3) {
                     }
@@ -127,6 +128,7 @@ public class VoID {
                 for (int i = 1; i < path.length; i++)
                     if (!path[i].contains("void")) {
                         newPath += "/" + path[i];
+                        voidURLs.add(newPath);
                         voidURLs.add(newPath + "/void");
                         voidURLs.add(newPath + "/void.ttl");
                         voidURLs.add(newPath + "/void.rdf");
@@ -139,6 +141,14 @@ public class VoID {
         }
 
         return voidURLs.toArray(new String[0]);
+    }
+
+    private static boolean isVoID(Model model) {
+        org.apache.jena.rdf.model.Resource voidDataset = model.getResource("http://rdfs.org/ns/void#Dataset");
+        org.apache.jena.rdf.model.Resource voidLinkset = model.getResource("http://rdfs.org/ns/void#Linkset");
+        boolean hasDataset = model.contains(null, RDF.type, voidDataset);
+        boolean hasLinkset = model.contains(null, RDF.type, voidLinkset);
+        return hasDataset || hasLinkset;
     }
 
 }
