@@ -28,59 +28,63 @@ public class VoID {
 
     private static Model getVoidFromFile(String[] urls) {
         Model void_ = ModelFactory.createDefaultModel();
-        if (urls == null)
-            return void_;
 
-        String[] voidURLs = listPotentialVoIDURLs(urls);
-        for (String url : voidURLs)
-            try {
-                RDFDataMgr.read(void_, url);
-            } catch (Exception e1) {
-                Model tempModel;
-                Lang[] langs = {Lang.TURTLE, Lang.TRIG, Lang.RDFXML, Lang.NTRIPLES,
-                    Lang.NQUADS, Lang.JSONLD, Lang.RDFJSON, Lang.TRIX, Lang.RDFTHRIFT};
-                boolean read = false;
-                for (Lang l : langs)
-                    try {
-                        tempModel = ModelFactory.createDefaultModel();
-                        RDFDataMgr.read(tempModel, url, l);
-                        if (tempModel.size() > 5 && isVoID(tempModel)) {
-                            void_.add(tempModel);
-                            read = true;
-                            break;
+        try {
+            String[] voidURLs = listPotentialVoIDURLs(urls);
+            for (String url : voidURLs)
+                try {
+                    RDFDataMgr.read(void_, url);
+                } catch (Exception e1) {
+                    Model tempModel;
+                    Lang[] langs = {Lang.TURTLE, Lang.TRIG, Lang.RDFXML, Lang.NTRIPLES,
+                        Lang.NQUADS, Lang.JSONLD, Lang.RDFJSON, Lang.TRIX, Lang.RDFTHRIFT};
+                    boolean read = false;
+                    for (Lang l : langs)
+                        try {
+                            tempModel = ModelFactory.createDefaultModel();
+                            RDFDataMgr.read(tempModel, url, l);
+                            if (tempModel.size() > 5 && isVoID(tempModel)) {
+                                void_.add(tempModel);
+                                read = true;
+                                break;
+                            }
+                        } catch (Exception e2) {
                         }
-                    } catch (Exception e2) {
-                    }
-                if (!read)
-                    try {
-                        tempModel = ModelFactory.createDefaultModel();
-                        RDFaDataMgr.read(tempModel, url);
-                        if (tempModel.size() > 5 && isVoID(tempModel))
-                            void_.add(tempModel);
-                    } catch (Exception e3) {
-                    }
-            }
+                    if (!read)
+                        try {
+                            tempModel = ModelFactory.createDefaultModel();
+                            RDFaDataMgr.read(tempModel, url);
+                            if (tempModel.size() > 5 && isVoID(tempModel))
+                                void_.add(tempModel);
+                        } catch (Exception e3) {
+                        }
+                }
+        } catch (Exception e) {
+        }
+
         return void_;
     }
 
     private static Model getVoidFromSparql(String[] sparqlEndPoints) {
         Model void_ = ModelFactory.createDefaultModel();
-        if (sparqlEndPoints == null)
-            return void_;
 
-        String from = "";
-        String queryString = "construct {?s ?p ?o}\n %1swhere {?s ?p ?o.}";
-        for (String sparqlEndPoint : sparqlEndPoints) {
-            for (String n : listVoIDGraphURIs(sparqlEndPoint))
-                from += String.format("from <%1s>\n", n);
-            queryString = String.format(queryString, from);
+        try {
+            String from = "";
+            String queryString = "construct {?s ?p ?o}\n %1swhere {?s ?p ?o.}";
+            for (String sparqlEndPoint : sparqlEndPoints) {
+                for (String n : listVoIDGraphURIs(sparqlEndPoint))
+                    from += String.format("from <%1s>\n", n);
+                queryString = String.format(queryString, from);
 
-            try (QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, queryString)) {
-                ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
-                ((QueryEngineHTTP) exec).setTimeout(20000);
-                exec.execConstruct(void_);
-            } catch (Exception e) {
+                try (QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, queryString)) {
+                    ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
+                    ((QueryEngineHTTP) exec).setTimeout(20000);
+                    exec.execConstruct(void_);
+                } catch (Exception e) {
+                }
             }
+        } catch (Exception e) {
+
         }
 
         return void_;
@@ -91,7 +95,6 @@ public class VoID {
 
         String name;
         String queryString = "select distinct ?g where {graph ?g {?s ?p ?o.}}";
-
         try (QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, queryString)) {
             ((QueryEngineHTTP) exec).setTimeout(20000);
             ResultSet rs = exec.execSelect();
@@ -108,6 +111,7 @@ public class VoID {
 
     private static String[] listPotentialVoIDURLs(String[] urls) {
         Set<String> voidURLs = new HashSet<>();
+
         try {
             for (String u : urls) {
                 URL url = new URL(u);
