@@ -29,13 +29,16 @@ public class VoID {
     private static Model getVoidFromFile(String[] urls) {
         Model void_ = ModelFactory.createDefaultModel();
 
+        Model tempModel;
         try {
             String[] voidURLs = listPotentialVoIDURLs(urls);
             for (String url : voidURLs)
                 try {
-                    RDFDataMgr.read(void_, url);
+                    tempModel = ModelFactory.createDefaultModel();
+                    RDFDataMgr.read(tempModel, url);
+                    if (tempModel.size() > 5 && isVoID(tempModel))
+                        void_.add(tempModel);
                 } catch (Exception e1) {
-                    Model tempModel;
                     Lang[] langs = {Lang.TURTLE, Lang.TRIG, Lang.RDFXML, Lang.NTRIPLES,
                         Lang.NQUADS, Lang.JSONLD, Lang.RDFJSON, Lang.TRIX, Lang.RDFTHRIFT};
                     boolean read = false;
