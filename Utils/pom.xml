@@ -45,15 +45,23 @@
         </dependency>
         <dependency>
             <groupId>org.apache.jena</groupId>
-            <artifactId>apache-jena-libs</artifactId>
-            <type>pom</type>
+            <artifactId>apache-jena</artifactId>
             <version>3.1.0</version>
+            <type>pom</type>
         </dependency>
+        <dependency>
+            <groupId>org.apache.jena</groupId>
+            <artifactId>jena-extras</artifactId>
+            <version>3.1.0</version>
+            <type>pom</type>
+        </dependency>
+        <!--
         <dependency>
             <groupId>net.sourceforge.owlapi</groupId>
             <artifactId>owlapi-distribution</artifactId>
             <version>5.0.2</version>
         </dependency>
+        -->
     </dependencies>
 
     <build>
