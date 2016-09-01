@@ -17,7 +17,7 @@ import org.apache.jena.vocabulary.RDF;
 
 public class VoID {
 
-    public static Model getVoID(String[] sparqlEndPoints, String[] urls) {
+    public static Model findVoID(String[] sparqlEndPoints, String[] urls) {
         Model void_ = ModelFactory.createDefaultModel();
 
         void_.add(VoID.getVoidFromFile(urls));
@@ -42,10 +42,10 @@ public class VoID {
                     Lang[] langs = {Lang.TURTLE, Lang.TRIG, Lang.RDFXML, Lang.NTRIPLES,
                         Lang.NQUADS, Lang.JSONLD, Lang.RDFJSON, Lang.TRIX, Lang.RDFTHRIFT};
                     boolean read = false;
-                    for (Lang l : langs)
+                    for (Lang lang : langs)
                         try {
                             tempModel = ModelFactory.createDefaultModel();
-                            RDFDataMgr.read(tempModel, url, l);
+                            RDFDataMgr.read(tempModel, url, lang);
                             if (tempModel.size() > 5 && isVoID(tempModel)) {
                                 void_.add(tempModel);
                                 read = true;

@@ -41,7 +41,7 @@ def _feed_json_db(oper, _datasets, _dataset_ids, dataset_ids, catalog):
         extras2['last_modified_at'] = str(datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f'))
         extras2['homepage'] = normalize_url(metadata['url'])
         extras2['url'] = normalize_url(metadata['url'])
-        extras2['namespaces'] = [metadata['extras']['namespace']] if 'extras' in metadata and 'namespace' in metadata['extras']  else []
+        extras2['namespaces'] = next((e['value'] for e in metadata['extras'] if e['key'] == 'namespace'), []) if 'extras' in metadata else []
         extras2['examples'] = [r['url'] for r in metadata['resources']
                             if ('description' in r and 'example' in r['description'])
                             or ('format' in r and 'example' in r['format'])

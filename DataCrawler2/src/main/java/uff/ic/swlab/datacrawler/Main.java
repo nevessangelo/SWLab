@@ -50,7 +50,7 @@ public class Main {
                     String[] sparqlEndPoints = extractSparqlEndPoints(dataset);
                     String authority = Resource.getAuthority(urls);
 
-                    server.putModel(authority, VoID.getVoID(sparqlEndPoints, urls));
+                    server.putModel(authority, VoID.findVoID(sparqlEndPoints, urls));
                 }
             }
         }
