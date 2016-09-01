@@ -70,7 +70,7 @@ public class VoID {
         return void_;
     }
 
-    private static long http_timeout = 10000;
+    private static final long HTTP_TIMEOUT = 10000;
 
     private static Model getVoidFromSparql(String[] sparqlEndPoints) {
         Model void_ = ModelFactory.createDefaultModel();
@@ -79,19 +79,20 @@ public class VoID {
             String from = "";
             String queryString = "construct {?s ?p ?o}\n %1swhere {?s ?p ?o.}";
             for (String sparqlEndPoint : sparqlEndPoints) {
-                for (String n : listVoIDGraphURIs(sparqlEndPoint))
-                    from += String.format("from <%1s>\n", n);
+                from = listVoIDGraphURIs(sparqlEndPoint)
+                        .stream()
+                        .map((n) -> String.format("from <%1s>\n", n))
+                        .reduce(from, String::concat);
                 queryString = String.format(queryString, from);
 
                 try (QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, queryString)) {
                     ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
-                    ((QueryEngineHTTP) exec).setTimeout(http_timeout);
+                    ((QueryEngineHTTP) exec).setTimeout(HTTP_TIMEOUT);
                     exec.execConstruct(void_);
                 } catch (Exception e) {
                 }
             }
         } catch (Exception e) {
-
         }
 
         return void_;
@@ -103,7 +104,7 @@ public class VoID {
         String name;
         String queryString = "select distinct ?g where {graph ?g {?s ?p ?o.}}";
         try (QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, queryString)) {
-            ((QueryEngineHTTP) exec).setTimeout(http_timeout);
+            ((QueryEngineHTTP) exec).setTimeout(HTTP_TIMEOUT);
             ResultSet rs = exec.execSelect();
             while (rs.hasNext()) {
                 name = rs.next().getResource("g").getURI();
