@@ -46,25 +46,37 @@ public class Main {
                 while (cursor.hasNext()) {
                     Dataset dataset = new Dataset(cursor.next());
 
-                    Set<String> set = new HashSet<>();
-                    set.add(dataset.getHomepage());
-                    set.addAll(Arrays.asList(dataset.getNamespaces()));
-                    set.addAll(Arrays.asList(dataset.getExamples()));
-                    set.addAll(Arrays.asList(dataset.getVoids()));
-                    set = set.stream()
-                            .filter(line -> line != null)
-                            .collect(Collectors.toSet());
-                    String[] urls = set.toArray(new String[0]);
+                    String[] urls = extractURLs(dataset);
+                    String[] sparqlEndPoints = extractSparqlEndPoints(dataset);
+                    String authority = Resource.getAuthority(urls);
 
-                    String[] sparqlEndPoints = Arrays.asList(dataset.getSparqlEndPoints())
-                            .stream()
-                            .filter(line -> line != null)
-                            .collect(Collectors.toSet()).toArray(new String[0]);
-
-                    server.putModel(Resource.getAuthority(urls), VoID.getVoID(sparqlEndPoints, urls));
+                    server.putModel(authority, VoID.getVoID(sparqlEndPoints, urls));
                 }
             }
         }
         System.out.println("Done.");
+    }
+
+    private static String[] extractSparqlEndPoints(Dataset dataset) {
+        String[] sparqlEndPoints;
+        sparqlEndPoints = Arrays.asList(dataset.getSparqlEndPoints())
+                .stream()
+                .filter(line -> line != null)
+                .collect(Collectors.toSet()).toArray(new String[0]);
+        return sparqlEndPoints;
+    }
+
+    private static String[] extractURLs(Dataset dataset) {
+        String[] urls;
+        Set<String> set = new HashSet<>();
+        set.add(dataset.getHomepage());
+        set.addAll(Arrays.asList(dataset.getNamespaces()));
+        set.addAll(Arrays.asList(dataset.getExamples()));
+        set.addAll(Arrays.asList(dataset.getVoids()));
+        set = set.stream()
+                .filter(line -> line != null)
+                .collect(Collectors.toSet());
+        urls = set.toArray(new String[0]);
+        return urls;
     }
 }
