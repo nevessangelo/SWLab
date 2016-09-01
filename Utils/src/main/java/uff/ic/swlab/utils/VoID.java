@@ -11,6 +11,7 @@ import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
+import org.apache.jena.riot.RiotNotFoundException;
 import org.apache.jena.riot.WebContent;
 import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
 import org.apache.jena.vocabulary.RDF;
@@ -38,8 +39,9 @@ public class VoID {
                     RDFDataMgr.read(tempModel, url);
                     if (tempModel.size() > 5 && isVoID(tempModel))
                         void_.add(tempModel);
-                } catch (Exception e1) {
-                    Lang[] langs = {Lang.TURTLE, Lang.TRIG, Lang.RDFXML, Lang.NTRIPLES,
+                } catch (RiotNotFoundException e1) {
+                } catch (Exception e2) {
+                    Lang[] langs = {Lang.TURTLE, Lang.RDFXML, Lang.NTRIPLES, Lang.TRIG,
                         Lang.NQUADS, Lang.JSONLD, Lang.RDFJSON, Lang.TRIX, Lang.RDFTHRIFT};
                     boolean read = false;
                     for (Lang lang : langs)
@@ -51,7 +53,7 @@ public class VoID {
                                 read = true;
                                 break;
                             }
-                        } catch (Exception e2) {
+                        } catch (Exception e3) {
                         }
                     if (!read)
                         try {
