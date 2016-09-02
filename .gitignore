@@ -5,6 +5,7 @@ __pycache__/
 .pydevproject
 *.log
 *.class
+*.DS_Store
 
 /resource/target
 /.well-known/target
