@@ -74,7 +74,8 @@
     <br>
     <br>
     <br>
-    <table style="border: 0px; text-align: center; width: 70%">
+	
+    <table style="margin:auto; border:0px; text-align:justify; width:70%">
         <tr>
             <td style="width: 50%">
                 <h2>Applications</h2>
@@ -90,7 +91,7 @@
                         according to the probability that links between a dataset <i>S</i>
                         to be published and <i>T<sub>i</sub></i> can be found. <details>
                             <summary>details</summary>
-                            <div style="width: 90%; text-align: justify">
+                            <div style="width: 95%; text-align: justify">
                                 <ol>
                                     <li>GOMES, Raphael do Vale A.; CASANOVA, Marco A.; LOPES,
                                         Giseli Rabello; LEME, Luiz Andr&eacute; P. CRAWLER-LD: A
@@ -167,6 +168,7 @@
 
         </tr>
     </table>
+	
     <%=rdfa%>
 
 </body>
