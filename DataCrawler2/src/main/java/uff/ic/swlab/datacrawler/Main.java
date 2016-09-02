@@ -30,7 +30,7 @@ public class Main {
         List<String> graphNames = server.listGraphNames();
         CatalogCrawler crawler = new CatalogCrawler();
 
-        ExecutorService pool = Executors.newFixedThreadPool(100);
+        ExecutorService pool = Executors.newFixedThreadPool(50);
         while (crawler.hasNext()) {
             Dataset dataset = crawler.next();
             String[] urls = CatalogCrawler.extractURLs(dataset);
