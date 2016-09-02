@@ -27,7 +27,7 @@ public class Main {
         server.dataURL = "http://localhost:8080/fuseki/void/data";
         CatalogCrawler crawler = new CatalogCrawler();
 
-        ExecutorService pool = Executors.newFixedThreadPool(50);
+        ExecutorService pool = Executors.newFixedThreadPool(100);
         while (crawler.hasNext()) {
             Dataset dataset = crawler.next();
             String[] urls = CatalogCrawler.extractURLs(dataset);

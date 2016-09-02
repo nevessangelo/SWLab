@@ -5,7 +5,7 @@ import uff.ic.swlab.utils.VoID;
 
 public class Task implements Runnable {
 
-    private static final Semaphore SEMAPHORE = new Semaphore(100);
+    private static final Semaphore SEMAPHORE = new Semaphore(1000);
 
     private SparqlServer server;
     private String authority;
