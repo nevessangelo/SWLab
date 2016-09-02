@@ -28,8 +28,8 @@ public class Main {
         server.dataURL = "http://localhost:8080/fuseki/void/data";
         server.sparqlURL = "http://localhost:8080/fuseki/void/spqrql";
         List<String> graphNames = server.listGraphNames();
-        CatalogCrawler crawler = new CatalogCrawler();
 
+        CatalogCrawler crawler = new CatalogCrawler();
         ExecutorService pool = Executors.newFixedThreadPool(50);
         while (crawler.hasNext()) {
             Dataset dataset = crawler.next();
