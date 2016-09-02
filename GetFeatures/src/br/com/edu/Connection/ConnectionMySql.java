@@ -18,11 +18,11 @@ public class ConnectionMySql {
     Connection connection = null;
 
     public Connection Conectar() throws ClassNotFoundException {
-        String serverName = "localhost";    //caminho do servidor do BD
-        String mydatabase = "Base_Datasets";        //nome do seu banco de dados
+        String serverName = "localhost";    
+        String mydatabase = "Base_Datasets";        
         String url = "jdbc:mysql://" + serverName + "/" + mydatabase;
-        String username = "root";        //nome de um usuário de seu BD      
-        String password = "123";      //sua senha de acesso
+        String username = "SemanticWeb";        
+        String password = "123";      
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
