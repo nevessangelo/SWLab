@@ -1,20 +1,13 @@
 package uff.ic.swlab.datacrawler;
 
-import com.mongodb.MongoClient;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoCursor;
-import com.mongodb.client.MongoDatabase;
 import java.net.MalformedURLException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.stream.Collectors;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import org.bson.Document;
 import uff.ic.swlab.utils.Resource;
 import uff.ic.swlab.utils.SparqlServer;
-import uff.ic.swlab.utils.VoID;
 
 public class Main {
 
@@ -26,57 +19,27 @@ public class Main {
         }
     }
 
-    public static void run(String[] args) throws MalformedURLException {
+    public static void run(String[] args) throws MalformedURLException, InterruptedException {
         Logger.getRootLogger().setLevel(Level.OFF);
         System.out.println("Crawler started.");
 
         SparqlServer server = new SparqlServer();
         server.dataURL = "http://localhost:8080/fuseki/void/data";
+        CatalogCrawler crawler = new CatalogCrawler();
 
-        try (MongoClient mongo = new MongoClient("localhost", 27017)) {
+        ExecutorService pool = Executors.newFixedThreadPool(50);
+        while (crawler.hasNext()) {
+            Dataset dataset = crawler.next();
+            String[] urls = CatalogCrawler.extractURLs(dataset);
+            String[] sparqlEndPoints = CatalogCrawler.extractSparqlEndPoints(dataset);
+            String authority = Resource.getAuthority(urls);
 
-            MongoDatabase db = mongo.getDatabase("data_catalog");
-            MongoCollection<Document> datasets = db.getCollection("datasets");
-
-            try (MongoCursor<Document> cursor = datasets
-                    .find(new Document("extras2.catalog_name", "Mannheim Linked Data Catalog"))
-                    .noCursorTimeout(true)
-                    .iterator()) {
-
-                while (cursor.hasNext()) {
-                    Dataset dataset = new Dataset(cursor.next());
-
-                    String[] urls = extractURLs(dataset);
-                    String[] sparqlEndPoints = extractSparqlEndPoints(dataset);
-                    String authority = Resource.getAuthority(urls);
-
-                    server.putModel(authority, VoID.findVoID(sparqlEndPoints, urls));
-                }
-            }
+            pool.submit(new Task(server, authority, sparqlEndPoints, urls));
         }
+        pool.shutdown();
+        pool.awaitTermination(1, TimeUnit.DAYS);
+
         System.out.println("Done.");
     }
 
-    private static String[] extractSparqlEndPoints(Dataset dataset) {
-        String[] sparqlEndPoints;
-        sparqlEndPoints = Arrays.asList(dataset.getSparqlEndPoints())
-                .stream()
-                .filter(line -> line != null)
-                .collect(Collectors.toSet()).toArray(new String[0]);
-        return sparqlEndPoints;
-    }
-
-    private static String[] extractURLs(Dataset dataset) {
-        String[] urls;
-        Set<String> set = new HashSet<>();
-        set.add(dataset.getHomepage());
-        set.addAll(Arrays.asList(dataset.getNamespaces()));
-        set.addAll(Arrays.asList(dataset.getExamples()));
-        set.addAll(Arrays.asList(dataset.getVoids()));
-        set = set.stream()
-                .filter(line -> line != null)
-                .collect(Collectors.toSet());
-        urls = set.toArray(new String[0]);
-        return urls;
-    }
 }
