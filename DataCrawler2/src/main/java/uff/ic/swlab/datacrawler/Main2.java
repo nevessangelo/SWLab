@@ -1,12 +1,13 @@
-package uff.ic.swlab.draft;
+package uff.ic.swlab.datacrawler;
 
+import java.net.MalformedURLException;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import uff.ic.swlab.utils.Resource;
 import uff.ic.swlab.utils.SparqlServer;
 import uff.ic.swlab.utils.VoID;
 
-public class Test1 {
+public class Main2 {
 
     public static void main(String[] args) {
         try {
@@ -16,21 +17,23 @@ public class Test1 {
         }
     }
 
-    public static void run(String[] args) {
+    public static void run(String[] args) throws MalformedURLException {
         Logger.getRootLogger().setLevel(Level.OFF);
-        System.out.println("Test1 started.");
-        //String[] sparqls = {"http://acm.rkbexplorer.com/sparql"};
-        String[] sparqls = {};
-        String[] urls = {"http://acm.rkbexplorer.com/models/void.ttl",
-            "http://acm.rkbexplorer.com/id/998550",
-            "http://acm.rkbexplorer.com/id/"};
+        System.out.println("Crawler started.");
 
         SparqlServer server = new SparqlServer();
         server.dataURL = "http://localhost:8080/fuseki/void/data";
+        LODCrawler crawler = new LODCrawler();
 
-        server.putModel(Resource.getAuthority(urls), VoID.retrieveVoID(sparqls, urls));
+        while (crawler.hasNext()) {
+            String uri = crawler.next();
+            String[] urls = {uri};
+            String authority = Resource.getAuthority(urls);
 
-        //model.write(System.out, Lang.TURTLE.getName());
+            server.putModel(authority, VoID.retrieveVoID(null, urls));
+        }
+
         System.out.println("Done.");
     }
+
 }

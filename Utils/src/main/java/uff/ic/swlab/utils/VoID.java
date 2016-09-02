@@ -18,16 +18,16 @@ import org.apache.jena.vocabulary.RDF;
 
 public class VoID {
 
-    public static Model findVoID(String[] sparqlEndPoints, String[] urls) {
+    public static Model retrieveVoID(String[] sparqlEndPoints, String[] urls) {
         Model void_ = ModelFactory.createDefaultModel();
 
-        void_.add(VoID.getVoidFromFile(urls));
-        void_.add(VoID.getVoidFromSparql(sparqlEndPoints));
+        void_.add(VoID.retrieveVoIDFromURL(urls));
+        void_.add(VoID.retrieveVoIDFromSparql(sparqlEndPoints));
 
         return void_;
     }
 
-    private static Model getVoidFromFile(String[] urls) {
+    private static Model retrieveVoIDFromURL(String[] urls) {
         Model void_ = ModelFactory.createDefaultModel();
 
         Model tempModel;
@@ -72,14 +72,14 @@ public class VoID {
 
     private static final long HTTP_TIMEOUT = 10000;
 
-    private static Model getVoidFromSparql(String[] sparqlEndPoints) {
+    private static Model retrieveVoIDFromSparql(String[] sparqlEndPoints) {
         Model void_ = ModelFactory.createDefaultModel();
 
         try {
             String from = "";
             String queryString = "construct {?s ?p ?o}\n %1swhere {?s ?p ?o.}";
             for (String sparqlEndPoint : sparqlEndPoints) {
-                from = listVoIDGraphURIs(sparqlEndPoint)
+                from = listVoIDGraphNames(sparqlEndPoint)
                         .stream()
                         .map((n) -> String.format("from <%1s>\n", n))
                         .reduce(from, String::concat);
@@ -98,7 +98,7 @@ public class VoID {
         return void_;
     }
 
-    private static List<String> listVoIDGraphURIs(String sparqlEndPoint) {
+    private static List<String> listVoIDGraphNames(String sparqlEndPoint) {
         List<String> graphNames = new ArrayList<>();
 
         String name;
