@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+import org.apache.jena.rdf.model.Model;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import uff.ic.swlab.utils.Resource;
@@ -33,11 +34,15 @@ public class Main {
         ExecutorService pool = Executors.newFixedThreadPool(50);
         while (crawler.hasNext()) {
             Dataset dataset = crawler.next();
-            String[] urls = CatalogCrawler.extractURLs(dataset);
-            String[] sparqlEndPoints = CatalogCrawler.extractSparqlEndPoints(dataset);
+
+            Model void_ = dataset.makeVoID();
+            String[] urls = dataset.getURLs(dataset);
+            String[] sparqlEndPoints = dataset.getSparqlEndPoints();
+            String nameURI = dataset.getNameURI();
             String authority = Resource.getAuthority(urls);
-            if (!graphNames.contains(authority))
-                pool.submit(new Task(server, authority, sparqlEndPoints, urls));
+
+            if (!graphNames.contains(nameURI))
+                pool.submit(new Task(server, nameURI, sparqlEndPoints, urls, void_));
         }
         pool.shutdown();
         pool.awaitTermination(1, TimeUnit.DAYS);

@@ -30,8 +30,8 @@ public class Test2 {
             try (MongoCursor<Document> cursor = datasets.find().iterator()) {
                 while (cursor.hasNext()) {
                     Dataset dataset = new Dataset(cursor.next());
-                    if (dataset.getVoids().length > 0)
-                        System.out.println(dataset.getVoids()[0]);
+                    if (dataset.getVoIDURLs().length > 0)
+                        System.out.println(dataset.getVoIDURLs()[0]);
                     if (dataset.getNamespaces().length > 0)
                         System.out.println(dataset.getNamespaces()[0]);
                 }
