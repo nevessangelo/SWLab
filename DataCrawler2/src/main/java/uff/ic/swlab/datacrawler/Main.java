@@ -25,29 +25,34 @@ public class Main {
         Logger.getRootLogger().setLevel(Level.OFF);
         System.out.println("Crawler started.");
 
-        SparqlServer server = new SparqlServer();
-        server.dataURL = "http://localhost:8080/fuseki/void/data";
-        server.sparqlURL = "http://localhost:8080/fuseki/void/spqrql";
-        List<String> graphNames = server.listGraphNames();
+        try (Crawler<Dataset> crawler = new CatalogCrawler();) {
 
-        CatalogCrawler crawler = new CatalogCrawler();
-        ExecutorService pool = Executors.newFixedThreadPool(50);
-        while (crawler.hasNext()) {
-            Dataset dataset = crawler.next();
+            SparqlServer server = new SparqlServer();
+            server.dataURL = "http://localhost:8080/fuseki/void/data";
+            server.sparqlURL = "http://localhost:8080/fuseki/void/spqrql";
+            List<String> graphNames = server.listGraphNames();
 
-            Model void_ = dataset.makeVoID();
-            String[] urls = dataset.getURLs(dataset);
-            String[] sparqlEndPoints = dataset.getSparqlEndPoints();
-            String nameURI = dataset.getNameURI();
-            String authority = Resource.getAuthority(urls);
+            ExecutorService pool = Executors.newFixedThreadPool(20);
+            while (crawler.hasNext()) {
+                Dataset dataset = crawler.next();
 
-            if (!graphNames.contains(nameURI))
-                pool.submit(new Task(server, nameURI, sparqlEndPoints, urls, void_));
+                Model void_ = dataset.makeVoID();
+                String[] urls = dataset.getURLs(dataset);
+                String[] sparqlEndPoints = dataset.getSparqlEndPoints();
+                String nameURI = dataset.getNameURI();
+                String authority = Resource.getAuthority(urls);
+
+                if (!graphNames.contains(nameURI)) {
+                    pool.submit(new Task(void_, nameURI, urls, sparqlEndPoints, server));
+                }
+            }
+            pool.shutdown();
+            pool.awaitTermination(7, TimeUnit.DAYS);
+
+        } catch (Throwable t) {
         }
-        pool.shutdown();
-        pool.awaitTermination(1, TimeUnit.DAYS);
 
-        System.out.println("Done.");
+        System.out.println("Crawler done.");
     }
 
 }

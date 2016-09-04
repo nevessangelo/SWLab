@@ -19,7 +19,7 @@ public class CatalogCrawler extends Crawler<Dataset> {
         cursor = datasets
                 .find(new Document("extras2.catalog_name", "Mannheim Linked Data Catalog"))
                 //.find(new Document("name", "rkb-explorer-acm"))
-                .noCursorTimeout(true)
+                .batchSize(1)
                 .iterator();
     }
 
@@ -36,8 +36,14 @@ public class CatalogCrawler extends Crawler<Dataset> {
 
     @Override
     public void close() {
-        cursor.close();
-        mongo.close();
+        try {
+            cursor.close();
+        } catch (Throwable t) {
+        }
+        try {
+            mongo.close();
+        } catch (Throwable t) {
+        }
     }
 
 }

@@ -6,21 +6,20 @@ import uff.ic.swlab.utils.VoID;
 
 public class Task implements Runnable {
 
-    private static final Semaphore SEMAPHORE = new Semaphore(1000);
-
-    private final SparqlServer server;
-    private final String authority;
-    private final String[] sparqlEndPoints;
-    private final String[] urls;
     private final Model void_;
+    private final String authority;
+    private final String[] urls;
+    private final String[] sparqlEndPoints;
+    private final SparqlServer server;
+    private static final Semaphore SEMAPHORE = new Semaphore(100);
 
-    public Task(SparqlServer server, String authority, String[] sparqlEndPoints, String[] urls, Model void_) {
+    public Task(Model void_, String authority, String[] urls, String[] sparqlEndPoints, SparqlServer server) {
         SEMAPHORE.acquire();
-        this.server = server;
-        this.authority = authority;
-        this.sparqlEndPoints = sparqlEndPoints;
-        this.urls = urls;
         this.void_ = void_;
+        this.authority = authority;
+        this.urls = urls;
+        this.sparqlEndPoints = sparqlEndPoints;
+        this.server = server;
     }
 
     @Override
