@@ -43,7 +43,7 @@ public class Main {
                 String authority = Resource.getAuthority(urls);
 
                 if (!graphNames.contains(nameURI)) {
-                    pool.submit(new Task(void_, nameURI, urls, sparqlEndPoints, server));
+                    pool.submit(new Task(void_, urls, sparqlEndPoints, server, nameURI));
                 }
             }
             pool.shutdown();
