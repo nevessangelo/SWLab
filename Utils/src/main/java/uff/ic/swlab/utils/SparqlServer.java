@@ -27,16 +27,14 @@ public class SparqlServer {
     }
 
     public void putModel(String graphURI, Model model) {
-        if (model.size() > 5 && graphURI != null && !graphURI.equals("")) {
+        if (graphURI != null && !graphURI.equals("")) {
             DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(dataURL);
             try {
                 accessor.putModel(graphURI, model);
-                System.out.println("VoID dataset " + graphURI + " has been loaded.");
+                System.out.println("Graph <" + graphURI + "> has been loaded.");
             } catch (Exception e) {
-                Logger.getRootLogger().log(Priority.INFO, "Authority " + graphURI + " error VoID.");
+                Logger.getRootLogger().log(Priority.INFO, "Authority " + graphURI + " error putModel().");
             }
-        } else if (model.size() <= 5 && graphURI != null && !graphURI.equals("")) {
-            Logger.getRootLogger().log(Priority.INFO, "Authority " + graphURI + " no VoID.");
         }
     }
 
