@@ -58,6 +58,7 @@ public class Task implements Runnable {
 
     public void run2() {
         server.putModel(graphURI, void_.add(VoID.retrieveVoID(sparqlEndPoints, urls)));
+        System.out.println("VoID dataset " + graphURI + " has been loaded.");
     }
 
 }
