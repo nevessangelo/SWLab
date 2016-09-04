@@ -32,7 +32,7 @@ public class Main {
             server.sparqlURL = "http://localhost:8080/fuseki/void/spqrql";
             List<String> graphNames = server.listGraphNames();
 
-            ExecutorService pool = Executors.newFixedThreadPool(20);
+            ExecutorService pool = Executors.newWorkStealingPool(20);
             while (crawler.hasNext()) {
                 Dataset dataset = crawler.next();
 
