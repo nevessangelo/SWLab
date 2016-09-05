@@ -57,7 +57,10 @@ public class Task implements Runnable {
     }
 
     public void run2() {
-        server.putModel(graphURI, void_.add(VoID.retrieveVoID(sparqlEndPoints, urls)));
+        Model model = void_.add(VoID.retrieveVoID(sparqlEndPoints, urls));
+        if (VoID.isVoID(model)) {
+            server.putModel(graphURI, model);
+        }
     }
 
 }

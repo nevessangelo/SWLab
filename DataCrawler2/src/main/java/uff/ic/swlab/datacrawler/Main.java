@@ -29,7 +29,7 @@ public class Main {
 
             SparqlServer server = new SparqlServer();
             server.dataURL = "http://localhost:8080/fuseki/void/data";
-            server.sparqlURL = "http://localhost:8080/fuseki/void/spqrql";
+            server.sparqlURL = "http://localhost:8080/fuseki/void/sparql";
             List<String> graphNames = server.listGraphNames();
 
             ExecutorService pool = Executors.newWorkStealingPool(20);

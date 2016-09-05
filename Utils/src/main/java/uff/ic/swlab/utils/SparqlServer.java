@@ -26,16 +26,16 @@ public class SparqlServer {
         this.sparqlURL = sparqlURL;
     }
 
-    public void putModel(String graphUri, Model model) {
-        if (model.size() > 5 && graphUri != null && !graphUri.equals("")) {
+    public void putModel(String graphURI, Model model) {
+        if (graphURI != null && !graphURI.equals("")) {
             DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(dataURL);
             try {
-                accessor.putModel(graphUri, model);
+                accessor.putModel(graphURI, model);
+                System.out.println("Graph <" + graphURI + "> has been loaded.");
             } catch (Exception e) {
-                Logger.getRootLogger().log(Priority.INFO, "Authority " + graphUri + " error VoID.");
+                Logger.getRootLogger().log(Priority.INFO, "Authority " + graphURI + " error putModel().");
             }
-        } else if (model.size() <= 5 && graphUri != null && !graphUri.equals(""))
-            Logger.getRootLogger().log(Priority.INFO, "Authority " + graphUri + " no VoID.");
+        }
     }
 
     private static final long HTTP_TIMEOUT = 10000;
@@ -47,8 +47,9 @@ public class SparqlServer {
         try (QueryExecution exec = new QueryEngineHTTP(sparqlURL, queryString)) {
             ((QueryEngineHTTP) exec).setTimeout(HTTP_TIMEOUT);
             ResultSet rs = exec.execSelect();
-            while (rs.hasNext())
+            while (rs.hasNext()) {
                 graphNames.add(rs.next().getResource("g").getURI());
+            }
         } catch (Exception e) {
         }
 

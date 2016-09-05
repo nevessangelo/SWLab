@@ -33,37 +33,42 @@ public class VoID {
         Model tempModel;
         try {
             String[] voidURLs = listPotentialVoIDURLs(urls);
-            for (String url : voidURLs)
+            for (String url : voidURLs) {
                 try {
                     tempModel = ModelFactory.createDefaultModel();
                     RDFDataMgr.read(tempModel, url);
-                    if (tempModel.size() > 5 && isVoID(tempModel))
+                    if (isVoID(tempModel)) {
                         void_.add(tempModel);
+                    }
                 } catch (RiotNotFoundException e1) {
-                } catch (Exception e2) {
+                } catch (Throwable e2) {
                     Lang[] langs = {Lang.TURTLE, Lang.RDFXML, Lang.NTRIPLES, Lang.TRIG,
                         Lang.NQUADS, Lang.JSONLD, Lang.RDFJSON, Lang.TRIX, Lang.RDFTHRIFT};
                     boolean read = false;
-                    for (Lang lang : langs)
+                    for (Lang lang : langs) {
                         try {
                             tempModel = ModelFactory.createDefaultModel();
                             RDFDataMgr.read(tempModel, url, lang);
-                            if (tempModel.size() > 5 && isVoID(tempModel)) {
+                            if (isVoID(tempModel)) {
                                 void_.add(tempModel);
                                 read = true;
                                 break;
                             }
-                        } catch (Exception e3) {
+                        } catch (Throwable e3) {
                         }
-                    if (!read)
+                    }
+                    if (!read) {
                         try {
                             tempModel = ModelFactory.createDefaultModel();
                             RDFaDataMgr.read(tempModel, url);
-                            if (tempModel.size() > 5 && isVoID(tempModel))
+                            if (isVoID(tempModel)) {
                                 void_.add(tempModel);
-                        } catch (Exception e3) {
+                            }
+                        } catch (Throwable e3) {
                         }
+                    }
                 }
+            }
         } catch (Exception e) {
         }
 
@@ -108,8 +113,9 @@ public class VoID {
             ResultSet rs = exec.execSelect();
             while (rs.hasNext()) {
                 name = rs.next().getResource("g").getURI();
-                if (name.contains("void"))
+                if (name.contains("void")) {
                     graphNames.add(name);
+                }
             }
         } catch (Exception e) {
         }
@@ -137,7 +143,7 @@ public class VoID {
                 voidURLs.add(newPath + "/models/void.ttl");
                 voidURLs.add(newPath + "/models/void.rdf");
                 String[] path = url.getPath().split("/");
-                for (int i = 1; i < path.length; i++)
+                for (int i = 1; i < path.length; i++) {
                     if (!path[i].contains("void")) {
                         newPath += "/" + path[i];
                         voidURLs.add(newPath);
@@ -148,6 +154,7 @@ public class VoID {
                         voidURLs.add(newPath + "/" + path[i]);
                         break;
                     }
+                }
             }
         } catch (Exception e) {
         }
@@ -155,7 +162,7 @@ public class VoID {
         return voidURLs.toArray(new String[0]);
     }
 
-    private static boolean isVoID(Model model) {
+    public static boolean isVoID(Model model) {
         org.apache.jena.rdf.model.Resource voidDataset = model.getResource("http://rdfs.org/ns/void#Dataset");
         org.apache.jena.rdf.model.Resource voidLinkset = model.getResource("http://rdfs.org/ns/void#Linkset");
         boolean hasDataset = model.contains(null, RDF.type, voidDataset);
