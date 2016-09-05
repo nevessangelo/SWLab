@@ -7,6 +7,7 @@ package br.com.edu.dbpediaspotlight;
 
 import br.com.edu.Connection.ConnectionMySql;
 import java.sql.Connection;
+import java.util.List;
 
 
 /**
@@ -17,15 +18,22 @@ public class DBPediaSpotlight {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws Exception {
-        
-        String question = "This dataset provides information about: Population in Brazil by Municipalities and Mortality rates in Brazil by States.";
+    
+    public List<String> getEntity(String text) throws Exception{
         db c = new db();
         c.configiration(0.0, 0, "non", "CoOccurrenceBasedSelector", "Default", "yes");
-        c.evaluate(question);
+        c.evaluate(text);
         System.out.println("resource : " + c.getResu());
-        ConnectionMySql conexao = new ConnectionMySql();
-        Connection resultado = conexao.Conectar();
-        System.out.println(resultado);
+        return c.getResu();
+        
     }
+   
+        
+        
+       
+       
+//        ConnectionMySql conexao = new ConnectionMySql();
+//        Connection resultado = conexao.Conectar();
+//        System.out.println(resultado);
+    
 }
