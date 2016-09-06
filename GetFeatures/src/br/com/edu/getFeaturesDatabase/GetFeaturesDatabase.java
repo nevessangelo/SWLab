@@ -30,22 +30,38 @@ import org.bson.Document;
  */
 public class GetFeaturesDatabase {
 
+    public boolean verificarExisteDump(String url) {
+        String[] verifica_dump = url.split("/");
+        for (int i = 0; i < verifica_dump.length; i++) {
+            if (verifica_dump[i].equals("dump.tgz")) {
+                    
+            }
+
+        }
+
+        return true;
+    }
+
     public static void main(String[] args) throws Exception {
         List<Object> names_dump = new BasicDBList();
+        Boolean resultado;
         try (MongoClient mongo = new MongoClient("localhost", 27017)) {
 
             MongoDatabase db = mongo.getDatabase("data_catalog");
             MongoCollection<Document> datasets = db.getCollection("datasets");
-            List<Document> cursor = (List<Document>) datasets.find().into(new ArrayList<Document>());
+            List<Document> cursor = (List<Document>) datasets.find(new Document("name", "rkb-explorer-acm")).into(new ArrayList<Document>());
             for (Document cursors : cursor) {
                 List<Document> resources = (List<Document>) cursors.get("resources");
                 for (Document resource : resources) {
-                    System.out.println(resource.getString("name"));
-                    System.out.println(resource.getString("url"));
+                    String name = resource.getString("name");
+                    String name_minuscula = name.toLowerCase();
+                    String url = resource.getString("url");
+                    if (name.equals("download")) {
+                        verificarExisteDump(name, url);
+                    }
 
                 }
             }
-
         }
     }
 }
