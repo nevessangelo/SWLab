@@ -15,6 +15,7 @@ import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
+import java.io.IOException;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -30,16 +31,16 @@ import org.bson.Document;
  */
 public class GetFeaturesDatabase {
 
-    public boolean verificarExisteDump(String url) {
+    public static void verificarExisteDump(String url) throws IOException {
         String[] verifica_dump = url.split("/");
         for (int i = 0; i < verifica_dump.length; i++) {
             if (verifica_dump[i].equals("dump.tgz")) {
-                    
+                DownloadDump download = new DownloadDump();
+                String caminho = System.getProperty("user.dir");
+                download.gravaArquivoDeURL(url, caminho + "/Dumps/");
             }
-
         }
 
-        return true;
     }
 
     public static void main(String[] args) throws Exception {
@@ -56,8 +57,8 @@ public class GetFeaturesDatabase {
                     String name = resource.getString("name");
                     String name_minuscula = name.toLowerCase();
                     String url = resource.getString("url");
-                    if (name.equals("download")) {
-                        verificarExisteDump(name, url);
+                    if (name_minuscula.equals("download")) {
+                        verificarExisteDump(url);
                     }
 
                 }

@@ -5,7 +5,6 @@
  */
 package getfeatures;
 
-import br.com.edu.getFeaturesDatabase.DownloadDump;
 import java.io.IOException;
 
 /**
@@ -18,8 +17,7 @@ public class GetFeatures {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        DownloadDump download = new DownloadDump();
-        download.gravaArquivoDeURL("http://acm.rkbexplorer.com/models/dump.tgz","/home/angelo/SWLab/GetFeatures/teste");
+        
     }
     
 }
