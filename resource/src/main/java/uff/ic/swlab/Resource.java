@@ -6,13 +6,11 @@ import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.QueryExecutionFactory;
 import org.apache.jena.query.ResultSet;
@@ -25,107 +23,107 @@ import org.apache.jena.riot.RDFLanguages;
 
 public class Resource extends HttpServlet {
 
-	private static final long serialVersionUID = 1L;
-	private static final String DOMAIN = "localhost";
-	private static final String SPARQL_PORT = ":8080";
-	private static final String SPARQL_URL_TEMPLATE = "http://" + DOMAIN + SPARQL_PORT + "/fuseki/%1s";
+    private static final long serialVersionUID = 1L;
+    private static final String DOMAIN = "localhost";
+    private static final String SPARQL_PORT = ":8080";
+    private static final String SPARQL_URL_TEMPLATE = "http://" + DOMAIN + SPARQL_PORT + "/fuseki/%1s";
 
-	@Override
-	public void init(ServletConfig config) throws ServletException {
-		org.apache.log4j.Logger.getRootLogger().setLevel(org.apache.log4j.Level.OFF);
-		Lang lang = LangBuilder.create("RDFa", "text/html").addFileExtensions("htm", "html", "xhtml", "xhtm").build();
-		RDFLanguages.register(lang);
-	}
+    @Override
+    public void init(ServletConfig config) throws ServletException {
+        org.apache.log4j.Logger.getRootLogger().setLevel(org.apache.log4j.Level.OFF);
+        Lang lang = LangBuilder.create("RDFa", "text/html").addFileExtensions("htm", "html", "xhtml", "xhtm").build();
+        RDFLanguages.register(lang);
+    }
 
-	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-		String uri = request.getParameter("id");
-		String accept = request.getHeader("Accept");
-		Lang lang = detectLang(accept);
+        String uri = request.getParameter("id");
+        String accept = request.getHeader("Accept");
+        Lang lang = detectLang(accept);
 
-		Model model = getDescription(request, uri);
-		OutputStream output = response.getOutputStream();
+        Model model = getDescription(uri);
+        OutputStream output = response.getOutputStream();
 
-		if (lang == null) {
-			response.setContentType("text/html");
-			RDFTranslator.write(output, model, lang);
-		} else {
-			response.setContentType(lang.getContentType().getContentType());
-			RDFDataMgr.write(output, model, lang);
-		}
+        if (lang == null) {
+            response.setContentType("text/html");
+            RDFTranslator.write(output, model, lang);
+        } else {
+            response.setContentType(lang.getContentType().getContentType());
+            RDFDataMgr.write(output, model, lang);
+        }
 
-		output.flush();
-		output.close();
-	}
+        output.flush();
+        output.close();
+    }
 
-	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		response.getWriter().write("Error: POST method not implemented.");
-	}
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.getWriter().write("Error: POST method not implemented.");
+    }
 
-	private Lang detectLang(String accept) {
-		Lang[] langs = { Lang.TURTLE, Lang.TTL, Lang.TRIG, Lang.TRIX, Lang.JSONLD, Lang.RDFJSON, Lang.RDFXML,
-				Lang.RDFTHRIFT, Lang.NQUADS, Lang.NQ, Lang.NTRIPLES, Lang.N3, Lang.NT };
-		for (Lang lang : langs)
-			if (accept.toLowerCase().contains(lang.getHeaderString().toLowerCase()))
-				return lang;
-		return null;
-	}
+    private Lang detectLang(String accept) {
+        Lang[] langs = {Lang.TURTLE, Lang.TTL, Lang.TRIG, Lang.TRIX, Lang.JSONLD, Lang.RDFJSON, Lang.RDFXML,
+            Lang.RDFTHRIFT, Lang.NQUADS, Lang.NQ, Lang.NTRIPLES, Lang.N3, Lang.NT};
+        for (Lang lang : langs)
+            if (accept.toLowerCase().contains(lang.getHeaderString().toLowerCase()))
+                return lang;
+        return null;
+    }
 
-	private static Model getDescription(HttpServletRequest request, String uri) throws UnsupportedEncodingException {
+    private static Model getDescription(String uri) throws UnsupportedEncodingException {
 
-		Model model = ModelFactory.createDefaultModel();
+        Model model = ModelFactory.createDefaultModel();
 
-		for (String service : listFusekiServices(request))
-			try {
-				String sparqlURL = String.format(SPARQL_URL_TEMPLATE, service);
-				String query = ""
-						+ "construct {?s ?p ?o.}\n"
-						+ "where {{?s ?p ?o.}\n"
-						+ "       UNION {GRAPH ?g {?s ?p ?o.}}\n"
-						+ "       filter(regex(str(?s), \"/resource/%1s$\")\n"
-						+ "              || regex(str(?o), \"/resource/%2s$\"))\n"
-						+ "}";
-				query = String.format(query, uri, uri);
-				QueryExecution q = QueryExecutionFactory.sparqlService(sparqlURL, query);
-				q.execConstruct(model);
-			} catch (Exception e) {
-			}
-		return model;
-	}
+        for (String service : listFusekiServices())
+            try {
+                String sparqlURL = String.format(SPARQL_URL_TEMPLATE, service);
+                String query = ""
+                        + "construct {?s ?p ?o.}\n"
+                        + "where {{?s ?p ?o.}\n"
+                        + "       UNION {GRAPH ?g {?s ?p ?o.}}\n"
+                        + "       filter(regex(str(?s), \"/resource/%1s$\")\n"
+                        + "              || regex(str(?o), \"/resource/%2s$\"))\n"
+                        + "}";
+                query = String.format(query, uri, uri);
+                QueryExecution q = QueryExecutionFactory.sparqlService(sparqlURL, query);
+                q.execConstruct(model);
+            } catch (Exception e) {
+            }
+        return model;
+    }
 
-	private static List<String> listFusekiServices(HttpServletRequest request) {
-		List<String> services = new ArrayList<>();
-		List<String> configFiles = new ArrayList<>();
-		String fuseki_home = System.getenv("FUSEKI_BASE");
-		File dir = new File(fuseki_home + "/configuration");
+    private static List<String> listFusekiServices() {
+        List<String> services = new ArrayList<>();
+        List<String> configFiles = new ArrayList<>();
+        String fuseki_home = System.getenv("FUSEKI_BASE");
+        File dir = new File(fuseki_home + "/configuration");
 
-		try {
-			for (File file : dir.listFiles())
-				if (file.isFile())
-					configFiles.add(file.getName());
-		} catch (Exception e) {
-		}
-		for (String configFile : configFiles)
-			try {
-				Model model = ModelFactory.createDefaultModel();
-				model.read("file:///" + fuseki_home + "/configuration/" + configFile);
-				String query = ""
-						+ "prefix fuseki: <http://jena.apache.org/fuseki#>\n"
-						+ "select ?name\n"
-						+ "where {[] a fuseki:Service;\n"
-						+ "       fuseki:name ?name.\n"
-						+ "}";
-				QueryExecution q = QueryExecutionFactory.create(query, model);
-				ResultSet result = q.execSelect();
-				while (result.hasNext())
-					services.add(result.next().get("name").toString());
-			} catch (Exception e) {
-			}
-		return services;
-	}
+        try {
+            for (File file : dir.listFiles())
+                if (file.isFile())
+                    configFiles.add(file.getName());
+        } catch (Exception e) {
+        }
+        for (String configFile : configFiles)
+            try {
+                Model model = ModelFactory.createDefaultModel();
+                model.read("file:///" + fuseki_home + "/configuration/" + configFile);
+                String query = ""
+                        + "prefix fuseki: <http://jena.apache.org/fuseki#>\n"
+                        + "select ?name\n"
+                        + "where {[] a fuseki:Service;\n"
+                        + "       fuseki:name ?name.\n"
+                        + "}";
+                QueryExecution q = QueryExecutionFactory.create(query, model);
+                ResultSet result = q.execSelect();
+                while (result.hasNext())
+                    services.add(result.next().get("name").toString());
+            } catch (Exception e) {
+            }
+        return services;
+    }
 
 }
