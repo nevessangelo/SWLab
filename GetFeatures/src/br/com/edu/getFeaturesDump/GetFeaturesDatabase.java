@@ -5,24 +5,16 @@
  */
 package br.com.edu.getFeaturesDump;
 
-import br.com.edu.Connection.ConnectionMySql;
-import br.com.edu.dbpediaspotlight.DBPediaSpotlight;
-import br.com.edu.getFeaturesDump.GetFeaturesDatabase;
+import br.com.edu.utils.DownloadDump;
+import br.com.edu.utils.Unzip;
 import com.mongodb.BasicDBList;
-import com.mongodb.BasicDBObject;
-import com.mongodb.DBObject;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
+import java.io.File;
 import java.io.IOException;
-import java.sql.Connection;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
 import org.bson.Document;
 
 /**
@@ -36,8 +28,12 @@ public class GetFeaturesDatabase {
         for (int i = 0; i < verifica_dump.length; i++) {
             if (verifica_dump[i].equals("dump.tgz")) {
                 DownloadDump download = new DownloadDump();
+                Unzip unzip = new Unzip();
                 String caminho = System.getProperty("user.dir");
-                download.gravaArquivoDeURL(url, caminho + "/Dumps/");
+                String destino = caminho + "/Dumps/";
+                String caminho_extrair = destino+""+verifica_dump[i];
+                download.gravaArquivoDeURL(url,destino);
+                unzip.extract(caminho_extrair,destino);
             }
         }
 

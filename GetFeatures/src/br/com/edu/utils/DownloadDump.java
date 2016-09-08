@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.edu.getFeaturesDump;
+package br.com.edu.utils;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -27,6 +27,7 @@ public class DownloadDump {
             InputStream is = url.openStream();
             FileOutputStream fos = new FileOutputStream(pathLocal + nomeArquivoLocalFinal[pegar]);
             int umByte = 0;
+            System.out.println("Fazendo Download");
             while ((umByte = is.read()) != -1) {
                 fos.write(umByte);
             }
