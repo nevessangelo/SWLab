@@ -25,9 +25,9 @@ public class DownloadDump {
             String[] nomeArquivoLocalFinal = nomeArquivoLocal.split("/");
             int pegar = nomeArquivoLocalFinal.length - 1;
             InputStream is = url.openStream();
-            FileOutputStream fos = new FileOutputStream(pathLocal + nomeArquivoLocalFinal[pegar]);
+            FileOutputStream fos = new FileOutputStream(pathLocal+"/"+ nomeArquivoLocalFinal[pegar]);
             int umByte = 0;
-            System.out.println("Fazendo Download");
+            System.out.println("Fazendo Download....");
             while ((umByte = is.read()) != -1) {
                 fos.write(umByte);
             }

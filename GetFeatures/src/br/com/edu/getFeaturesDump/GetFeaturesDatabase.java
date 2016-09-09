@@ -23,17 +23,20 @@ import org.bson.Document;
  */
 public class GetFeaturesDatabase {
 
-    public static void verificarExisteDump(String url) throws IOException {
+    public static void verificarExisteDump(String url, String nome_dataset) throws IOException {
         String[] verifica_dump = url.split("/");
         for (int i = 0; i < verifica_dump.length; i++) {
             if (verifica_dump[i].equals("dump.tgz")) {
+                File diretorio = new File(System.getProperty("user.dir")+"/Dumps/"+nome_dataset);
+                diretorio.mkdir();
+                String caminho = diretorio.toString();
                 DownloadDump download = new DownloadDump();
+                download.gravaArquivoDeURL(url,caminho);
+                String arquivo_extrair = diretorio.toString()+"/"+verifica_dump[i];               
                 Unzip unzip = new Unzip();
-                String caminho = System.getProperty("user.dir");
-                String destino = caminho + "/Dumps/";
-                String caminho_extrair = destino+""+verifica_dump[i];
-                download.gravaArquivoDeURL(url,destino);
-                unzip.extract(caminho_extrair,destino);
+                unzip.extract(arquivo_extrair,caminho);
+                
+                
             }
         }
 
@@ -48,6 +51,7 @@ public class GetFeaturesDatabase {
             MongoCollection<Document> datasets = db.getCollection("datasets");
             List<Document> cursor = (List<Document>) datasets.find(new Document("name", "rkb-explorer-acm")).into(new ArrayList<Document>());
             for (Document cursors : cursor) {
+                String nome_dataset = cursors.getString("name");
                 List<Document> resources = (List<Document>) cursors.get("resources");
                 for (Document resource : resources) {
                     String name = resource.getString("name");
@@ -56,11 +60,12 @@ public class GetFeaturesDatabase {
                     for (int i = 0; i < names.length; i++) {
                         if (names[i].equals("download")) {
                             String url = resource.getString("url");
-                            verificarExisteDump(url);
+                            verificarExisteDump(url,nome_dataset);
                         }
                     }
                 }
             }
         }
+        System.out.println("fim");
     }
 }
