@@ -74,7 +74,7 @@ public void configiration(double CONFIDENCE,int SUPPORT,String powered_by,String
 
             GetMethod getMethod = new GetMethod(Query);
             getMethod.addRequestHeader(new Header("Accept", "application/json"));
-            spotlightResponse = request(getMethod);
+            spotlightResponse = request(getMethod); //AQUI
 
         } catch (UnsupportedEncodingException e) {
             throw new AnnotationException("Could not encode text.", e);
