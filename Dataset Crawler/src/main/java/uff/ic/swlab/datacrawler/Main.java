@@ -42,9 +42,8 @@ public class Main {
                 String nameURI = dataset.getNameURI();
                 String authority = Resource.getAuthority(urls);
 
-                if (!graphNames.contains(nameURI)) {
-                    pool.submit(new Task(void_, urls, sparqlEndPoints, server, nameURI));
-                }
+                //if (!graphNames.contains(nameURI))
+                pool.submit(new Task(void_, urls, sparqlEndPoints, server, nameURI));
             }
             pool.shutdown();
             pool.awaitTermination(7, TimeUnit.DAYS);
