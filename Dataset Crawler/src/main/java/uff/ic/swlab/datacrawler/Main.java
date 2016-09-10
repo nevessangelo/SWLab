@@ -1,7 +1,6 @@
 package uff.ic.swlab.datacrawler;
 
 import java.net.MalformedURLException;
-import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -16,7 +15,7 @@ public class Main {
     public static void main(String[] args) {
         try {
             run(args);
-        } catch (Exception e) {
+        } catch (Throwable e) {
             e.printStackTrace();
         }
     }
@@ -30,7 +29,7 @@ public class Main {
             SparqlServer server = new SparqlServer();
             server.dataURL = "http://localhost:8080/fuseki/void/data";
             server.sparqlURL = "http://localhost:8080/fuseki/void/sparql";
-            List<String> graphNames = server.listGraphNames();
+            //List<String> graphNames = server.listGraphNames();
 
             ExecutorService pool = Executors.newWorkStealingPool(20);
             while (crawler.hasNext()) {
@@ -48,7 +47,7 @@ public class Main {
             pool.shutdown();
             pool.awaitTermination(7, TimeUnit.DAYS);
 
-        } catch (Throwable t) {
+        } catch (Throwable e) {
         }
 
         System.out.println("Crawler done.");

@@ -1,11 +1,11 @@
 package uff.ic.swlab.datacrawler;
 
 import java.net.MalformedURLException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import uff.ic.swlab.common.util.Resource;
 import uff.ic.swlab.common.util.SparqlServer;
-import uff.ic.swlab.common.util.VoID;
 
 public class Main2 {
 
@@ -25,12 +25,10 @@ public class Main2 {
         server.dataURL = "http://localhost:8080/fuseki/void/data";
         LODCrawler crawler = new LODCrawler();
 
+        ExecutorService pool = Executors.newWorkStealingPool(20);
         while (crawler.hasNext()) {
-            String uri = crawler.next();
-            String[] urls = {uri};
-            String authority = Resource.getAuthority(urls);
-
-            server.putModel(authority, VoID.retrieveVoID(urls, null));
+            String[] urls = {crawler.next()};
+            pool.submit(new Task(null, urls, null, server, null));
         }
 
         System.out.println("Done.");
