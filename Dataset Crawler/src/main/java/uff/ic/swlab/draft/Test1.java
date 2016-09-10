@@ -28,7 +28,7 @@ public class Test1 {
         SparqlServer server = new SparqlServer();
         server.dataURL = "http://localhost:8080/fuseki/void/data";
 
-        server.putModel(Resource.getAuthority(urls), VoID.retrieveVoID(sparqls, urls));
+        server.putModel(Resource.getAuthority(urls), VoID.retrieveVoID(urls, sparqls));
 
         //model.write(System.out, Lang.TURTLE.getName());
         System.out.println("Done.");

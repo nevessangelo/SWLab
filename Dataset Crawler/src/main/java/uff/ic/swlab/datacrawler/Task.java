@@ -6,43 +6,44 @@ import uff.ic.swlab.common.util.VoID;
 
 public class Task implements Runnable {
 
-    private static final Semaphore SEMAPHORE = new Semaphore(100);
+    private static final int RUNNING_TIMEOUT = 600000;
+    private static final int MAX_EXISTING_INSTANCES = 100;
+    private static final InstanceCounter INSTANCE_COUNTER = new InstanceCounter(MAX_EXISTING_INSTANCES);
+
     private final Model void_;
     private final String[] urls;
     private final String[] sparqlEndPoints;
     private final SparqlServer server;
     private final String graphURI;
 
-    private static class Semaphore {
+    private static class InstanceCounter {
 
         private int instances = 0;
 
-        public Semaphore(int instances) {
+        public InstanceCounter(int instances) {
             this.instances = instances;
         }
 
-        public synchronized void acquire() {
-            while (true) {
+        public synchronized void createInstance() {
+            while (true)
                 if (instances > 0) {
                     instances--;
                     break;
-                } else {
+                } else
                     try {
                         wait();
                     } catch (InterruptedException ex) {
                     }
-                }
-            }
         }
 
-        public synchronized void release() {
+        public synchronized void releaseInstance() {
             instances++;
             notifyAll();
         }
     }
 
     public Task(Model void_, String[] urls, String[] sparqlEndPoints, SparqlServer server, String graphURI) {
-        SEMAPHORE.acquire();
+        INSTANCE_COUNTER.createInstance();
         this.void_ = void_;
         this.urls = urls;
         this.sparqlEndPoints = sparqlEndPoints;
@@ -50,16 +51,36 @@ public class Task implements Runnable {
         this.graphURI = graphURI;
     }
 
-    @Override
-    public final void run() {
-        run2();
-        SEMAPHORE.release();
+    private void setTimeout(long timeout) {
+        (new Thread() {
+            private final Thread t = Thread.currentThread();
+            private final long TIMEOUT = timeout;
+
+            @Override
+            public void run() {
+                try {
+                    t.join(TIMEOUT);
+                } catch (InterruptedException ex) {
+                    t.interrupt();
+                }
+            }
+        }).start();
     }
 
-    public void run2() {
-        Model model = void_.add(VoID.retrieveVoID(sparqlEndPoints, urls));
-        if (VoID.isVoID(model)) {
-            server.putModel(graphURI, model);
+    @Override
+    public final void run() {
+        setTimeout(RUNNING_TIMEOUT);
+        runTask();
+        INSTANCE_COUNTER.releaseInstance();
+    }
+
+    public void runTask() {
+        try {
+            Model model = void_.add(VoID.retrieveVoID(urls, sparqlEndPoints));
+            if (model.size() > 5 && VoID.isVoID(model))
+                server.putModel(graphURI, model);
+        } catch (InterruptedException e1) {
+        } catch (Throwable e2) {
         }
     }
 
