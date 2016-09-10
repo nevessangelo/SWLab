@@ -31,7 +31,7 @@ public class Main {
 
         final HttpClient httpclient = new DefaultHttpClient();
         final HttpParams params = httpclient.getParams();
-        params.setParameter(HttpConnectionParams.CONNECTION_TIMEOUT, 5000);
+        params.setParameter(HttpConnectionParams.CONNECTION_TIMEOUT, 10000);
         params.setParameter(HttpConnectionParams.SO_TIMEOUT, 60000);
         HttpOp.setDefaultHttpClient(httpclient);
 
@@ -42,7 +42,7 @@ public class Main {
             server.sparqlURL = "http://localhost:8080/fuseki/void/sparql";
             //List<String> graphNames = server.listGraphNames();
 
-            ExecutorService pool = Executors.newWorkStealingPool(20);
+            ExecutorService pool = Executors.newWorkStealingPool(1);
             while (crawler.hasNext()) {
                 Dataset dataset = crawler.next();
 

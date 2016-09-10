@@ -25,15 +25,17 @@ public class Task implements Runnable {
         }
 
         public synchronized void createInstance() {
-            while (true)
+            while (true) {
                 if (instances > 0) {
                     instances--;
                     break;
-                } else
+                } else {
                     try {
                         wait();
                     } catch (InterruptedException ex) {
                     }
+                }
+            }
         }
 
         public synchronized void releaseInstance() {
@@ -77,8 +79,11 @@ public class Task implements Runnable {
     private void runTask() {
         try {
             Model model = void_.add(VoID.retrieveVoID(urls, sparqlEndPoints));
-            if (model.size() > 5 && VoID.isVoID(model))
+            if (model.size() > 5 && VoID.isVoID(model)) {
                 server.putModel(graphURI, model);
+            } else {
+                System.out.println(String.format("Thread discarded. (%1s)", graphURI));
+            }
         } catch (InterruptedException e1) {
             System.out.println(String.format("Thread interrupted. (%1s)", graphURI));
         } catch (Throwable e2) {
