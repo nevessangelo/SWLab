@@ -74,7 +74,7 @@ public class Task implements Runnable {
         INSTANCE_COUNTER.releaseInstance();
     }
 
-    public void runTask() {
+    private void runTask() {
         try {
             Model model = void_.add(VoID.retrieveVoID(urls, sparqlEndPoints));
             if (model.size() > 5 && VoID.isVoID(model))
