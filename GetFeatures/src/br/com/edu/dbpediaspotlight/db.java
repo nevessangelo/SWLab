@@ -38,7 +38,7 @@ public class db extends AnnotationClient {
 
     //private static String  API_URL    = "http://spotlight.dbpedia.org:80/";
     private static String API_URL = "http://spotlight.sztaki.hu:2222/";
-    private static double CONFIDENCE = 0.0;
+    private static double CONFIDENCE = 60.0;
     private static int SUPPORT = 0;
     private static String powered_by ="non";
     //private static String spotter ="Default";//"LingPipeSpotter"=Annotate all spots 

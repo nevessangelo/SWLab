@@ -121,8 +121,9 @@ public abstract class AnnotationClient {
                        // System.out.println(entities.get(j).getFullUri());
                 } catch (AnnotationException e) {
                    // error++;
-                    LOG.error(e);
-                    e.printStackTrace();
+                    //LOG.error(e);
+                    //e.printStackTrace();
+                    System.out.println("Não existe para a string: "+Question);
                 }
                 for (DBpediaResource e: entities) {
                     RES.add(e.uri());

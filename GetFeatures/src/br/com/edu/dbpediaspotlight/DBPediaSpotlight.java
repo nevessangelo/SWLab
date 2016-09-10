@@ -23,10 +23,14 @@ public class DBPediaSpotlight {
         db c = new db();
         c.configiration(0.0, 0, "non", "CoOccurrenceBasedSelector", "Default", "yes");
         c.evaluate(text);
-        System.out.println("resource : " + c.getResu());
-        return c.getResu();
-        
+        if(c.getResu().size() > 0){
+            System.out.println("resource : " + c.getResu());
+            return c.getResu();
+        }
+        return null;
     }
+    
+ 
    
         
         
