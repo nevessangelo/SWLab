@@ -18,86 +18,110 @@ import org.apache.jena.vocabulary.RDF;
 
 public class VoID {
 
-    public static Model retrieveVoID(String[] sparqlEndPoints, String[] urls) {
-        Model void_ = ModelFactory.createDefaultModel();
+    public static boolean isVoID(Model model) {
+        org.apache.jena.rdf.model.Resource voidDataset = model.getResource("http://rdfs.org/ns/void#Dataset");
+        org.apache.jena.rdf.model.Resource voidLinkset = model.getResource("http://rdfs.org/ns/void#Linkset");
+        boolean hasDataset = model.contains(null, RDF.type, voidDataset);
+        boolean hasLinkset = model.contains(null, RDF.type, voidLinkset);
+        return hasDataset || hasLinkset;
+    }
 
+    public static Model retrieveVoID(String[] urls, String[] sparqlEndPoints) throws InterruptedException {
+        Model void_ = ModelFactory.createDefaultModel();
         void_.add(VoID.retrieveVoIDFromURL(urls));
         void_.add(VoID.retrieveVoIDFromSparql(sparqlEndPoints));
-
         return void_;
     }
 
-    private static Model retrieveVoIDFromURL(String[] urls) {
+    private static Model retrieveVoIDFromURL(String[] urls) throws InterruptedException {
         Model void_ = ModelFactory.createDefaultModel();
 
         Model tempModel;
         try {
             String[] voidURLs = listPotentialVoIDURLs(urls);
-            for (String url : voidURLs) {
+            for (String url : voidURLs)
                 try {
                     tempModel = ModelFactory.createDefaultModel();
                     RDFDataMgr.read(tempModel, url);
-                    if (isVoID(tempModel)) {
+                    interrupted();
+                    if (isVoID(tempModel))
                         void_.add(tempModel);
-                    }
+                    interrupted();
                 } catch (RiotNotFoundException e1) {
-                } catch (Throwable e2) {
+                } catch (InterruptedException e2) {
+                    throw new InterruptedException();
+                } catch (Throwable e3) {
                     Lang[] langs = {Lang.TURTLE, Lang.RDFXML, Lang.NTRIPLES, Lang.TRIG,
                         Lang.NQUADS, Lang.JSONLD, Lang.RDFJSON, Lang.TRIX, Lang.RDFTHRIFT};
                     boolean read = false;
-                    for (Lang lang : langs) {
+                    for (Lang lang : langs)
                         try {
                             tempModel = ModelFactory.createDefaultModel();
                             RDFDataMgr.read(tempModel, url, lang);
+                            interrupted();
                             if (isVoID(tempModel)) {
                                 void_.add(tempModel);
                                 read = true;
                                 break;
                             }
-                        } catch (Throwable e3) {
+                            interrupted();
+                        } catch (InterruptedException e31) {
+                            throw new InterruptedException();
+                        } catch (Throwable e32) {
                         }
-                    }
-                    if (!read) {
+                    if (!read)
                         try {
                             tempModel = ModelFactory.createDefaultModel();
                             RDFaDataMgr.read(tempModel, url);
-                            if (isVoID(tempModel)) {
+                            interrupted();
+                            if (isVoID(tempModel))
                                 void_.add(tempModel);
-                            }
-                        } catch (Throwable e3) {
+                            interrupted();
+                        } catch (InterruptedException e31) {
+                            throw new InterruptedException();
+                        } catch (Throwable e33) {
                         }
-                    }
                 }
-            }
-        } catch (Exception e) {
+        } catch (InterruptedException e1) {
+            throw new InterruptedException();
+        } catch (Throwable e2) {
         }
 
         return void_;
     }
 
-    private static final long HTTP_TIMEOUT = 10000;
-
-    private static Model retrieveVoIDFromSparql(String[] sparqlEndPoints) {
+    private static Model retrieveVoIDFromSparql(String[] sparqlEndPoints) throws InterruptedException {
         Model void_ = ModelFactory.createDefaultModel();
 
         try {
+            Model tempModel;
             String from = "";
             String queryString = "construct {?s ?p ?o}\n %1swhere {?s ?p ?o.}";
             for (String sparqlEndPoint : sparqlEndPoints) {
+                tempModel = ModelFactory.createDefaultModel();
                 from = listVoIDGraphNames(sparqlEndPoint)
                         .stream()
                         .map((n) -> String.format("from <%1s>\n", n))
                         .reduce(from, String::concat);
                 queryString = String.format(queryString, from);
+                interrupted();
 
                 try (QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, queryString)) {
                     ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
-                    ((QueryEngineHTTP) exec).setTimeout(HTTP_TIMEOUT);
-                    exec.execConstruct(void_);
-                } catch (Exception e) {
+                    ((QueryEngineHTTP) exec).setTimeout(SPARQL_TIMEOUT);
+                    exec.execConstruct(tempModel);
+                    interrupted();
+                    if (isVoID(tempModel))
+                        void_.add(tempModel);
+                    interrupted();
+                } catch (InterruptedException e1) {
+                    throw new InterruptedException();
+                } catch (Throwable e2) {
                 }
             }
-        } catch (Exception e) {
+        } catch (InterruptedException e1) {
+            throw new InterruptedException();
+        } catch (Throwable e2) {
         }
 
         return void_;
@@ -109,15 +133,14 @@ public class VoID {
         String name;
         String queryString = "select distinct ?g where {graph ?g {?s ?p ?o.}}";
         try (QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, queryString)) {
-            ((QueryEngineHTTP) exec).setTimeout(HTTP_TIMEOUT);
+            ((QueryEngineHTTP) exec).setTimeout(SPARQL_TIMEOUT);
             ResultSet rs = exec.execSelect();
             while (rs.hasNext()) {
                 name = rs.next().getResource("g").getURI();
-                if (name.contains("void")) {
+                if (name.contains("void"))
                     graphNames.add(name);
-                }
             }
-        } catch (Exception e) {
+        } catch (Throwable e) {
         }
 
         return graphNames;
@@ -143,7 +166,7 @@ public class VoID {
                 voidURLs.add(newPath + "/models/void.ttl");
                 voidURLs.add(newPath + "/models/void.rdf");
                 String[] path = url.getPath().split("/");
-                for (int i = 1; i < path.length; i++) {
+                for (int i = 1; i < path.length; i++)
                     if (!path[i].contains("void")) {
                         newPath += "/" + path[i];
                         voidURLs.add(newPath);
@@ -154,20 +177,17 @@ public class VoID {
                         voidURLs.add(newPath + "/" + path[i]);
                         break;
                     }
-                }
             }
-        } catch (Exception e) {
+        } catch (Throwable e) {
         }
 
         return voidURLs.toArray(new String[0]);
     }
 
-    public static boolean isVoID(Model model) {
-        org.apache.jena.rdf.model.Resource voidDataset = model.getResource("http://rdfs.org/ns/void#Dataset");
-        org.apache.jena.rdf.model.Resource voidLinkset = model.getResource("http://rdfs.org/ns/void#Linkset");
-        boolean hasDataset = model.contains(null, RDF.type, voidDataset);
-        boolean hasLinkset = model.contains(null, RDF.type, voidLinkset);
-        return hasDataset || hasLinkset;
+    private static void interrupted() throws InterruptedException {
+        if (Thread.interrupted())
+            throw new InterruptedException();
     }
 
+    private static final long SPARQL_TIMEOUT = 10000;
 }

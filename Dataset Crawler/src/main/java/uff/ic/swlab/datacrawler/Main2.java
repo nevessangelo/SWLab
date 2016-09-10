@@ -30,7 +30,7 @@ public class Main2 {
             String[] urls = {uri};
             String authority = Resource.getAuthority(urls);
 
-            server.putModel(authority, VoID.retrieveVoID(null, urls));
+            server.putModel(authority, VoID.retrieveVoID(urls, null));
         }
 
         System.out.println("Done.");
