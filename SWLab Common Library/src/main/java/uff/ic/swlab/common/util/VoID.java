@@ -18,12 +18,18 @@ import org.apache.jena.vocabulary.RDF;
 
 public class VoID {
 
+    public static boolean isVoID(Model model) {
+        org.apache.jena.rdf.model.Resource voidDataset = model.getResource("http://rdfs.org/ns/void#Dataset");
+        org.apache.jena.rdf.model.Resource voidLinkset = model.getResource("http://rdfs.org/ns/void#Linkset");
+        boolean hasDataset = model.contains(null, RDF.type, voidDataset);
+        boolean hasLinkset = model.contains(null, RDF.type, voidLinkset);
+        return hasDataset || hasLinkset;
+    }
+
     public static Model retrieveVoID(String[] urls, String[] sparqlEndPoints) throws InterruptedException {
         Model void_ = ModelFactory.createDefaultModel();
-
         void_.add(VoID.retrieveVoIDFromURL(urls));
         void_.add(VoID.retrieveVoIDFromSparql(sparqlEndPoints));
-
         return void_;
     }
 
@@ -84,8 +90,6 @@ public class VoID {
         return void_;
     }
 
-    private static final long HTTP_TIMEOUT = 10000;
-
     private static Model retrieveVoIDFromSparql(String[] sparqlEndPoints) throws InterruptedException {
         Model void_ = ModelFactory.createDefaultModel();
 
@@ -104,11 +108,12 @@ public class VoID {
 
                 try (QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, queryString)) {
                     ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
-                    ((QueryEngineHTTP) exec).setTimeout(HTTP_TIMEOUT);
+                    ((QueryEngineHTTP) exec).setTimeout(SPARQL_TIMEOUT);
                     exec.execConstruct(tempModel);
                     interrupted();
                     if (isVoID(tempModel))
                         void_.add(tempModel);
+                    interrupted();
                 } catch (InterruptedException e1) {
                     throw new InterruptedException();
                 } catch (Throwable e2) {
@@ -128,7 +133,7 @@ public class VoID {
         String name;
         String queryString = "select distinct ?g where {graph ?g {?s ?p ?o.}}";
         try (QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, queryString)) {
-            ((QueryEngineHTTP) exec).setTimeout(HTTP_TIMEOUT);
+            ((QueryEngineHTTP) exec).setTimeout(SPARQL_TIMEOUT);
             ResultSet rs = exec.execSelect();
             while (rs.hasNext()) {
                 name = rs.next().getResource("g").getURI();
@@ -179,16 +184,10 @@ public class VoID {
         return voidURLs.toArray(new String[0]);
     }
 
-    public static boolean isVoID(Model model) {
-        org.apache.jena.rdf.model.Resource voidDataset = model.getResource("http://rdfs.org/ns/void#Dataset");
-        org.apache.jena.rdf.model.Resource voidLinkset = model.getResource("http://rdfs.org/ns/void#Linkset");
-        boolean hasDataset = model.contains(null, RDF.type, voidDataset);
-        boolean hasLinkset = model.contains(null, RDF.type, voidLinkset);
-        return hasDataset || hasLinkset;
-    }
-
     private static void interrupted() throws InterruptedException {
         if (Thread.interrupted())
             throw new InterruptedException();
     }
+
+    private static final long SPARQL_TIMEOUT = 10000;
 }
