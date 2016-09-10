@@ -6,7 +6,7 @@ import uff.ic.swlab.common.util.VoID;
 
 public class Task implements Runnable {
 
-    private static final int RUNNING_TIMEOUT = 600000;
+    private static final int RUNNING_TIMEOUT = 300000;
     private static final int MAX_EXISTING_INSTANCES = 100;
     private static final InstanceCounter INSTANCE_COUNTER = new InstanceCounter(MAX_EXISTING_INSTANCES);
 
@@ -25,15 +25,17 @@ public class Task implements Runnable {
         }
 
         public synchronized void createInstance() {
-            while (true)
+            while (true) {
                 if (instances > 0) {
                     instances--;
                     break;
-                } else
+                } else {
                     try {
                         wait();
                     } catch (InterruptedException ex) {
                     }
+                }
+            }
         }
 
         public synchronized void releaseInstance() {
@@ -74,13 +76,18 @@ public class Task implements Runnable {
         INSTANCE_COUNTER.releaseInstance();
     }
 
-    public void runTask() {
+    private void runTask() {
         try {
             Model model = void_.add(VoID.retrieveVoID(urls, sparqlEndPoints));
-            if (model.size() > 5 && VoID.isVoID(model))
+            if (model.size() > 5 && VoID.isVoID(model)) {
                 server.putModel(graphURI, model);
+            } else {
+                System.out.println(String.format("Thread discarded. (%1s)", graphURI));
+            }
         } catch (InterruptedException e1) {
+            System.out.println(String.format("Thread interrupted. (%1s)", graphURI));
         } catch (Throwable e2) {
+            System.out.println(String.format("Thread error. (%1s)", graphURI));
         }
     }
 
