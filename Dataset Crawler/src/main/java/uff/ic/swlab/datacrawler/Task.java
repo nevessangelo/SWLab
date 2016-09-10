@@ -6,7 +6,7 @@ import uff.ic.swlab.common.util.VoID;
 
 public class Task implements Runnable {
 
-    private static final int RUNNING_TIMEOUT = 600000;
+    private static final int RUNNING_TIMEOUT = 300000;
     private static final int MAX_EXISTING_INSTANCES = 100;
     private static final InstanceCounter INSTANCE_COUNTER = new InstanceCounter(MAX_EXISTING_INSTANCES);
 
@@ -80,6 +80,7 @@ public class Task implements Runnable {
             if (model.size() > 5 && VoID.isVoID(model))
                 server.putModel(graphURI, model);
         } catch (InterruptedException e1) {
+            System.out.println(String.format("Thread interrupted. (%1s)", graphURI));
         } catch (Throwable e2) {
         }
     }
