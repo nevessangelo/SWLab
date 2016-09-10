@@ -19,6 +19,7 @@ public class ReadRDF {
     
     public static void main(String[] args) throws Exception {
         File arquivos[];
+        DBPediaSpotlight dbpedia = new DBPediaSpotlight();
         File diretorio = new File("/home/angelo/SWLab/GetFeatures/Dumps/rkb-explorer-acm/models/");
         arquivos = diretorio.listFiles();
         for(int i = 0; i < arquivos.length; i++){
@@ -28,7 +29,6 @@ public class ReadRDF {
             StringWriter out = new StringWriter();
             model.write(out, "TURTLE");
             String result = out.toString();
-            DBPediaSpotlight dbpedia = new DBPediaSpotlight();
             dbpedia.getEntity(result);
         }
 

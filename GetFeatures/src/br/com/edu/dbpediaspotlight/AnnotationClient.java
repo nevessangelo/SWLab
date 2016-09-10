@@ -35,7 +35,7 @@ public abstract class AnnotationClient {
         String response = null;
         // Provide custom retry handler is necessary
         method.getParams().setParameter(HttpMethodParams.RETRY_HANDLER,
-                new DefaultHttpMethodRetryHandler(1000000, false));//3
+                new DefaultHttpMethodRetryHandler(3, false));//3
         try {
             // Execute the method.
             int statusCode = client.executeMethod(method);
