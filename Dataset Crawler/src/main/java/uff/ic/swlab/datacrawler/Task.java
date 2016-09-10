@@ -82,6 +82,7 @@ public class Task implements Runnable {
         } catch (InterruptedException e1) {
             System.out.println(String.format("Thread interrupted. (%1s)", graphURI));
         } catch (Throwable e2) {
+            System.out.println(String.format("Thread error. (%1s)", graphURI));
         }
     }
 
