@@ -5,6 +5,7 @@
  */
 package br.com.edu.getFeaturesDump;
 
+import br.com.edu.readrdf.ReadRDF;
 import br.com.edu.utils.DownloadDump;
 import br.com.edu.utils.Unzip;
 import com.mongodb.BasicDBList;
@@ -23,8 +24,9 @@ import org.bson.Document;
  */
 public class GetFeaturesDatabase {
 
-    public static void verificarExisteDump(String url, String nome_dataset) throws IOException {
+    public static void verificarExisteDump(String url, String nome_dataset) throws IOException, Exception {
         String[] verifica_dump = url.split("/");
+        String DirReadRdf;
         for (int i = 0; i < verifica_dump.length; i++) {
             if (verifica_dump[i].equals("dump.tgz")) {
                 File diretorio = new File(System.getProperty("user.dir")+"/Dumps/"+nome_dataset);
@@ -34,9 +36,9 @@ public class GetFeaturesDatabase {
                 download.gravaArquivoDeURL(url,caminho);
                 String arquivo_extrair = diretorio.toString()+"/"+verifica_dump[i];               
                 Unzip unzip = new Unzip();
-                unzip.extract(arquivo_extrair,caminho);
-                
-                
+                DirReadRdf = unzip.extract(arquivo_extrair,caminho,url);
+                ReadRDF rdf = new ReadRDF();
+                rdf.Read(DirReadRdf);                
             }
         }
 

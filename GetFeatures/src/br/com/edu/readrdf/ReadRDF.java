@@ -16,13 +16,13 @@ import org.apache.jena.rdf.model.ModelFactory;
  * @author angelo
  */
 public class ReadRDF {
-    
-    public static void main(String[] args) throws Exception {
+
+    public static void Read(String caminho) throws Exception {
         File arquivos[];
         DBPediaSpotlight dbpedia = new DBPediaSpotlight();
-        File diretorio = new File("/home/angelo/SWLab/GetFeatures/Dumps/rkb-explorer-acm/models/");
+        File diretorio = new File(caminho);
         arquivos = diretorio.listFiles();
-        for(int i = 0; i < arquivos.length; i++){
+        for (int i = 0; i < arquivos.length; i++) {
             Model model = ModelFactory.createDefaultModel();
             String arquivo = arquivos[i].toString();
             model.read(arquivo, "TURTLE");
@@ -31,9 +31,5 @@ public class ReadRDF {
             String result = out.toString();
             dbpedia.getEntity(result);
         }
-
-
-        
     }
-    
 }
