@@ -139,7 +139,7 @@ public class Dataset {
     public Model makeVoID() {
         Model void_ = ModelFactory.createDefaultModel();
 
-        String ns = getCtalogDatasetAPI().replace("{}", "");
+        String ns = getCtalogDatasetAPI();
         Resource voidDataset = void_.createResource("http://rdfs.org/ns/void#Dataset");
         Resource voidLinkset = void_.createResource("http://rdfs.org/ns/void#Linkset");
         Property voidSubset = void_.createProperty("http://rdfs.org/ns/void#subset");

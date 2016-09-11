@@ -6,8 +6,8 @@ import java.util.List;
 public class TestCKAN {
 
     public static void main(String[] args) {
-        CkanClient cc = new CkanClient("http://linkeddatacatalog.dws.informatik.uni-mannheim.de");
-        int limit = 1000, offset = 100000;
+        CkanClient cc = new CkanClient("https://datahub.io/api/3");
+        int limit = 1000, offset = 0;
         List<String> datasets;
         while ((datasets = cc.getDatasetList(limit, offset)).size() > 0) {
             datasets.stream().forEach((dataset) -> {
