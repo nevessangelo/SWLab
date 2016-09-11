@@ -22,8 +22,6 @@ public class CatalogCrawler extends Crawler<Dataset> {
         try {
             names = cc.getDatasetList(limit, offset);
             names = new ArrayList<>();
-            names.add("rkb-explorer-acm");
-            offset = 100000;
             iterator = names.iterator();
         } catch (Throwable e) {
             names = new ArrayList<>();
