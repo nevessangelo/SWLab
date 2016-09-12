@@ -40,7 +40,7 @@ public class GetFeaturesDatabase {
                 download.gravaArquivoDeURL(url, caminho);
                 String arquivo_extrair = diretorio.toString() + "/" + verifica_dump[tamanho - 1];
                 Unzip unzip = new Unzip();
-                DirReadRdf = unzip.extract(arquivo_extrair, caminho, url);
+                DirReadRdf = unzip.extract(arquivo_extrair, caminho, url, achar_zip[j]);
                 ReadRDF rdf = new ReadRDF();
                 rdf.Read(DirReadRdf);
             }
@@ -54,7 +54,7 @@ public class GetFeaturesDatabase {
 
             MongoDatabase db = mongo.getDatabase("data_catalog");
             MongoCollection<Document> datasets = db.getCollection("datasets");
-            List<Document> cursor = (List<Document>) datasets.find(new Document("name", "data-incubator-pokedex")).into(new ArrayList<Document>());
+            List<Document> cursor = (List<Document>) datasets.find(new Document("name", "rkb-explorer-acm")).into(new ArrayList<Document>());
             for (Document cursors : cursor) {
                 String nome_dataset = cursors.getString("name");
                 List<Document> resources = (List<Document>) cursors.get("resources");

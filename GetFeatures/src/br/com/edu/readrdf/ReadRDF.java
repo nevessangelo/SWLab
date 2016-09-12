@@ -22,14 +22,26 @@ public class ReadRDF {
         DBPediaSpotlight dbpedia = new DBPediaSpotlight();
         File diretorio = new File(caminho);
         arquivos = diretorio.listFiles();
-        for (int i = 0; i < arquivos.length; i++) {
+        if (arquivos == null) { //nao existe pasta
             Model model = ModelFactory.createDefaultModel();
-            String arquivo = arquivos[i].toString();
+            //String[] achar_arquivo = caminho.split("/");
+            //int fim = achar_arquivo.length;
+            String arquivo = diretorio.toString();
             model.read(arquivo, "TURTLE");
             StringWriter out = new StringWriter();
             model.write(out, "TURTLE");
             String result = out.toString();
             dbpedia.getEntity(result);
+        } else {
+            for (int i = 0; i < arquivos.length; i++) {
+                Model model = ModelFactory.createDefaultModel();
+                String arquivo = arquivos[i].toString();
+                model.read(arquivo, "TURTLE");
+                StringWriter out = new StringWriter();
+                model.write(out, "TURTLE");
+                String result = out.toString();
+                dbpedia.getEntity(result);
+            }
         }
     }
 }
