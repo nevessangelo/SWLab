@@ -5,6 +5,7 @@
  */
 package getfeatures;
 
+import br.com.edu.getFeaturesDump.GetFeaturesDatabase;
 import java.io.IOException;
 
 /**
@@ -16,9 +17,9 @@ public class GetFeatures {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws IOException {
-        
-        
+    public static void main(String[] args) throws IOException, Exception {
+        GetFeaturesDatabase get = new GetFeaturesDatabase();
+        get.extract();
     }
     
 }
