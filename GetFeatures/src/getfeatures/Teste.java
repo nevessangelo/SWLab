@@ -5,71 +5,104 @@
  */
 package getfeatures;
 
-import br.com.edu.readrdf.ReadRDF;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.zip.GZIPInputStream;
+import java.util.zip.GZIPOutputStream;
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+
+
 
 /**
  *
  * @author angelo
  */
-public class Teste {
 
-    public static void main(String[] args) throws Exception {
-        // GZip input and output file.
-        //
-        String sourceFile = "/home/angelo/SWLab/GetFeatures/Dumps/data-incubator-pokedex/pokedex-data-rdf.gz";
-        String targetFile = "/home/angelo/SWLab/GetFeatures/Dumps/data-incubator-pokedex/export.rdf";
 
-        try {
-            //
-            // Create a file input stream to read the source file.
-            //
-            FileInputStream fis = new FileInputStream(sourceFile);
+    public class Teste extends Application {
 
-            //
-            // Create a gzip input stream to decompress the source
-            // file defined by the file input stream.
-            //
-            GZIPInputStream gzis = new GZIPInputStream(fis);
+        File fileSrc;
+        private static final int bufferSize = 8192;
 
-            //
-            // Create a buffer and temporary variable used during the
-            // file decompress process.
-            //
-            byte[] buffer = new byte[1024];
-            int length;
+        @Override
+        public void start(Stage primaryStage) {
+            primaryStage.setTitle("Hello World!");
 
-            //
-            // Create file output stream where the decompress result
-            // will be stored.
-            //
-            FileOutputStream fos = new FileOutputStream(targetFile);
+            final Label labelFile = new Label();
 
-            //
-            // Read from the compressed source file and write the
-            // decompress file.
-            //
-            while ((length = gzis.read(buffer)) > 0) {
-                fos.write(buffer, 0, length);
-            }
+            Button btn = new Button();
+            btn.setText("Open FileChooser'");
+            btn.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
 
-            //
-            // Close the resources.
-            //
-            fos.close();
-            gzis.close();
-            fis.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+                    FileChooser fileChooser = new FileChooser();
+
+                    //Set extension filter
+                    FileChooser.ExtensionFilter extFilter
+                            = new FileChooser.ExtensionFilter("gz files (*.gz)", "*.gz");
+                    fileChooser.getExtensionFilters().add(extFilter);
+
+                    //Show open file dialog
+                    fileSrc = fileChooser.showOpenDialog(null);
+
+                    String source = fileSrc.getPath();
+                    //remove ".gz" from the path
+                    String targetUnGzFile = source.substring(0, source.length() - 3);
+
+                    try {
+                    //UnCompress file
+
+                        GZIPInputStream gZIPInputStream;
+
+                        FileInputStream fileInputStream
+                                = new FileInputStream(source);
+                        gZIPInputStream = new GZIPInputStream(fileInputStream);
+
+                        byte[] buffer = new byte[bufferSize];
+                        try (FileOutputStream fileOutputStream = new FileOutputStream(targetUnGzFile)) {
+                            int numberOfByte;
+
+                            while ((numberOfByte = gZIPInputStream.read(buffer, 0, bufferSize))
+                                    != -1) {
+                                fileOutputStream.write(buffer, 0, numberOfByte);
+                            }
+
+                            fileOutputStream.close();
+                        }
+
+                        labelFile.setText("UnCompressed file saved as: " + targetUnGzFile);
+
+                    } catch (IOException ex) {
+                        Logger.getLogger(Teste.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            });
+
+            VBox vBox = new VBox();
+            vBox.getChildren().addAll(labelFile, btn);
+
+            StackPane root = new StackPane();
+            root.getChildren().add(vBox);
+            primaryStage.setScene(new Scene(root, 300, 250));
+            primaryStage.show();
         }
-        
-        ReadRDF read = new ReadRDF();
-        read.Read("/home/angelo/SWLab/GetFeatures/Dumps/data-incubator-pokedex/");
-        
-        
-    }
 
-}
+        public static void main(String[] args) {
+            launch(args);
+        }
+
+    }
