@@ -80,7 +80,7 @@ public class RetrieveVoIDTask implements Runnable {
             if (model.size() > 5 && VoID.isVoID(model))
                 server.putModel(graphURI, model);
             else
-                System.out.println(String.format("Thread discarded. (%1s)", graphURI));
+                System.out.println(String.format("Dataset discarded. (%1s)", graphURI));
         } catch (InterruptedException e1) {
             System.out.println(String.format("Thread interrupted. (%1s)", graphURI));
         } catch (Throwable e2) {

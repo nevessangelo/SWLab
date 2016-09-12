@@ -29,9 +29,10 @@ public class SparqlServer {
             DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(dataURL);
             try {
                 accessor.putModel(graphURI, model);
-                System.out.println("Graph <" + graphURI + "> has been loaded.");
+                System.out.println("Dataset <" + graphURI + "> has been loaded.");
             } catch (Throwable e) {
                 System.out.println("Error putModel() graph <" + graphURI + ">.");
+                System.out.println(e.getMessage());
             }
         }
     }
