@@ -9,6 +9,7 @@ __pycache__/
 *.log
 *.class
 
+
 /resource/target
 /.well-known/target
 

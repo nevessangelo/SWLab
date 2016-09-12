@@ -8,6 +8,8 @@ import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
+import org.apache.log4j.Logger;
+import org.apache.log4j.Priority;
 
 public class SparqlServer {
 
@@ -29,10 +31,9 @@ public class SparqlServer {
             DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(dataURL);
             try {
                 accessor.putModel(graphURI, model);
-                System.out.println("Dataset <" + graphURI + "> has been loaded.");
+                Logger.getLogger("util").log(Priority.INFO, "Dataset <" + graphURI + "> has been loaded.");
             } catch (Throwable e) {
-                System.out.println("Error putModel() graph <" + graphURI + ">.");
-                System.out.println(e.getMessage());
+                Logger.getLogger("util").log(Priority.ERROR, "Error putModel() graph <" + graphURI + ">. Msg: " + e.getMessage());
             }
         }
     }
@@ -44,7 +45,7 @@ public class SparqlServer {
 
         String queryString = "select distinct ?g where {graph ?g {?s ?p ?o.}}";
         try (QueryExecution exec = new QueryEngineHTTP(sparqlURL, queryString)) {
-            ((QueryEngineHTTP) exec).setTimeout(HTTP_TIMEOUT);
+            ((QueryEngineHTTP) exec).setTimeout(Config.SO_TIMEOUT);
             ResultSet rs = exec.execSelect();
             while (rs.hasNext())
                 graphNames.add(rs.next().getResource("g").getURI());

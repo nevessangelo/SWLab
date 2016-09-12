@@ -13,10 +13,6 @@ public class CatalogCrawler extends Crawler<Dataset> {
     private List<String> names;
     private Iterator<String> iterator;
 
-    public CatalogCrawler() {
-        this("http://linkeddatacatalog.dws.informatik.uni-mannheim.de");
-    }
-
     public CatalogCrawler(String url) {
         cc = new CkanClient(url);
         try {

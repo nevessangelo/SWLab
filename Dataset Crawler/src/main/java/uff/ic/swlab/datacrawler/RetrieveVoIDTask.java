@@ -1,14 +1,15 @@
 package uff.ic.swlab.datacrawler;
 
 import org.apache.jena.rdf.model.Model;
+import org.apache.log4j.Logger;
+import org.apache.log4j.Priority;
+import uff.ic.swlab.common.util.Config;
 import uff.ic.swlab.common.util.SparqlServer;
 import uff.ic.swlab.common.util.VoID;
 
 public class RetrieveVoIDTask implements Runnable {
 
-    private static final int RUNNING_TIMEOUT = 300000;
-    private static final int MAX_EXISTING_INSTANCES = 100;
-    private static final InstanceCounter INSTANCE_COUNTER = new InstanceCounter(MAX_EXISTING_INSTANCES);
+    private static final InstanceCounter INSTANCE_COUNTER = new InstanceCounter(Config.TASK_INSTANCES);
 
     private final Model void_;
     private final String[] urls;
@@ -18,13 +19,13 @@ public class RetrieveVoIDTask implements Runnable {
 
     private static class InstanceCounter {
 
-        private int instances = 0;
+        private int instances;
 
         public InstanceCounter(int instances) {
             this.instances = instances;
         }
 
-        public synchronized void createInstance() {
+        public synchronized void startInstance() {
             while (true)
                 if (instances > 0) {
                     instances--;
@@ -36,14 +37,14 @@ public class RetrieveVoIDTask implements Runnable {
                     }
         }
 
-        public synchronized void releaseInstance() {
+        public synchronized void finilizeInstance() {
             instances++;
             notifyAll();
         }
     }
 
     public RetrieveVoIDTask(Model void_, String[] urls, String[] sparqlEndPoints, String graphURI, SparqlServer server) {
-        INSTANCE_COUNTER.createInstance();
+        INSTANCE_COUNTER.startInstance();
         this.void_ = void_;
         this.urls = urls;
         this.sparqlEndPoints = sparqlEndPoints;
@@ -69,9 +70,9 @@ public class RetrieveVoIDTask implements Runnable {
 
     @Override
     public final void run() {
-        setTimeout(RUNNING_TIMEOUT);
+        setTimeout(Config.TASK_RUNNING_TIMEOUT);
         runTask();
-        INSTANCE_COUNTER.releaseInstance();
+        INSTANCE_COUNTER.finilizeInstance();
     }
 
     private void runTask() {
@@ -80,11 +81,11 @@ public class RetrieveVoIDTask implements Runnable {
             if (model.size() > 5 && VoID.isVoID(model))
                 server.putModel(graphURI, model);
             else
-                System.out.println(String.format("Dataset discarded. (%1s)", graphURI));
+                Logger.getLogger("datacrawler").log(Priority.INFO, String.format("Dataset discarded. (%1s)", graphURI));
         } catch (InterruptedException e1) {
-            System.out.println(String.format("Thread interrupted. (%1s)", graphURI));
+            Logger.getLogger("datacrawler").log(Priority.WARN, String.format("Thread interrupted. (%1s)", graphURI));
         } catch (Throwable e2) {
-            System.out.println(String.format("Thread error. (%1s)", graphURI));
+            Logger.getLogger("datacrawler").log(Priority.ERROR, String.format("Thread error. (%1s)", graphURI));
         }
     }
 

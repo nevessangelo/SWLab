@@ -9,8 +9,10 @@ import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.riot.web.HttpOp;
-import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import org.apache.log4j.Priority;
+import org.apache.log4j.PropertyConfigurator;
+import uff.ic.swlab.common.util.Config;
 import uff.ic.swlab.common.util.Resource;
 import uff.ic.swlab.common.util.SparqlServer;
 
@@ -25,13 +27,14 @@ public class Main {
     }
 
     public static void run(String[] args) throws MalformedURLException, InterruptedException {
-        Logger.getRootLogger().setLevel(Level.OFF);
-        System.out.println("Crawler started.");
+        Logger.getLogger("datacrawler");
+        PropertyConfigurator.configure("./src/main/resources/conf/log4j.properties");
+        Logger.getLogger("datacrawler").log(Priority.INFO, "Crawler started.");
 
         final HttpClient httpclient = HttpOp.createCachingHttpClient();
         final HttpParams params = httpclient.getParams();
-        params.setParameter(HttpConnectionParams.CONNECTION_TIMEOUT, 10000);
-        params.setParameter(HttpConnectionParams.SO_TIMEOUT, 30000);
+        params.setParameter(HttpConnectionParams.CONNECTION_TIMEOUT, Config.CONNECTION_TIMEOUT);
+        params.setParameter(HttpConnectionParams.SO_TIMEOUT, Config.SO_TIMEOUT);
         HttpOp.setDefaultHttpClient(httpclient);
 
         String fuseki = "http://localhost:8080/fuseki/void2";
@@ -45,7 +48,7 @@ public class Main {
         try (Crawler<Dataset> crawler = new CatalogCrawler(catalog);) {
 
             //List<String> graphNames = server.listGraphNames();
-            ExecutorService pool = Executors.newWorkStealingPool(50);
+            ExecutorService pool = Executors.newWorkStealingPool(Config.PARALLELISM);
             while (crawler.hasNext()) {
                 Dataset dataset = crawler.next();
 
@@ -59,12 +62,12 @@ public class Main {
                 pool.submit(new RetrieveVoIDTask(void_, urls, sparqlEndPoints, graphURI, server));
             }
             pool.shutdown();
-            pool.awaitTermination(7, TimeUnit.DAYS);
+            pool.awaitTermination(Config.POOL_SHUTDOWN_TIMEOUT, TimeUnit.DAYS);
 
         } catch (Throwable e) {
         }
 
-        System.out.println("Crawler done.");
+        Logger.getLogger("datacrawler").log(Priority.INFO, "Crawler done.");
     }
 
 }
