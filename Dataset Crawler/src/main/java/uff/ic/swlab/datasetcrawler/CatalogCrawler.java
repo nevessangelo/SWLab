@@ -17,7 +17,6 @@ public class CatalogCrawler extends Crawler<Dataset> {
         cc = new CkanClient(url);
         try {
             names = cc.getDatasetList(limit, offset);
-            names = new ArrayList<>();
             iterator = names.iterator();
         } catch (Throwable e) {
             names = new ArrayList<>();

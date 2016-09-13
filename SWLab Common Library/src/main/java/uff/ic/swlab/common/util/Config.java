@@ -2,7 +2,7 @@ package uff.ic.swlab.common.util;
 
 public class Config {
 
-    public static String FUSEKI_DATASET = "http://localhost:8080/fuseki";
+    public static String FUSEKI_DATASET = "http://localhost:8080/fuseki/void";
     public static String CKAN_CATALOG = "http://linkeddatacatalog.dws.informatik.uni-mannheim.de";
 
     public static Integer TASK_INSTANCES = 50;

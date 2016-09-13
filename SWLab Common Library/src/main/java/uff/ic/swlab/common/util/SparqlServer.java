@@ -33,7 +33,7 @@ public class SparqlServer {
                 accessor.putModel(graphURI, model);
                 Logger.getLogger("util").log(Priority.INFO, "Dataset <" + graphURI + "> has been loaded.");
             } catch (Throwable e) {
-                Logger.getLogger("util").log(Priority.ERROR, "Error putModel() graph <" + graphURI + ">. Msg: " + e.getMessage());
+                Logger.getLogger("util").log(Priority.ERROR, "Error putModel(). (<" + graphURI + ">). Msg: " + e.getMessage());
             }
         }
     }
