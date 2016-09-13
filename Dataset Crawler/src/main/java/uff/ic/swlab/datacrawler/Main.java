@@ -45,6 +45,7 @@ public class Main {
         server.updateURL = fuseki + "/update";
         server.sparqlURL = fuseki + "/sparql";
 
+        int i = 0;
         try (Crawler<Dataset> crawler = new CatalogCrawler(catalog);) {
 
             //List<String> graphNames = server.listGraphNames();
@@ -60,7 +61,9 @@ public class Main {
 
                 //if (!graphNames.contains(nameURI))
                 pool.submit(new RetrieveVoIDTask(void_, urls, sparqlEndPoints, graphURI, server));
+                System.out.println(i++);
             }
+            System.out.println("saiu");
             pool.shutdown();
             pool.awaitTermination(Config.POOL_SHUTDOWN_TIMEOUT, TimeUnit.DAYS);
 
