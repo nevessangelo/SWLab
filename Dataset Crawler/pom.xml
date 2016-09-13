@@ -44,7 +44,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.2.1</version>
                 <configuration>
-                    <mainClass>uff.ic.swlab.datacrawler.Main</mainClass>
+                    <mainClass>uff.ic.swlab.datasetcrawler.Main</mainClass>
                 </configuration>
             </plugin>
         </plugins>
