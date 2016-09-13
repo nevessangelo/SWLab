@@ -37,7 +37,7 @@ public class Main {
         params.setParameter(HttpConnectionParams.SO_TIMEOUT, Config.SO_TIMEOUT);
         HttpOp.setDefaultHttpClient(httpclient);
 
-        String fuseki = "http://localhost:8080/fuseki/void2";
+        String fuseki = "http://localhost:8080/fuseki/void";
         String catalog = "http://linkeddatacatalog.dws.informatik.uni-mannheim.de";
 
         SparqlServer server = new SparqlServer();
