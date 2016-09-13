@@ -32,8 +32,6 @@ public class Main {
         PropertyConfigurator.configure("./src/main/resources/conf/log4j.properties");
         Logger.getLogger("datacrawler").log(Priority.INFO, "Crawler started.");
 
-        String oper = "INSERT";
-
         final HttpClient httpclient = HttpOp.createCachingHttpClient();
         final HttpParams params = httpclient.getParams();
         params.setParameter(HttpConnectionParams.CONNECTION_TIMEOUT, Config.CONNECTION_TIMEOUT);
@@ -48,6 +46,8 @@ public class Main {
         server.updateURL = fuseki + "/update";
         server.sparqlURL = fuseki + "/sparql";
 
+        String oper = "INSERT";
+
         try (Crawler<Dataset> crawler = new CatalogCrawler(catalog);) {
 
             List<String> graphNames = server.listGraphNames();
@@ -61,7 +61,7 @@ public class Main {
                 String graphURI = dataset.getNameURI();
                 String authority = Resource.getAuthority(urls);
 
-                if ((oper.equals("INSERT") && !graphNames.contains(graphURI)) || !oper.equals("INSERT"))
+                if (oper == null || !oper.equals("INSERT") || (oper.equals("INSERT") && !graphNames.contains(graphURI)))
                     pool.submit(new RetrieveVoIDTask(void_, urls, sparqlEndPoints, graphURI, server));
             }
             pool.shutdown();
