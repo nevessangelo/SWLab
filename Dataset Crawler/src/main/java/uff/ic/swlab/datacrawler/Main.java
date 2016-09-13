@@ -1,6 +1,7 @@
 package uff.ic.swlab.datacrawler;
 
 import java.net.MalformedURLException;
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -31,6 +32,8 @@ public class Main {
         PropertyConfigurator.configure("./src/main/resources/conf/log4j.properties");
         Logger.getLogger("datacrawler").log(Priority.INFO, "Crawler started.");
 
+        String oper = "INSERT";
+
         final HttpClient httpclient = HttpOp.createCachingHttpClient();
         final HttpParams params = httpclient.getParams();
         params.setParameter(HttpConnectionParams.CONNECTION_TIMEOUT, Config.CONNECTION_TIMEOUT);
@@ -47,7 +50,7 @@ public class Main {
 
         try (Crawler<Dataset> crawler = new CatalogCrawler(catalog);) {
 
-            //List<String> graphNames = server.listGraphNames();
+            List<String> graphNames = server.listGraphNames();
             ExecutorService pool = Executors.newWorkStealingPool(Config.PARALLELISM);
             while (crawler.hasNext()) {
                 Dataset dataset = crawler.next();
@@ -58,8 +61,8 @@ public class Main {
                 String graphURI = dataset.getNameURI();
                 String authority = Resource.getAuthority(urls);
 
-                //if (!graphNames.contains(nameURI))
-                pool.submit(new RetrieveVoIDTask(void_, urls, sparqlEndPoints, graphURI, server));
+                if ((oper.equals("INSERT") && !graphNames.contains(graphURI)) || !oper.equals("INSERT"))
+                    pool.submit(new RetrieveVoIDTask(void_, urls, sparqlEndPoints, graphURI, server));
             }
             pool.shutdown();
             pool.awaitTermination(Config.POOL_SHUTDOWN_TIMEOUT, TimeUnit.DAYS);
