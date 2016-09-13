@@ -1,4 +1,4 @@
-package uff.ic.swlab.datacrawler;
+package uff.ic.swlab.datasetcrawler;
 
 import java.net.MalformedURLException;
 import java.util.concurrent.ExecutorService;

@@ -1,4 +1,4 @@
-package uff.ic.swlab.datacrawler;
+package uff.ic.swlab.datasetcrawler;
 
 public abstract class Crawler<T> implements AutoCloseable {
 

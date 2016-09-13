@@ -1,4 +1,4 @@
-package uff.ic.swlab.datacrawler;
+package uff.ic.swlab.datasetcrawler;
 
 import org.apache.jena.rdf.model.Model;
 import org.apache.log4j.Logger;

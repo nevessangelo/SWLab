@@ -1,4 +1,4 @@
-package uff.ic.swlab.datacrawler;
+package uff.ic.swlab.datasetcrawler;
 
 import eu.trentorise.opendata.jackan.CkanClient;
 import java.util.ArrayList;
