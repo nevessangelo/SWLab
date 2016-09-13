@@ -81,7 +81,7 @@ public class RetrieveVoIDTask implements Runnable {
             if (model.size() > 5 && VoID.isVoID(model))
                 server.putModel(graphURI, model);
             else
-                Logger.getLogger("datacrawler").log(Priority.INFO, String.format("Dataset <(%1s)> discarded.", graphURI));
+                Logger.getLogger("datacrawler").log(Priority.INFO, String.format("Dataset discarded: <(%1s)>.", graphURI));
         } catch (InterruptedException e1) {
             Logger.getLogger("datacrawler").log(Priority.WARN, String.format("Thread interrupted. (%1s)", graphURI));
         } catch (Throwable e2) {

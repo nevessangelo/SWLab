@@ -31,7 +31,7 @@ public class SparqlServer {
             DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(dataURL);
             try {
                 accessor.putModel(graphURI, model);
-                Logger.getLogger("util").log(Priority.INFO, "Dataset <" + graphURI + "> has been loaded.");
+                Logger.getLogger("util").log(Priority.INFO, "Dataset loaded: <" + graphURI + ">.");
             } catch (Throwable e) {
                 Logger.getLogger("util").log(Priority.ERROR, "Error putModel(). (<" + graphURI + ">). Msg: " + e.getMessage());
             }
