@@ -50,6 +50,7 @@ public class Main {
         server.updateURL = Config.FUSEKI_DATASET + "/update";
         server.sparqlURL = Config.FUSEKI_DATASET + "/sparql";
 
+        int counter = 0;
         try (Crawler<Dataset> crawler = new CatalogCrawler(Config.CKAN_CATALOG);) {
 
             List<String> graphNames = server.listGraphNames();
@@ -65,6 +66,8 @@ public class Main {
 
                 if (oper == null || !oper.equals("insert") || (oper.equals("insert") && !graphNames.contains(graphURI)))
                     pool.submit(new RetrieveVoIDTask(void_, urls, sparqlEndPoints, graphURI, server));
+
+                System.out.println((++counter) + "-" + graphURI);
             }
             pool.shutdown();
             pool.awaitTermination(Config.POOL_SHUTDOWN_TIMEOUT, TimeUnit.DAYS);
