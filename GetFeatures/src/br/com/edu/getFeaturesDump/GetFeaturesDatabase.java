@@ -41,8 +41,8 @@ public class GetFeaturesDatabase {
                 String arquivo_extrair = diretorio.toString() + "/" + verifica_dump[tamanho - 1];
                 Unzip unzip = new Unzip();
                 DirReadRdf = unzip.extract(arquivo_extrair, caminho, url, achar_zip[j]);
-             //   ReadRDF rdf = new ReadRDF();
-             //   rdf.Read(DirReadRdf);
+                ReadRDF rdf = new ReadRDF();
+                rdf.Read(DirReadRdf);
             }
         }
     }
