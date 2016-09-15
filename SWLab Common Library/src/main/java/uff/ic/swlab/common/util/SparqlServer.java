@@ -38,8 +38,6 @@ public class SparqlServer {
         }
     }
 
-    private static final long HTTP_TIMEOUT = 10000;
-
     public List<String> listGraphNames() {
         List<String> graphNames = new ArrayList<>();
 
