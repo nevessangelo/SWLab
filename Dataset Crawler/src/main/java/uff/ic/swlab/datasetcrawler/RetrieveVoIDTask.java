@@ -1,6 +1,10 @@
 package uff.ic.swlab.datasetcrawler;
 
+import org.apache.http.client.HttpClient;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
 import org.apache.jena.rdf.model.Model;
+import org.apache.jena.riot.web.HttpOp;
 import org.apache.log4j.Logger;
 import org.apache.log4j.Priority;
 import uff.ic.swlab.common.util.Config;
@@ -70,6 +74,12 @@ public class RetrieveVoIDTask implements Runnable {
 
     @Override
     public final void run() {
+        HttpClient httpclient = HttpOp.createCachingHttpClient();
+        HttpParams params = httpclient.getParams();
+        params.setParameter(HttpConnectionParams.CONNECTION_TIMEOUT, Config.CONNECTION_TIMEOUT);
+        params.setParameter(HttpConnectionParams.SO_TIMEOUT, Config.SO_TIMEOUT);
+        HttpOp.setDefaultHttpClient(httpclient);
+
         setTimeout(Config.TASK_RUNNING_TIMEOUT);
         runTask();
         INSTANCE_COUNTER.finilizeInstance();
