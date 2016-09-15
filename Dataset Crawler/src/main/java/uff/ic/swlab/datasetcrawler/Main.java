@@ -1,5 +1,6 @@
 package uff.ic.swlab.datasetcrawler;
 
+import uff.ic.swlab.datasetcrawler.model.Dataset;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -10,11 +11,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Stream;
-import org.apache.http.client.HttpClient;
-import org.apache.http.params.HttpConnectionParams;
-import org.apache.http.params.HttpParams;
 import org.apache.jena.rdf.model.Model;
-import org.apache.jena.riot.web.HttpOp;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import uff.ic.swlab.common.util.Config;
@@ -38,12 +35,6 @@ public class Main {
 
         loadProperties();
         String oper = getOper(args);
-
-        final HttpClient httpclient = HttpOp.createCachingHttpClient();
-        final HttpParams params = httpclient.getParams();
-        params.setParameter(HttpConnectionParams.CONNECTION_TIMEOUT, Config.CONNECTION_TIMEOUT);
-        params.setParameter(HttpConnectionParams.SO_TIMEOUT, Config.SO_TIMEOUT);
-        HttpOp.setDefaultHttpClient(httpclient);
 
         SparqlServer server = new SparqlServer();
         server.dataURL = Config.FUSEKI_DATASET + "/data";

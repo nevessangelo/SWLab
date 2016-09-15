@@ -5,6 +5,10 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
 import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Model;
@@ -35,15 +39,18 @@ public class VoID {
 
     private static Model retrieveVoIDFromURL(String[] urls) throws InterruptedException {
         Model void_ = ModelFactory.createDefaultModel();
+        ExecutorService pool = Executors.newCachedThreadPool();
 
-        Model tempModel;
         try {
-            String[] voidURLs = listPotentialVoIDURLs(urls);
-            for (String url : voidURLs)
+            for (String url : listPotentialVoIDURLs(urls))
                 try {
-                    tempModel = ModelFactory.createDefaultModel();
-                    RDFDataMgr.read(tempModel, url);
+                    final Model tempModel = ModelFactory.createDefaultModel();
+                    Future f = pool.submit(() -> {
+                        RDFDataMgr.read(tempModel, url);
+                    });
+                    f.get(Config.SO_TIMEOUT, TimeUnit.MILLISECONDS);
                     interrupted();
+
                     if (isVoID(tempModel))
                         void_.add(tempModel);
                     interrupted();
@@ -56,9 +63,13 @@ public class VoID {
                     boolean read = false;
                     for (Lang lang : langs)
                         try {
-                            tempModel = ModelFactory.createDefaultModel();
-                            RDFDataMgr.read(tempModel, url, lang);
+                            final Model tempModel = ModelFactory.createDefaultModel();
+                            Future f = pool.submit(() -> {
+                                RDFDataMgr.read(tempModel, url, lang);
+                            });
+                            f.get(Config.SO_TIMEOUT, TimeUnit.MILLISECONDS);
                             interrupted();
+
                             if (isVoID(tempModel)) {
                                 void_.add(tempModel);
                                 read = true;
@@ -71,9 +82,13 @@ public class VoID {
                         }
                     if (!read)
                         try {
-                            tempModel = ModelFactory.createDefaultModel();
-                            RDFaDataMgr.read(tempModel, url);
+                            final Model tempModel = ModelFactory.createDefaultModel();
+                            Future f = pool.submit(() -> {
+                                RDFaDataMgr.read(tempModel, url);
+                            });
+                            f.get(Config.SO_TIMEOUT, TimeUnit.MILLISECONDS);
                             interrupted();
+
                             if (isVoID(tempModel))
                                 void_.add(tempModel);
                             interrupted();
@@ -87,6 +102,7 @@ public class VoID {
         } catch (Throwable e2) {
         }
 
+        pool.shutdownNow();
         return void_;
     }
 

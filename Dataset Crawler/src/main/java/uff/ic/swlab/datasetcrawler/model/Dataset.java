@@ -1,4 +1,4 @@
-package uff.ic.swlab.datasetcrawler;
+package uff.ic.swlab.datasetcrawler.model;
 
 import eu.trentorise.opendata.jackan.CkanClient;
 import eu.trentorise.opendata.jackan.model.CkanDataset;

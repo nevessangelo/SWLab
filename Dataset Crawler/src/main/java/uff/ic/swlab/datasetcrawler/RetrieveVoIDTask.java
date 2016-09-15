@@ -85,7 +85,7 @@ public class RetrieveVoIDTask implements Runnable {
         } catch (InterruptedException e1) {
             Logger.getLogger("datacrawler").log(Priority.WARN, String.format("Thread interrupted. (%1s)", graphURI));
         } catch (Throwable e2) {
-            Logger.getLogger("datacrawler").log(Priority.ERROR, String.format("Thread error. (%1s)", graphURI));
+            Logger.getLogger("datacrawler").log(Priority.ERROR, String.format("Thread error (%1s). Msg: (%2s)", graphURI, e2.getMessage()));
         }
     }
 

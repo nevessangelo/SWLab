@@ -35,9 +35,12 @@ public class RDFaDataMgr {
             writeHTML(output, model);
     }
 
-    public static void read(Model model, String urlString) throws UnsupportedEncodingException {
-        String url = URLEncoder.encode(urlString, "UTF-8");
-        model.read("http://rdf-translator.appspot.com/convert/rdfa/xml/" + url);
+    public static void read(Model model, String urlString) {
+        try {
+            String url = URLEncoder.encode(urlString, "UTF-8");
+            model.read("http://rdf-translator.appspot.com/convert/rdfa/xml/" + url);
+        } catch (UnsupportedEncodingException ex) {
+        }
     }
 
     public static void write(OutputStream output, Model model) {
