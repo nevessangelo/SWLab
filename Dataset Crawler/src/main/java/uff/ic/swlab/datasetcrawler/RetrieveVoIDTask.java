@@ -9,13 +9,13 @@ import uff.ic.swlab.common.util.VoID;
 
 public class RetrieveVoIDTask implements Runnable {
 
-    private static final InstanceCounter INSTANCE_COUNTER = new InstanceCounter(Config.TASK_INSTANCES);
-
     private final Model void_;
     private final String[] urls;
     private final String[] sparqlEndPoints;
     private final SparqlServer server;
     private final String graphURI;
+
+    private static final InstanceCounter INSTANCE_COUNTER = new InstanceCounter(Config.TASK_INSTANCES);
 
     private static class InstanceCounter {
 
@@ -52,7 +52,32 @@ public class RetrieveVoIDTask implements Runnable {
         this.graphURI = graphURI;
     }
 
-    private void setTimeout(long timeout) {
+    @Override
+    public final void run() {
+        activateAutoTimeout(Config.TASK_RUNNING_TIMEOUT);
+        runTask();
+        INSTANCE_COUNTER.finilizeInstance();
+    }
+
+    private void runTask() {
+        try {
+            Model void__ = VoID.retrieveVoID(urls, sparqlEndPoints);
+            if (void__.size() == 0)
+                Logger.getLogger("datacrawler").log(Priority.INFO, String.format("Empty crawled VoID: (<%1s>).", graphURI));
+
+            void_.add(void__);
+            if (void_.size() > 5 && VoID.isVoID(void_))
+                server.putModel(graphURI, void_);
+            else
+                Logger.getLogger("datacrawler").log(Priority.INFO, String.format("Dataset discarded: (<%1s>).", graphURI));
+        } catch (InterruptedException e1) {
+            Logger.getLogger("datacrawler").log(Priority.WARN, String.format("Thread timed out. (<%1s>)", graphURI));
+        } catch (Throwable e2) {
+            Logger.getLogger("datacrawler").log(Priority.ERROR, String.format("Thread error (<%1s>). Msg: %2s", graphURI, e2.getMessage()));
+        }
+    }
+
+    private void activateAutoTimeout(long timeout) {
         (new Thread() {
             private final Thread t = Thread.currentThread();
             private final long TIMEOUT = timeout;
@@ -62,31 +87,9 @@ public class RetrieveVoIDTask implements Runnable {
                 try {
                     t.join(TIMEOUT);
                 } catch (InterruptedException ex) {
-                    t.interrupt();
                 }
+                t.interrupt();
             }
         }).start();
     }
-
-    @Override
-    public final void run() {
-        setTimeout(Config.TASK_RUNNING_TIMEOUT);
-        runTask();
-        INSTANCE_COUNTER.finilizeInstance();
-    }
-
-    private void runTask() {
-        try {
-            Model model = void_.add(VoID.retrieveVoID(urls, sparqlEndPoints));
-            if (model.size() > 5 && VoID.isVoID(model))
-                server.putModel(graphURI, model);
-            else
-                Logger.getLogger("datacrawler").log(Priority.INFO, String.format("Dataset discarded: <(%1s)>.", graphURI));
-        } catch (InterruptedException e1) {
-            Logger.getLogger("datacrawler").log(Priority.WARN, String.format("Thread interrupted. (%1s)", graphURI));
-        } catch (Throwable e2) {
-            Logger.getLogger("datacrawler").log(Priority.ERROR, String.format("Thread error (%1s). Msg: (%2s)", graphURI, e2.getMessage()));
-        }
-    }
-
 }

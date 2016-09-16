@@ -43,7 +43,7 @@ public class SparqlServer {
 
         String queryString = "select distinct ?g where {graph ?g {?s ?p ?o.}}";
         try (QueryExecution exec = new QueryEngineHTTP(sparqlURL, queryString)) {
-            ((QueryEngineHTTP) exec).setTimeout(Config.SO_TIMEOUT);
+            ((QueryEngineHTTP) exec).setTimeout(Config.SPARQL_TIMEOUT);
             ResultSet rs = exec.execSelect();
             while (rs.hasNext())
                 graphNames.add(rs.next().getResource("g").getURI());

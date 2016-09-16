@@ -61,7 +61,7 @@ public class Main {
                 System.out.println((++counter) + "-" + graphURI);
             }
             pool.shutdown();
-            pool.awaitTermination(Config.POOL_SHUTDOWN_TIMEOUT, TimeUnit.DAYS);
+            pool.awaitTermination(Config.POOL_SHUTDOWN_TIMEOUT, Config.POOL_SHUTDOWN_TIMEOUT_UNIT);
 
         } catch (Throwable e) {
         }
@@ -91,12 +91,11 @@ public class Main {
             Config.TASK_INSTANCES = Integer.valueOf(prop.getProperty("taskInstances"));
             Config.PARALLELISM = Integer.valueOf(prop.getProperty("parallelism"));
             Config.TASK_RUNNING_TIMEOUT = Long.valueOf(prop.getProperty("taskRunningTimeout"));
+            Config.POOL_SHUTDOWN_TIMEOUT = Integer.valueOf(prop.getProperty("poolShutdownTimeout"));
+            Config.POOL_SHUTDOWN_TIMEOUT_UNIT = TimeUnit.valueOf(prop.getProperty("poolShutdownTimeoutUnit"));
             Config.MODEL_READ_TIMEOUT = Long.valueOf(prop.getProperty("modelReadTimeout"));
             Config.SPARQL_TIMEOUT = Long.valueOf(prop.getProperty("sparqlTimeout"));
-            Config.POOL_SHUTDOWN_TIMEOUT = Integer.valueOf(prop.getProperty("poolShutdownTimeout"));
 
-            Config.CONNECTION_TIMEOUT = Integer.valueOf(prop.getProperty("connectionTimeout"));
-            Config.SO_TIMEOUT = Integer.valueOf(prop.getProperty("soTimeout"));
         }
     }
 
