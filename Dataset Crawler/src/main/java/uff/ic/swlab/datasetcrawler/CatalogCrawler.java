@@ -9,8 +9,8 @@ import uff.ic.swlab.datasetcrawler.model.Dataset;
 public class CatalogCrawler extends Crawler<Dataset> {
 
     private final CkanClient cc;
-    private int offset = 1465;
-    private int limit = 1;
+    private int offset = 0;
+    private int limit = 100;
     private List<String> names;
     private Iterator<String> iterator;
 
