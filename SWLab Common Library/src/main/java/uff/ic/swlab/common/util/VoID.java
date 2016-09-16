@@ -5,10 +5,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Model;
@@ -39,70 +36,102 @@ public class VoID {
 
     private static Model retrieveVoIDFromURL(String[] urls) throws InterruptedException {
         Model void_ = ModelFactory.createDefaultModel();
-        ExecutorService pool = Executors.newCachedThreadPool();
 
-        try {
-            for (String url : listPotentialVoIDURLs(urls))
-                try {
-                    final Model tempModel = ModelFactory.createDefaultModel();
-                    Future f = pool.submit(() -> {
-                        RDFDataMgr.read(tempModel, url);
-                    });
-                    f.get(Config.SO_TIMEOUT, TimeUnit.MILLISECONDS);
-                    interrupted();
-
-                    if (isVoID(tempModel))
-                        void_.add(tempModel);
-                    interrupted();
-                } catch (RiotNotFoundException e1) {
-                } catch (InterruptedException e2) {
-                    throw new InterruptedException();
-                } catch (Throwable e3) {
-                    Lang[] langs = {Lang.TURTLE, Lang.RDFXML, Lang.NTRIPLES, Lang.TRIG,
-                        Lang.NQUADS, Lang.JSONLD, Lang.RDFJSON, Lang.TRIX, Lang.RDFTHRIFT};
-                    boolean read = false;
-                    for (Lang lang : langs)
+        for (String url : listPotentialVoIDURLs(urls))
+            try {
+                Model tempModel = ModelFactory.createDefaultModel();
+                Thread task = new Thread() {
+                    @Override
+                    public void run() {
                         try {
-                            final Model tempModel = ModelFactory.createDefaultModel();
-                            Future f = pool.submit(() -> {
-                                RDFDataMgr.read(tempModel, url, lang);
-                            });
-                            f.get(Config.SO_TIMEOUT, TimeUnit.MILLISECONDS);
-                            interrupted();
-
-                            if (isVoID(tempModel)) {
-                                void_.add(tempModel);
-                                read = true;
-                                break;
-                            }
-                            interrupted();
-                        } catch (InterruptedException e31) {
-                            throw new InterruptedException();
-                        } catch (Throwable e32) {
+                            Model m = ModelFactory.createDefaultModel();
+                            RDFDataMgr.read(m, url);
+                            tempModel.add(m);
+                        } catch (Throwable e) {
                         }
-                    if (!read)
-                        try {
-                            final Model tempModel = ModelFactory.createDefaultModel();
-                            Future f = pool.submit(() -> {
-                                RDFaDataMgr.read(tempModel, url);
-                            });
-                            f.get(Config.SO_TIMEOUT, TimeUnit.MILLISECONDS);
-                            interrupted();
-
-                            if (isVoID(tempModel))
-                                void_.add(tempModel);
-                            interrupted();
-                        } catch (InterruptedException e31) {
-                            throw new InterruptedException();
-                        } catch (Throwable e33) {
-                        }
+                    }
+                };
+                task.start();
+                task.join(Config.MODEL_READ_TIMEOUT);
+                if (task.isAlive()) {
+                    task.stop();
+                    throw new TimeoutException();
                 }
-        } catch (InterruptedException e1) {
-            throw new InterruptedException();
-        } catch (Throwable e2) {
-        }
+                interrupted();
 
-        pool.shutdownNow();
+                if (isVoID(tempModel))
+                    void_.add(tempModel);
+                interrupted();
+            } catch (RiotNotFoundException e1) {
+            } catch (InterruptedException e2) {
+                throw new InterruptedException();
+            } catch (Throwable e3) {
+                Lang[] langs = {Lang.TURTLE, Lang.RDFXML, Lang.NTRIPLES, Lang.TRIG,
+                    Lang.NQUADS, Lang.JSONLD, Lang.RDFJSON, Lang.TRIX, Lang.RDFTHRIFT};
+                boolean read = false;
+                for (Lang lang : langs)
+                    try {
+                        final Model tempModel = ModelFactory.createDefaultModel();
+                        Thread task = new Thread() {
+                            @Override
+                            public void run() {
+                                try {
+                                    Model m = ModelFactory.createDefaultModel();
+                                    RDFDataMgr.read(tempModel, url, lang);
+                                    tempModel.add(m);
+                                } catch (Throwable e) {
+                                }
+                            }
+                        };
+                        task.start();
+                        task.join(Config.MODEL_READ_TIMEOUT);
+                        if (task.isAlive()) {
+                            task.stop();
+                            throw new TimeoutException();
+                        }
+                        interrupted();
+
+                        if (isVoID(tempModel)) {
+                            void_.add(tempModel);
+                            read = true;
+                            break;
+                        }
+                        interrupted();
+                    } catch (InterruptedException e31) {
+                        throw new InterruptedException();
+                    } catch (Throwable e32) {
+                    }
+                if (!read)
+                    try {
+                        final Model tempModel = ModelFactory.createDefaultModel();
+                        Thread task = new Thread() {
+                            @Override
+                            public void run() {
+                                try {
+                                    Model m = ModelFactory.createDefaultModel();
+                                    RDFaDataMgr.read(tempModel, url);
+                                    tempModel.add(m);
+                                } catch (Throwable e) {
+                                }
+                            }
+                        };
+                        task.start();
+                        task.join(Config.MODEL_READ_TIMEOUT);
+                        if (task.isAlive()) {
+                            task.stop();
+                            throw new TimeoutException();
+                        }
+                        interrupted();
+
+                        if (isVoID(tempModel))
+                            void_.add(tempModel);
+                        interrupted();
+                    } catch (InterruptedException e31) {
+                        throw new InterruptedException();
+                    } catch (Throwable e33) {
+                    }
+            }
+
         return void_;
     }
 
@@ -124,7 +153,7 @@ public class VoID {
 
                 try (QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, queryString)) {
                     ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
-                    ((QueryEngineHTTP) exec).setTimeout(SPARQL_TIMEOUT);
+                    ((QueryEngineHTTP) exec).setTimeout(Config.SPARQL_TIMEOUT);
                     exec.execConstruct(tempModel);
                     interrupted();
                     if (isVoID(tempModel))
@@ -149,7 +178,7 @@ public class VoID {
         String name;
         String queryString = "select distinct ?g where {graph ?g {?s ?p ?o.}}";
         try (QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, queryString)) {
-            ((QueryEngineHTTP) exec).setTimeout(SPARQL_TIMEOUT);
+            ((QueryEngineHTTP) exec).setTimeout(Config.SPARQL_TIMEOUT);
             ResultSet rs = exec.execSelect();
             while (rs.hasNext()) {
                 name = rs.next().getResource("g").getURI();
@@ -204,6 +233,4 @@ public class VoID {
         if (Thread.interrupted())
             throw new InterruptedException();
     }
-
-    private static final long SPARQL_TIMEOUT = 10000;
 }

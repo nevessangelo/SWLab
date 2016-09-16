@@ -1,6 +1,5 @@
 package uff.ic.swlab.datasetcrawler;
 
-import uff.ic.swlab.datasetcrawler.model.Dataset;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,6 +16,7 @@ import org.apache.log4j.PropertyConfigurator;
 import uff.ic.swlab.common.util.Config;
 import uff.ic.swlab.common.util.Resource;
 import uff.ic.swlab.common.util.SparqlServer;
+import uff.ic.swlab.datasetcrawler.model.Dataset;
 
 public class Main {
 
@@ -88,12 +88,15 @@ public class Main {
             Config.FUSEKI_DATASET = prop.getProperty("fusekiDataset");
             Config.CKAN_CATALOG = prop.getProperty("ckanCatalog");
 
-            Config.CONNECTION_TIMEOUT = Integer.valueOf(prop.getProperty("connectionTimeout"));
-            Config.PARALLELISM = Integer.valueOf(prop.getProperty("parallelism"));
-            Config.POOL_SHUTDOWN_TIMEOUT = Integer.valueOf(prop.getProperty("poolShutdownTimeout"));
-            Config.SO_TIMEOUT = Integer.valueOf(prop.getProperty("soTimeout"));
             Config.TASK_INSTANCES = Integer.valueOf(prop.getProperty("taskInstances"));
+            Config.PARALLELISM = Integer.valueOf(prop.getProperty("parallelism"));
             Config.TASK_RUNNING_TIMEOUT = Long.valueOf(prop.getProperty("taskRunningTimeout"));
+            Config.MODEL_READ_TIMEOUT = Long.valueOf(prop.getProperty("modelReadTimeout"));
+            Config.SPARQL_TIMEOUT = Long.valueOf(prop.getProperty("sparqlTimeout"));
+            Config.POOL_SHUTDOWN_TIMEOUT = Integer.valueOf(prop.getProperty("poolShutdownTimeout"));
+
+            Config.CONNECTION_TIMEOUT = Integer.valueOf(prop.getProperty("connectionTimeout"));
+            Config.SO_TIMEOUT = Integer.valueOf(prop.getProperty("soTimeout"));
         }
     }
 
