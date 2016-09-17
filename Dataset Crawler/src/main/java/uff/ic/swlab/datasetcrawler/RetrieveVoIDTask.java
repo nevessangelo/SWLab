@@ -54,32 +54,34 @@ public class RetrieveVoIDTask implements Runnable {
 
     @Override
     public final void run() {
-        activateAutoTimeout(Config.TASK_RUNNING_TIMEOUT);
+        activateAutoTimeout(Thread.currentThread(), Config.TASK_RUNNING_TIMEOUT);
         runTask();
         INSTANCE_COUNTER.finilizeInstance();
     }
 
     private void runTask() {
-        try {
-            Model void__ = VoID.retrieveVoID(urls, sparqlEndPoints);
-            if (void__.size() == 0)
-                Logger.getLogger("datacrawler").log(Priority.INFO, String.format("Empty crawled VoID: (<%1s>).", graphURI));
+        Model void__ = null;
 
-            void_.add(void__);
-            if (void_.size() > 5 && VoID.isVoID(void_))
-                server.putModel(graphURI, void_);
-            else
-                Logger.getLogger("datacrawler").log(Priority.INFO, String.format("Dataset discarded: (<%1s>).", graphURI));
+        try {
+            void__ = VoID.retrieveVoID(urls, sparqlEndPoints);
         } catch (InterruptedException e1) {
-            Logger.getLogger("datacrawler").log(Priority.WARN, String.format("Thread timed out. (<%1s>)", graphURI));
-        } catch (Throwable e2) {
-            Logger.getLogger("datacrawler").log(Priority.ERROR, String.format("Thread error (<%1s>). Msg: %2s", graphURI, e2.getMessage()));
+            Logger.getLogger("datacrawler").log(Priority.WARN, String.format("VoID Crawler timed out. (<%1s>)", graphURI));
         }
+
+        if (void__ != null)
+            if (void__.size() > 0)
+                void_.add(void__);
+            else
+                Logger.getLogger("datacrawler").log(Priority.INFO, String.format("Empty crawled VoID: (<%1s>).", graphURI));
+        if (void_ != null && void_.size() > 5 && VoID.isVoID(void_))
+            server.putModel(graphURI, void_);
+        else
+            Logger.getLogger("datacrawler").log(Priority.INFO, String.format("Dataset discarded: (<%1s>).", graphURI));
     }
 
-    private void activateAutoTimeout(long timeout) {
+    private void activateAutoTimeout(Thread thread, long timeout) {
         (new Thread() {
-            private final Thread t = Thread.currentThread();
+            private final Thread t = thread;
             private final long TIMEOUT = timeout;
 
             @Override
@@ -88,7 +90,13 @@ public class RetrieveVoIDTask implements Runnable {
                     t.join(TIMEOUT);
                 } catch (InterruptedException ex) {
                 }
-                t.interrupt();
+                while (t.isAlive()) {
+                    t.interrupt();
+                    try {
+                        sleep(5000);
+                    } catch (InterruptedException ex) {
+                    }
+                }
             }
         }).start();
     }
