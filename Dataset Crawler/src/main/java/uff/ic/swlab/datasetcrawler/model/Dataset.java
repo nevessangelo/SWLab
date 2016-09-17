@@ -176,6 +176,7 @@ public class Dataset {
         set.add(dataset.getUriSpace());
         set.addAll(Arrays.asList(dataset.getExampleURLs()));
         set.addAll(Arrays.asList(dataset.getVoIDURLs()));
+        set.addAll(Arrays.asList(dataset.getDumpURLs()));
         set = set.stream().filter((String line) -> line != null).collect(Collectors.toSet());
         urls = set.toArray(new String[0]);
         return urls;
