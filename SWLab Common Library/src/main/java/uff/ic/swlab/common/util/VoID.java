@@ -13,6 +13,7 @@ import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.RiotNotFoundException;
+import org.apache.jena.riot.WebContent;
 import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
 import org.apache.jena.vocabulary.RDF;
 
@@ -50,10 +51,11 @@ public class VoID {
                         }
                     }
                 };
+                task.setDaemon(true);
                 task.start();
                 task.join(Config.MODEL_READ_TIMEOUT);
                 if (task.isAlive()) {
-                    task.stop();
+                    task.interrupt();
                     throw new TimeoutException();
                 }
                 interrupted();
@@ -82,10 +84,11 @@ public class VoID {
                                 }
                             }
                         };
+                        task.setDaemon(true);
                         task.start();
                         task.join(Config.MODEL_READ_TIMEOUT);
                         if (task.isAlive()) {
-                            task.stop();
+                            task.interrupt();
                             throw new TimeoutException();
                         }
                         interrupted();
@@ -114,10 +117,11 @@ public class VoID {
                                 }
                             }
                         };
+                        task.setDaemon(true);
                         task.start();
                         task.join(Config.MODEL_READ_TIMEOUT);
                         if (task.isAlive()) {
-                            task.stop();
+                            task.interrupt();
                             throw new TimeoutException();
                         }
                         interrupted();
@@ -155,6 +159,8 @@ public class VoID {
                             queryString = String.format(queryString, from);
 
                             try (QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, queryString)) {
+                                ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
+                                ((QueryEngineHTTP) exec).setTimeout(Config.SPARQL_TIMEOUT);
                                 exec.execConstruct(m);
                                 tempModel.add(m);
                             }
@@ -162,10 +168,11 @@ public class VoID {
                         }
                     }
                 };
+                task.setDaemon(true);
                 task.start();
                 task.join(Config.SPARQL_TIMEOUT);
                 if (task.isAlive()) {
-                    task.stop();
+                    task.interrupt();
                     throw new TimeoutException();
                 }
                 interrupted();
