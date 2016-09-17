@@ -153,7 +153,6 @@ public class VoID {
                                     .map((n) -> String.format("from <%1s>\n", n))
                                     .reduce(from, String::concat);
                             queryString = String.format(queryString, from);
-                            interrupted();
 
                             try (QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, queryString)) {
                                 exec.execConstruct(m);
