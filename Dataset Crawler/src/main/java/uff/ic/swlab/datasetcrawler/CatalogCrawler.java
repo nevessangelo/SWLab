@@ -10,7 +10,7 @@ public class CatalogCrawler extends Crawler<Dataset> {
 
     private final CkanClient cc;
     private int offset = 0;
-    private int limit = 100;
+    private int limit = 2000;
     private List<String> names;
     private Iterator<String> iterator;
 
