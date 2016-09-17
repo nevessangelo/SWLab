@@ -19,7 +19,6 @@ public class CatalogCrawler extends Crawler<Dataset> {
         try {
             names = cc.getDatasetList(limit, offset);
             iterator = names.iterator();
-            limit = -1;
         } catch (Throwable e) {
             names = new ArrayList<>();
             iterator = names.iterator();
