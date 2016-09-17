@@ -1,6 +1,7 @@
 package uff.ic.swlab.datasetcrawler;
 
 import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.log4j.Logger;
 import org.apache.log4j.Priority;
 import uff.ic.swlab.common.util.Config;
@@ -65,14 +66,15 @@ public class RetrieveVoIDTask implements Runnable {
         try {
             void__ = VoID.retrieveVoID(urls, sparqlEndPoints);
         } catch (InterruptedException e1) {
+            void__ = ModelFactory.createDefaultModel();
             Logger.getLogger("datacrawler").log(Priority.WARN, String.format("VoID Crawler timed out. (<%1s>)", graphURI));
         }
 
-        if (void__ != null)
-            if (void__.size() > 0)
-                void_.add(void__);
-            else
-                Logger.getLogger("datacrawler").log(Priority.INFO, String.format("Empty crawled VoID: (<%1s>).", graphURI));
+        if (void__.size() > 0)
+            void_.add(void__);
+        else
+            Logger.getLogger("datacrawler").log(Priority.INFO, String.format("Empty crawled VoID: (<%1s>).", graphURI));
+
         if (void_ != null && void_.size() > 5 && VoID.isVoID(void_))
             server.putModel(graphURI, void_);
         else
