@@ -13,7 +13,6 @@ import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.RiotNotFoundException;
-import org.apache.jena.riot.WebContent;
 import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
 import org.apache.jena.vocabulary.RDF;
 
@@ -71,13 +70,13 @@ public class VoID {
                 boolean read = false;
                 for (Lang lang : langs)
                     try {
-                        final Model tempModel = ModelFactory.createDefaultModel();
+                        Model tempModel = ModelFactory.createDefaultModel();
                         Thread task = new Thread() {
                             @Override
                             public void run() {
                                 try {
                                     Model m = ModelFactory.createDefaultModel();
-                                    RDFDataMgr.read(tempModel, url, lang);
+                                    RDFDataMgr.read(m, url, lang);
                                     tempModel.add(m);
                                 } catch (Throwable e) {
                                 }
@@ -103,13 +102,13 @@ public class VoID {
                     }
                 if (!read)
                     try {
-                        final Model tempModel = ModelFactory.createDefaultModel();
+                        Model tempModel = ModelFactory.createDefaultModel();
                         Thread task = new Thread() {
                             @Override
                             public void run() {
                                 try {
                                     Model m = ModelFactory.createDefaultModel();
-                                    RDFaDataMgr.read(tempModel, url);
+                                    RDFaDataMgr.read(m, url);
                                     tempModel.add(m);
                                 } catch (Throwable e) {
                                 }
@@ -139,30 +138,42 @@ public class VoID {
         Model void_ = ModelFactory.createDefaultModel();
 
         try {
-            Model tempModel;
-            String from = "";
-            String queryString = "construct {?s ?p ?o}\n %1swhere {?s ?p ?o.}";
             for (String sparqlEndPoint : sparqlEndPoints) {
-                tempModel = ModelFactory.createDefaultModel();
-                from = listVoIDGraphNames(sparqlEndPoint)
-                        .stream()
-                        .map((n) -> String.format("from <%1s>\n", n))
-                        .reduce(from, String::concat);
-                queryString = String.format(queryString, from);
+                Model tempModel = ModelFactory.createDefaultModel();
+
+                Thread task = new Thread() {
+                    @Override
+                    public void run() {
+                        String from = "";
+                        String queryString = "construct {?s ?p ?o}\n %1swhere {?s ?p ?o.}";
+                        Model m = ModelFactory.createDefaultModel();
+                        try {
+                            from = listVoIDGraphNames(sparqlEndPoint)
+                                    .stream()
+                                    .map((n) -> String.format("from <%1s>\n", n))
+                                    .reduce(from, String::concat);
+                            queryString = String.format(queryString, from);
+                            interrupted();
+
+                            try (QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, queryString)) {
+                                exec.execConstruct(m);
+                                tempModel.add(m);
+                            }
+                        } catch (Throwable e) {
+                        }
+                    }
+                };
+                task.start();
+                task.join(Config.SPARQL_TIMEOUT);
+                if (task.isAlive()) {
+                    task.stop();
+                    throw new TimeoutException();
+                }
                 interrupted();
 
-                try (QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, queryString)) {
-                    ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
-                    ((QueryEngineHTTP) exec).setTimeout(Config.SPARQL_TIMEOUT);
-                    exec.execConstruct(tempModel);
-                    interrupted();
-                    if (isVoID(tempModel))
-                        void_.add(tempModel);
-                    interrupted();
-                } catch (InterruptedException e1) {
-                    throw new InterruptedException();
-                } catch (Throwable e2) {
-                }
+                if (isVoID(tempModel))
+                    void_.add(tempModel);
+                interrupted();
             }
         } catch (InterruptedException e1) {
             throw new InterruptedException();
