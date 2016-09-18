@@ -9,10 +9,12 @@ public class Config {
 
     public static Integer TASK_INSTANCES;
     public static Integer PARALLELISM;
-    public static Long TASK_RUNNING_TIMEOUT;
     public static Integer POOL_SHUTDOWN_TIMEOUT;
     public static TimeUnit POOL_SHUTDOWN_TIMEOUT_UNIT;
+
     public static Long SPARQL_TIMEOUT;
     public static Long MODEL_READ_TIMEOUT;
+    public static Integer HTTP_CONNECT_TIMEOUT;
+    public static Integer HTTP_READ_TIMEOUT;
 
 }

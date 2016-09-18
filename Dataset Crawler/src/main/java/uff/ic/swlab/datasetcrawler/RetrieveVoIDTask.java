@@ -1,9 +1,8 @@
 package uff.ic.swlab.datasetcrawler;
 
 import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import org.apache.log4j.Priority;
 import uff.ic.swlab.common.util.Config;
 import uff.ic.swlab.common.util.SparqlServer;
 import uff.ic.swlab.common.util.VoID;
@@ -55,51 +54,21 @@ public class RetrieveVoIDTask implements Runnable {
 
     @Override
     public final void run() {
-        activateAutoTimeout(Thread.currentThread(), Config.TASK_RUNNING_TIMEOUT);
         runTask();
         INSTANCE_COUNTER.finilizeInstance();
     }
 
     private void runTask() {
-        Model void__ = null;
-
-        try {
-            void__ = VoID.retrieveVoID(urls, sparqlEndPoints);
-        } catch (InterruptedException e1) {
-            void__ = ModelFactory.createDefaultModel();
-            Logger.getLogger("datacrawler").log(Priority.WARN, String.format("VoID Crawler timed out. (<%1s>)", graphURI));
-        }
+        Model void__ = VoID.retrieveVoID(urls, sparqlEndPoints);
 
         if (void__.size() > 0)
-            void_.add(void__);
+            this.void_.add(void__);
         else
-            Logger.getLogger("datacrawler").log(Priority.INFO, String.format("Empty crawled VoID: (<%1s>).", graphURI));
+            Logger.getLogger("empty").log(Level.INFO, String.format("Empty crawled VoID (<%1s>).", graphURI));
 
-        if (void_ != null && void_.size() > 5 && VoID.isVoID(void_))
-            server.putModel(graphURI, void_);
+        if (this.void_ != null && this.void_.size() > 5 && VoID.isVoID(this.void_))
+            server.putModel(graphURI, this.void_);
         else
-            Logger.getLogger("datacrawler").log(Priority.INFO, String.format("Dataset discarded: (<%1s>).", graphURI));
-    }
-
-    private void activateAutoTimeout(Thread thread, long timeout) {
-        (new Thread() {
-            private final Thread t = thread;
-            private final long TIMEOUT = timeout;
-
-            @Override
-            public void run() {
-                try {
-                    t.join(TIMEOUT);
-                } catch (InterruptedException ex) {
-                }
-                while (t.isAlive()) {
-                    t.interrupt();
-                    try {
-                        sleep(5000);
-                    } catch (InterruptedException ex) {
-                    }
-                }
-            }
-        }).start();
+            Logger.getLogger("datacrawler").log(Level.INFO, String.format("Dataset discarded (<%1s>).", graphURI));
     }
 }
