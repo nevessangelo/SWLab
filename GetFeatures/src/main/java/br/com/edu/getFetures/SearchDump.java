@@ -13,6 +13,8 @@ import eu.trentorise.opendata.jackan.model.CkanResource;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.compress.archivers.ArchiveException;
+
 
 /**
  *
@@ -39,8 +41,7 @@ public class SearchDump {
             boolean verifica_url = false;
             boolean verifica_descricao = false;
             int flag = 0;
-            String olhar_dataset = (String) datasets.get(i);
-
+            
             CkanDataset d = cc.getDataset((String) datasets.get(i));
             resources = d.getResources();
             for (int j = 0; j < resources.size(); j++) {
