@@ -8,8 +8,8 @@ import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import org.apache.log4j.Priority;
 
 public class SparqlServer {
 
@@ -31,9 +31,9 @@ public class SparqlServer {
             DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(dataURL);
             try {
                 accessor.putModel(graphURI, model);
-                Logger.getLogger("util").log(Priority.INFO, "Dataset loaded: <" + graphURI + ">.");
+                Logger.getLogger("util").log(Level.INFO, "Dataset loaded: <" + graphURI + ">.");
             } catch (Throwable e) {
-                Logger.getLogger("util").log(Priority.ERROR, "Error putModel() (<" + graphURI + ">). Msg: " + e.getMessage());
+                Logger.getLogger("util").log(Level.ERROR, "Error putModel() (<" + graphURI + ">). Msg: " + e.getMessage());
             }
         }
     }

@@ -90,11 +90,13 @@ public class Main {
 
             Config.TASK_INSTANCES = Integer.valueOf(prop.getProperty("taskInstances"));
             Config.PARALLELISM = Integer.valueOf(prop.getProperty("parallelism"));
-            Config.TASK_RUNNING_TIMEOUT = Long.valueOf(prop.getProperty("taskRunningTimeout"));
             Config.POOL_SHUTDOWN_TIMEOUT = Integer.valueOf(prop.getProperty("poolShutdownTimeout"));
             Config.POOL_SHUTDOWN_TIMEOUT_UNIT = TimeUnit.valueOf(prop.getProperty("poolShutdownTimeoutUnit"));
+
             Config.MODEL_READ_TIMEOUT = Long.valueOf(prop.getProperty("modelReadTimeout"));
             Config.SPARQL_TIMEOUT = Long.valueOf(prop.getProperty("sparqlTimeout"));
+            Config.HTTP_CONNECT_TIMEOUT = Integer.valueOf(prop.getProperty("httpConnectTimeout"));
+            Config.HTTP_READ_TIMEOUT = Integer.valueOf(prop.getProperty("httpReadTimeout"));
 
         }
     }

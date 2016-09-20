@@ -1,10 +1,13 @@
 package uff.ic.swlab.common.util;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +21,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Property;
 import org.apache.jena.rdf.model.RDFNode;
 import org.apache.jena.rdf.model.Resource;
@@ -26,7 +30,7 @@ import org.apache.jena.rdf.model.StmtIterator;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFLanguages;
 
-public class RDFaDataMgr {
+public class RDFDataMgr {
 
     public static void write(OutputStream output, Model model, Lang lang) {
         if (lang == RDFLanguages.nameToLang("RDFa"))
@@ -35,11 +39,32 @@ public class RDFaDataMgr {
             writeHTML(output, model);
     }
 
-    public static void read(Model model, String urlString) {
+    public static void read(Model model, String url, Lang lang) {
         try {
-            String url = URLEncoder.encode(urlString, "UTF-8");
-            model.read("http://rdf-translator.appspot.com/convert/rdfa/xml/" + url);
-        } catch (UnsupportedEncodingException ex) {
+            URLConnection conn = (new URL(url)).openConnection();
+            conn.setConnectTimeout(Config.HTTP_CONNECT_TIMEOUT);
+            conn.setReadTimeout(Config.HTTP_READ_TIMEOUT);
+            try (InputStream in = conn.getInputStream();) {
+                Model m = ModelFactory.createDefaultModel();
+                org.apache.jena.riot.RDFDataMgr.read(m, in, lang);
+                model.add(m);
+            }
+        } catch (Throwable ex) {
+        }
+    }
+
+    public static void readRDFa(Model model, String url) {
+        try {
+            url = URLEncoder.encode("http://rdf-translator.appspot.com/convert/rdfa/xml/" + url, "UTF-8");
+            URLConnection conn = (new URL(url)).openConnection();
+            conn.setConnectTimeout(Config.HTTP_CONNECT_TIMEOUT);
+            conn.setReadTimeout(Config.HTTP_READ_TIMEOUT);
+            try (InputStream in = conn.getInputStream();) {
+                Model m = ModelFactory.createDefaultModel();
+                org.apache.jena.riot.RDFDataMgr.read(m, in, Lang.RDFXML);
+                model.add(m);
+            }
+        } catch (Throwable ex) {
         }
     }
 

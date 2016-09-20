@@ -1,6 +1,11 @@
 package uff.ic.swlab.common.util;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -11,10 +16,11 @@ import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.riot.Lang;
-import org.apache.jena.riot.RDFDataMgr;
-import org.apache.jena.riot.RiotNotFoundException;
+import org.apache.jena.riot.WebContent;
 import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
 import org.apache.jena.vocabulary.RDF;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 
 public class VoID {
 
@@ -26,115 +32,89 @@ public class VoID {
         return hasDataset || hasLinkset;
     }
 
-    public static Model retrieveVoID(String[] urls, String[] sparqlEndPoints) throws InterruptedException {
+    public static Model retrieveVoID(String[] urls, String[] sparqlEndPoints) {
         Model void_ = ModelFactory.createDefaultModel();
         void_.add(VoID.retrieveVoIDFromURL(urls));
         void_.add(VoID.retrieveVoIDFromSparql(sparqlEndPoints));
         return void_;
     }
 
-    private static Model retrieveVoIDFromURL(String[] urls) throws InterruptedException {
+    private static boolean isHTML(String url) throws MalformedURLException, IOException {
+        URLConnection conn = (new URL(url)).openConnection();
+        conn.setConnectTimeout(Config.HTTP_CONNECT_TIMEOUT);
+        conn.setReadTimeout(Config.HTTP_READ_TIMEOUT);
+
+        try (BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));) {
+            StringBuilder response = new StringBuilder();
+            String inputLine;
+            while ((inputLine = in.readLine()) != null)
+                response.append(inputLine);
+            String doc = response.toString();
+            return doc.contains("<html") && doc.contains("</html");
+        }
+    }
+
+    private static Model retrieveVoIDFromURL(String[] urls) {
         Model void_ = ModelFactory.createDefaultModel();
 
         for (String url : listPotentialVoIDURLs(urls))
             try {
-                Model tempModel = ModelFactory.createDefaultModel();
-                Thread task = new Thread() {
-                    @Override
-                    public void run() {
+                if (!isHTML(url)) {
+                    Lang[] langs = {Lang.TURTLE, Lang.RDFXML, Lang.NTRIPLES, Lang.TRIG,
+                        Lang.NQUADS, Lang.JSONLD, Lang.RDFJSON, Lang.TRIX, Lang.RDFTHRIFT};
+                    for (Lang lang : langs)
                         try {
-                            Model m = ModelFactory.createDefaultModel();
-                            RDFDataMgr.read(m, url);
-                            tempModel.add(m);
-                        } catch (Throwable e) {
-                        }
-                    }
-                };
-                task.start();
-                task.join(Config.MODEL_READ_TIMEOUT);
-                if (task.isAlive()) {
-                    task.stop();
-                    throw new TimeoutException();
-                }
-                interrupted();
+                            Model tempModel = ModelFactory.createDefaultModel();
+                            Thread task = new Thread() {
+                                @Override
+                                public void run() {
+                                    RDFDataMgr.read(tempModel, url, lang);
+                                }
+                            };
+                            task.setDaemon(true);
+                            task.start();
+                            task.join(Config.MODEL_READ_TIMEOUT);
+                            if (task.isAlive()) {
+                                task.stop();
+                                Logger.getLogger("timeout").log(Level.INFO, "Timeout while reading " + url + ".");
+                                throw new TimeoutException("Timeout while reading " + url + ".");
+                            }
 
-                if (isVoID(tempModel))
-                    void_.add(tempModel);
-                interrupted();
-            } catch (RiotNotFoundException e1) {
-            } catch (InterruptedException e2) {
-                throw new InterruptedException();
-            } catch (Throwable e3) {
-                Lang[] langs = {Lang.TURTLE, Lang.RDFXML, Lang.NTRIPLES, Lang.TRIG,
-                    Lang.NQUADS, Lang.JSONLD, Lang.RDFJSON, Lang.TRIX, Lang.RDFTHRIFT};
-                boolean read = false;
-                for (Lang lang : langs)
+                            if (isVoID(tempModel)) {
+                                void_.add(tempModel);
+                                break;
+                            }
+                        } catch (Throwable e32) {
+                        }
+                } else
                     try {
                         Model tempModel = ModelFactory.createDefaultModel();
                         Thread task = new Thread() {
                             @Override
                             public void run() {
-                                try {
-                                    Model m = ModelFactory.createDefaultModel();
-                                    RDFDataMgr.read(m, url, lang);
-                                    tempModel.add(m);
-                                } catch (Throwable e) {
-                                }
+                                RDFDataMgr.readRDFa(tempModel, url);
                             }
                         };
+                        task.setDaemon(true);
                         task.start();
                         task.join(Config.MODEL_READ_TIMEOUT);
                         if (task.isAlive()) {
                             task.stop();
-                            throw new TimeoutException();
+                            Logger.getLogger("timeout").log(Level.INFO, "Timeout while reading " + url + ".");
+                            throw new TimeoutException("Timeout while reading " + url + ".");
                         }
-                        interrupted();
-
-                        if (isVoID(tempModel)) {
-                            void_.add(tempModel);
-                            read = true;
-                            break;
-                        }
-                        interrupted();
-                    } catch (InterruptedException e31) {
-                        throw new InterruptedException();
-                    } catch (Throwable e32) {
-                    }
-                if (!read)
-                    try {
-                        Model tempModel = ModelFactory.createDefaultModel();
-                        Thread task = new Thread() {
-                            @Override
-                            public void run() {
-                                try {
-                                    Model m = ModelFactory.createDefaultModel();
-                                    RDFaDataMgr.read(m, url);
-                                    tempModel.add(m);
-                                } catch (Throwable e) {
-                                }
-                            }
-                        };
-                        task.start();
-                        task.join(Config.MODEL_READ_TIMEOUT);
-                        if (task.isAlive()) {
-                            task.stop();
-                            throw new TimeoutException();
-                        }
-                        interrupted();
 
                         if (isVoID(tempModel))
                             void_.add(tempModel);
-                        interrupted();
-                    } catch (InterruptedException e31) {
-                        throw new InterruptedException();
                     } catch (Throwable e33) {
                     }
+            } catch (Throwable ex) {
             }
 
         return void_;
     }
 
-    private static Model retrieveVoIDFromSparql(String[] sparqlEndPoints) throws InterruptedException {
+    private static Model retrieveVoIDFromSparql(String[] sparqlEndPoints) {
         Model void_ = ModelFactory.createDefaultModel();
 
         try {
@@ -155,6 +135,8 @@ public class VoID {
                             queryString = String.format(queryString, from);
 
                             try (QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, queryString)) {
+                                ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
+                                ((QueryEngineHTTP) exec).setTimeout(Config.SPARQL_TIMEOUT);
                                 exec.execConstruct(m);
                                 tempModel.add(m);
                             }
@@ -162,20 +144,18 @@ public class VoID {
                         }
                     }
                 };
+                task.setDaemon(true);
                 task.start();
                 task.join(Config.SPARQL_TIMEOUT);
                 if (task.isAlive()) {
                     task.stop();
-                    throw new TimeoutException();
+                    Logger.getLogger("timeout").log(Level.INFO, "Timeout while reading " + sparqlEndPoint + ".");
+                    throw new TimeoutException("Timeout while reading " + sparqlEndPoint + ".");
                 }
-                interrupted();
 
                 if (isVoID(tempModel))
                     void_.add(tempModel);
-                interrupted();
             }
-        } catch (InterruptedException e1) {
-            throw new InterruptedException();
         } catch (Throwable e2) {
         }
 
@@ -237,10 +217,5 @@ public class VoID {
         }
 
         return voidURLs.toArray(new String[0]);
-    }
-
-    private static void interrupted() throws InterruptedException {
-        if (Thread.interrupted())
-            throw new InterruptedException();
     }
 }
