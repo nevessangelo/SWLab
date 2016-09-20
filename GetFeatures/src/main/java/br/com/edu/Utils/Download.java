@@ -48,6 +48,7 @@ public class Download {
                 fos.close();
             } catch (MalformedURLException ex) {
                 Logger.getLogger(Download.class.getName()).log(Level.SEVERE, null, ex);
+                
             }
             
         }

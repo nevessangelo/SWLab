@@ -10,6 +10,7 @@ import br.com.edu.objects.Resource;
 import eu.trentorise.opendata.jackan.CkanClient;
 import eu.trentorise.opendata.jackan.model.CkanDataset;
 import eu.trentorise.opendata.jackan.model.CkanResource;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +20,7 @@ import java.util.List;
  */
 public class SearchDump {
 
-    public static void Search(CkanClient cc, List datasets) {
+    public static void Search(CkanClient cc, List datasets) throws IOException {
 
         ArrayList<Resource> Datasets_dump = new ArrayList();
         ArrayList Datasets_difdump = new ArrayList();
