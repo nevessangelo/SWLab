@@ -8,6 +8,7 @@ package br.com.edu.main;
 import br.com.edu.getFetures.SearchDump;
 import eu.trentorise.opendata.jackan.CkanClient;
 import eu.trentorise.opendata.jackan.model.CkanDataset;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +17,7 @@ import java.util.List;
  * @author angelo
  */
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         CkanClient cc = new CkanClient("http://linkeddatacatalog.dws.informatik.uni-mannheim.de");
         ArrayList<String> datasets = new ArrayList<String>();
         SearchDump dump = new SearchDump();
