@@ -20,12 +20,13 @@ public class Main {
         CkanClient cc = new CkanClient("http://linkeddatacatalog.dws.informatik.uni-mannheim.de");
         ArrayList<String> datasets = new ArrayList<String>();
         SearchDump dump = new SearchDump();
+       
                 
-        String name = "abs-linked-data";
+        String name = "rkb-explorer-acm";
         CkanDataset d = cc.getDataset(name);
 
-        //datasets.add(d.getName());
-        datasets = (ArrayList<String>) cc.getDatasetList();
+        datasets.add(d.getName());
+        //datasets = (ArrayList<String>) cc.getDatasetList();
         dump.Search(cc, datasets);
     }
     
