@@ -6,6 +6,7 @@
 package br.com.edu.Utils;
 
 import java.util.ArrayList;
+import br.com.edu.objects.Resource;
 
 /**
  *
@@ -13,9 +14,12 @@ import java.util.ArrayList;
  */
 public class Download {
     
-    public static void DownloadDump(ArrayList Datasets_Dump, ArrayList Datasets_difdump){
+    public static void DownloadDump(ArrayList<Resource> Datasets_Dump, ArrayList Datasets_difdump){
+         
         for(int i = 0; i < Datasets_Dump.size(); i++){
-            System.out.println(Datasets_Dump.get(i));
+            
+            String name = Datasets_Dump.get(i).getName();
+            String url = Datasets_Dump.get(i).getUrl();
         }
     }
     

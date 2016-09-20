@@ -6,7 +6,6 @@
 package br.com.edu.getFetures;
 
 import br.com.edu.Utils.Download;
-import static br.com.edu.Utils.Download.DownloadDump;
 import br.com.edu.objects.Resource;
 import eu.trentorise.opendata.jackan.CkanClient;
 import eu.trentorise.opendata.jackan.model.CkanDataset;
@@ -27,13 +26,6 @@ public class SearchDump {
         ArrayList<String> names_links = new ArrayList<>();
         List<CkanResource> resources = null;
 
-        // ArrayList<String> names_exceptions = new ArrayList<>();
-//        names_exceptions.add("example");
-//        names_exceptions.add("page");
-//        names_exceptions.add("meta/void");
-//        names_exceptions.add("individual");
-//        names_exceptions.add("sparql");
-//        names_exceptions.add("browser");
         names_links.add("dump");
         names_links.add("tgz");
         names_links.add("gz");
@@ -146,9 +138,9 @@ public class SearchDump {
         System.out.println("Numeros de dumps encontrados: " + cont1);
         System.out.println("Numeros de dumps NÃO encontrados: " + cont2);
         
-        Download download = new Download();
         
-        //(Datasets_difdump, Datasets_difdump);
+        Download.DownloadDump(Datasets_dump, Datasets_difdump);
+       
     }
 
 }
