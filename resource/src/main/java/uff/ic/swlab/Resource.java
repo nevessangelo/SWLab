@@ -84,8 +84,8 @@ public class Resource extends HttpServlet {
                         + "construct {?s ?p ?o.}\n"
                         + "where {{?s ?p ?o.}\n"
                         + "       UNION {GRAPH ?g {?s ?p ?o.}}\n"
-                        + "       filter(regex(str(?s), \"/resource/%1s$\")\n"
-                        + "              || regex(str(?o), \"/resource/%2s$\"))\n"
+                        + "       filter(regex(str(?s), \"/%1s$\")\n"
+                        + "              || regex(str(?o), \"/%2s$\"))\n"
                         + "}";
                 query = String.format(query, uri, uri);
                 QueryExecution q = QueryExecutionFactory.sparqlService(sparqlURL, query);
