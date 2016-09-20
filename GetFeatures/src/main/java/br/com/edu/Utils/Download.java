@@ -47,26 +47,32 @@ public class Download {
             try {
                 URL url = new URL(url_name);
                 size = getsizeFile(url);
-                System.out.println(size);
+                if (size >= 5000) {
+                    
+                    if (!diretorio.exists()) {
+                        diretorio.mkdir();
+                    }
 
-                if (!diretorio.exists()) {
-                    diretorio.mkdir();
+                    String nomeArquivoLocal = url.getPath();
+                    String[] nomeArquivoLocalFinal = nomeArquivoLocal.split("/");
+                    int pegar = nomeArquivoLocalFinal.length - 1;
+                    InputStream is = url.openStream();
+                    FileOutputStream fos = new FileOutputStream(diretorio + "/" + nomeArquivoLocalFinal[pegar]);
+                    int umByte = 0;
+                    System.out.println("Fazendo Download do Dump Dataset: " + name);
+                    while ((umByte = is.read()) != -1) {
+                        fos.write(umByte);
+                    }
+                    is.close();
+                    fos.close();
+
+                }else{
+                    Datasets_difdump.add(name);
                 }
 
-                String nomeArquivoLocal = url.getPath();
-                String[] nomeArquivoLocalFinal = nomeArquivoLocal.split("/");
-                int pegar = nomeArquivoLocalFinal.length - 1;
-                InputStream is = url.openStream();
-                FileOutputStream fos = new FileOutputStream(diretorio + "/" + nomeArquivoLocalFinal[pegar]);
-                int umByte = 0;
-                System.out.println("Fazendo Download do Dump Dataset: " + name);
-                while ((umByte = is.read()) != -1) {
-                    fos.write(umByte);
-                }
-                is.close();
-                fos.close();
             } catch (MalformedURLException ex) {
-                Logger.getLogger(Download.class.getName()).log(Level.SEVERE, null, ex);
+                //Logger.getLogger(Download.class.getName()).log(Level.SEVERE, null, ex);
+                Datasets_difdump.add(name);
 
             }
 
