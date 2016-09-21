@@ -25,7 +25,7 @@ public class Unzip {
     public static void extract(File archive, String name, String type) throws FileNotFoundException, IOException, RarException {
         //teste
        // File archive = new File("/home/angelo/SWLab/GetFeatures/Dumps/acm/EnviarDaniel.rar");
-        File destination = new File("/home/angelo/SWLab/GetFeatures/Dumps/acm/");
+        File destination = new File("/home/angelo/SWLab/GetFeatures/Dumps/"+name);
         //String type = "rar";
         //fim teste
         
