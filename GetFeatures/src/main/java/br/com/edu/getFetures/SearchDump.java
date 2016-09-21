@@ -7,9 +7,11 @@ package br.com.edu.getFetures;
 
 import br.com.edu.Utils.Download;
 import br.com.edu.objects.Resource;
+import com.github.junrar.exception.RarException;
 import eu.trentorise.opendata.jackan.CkanClient;
 import eu.trentorise.opendata.jackan.model.CkanDataset;
 import eu.trentorise.opendata.jackan.model.CkanResource;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +23,7 @@ import java.util.List;
  */
 public class SearchDump {
 
-    public static void Search(CkanClient cc, List datasets) throws IOException {
+    public static void Search(CkanClient cc, List datasets) throws IOException, FileNotFoundException, RarException {
 
         ArrayList<Resource> Datasets_dump = new ArrayList();
         ArrayList Datasets_difdump = new ArrayList();
