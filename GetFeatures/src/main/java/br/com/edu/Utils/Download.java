@@ -100,8 +100,7 @@ public class Download {
                 String arquivo = diretorio.toString() + "/" + verifica_dump[tamanho - 1];
                 File arquivo_extrair = new File(arquivo);
                 Unzip.extract(arquivo_extrair, name, extensao);
-                System.out.println(diretorio);
-                //ReadRdf.Read(diretorio);
+                ReadRdf.Read(diretorio);
             } else {
                 //le rdf pelo link //depois
             }
