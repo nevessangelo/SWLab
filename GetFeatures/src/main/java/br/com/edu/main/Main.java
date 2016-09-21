@@ -5,6 +5,7 @@
  */
 package br.com.edu.main;
 
+import br.com.edu.Utils.Unzip;
 import br.com.edu.getFetures.SearchDump;
 import eu.trentorise.opendata.jackan.CkanClient;
 import eu.trentorise.opendata.jackan.model.CkanDataset;
@@ -28,7 +29,8 @@ public class Main {
 
         datasets.add(d.getName());
         //datasets = (ArrayList<String>) cc.getDatasetList();
-        dump.Search(cc, datasets);
+        //dump.Search(cc, datasets);
+        Unzip.extract();
     }
     
 }
