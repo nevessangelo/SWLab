@@ -15,6 +15,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.compress.archivers.ArchiveException;
 
 
 /**
@@ -23,7 +24,7 @@ import java.util.List;
  */
 public class SearchDump {
 
-    public static void Search(CkanClient cc, List datasets) throws IOException, FileNotFoundException, RarException {
+    public static void Search(CkanClient cc, List datasets) throws IOException, FileNotFoundException, RarException, ArchiveException {
 
         ArrayList<Resource> Datasets_dump = new ArrayList();
         ArrayList Datasets_difdump = new ArrayList();
