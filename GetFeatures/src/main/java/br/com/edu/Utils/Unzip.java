@@ -8,13 +8,28 @@ package br.com.edu.Utils;
 import com.github.junrar.Archive;
 import com.github.junrar.exception.RarException;
 import com.github.junrar.rarfile.FileHeader;
+import eu.trentorise.opendata.traceprov.internal.org.apache.commons.io.FileUtils;
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import org.apache.commons.compress.archivers.ArchiveException;
+import org.apache.commons.compress.archivers.ArchiveInputStream;
+import org.apache.commons.compress.archivers.ArchiveStreamFactory;
+import org.apache.commons.compress.archivers.zip.ZipArchiveEntry;
+import org.apache.commons.compress.archivers.zip.ZipArchiveInputStream;
 import org.codehaus.plexus.archiver.tar.TarGZipUnArchiver;
+import org.rauschig.jarchivelib.ArchiveFormat;
 import org.rauschig.jarchivelib.Archiver;
 import org.rauschig.jarchivelib.ArchiverFactory;
+import org.rauschig.jarchivelib.CompressionType;
+import org.rauschig.jarchivelib.Compressor;
+import org.rauschig.jarchivelib.CompressorFactory;
+import org.rauschig.jarchivelib.IOUtils;
 
 /**
  *
@@ -22,14 +37,14 @@ import org.rauschig.jarchivelib.ArchiverFactory;
  */
 public class Unzip {
 
-    public static void extract(File archive, String name, String type) throws FileNotFoundException, IOException, RarException {
+    public static void extract(File archive, String name, String type) throws FileNotFoundException, IOException, RarException, ArchiveException {
         //teste
-       // File archive = new File("/home/angelo/SWLab/GetFeatures/Dumps/acm/EnviarDaniel.rar");
-        File destination = new File("/home/angelo/SWLab/GetFeatures/Dumps/"+name);
+        // File archive = new File("/home/angelo/SWLab/GetFeatures/Dumps/acm/EnviarDaniel.rar");
+        File destination = new File("/home/angelo/SWLab/GetFeatures/Dumps/" + name);
         //String type = "rar";
         //fim teste
-        
-        System.out.println("Extraindo o Dump do Dataset: "+name);
+
+        System.out.println("Extraindo o Dump do Dataset: " + name);
         if (type.equals("tgz")) {
             Archiver archiver = ArchiverFactory.createArchiver("tar", "gz");
             archiver.extract(archive, destination);
@@ -45,13 +60,21 @@ public class Unzip {
             //a.getMainHeader().print();
             FileHeader fh = a.nextFileHeader();
             while (fh != null) {
-                File out = new File(out_string+"/"+fh.getFileNameString().trim());
+                File out = new File(out_string + "/" + fh.getFileNameString().trim());
                 System.out.println(out.getAbsolutePath());
                 FileOutputStream os = new FileOutputStream(out);
                 a.extractFile(fh, os);
                 os.close();
                 fh = a.nextFileHeader();
             }
+        } else if (type.equals("gz")) {
+           File dest = new File(destination+"/extract.nq"); 
+           Compressor compressor = CompressorFactory.createCompressor(archive);
+           compressor.decompress(archive, dest);
+           
+        } else if (type.equals("zip")) {
+           Archiver archiver = ArchiverFactory.createArchiver(ArchiveFormat.ZIP);
+           archiver.extract(archive, destination);
         }
     }
 

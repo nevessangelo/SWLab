@@ -19,6 +19,11 @@ import java.net.MalformedURLException;
 import java.net.URLConnection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.apache.commons.compress.archivers.ArchiveException;
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.riot.Lang;
+import org.apache.jena.riot.RDFDataMgr;
 
 /**
  *
@@ -31,6 +36,8 @@ public class Download {
         zips.add("tgz");
         zips.add("rar");
         zips.add("tar.gz");
+        zips.add("gz");
+        zips.add("zip");
 
         for (int i = 0; i < zips.size(); i++) {
             int j = url_name.toLowerCase().indexOf(zips.get(i));
@@ -54,7 +61,7 @@ public class Download {
         }
     }
 
-    public static void DownloadDump(ArrayList<Resource> Datasets_Dump, ArrayList Datasets_difdump) throws IOException, FileNotFoundException, RarException {
+    public static void DownloadDump(ArrayList<Resource> Datasets_Dump, ArrayList Datasets_difdump) throws IOException, FileNotFoundException, RarException, ArchiveException {
         for (int i = 0; i < Datasets_Dump.size(); i++) {
             String name = Datasets_Dump.get(i).getName();
             String url_name = Datasets_Dump.get(i).getUrl();
@@ -94,7 +101,6 @@ public class Download {
                     Datasets_difdump.add(name);
 
                 }
-
                 String[] verifica_dump = url_name.split("/");
                 int tamanho = tamanho = verifica_dump.length;
                 String arquivo = diretorio.toString() + "/" + verifica_dump[tamanho - 1];
@@ -102,7 +108,14 @@ public class Download {
                 Unzip.extract(arquivo_extrair, name, extensao);
                 ReadRdf.Read(diretorio);
             } else {
-                //le rdf pelo link //depois
+                Lang[] langs = {Lang.TURTLE, Lang.RDFXML, Lang.NTRIPLES, Lang.TRIG,
+                    Lang.NQUADS, Lang.JSONLD, Lang.RDFJSON, Lang.TRIX, Lang.RDFTHRIFT};
+                for (Lang lang : langs) {
+                    Model tempModel = ModelFactory.createDefaultModel();
+                    RDFDataMgr.read(tempModel, url_name, lang);
+                    //colocar excessao aqui
+                }
+
             }
 
         }

@@ -6,6 +6,7 @@
 package br.com.edu.main;
 
 import br.com.edu.Utils.ReadRdf;
+import br.com.edu.Utils.Unzip;
 import br.com.edu.getFetures.SearchDump;
 import com.github.junrar.exception.RarException;
 import eu.trentorise.opendata.jackan.CkanClient;
@@ -15,13 +16,14 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.compress.archivers.ArchiveException;
 
 /**
  *
  * @author angelo
  */
 public class Main {
-    public static void main(String[] args) throws IOException, FileNotFoundException, RarException {
+    public static void main(String[] args) throws IOException, FileNotFoundException, RarException, ArchiveException {
         CkanClient cc = new CkanClient("http://linkeddatacatalog.dws.informatik.uni-mannheim.de");
         ArrayList<String> datasets = new ArrayList<String>();
         SearchDump dump = new SearchDump();
@@ -32,6 +34,7 @@ public class Main {
         datasets.add(d.getName());
         //datasets = (ArrayList<String>) cc.getDatasetList();
         dump.Search(cc, datasets);
+        
     }
     
 }
