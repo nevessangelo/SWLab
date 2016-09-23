@@ -5,6 +5,7 @@
  */
 package br.com.edu.main;
 
+import br.com.edu.DBPedia.DBPediaSpotlight;
 import br.com.edu.Utils.ReadRdf;
 import br.com.edu.Utils.Unzip;
 import br.com.edu.getFetures.SearchDump;
@@ -33,6 +34,11 @@ public class Main {
         datasets.add(d.getName());
         //datasets = (ArrayList<String>) cc.getDatasetList();
         dump.Search(cc, datasets);
+//        List<String> teste = DBPediaSpotlight.getEntity("web semantic");
+//        for(int i = 0; i < teste.size(); i++){
+//            System.out.println(teste.get(i));
+//        }
+        
       
         
     }

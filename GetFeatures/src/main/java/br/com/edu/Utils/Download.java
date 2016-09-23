@@ -60,17 +60,10 @@ public class Download {
             conn.disconnect();
         }
     }
-
-    public static void DownloadDump(ArrayList<Resource> Datasets_Dump, ArrayList Datasets_difdump) throws IOException, FileNotFoundException, RarException, ArchiveException {
-        for (int i = 0; i < Datasets_Dump.size(); i++) {
-            String name = Datasets_Dump.get(i).getName();
-            String url_name = Datasets_Dump.get(i).getUrl();
-            File diretorio = new File(System.getProperty("user.dir") + "/Dumps/" + name);
-            int size = 0;
-
-            String extensao = verificazip(url_name, diretorio, name);
-            if (extensao != null) {
-                try {
+    
+    public static void GetDownload(String url_name, File diretorio, ArrayList Datasets_difdump, String name) throws IOException{
+        int size = 0;
+        try {
                     URL url = new URL(url_name);
                     size = getsizeFile(url);
                     if (size >= 5000) {
@@ -101,21 +94,31 @@ public class Download {
                     Datasets_difdump.add(name);
 
                 }
+        
+    }
+
+    public static void DownloadDump(ArrayList<Resource> Datasets_Dump, ArrayList Datasets_difdump) throws IOException, FileNotFoundException, RarException, ArchiveException, Exception {
+        for (int i = 0; i < Datasets_Dump.size(); i++) {
+            String name = Datasets_Dump.get(i).getName();
+            String url_name = Datasets_Dump.get(i).getUrl();
+            File diretorio = new File(System.getProperty("user.dir") + "/Dumps/" + name);
+            
+
+            String extensao = verificazip(url_name, diretorio, name);
+            if (extensao != null) {
+                GetDownload(url_name,diretorio,Datasets_difdump, name);
+               
                 String[] verifica_dump = url_name.split("/");
                 int tamanho = tamanho = verifica_dump.length;
                 String arquivo = diretorio.toString() + "/" + verifica_dump[tamanho - 1];
                 File arquivo_extrair = new File(arquivo);
+                
                 Unzip.extract(arquivo_extrair, name, extensao);
+                
                 ReadRdf.Read(diretorio);
             } else {
-                Lang[] langs = {Lang.TURTLE, Lang.RDFXML, Lang.NTRIPLES, Lang.TRIG,
-                    Lang.NQUADS, Lang.JSONLD, Lang.RDFJSON, Lang.TRIX, Lang.RDFTHRIFT};
-                for (Lang lang : langs) {
-                    Model tempModel = ModelFactory.createDefaultModel();
-                    RDFDataMgr.read(tempModel, url_name, lang);
-                    //colocar excessao aqui
-                }
-
+                GetDownload(url_name,diretorio,Datasets_difdump,name);
+                ReadRdf.ReadUrl(url_name);
             }
 
         }

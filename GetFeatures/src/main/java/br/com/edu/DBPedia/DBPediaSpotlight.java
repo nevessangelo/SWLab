@@ -5,21 +5,36 @@
  */
 package br.com.edu.DBPedia;
 
+import java.util.List;
+
 /**
  *
  * @author angelo
  */
 public class DBPediaSpotlight {
+    
+    public static int Frequen(String key, List<String> Entites){
+       int cont = 0;
+        for(int i = 0; i < Entites.size(); i++){
+            if(key.equals(Entites.get(i))){
+                cont++;
+            }
+        }
+        return cont;
+    }
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws Exception {
-        String question = "Semantic Web";
+     public static List<String> getEntity(String text) throws Exception{
         db c = new db();
         c.configiration(0.0, 0, "non", "CoOccurrenceBasedSelector", "Default", "yes");
-        c.evaluate(question);
-        System.out.println("resource : " + c.getResu());
+        c.evaluate(text);
+        if(c.getResu().size() > 0){
+           // System.out.println("resource : " + c.getResu());
+            return c.getResu();
+        }
+        return null;
     }
 
 }

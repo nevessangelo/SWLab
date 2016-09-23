@@ -5,8 +5,12 @@
  */
 package br.com.edu.Utils;
 
+import br.com.edu.DBPedia.DBPediaSpotlight;
+import br.com.edu.objects.Entites;
 import java.io.File;
 import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.List;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.riot.Lang;
@@ -17,12 +21,19 @@ import org.apache.jena.riot.RDFDataMgr;
  * @author angelo
  */
 public class ReadRdf {
-    
-    public static void ReadUrl(String url){
+
+    public static void ReadUrl(String url_name) {
+        Lang[] langs = {Lang.TURTLE, Lang.RDFXML, Lang.NTRIPLES, Lang.TRIG,
+                    Lang.NQUADS, Lang.JSONLD, Lang.RDFJSON, Lang.TRIX, Lang.RDFTHRIFT};
+                for (Lang lang : langs) {
+                    Model tempModel = ModelFactory.createDefaultModel();
+                    RDFDataMgr.read(tempModel, url_name, lang);
+                }
         
+
     }
 
-    public static void Read(File path) {
+    public static void Read(File path) throws Exception {
         File arquivos[];
         arquivos = path.listFiles();
         for (int i = 0; i < arquivos.length; i++) {
@@ -35,14 +46,32 @@ public class ReadRdf {
                     String read = path_archives[j].toString();
                     model.read(read, "TURTLE");
                     StringWriter out = new StringWriter();
-                    System.out.println(model.write(out, "TURTLE"));
+                    String result = out.toString();
+                    List<String> Entites = DBPediaSpotlight.getEntity(result);
+                    for (int k = 0; k < Entites.size(); k++) {
+                        int frequencia = DBPediaSpotlight.Frequen(Entites.get(i), Entites);
+                        Entites entites = new Entites();
+                        entites.setName(Entites.get(i));
+                        entites.setFrequen(frequencia);
+                        frequencia = 0;
+                    }
+                    //System.out.println(model.write(out, "TURTLE"));
                 }
             } else {
                 Model model = ModelFactory.createDefaultModel();
                 String arquivo = arquivos[i].toString();
                 model.read(arquivo, "TURTLE");
                 StringWriter out = new StringWriter();
-                System.out.println(model.write(out, "TURTLE"));
+                String result = out.toString();
+                List<String> Entites = DBPediaSpotlight.getEntity(result);
+                for (int k = 0; k < Entites.size(); k++) {
+                    int frequencia = DBPediaSpotlight.Frequen(Entites.get(i), Entites);
+                    Entites entites = new Entites();
+                    entites.setName(Entites.get(i));
+                    entites.setFrequen(frequencia);
+                    frequencia = 0;
+                }
+                //System.out.println(model.write(out, "TURTLE"));
             }
         }
     }
