@@ -17,13 +17,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.compress.archivers.ArchiveException;
-
 /**
  *
  * @author angelo
  */
 public class Main {
-    public static void main(String[] args) throws IOException, FileNotFoundException, RarException, ArchiveException {
+    public static void main(String[] args) throws IOException, FileNotFoundException, RarException, ArchiveException, Exception {
         CkanClient cc = new CkanClient("http://linkeddatacatalog.dws.informatik.uni-mannheim.de");
         ArrayList<String> datasets = new ArrayList<String>();
         SearchDump dump = new SearchDump();
@@ -33,7 +32,8 @@ public class Main {
 
         datasets.add(d.getName());
         //datasets = (ArrayList<String>) cc.getDatasetList();
-        dump.Search(cc, datasets);
+       // dump.Search(cc, datasets);
+      
         
     }
     
