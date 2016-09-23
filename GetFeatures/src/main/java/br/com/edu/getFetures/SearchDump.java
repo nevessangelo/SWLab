@@ -24,7 +24,7 @@ import org.apache.commons.compress.archivers.ArchiveException;
  */
 public class SearchDump {
 
-    public static void Search(CkanClient cc, List datasets) throws IOException, FileNotFoundException, RarException, ArchiveException {
+    public static void Search(CkanClient cc, List datasets) throws IOException, FileNotFoundException, RarException, ArchiveException, Exception {
 
         ArrayList<Resource> Datasets_dump = new ArrayList();
         ArrayList Datasets_difdump = new ArrayList();
