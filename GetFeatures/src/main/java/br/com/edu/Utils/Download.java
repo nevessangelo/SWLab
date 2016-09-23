@@ -102,8 +102,6 @@ public class Download {
             String name = Datasets_Dump.get(i).getName();
             String url_name = Datasets_Dump.get(i).getUrl();
             File diretorio = new File(System.getProperty("user.dir") + "/Dumps/" + name);
-            
-
             String extensao = verificazip(url_name, diretorio, name);
             if (extensao != null) {
                 GetDownload(url_name,diretorio,Datasets_difdump, name);
@@ -115,10 +113,10 @@ public class Download {
                 
                 Unzip.extract(arquivo_extrair, name, extensao);
                 
-                ReadRdf.Read(diretorio);
+                ReadRdf.Read(diretorio,name);
             } else {
                 GetDownload(url_name,diretorio,Datasets_difdump,name);
-                ReadRdf.ReadUrl(url_name);
+                ReadRdf.ReadUrl(url_name,name);
             }
 
         }

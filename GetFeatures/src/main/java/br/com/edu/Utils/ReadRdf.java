@@ -5,6 +5,7 @@
  */
 package br.com.edu.Utils;
 
+import br.com.edu.Connection.InsertEntitesBD;
 import br.com.edu.DBPedia.DBPediaSpotlight;
 import br.com.edu.objects.Entites;
 import java.io.File;
@@ -22,18 +23,32 @@ import org.apache.jena.riot.RDFDataMgr;
  */
 public class ReadRdf {
 
-    public static void ReadUrl(String url_name) {
+    public static void ReadUrl(String url_name, String name_dataset) throws Exception {
         Lang[] langs = {Lang.TURTLE, Lang.RDFXML, Lang.NTRIPLES, Lang.TRIG,
                     Lang.NQUADS, Lang.JSONLD, Lang.RDFJSON, Lang.TRIX, Lang.RDFTHRIFT};
                 for (Lang lang : langs) {
                     Model tempModel = ModelFactory.createDefaultModel();
                     RDFDataMgr.read(tempModel, url_name, lang);
+                    StringWriter out = new StringWriter();
+                    String result = out.toString();
+                    tempModel.write(out, "TURTLE");
+                    List<String> Entites = DBPediaSpotlight.getEntity(result);
+                    for (int k = 0; k < Entites.size(); k++) {
+                        int frequencia = DBPediaSpotlight.Frequen(Entites.get(k), Entites);
+                        Entites entites = new Entites();
+                        entites.setName(Entites.get(k));
+                        entites.setFrequen(frequencia);
+                        InsertEntitesBD.Insert(name_dataset, entites, "dump");
+                        frequencia = 0;
+                    }
+
+                    
                 }
         
 
     }
 
-    public static void Read(File path) throws Exception {
+    public static void Read(File path, String name_dataset) throws Exception {
         File arquivos[];
         arquivos = path.listFiles();
         for (int i = 0; i < arquivos.length; i++) {
@@ -46,13 +61,15 @@ public class ReadRdf {
                     String read = path_archives[j].toString();
                     model.read(read, "TURTLE");
                     StringWriter out = new StringWriter();
-                    String result = out.toString();
+                    model.write(out, "TURTLE");
+                    String result = out.toString();  
                     List<String> Entites = DBPediaSpotlight.getEntity(result);
                     for (int k = 0; k < Entites.size(); k++) {
-                        int frequencia = DBPediaSpotlight.Frequen(Entites.get(i), Entites);
+                        int frequencia = DBPediaSpotlight.Frequen(Entites.get(k), Entites);
                         Entites entites = new Entites();
-                        entites.setName(Entites.get(i));
+                        entites.setName(Entites.get(k));
                         entites.setFrequen(frequencia);
+                        InsertEntitesBD.Insert(name_dataset, entites, "dump");
                         frequencia = 0;
                     }
                     //System.out.println(model.write(out, "TURTLE"));
@@ -62,13 +79,15 @@ public class ReadRdf {
                 String arquivo = arquivos[i].toString();
                 model.read(arquivo, "TURTLE");
                 StringWriter out = new StringWriter();
+                model.write(out, "TURTLE");
                 String result = out.toString();
                 List<String> Entites = DBPediaSpotlight.getEntity(result);
                 for (int k = 0; k < Entites.size(); k++) {
-                    int frequencia = DBPediaSpotlight.Frequen(Entites.get(i), Entites);
+                    int frequencia = DBPediaSpotlight.Frequen(Entites.get(k), Entites);
                     Entites entites = new Entites();
-                    entites.setName(Entites.get(i));
+                    entites.setName(Entites.get(k));
                     entites.setFrequen(frequencia);
+                    InsertEntitesBD.Insert(name_dataset, entites, "dump");
                     frequencia = 0;
                 }
                 //System.out.println(model.write(out, "TURTLE"));

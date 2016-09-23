@@ -17,7 +17,7 @@ import java.sql.SQLException;
  */
 public class InsertEntitesBD {
     
-    public void Insert(String name, Entites entites, String type) throws ClassNotFoundException, SQLException {
+    public static void Insert(String name, Entites entites, String type) throws ClassNotFoundException, SQLException {
         
        InsertObject insert = new InsertObject();
        insert.setName_dataset(name);
