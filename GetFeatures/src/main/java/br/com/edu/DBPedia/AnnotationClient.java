@@ -116,9 +116,6 @@ public abstract class AnnotationClient {
 
                 try {
                     entities = extract(new Text(snippet.replaceAll("\\s+"," ")));
-                    for(int j = 0; j < entities.size(); j++)
-                        System.out.println(entities.get(j).getFullUri());
-
                 } catch (AnnotationException e) {
                    // error++;
                     LOG.error(e);

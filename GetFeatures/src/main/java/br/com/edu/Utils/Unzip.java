@@ -8,28 +8,17 @@ package br.com.edu.Utils;
 import com.github.junrar.Archive;
 import com.github.junrar.exception.RarException;
 import com.github.junrar.rarfile.FileHeader;
-import eu.trentorise.opendata.traceprov.internal.org.apache.commons.io.FileUtils;
-import java.io.BufferedOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import org.apache.commons.compress.archivers.ArchiveException;
-import org.apache.commons.compress.archivers.ArchiveInputStream;
-import org.apache.commons.compress.archivers.ArchiveStreamFactory;
-import org.apache.commons.compress.archivers.zip.ZipArchiveEntry;
-import org.apache.commons.compress.archivers.zip.ZipArchiveInputStream;
 import org.codehaus.plexus.archiver.tar.TarGZipUnArchiver;
 import org.rauschig.jarchivelib.ArchiveFormat;
 import org.rauschig.jarchivelib.Archiver;
 import org.rauschig.jarchivelib.ArchiverFactory;
-import org.rauschig.jarchivelib.CompressionType;
 import org.rauschig.jarchivelib.Compressor;
 import org.rauschig.jarchivelib.CompressorFactory;
-import org.rauschig.jarchivelib.IOUtils;
 
 /**
  *
