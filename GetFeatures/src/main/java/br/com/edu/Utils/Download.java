@@ -97,7 +97,7 @@ public class Download {
         
     }
 
-    public static void DownloadDump(ArrayList<Resource> Datasets_Dump, ArrayList Datasets_difdump) throws IOException, FileNotFoundException, RarException, ArchiveException, Exception {
+    public static ArrayList DownloadDump(ArrayList<Resource> Datasets_Dump, ArrayList Datasets_difdump) throws IOException, FileNotFoundException, RarException, ArchiveException, Exception {
         for (int i = 0; i < Datasets_Dump.size(); i++) {
             String name = Datasets_Dump.get(i).getName();
             String url_name = Datasets_Dump.get(i).getUrl();
@@ -120,6 +120,7 @@ public class Download {
             }
 
         }
+        return Datasets_difdump;
     }
 
 }

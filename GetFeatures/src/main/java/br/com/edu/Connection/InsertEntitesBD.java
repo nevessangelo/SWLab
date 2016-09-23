@@ -28,7 +28,6 @@ public class InsertEntitesBD {
         if(conn != null){
                Statement stm = (Statement) conn.createStatement();
                String query = "INSERT INTO Entites VALUES ('','"+insert.getName_dataset()+"','"+insert.getEntites().getName()+"','"+insert.getEntites().getFrequen()+"','"+insert.getType()+"');";
-               System.out.println(query);
                boolean res = stm.execute(query);
                if(!res){
                    System.out.println("Dados Inseridos do dataSet: "+insert.getName_dataset());

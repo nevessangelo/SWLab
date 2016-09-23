@@ -25,7 +25,7 @@ import org.apache.commons.compress.archivers.ArchiveException;
 public class SearchDump {
 
     public static void Search(CkanClient cc, List datasets) throws IOException, FileNotFoundException, RarException, ArchiveException, Exception {
-
+        ArrayList<String> Datasets_return = new ArrayList<>();
         ArrayList<Resource> Datasets_dump = new ArrayList();
         ArrayList Datasets_difdump = new ArrayList();
         ArrayList<String> names_links = new ArrayList<>();
@@ -143,7 +143,7 @@ public class SearchDump {
         System.out.println("Numeros de dumps NÃO encontrados: " + cont2);
         
         
-        Download.DownloadDump(Datasets_dump, Datasets_difdump);
+       Datasets_return = Download.DownloadDump(Datasets_dump, Datasets_difdump);
        
     }
 
