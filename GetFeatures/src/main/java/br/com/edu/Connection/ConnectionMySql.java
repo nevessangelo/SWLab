@@ -15,18 +15,20 @@ import java.sql.SQLException;
  */
 public class ConnectionMySql {
 
-    Connection connection = null;
+    
 
-    public Connection Conectar() throws ClassNotFoundException {
+    public static Connection Conectar() throws ClassNotFoundException {
+        Connection connection = null;
         String serverName = "localhost";    
-        String mydatabase = "Base_Datasets";        
+        String mydatabase = "Features";        
         String url = "jdbc:mysql://" + serverName + "/" + mydatabase;
         String username = "SemanticWeb";        
         String password = "123";      
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            return connection = DriverManager.getConnection(url, username, password);
+            connection = DriverManager.getConnection(url, username, password);
+            return connection; 
         } catch (SQLException e) {
             System.out.println("Problemas na conexao com o banco de dados." + e);
             return null;
