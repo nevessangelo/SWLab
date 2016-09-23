@@ -1,4 +1,4 @@
-package uff.ic.swlab.common.util;
+package uff.ic.swlab.commons.util.riot;
 
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -18,7 +18,7 @@ import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.model.OWLOntologyStorageException;
 import org.semanticweb.owlapi.util.AutoIRIMapper;
 
-public class OWLAPISchemaMgr {
+public abstract class OWLAPISchemaMgr {
 
     private static OWLOntologyManager MANAGER = null;
     private static final String DIRECTORY = "./src/main/resources/dat/owl";

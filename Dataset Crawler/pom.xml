@@ -18,7 +18,7 @@
     <dependencies>
         <dependency>
             <groupId>uff.ic.swlab</groupId>
-            <artifactId>common-lib</artifactId>
+            <artifactId>commons-lib</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/eu.trentorise.opendata/jackan -->

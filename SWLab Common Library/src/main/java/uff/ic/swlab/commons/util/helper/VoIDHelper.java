@@ -1,11 +1,6 @@
-package uff.ic.swlab.common.util;
+package uff.ic.swlab.commons.util.helper;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -21,8 +16,10 @@ import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
 import org.apache.jena.vocabulary.RDF;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import uff.ic.swlab.commons.util.Conf;
+import uff.ic.swlab.commons.util.riot.RDFDataMgr;
 
-public class VoID {
+public abstract class VoIDHelper {
 
     public static boolean isVoID(Model model) {
         org.apache.jena.rdf.model.Resource voidDataset = model.getResource("http://rdfs.org/ns/void#Dataset");
@@ -32,34 +29,19 @@ public class VoID {
         return hasDataset || hasLinkset;
     }
 
-    public static Model retrieveVoID(String[] urls, String[] sparqlEndPoints) {
+    public static Model getContent(String[] urls, String[] sparqlEndPoints) {
         Model void_ = ModelFactory.createDefaultModel();
-        void_.add(VoID.retrieveVoIDFromURL(urls));
-        void_.add(VoID.retrieveVoIDFromSparql(sparqlEndPoints));
+        void_.add(getVoIDFromURL(urls));
+        void_.add(getVoIDFromSparql(sparqlEndPoints));
         return void_;
     }
 
-    private static boolean isHTML(String url) throws MalformedURLException, IOException {
-        URLConnection conn = (new URL(url)).openConnection();
-        conn.setConnectTimeout(Config.HTTP_CONNECT_TIMEOUT);
-        conn.setReadTimeout(Config.HTTP_READ_TIMEOUT);
-
-        try (BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));) {
-            StringBuilder response = new StringBuilder();
-            String inputLine;
-            while ((inputLine = in.readLine()) != null)
-                response.append(inputLine);
-            String doc = response.toString();
-            return doc.contains("<html") && doc.contains("</html");
-        }
-    }
-
-    private static Model retrieveVoIDFromURL(String[] urls) {
+    private static Model getVoIDFromURL(String[] urls) {
         Model void_ = ModelFactory.createDefaultModel();
 
         for (String url : listPotentialVoIDURLs(urls))
             try {
-                if (!isHTML(url)) {
+                if (!URLHelper.isHTML(url)) {
                     Lang[] langs = {Lang.TURTLE, Lang.RDFXML, Lang.NTRIPLES, Lang.TRIG,
                         Lang.NQUADS, Lang.JSONLD, Lang.RDFJSON, Lang.TRIX, Lang.RDFTHRIFT};
                     for (Lang lang : langs)
@@ -73,10 +55,10 @@ public class VoID {
                             };
                             task.setDaemon(true);
                             task.start();
-                            task.join(Config.MODEL_READ_TIMEOUT);
+                            task.join(Conf.MODEL_READ_TIMEOUT);
                             if (task.isAlive()) {
                                 task.stop();
-                                Logger.getLogger("timeout").log(Level.INFO, "Timeout while reading " + url + ".");
+                                Logger.getLogger("timeout").log(Level.WARN, "Timeout while reading " + url + ".");
                                 throw new TimeoutException("Timeout while reading " + url + ".");
                             }
 
@@ -97,10 +79,10 @@ public class VoID {
                         };
                         task.setDaemon(true);
                         task.start();
-                        task.join(Config.MODEL_READ_TIMEOUT);
+                        task.join(Conf.MODEL_READ_TIMEOUT);
                         if (task.isAlive()) {
                             task.stop();
-                            Logger.getLogger("timeout").log(Level.INFO, "Timeout while reading " + url + ".");
+                            Logger.getLogger("timeout").log(Level.WARN, "Timeout while reading " + url + ".");
                             throw new TimeoutException("Timeout while reading " + url + ".");
                         }
 
@@ -114,7 +96,7 @@ public class VoID {
         return void_;
     }
 
-    private static Model retrieveVoIDFromSparql(String[] sparqlEndPoints) {
+    private static Model getVoIDFromSparql(String[] sparqlEndPoints) {
         Model void_ = ModelFactory.createDefaultModel();
 
         try {
@@ -136,7 +118,7 @@ public class VoID {
 
                             try (QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, queryString)) {
                                 ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
-                                ((QueryEngineHTTP) exec).setTimeout(Config.SPARQL_TIMEOUT);
+                                ((QueryEngineHTTP) exec).setTimeout(Conf.SPARQL_TIMEOUT);
                                 exec.execConstruct(m);
                                 tempModel.add(m);
                             }
@@ -146,10 +128,10 @@ public class VoID {
                 };
                 task.setDaemon(true);
                 task.start();
-                task.join(Config.SPARQL_TIMEOUT);
+                task.join(Conf.SPARQL_TIMEOUT);
                 if (task.isAlive()) {
                     task.stop();
-                    Logger.getLogger("timeout").log(Level.INFO, "Timeout while reading " + sparqlEndPoint + ".");
+                    Logger.getLogger("timeout").log(Level.WARN, "Timeout while reading " + sparqlEndPoint + ".");
                     throw new TimeoutException("Timeout while reading " + sparqlEndPoint + ".");
                 }
 
@@ -168,7 +150,7 @@ public class VoID {
         String name;
         String queryString = "select distinct ?g where {graph ?g {?s ?p ?o.}}";
         try (QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, queryString)) {
-            ((QueryEngineHTTP) exec).setTimeout(Config.SPARQL_TIMEOUT);
+            ((QueryEngineHTTP) exec).setTimeout(Conf.SPARQL_TIMEOUT);
             ResultSet rs = exec.execSelect();
             while (rs.hasNext()) {
                 name = rs.next().getResource("g").getURI();

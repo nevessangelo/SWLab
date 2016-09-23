@@ -1,4 +1,4 @@
-package uff.ic.swlab.common.util;
+package uff.ic.swlab.commons.util.helper;
 
 import java.net.URL;
 import java.util.Comparator;
@@ -8,7 +8,7 @@ import java.util.Map.Entry;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
-public class Resource {
+public class ResourceHelper {
 
     public static String getAuthority(String[] urls) {
         String authority;
@@ -25,11 +25,11 @@ public class Resource {
         return authorities.size() > 0 ? authorities.first().getKey() : null;
     }
 
-    private static String getAuthority(String urlString) {
+    public static String getAuthority(String url) {
         try {
-            URL url = new URL(urlString);
-            String protocol = url.getProtocol();
-            String auth = url.getAuthority();
+            URL url_ = new URL(url);
+            String protocol = url_.getProtocol();
+            String auth = url_.getAuthority();
             return protocol + "://" + auth;
         } catch (Exception e) {
             return null;

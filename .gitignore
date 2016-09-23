@@ -16,6 +16,6 @@ __pycache__/
 /#TIC10086-G/target/
 /#TIC10086-G/src/main/resources/dat/tdb/
 
-/DataCrawler2/target/
-/DataCrawler2/src/main/resources/dat/tdb/
-/DBPediaSpotlight/nbproject/private/
+/Dataset Crawler/target/
+/Dataset Crawler/src/main/resources/dat/tdb/
+/Dataset Crawler/src/main/resources/dat/rdf/

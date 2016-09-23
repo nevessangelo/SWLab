@@ -1,21 +1,15 @@
 package uff.ic.swlab.datasetcrawler;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.util.List;
-import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 import java.util.stream.Stream;
-import org.apache.jena.rdf.model.Model;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
-import uff.ic.swlab.common.util.Config;
-import uff.ic.swlab.common.util.Resource;
-import uff.ic.swlab.common.util.SparqlServer;
+import uff.ic.swlab.commons.util.Conf;
+import uff.ic.swlab.commons.util.adapter.FusekiServer;
 import uff.ic.swlab.datasetcrawler.model.Dataset;
 
 public class Main {
@@ -24,6 +18,7 @@ public class Main {
         try {
             run(args);
         } catch (Throwable e) {
+            System.out.println(e.getMessage());
             e.printStackTrace();
         }
     }
@@ -31,41 +26,38 @@ public class Main {
     public static void run(String[] args) throws MalformedURLException, InterruptedException, IOException {
         Logger.getLogger("datacrawler");
         PropertyConfigurator.configure("./src/main/resources/conf/log4j.properties");
-        System.out.println("Crawler started.");
-
-        loadProperties();
+        Conf.configure("./src/main/resources/conf/datasetcrawler.properties");
         String oper = getOper(args);
 
-        SparqlServer server = new SparqlServer();
-        server.dataURL = Config.FUSEKI_DATASET + "/data";
-        server.updateURL = Config.FUSEKI_DATASET + "/update";
-        server.sparqlURL = Config.FUSEKI_DATASET + "/sparql";
+        FusekiServer server = new FusekiServer(Conf.FUSEKI_DATASET);
+        Integer counter = 0;
 
-        int counter = 0;
-        try (Crawler<Dataset> crawler = new CatalogCrawler(Config.CKAN_CATALOG);) {
+        System.out.println("Crawler started.");
+        try (Crawler<Dataset> crawler = new CatalogCrawler(Conf.CKAN_CATALOG);) {
 
             List<String> graphNames = server.listGraphNames();
-            ExecutorService pool = Executors.newWorkStealingPool(Config.PARALLELISM);
+            ExecutorService pool = Executors.newWorkStealingPool(Conf.PARALLELISM);
             while (crawler.hasNext()) {
                 Dataset dataset = crawler.next();
 
-                Model void_ = dataset.makeVoID();
                 String[] urls = dataset.getURLs(dataset);
                 String[] sparqlEndPoints = dataset.getSparqlEndPoints();
                 String graphURI = dataset.getNameURI();
-                String authority = Resource.getAuthority(urls);
 
-                if (oper == null || !oper.equals("insert") || (oper.equals("insert") && !graphNames.contains(graphURI)))
-                    pool.submit(new RetrieveVoIDTask(void_, urls, sparqlEndPoints, graphURI, server));
-
-                System.out.println((++counter) + "-" + graphURI);
+                if (oper == null || !oper.equals("insert") || (oper.equals("insert") && !graphNames.contains(graphURI))) {
+                    pool.submit(new GetVoIDTask(dataset, urls, sparqlEndPoints, graphURI, server));
+                    System.out.println((++counter) + " - Submitting " + graphURI);
+                } else
+                    System.out.println("Skipping " + graphURI + ".");
             }
             pool.shutdown();
-            pool.awaitTermination(Config.POOL_SHUTDOWN_TIMEOUT, Config.POOL_SHUTDOWN_TIMEOUT_UNIT);
+            System.out.println("Waiting for remaining threads...");
+            pool.awaitTermination(Conf.POOL_SHUTDOWN_TIMEOUT, Conf.POOL_SHUTDOWN_TIMEOUT_UNIT);
 
         } catch (Throwable e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
-
         System.out.println("Crawler done.");
     }
 
@@ -79,26 +71,4 @@ public class Main {
                     return args[0];
         throw new IllegalArgumentException("Illegal arguments.");
     }
-
-    private static void loadProperties() throws IOException {
-        try (InputStream input = new FileInputStream("./src/main/resources/conf/datasetcrawler.properties");) {
-            Properties prop = new Properties();
-            prop.load(input);
-
-            Config.FUSEKI_DATASET = prop.getProperty("fusekiDataset");
-            Config.CKAN_CATALOG = prop.getProperty("ckanCatalog");
-
-            Config.TASK_INSTANCES = Integer.valueOf(prop.getProperty("taskInstances"));
-            Config.PARALLELISM = Integer.valueOf(prop.getProperty("parallelism"));
-            Config.POOL_SHUTDOWN_TIMEOUT = Integer.valueOf(prop.getProperty("poolShutdownTimeout"));
-            Config.POOL_SHUTDOWN_TIMEOUT_UNIT = TimeUnit.valueOf(prop.getProperty("poolShutdownTimeoutUnit"));
-
-            Config.MODEL_READ_TIMEOUT = Long.valueOf(prop.getProperty("modelReadTimeout"));
-            Config.SPARQL_TIMEOUT = Long.valueOf(prop.getProperty("sparqlTimeout"));
-            Config.HTTP_CONNECT_TIMEOUT = Integer.valueOf(prop.getProperty("httpConnectTimeout"));
-            Config.HTTP_READ_TIMEOUT = Integer.valueOf(prop.getProperty("httpReadTimeout"));
-
-        }
-    }
-
 }

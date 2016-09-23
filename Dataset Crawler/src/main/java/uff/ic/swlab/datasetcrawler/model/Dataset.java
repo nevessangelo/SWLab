@@ -4,7 +4,6 @@ import eu.trentorise.opendata.jackan.CkanClient;
 import eu.trentorise.opendata.jackan.model.CkanDataset;
 import eu.trentorise.opendata.jackan.model.CkanDatasetRelationship;
 import eu.trentorise.opendata.jackan.model.CkanPair;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -14,13 +13,24 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.concurrent.TimeoutException;
 import java.util.stream.Collectors;
+import org.apache.jena.query.QueryExecution;
+import org.apache.jena.query.QuerySolution;
+import org.apache.jena.query.ResultSet;
+import org.apache.jena.rdf.model.Literal;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Property;
 import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.riot.WebContent;
+import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
 import org.apache.jena.sparql.vocabulary.FOAF;
 import org.apache.jena.vocabulary.DCTerms;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import uff.ic.swlab.commons.util.Conf;
+import uff.ic.swlab.commons.util.helper.URLHelper;
 
 public class Dataset {
 
@@ -35,7 +45,7 @@ public class Dataset {
     public String getCtalogDatasetAPI() {
         try {
             return cc.getCatalogUrl() + "/api/rest/dataset/";
-        } catch (Exception e) {
+        } catch (Throwable e) {
             return null;
         }
     }
@@ -43,16 +53,15 @@ public class Dataset {
     public String getNameURI() {
         try {
             return getCtalogDatasetAPI() + doc.getName();
-        } catch (Exception e) {
+        } catch (Throwable e) {
             return null;
         }
     }
 
     public String getHomepage() {
         try {
-            String urlString = doc.getUrl();
-            new URL(urlString);
-            return urlString;
+            String url = doc.getUrl();
+            return URLHelper.normalize(url);
         } catch (Exception e) {
             return null;
         }
@@ -64,12 +73,12 @@ public class Dataset {
             doc.getTags().stream().forEach((tag) -> {
                 try {
                     if (!tag.getName().equals(""))
-                        tags.add(tag.getName());
+                        tags.add(tag.getName().trim());
                 } catch (Throwable t) {
                 }
             });
             return (new HashSet<>(tags)).toArray(new String[0]);
-        } catch (Exception e) {
+        } catch (Throwable e) {
             return new String[0];
         }
     }
@@ -78,13 +87,11 @@ public class Dataset {
         try {
             for (CkanPair extra : doc.getExtras())
                 try {
-                    if (extra.getKey().toLowerCase().contains("namespace")) {
-                        new URL(extra.getValue());
-                        return extra.getValue();
-                    }
+                    if (extra.getKey().toLowerCase().contains("namespace"))
+                        return extra.getValue().trim();
                 } catch (Throwable e) {
                 }
-        } catch (Exception e) {
+        } catch (Throwable e) {
         }
         return null;
     }
@@ -96,15 +103,13 @@ public class Dataset {
                 try {
                     if (resource.getDescription().toLowerCase().contains("example")
                             || resource.getFormat().toLowerCase().contains("example")
-                            || resource.getUrl().toLowerCase().contains("example")) {
-                        new URL(resource.getUrl());
-                        examples.add(resource.getUrl());
-                    }
+                            || resource.getUrl().toLowerCase().contains("example"))
+                        examples.add(URLHelper.normalize(resource.getUrl()));
                 } catch (Throwable e) {
                 }
             });
             return (new HashSet<>(examples)).toArray(new String[0]);
-        } catch (Exception e) {
+        } catch (Throwable e) {
             return new String[0];
         }
     }
@@ -116,15 +121,13 @@ public class Dataset {
                 try {
                     if (resource.getDescription().toLowerCase().contains("dump")
                             || resource.getFormat().toLowerCase().contains("dump")
-                            || resource.getUrl().toLowerCase().contains("dump")) {
-                        new URL(resource.getUrl());
-                        dumps.add(resource.getUrl());
-                    }
+                            || resource.getUrl().toLowerCase().contains("dump"))
+                        dumps.add(URLHelper.normalize(resource.getUrl()));
                 } catch (Throwable e) {
                 }
             });
             return (new HashSet<>(dumps)).toArray(new String[0]);
-        } catch (Exception e) {
+        } catch (Throwable e) {
             return new String[0];
         }
     }
@@ -136,15 +139,13 @@ public class Dataset {
                 try {
                     if (resource.getDescription().toLowerCase().contains("sparql")
                             || resource.getFormat().toLowerCase().contains("sparql")
-                            || resource.getUrl().toLowerCase().contains("sparql")) {
-                        new URL(resource.getUrl());
-                        sparqlEndPoints.add(resource.getUrl());
-                    }
+                            || resource.getUrl().toLowerCase().contains("sparql"))
+                        sparqlEndPoints.add(URLHelper.normalize(resource.getUrl()));
                 } catch (Throwable e) {
                 }
             });
             return (new HashSet<>(sparqlEndPoints)).toArray(new String[0]);
-        } catch (Exception e) {
+        } catch (Throwable e) {
             return new String[0];
         }
     }
@@ -156,15 +157,13 @@ public class Dataset {
                 try {
                     if (resource.getDescription().toLowerCase().contains("void")
                             || resource.getFormat().toLowerCase().contains("void")
-                            || resource.getUrl().toLowerCase().contains("void")) {
-                        new URL(resource.getUrl());
-                        voids.add(resource.getUrl());
-                    }
+                            || resource.getUrl().toLowerCase().contains("void"))
+                        voids.add(URLHelper.normalize(resource.getUrl()));
                 } catch (Throwable e) {
                 }
             });
             return (new HashSet<>(voids)).toArray(new String[0]);
-        } catch (Exception e) {
+        } catch (Throwable e) {
             return new String[0];
         }
     }
@@ -222,10 +221,144 @@ public class Dataset {
         }
     }
 
+    private Set<Entry<String, Integer>> getLinks() {
+        Map<String, Integer> links = new HashMap<>();
+        String ns = getCtalogDatasetAPI();
+        try {
+            String key;
+            for (CkanPair ex : doc.getExtras())
+                try {
+                    key = ex.getKey();
+                    if (key.startsWith("links:"))
+                        links.put(ns + key.replace("links:", "").trim().replaceAll(" ", "_"), Integer.parseInt(ex.getValue()));
+                } catch (Throwable e) {
+                }
+        } catch (Throwable e) {
+        }
+        return links.entrySet();
+    }
+
+    private Set<Entry<String, Integer>> getLinks2() {
+        Map<String, Integer> links = new HashMap<>();
+        try {
+            for (CkanDatasetRelationship rel : doc.getRelationshipsAsSubject())
+                links.put(cc.getDataset(rel.getObject()).getName(), Integer.parseInt(rel.getComment()));
+        } catch (Throwable e) {
+        }
+        return links.entrySet();
+    }
+
+    private String getTriples() {
+        try {
+            List<CkanPair> extras = doc.getExtras();
+            for (CkanPair d : extras)
+                try {
+                    if (d.getKey().toLowerCase().equals("triples"))
+                        return d.getValue();
+                } catch (Throwable e) {
+                }
+        } catch (Throwable e) {
+        }
+        return null;
+    }
+
+    public Set<Entry<String, Integer>> getClasses() {
+        Map<String, Integer> classes = new HashMap<>();
+
+        try {
+            for (String sparqlEndPoint : getSparqlEndPoints()) {
+                Thread task = new Thread() {
+                    @Override
+                    public void run() {
+                        String queryString = "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
+                                + "select ?class (count(?s) as ?freq)\n"
+                                + "WHERE {{?s rdf:type ?class} union {graph ?g {?s rdf:type ?class}}}\n"
+                                + "group by ?class\n"
+                                + "order by desc(?freq)\n"
+                                + "limit 500";
+                        try (QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, queryString)) {
+                            ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
+                            ((QueryEngineHTTP) exec).setTimeout(Conf.SPARQL_TIMEOUT);
+                            ResultSet rs = exec.execSelect();
+                            while (rs.hasNext()) {
+                                QuerySolution qs = rs.next();
+                                Resource class_ = qs.getResource("class");
+                                Literal freq = qs.getLiteral("freq");
+                                try {
+                                    if (!class_.getURI().equals(""))
+                                        classes.put(class_.getURI(), freq.getInt());
+                                } catch (Throwable t) {
+                                }
+                            }
+                        } catch (Throwable t) {
+                        }
+                    }
+                };
+                task.setDaemon(true);
+                task.start();
+                task.join(Conf.SPARQL_TIMEOUT);
+                if (task.isAlive()) {
+                    task.stop();
+                    Logger.getLogger("timeout").log(Level.WARN, "Timeout while reading " + sparqlEndPoint + ".");
+                    throw new TimeoutException("Timeout while reading " + sparqlEndPoint + ".");
+                }
+            }
+        } catch (Throwable e2) {
+        }
+
+        return classes.entrySet();
+    }
+
+    public Set<Entry<String, Integer>> getProperties() {
+        Map<String, Integer> properties = new HashMap<>();
+
+        try {
+            for (String sparqlEndPoint : getSparqlEndPoints()) {
+                Thread task = new Thread() {
+                    @Override
+                    public void run() {
+                        String queryString = "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
+                                + "select ?property (count(?s) as ?freq)\n"
+                                + "WHERE {{?s ?property []} union {graph ?g {?s ?property []}}}\n"
+                                + "group by ?property\n"
+                                + "order by desc(?freq)\n"
+                                + "limit 500";
+                        try (QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, queryString)) {
+                            ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
+                            ((QueryEngineHTTP) exec).setTimeout(Conf.SPARQL_TIMEOUT);
+                            ResultSet rs = exec.execSelect();
+                            while (rs.hasNext()) {
+                                QuerySolution qs = rs.next();
+                                Resource property = qs.getResource("property");
+                                Literal freq = qs.getLiteral("freq");
+                                try {
+                                    if (!property.getURI().equals(""))
+                                        properties.put(property.getURI(), freq.getInt());
+                                } catch (Throwable t) {
+                                }
+                            }
+                        } catch (Throwable t) {
+                        }
+                    }
+                };
+                task.setDaemon(true);
+                task.start();
+                task.join(Conf.SPARQL_TIMEOUT);
+                if (task.isAlive()) {
+                    task.stop();
+                    Logger.getLogger("timeout").log(Level.WARN, "Timeout while reading " + sparqlEndPoint + ".");
+                    throw new TimeoutException("Timeout while reading " + sparqlEndPoint + ".");
+                }
+            }
+        } catch (Throwable e2) {
+        }
+
+        return properties.entrySet();
+    }
+
     public Model makeVoID() {
         Model void_ = ModelFactory.createDefaultModel();
 
-        String ns = getCtalogDatasetAPI();
         Resource voidDataset = void_.createResource("http://rdfs.org/ns/void#Dataset");
         Resource voidLinkset = void_.createResource("http://rdfs.org/ns/void#Linkset");
 
@@ -234,19 +367,37 @@ public class Dataset {
         Property voidSubset = void_.createProperty("http://rdfs.org/ns/void#subset");
         Property voidSubjectsTarget = void_.createProperty("http://rdfs.org/ns/void#sujectsTarget");
         Property voidObjectstarget = void_.createProperty("http://rdfs.org/ns/void#objectsTarget");
+        Property voidClassPartition = void_.createProperty("http://rdfs.org/ns/void#classPartition");
+        Property voidClass = void_.createProperty("http://rdfs.org/ns/void#class");
+        Property voidPropertyPartition = void_.createProperty("http://rdfs.org/ns/void#propertyPartition");
+        Property voidProperty = void_.createProperty("http://rdfs.org/ns/void#property");
         Property voidTriples = void_.createProperty("http://rdfs.org/ns/void#triples");
 
         Resource dataset = void_.createResource(getNameURI(), voidDataset);
-        Set<Entry<String, String>> links = getLinks();
+        Set<Entry<String, Integer>> links = getLinks();
         links.addAll(getLinks2());
         links.stream().forEach((link) -> {
             Resource linkset = void_.createResource(null, voidLinkset)
                     .addProperty(voidSubjectsTarget, dataset)
-                    .addProperty(voidObjectstarget, void_.createResource(ns + link.getKey()));
-            String triples = link.getValue();
+                    .addProperty(voidObjectstarget, void_.createResource(link.getKey()));
+            Integer triples = link.getValue();
             if (triples != null && !triples.equals(""))
-                linkset.addProperty(voidTriples, link.getValue());
+                linkset.addLiteral(voidTriples, link.getValue());
             dataset.addProperty(voidSubset, linkset);
+        });
+
+        Set<Entry<String, Integer>> classes = getClasses();
+        classes.stream().forEach((class_) -> {
+            dataset.addProperty(voidClassPartition, void_.createResource()
+                    .addProperty(voidClass, class_.getKey())
+                    .addLiteral(voidTriples, void_.createTypedLiteral(class_.getValue())));
+        });
+
+        Set<Entry<String, Integer>> properties = getProperties();
+        properties.stream().forEach((property) -> {
+            dataset.addProperty(voidPropertyPartition, void_.createResource()
+                    .addProperty(voidProperty, property.getKey())
+                    .addLiteral(voidTriples, void_.createTypedLiteral(property.getValue())));
         });
 
         List<String> dumps = Arrays.asList(getDumpURLs());
@@ -288,46 +439,5 @@ public class Dataset {
             dataset.addProperty(DCTerms.modified, void_.createTypedLiteral(modified));
 
         return void_;
-    }
-
-    private Set<Entry<String, String>> getLinks2() {
-        Map<String, String> links = new HashMap<>();
-        try {
-            for (CkanDatasetRelationship rel : doc.getRelationshipsAsSubject())
-                links.put(cc.getDataset(rel.getObject()).getName(), rel.getComment());
-        } catch (Throwable e) {
-        }
-        return links.entrySet();
-    }
-
-    private Set<Entry<String, String>> getLinks() {
-        Map<String, String> links = new HashMap<>();
-        try {
-            String key, value;
-            for (CkanPair ex : doc.getExtras())
-                try {
-                    key = ex.getKey();
-                    value = ex.getValue();
-                    if (key.startsWith("links:"))
-                        links.put(key.replace("links:", ""), value);
-                } catch (Exception e) {
-                }
-        } catch (Exception e) {
-        }
-        return links.entrySet();
-    }
-
-    private String getTriples() {
-        try {
-            List<CkanPair> extras = doc.getExtras();
-            for (CkanPair d : extras)
-                try {
-                    if (d.getKey().toLowerCase().equals("triples"))
-                        return d.getValue();
-                } catch (Exception e) {
-                }
-        } catch (Exception e) {
-        }
-        return null;
     }
 }

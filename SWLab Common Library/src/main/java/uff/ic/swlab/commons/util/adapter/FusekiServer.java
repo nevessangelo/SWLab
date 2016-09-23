@@ -1,4 +1,4 @@
-package uff.ic.swlab.common.util;
+package uff.ic.swlab.commons.util.adapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,17 +10,24 @@ import org.apache.jena.rdf.model.Model;
 import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import uff.ic.swlab.commons.util.Conf;
 
-public class SparqlServer {
+public class FusekiServer {
 
     public String dataURL = null;
     public String updateURL = null;
     public String sparqlURL = null;
 
-    public SparqlServer() {
+    private FusekiServer() {
     }
 
-    public SparqlServer(String dataURL, String updateURL, String sparqlURL) {
+    public FusekiServer(String server) {
+        dataURL = server + "/data";
+        updateURL = server + "/update";
+        sparqlURL = server + "/sparql";
+    }
+
+    public FusekiServer(String dataURL, String updateURL, String sparqlURL) {
         this.dataURL = dataURL;
         this.updateURL = updateURL;
         this.sparqlURL = sparqlURL;
@@ -31,9 +38,9 @@ public class SparqlServer {
             DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(dataURL);
             try {
                 accessor.putModel(graphURI, model);
-                Logger.getLogger("util").log(Level.INFO, "Dataset loaded: <" + graphURI + ">.");
+                Logger.getLogger("datasetcrawler").log(Level.INFO, "Dataset loaded: <" + graphURI + ">.");
             } catch (Throwable e) {
-                Logger.getLogger("util").log(Level.ERROR, "Error putModel() (<" + graphURI + ">). Msg: " + e.getMessage());
+                Logger.getLogger("datasetcrawler").log(Level.ERROR, "Error putModel() (<" + graphURI + ">). Msg: " + e.getMessage());
             }
         }
     }
@@ -43,7 +50,7 @@ public class SparqlServer {
 
         String queryString = "select distinct ?g where {graph ?g {?s ?p ?o.}}";
         try (QueryExecution exec = new QueryEngineHTTP(sparqlURL, queryString)) {
-            ((QueryEngineHTTP) exec).setTimeout(Config.SPARQL_TIMEOUT);
+            ((QueryEngineHTTP) exec).setTimeout(Conf.SPARQL_TIMEOUT);
             ResultSet rs = exec.execSelect();
             while (rs.hasNext())
                 graphNames.add(rs.next().getResource("g").getURI());

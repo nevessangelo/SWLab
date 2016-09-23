@@ -1,11 +1,13 @@
-package uff.ic.swlab.datasetcrawler;
+package uff.ic.swlab.draft;
 
 import java.net.MalformedURLException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import uff.ic.swlab.common.util.SparqlServer;
+import uff.ic.swlab.commons.util.adapter.FusekiServer;
+import uff.ic.swlab.datasetcrawler.GetVoIDTask;
+import uff.ic.swlab.datasetcrawler.LODCrawler;
 
 public class Main2 {
 
@@ -21,14 +23,14 @@ public class Main2 {
         Logger.getRootLogger().setLevel(Level.OFF);
         System.out.println("Crawler started.");
 
-        SparqlServer server = new SparqlServer();
+        FusekiServer server = new FusekiServer(null);
         server.dataURL = "http://localhost:8080/fuseki/void/data";
         LODCrawler crawler = new LODCrawler();
 
         ExecutorService pool = Executors.newWorkStealingPool(20);
         while (crawler.hasNext()) {
             String[] urls = {crawler.next()};
-            pool.submit(new RetrieveVoIDTask(null, urls, null, null, server));
+            pool.submit(new GetVoIDTask(null, urls, null, null, server));
         }
 
         System.out.println("Done.");

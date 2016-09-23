@@ -1,4 +1,4 @@
-package uff.ic.swlab.common.util;
+package uff.ic.swlab.commons.util.riot;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -29,8 +29,10 @@ import org.apache.jena.rdf.model.Statement;
 import org.apache.jena.rdf.model.StmtIterator;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFLanguages;
+import uff.ic.swlab.commons.util.Conf;
+import uff.ic.swlab.commons.util.Conf;
 
-public class RDFDataMgr {
+public abstract class RDFDataMgr {
 
     public static void write(OutputStream output, Model model, Lang lang) {
         if (lang == RDFLanguages.nameToLang("RDFa"))
@@ -42,8 +44,8 @@ public class RDFDataMgr {
     public static void read(Model model, String url, Lang lang) {
         try {
             URLConnection conn = (new URL(url)).openConnection();
-            conn.setConnectTimeout(Config.HTTP_CONNECT_TIMEOUT);
-            conn.setReadTimeout(Config.HTTP_READ_TIMEOUT);
+            conn.setConnectTimeout(Conf.HTTP_CONNECT_TIMEOUT);
+            conn.setReadTimeout(Conf.HTTP_READ_TIMEOUT);
             try (InputStream in = conn.getInputStream();) {
                 Model m = ModelFactory.createDefaultModel();
                 org.apache.jena.riot.RDFDataMgr.read(m, in, lang);
@@ -57,8 +59,8 @@ public class RDFDataMgr {
         try {
             url = URLEncoder.encode("http://rdf-translator.appspot.com/convert/rdfa/xml/" + url, "UTF-8");
             URLConnection conn = (new URL(url)).openConnection();
-            conn.setConnectTimeout(Config.HTTP_CONNECT_TIMEOUT);
-            conn.setReadTimeout(Config.HTTP_READ_TIMEOUT);
+            conn.setConnectTimeout(Conf.HTTP_CONNECT_TIMEOUT);
+            conn.setReadTimeout(Conf.HTTP_READ_TIMEOUT);
             try (InputStream in = conn.getInputStream();) {
                 Model m = ModelFactory.createDefaultModel();
                 org.apache.jena.riot.RDFDataMgr.read(m, in, Lang.RDFXML);
