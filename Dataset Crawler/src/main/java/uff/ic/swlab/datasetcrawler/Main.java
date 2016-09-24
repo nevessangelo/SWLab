@@ -42,12 +42,12 @@ public class Main {
 
                 if (oper == null || !oper.equals("insert") || (oper.equals("insert") && !graphNames.contains(graphURI))) {
                     pool.submit(new GetVoIDTask(dataset, urls, sparqlEndPoints, graphURI, server));
-                    System.out.println((++counter) + " - Submitting " + graphURI);
+                    System.out.println((++counter) + ": Submitting task " + graphURI);
                 } else
-                    System.out.println("Skipping " + graphURI + ".");
+                    System.out.println("Skipping task " + graphURI);
             }
             pool.shutdown();
-            System.out.println("Waiting for remaining threads...");
+            System.out.println("Waiting for remaining tasks...");
             pool.awaitTermination(DCConf.POOL_SHUTDOWN_TIMEOUT, DCConf.POOL_SHUTDOWN_TIMEOUT_UNIT);
 
         }
