@@ -18,7 +18,6 @@ public class Main {
             run(args);
         } catch (Throwable e) {
             System.out.println(e.getMessage());
-            e.printStackTrace();
         }
     }
 
@@ -65,6 +64,6 @@ public class Main {
             if (args.length == 1 && args[0] != null && !args[0].equals(""))
                 if (Stream.of(opers).anyMatch(x -> x.equals(args[0])))
                     return args[0];
-        throw new IllegalArgumentException("Illegal arguments.");
+        throw new IllegalArgumentException("Illegal argument list!");
     }
 }
