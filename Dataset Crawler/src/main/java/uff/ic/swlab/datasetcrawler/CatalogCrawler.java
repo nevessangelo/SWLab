@@ -8,18 +8,19 @@ import uff.ic.swlab.datasetcrawler.model.Dataset;
 
 public class CatalogCrawler extends Crawler<Dataset> {
 
-    private final CkanClient cc;
+    private CkanClient cc = null;
     private int offset = 0;
     private int limit = 2000;
     private List<String> names;
     private Iterator<String> iterator;
 
     public CatalogCrawler(String url) {
-        cc = new CkanClient(url);
         try {
+            cc = new CkanClient(url);
             names = cc.getDatasetList(limit, offset);
             iterator = names.iterator();
         } catch (Throwable e) {
+            System.out.println("CKAN error while connecting to CKAN!");
             names = new ArrayList<>();
             iterator = names.iterator();
         }
@@ -43,11 +44,7 @@ public class CatalogCrawler extends Crawler<Dataset> {
 
     @Override
     public Dataset next() {
-        try {
-            return new Dataset(cc, cc.getDataset(iterator.next()));
-        } catch (Throwable e) {
-            return null;
-        }
+        return new Dataset(cc, cc.getDataset(iterator.next()));
     }
 
     @Override
