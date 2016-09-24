@@ -1,7 +1,6 @@
 package uff.ic.swlab.datasetcrawler;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -23,7 +22,7 @@ public class Main {
         }
     }
 
-    public static void run(String[] args) throws MalformedURLException, InterruptedException, IOException {
+    public static void run(String[] args) throws IOException, InterruptedException, Exception {
         Logger.getLogger("datacrawler");
         PropertyConfigurator.configure("./src/main/resources/conf/log4j.properties");
         Conf.configure("./src/main/resources/conf/datasetcrawler.properties");
@@ -54,14 +53,11 @@ public class Main {
             System.out.println("Waiting for remaining threads...");
             pool.awaitTermination(Conf.POOL_SHUTDOWN_TIMEOUT, Conf.POOL_SHUTDOWN_TIMEOUT_UNIT);
 
-        } catch (Throwable e) {
-            System.out.println(e.getMessage());
-            e.printStackTrace();
         }
         System.out.println("Crawler done.");
     }
 
-    private static String getOper(String[] args) {
+    private static String getOper(String[] args) throws IllegalArgumentException {
         String[] opers = {"insert", "upsert", "repsert"};
         if (args == null || args.length == 0)
             return "insert";

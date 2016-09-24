@@ -49,7 +49,5 @@ public class CatalogCrawler extends Crawler<Dataset> {
 
     @Override
     public void close() {
-
     }
-
 }
