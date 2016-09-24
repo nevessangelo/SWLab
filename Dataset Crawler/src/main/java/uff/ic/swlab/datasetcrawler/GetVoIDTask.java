@@ -3,7 +3,7 @@ package uff.ic.swlab.datasetcrawler;
 import org.apache.jena.rdf.model.Model;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import uff.ic.swlab.commons.util.Conf;
+import uff.ic.swlab.commons.util.DCConf;
 import uff.ic.swlab.commons.util.adapter.FusekiServer;
 import uff.ic.swlab.commons.util.helper.VoIDHelper;
 import uff.ic.swlab.datasetcrawler.model.Dataset;
@@ -16,7 +16,7 @@ public class GetVoIDTask implements Runnable {
     private final FusekiServer server;
     private final String graphURI;
 
-    private static final InstanceCounter INSTANCE_COUNTER = new InstanceCounter(Conf.TASK_INSTANCES);
+    private static final InstanceCounter INSTANCE_COUNTER = new InstanceCounter(DCConf.TASK_INSTANCES);
 
     private static class InstanceCounter {
 

@@ -5,9 +5,8 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.stream.Stream;
-import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
-import uff.ic.swlab.commons.util.Conf;
+import uff.ic.swlab.commons.util.DCConf;
 import uff.ic.swlab.commons.util.adapter.FusekiServer;
 import uff.ic.swlab.datasetcrawler.model.Dataset;
 
@@ -22,19 +21,18 @@ public class Main {
     }
 
     public static void run(String[] args) throws IOException, InterruptedException, Exception {
-        Logger.getLogger("datacrawler");
         PropertyConfigurator.configure("./src/main/resources/conf/log4j.properties");
-        Conf.configure("./src/main/resources/conf/datasetcrawler.properties");
+        DCConf.configure("./src/main/resources/conf/datasetcrawler.properties");
         String oper = getOper(args);
 
-        FusekiServer server = new FusekiServer(Conf.FUSEKI_DATASET);
+        FusekiServer server = new FusekiServer(DCConf.FUSEKI_DATASET);
         Integer counter = 0;
 
         System.out.println("Crawler started.");
-        try (Crawler<Dataset> crawler = new CatalogCrawler(Conf.CKAN_CATALOG);) {
+        try (Crawler<Dataset> crawler = new CatalogCrawler(DCConf.CKAN_CATALOG);) {
 
             List<String> graphNames = server.listGraphNames();
-            ExecutorService pool = Executors.newWorkStealingPool(Conf.PARALLELISM);
+            ExecutorService pool = Executors.newWorkStealingPool(DCConf.PARALLELISM);
             while (crawler.hasNext()) {
                 Dataset dataset = crawler.next();
 
@@ -50,7 +48,7 @@ public class Main {
             }
             pool.shutdown();
             System.out.println("Waiting for remaining threads...");
-            pool.awaitTermination(Conf.POOL_SHUTDOWN_TIMEOUT, Conf.POOL_SHUTDOWN_TIMEOUT_UNIT);
+            pool.awaitTermination(DCConf.POOL_SHUTDOWN_TIMEOUT, DCConf.POOL_SHUTDOWN_TIMEOUT_UNIT);
 
         }
         System.out.println("Crawler done.");

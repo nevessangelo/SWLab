@@ -6,7 +6,7 @@ import java.io.InputStream;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-public abstract class Conf {
+public abstract class DCConf {
 
     public static String FUSEKI_DATASET;
     public static String CKAN_CATALOG;

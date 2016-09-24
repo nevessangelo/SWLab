@@ -11,7 +11,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.net.UnknownHostException;
 import org.apache.commons.lang3.StringUtils;
-import uff.ic.swlab.commons.util.Conf;
+import uff.ic.swlab.commons.util.DCConf;
 
 public class NewClass2 {
 
@@ -25,8 +25,8 @@ public class NewClass2 {
 
     private static String getContent(String urlString) throws MalformedURLException, IOException, URISyntaxException {
         URLConnection conn = (new URL(normalizeURL(urlString))).openConnection();
-        conn.setConnectTimeout(Conf.HTTP_CONNECT_TIMEOUT);
-        conn.setReadTimeout(Conf.HTTP_READ_TIMEOUT);
+        conn.setConnectTimeout(DCConf.HTTP_CONNECT_TIMEOUT);
+        conn.setReadTimeout(DCConf.HTTP_READ_TIMEOUT);
 
         try (BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));) {
             StringBuilder response = new StringBuilder();

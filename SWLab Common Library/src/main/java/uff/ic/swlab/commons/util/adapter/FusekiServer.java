@@ -10,7 +10,7 @@ import org.apache.jena.rdf.model.Model;
 import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import uff.ic.swlab.commons.util.Conf;
+import uff.ic.swlab.commons.util.DCConf;
 
 public class FusekiServer {
 
@@ -50,7 +50,7 @@ public class FusekiServer {
 
         String queryString = "select distinct ?g where {graph ?g {?s ?p ?o.}}";
         try (QueryExecution exec = new QueryEngineHTTP(sparqlURL, queryString)) {
-            ((QueryEngineHTTP) exec).setTimeout(Conf.SPARQL_TIMEOUT);
+            ((QueryEngineHTTP) exec).setTimeout(DCConf.SPARQL_TIMEOUT);
             ResultSet rs = exec.execSelect();
             while (rs.hasNext())
                 graphNames.add(rs.next().getResource("g").getURI());

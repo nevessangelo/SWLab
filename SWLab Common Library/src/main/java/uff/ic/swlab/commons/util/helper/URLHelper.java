@@ -11,14 +11,14 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.net.UnknownHostException;
 import org.apache.commons.lang3.StringUtils;
-import uff.ic.swlab.commons.util.Conf;
+import uff.ic.swlab.commons.util.DCConf;
 
 public abstract class URLHelper {
 
     private static String getContent(String url) throws MalformedURLException, IOException, URISyntaxException {
         URLConnection conn = (new URL(normalize(url))).openConnection();
-        conn.setConnectTimeout(Conf.HTTP_CONNECT_TIMEOUT);
-        conn.setReadTimeout(Conf.HTTP_READ_TIMEOUT);
+        conn.setConnectTimeout(DCConf.HTTP_CONNECT_TIMEOUT);
+        conn.setReadTimeout(DCConf.HTTP_READ_TIMEOUT);
 
         try (BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));) {
             StringBuilder response = new StringBuilder();
@@ -51,8 +51,8 @@ public abstract class URLHelper {
 
     public static boolean isHTML(String url) throws MalformedURLException, IOException {
         URLConnection conn = (new URL(url)).openConnection();
-        conn.setConnectTimeout(Conf.HTTP_CONNECT_TIMEOUT);
-        conn.setReadTimeout(Conf.HTTP_READ_TIMEOUT);
+        conn.setConnectTimeout(DCConf.HTTP_CONNECT_TIMEOUT);
+        conn.setReadTimeout(DCConf.HTTP_READ_TIMEOUT);
         try (final BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()))) {
             StringBuilder response = new StringBuilder();
             String inputLine;

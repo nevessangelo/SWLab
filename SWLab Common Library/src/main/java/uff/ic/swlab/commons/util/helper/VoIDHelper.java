@@ -16,7 +16,7 @@ import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
 import org.apache.jena.vocabulary.RDF;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import uff.ic.swlab.commons.util.Conf;
+import uff.ic.swlab.commons.util.DCConf;
 import uff.ic.swlab.commons.util.riot.RDFDataMgr;
 
 public abstract class VoIDHelper {
@@ -55,7 +55,7 @@ public abstract class VoIDHelper {
                             };
                             task.setDaemon(true);
                             task.start();
-                            task.join(Conf.MODEL_READ_TIMEOUT);
+                            task.join(DCConf.MODEL_READ_TIMEOUT);
                             if (task.isAlive()) {
                                 task.stop();
                                 Logger.getLogger("timeout").log(Level.WARN, "Timeout while reading " + url + ".");
@@ -79,7 +79,7 @@ public abstract class VoIDHelper {
                         };
                         task.setDaemon(true);
                         task.start();
-                        task.join(Conf.MODEL_READ_TIMEOUT);
+                        task.join(DCConf.MODEL_READ_TIMEOUT);
                         if (task.isAlive()) {
                             task.stop();
                             Logger.getLogger("timeout").log(Level.WARN, "Timeout while reading " + url + ".");
@@ -118,7 +118,7 @@ public abstract class VoIDHelper {
 
                             try (QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, queryString)) {
                                 ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
-                                ((QueryEngineHTTP) exec).setTimeout(Conf.SPARQL_TIMEOUT);
+                                ((QueryEngineHTTP) exec).setTimeout(DCConf.SPARQL_TIMEOUT);
                                 exec.execConstruct(m);
                                 tempModel.add(m);
                             }
@@ -128,7 +128,7 @@ public abstract class VoIDHelper {
                 };
                 task.setDaemon(true);
                 task.start();
-                task.join(Conf.SPARQL_TIMEOUT);
+                task.join(DCConf.SPARQL_TIMEOUT);
                 if (task.isAlive()) {
                     task.stop();
                     Logger.getLogger("timeout").log(Level.WARN, "Timeout while reading " + sparqlEndPoint + ".");
@@ -150,7 +150,7 @@ public abstract class VoIDHelper {
         String name;
         String queryString = "select distinct ?g where {graph ?g {?s ?p ?o.}}";
         try (QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, queryString)) {
-            ((QueryEngineHTTP) exec).setTimeout(Conf.SPARQL_TIMEOUT);
+            ((QueryEngineHTTP) exec).setTimeout(DCConf.SPARQL_TIMEOUT);
             ResultSet rs = exec.execSelect();
             while (rs.hasNext()) {
                 name = rs.next().getResource("g").getURI();
