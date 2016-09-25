@@ -16,7 +16,7 @@ public class NewClass3 {
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
 
-        String filename = "./src/main/resources/dat/rdf/voids_2016-09-25_01-41-22.nq.gz";
+        String filename = "./src/main/resources/dat/rdf/voids_2016-09-25_14-50-28.nq.gz";
         //Alternativa 1
         //Alimentando dataset em meoria com dados de um arquivo de dump compactado
         Model m = ModelFactory.createDefaultModel();
@@ -31,7 +31,7 @@ public class NewClass3 {
 
         //Alternativa 3
         //Alimentando dataset de um servidor FUSEKI com dados de um arquivo de dump compactado
-        String FUSEKI_DATA_URL = "http://localhost:8080/fuseki/voids/data";
+        String FUSEKI_DATA_URL = "http://localhost:8080/fuseki/voids2/data";
         DatasetAccessor ds3 = DatasetAccessorFactory.createHTTP(FUSEKI_DATA_URL);
         ds3.putModel(ds1.getDefaultModel());
         Iterator<String> iter = ds1.listNames();
