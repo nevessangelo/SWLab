@@ -30,7 +30,7 @@ public class Main2 {
         ExecutorService pool = Executors.newWorkStealingPool(20);
         while (crawler.hasNext()) {
             String[] urls = {crawler.next()};
-            pool.submit(new GetVoIDTask(null, urls, null, null, server));
+            pool.submit(new GetVoIDTask(null, null, server));
         }
 
         System.out.println("Done.");

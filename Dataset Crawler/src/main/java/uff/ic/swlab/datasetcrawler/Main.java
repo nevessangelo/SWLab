@@ -35,13 +35,10 @@ public class Main {
             ExecutorService pool = Executors.newWorkStealingPool(DCConf.PARALLELISM);
             while (crawler.hasNext()) {
                 Dataset dataset = crawler.next();
-
-                String[] urls = dataset.getURLs(dataset);
-                String[] sparqlEndPoints = dataset.getSparqlEndPoints();
                 String graphURI = dataset.getNameURI();
 
                 if (oper == null || !oper.equals("insert") || (oper.equals("insert") && !graphNames.contains(graphURI))) {
-                    pool.submit(new GetVoIDTask(dataset, urls, sparqlEndPoints, graphURI, server));
+                    pool.submit(new GetVoIDTask(dataset, graphURI, server));
                     System.out.println((++counter) + ": Submitting task " + graphURI);
                 } else
                     System.out.println("Skipping task " + graphURI);

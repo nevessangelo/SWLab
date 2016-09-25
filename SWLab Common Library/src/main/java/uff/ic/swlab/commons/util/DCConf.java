@@ -18,6 +18,7 @@ public abstract class DCConf {
 
     public static Long SPARQL_TIMEOUT;
     public static Long MODEL_READ_TIMEOUT;
+    public static Long MODEL_WRITE_TIMEOUT;
     public static Integer HTTP_CONNECT_TIMEOUT;
     public static Integer HTTP_READ_TIMEOUT;
 
@@ -35,6 +36,7 @@ public abstract class DCConf {
             POOL_SHUTDOWN_TIMEOUT_UNIT = TimeUnit.valueOf(prop.getProperty("poolShutdownTimeoutUnit"));
 
             MODEL_READ_TIMEOUT = Long.valueOf(prop.getProperty("modelReadTimeout"));
+            MODEL_WRITE_TIMEOUT = Long.valueOf(prop.getProperty("modelWriteTimeout"));
             SPARQL_TIMEOUT = Long.valueOf(prop.getProperty("sparqlTimeout"));
             HTTP_CONNECT_TIMEOUT = Integer.valueOf(prop.getProperty("httpConnectTimeout"));
             HTTP_READ_TIMEOUT = Integer.valueOf(prop.getProperty("httpReadTimeout"));

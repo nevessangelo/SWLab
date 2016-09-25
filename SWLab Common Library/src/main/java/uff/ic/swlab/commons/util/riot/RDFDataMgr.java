@@ -11,6 +11,7 @@ import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeoutException;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -29,10 +30,61 @@ import org.apache.jena.rdf.model.Statement;
 import org.apache.jena.rdf.model.StmtIterator;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFLanguages;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import uff.ic.swlab.commons.util.DCConf;
-import uff.ic.swlab.commons.util.DCConf;
+import uff.ic.swlab.commons.util.TaskExecutor;
 
 public abstract class RDFDataMgr {
+
+    public static void read(Model model, String url, Lang lang) throws InterruptedException {
+        try {
+            URLConnection conn = (new URL(url)).openConnection();
+            conn.setConnectTimeout(DCConf.HTTP_CONNECT_TIMEOUT);
+            conn.setReadTimeout(DCConf.HTTP_READ_TIMEOUT);
+            try (InputStream in = conn.getInputStream();) {
+                Runnable task = () -> {
+                    try {
+                        Model m = ModelFactory.createDefaultModel();
+                        org.apache.jena.riot.RDFDataMgr.read(m, in, lang);
+                        model.add(m);
+                    } catch (Throwable e) {
+                    }
+                };
+                TaskExecutor.executeTask(task, "read " + url, DCConf.MODEL_READ_TIMEOUT);
+            }
+        } catch (InterruptedException ex) {
+            throw new InterruptedException();
+        } catch (TimeoutException e) {
+            Logger.getLogger("timeout").log(Level.WARN, String.format("Timeout read(?,%1s,%2s).", url, lang.getName()));
+        } catch (Throwable e) {
+        }
+    }
+
+    public static void readRDFa(Model model, String url) throws InterruptedException {
+        try {
+            url = URLEncoder.encode("http://rdf-translator.appspot.com/convert/rdfa/xml/" + url, "UTF-8");
+            URLConnection conn = (new URL(url)).openConnection();
+            conn.setConnectTimeout(DCConf.HTTP_CONNECT_TIMEOUT);
+            conn.setReadTimeout(DCConf.HTTP_READ_TIMEOUT);
+            try (InputStream in = conn.getInputStream();) {
+                Runnable task = () -> {
+                    try {
+                        Model m = ModelFactory.createDefaultModel();
+                        org.apache.jena.riot.RDFDataMgr.read(m, in, Lang.RDFXML);
+                        model.add(m);
+                    } catch (Throwable e) {
+                    }
+                };
+                TaskExecutor.executeTask(task, "read " + url, DCConf.MODEL_READ_TIMEOUT);
+            }
+        } catch (InterruptedException ex) {
+            throw new InterruptedException();
+        } catch (TimeoutException e) {
+            Logger.getLogger("timeout").log(Level.WARN, String.format("Timeout readRDFa(?,%1s,\"RDFa\").", url));
+        } catch (Throwable e) {
+        }
+    }
 
     public static void write(OutputStream output, Model model, Lang lang) {
         if (lang == RDFLanguages.nameToLang("RDFa"))
@@ -41,42 +93,13 @@ public abstract class RDFDataMgr {
             writeHTML(output, model);
     }
 
-    public static void read(Model model, String url, Lang lang) {
-        try {
-            URLConnection conn = (new URL(url)).openConnection();
-            conn.setConnectTimeout(DCConf.HTTP_CONNECT_TIMEOUT);
-            conn.setReadTimeout(DCConf.HTTP_READ_TIMEOUT);
-            try (InputStream in = conn.getInputStream();) {
-                Model m = ModelFactory.createDefaultModel();
-                org.apache.jena.riot.RDFDataMgr.read(m, in, lang);
-                model.add(m);
-            }
-        } catch (Throwable ex) {
-        }
-    }
-
-    public static void readRDFa(Model model, String url) {
-        try {
-            url = URLEncoder.encode("http://rdf-translator.appspot.com/convert/rdfa/xml/" + url, "UTF-8");
-            URLConnection conn = (new URL(url)).openConnection();
-            conn.setConnectTimeout(DCConf.HTTP_CONNECT_TIMEOUT);
-            conn.setReadTimeout(DCConf.HTTP_READ_TIMEOUT);
-            try (InputStream in = conn.getInputStream();) {
-                Model m = ModelFactory.createDefaultModel();
-                org.apache.jena.riot.RDFDataMgr.read(m, in, Lang.RDFXML);
-                model.add(m);
-            }
-        } catch (Throwable ex) {
-        }
-    }
-
     public static void write(OutputStream output, Model model) {
         StringWriter writer = new StringWriter();
         model.write(writer, Lang.RDFXML.getName());
 
         HttpClient httpclient = new DefaultHttpClient();
         HttpPost httppost = new HttpPost("http://rdf-translator.appspot.com/convert/detect/rdfa/content");
-        List<NameValuePair> params = new ArrayList<NameValuePair>(2);
+        List<NameValuePair> params = new ArrayList<>(2);
         params.add(new BasicNameValuePair("content", writer.toString()));
         try {
             httppost.setEntity(new UrlEncodedFormEntity(params, "UTF-8"));
@@ -88,13 +111,11 @@ public abstract class RDFDataMgr {
             HttpResponse response = httpclient.execute(httppost);
             HttpEntity entity = response.getEntity();
             if (entity != null) {
-                // EntityUtils to get the response content
                 String content = EntityUtils.toString(entity);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     private static void writeHTML(OutputStream output, Model model) {

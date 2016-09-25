@@ -11,8 +11,6 @@ import uff.ic.swlab.datasetcrawler.model.Dataset;
 public class GetVoIDTask implements Runnable {
 
     private final Dataset dataset;
-    private final String[] urls;
-    private final String[] sparqlEndPoints;
     private final FusekiServer server;
     private final String graphURI;
 
@@ -44,11 +42,9 @@ public class GetVoIDTask implements Runnable {
         }
     }
 
-    public GetVoIDTask(Dataset dataset, String[] urls, String[] sparqlEndPoints, String graphURI, FusekiServer server) {
+    public GetVoIDTask(Dataset dataset, String graphURI, FusekiServer server) {
         INSTANCE_COUNTER.startInstance();
         this.dataset = dataset;
-        this.urls = urls;
-        this.sparqlEndPoints = sparqlEndPoints;
         this.server = server;
         this.graphURI = graphURI;
     }
@@ -61,23 +57,23 @@ public class GetVoIDTask implements Runnable {
 
     private void runTask() {
         try {
+            String[] urls = dataset.getURLs(dataset);
+            String[] sparqlEndPoints = dataset.getSparqlEndPoints();
+
             Model void_ = dataset.makeVoID();
             Model void__ = VoIDHelper.getContent(urls, sparqlEndPoints);
+
             if (void_.size() == 0)
-                Logger.getLogger("empty").log(Level.ERROR, String.format("Empty default VoID (<%1s>).", graphURI));
+                Logger.getLogger("info").log(Level.INFO, String.format("Empty default VoID (<%1s>).", graphURI));
             if (void__.size() == 0)
-                Logger.getLogger("empty").log(Level.INFO, String.format("Empty crawled VoID (<%1s>).", graphURI));
+                Logger.getLogger("info").log(Level.INFO, String.format("Empty crawled VoID (<%1s>).", graphURI));
 
-            if (void__.size() > 0)
-                void_.add(void__);
-
-            if (void_.size() > 5 && VoIDHelper.isVoID(void_))
+            if (void_.add(void__).size() > 5)
                 server.putModel(graphURI, void_);
             else
-                Logger.getLogger("datasetcrawler").log(Level.WARN, String.format("Dataset discarded (<%1s>).", graphURI));
+                Logger.getLogger("info").log(Level.INFO, String.format("Dataset discarded (<%1s>).", graphURI));
         } catch (Throwable e) {
-            Logger.getLogger("datasetcrawler").log(Level.ERROR, String.format("Task error (<%1s>). Msg: %2s", graphURI, e.getMessage()));
-            e.printStackTrace();
+            Logger.getLogger("error").log(Level.ERROR, String.format("Task error (<%1s>). Msg: %2s", graphURI, e.getMessage()));
         }
     }
 }

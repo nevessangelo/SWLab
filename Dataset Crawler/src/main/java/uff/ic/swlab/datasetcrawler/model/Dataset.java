@@ -30,6 +30,7 @@ import org.apache.jena.vocabulary.DCTerms;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import uff.ic.swlab.commons.util.DCConf;
+import uff.ic.swlab.commons.util.TaskExecutor;
 import uff.ic.swlab.commons.util.helper.URLHelper;
 
 public class Dataset {
@@ -225,12 +226,13 @@ public class Dataset {
         Map<String, Integer> links = new HashMap<>();
         String ns = getCtalogDatasetAPI();
         try {
-            String key;
+            String key, value;
             for (CkanPair ex : doc.getExtras())
                 try {
                     key = ex.getKey();
+                    value = ex.getValue();
                     if (key.startsWith("links:"))
-                        links.put(ns + key.replace("links:", "").trim().replaceAll(" ", "_"), Integer.parseInt(ex.getValue()));
+                        links.put(ns + key.replace("links:", "").trim().replaceAll(" ", "_"), Integer.parseInt(value));
                 } catch (Throwable e) {
                 }
         } catch (Throwable e) {
@@ -248,15 +250,12 @@ public class Dataset {
         return links.entrySet();
     }
 
-    private String getTriples() {
+    private Integer getTriples() {
         try {
             List<CkanPair> extras = doc.getExtras();
             for (CkanPair d : extras)
-                try {
-                    if (d.getKey().toLowerCase().equals("triples"))
-                        return d.getValue();
-                } catch (Throwable e) {
-                }
+                if (d.getKey().trim().toLowerCase().equals("triples"))
+                    return Integer.parseInt(d.getValue());
         } catch (Throwable e) {
         }
         return null;
@@ -266,10 +265,9 @@ public class Dataset {
         Map<String, Integer> classes = new HashMap<>();
 
         try {
-            for (String sparqlEndPoint : getSparqlEndPoints()) {
-                Thread task = new Thread() {
-                    @Override
-                    public void run() {
+            for (String sparqlEndPoint : getSparqlEndPoints())
+                try {
+                    Runnable task = () -> {
                         String queryString = "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
                                 + "select ?class (count(?s) as ?freq)\n"
                                 + "WHERE {{?s rdf:type ?class} union {graph ?g {?s rdf:type ?class}}}\n"
@@ -292,17 +290,15 @@ public class Dataset {
                             }
                         } catch (Throwable t) {
                         }
-                    }
-                };
-                task.setDaemon(true);
-                task.start();
-                task.join(DCConf.SPARQL_TIMEOUT);
-                if (task.isAlive()) {
-                    task.stop();
-                    Logger.getLogger("timeout").log(Level.WARN, "Timeout while reading " + sparqlEndPoint + ".");
-                    throw new TimeoutException("Timeout while reading " + sparqlEndPoint + ".");
+                    };
+                    TaskExecutor.executeTask(task, "read classPartitions from " + sparqlEndPoint, DCConf.SPARQL_TIMEOUT);
+                } catch (InterruptedException ex) {
+                    throw new InterruptedException();
+                } catch (TimeoutException e) {
+                    Logger.getLogger("timeout").log(Level.WARN, String.format("Timeout getClasses(?) (%1s).", sparqlEndPoint));
+                } catch (Throwable e) {
+                    Logger.getLogger("error").log(Level.ERROR, String.format("Error getClasses(?). Msg: %1s.", e.getMessage()));
                 }
-            }
         } catch (Throwable e2) {
         }
 
@@ -313,10 +309,9 @@ public class Dataset {
         Map<String, Integer> properties = new HashMap<>();
 
         try {
-            for (String sparqlEndPoint : getSparqlEndPoints()) {
-                Thread task = new Thread() {
-                    @Override
-                    public void run() {
+            for (String sparqlEndPoint : getSparqlEndPoints())
+                try {
+                    Runnable task = () -> {
                         String queryString = "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
                                 + "select ?property (count(?s) as ?freq)\n"
                                 + "WHERE {{?s ?property []} union {graph ?g {?s ?property []}}}\n"
@@ -339,17 +334,15 @@ public class Dataset {
                             }
                         } catch (Throwable t) {
                         }
-                    }
-                };
-                task.setDaemon(true);
-                task.start();
-                task.join(DCConf.SPARQL_TIMEOUT);
-                if (task.isAlive()) {
-                    task.stop();
-                    Logger.getLogger("timeout").log(Level.WARN, "Timeout while reading " + sparqlEndPoint + ".");
-                    throw new TimeoutException("Timeout while reading " + sparqlEndPoint + ".");
+                    };
+                    TaskExecutor.executeTask(task, "read propertyPartitions from " + sparqlEndPoint, DCConf.SPARQL_TIMEOUT);
+                } catch (InterruptedException ex) {
+                    throw new InterruptedException();
+                } catch (TimeoutException e) {
+                    Logger.getLogger("timeout").log(Level.WARN, String.format("Timeout getProperties(?) (%1s).", sparqlEndPoint));
+                } catch (Throwable e) {
+                    Logger.getLogger("error").log(Level.ERROR, String.format("Error getProperties(?). Msg: %1s.", e.getMessage()));
                 }
-            }
         } catch (Throwable e2) {
         }
 
@@ -379,10 +372,8 @@ public class Dataset {
         links.stream().forEach((link) -> {
             Resource linkset = void_.createResource(null, voidLinkset)
                     .addProperty(voidSubjectsTarget, dataset)
-                    .addProperty(voidObjectstarget, void_.createResource(link.getKey()));
-            Integer triples = link.getValue();
-            if (triples != null && !triples.equals(""))
-                linkset.addLiteral(voidTriples, link.getValue());
+                    .addProperty(voidObjectstarget, void_.createResource(link.getKey()))
+                    .addLiteral(voidTriples, void_.createTypedLiteral(link.getValue()));
             dataset.addProperty(voidSubset, linkset);
         });
 
@@ -426,9 +417,9 @@ public class Dataset {
         if (uriSpace != null && !uriSpace.equals(""))
             dataset.addProperty(voidUriSpace, uriSpace);
 
-        String triples = getTriples();
-        if (triples != null && !triples.equals(""))
-            dataset.addProperty(voidTriples, triples);
+        Integer triples = getTriples();
+        if (triples != null)
+            dataset.addProperty(voidTriples, void_.createTypedLiteral(triples));
 
         Calendar created = getCreateDate();
         if (created != null)
