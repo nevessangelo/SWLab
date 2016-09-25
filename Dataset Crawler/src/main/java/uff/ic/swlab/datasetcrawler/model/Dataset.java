@@ -84,17 +84,20 @@ public class Dataset {
         }
     }
 
-    public String getUriSpace() {
+    public String[] getUriSpaces() {
         try {
-            for (CkanPair extra : doc.getExtras())
+            List<String> uriSpaces = new ArrayList<>();
+            doc.getExtras().stream().forEach((extra) -> {
                 try {
                     if (extra.getKey().toLowerCase().contains("namespace"))
-                        return extra.getValue().trim();
+                        uriSpaces.add(extra.getValue().trim());
                 } catch (Throwable e) {
                 }
+            });
+            return (new HashSet<>(uriSpaces)).toArray(new String[0]);
         } catch (Throwable e) {
+            return new String[0];
         }
-        return null;
     }
 
     public String[] getExampleURLs() {
@@ -173,7 +176,7 @@ public class Dataset {
         String[] urls;
         Set<String> set = new HashSet<>();
         set.add(dataset.getHomepage());
-        set.add(dataset.getUriSpace());
+        set.addAll(Arrays.asList(dataset.getUriSpaces()));
         set.addAll(Arrays.asList(dataset.getExampleURLs()));
         set.addAll(Arrays.asList(dataset.getVoIDURLs()));
         set.addAll(Arrays.asList(dataset.getDumpURLs()));
@@ -194,7 +197,7 @@ public class Dataset {
 
     public String getDescription() {
         try {
-            String notes = doc.getTitle();
+            String notes = doc.getNotes();
             if (!notes.equals(""))
                 return notes;
         } catch (Throwable t) {
@@ -357,11 +360,13 @@ public class Dataset {
 
         Property voidUriSpace = void_.createProperty("http://rdfs.org/ns/void#uriSpace");
         Property voidDataDump = void_.createProperty("http://rdfs.org/ns/void#dataDump");
+        Property voidSparlEndpoint = void_.createProperty("http://rdfs.org/ns/void#sparqlEndpoint");
         Property voidSubset = void_.createProperty("http://rdfs.org/ns/void#subset");
         Property voidSubjectsTarget = void_.createProperty("http://rdfs.org/ns/void#sujectsTarget");
         Property voidObjectstarget = void_.createProperty("http://rdfs.org/ns/void#objectsTarget");
         Property voidClassPartition = void_.createProperty("http://rdfs.org/ns/void#classPartition");
         Property voidClass = void_.createProperty("http://rdfs.org/ns/void#class");
+        Property voidEntities = void_.createProperty("http://rdfs.org/ns/void#entities");
         Property voidPropertyPartition = void_.createProperty("http://rdfs.org/ns/void#propertyPartition");
         Property voidProperty = void_.createProperty("http://rdfs.org/ns/void#property");
         Property voidTriples = void_.createProperty("http://rdfs.org/ns/void#triples");
@@ -381,7 +386,7 @@ public class Dataset {
         classes.stream().forEach((class_) -> {
             dataset.addProperty(voidClassPartition, void_.createResource()
                     .addProperty(voidClass, class_.getKey())
-                    .addLiteral(voidTriples, void_.createTypedLiteral(class_.getValue())));
+                    .addLiteral(voidEntities, void_.createTypedLiteral(class_.getValue())));
         });
 
         Set<Entry<String, Integer>> properties = getProperties();
@@ -391,9 +396,19 @@ public class Dataset {
                     .addLiteral(voidTriples, void_.createTypedLiteral(property.getValue())));
         });
 
+        List<String> sparqlEndpoints = Arrays.asList(getSparqlEndPoints());
+        sparqlEndpoints.stream().forEach((sparqlEndpoint) -> {
+            dataset.addProperty(voidSparlEndpoint, void_.createResource(sparqlEndpoint));
+        });
+
         List<String> dumps = Arrays.asList(getDumpURLs());
-        dumps.stream().forEach((dump) -> {
-            dataset.addProperty(voidDataDump, void_.createResource(dump));
+        dumps.stream().forEach((dumpURL) -> {
+            dataset.addProperty(voidDataDump, void_.createResource(dumpURL));
+        });
+
+        List<String> uriSpaces = Arrays.asList(getUriSpaces());
+        uriSpaces.stream().forEach((uriSpace) -> {
+            dataset.addProperty(voidUriSpace, uriSpace);
         });
 
         List<String> tags = Arrays.asList(getTopics());
@@ -412,10 +427,6 @@ public class Dataset {
         String homepage = getHomepage();
         if (homepage != null && !homepage.equals(""))
             dataset.addProperty(FOAF.homepage, void_.createResource(homepage));
-
-        String uriSpace = getUriSpace();
-        if (uriSpace != null && !uriSpace.equals(""))
-            dataset.addProperty(voidUriSpace, uriSpace);
 
         Integer triples = getTriples();
         if (triples != null)

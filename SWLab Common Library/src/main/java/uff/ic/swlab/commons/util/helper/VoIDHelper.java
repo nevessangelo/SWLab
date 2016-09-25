@@ -3,6 +3,10 @@ package uff.ic.swlab.commons.util.helper;
 import java.net.URL;
 import java.util.HashSet;
 import java.util.Set;
+import org.apache.jena.query.Query;
+import org.apache.jena.query.QueryExecution;
+import org.apache.jena.query.QueryExecutionFactory;
+import org.apache.jena.query.QueryFactory;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.riot.Lang;
@@ -17,6 +21,28 @@ public abstract class VoIDHelper {
             return model.contains(null, RDF.type, model.getResource("http://rdfs.org/ns/void#Dataset"));
         else
             return false;
+    }
+
+    public static Model extractVoID(Model model) {
+        if (model != null) {
+            String queryString = ""
+                    + "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
+                    + "prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
+                    + "prefix owl: <http://www.w3.org/2002/07/owl#>\n"
+                    + "prefix void: <http://rdfs.org/ns/void#>\n"
+                    + "\n"
+                    + "construct {?s1 rdf:type void:Dataset. ?s1 ?p1 ?o1. ?s2 ?p2 ?o2.}\n"
+                    + "where {\n"
+                    + "  graph cat:tip {\n"
+                    + "    {{?s1 rdf:type void:Dataset.} union {?s1 rdf:type void:DatasetDescription.}}\n"
+                    + "    ?s1 (!rdf:type)* ?s2. optional {?s1 ?p1 ?o1.} optional {?s2 ?p2 ?o2.}\n"
+                    + "  }\n"
+                    + "}";
+            Query q = QueryFactory.create(queryString);
+            QueryExecution exec = QueryExecutionFactory.create(q, model);
+            return exec.execConstruct();
+        } else
+            return ModelFactory.createDefaultModel();
     }
 
     public static Model getContent(String[] urls, String[] sparqlEndPoints) throws InterruptedException {
@@ -37,16 +63,16 @@ public abstract class VoIDHelper {
                     for (Lang lang : langs) {
                         Model tempModel = ModelFactory.createDefaultModel();
                         RDFDataMgr.read(tempModel, url, lang);
-                        if (isVoID(tempModel)) {
-                            void_.add(tempModel);
+                        tempModel = extractVoID(tempModel);
+                        void_.add(tempModel);
+                        if (tempModel.size() > 0)
                             break;
-                        }
                     }
                 } else {
                     Model tempModel = ModelFactory.createDefaultModel();
                     RDFDataMgr.readRDFa(tempModel, url);
-                    if (isVoID(tempModel))
-                        void_.add(tempModel);
+                    tempModel = extractVoID(tempModel);
+                    void_.add(tempModel);
                 }
             } catch (InterruptedException e) {
                 throw new InterruptedException();
@@ -63,8 +89,8 @@ public abstract class VoIDHelper {
             try {
                 Model tempModel = ModelFactory.createDefaultModel();
                 FusekiServer.readVoIDFromSparql(tempModel, sparqlEndPoint);
-                if (isVoID(tempModel))
-                    void_.add(tempModel);
+                tempModel = extractVoID(tempModel);
+                void_.add(tempModel);
             } catch (InterruptedException e) {
                 throw new InterruptedException();
             } catch (Throwable e) {

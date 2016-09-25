@@ -16,17 +16,18 @@ public class NewClass3 {
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
 
+        String filename = "./src/main/resources/dat/rdf/voids_2016-09-25_01-41-22.nq.gz";
         //Alternativa 1
         //Alimentando dataset em meoria com dados de um arquivo de dump compactado
         Model m = ModelFactory.createDefaultModel();
-        Dataset ds1 = RDFDataMgr.loadDataset("./src/main/resources/dat/rdf/voids_2016-09-23_22-46-03.nq.gz");
+        Dataset ds1 = RDFDataMgr.loadDataset(filename);
 
         //Alternativa 2
         //Alimentando banco de dados de triplas local com dados de um arquivo de dump compactado
         new File("./src/main/resources/dat/tdb").mkdirs();
         String assemblerFile = "./src/main/resources/conf/voids.ttl";
         Dataset ds2 = TDBFactory.assembleDataset(assemblerFile);
-        RDFDataMgr.read(ds2, "./src/main/resources/dat/rdf/voids_2016-09-23_22-46-03.nq.gz");
+        RDFDataMgr.read(ds2, filename);
 
         //Alternativa 3
         //Alimentando dataset de um servidor FUSEKI com dados de um arquivo de dump compactado

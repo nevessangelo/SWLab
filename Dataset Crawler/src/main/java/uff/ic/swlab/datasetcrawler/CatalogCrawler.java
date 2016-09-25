@@ -14,6 +14,9 @@ public class CatalogCrawler extends Crawler<Dataset> {
     private List<String> names;
     private Iterator<String> iterator;
 
+    private CatalogCrawler() {
+    }
+
     public CatalogCrawler(String url) {
         try {
             cc = new CkanClient(url);
@@ -45,6 +48,10 @@ public class CatalogCrawler extends Crawler<Dataset> {
     @Override
     public Dataset next() {
         return new Dataset(cc, cc.getDataset(iterator.next()));
+    }
+
+    public Dataset getDataset(String name) {
+        return new Dataset(cc, cc.getDataset(name));
     }
 
     @Override
