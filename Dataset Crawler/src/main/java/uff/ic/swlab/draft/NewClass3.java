@@ -16,7 +16,7 @@ public class NewClass3 {
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
 
-        String filename = "./src/main/resources/dat/rdf/voids_2016-09-25_14-50-28.nq.gz";
+        String filename = "./src/main/resources/dat/rdf/voids_2016-09-25_15-03-34.nq.gz";
         //Alternativa 1
         //Alimentando dataset em meoria com dados de um arquivo de dump compactado
         Model m = ModelFactory.createDefaultModel();
@@ -38,5 +38,6 @@ public class NewClass3 {
         while (iter.hasNext())
             ds3.putModel(ds1.getNamedModel(iter.next()));
 
+        System.out.println("Salvo!");
     }
 }
