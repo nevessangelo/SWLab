@@ -1,4 +1,4 @@
-package uff.ic.swlab.draft;
+package draft;
 
 import java.util.HashSet;
 import java.util.Set;

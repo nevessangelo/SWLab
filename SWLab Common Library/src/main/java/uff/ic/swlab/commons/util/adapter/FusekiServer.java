@@ -1,48 +1,67 @@
 package uff.ic.swlab.commons.util.adapter;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import java.util.concurrent.TimeoutException;
+import java.util.Map;
+import javax.naming.InvalidNameException;
 import org.apache.jena.query.DatasetAccessor;
 import org.apache.jena.query.DatasetAccessorFactory;
 import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
-import org.apache.jena.riot.WebContent;
 import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import uff.ic.swlab.commons.util.DCConf;
-import uff.ic.swlab.commons.util.TaskExecutor;
+import uff.ic.swlab.commons.util.Config;
 
 public class FusekiServer {
 
-    public String dataURL = null;
-    public String updateURL = null;
-    public String sparqlURL = null;
+    public String quadsUrl = null;
+    public String dataUrl = null;
+    public String updateUrl = null;
+    public String sparqlUrl = null;
+    private static Map<String, FusekiServer> instances = new HashMap<>();
 
     private FusekiServer() {
     }
 
-    public FusekiServer(String server) {
-        dataURL = server + "/data";
-        updateURL = server + "/update";
-        sparqlURL = server + "/sparql";
+    private FusekiServer(String server) {
+        quadsUrl = server;
+        dataUrl = server + "/data";
+        updateUrl = server + "/update";
+        sparqlUrl = server + "/sparql";
     }
 
-    public FusekiServer(String dataURL, String updateURL, String sparqlURL) {
-        this.dataURL = dataURL;
-        this.updateURL = updateURL;
-        this.sparqlURL = sparqlURL;
+    public static FusekiServer getInstance(String server) {
+        if (!instances.containsKey(server))
+            instances.put(server, new FusekiServer(server));
+        return instances.get(server);
     }
 
-    public List<String> listGraphNames() {
+    public String getQuadsURL(String dataset) {
+        return String.format(quadsUrl, dataset);
+    }
+
+    public String getDataURL(String dataset) {
+        return String.format(dataUrl, dataset);
+    }
+
+    public String getSparqlURL(String dataset) {
+        return String.format(sparqlUrl, dataset);
+    }
+
+    public String getUpdateURL(String dataset) {
+        return String.format(updateUrl, dataset);
+    }
+
+    public synchronized List<String> listGraphNames(String dataset) {
         List<String> graphNames = new ArrayList<>();
 
-        String queryString = "select distinct ?g where {graph ?g {?s ?p ?o.}}";
-        try (QueryExecution exec = new QueryEngineHTTP(sparqlURL, queryString)) {
-            ((QueryEngineHTTP) exec).setTimeout(DCConf.SPARQL_TIMEOUT);
+        String queryString = "select distinct ?g where {graph ?g {[] ?p [].}}";
+        try (QueryExecution exec = new QueryEngineHTTP(String.format(sparqlUrl, dataset), queryString)) {
+            ((QueryEngineHTTP) exec).setTimeout(Config.SPARQL_TIMEOUT);
             ResultSet rs = exec.execSelect();
             while (rs.hasNext())
                 graphNames.add(rs.next().getResource("g").getURI());
@@ -52,67 +71,26 @@ public class FusekiServer {
         return graphNames;
     }
 
-    public synchronized void putModel(String graphURI, Model model) throws InterruptedException {
-        if (graphURI != null && !graphURI.equals("")) {
-            DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(dataURL);
-            try {
-                Runnable save = () -> {
-                    try {
-                        accessor.putModel(graphURI, model);
-                    } catch (Throwable e) {
-                        Logger.getLogger("error").log(Level.ERROR, String.format("Error putModel(%1s,...). Msg: %2s", graphURI, e.getMessage()));
-                    }
-                };
-                TaskExecutor.executeTask(save, "save graph " + graphURI, DCConf.MODEL_WRITE_TIMEOUT);
-                Logger.getLogger("info").log(Level.INFO, String.format("Dataset saved (<%1s>).", graphURI));
-            } catch (InterruptedException ex) {
-                throw new InterruptedException();
-            } catch (Throwable e) {
-                Logger.getLogger("error").log(Level.ERROR, String.format("Error putModel(%1s,?). Msg: %2s.", graphURI, e.getMessage()));
-            }
+    public synchronized void putModel(String dataset, String graphUri, Model model) throws InvalidNameException {
+        if (graphUri != null && !graphUri.equals("")) {
+            DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(getDataURL(dataset));
+            accessor.putModel(graphUri, model);
+            Logger.getLogger("info").log(Level.INFO, String.format("Dataset saved (<%1s>).", graphUri));
+            return;
         }
+        throw new InvalidNameException(String.format("Invalid graph URI: %1s.", graphUri));
     }
 
-    public static void readVoIDFromSparql(Model model, String sparqlEndPoint) throws TimeoutException, InterruptedException {
-        try {
-            Runnable task = () -> {
-                String from = "";
-                String queryString = "construct {?s ?p ?o}\n %1swhere {?s ?p ?o.}";
-                try {
-                    Model m = ModelFactory.createDefaultModel();
-                    from = listVoIDGraphNames(sparqlEndPoint).stream().map((String n) -> String.format("from <%1s>\n", n)).reduce(from, String::concat);
-                    queryString = String.format(queryString, from);
-                    try (final QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, queryString)) {
-                        ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
-                        ((QueryEngineHTTP) exec).setTimeout(DCConf.SPARQL_TIMEOUT);
-                        exec.execConstruct(m);
-                        model.add(m);
-                    }
-                } catch (Throwable e) {
-                }
-            };
-            TaskExecutor.executeTask(task, "read " + sparqlEndPoint, DCConf.SPARQL_TIMEOUT);
-        } catch (InterruptedException ex) {
-            throw new InterruptedException();
-        } catch (TimeoutException e) {
+    public synchronized Model getModel(String dataset, String graphUri) throws InvalidNameException {
+        if (graphUri != null && !graphUri.equals("")) {
+            DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(getDataURL(dataset));
+            Model model = accessor.getModel(graphUri);
+            if (model != null)
+                return model;
+            else
+                return ModelFactory.createDefaultModel();
         }
-    }
-
-    private static List<String> listVoIDGraphNames(String sparqlEndPoint) {
-        List<String> graphNames = new ArrayList<>();
-        String name;
-        String queryString = "select distinct ?g where {graph ?g {?s ?p ?o.}}";
-        try (final QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, queryString)) {
-            ((QueryEngineHTTP) exec).setTimeout(DCConf.SPARQL_TIMEOUT);
-            ResultSet rs = exec.execSelect();
-            while (rs.hasNext()) {
-                name = rs.next().getResource("g").getURI();
-                if (name.contains("void"))
-                    graphNames.add(name);
-            }
-        } catch (Throwable e) {
-        }
-        return graphNames;
+        throw new InvalidNameException(String.format("Invalid graph URI: %1s.", graphUri));
     }
 
 }

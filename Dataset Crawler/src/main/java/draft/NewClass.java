@@ -1,4 +1,4 @@
-package uff.ic.swlab.draft;
+package draft;
 
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;

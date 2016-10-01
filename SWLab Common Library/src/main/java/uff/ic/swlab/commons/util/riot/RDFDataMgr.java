@@ -6,12 +6,16 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
+import javax.naming.SizeLimitExceededException;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -21,6 +25,9 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
+import org.apache.jena.query.Dataset;
+import org.apache.jena.query.DatasetFactory;
+import org.apache.jena.query.QueryExecution;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Property;
@@ -30,60 +37,98 @@ import org.apache.jena.rdf.model.Statement;
 import org.apache.jena.rdf.model.StmtIterator;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFLanguages;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
-import uff.ic.swlab.commons.util.DCConf;
-import uff.ic.swlab.commons.util.TaskExecutor;
+import org.apache.jena.riot.WebContent;
+import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
+import uff.ic.swlab.commons.util.Config;
+import uff.ic.swlab.commons.util.Executor;
+import uff.ic.swlab.commons.util.helper.URLHelper;
 
 public abstract class RDFDataMgr {
 
-    public static void read(Model model, String url, Lang lang) throws InterruptedException {
+    public static Dataset loadDataset(String url, Long maxFileSize) throws InterruptedException {
         try {
-            URLConnection conn = (new URL(url)).openConnection();
-            conn.setConnectTimeout(DCConf.HTTP_CONNECT_TIMEOUT);
-            conn.setReadTimeout(DCConf.HTTP_READ_TIMEOUT);
-            try (InputStream in = conn.getInputStream();) {
-                Runnable task = () -> {
+            Lang[] langs = {null, Lang.TURTLE, Lang.RDFXML, Lang.NTRIPLES, Lang.TRIG,
+                Lang.NQUADS, Lang.JSONLD, Lang.RDFJSON, Lang.TRIX, Lang.RDFTHRIFT};
+            if (!URLHelper.isHTML(url))
+                for (Lang lang : langs)
                     try {
-                        Model m = ModelFactory.createDefaultModel();
-                        org.apache.jena.riot.RDFDataMgr.read(m, in, lang);
-                        model.add(m);
+                        if (lang == null)
+                            return loadDataset1(url, maxFileSize);
+                        else
+                            return loadDataset2(url, lang, maxFileSize);
+                    } catch (InterruptedException e) {
+                        throw new InterruptedException();
                     } catch (Throwable e) {
                     }
-                };
-                TaskExecutor.executeTask(task, "read " + url, DCConf.MODEL_READ_TIMEOUT);
-            }
-        } catch (InterruptedException ex) {
+            else
+                return loadDatasetRDFa(url, maxFileSize);
+        } catch (InterruptedException e) {
             throw new InterruptedException();
-        } catch (TimeoutException e) {
-            Logger.getLogger("timeout").log(Level.WARN, String.format("Timeout read(?,%1s,%2s).", url, lang.getName()));
         } catch (Throwable e) {
         }
+        return DatasetFactory.create();
     }
 
-    public static void readRDFa(Model model, String url) throws InterruptedException {
-        try {
-            url = URLEncoder.encode("http://rdf-translator.appspot.com/convert/rdfa/xml/" + url, "UTF-8");
-            URLConnection conn = (new URL(url)).openConnection();
-            conn.setConnectTimeout(DCConf.HTTP_CONNECT_TIMEOUT);
-            conn.setReadTimeout(DCConf.HTTP_READ_TIMEOUT);
-            try (InputStream in = conn.getInputStream();) {
-                Runnable task = () -> {
-                    try {
-                        Model m = ModelFactory.createDefaultModel();
-                        org.apache.jena.riot.RDFDataMgr.read(m, in, Lang.RDFXML);
-                        model.add(m);
-                    } catch (Throwable e) {
-                    }
-                };
-                TaskExecutor.executeTask(task, "read " + url, DCConf.MODEL_READ_TIMEOUT);
-            }
-        } catch (InterruptedException ex) {
-            throw new InterruptedException();
-        } catch (TimeoutException e) {
-            Logger.getLogger("timeout").log(Level.WARN, String.format("Timeout readRDFa(?,%1s,\"RDFa\").", url));
-        } catch (Throwable e) {
+    private static Dataset loadDataset1(String url, Long maxFileSize) throws InterruptedException, MalformedURLException, IOException, ExecutionException, TimeoutException, SizeLimitExceededException {
+        URLConnection conn = (new URL(url)).openConnection();
+        conn.setConnectTimeout(Config.HTTP_CONNECT_TIMEOUT);
+        conn.setReadTimeout(Config.HTTP_READ_TIMEOUT);
+        if (conn.getContentLengthLong() <= maxFileSize) {
+            conn.getInputStream().close();
+            Callable<Dataset> task = () -> {
+                Dataset tempDataset = DatasetFactory.create();
+                org.apache.jena.riot.RDFDataMgr.read(tempDataset, url);
+                return tempDataset;
+            };
+            return Executor.execute(task, Config.MODEL_READ_TIMEOUT);
         }
+        throw new SizeLimitExceededException(String.format("Download size exceeded: %1s", url));
+    }
+
+    private static Dataset loadDataset2(String url, Lang lang, Long maxFileSize) throws InterruptedException, MalformedURLException, IOException, ExecutionException, TimeoutException, SizeLimitExceededException {
+        URLConnection conn = (new URL(url)).openConnection();
+        conn.setConnectTimeout(Config.HTTP_CONNECT_TIMEOUT);
+        conn.setReadTimeout(Config.HTTP_READ_TIMEOUT);
+        if (conn.getContentLengthLong() <= maxFileSize)
+            try (InputStream in = conn.getInputStream();) {
+                Callable<Dataset> task = () -> {
+                    Dataset tempDataset = DatasetFactory.create();
+                    org.apache.jena.riot.RDFDataMgr.read(tempDataset, in, lang);
+                    return tempDataset;
+                };
+                return Executor.execute(task, Config.MODEL_READ_TIMEOUT);
+            }
+        throw new SizeLimitExceededException(String.format("Download size exceeded: %1s", url));
+    }
+
+    private static Dataset loadDatasetRDFa(String url, Long maxFileSize) throws UnsupportedEncodingException, MalformedURLException, IOException, InterruptedException, ExecutionException, TimeoutException, SizeLimitExceededException {
+        url = URLEncoder.encode("http://rdf-translator.appspot.com/convert/rdfa/xml/" + url, "UTF-8");
+        URLConnection conn = (new URL(url)).openConnection();
+        conn.setConnectTimeout(Config.HTTP_CONNECT_TIMEOUT);
+        conn.setReadTimeout(Config.HTTP_READ_TIMEOUT);
+        if (conn.getContentLengthLong() <= maxFileSize)
+            try (InputStream in = conn.getInputStream();) {
+                Callable<Dataset> task = () -> {
+                    Model tempModel = ModelFactory.createDefaultModel();
+                    org.apache.jena.riot.RDFDataMgr.read(tempModel, in, Lang.RDFXML);
+                    return DatasetFactory.create(tempModel);
+                };
+                return Executor.execute(task, Config.MODEL_READ_TIMEOUT);
+            }
+        throw new SizeLimitExceededException(String.format("Download size exceeded: %1s", url));
+    }
+
+    public static Dataset loadDataset(String query, String sparqlEndPoint) throws TimeoutException, InterruptedException, ExecutionException {
+        Callable<Dataset> task = () -> {
+            Model tempModel = ModelFactory.createDefaultModel();
+            try (final QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, query)) {
+                ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
+                ((QueryEngineHTTP) exec).setTimeout(Config.SPARQL_TIMEOUT);
+                exec.execConstruct(tempModel);
+                return DatasetFactory.create(tempModel);
+            }
+        };
+        return Executor.execute(task, Config.SPARQL_TIMEOUT);
     }
 
     public static void write(OutputStream output, Model model, Lang lang) {
@@ -151,7 +196,7 @@ public abstract class RDFDataMgr {
 
             String data1 = "<td><a href=\"%1s\">%2s</a></td>\n";
             String data2 = "<td><a href=\"%1s\">%1s</a></td>\n";
-            String data3 = null;
+            String data3;
             String data31 = "<td><a href=\"%1s\">%2s</a></td>\n";
             String data32 = "<td>%1s</td>\n";
             data1 = String.format(data1, subject.toString(), subject.toString());
@@ -182,4 +227,5 @@ public abstract class RDFDataMgr {
             e.printStackTrace();
         }
     }
+
 }

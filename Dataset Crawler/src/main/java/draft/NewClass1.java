@@ -1,4 +1,4 @@
-package uff.ic.swlab.draft;
+package draft;
 
 import org.apache.jena.query.DatasetAccessor;
 import org.apache.jena.query.DatasetAccessorFactory;

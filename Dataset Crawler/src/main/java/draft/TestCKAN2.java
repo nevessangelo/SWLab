@@ -1,4 +1,4 @@
-package uff.ic.swlab.draft;
+package draft;
 
 import eu.trentorise.opendata.jackan.CkanClient;
 import eu.trentorise.opendata.jackan.model.CkanDataset;
