@@ -1,4 +1,4 @@
-package uff.ic.swlab.draft;
+package draft;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,7 +11,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.net.UnknownHostException;
 import org.apache.commons.lang3.StringUtils;
-import uff.ic.swlab.commons.util.DCConf;
+import uff.ic.swlab.commons.util.Config;
 
 public class NewClass2 {
 
@@ -25,8 +25,8 @@ public class NewClass2 {
 
     private static String getContent(String urlString) throws MalformedURLException, IOException, URISyntaxException {
         URLConnection conn = (new URL(normalizeURL(urlString))).openConnection();
-        conn.setConnectTimeout(DCConf.HTTP_CONNECT_TIMEOUT);
-        conn.setReadTimeout(DCConf.HTTP_READ_TIMEOUT);
+        conn.setConnectTimeout(Config.HTTP_CONNECT_TIMEOUT);
+        conn.setReadTimeout(Config.HTTP_READ_TIMEOUT);
 
         try (BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));) {
             StringBuilder response = new StringBuilder();

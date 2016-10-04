@@ -1,4 +1,4 @@
-package uff.ic.swlab.draft;
+package draft;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -21,6 +21,7 @@ public class NewClass3 {
         //Alimentando dataset em meoria com dados de um arquivo de dump compactado
         Model m = ModelFactory.createDefaultModel();
         Dataset ds1 = RDFDataMgr.loadDataset(filename);
+        ds1.getNamedModel("http://linkedatacatalogg...");
 
         //Alternativa 2
         //Alimentando banco de dados de triplas local com dados de um arquivo de dump compactado
@@ -35,8 +36,10 @@ public class NewClass3 {
         DatasetAccessor ds3 = DatasetAccessorFactory.createHTTP(FUSEKI_DATA_URL);
         ds3.putModel(ds1.getDefaultModel());
         Iterator<String> iter = ds1.listNames();
-        while (iter.hasNext())
-            ds3.putModel(ds1.getNamedModel(iter.next()));
+        while (iter.hasNext()) {
+            String name = iter.next();
+            ds3.putModel(name, ds1.getNamedModel(name));
+        }
 
         System.out.println("Salvo!");
     }

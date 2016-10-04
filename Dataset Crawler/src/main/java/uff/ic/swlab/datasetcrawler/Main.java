@@ -6,9 +6,9 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.stream.Stream;
 import org.apache.log4j.PropertyConfigurator;
-import uff.ic.swlab.commons.util.DCConf;
+import uff.ic.swlab.commons.util.Config;
 import uff.ic.swlab.commons.util.adapter.FusekiServer;
-import uff.ic.swlab.datasetcrawler.model.Dataset;
+import uff.ic.swlab.datasetcrawler.adapter.Dataset;
 
 public class Main {
 
@@ -17,25 +17,26 @@ public class Main {
             run(args);
         } catch (Throwable e) {
             System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 
     public static void run(String[] args) throws IOException, InterruptedException, Exception {
         PropertyConfigurator.configure("./src/main/resources/conf/log4j.properties");
-        DCConf.configure("./src/main/resources/conf/datasetcrawler.properties");
+        Config.configure("./src/main/resources/conf/datasetcrawler.properties");
         String oper = getOper(args);
 
-        FusekiServer server = new FusekiServer(DCConf.FUSEKI_DATASET);
+        FusekiServer server = FusekiServer.getInstance(Config.FUSEKI_SERVER);
         Integer counter = 0;
 
         System.out.println("Crawler started.");
-        try (Crawler<Dataset> crawler = new CatalogCrawler(DCConf.CKAN_CATALOG);) {
+        try (Crawler<Dataset> crawler = new CatalogCrawler(Config.CKAN_CATALOG);) {
 
-            List<String> graphNames = server.listGraphNames();
-            ExecutorService pool = Executors.newWorkStealingPool(DCConf.PARALLELISM);
+            List<String> graphNames = server.listGraphNames(Config.FUSEKI_DATASET);
+            ExecutorService pool = Executors.newWorkStealingPool(Config.PARALLELISM);
             while (crawler.hasNext()) {
                 Dataset dataset = crawler.next();
-                String graphURI = dataset.getNameURI();
+                String graphURI = dataset.getUri();
 
                 if (oper == null || !oper.equals("insert") || (oper.equals("insert") && !graphNames.contains(graphURI))) {
                     pool.submit(new GetVoIDTask(dataset, graphURI, server));
@@ -45,7 +46,7 @@ public class Main {
             }
             pool.shutdown();
             System.out.println("Waiting for remaining tasks...");
-            pool.awaitTermination(DCConf.POOL_SHUTDOWN_TIMEOUT, DCConf.POOL_SHUTDOWN_TIMEOUT_UNIT);
+            pool.awaitTermination(Config.POOL_SHUTDOWN_TIMEOUT, Config.POOL_SHUTDOWN_TIMEOUT_UNIT);
 
         }
         System.out.println("Crawler done.");

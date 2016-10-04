@@ -10,15 +10,19 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.UnknownHostException;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeoutException;
 import org.apache.commons.lang3.StringUtils;
-import uff.ic.swlab.commons.util.DCConf;
+import uff.ic.swlab.commons.util.Config;
+import uff.ic.swlab.commons.util.Executor;
 
 public abstract class URLHelper {
 
     private static String getContent(String url) throws MalformedURLException, IOException, URISyntaxException {
         URLConnection conn = (new URL(normalize(url))).openConnection();
-        conn.setConnectTimeout(DCConf.HTTP_CONNECT_TIMEOUT);
-        conn.setReadTimeout(DCConf.HTTP_READ_TIMEOUT);
+        conn.setConnectTimeout(Config.HTTP_CONNECT_TIMEOUT);
+        conn.setReadTimeout(Config.HTTP_READ_TIMEOUT);
 
         try (BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));) {
             StringBuilder response = new StringBuilder();
@@ -49,18 +53,21 @@ public abstract class URLHelper {
         return true;
     }
 
-    public static boolean isHTML(String url) throws MalformedURLException, IOException {
-        URLConnection conn = (new URL(url)).openConnection();
-        conn.setConnectTimeout(DCConf.HTTP_CONNECT_TIMEOUT);
-        conn.setReadTimeout(DCConf.HTTP_READ_TIMEOUT);
-        try (final BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()))) {
-            StringBuilder response = new StringBuilder();
-            String inputLine;
-            while ((inputLine = in.readLine()) != null)
-                response.append(inputLine);
-            String doc = response.toString();
-            return doc.contains("<html") && doc.contains("</html");
-        }
+    public static boolean isHTML(String url) throws MalformedURLException, IOException, InterruptedException, ExecutionException, TimeoutException {
+        Callable<Boolean> task = () -> {
+            String contentType;
+            URLConnection conn = (new URL(url)).openConnection();
+            conn.setConnectTimeout(Config.HTTP_CONNECT_TIMEOUT);
+            conn.setReadTimeout(Config.HTTP_READ_TIMEOUT);
+            contentType = conn.getContentType().toLowerCase();
+            conn.getInputStream().close();
+
+            if (contentType.contains("html"))
+                return true;
+            else
+                return false;
+        };
+        return Executor.execute(task, Config.MODEL_READ_TIMEOUT);
     }
 
 }

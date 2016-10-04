@@ -1,4 +1,4 @@
-package uff.ic.swlab.draft;
+package draft;
 
 import java.net.MalformedURLException;
 import java.util.concurrent.ExecutorService;
@@ -23,8 +23,8 @@ public class Main2 {
         Logger.getRootLogger().setLevel(Level.OFF);
         System.out.println("Crawler started.");
 
-        FusekiServer server = new FusekiServer(null);
-        server.dataURL = "http://localhost:8080/fuseki/void/data";
+        FusekiServer server = FusekiServer.getInstance(null);
+        server.dataUrl = "http://localhost:8080/fuseki/void/data";
         LODCrawler crawler = new LODCrawler();
 
         ExecutorService pool = Executors.newWorkStealingPool(20);

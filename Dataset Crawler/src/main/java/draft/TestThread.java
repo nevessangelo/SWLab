@@ -1,4 +1,4 @@
-package uff.ic.swlab.draft;
+package draft;
 
 public class TestThread {
 
