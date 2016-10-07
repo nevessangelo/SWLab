@@ -5,7 +5,11 @@
  */
 package br.com.edu.rdf;
 
+import br.com.edu.DBPedia.DBPediaSpotlight;
+import br.com.edu.object.ClassPartition;
+import br.com.edu.object.PropretyPartition;
 import java.io.File;
+import java.util.List;
 import org.apache.jena.query.Dataset;
 import org.apache.jena.query.DatasetFactory;
 import org.apache.jena.query.Query;
@@ -27,7 +31,30 @@ import sun.font.TrueTypeFont;
  */
 public class ReadRDF {
     
-    public static void SearchProprety(Dataset ds) {
+    public static void SearchEntites(Dataset ds, String name_dataset) throws Exception {
+        String qr = "SELECT ?object\n"
+                + "WHERE {\n"
+                + "  { ?subject ?predicate ?object }\n"
+                + "  UNION { graph ?g {?subject ?predicate ?object }}\n"
+                + "} \n"
+                + "group by ?object";
+        
+        Query qy = QueryFactory.create(qr);
+        QueryExecution qe = QueryExecutionFactory.create(qy, ds);
+        ResultSet rs = qe.execSelect();
+         while (rs.hasNext()) {
+            QuerySolution soln = rs.nextSolution();
+            String object = String.valueOf(soln.get("object"));
+            if(object.length() >= 100){
+                List<String> entites = DBPediaSpotlight.getEntity(object);
+                System.out.println(entites);
+            }
+             
+         }
+
+    }
+    
+    public static void SearchProprety(Dataset ds, String name_dataset) {
         String qr = "SELECT (COUNT (?p) as ?freq) ?p\n"
                 + "WHERE {\n"
                 + "  { [] ?p [] }\n"
@@ -42,12 +69,19 @@ public class ReadRDF {
             String propretypartition = String.valueOf(soln.get("p"));
             Literal frequencia = soln.getLiteral("freq");
             int num_frequencia = frequencia.getInt();
-            System.out.println(propretypartition +"------" + num_frequencia);
+            if(propretypartition != null){
+                PropretyPartition pp = new PropretyPartition();
+                pp.setName_dataset(name_dataset);
+                pp.setFeature(propretypartition);
+                pp.setFrequen(num_frequencia);
+                pp.setType("dump");
+                System.out.println(pp.getFeature());
+            }
              
          }
     }
 
-    public static void SearchClass(Dataset ds) {
+    public static void SearchClass(Dataset ds, String name_dataset) {
         String qr = "SELECT (COUNT (?cl) as ?freq) ?cl\n"
                 + "WHERE {\n"
                 + " 		{ [] a ?cl }\n"
@@ -63,7 +97,15 @@ public class ReadRDF {
             String classpartition = String.valueOf(soln.get("cl"));
             Literal frequencia = soln.getLiteral("freq");
             int num_frequencia = frequencia.getInt();
-            System.out.println(classpartition +"------" + num_frequencia);
+            if(classpartition != null){
+                ClassPartition classp = new ClassPartition();
+                classp.setName_dataset(name_dataset);
+                classp.setFeature(classpartition);
+                classp.setFrequen(num_frequencia);
+                classp.setType("dump");
+                //System.out.println(classp.getFeature());
+            }
+            
         }
     }
 
@@ -96,7 +138,7 @@ public class ReadRDF {
         return DatasetFactory.create();
     }
 
-    public static void SelectRDF(String path) {
+    public static void SelectRDF(String path) throws Exception {
         File file = new File(path);
         File files[];
         File files_dump[];
@@ -107,8 +149,9 @@ public class ReadRDF {
             for (int j = 0; j < files_dump.length; j++) {
                 System.out.println("DATASET: " + files[i] + "DO DUMP" + files_dump[j]);
                 Dataset ds = ReadRDF.read(files_dump[j], files[i].toString());
-                SearchClass(ds);
-                SearchProprety(ds);
+                //SearchClass(ds,files_dump[j].toString());
+                //SearchProprety(ds,files_dump[j].toString());
+                SearchEntites(ds, files_dump[j].toString());
 
             }
         }
