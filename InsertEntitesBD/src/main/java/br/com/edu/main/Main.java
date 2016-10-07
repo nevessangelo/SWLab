@@ -13,9 +13,10 @@ import br.com.edu.rdf.ReadRDF;
  */
 public class Main {
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         String path = "/media/angelo/DATA/Dumps/";
         ReadRDF.SelectRDF(path);
+        System.out.println("Fim do armazenamento das Entidades, Class e Propreprty dos Dumps");
         
     }
     
