@@ -16,7 +16,7 @@ public class NewClass3 {
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
 
-        String filename = "./src/main/resources/dat/rdf/voids_2016-09-25_15-03-34.nq.gz";
+        String filename = "C:\\Users\\lapaesleme\\OneDrive\\Downloads\\teste2_2016-10-13_16-35-56.nq.gz";
         //Alternativa 1
         //Alimentando dataset em meoria com dados de um arquivo de dump compactado
         Model m = ModelFactory.createDefaultModel();

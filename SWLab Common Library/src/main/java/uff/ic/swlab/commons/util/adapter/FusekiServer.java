@@ -2,15 +2,18 @@ package uff.ic.swlab.commons.util.adapter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import javax.naming.InvalidNameException;
+import org.apache.jena.query.Dataset;
 import org.apache.jena.query.DatasetAccessor;
 import org.apache.jena.query.DatasetAccessorFactory;
 import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -69,6 +72,17 @@ public class FusekiServer {
         }
 
         return graphNames;
+    }
+
+    public synchronized void loadDataset(String dataset, String uri) {
+        Dataset ds = RDFDataMgr.loadDataset(uri);
+        DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(getDataURL(dataset));
+        accessor.putModel(ds.getDefaultModel());
+        Iterator<String> iter = ds.listNames();
+        while (iter.hasNext()) {
+            String graphUri = iter.next();
+            accessor.putModel(graphUri, ds.getNamedModel(graphUri));
+        }
     }
 
     public synchronized void putModel(String dataset, String graphUri, Model model) throws InvalidNameException {
