@@ -7,10 +7,12 @@ import org.apache.jena.query.DatasetAccessor;
 import org.apache.jena.query.DatasetAccessorFactory;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.tdb.TDBFactory;
+import org.apache.log4j.PropertyConfigurator;
 
 public class LoadFuseki {
 
     public static void main(String[] args) {
+        PropertyConfigurator.configure("./src/main/resources/conf/log4j.properties");
         System.out.println("Loading local TDB...");
         String filename = "C:\\Users\\lapaesleme\\OneDrive\\Downloads\\teste2_2016-10-13_16-35-56.nq.gz";
         new File("./src/main/resources/dat/tdb").mkdirs();
