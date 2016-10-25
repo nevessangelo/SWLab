@@ -14,7 +14,7 @@ public class LoadFuseki {
     public static void main(String[] args) {
         PropertyConfigurator.configure("./src/main/resources/conf/log4j.properties");
         System.out.println("Loading local TDB...");
-        String filename = "C:\\Users\\lapaesleme\\OneDrive\\Downloads\\teste2_2016-10-13_16-35-56.nq.gz";
+        String filename = "C:\\Users\\swlab\\OneDrive\\Uploads (lapaesleme)\\teste2_2016-10-13_16-35-56.nq.gz";
         new File("./src/main/resources/dat/tdb").mkdirs();
         String assemblerFile = "./src/main/resources/conf/teste2.ttl";
         Dataset ds1 = TDBFactory.assembleDataset(assemblerFile);
