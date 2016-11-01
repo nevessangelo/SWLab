@@ -41,7 +41,7 @@ public class db extends AnnotationClient {
     private static double CONFIDENCE = 0.0;
     private static int SUPPORT = 0;
     private static String powered_by ="non";
-    //private static String spotter ="Default";//"LingPipeSpotter"=Annotate all spots 
+    private static String spotter ="Default";//"LingPipeSpotter"=Annotate all spots 
                                                 //AtLeastOneNounSelector"=No verbs and adjs.    
                                                 //"CoOccurrenceBasedSelector" =No 'common words'
                                                 //"NESpotter"=Only Per.,Org.,Loc.
@@ -53,7 +53,7 @@ public void configiration(double CONFIDENCE,int SUPPORT,String powered_by,String
     this.CONFIDENCE=CONFIDENCE;
     this.SUPPORT=SUPPORT;
     this.powered_by=powered_by;
-    //this.spotter=spotter;
+    this.spotter=spotter;
     this.disambiguator=disambiguator;
     this.showScores=showScores;
 }
@@ -83,15 +83,16 @@ public void configiration(double CONFIDENCE,int SUPPORT,String powered_by,String
         assert spotlightResponse != null;
         JSONObject resultJSON = null;
         JSONArray entities = null;
-
+        LinkedList<DBpediaResource> resources = new LinkedList<DBpediaResource>();
         try {                   
             resultJSON = new JSONObject(spotlightResponse);
             entities = resultJSON.getJSONArray("Resources");
         } catch (JSONException e) {
-            throw new AnnotationException("Received invalid response from DBpedia Spotlight API.");
+            //throw new AnnotationException("Received invalid response from DBpedia Spotlight API.");
+            return resources;
         }
 
-        LinkedList<DBpediaResource> resources = new LinkedList<DBpediaResource>();
+        
         if(entities!=null) 
         for(int i = 0; i < entities.length(); i++) {
             try {

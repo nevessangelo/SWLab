@@ -29,10 +29,10 @@ public class InsertPropretyPartitions {
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException, FileNotFoundException {
 
-        String filename = "/home/angelo/Área de Trabalho/teste/voids_2016-09-25_15-03-34.nq.gz";
+        String filename = "/home/angelo/Área de Trabalho/teste/void_2016-10-01_11-16-14.nq.gz";
+        
         new File("/home/angelo/Área de Trabalho/teste/tdb").mkdirs();
-
-        String assemblerFile = "/home/angelo/WebSemantica/apache-jena-fuseki/apache-jena-fuseki-2.4.0/run/configuration/read2.ttl";
+        String assemblerFile = "/home/angelo/WebSemantica/apache-jena-fuseki/apache-jena-fuseki-2.4.0/run/configuration/readVoidFinal.ttl";
         Dataset ds2 = TDBFactory.assembleDataset(assemblerFile);
         RDFDataMgr.read(ds2, filename);
 
@@ -42,7 +42,7 @@ public class InsertPropretyPartitions {
 
         Property classp = modelProprety.getProperty("http://rdfs.org/ns/void#propertyPartition");
         Property classd = modelProprety.getProperty("http://rdfs.org/ns/void#property");
-        Property frquen = modelProprety.getProperty("http://rdfs.org/ns/void#entities");
+        Property frquen = modelProprety.getProperty("http://rdfs.org/ns/void#triples");
 
         ArrayList<PropretyPartitionObject> list_proprety = SearchEntitesBD.searchProprety();
 
@@ -54,7 +54,7 @@ public class InsertPropretyPartitions {
             Resource teste_resource_class = model.createResource(graph).addProperty(classp, model.createResource(classp).addLiteral(classd, list_proprety.get(i).getName()).addProperty(frquen, frequen));
         }
 
-        FileOutputStream out = new FileOutputStream("/home/angelo/Área de Trabalho/teste/TesteClass.nq");
+        FileOutputStream out = new FileOutputStream("/home/angelo/Área de Trabalho/teste/TesteProprety.nq");
 
         RDFDataMgr.write(out, ds2, Lang.NQUADS);
 

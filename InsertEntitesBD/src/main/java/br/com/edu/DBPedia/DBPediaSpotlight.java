@@ -16,7 +16,7 @@ public class DBPediaSpotlight {
        public static List<String> getEntity(String text) throws Exception{
         List<String> retorno = null;
         db c = new db();
-        c.configiration(0.4, 0, "non", "CoOccurrenceBasedSelector", "Default", "yes");
+        c.configiration(0.7, 0, "non", "CoOccurrenceBasedSelector", "Default", "yes");
         c.evaluate(text);
         if(c.getResu().size() > 0){
             return c.getResu();

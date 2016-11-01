@@ -37,11 +37,10 @@ public class InsertEntites {
     public static void main(String[] args) throws ClassNotFoundException, SQLException, FileNotFoundException {
         
        
-        String filename = "/home/angelo/Área de Trabalho/teste/voids_2016-09-25_15-03-34.nq.gz";
-       
+        String filename = "/home/angelo/Área de Trabalho/teste/void_2016-10-01_11-16-14.nq.gz";
         
         new File("/home/angelo/Área de Trabalho/teste/tdb").mkdirs();
-        String assemblerFile = "/home/angelo/WebSemantica/apache-jena-fuseki/apache-jena-fuseki-2.4.0/run/configuration/read.ttl";
+        String assemblerFile = "/home/angelo/WebSemantica/apache-jena-fuseki/apache-jena-fuseki-2.4.0/run/configuration/readVoidFinal.ttl";
         Dataset ds2 = TDBFactory.assembleDataset(assemblerFile);
         RDFDataMgr.read(ds2, filename);
         

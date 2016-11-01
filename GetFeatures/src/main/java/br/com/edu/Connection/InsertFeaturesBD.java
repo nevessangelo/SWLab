@@ -5,13 +5,15 @@
  */
 package br.com.edu.Connection;
 
-import br.com.edu.object.ClassPartition;
-import br.com.edu.object.Entites;
-import br.com.edu.object.PropretyPartition;
+import br.com.edu.objects.ClassPartition;
+import br.com.edu.objects.Entites;
+import br.com.edu.objects.InsertObject;
+import br.com.edu.objects.PropretyPartition;
 import com.mysql.jdbc.Statement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import org.apache.jena.query.ResultSet;
 
 /**
  *
@@ -19,55 +21,6 @@ import java.sql.SQLException;
  */
 public class InsertFeaturesBD {
     
-    public static int VerificaEntite(String name_dataset) throws ClassNotFoundException, SQLException{
-         int cont = 0;
-         Connection conn = ConnectionMySql.Conectar();
-         if(conn != null){
-             java.sql.Statement stmt = conn.createStatement();
-             String query = "SELECT name_dataset FROM `Entites` WHERE name_dataset ='"+name_dataset+"'";
-             java.sql.ResultSet rs = stmt.executeQuery(query);
-             while(rs.next()){
-                    cont++;
-             }     
-         }
-         conn.close();
-         return cont;
-    }
-    
-     public static int VerificaClass(String name_dataset) throws ClassNotFoundException, SQLException{
-         int cont = 0;
-         Connection conn = ConnectionMySql.Conectar();
-         if(conn != null){
-             java.sql.Statement stmt = conn.createStatement();
-             String query = "SELECT name_dataset FROM `Class` WHERE name_dataset ='"+name_dataset+"'";
-             java.sql.ResultSet rs = stmt.executeQuery(query);
-             while(rs.next()){
-                    cont++;
-             }
-             
-             
-         }
-         
-         conn.close();
-         return cont;
-         
-    }
-      
-       public static int VerificaProprety(String name_dataset) throws ClassNotFoundException, SQLException{
-         int cont = 0;
-         Connection conn = ConnectionMySql.Conectar();
-         if(conn != null){
-             java.sql.Statement stmt = conn.createStatement();
-             String query = "SELECT name_dataset FROM `Proprety` WHERE name_dataset ='"+name_dataset+"'";
-             java.sql.ResultSet rs = stmt.executeQuery(query);
-             while(rs.next()){
-                    cont++;
-             }
-         }
-         conn.close();
-         return cont;
-         
-    }
     
     public static void Update(String name_dataset, int frequencia, String entite) throws ClassNotFoundException, SQLException{
         int frequencia_nova = 0;
@@ -86,6 +39,7 @@ public class InsertFeaturesBD {
         conn.close();
         
     }
+        
     
     public static int UpdateFrequencia(String name_dataset, String entite) throws ClassNotFoundException, SQLException{
          int entite_frequen = 0;
@@ -105,31 +59,12 @@ public class InsertFeaturesBD {
     }
     
     
-    public static void InsertEntites(Entites entites) throws ClassNotFoundException, SQLException {
-       
-        Connection conn = ConnectionMySql.Conectar();
-        if(conn != null){
-               Statement stm = (Statement) conn.createStatement();
-               String query = "INSERT INTO Entites VALUES ('','"+entites.getName_dataset()+"','"+entites.getFeature()+"','"+entites.getFrequen()+"','"+entites.getType()+"');";
-               boolean res = stm.execute(query);
-               if(!res){
-                   System.out.println("Entidades Inseridas do dataSet: "+entites.getName_dataset());
-               }else{
-                   System.out.println("Erro");
-               }
-        }else{
-            System.out.println("Erro na Conexão");
-        }
-            conn.close();
-    }
-    
-    
-      public static void InsertClass(ClassPartition classp) throws ClassNotFoundException, SQLException{
+    public static void InsertClass(ClassPartition classp) throws ClassNotFoundException, SQLException{
 
         Connection conn = ConnectionMySql.Conectar();
         if(conn != null){
                Statement stm = (Statement) conn.createStatement();
-               String query = "INSERT INTO Class VALUES ('','"+classp.getName_dataset()+"','"+classp.getFeature()+"','"+classp.getFrequen()+"','"+classp.getType()+"');";
+               String query = "INSERT INTO Class VALUES ('','"+classp.getName_dataset()+"','"+classp.getName()+"','"+classp.getFrequen()+"','"+classp.getType()+"');";
                boolean res = stm.execute(query);
                if(!res){
                    System.out.println("Class Inseridos do dataSet: "+classp.getName_dataset());
@@ -141,16 +76,41 @@ public class InsertFeaturesBD {
         }
             conn.close();
     }
-      
-     public static void InsertProprety(PropretyPartition proprety) throws ClassNotFoundException, SQLException{
+    
+    public static void InsertProprety(PropretyPartition proprety) throws ClassNotFoundException, SQLException{
       
         Connection conn = ConnectionMySql.Conectar();
         if(conn != null){
                Statement stm = (Statement) conn.createStatement();
-               String query = "INSERT INTO Proprety VALUES ('','"+proprety.getName_dataset()+"','"+proprety.getFeature()+"','"+proprety.getFrequen()+"','"+proprety.getType()+"');";
+               String query = "INSERT INTO Proprety VALUES ('','"+proprety.getName_dataset()+"','"+proprety.getName()+"','"+proprety.getFrequen()+"','"+proprety.getType()+"');";
                boolean res = stm.execute(query);
                if(!res){
-                   System.out.println("Proprety Inseridos do dataSet: "+proprety.getName_dataset());
+                   System.out.println("Class Inseridos do dataSet: "+proprety.getName_dataset());
+               }else{
+                   System.out.println("Erro");
+               }
+        }else{
+            System.out.println("Erro na Conexão");
+        }
+            conn.close();
+    }
+        
+          
+    
+    public static void InsertEntites(String name, Entites entites, String type) throws ClassNotFoundException, SQLException {
+        
+       InsertObject insert = new InsertObject();
+       insert.setName_dataset(name);
+       insert.setEntites(entites);
+       insert.setType(type);
+        
+        Connection conn = ConnectionMySql.Conectar();
+        if(conn != null){
+               Statement stm = (Statement) conn.createStatement();
+               String query = "INSERT INTO Entites VALUES ('','"+insert.getName_dataset()+"','"+insert.getEntites().getName()+"','"+insert.getEntites().getFrequen()+"','"+insert.getType()+"');";
+               boolean res = stm.execute(query);
+               if(!res){
+                   System.out.println("Dados Inseridos do dataSet: "+insert.getName_dataset());
                }else{
                    System.out.println("Erro");
                }

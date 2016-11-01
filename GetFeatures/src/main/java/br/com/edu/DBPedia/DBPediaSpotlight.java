@@ -13,20 +13,31 @@ import java.util.List;
  */
 public class DBPediaSpotlight {
     
-    public static int Frequen(String key, List<String> Entites){
-       int cont = 0;
-        for(int i = 0; i < Entites.size(); i++){
-            if(key.equals(Entites.get(i))){
-                cont++;
-            }
+    public static void main(String[] args) throws Exception {
+        String text = "tourist accommodation establishments - no of establishments with 15 or more rooms (no)@fr";
+        List<String> result = getEntity(text);
+        if(result != null){
+            System.out.println("to vazio");
         }
-        return cont;
     }
+    
+//    public static int Frequen(String key, List<String> Entites){
+//       int cont = 0;
+//        for(int i = 0; i < Entites.size(); i++){
+//            if(key.equals(Entites.get(i))){
+//                cont++;
+//            }
+//        }
+//        return cont;
+//    }
 
     /**
      * @param args the command line arguments
      */
+    
+ 
      public static List<String> getEntity(String text) throws Exception{
+        List<String> retorno = null;
         db c = new db();
         c.configiration(0.0, 0, "non", "CoOccurrenceBasedSelector", "Default", "yes");
         c.evaluate(text);
@@ -34,7 +45,7 @@ public class DBPediaSpotlight {
            // System.out.println("resource : " + c.getResu());
             return c.getResu();
         }
-        return null;
+        return null; 
     }
 
 }

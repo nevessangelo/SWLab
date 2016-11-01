@@ -43,7 +43,7 @@ public class SearchEntitesBD {
         Connection conn = ConnectionMySql.Conectar();
          if(conn != null){
              java.sql.Statement stmt = conn.createStatement();
-             String query = "SELECT name_dataset, name_class, frequen FROM Class";
+             String query = "SELECT name_dataset, name_class, frequen FROM Class WHERE name_class != 'null' ";
              java.sql.ResultSet rs = stmt.executeQuery(query);
              while(rs.next()){
                   ClassObject classo = new ClassObject();
@@ -65,12 +65,12 @@ public class SearchEntitesBD {
         Connection conn = ConnectionMySql.Conectar();
          if(conn != null){
              java.sql.Statement stmt = conn.createStatement();
-             String query = "SELECT name_dataset, name_proprety, frequen FROM Proprety";
+             String query = "SELECT name_dataset, name_proprety, frequen FROM Proprety WHERE name_proprety != 'null'";
              java.sql.ResultSet rs = stmt.executeQuery(query);
              while(rs.next()){
                   PropretyPartitionObject proprety = new PropretyPartitionObject();
                   proprety.setDataset(rs.getString("name_dataset"));
-                  proprety.setName(rs.getString("name_class"));
+                  proprety.setName(rs.getString("name_proprety"));
                   proprety.setFrequen(rs.getInt("frequen"));
                   list_proprety.add(proprety);
              }

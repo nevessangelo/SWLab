@@ -49,7 +49,7 @@ public class ReadRDF {
         while (rs.hasNext()) {
             QuerySolution soln = rs.nextSolution();
             String object = String.valueOf(soln.get("object"));
-            if (object.length() >= 100) {
+            if (object.length() >= 1000) {
                 List<String> list_entites = DBPediaSpotlight.getEntity(object);
                 if (list_entites != null) {
                     for (int i = 0; i < list_entites.size(); i++) {
@@ -136,19 +136,19 @@ public class ReadRDF {
                 Lang.NQUADS, Lang.JSONLD, Lang.RDFJSON, Lang.TRIX, Lang.RDFTHRIFT};
             for (Lang lang : langs) {
                 try {
+                    //  if (lang == null) {
                     if (lang == null) {
-                        if (lang == null) {
-                            Dataset tempDataset = DatasetFactory.create();
-                            org.apache.jena.riot.RDFDataMgr.read(tempDataset, files_dump.toString());
-                            //RDFDataMgr.write(System.out, tempDataset, Lang.NQ);
-                            return tempDataset;
-                        } else {
-                            Dataset tempDataset = DatasetFactory.create();
-                            org.apache.jena.riot.RDFDataMgr.read(tempDataset, files_dump.toString(), lang);
-                            //RDFDataMgr.write(System.out, tempDataset, lang);
-                            return tempDataset;
-                        }
+                        Dataset tempDataset = DatasetFactory.create();
+                        org.apache.jena.riot.RDFDataMgr.read(tempDataset, files_dump.toString());
+                        //RDFDataMgr.write(System.out, tempDataset, Lang.NQ);
+                        return tempDataset;
+                    } else {
+                        Dataset tempDataset = DatasetFactory.create();
+                        org.apache.jena.riot.RDFDataMgr.read(tempDataset, files_dump.toString(), lang);
+                        //RDFDataMgr.write(System.out, tempDataset, lang);
+                        return tempDataset;
                     }
+                    // }
                 } catch (Throwable e) {
                 }
 
@@ -163,19 +163,39 @@ public class ReadRDF {
         File file = new File(path);
         File files[];
         File files_dump[];
+        File files_directory[];
         files = file.listFiles();
         for (int i = 0; i < files.length; i++) {
+            System.out.println(i);
+            System.out.println("Lendo os datasets da base: "+ files[i].toString());
             String[] getNameDataset = files[i].toString().split("/");
             int size = getNameDataset.length - 1;
             String name_dataset = getNameDataset[size];
             File name_dump = new File(files[i].toString());
             files_dump = name_dump.listFiles();
             for (int j = 0; j < files_dump.length; j++) {
-                //System.out.println("DATASET: " + files[i] + "DO DUMP" + files_dump[j]);
-                Dataset ds = ReadRDF.read(files_dump[j]);
-                SearchClass(ds, name_dataset);
-                SearchProprety(ds, name_dataset);
-                SearchEntites(ds, name_dataset);
+                if (files_dump[j].isDirectory()) {
+                    String path_diretory = files_dump[j].toString();
+                    File file_directory = new File(path_diretory);
+                    files_directory = file_directory.listFiles();
+                    for(int k = 0; k < files_directory.length; k++){
+                        Dataset ds = ReadRDF.read(files_directory[k]);
+                        SearchClass(ds, name_dataset);
+                        SearchProprety(ds, name_dataset);
+                        SearchEntites(ds, name_dataset);                   
+                    }
+                } else {
+                    //String[] v_files = files_dump[j].toString().split("/");
+                    //int size_files = v_files.length - 1;
+                    //String[] extension = v_files[size_files].split("\\.");
+                    //int size_extension = extension.length - 1;
+                    Dataset ds = ReadRDF.read(files_dump[j]);
+                    SearchClass(ds, name_dataset);
+                    SearchProprety(ds, name_dataset);
+                    SearchEntites(ds, name_dataset);
+
+                }
+
             }
         }
     }

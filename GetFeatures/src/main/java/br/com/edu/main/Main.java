@@ -9,6 +9,7 @@ import br.com.edu.DBPedia.DBPediaSpotlight;
 import br.com.edu.Utils.ReadRdf;
 import br.com.edu.Utils.Unzip;
 import br.com.edu.getFetures.SearchDump;
+import br.com.edu.getFetures.SearchNotes;
 import com.github.junrar.exception.RarException;
 import eu.trentorise.opendata.jackan.CkanClient;
 import eu.trentorise.opendata.jackan.model.CkanDataset;
@@ -28,16 +29,17 @@ public class Main {
         ArrayList<String> datasets = new ArrayList<String>();
         SearchDump dump = new SearchDump();
       
-        String name = "rkb-explorer-acm";
+        String name = "asn-us";
         CkanDataset d = cc.getDataset(name);
 
-        datasets.add(d.getName());
-        //datasets = (ArrayList<String>) cc.getDatasetList();
-        dump.Search(cc, datasets);
-//        List<String> teste = DBPediaSpotlight.getEntity("web semantic");
-//        for(int i = 0; i < teste.size(); i++){
-//            System.out.println(teste.get(i));
-//        }
+        //datasets.add(d.getName());
+        datasets = (ArrayList<String>) cc.getDatasetList();
+        List datasets_notes = dump.Search(cc, datasets);
+        SearchNotes.Notes(cc, datasets_notes);
+        
+        System.out.println("Fim da Extração");
+        
+
         
       
         

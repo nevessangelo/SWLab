@@ -24,10 +24,10 @@ import org.apache.commons.compress.archivers.ArchiveException;
  */
 public class SearchDump {
 
-    public static void Search(CkanClient cc, List datasets) throws IOException, FileNotFoundException, RarException, ArchiveException, Exception {
-        ArrayList<String> Datasets_return = new ArrayList<>();
+    public static List<String> Search(CkanClient cc, List datasets) throws IOException, FileNotFoundException, RarException, ArchiveException, Exception {
+        List<String> Datasets_return = new ArrayList<>();
         ArrayList<Resource> Datasets_dump = new ArrayList();
-        ArrayList Datasets_difdump = new ArrayList();
+        ArrayList<String> Datasets_difdump = new ArrayList();
         ArrayList<String> names_links = new ArrayList<>();
         List<CkanResource> resources = null;
 
@@ -122,7 +122,7 @@ public class SearchDump {
             }
 
             if (flag == 0) {
-                Datasets_difdump.add(datasets.get(i));
+                Datasets_difdump.add((String) datasets.get(i));
             }
 
         }
@@ -143,7 +143,7 @@ public class SearchDump {
         System.out.println("Numeros de dumps NÃO encontrados: " + cont2);
         
         
-       Datasets_return = Download.DownloadDump(Datasets_dump, Datasets_difdump);
+       return Datasets_return = Download.DownloadDump(Datasets_dump, Datasets_difdump);
        
     }
 

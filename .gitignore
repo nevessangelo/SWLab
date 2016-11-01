@@ -19,3 +19,5 @@ __pycache__/
 /Dataset Crawler/target/
 /Dataset Crawler/src/main/resources/dat/tdb/
 /Dataset Crawler/src/main/resources/dat/rdf/
+/InsertEntitesBD/target/
+/RdfToRelational/target/
