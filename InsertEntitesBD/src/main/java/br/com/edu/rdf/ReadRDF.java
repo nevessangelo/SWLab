@@ -96,6 +96,8 @@ public class ReadRDF {
                 pp.setFrequen(num_frequencia);
                 pp.setType("dump");
                 InsertFeaturesBD.InsertProprety(pp);
+            }else{
+                
             }
 
         }
@@ -125,6 +127,8 @@ public class ReadRDF {
                 classp.setType("dump");
                 InsertFeaturesBD.InsertClass(classp);
                 //System.out.println(classp.getFeature());
+            }else{
+                
             }
 
         }

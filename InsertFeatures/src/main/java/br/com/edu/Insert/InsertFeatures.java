@@ -53,34 +53,34 @@ public class InsertFeatures {
        
     }
     
-    public static void InsertPropretyPartition(Dataset ds2) throws ClassNotFoundException, SQLException, FileNotFoundException{
-        
-        Model modelProprety = ModelFactory.createDefaultModel();
-        modelProprety.read("http://rdfs.org/ns/void");
-        modelProprety.setNsPrefix("class", "http://rdfs.org/ns/void#");
-
-        Property classp = modelProprety.getProperty("http://rdfs.org/ns/void#propertyPartition");
-        Property classd = modelProprety.getProperty("http://rdfs.org/ns/void#property");
-        Property frquen = modelProprety.getProperty("http://rdfs.org/ns/void#triples");
-
-        ArrayList<PropretyPartitionObject> list_proprety = SearchEntitesBD.searchProprety();
-
-        for (int i = 0; i < list_proprety.size(); i++) {
-            String frequen = String.valueOf(list_proprety.get(i).getFrequen());
-            String name = list_proprety.get(i).getDataset();
-            String graph = "http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/" + name;
-            Model model = ds2.getNamedModel(graph);
-            Resource teste_resource_class = model.createResource(graph).addProperty(classp, model.createResource(classp).addLiteral(classd, list_proprety.get(i).getName()).addProperty(frquen, frequen));
-        }
-
-        FileOutputStream out = new FileOutputStream("/home/angelo/Área de Trabalho/teste/TesteProprety.nq");
-
-        RDFDataMgr.write(out, ds2, Lang.NQUADS);
-
-   
-
-        
-    }
+//    public static void InsertPropretyPartition(Dataset ds2) throws ClassNotFoundException, SQLException, FileNotFoundException{
+//        
+//        Model modelProprety = ModelFactory.createDefaultModel();
+//        modelProprety.read("http://rdfs.org/ns/void");
+//        modelProprety.setNsPrefix("class", "http://rdfs.org/ns/void#");
+//
+//        Property classp = modelProprety.getProperty("http://rdfs.org/ns/void#propertyPartition");
+//        Property classd = modelProprety.getProperty("http://rdfs.org/ns/void#property");
+//        Property frquen = modelProprety.getProperty("http://rdfs.org/ns/void#triples");
+//
+//        ArrayList<PropretyPartitionObject> list_proprety = SearchEntitesBD.searchProprety();
+//
+//        for (int i = 0; i < list_proprety.size(); i++) {
+//            String frequen = String.valueOf(list_proprety.get(i).getFrequen());
+//            String name = list_proprety.get(i).getDataset();
+//            String graph = "http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/" + name;
+//            Model model = ds2.getNamedModel(graph);
+//            Resource teste_resource_class = model.createResource(graph).addProperty(classp, model.createResource(classp).addLiteral(classd, list_proprety.get(i).getName()).addProperty(frquen, frequen));
+//        }
+//
+//        FileOutputStream out = new FileOutputStream("/home/angelo/Área de Trabalho/teste/TesteProprety.nq");
+//
+//        RDFDataMgr.write(out, ds2, Lang.NQUADS);
+//
+//   
+//
+//        
+//    }
     
      public static void InsertEntites(Dataset ds2) throws FileNotFoundException, ClassNotFoundException, SQLException{
          

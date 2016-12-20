@@ -18,6 +18,8 @@ import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.tdb.TDBFactory;
 import br.com.edu.Connection.InsertBD;
 import java.sql.SQLException;
+import org.apache.jena.query.DatasetFactory;
+import org.apache.jena.riot.Lang;
 
 /**
  *
@@ -25,18 +27,54 @@ import java.sql.SQLException;
  */
 public class RDF {
 
-    public static Dataset ReadRdf() {
-        String filename = "/home/angelo/WebSemantica/apache-jena-fuseki/apache-jena-fuseki-2.4.0/run/backups/readVoid_2016-10-27_18-35-10.nq.gz";
-        new File("/home/angelo/Área de Trabalho/teste/tdb").mkdirs();
-        String assemblerFile = "/home/angelo/WebSemantica/apache-jena-fuseki/apache-jena-fuseki-2.4.0/run/configuration/readFeatures.ttl";
-        Dataset ds2 = TDBFactory.assembleDataset(assemblerFile);
-        RDFDataMgr.read(ds2, filename);
-        return ds2;
+//    public static Dataset ReadRdf() {
+//        String filename = "/home/angelo/WebSemantica/apache-jena-fuseki/apache-jena-fuseki-2.4.0/run/backups/readVoid_2016-10-27_18-35-10.nq.gz";
+//        new File("/home/angelo/Área de Trabalho/teste/tdb").mkdirs();
+//        String assemblerFile = "/home/angelo/WebSemantica/apache-jena-fuseki/apache-jena-fuseki-2.4.0/run/configuration/readFeatures.ttl";
+//        Dataset ds2 = TDBFactory.assembleDataset(assemblerFile);
+//        RDFDataMgr.read(ds2, filename);
+//        return ds2;
+//    }
+    
+    public static Dataset Read(File files_dump) {
+        Dataset tempDataset = DatasetFactory.create();
+        try {
+            Lang[] langs = {null, Lang.TURTLE, Lang.RDFXML, Lang.NTRIPLES, Lang.TRIG,
+                Lang.NQUADS, Lang.JSONLD, Lang.RDFJSON, Lang.TRIX, Lang.RDFTHRIFT};
+            for (Lang lang : langs) {
+                try {
+                    if (lang == null) {
+                        // Dataset tempDataset = DatasetFactory.create();
+                        org.apache.jena.riot.RDFDataMgr.read(tempDataset, files_dump.toString());
+                        //RDFDataMgr.write(System.out, tempDataset, Lang.NQ);
+                        return tempDataset;
+                    } else {
+                        // Dataset tempDataset = DatasetFactory.create();
+                        org.apache.jena.riot.RDFDataMgr.read(tempDataset, files_dump.toString(), lang);
+                        //RDFDataMgr.write(System.out, tempDataset, lang);
+                        return tempDataset;
+                    }
+                } catch (Throwable e) {
+                    continue;
+
+                }
+
+            }
+
+        } catch (Throwable e) {
+            System.out.println("Error ao ler");
+            return tempDataset;
+
+        }
+        return DatasetFactory.create();
     }
+
 
     public static void InserdBD() throws ClassNotFoundException, SQLException {
         int num_frequencia, num_datset;
-        Dataset ds2 = ReadRdf();
+        String arquivo = System.getProperty("user.dir") + "/Void/void_completo.gz";
+        File file_arquivo = new File(arquivo);
+        Dataset ds2 = Read(file_arquivo);
         String qr = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
                 + "PREFIX void: <http://rdfs.org/ns/void#>\n"
                 + "PREFIX prov: <http://www.w3.org/ns/prov#>\n"

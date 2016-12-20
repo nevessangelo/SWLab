@@ -18,7 +18,7 @@ public class ConnectionMySql {
      public static Connection Conectar() throws ClassNotFoundException {
         Connection connection = null;
         String serverName = "localhost";    
-        String mydatabase = "Base_Datasets";        
+        String mydatabase = "Datasets";        
         String url = "jdbc:mysql://" + serverName + "/" + mydatabase;
         String username = "SemanticWeb";        
         String password = "123";      
