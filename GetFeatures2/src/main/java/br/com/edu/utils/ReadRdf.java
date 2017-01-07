@@ -7,11 +7,14 @@ package br.com.edu.utils;
 
 import br.com.edu.Connection.InsertFeaturesBD;
 import br.com.edu.DBPedia.DBPediaSpotlight;
+import static br.com.edu.DBPedia.DBPediaSpotlight.getCategories;
 import br.com.edu.Objects.ClassPartition;
 import br.com.edu.Objects.Entites;
 import br.com.edu.Objects.PropretyPartition;
+import br.com.edu.Objects.Types;
 import java.io.File;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import org.apache.jena.query.Dataset;
 import org.apache.jena.query.DatasetFactory;
@@ -30,8 +33,53 @@ import org.apache.jena.riot.Lang;
  */
 public class ReadRdf {
 
+    public static void SearchTypes(String name_dataset, List<String> list_entites) throws Exception {
+        double frequencia_types = 0;
+        double frequencia_types_update = 0;
+        double frequencia = 0;
+        for (int i = 0; i < list_entites.size(); i++) {
+            String result = getCategories(list_entites.get(i));
+            if (result != null) {
+                ArrayList<String> l_categories = new ArrayList();
+                String armazenar;
+                String category[] = result.split(",");
+                int cont = 1;
+                //armazenar = "Thing/" + cont;
+                //l_categories.add(armazenar);
+                for (Object array_category : category) {
+                    if (array_category.toString().contains("DBpedia")) {
+                        armazenar = array_category + "/" + cont;
+                        l_categories.add(armazenar);
+                        cont++;
+
+                    }
+                }
+                for (Object teste : l_categories) {
+                    frequencia_types = InsertFeaturesBD.VerificaUpdateTypes(name_dataset, (String) teste);
+                    System.out.println("oi" + " " + frequencia_types);
+                    if (frequencia_types == 0) {
+                        frequencia = InsertFeaturesBD.UpdateFrequencia(name_dataset, list_entites.get(i));
+                        Types types = new Types();
+                        types.setName_dataset(name_dataset);
+                        types.setFeature((String) teste);
+                        types.setFrequen(frequencia);
+                        types.setType("Dump");
+                        InsertFeaturesBD.InsertTypes(types);
+                    } else {
+                        double frequen_total = 0;
+                        frequencia_types_update = InsertFeaturesBD.GetFrequenType(name_dataset, (String) teste);
+                        frequen_total = frequencia_types_update + frequencia_types;
+                        InsertFeaturesBD.UpdateTypes(name_dataset, frequen_total, (String) teste);
+                    }
+
+                }
+            }
+        }
+
+    }
+
     public static void SearchEntites(Dataset ds, String name_dataset) throws Exception {
-        int frequencia = 0;
+        double frequencia = 0;
         String qr = "SELECT ?object\n"
                 + "WHERE {\n"
                 + "  { ?subject ?predicate ?object }\n"
@@ -61,8 +109,9 @@ public class ReadRdf {
                             entites.setType("Dump");
                             InsertFeaturesBD.InsertEntites(entites);
                         }
-
                     }
+
+                    SearchTypes(name_dataset, list_entites);
                 }
             }
 
@@ -71,7 +120,7 @@ public class ReadRdf {
     }
 
     public static void SearchProprety(Dataset ds, String name_dataset) throws ClassNotFoundException, SQLException {
-        int frequen, frequencia_update = 0;
+        double frequen, frequencia_update = 0;
         String qr = "SELECT (COUNT (?p) as ?freq) ?p\n"
                 + "WHERE {\n"
                 + "  { [] ?p [] }\n"
@@ -86,28 +135,26 @@ public class ReadRdf {
             String propretypartition = String.valueOf(soln.get("p"));
             Literal frequencia = soln.getLiteral("freq");
             int num_frequencia = frequencia.getInt();
-            if (propretypartition != null) {
-                frequen = InsertFeaturesBD.VerificaUpdateProprety(name_dataset, propretypartition);
-                if (frequen >= 1) {
-                    System.out.println("UPDATE Proprety do "+ name_dataset);
-                    frequencia_update = frequen + num_frequencia;
-                    InsertFeaturesBD.UpdateProprety(name_dataset, frequencia_update, propretypartition);
-                } else {
-                    PropretyPartition pp = new PropretyPartition();
-                    pp.setName_dataset(name_dataset);
-                    pp.setFeature(propretypartition);
-                    pp.setFrequen(num_frequencia);
-                    pp.setType("dump");
-                    InsertFeaturesBD.InsertProprety(pp);
-                    System.out.println(pp.getFeature());
-                }
+            frequen = InsertFeaturesBD.VerificaUpdateProprety(name_dataset, propretypartition);
+            if (frequen >= 1) {
+                System.out.println("UPDATE Proprety do " + name_dataset);
+                frequencia_update = frequen + num_frequencia;
+                InsertFeaturesBD.UpdateProprety(name_dataset, frequencia_update, propretypartition);
+            } else {
+                PropretyPartition pp = new PropretyPartition();
+                pp.setName_dataset(name_dataset);
+                pp.setFeature(propretypartition);
+                pp.setFrequen(num_frequencia);
+                pp.setType("dump");
+                InsertFeaturesBD.InsertProprety(pp);
+                System.out.println(pp.getFeature());
             }
 
         }
     }
 
     public static void SearchClass(Dataset ds, String name_dataset) throws ClassNotFoundException, SQLException {
-        int frequen, frequencia_update = 0;
+        double frequen, frequencia_update = 0;
         String qr = "SELECT (COUNT (?cl) as ?freq) ?cl\n"
                 + "WHERE {\n"
                 + " 		{ [] a ?cl }\n"
@@ -123,10 +170,10 @@ public class ReadRdf {
             String classpartition = String.valueOf(soln.get("cl"));
             Literal frequencia = soln.getLiteral("freq");
             int num_frequencia = frequencia.getInt();
-            if (classpartition != null) {
+            if (classpartition != null || !classpartition.equals("") || !classpartition.equals("null")) {
                 frequen = InsertFeaturesBD.VerificaUpdateClass(name_dataset, classpartition);
                 if (frequen >= 1) {
-                    System.out.println("UPDATE Class do "+ name_dataset);
+                    System.out.println("UPDATE Class do " + name_dataset);
                     frequencia_update = frequen + num_frequencia;
                     InsertFeaturesBD.UpdateClass(name_dataset, frequencia_update, classpartition);
                 } else {
@@ -151,12 +198,12 @@ public class ReadRdf {
             for (Lang lang : langs) {
                 try {
                     if (lang == null) {
-                       // Dataset tempDataset = DatasetFactory.create();
+                        // Dataset tempDataset = DatasetFactory.create();
                         org.apache.jena.riot.RDFDataMgr.read(tempDataset, files_dump.toString());
                         //RDFDataMgr.write(System.out, tempDataset, Lang.NQ);
                         return tempDataset;
                     } else {
-                       // Dataset tempDataset = DatasetFactory.create();
+                        // Dataset tempDataset = DatasetFactory.create();
                         org.apache.jena.riot.RDFDataMgr.read(tempDataset, files_dump.toString(), lang);
                         //RDFDataMgr.write(System.out, tempDataset, lang);
                         return tempDataset;
@@ -171,7 +218,7 @@ public class ReadRdf {
         } catch (Throwable e) {
             System.out.println("Error ao ler");
             return tempDataset;
-        
+
         }
         return DatasetFactory.create();
     }
@@ -184,7 +231,7 @@ public class ReadRdf {
         File files_dump[];
         File files_directory[];
         files = file.listFiles();
-        for (int i = 0; i < files.length; i++) {
+        for (int i = 19; i < files.length; i++) {
             System.out.println(i);
             System.out.println("Lendo os datasets da base: " + files[i].toString());
             String[] getNameDataset = files[i].toString().split("/");
@@ -204,19 +251,25 @@ public class ReadRdf {
                         for (int k = 0; k < files_directory.length; k++) {
                             System.out.println(files_directory[k]);
                             Dataset ds = ReadRdf.read(files_directory[k], name_dataset);
+                            if (ds != null) {
+                                SearchClass(ds, name_dataset);
+                                SearchProprety(ds, name_dataset);
+                                SearchEntites(ds, name_dataset);
+                            }
+
+                        }
+                    } else {
+                        Dataset ds = ReadRdf.read(files_dump[j], name_dataset);
+                        if (ds != null) {
                             SearchClass(ds, name_dataset);
                             SearchProprety(ds, name_dataset);
                             SearchEntites(ds, name_dataset);
                         }
-                    } else {
-                        Dataset ds = ReadRdf.read(files_dump[j], name_dataset);
-                        SearchClass(ds, name_dataset);
-                        SearchProprety(ds, name_dataset);
-                        SearchEntites(ds, name_dataset);
+
                     }
                 }
-            }else{
-                System.out.println("Já tem no banco de dados o dataset: "+name_dataset);
+            } else {
+                System.out.println("Já tem no banco de dados o dataset: " + name_dataset);
             }
         }
     }

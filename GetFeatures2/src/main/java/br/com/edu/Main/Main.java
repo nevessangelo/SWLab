@@ -8,6 +8,7 @@ package br.com.edu.Main;
 import br.com.edu.Search.SearchDifDump;
 import br.com.edu.Search.SearchDump;
 import br.com.edu.Search.SearchNotes;
+import br.com.edu.utils.ReadRdf;
 import eu.trentorise.opendata.jackan.CkanClient;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -28,10 +29,11 @@ public class Main {
         SearchDump dump = new SearchDump();
         datasets = (ArrayList<String>) cc.getDatasetList();
        //String name = "agris";
-        //CkanDataset d = cc.getDataset(name);
-        //datasets.add(d.getName());
+       // CkanDataset d = cc.getDataset(name);
+       // datasets.add(d.getName());
 
         try {
+            //ReadRdf.Read();
             dump.Search(cc, datasets);
             SearchDifDump.Search(cc, datasets);
             SearchNotes.Notes(cc, datasets);

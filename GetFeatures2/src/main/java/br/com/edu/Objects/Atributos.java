@@ -14,14 +14,14 @@ public class Atributos {
     private int id;
     private String name_dataset;
     private String feature;
-    private int frequen;
+    private double frequen;
     private String type;
     
     public Atributos(){
         
     }
     
-    public Atributos(int id, String name_dataset, String feature, int frequen, String type){
+    public Atributos(int id, String name_dataset, String feature, double frequen, String type){
         this.id = id;
         this.name_dataset = name_dataset;
         this.feature = feature;
@@ -75,14 +75,14 @@ public class Atributos {
     /**
      * @return the frequen
      */
-    public int getFrequen() {
+    public double getFrequen() {
         return frequen;
     }
 
     /**
      * @param frequen the frequen to set
      */
-    public void setFrequen(int frequen) {
+    public void setFrequen(double frequen) {
         this.frequen = frequen;
     }
 

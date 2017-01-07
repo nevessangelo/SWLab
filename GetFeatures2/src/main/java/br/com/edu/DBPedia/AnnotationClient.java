@@ -5,23 +5,17 @@
  */
 package br.com.edu.DBPedia;
 
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.List;
-import org.apache.commons.httpclient.DefaultHttpMethodRetryHandler;
-import org.apache.commons.httpclient.HttpClient;
-import org.apache.commons.httpclient.HttpException;
-import org.apache.commons.httpclient.HttpMethod;
-import org.apache.commons.httpclient.HttpStatus;
+import org.apache.commons.httpclient.*;
 import org.apache.commons.httpclient.params.HttpMethodParams;
 import org.apache.log4j.Logger;
 import org.dbpedia.spotlight.exceptions.AnnotationException;
 import org.dbpedia.spotlight.model.DBpediaResource;
 import org.dbpedia.spotlight.model.Text;
+import java.io.*;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
+import org.dbpedia.extraction.ontology.OntologyType;
 
 /**
  *
@@ -31,12 +25,19 @@ public abstract class AnnotationClient {
     
     public Logger LOG = Logger.getLogger(this.getClass());
     private List<String> RES = new ArrayList<String>();
+    private List<String> RES2 = new ArrayList<String>();
+  
 
     // Create an instance of HttpClient.
     private static HttpClient client = new HttpClient();
     public List<String> getResu(){
         return RES;     
     }
+    
+    public List<String> getResu2(){
+        return RES2;     
+    }
+    
 
     public String request(HttpMethod method) throws AnnotationException {
         String response = null;
@@ -106,8 +107,8 @@ public abstract class AnnotationClient {
             }
         }
     }
-
-    public void saveExtractedEntitiesSet(String Question, LineParser parser, int restartFrom) throws Exception {
+    
+     public void saveExtractedEntitiesSet(String Question, LineParser parser, int restartFrom) throws Exception {
         String text = Question;
         int i=0;
         //int correct =0 ; int error = 0;int sum = 0;
@@ -120,23 +121,70 @@ public abstract class AnnotationClient {
                 if (i<restartFrom) continue;
 
                 List<DBpediaResource> entities = new ArrayList<DBpediaResource>();
+                
 
                 try {
                     entities = extract(new Text(snippet.replaceAll("\\s+"," ")));
+                    for(int j = 0; j < entities.size(); j++){
+                       // System.out.println(entities.get(j).getFullUri());
+                        //System.out.println(entities.get(j).getTypes());
+                    }
+                        
+
                 } catch (AnnotationException e) {
                    // error++;
                     LOG.error(e);
                     e.printStackTrace();
                 }
-                for (DBpediaResource e: entities) {
-                    RES.add(e.uri());
+                List<OntologyType> list;
+                for (DBpediaResource e: entities) { 
+                     RES.add(e.uri());
                 }
+               
+            }
+        }
+    }
+
+    public void saveExtractedEntitiesSet2(String Question, LineParser parser, int restartFrom) throws Exception {
+        String text = Question;
+        int i=0;
+        //int correct =0 ; int error = 0;int sum = 0;
+
+        for (String snippet: text.split("\n")) {
+            String s = parser.parse(snippet);
+            if (s!= null && !s.equals("")) {
+                i++;
+
+                if (i<restartFrom) continue;
+
+                List<DBpediaResource> entities = new ArrayList<DBpediaResource>();
+                
+
+                try {
+                    entities = extract2(new Text(snippet.replaceAll("\\s+"," ")));
+                    for(int j = 0; j < entities.size(); j++){
+                       // System.out.println(entities.get(j).getFullUri());
+                       // System.out.println(entities.get(j).getTypes());
+                    }
+                        
+
+                } catch (AnnotationException e) {
+                   // error++;
+                    LOG.error(e);
+                    e.printStackTrace();
+                }
+                List<OntologyType> list;
+                for (DBpediaResource e: entities) { 
+                     RES2.add(e.uri());
+                }
+               
             }
         }
     }
 
 
     public abstract List<DBpediaResource> extract(Text text) throws AnnotationException;
+    public abstract List<DBpediaResource> extract2(Text text) throws AnnotationException;
 
     public void evaluate(String Question) throws Exception {
         evaluateManual(Question,0);
@@ -144,6 +192,15 @@ public abstract class AnnotationClient {
 
     public void evaluateManual(String Question, int restartFrom) throws Exception {
          saveExtractedEntitiesSet(Question,new LineParser.ManualDatasetLineParser(), restartFrom);
+    }
+    
+    
+      public void evaluate2(String Question) throws Exception {
+        evaluateManual2(Question,0);
+    }
+
+    public void evaluateManual2(String Question, int restartFrom) throws Exception {
+         saveExtractedEntitiesSet2(Question,new LineParser.ManualDatasetLineParser(), restartFrom);
     }
    
 }

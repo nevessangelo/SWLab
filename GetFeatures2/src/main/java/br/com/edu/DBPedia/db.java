@@ -5,10 +5,7 @@
  */
 package br.com.edu.DBPedia;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.LinkedList;
-import java.util.List;
+
 import org.apache.commons.httpclient.Header;
 import org.apache.commons.httpclient.methods.GetMethod;
 import org.dbpedia.spotlight.exceptions.AnnotationException;
@@ -18,10 +15,26 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  *
  * @author angelo
  */
+
+//English - http://spotlight.sztaki.hu:2222/rest/annotate
+//German - http://spotlight.sztaki.hu:2226/rest/annotate
+//Dutch - http://spotlight.sztaki.hu:2232/rest/annotate
+//French - http://spotlight.sztaki.hu:2225/rest/annotate
+//Italian - http://spotlight.sztaki.hu:2230/rest/annotate
+//Russian - http://spotlight.sztaki.hu:2227/rest/annotate
+//Spanish - http://spotlight.sztaki.hu:2231/rest/annotate
+//Portuguese - http://spotlight.sztaki.hu:2228/rest/annotate
+//Hungarian - http://spotlight.sztaki.hu:2229/rest/annotate
+//and Turkish - http://spotlight.sztaki.hu:2235/rest/annotate
 public class db extends AnnotationClient {
 
     //private static String  API_URL    = "http://spotlight.dbpedia.org:80/";
@@ -46,7 +59,7 @@ public void configiration(double CONFIDENCE,int SUPPORT,String powered_by,String
     this.showScores=showScores;
 }
 
-    public List<DBpediaResource> extract(Text text) throws AnnotationException {
+ public List<DBpediaResource> extract(Text text) throws AnnotationException {
         LOG.info("Querying API.");
         String spotlightResponse;
         try {
@@ -71,16 +84,17 @@ public void configiration(double CONFIDENCE,int SUPPORT,String powered_by,String
         assert spotlightResponse != null;
         JSONObject resultJSON = null;
         JSONArray entities = null;
-        LinkedList<DBpediaResource> resources = new LinkedList<DBpediaResource>();
+
         try {                   
             resultJSON = new JSONObject(spotlightResponse);
             entities = resultJSON.getJSONArray("Resources");
+           //System.out.println(entities);
         } catch (JSONException e) {
-            //throw new AnnotationException("Received invalid response from DBpedia Spotlight API.");
-            return resources;
+            throw new AnnotationException("Received invalid response from DBpedia Spotlight API.");
         }
 
-        
+        LinkedList<DBpediaResource> resources = new LinkedList<DBpediaResource>();
+        LinkedList<DBpediaResource> resources2 = new LinkedList<DBpediaResource>();
         if(entities!=null) 
         for(int i = 0; i < entities.length(); i++) {
             try {
@@ -88,6 +102,55 @@ public void configiration(double CONFIDENCE,int SUPPORT,String powered_by,String
                 resources.add(
                         new DBpediaResource(entity.getString("@URI"),
                         Integer.parseInt(entity.getString("@support"))));
+      
+                resources2.add(new DBpediaResource(entity.getString("@types")));
+            } catch (JSONException e) {
+                LOG.error("JSON exception "+e);
+            }
+        }
+        return resources;
+    }
+
+    public List<DBpediaResource> extract2(Text text) throws AnnotationException {
+        LOG.info("Querying API.");
+        String spotlightResponse;
+        try {
+            String Query=API_URL + "rest/annotate/?" +
+                    "confidence=" + CONFIDENCE
+                  + "&support=" + SUPPORT
+                  + "&spotter=Default" 
+                  + "&disambiguator=" + disambiguator
+                  + "&showScores=" + showScores
+                  + "&powered_by=" + powered_by
+                  + "&text=" + URLEncoder.encode(text.text(), "utf-8");
+            LOG.info(Query);
+
+            GetMethod getMethod = new GetMethod(Query);
+            getMethod.addRequestHeader(new Header("Accept", "application/json"));
+            spotlightResponse = request(getMethod);
+
+        } catch (UnsupportedEncodingException e) {
+            throw new AnnotationException("Could not encode text.", e);
+        }
+        
+        assert spotlightResponse != null;
+        JSONObject resultJSON = null;
+        JSONArray entities = null;
+
+        try {                   
+            resultJSON = new JSONObject(spotlightResponse);
+            entities = resultJSON.getJSONArray("Resources");
+           //System.out.println(entities);
+        } catch (JSONException e) {
+            throw new AnnotationException("Received invalid response from DBpedia Spotlight API.");
+        }
+
+        LinkedList<DBpediaResource> resources = new LinkedList<DBpediaResource>();
+        if(entities!=null) 
+        for(int i = 0; i < entities.length(); i++) {
+            try {
+                JSONObject entity = entities.getJSONObject(i);
+                resources.add(new DBpediaResource(entity.getString("@types")));
             } catch (JSONException e) {
                 LOG.error("JSON exception "+e);
             }
@@ -95,5 +158,3 @@ public void configiration(double CONFIDENCE,int SUPPORT,String powered_by,String
         return resources;
     }
 }
-
-
