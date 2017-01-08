@@ -22,8 +22,9 @@ public class Main {
         File file_arquivo = new File(arquivo);
         Dataset ds2 = ReadRDF.Read(file_arquivo);
         InsertFeatures.InsertClassPartition(ds2);
-        //InsertFeatures.InsertPropretyPartition(ds2);
+        InsertFeatures.InsertPropretyPartition(ds2);
         InsertFeatures.InsertEntites(ds2);
+        InsertFeatures.InsertTypes(ds2);
     }
     
 }

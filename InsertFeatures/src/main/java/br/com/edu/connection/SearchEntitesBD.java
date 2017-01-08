@@ -8,6 +8,7 @@ package br.com.edu.connection;
 import br.com.edu.objects.ClassObject;
 import br.com.edu.objects.Entites;
 import br.com.edu.objects.PropretyPartitionObject;
+import br.com.edu.objects.Types;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -18,7 +19,27 @@ import java.util.ArrayList;
  */
 public class SearchEntitesBD {
     
-    public static ArrayList<Entites> search() throws ClassNotFoundException, SQLException{
+ public static ArrayList<Types> searchtypes() throws ClassNotFoundException, SQLException{
+        ArrayList<Types> list_types = new ArrayList<>();
+        Connection conn = ConnectionMySql.Conectar();
+         if(conn != null){
+             java.sql.Statement stmt = conn.createStatement();
+             String query = "SELECT name_dataset, type_name, type_frequen FROM Types where type_frequen != 0";
+             java.sql.ResultSet rs = stmt.executeQuery(query);
+             while(rs.next()){
+                  Types types = new Types();
+                  types.setName(rs.getString("name_dataset"));
+                  types.setEntite(rs.getString("type_name"));
+                  types.setFrequen(rs.getDouble("type_frequen"));
+                  list_types.add(types);
+             }  
+         }
+         conn.close();
+         return list_types;
+         
+    }
+    
+ public static ArrayList<Entites> search() throws ClassNotFoundException, SQLException{
         ArrayList<Entites> list_entites = new ArrayList<>();
         Connection conn = ConnectionMySql.Conectar();
          if(conn != null){
