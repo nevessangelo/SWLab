@@ -35,7 +35,6 @@ public class RDF {
 //        RDFDataMgr.read(ds2, filename);
 //        return ds2;
 //    }
-    
     public static Dataset Read(File files_dump) {
         Dataset tempDataset = DatasetFactory.create();
         try {
@@ -69,9 +68,9 @@ public class RDF {
         return DatasetFactory.create();
     }
 
-
     public static void InserdBD() throws ClassNotFoundException, SQLException {
-        int num_frequencia, num_datset;
+        int num_datset;
+        double num_frequencia;
         String arquivo = System.getProperty("user.dir") + "/Void/void_completo.gz";
         File file_arquivo = new File(arquivo);
         Dataset ds2 = Read(file_arquivo);
@@ -79,40 +78,53 @@ public class RDF {
                 + "PREFIX void: <http://rdfs.org/ns/void#>\n"
                 + "PREFIX prov: <http://www.w3.org/ns/prov#>\n"
                 + "PREFIX foaf:  <http://xmlns.com/foaf/0.1/>\n"
+                + "PREFIX dc: <http://purl.org/dc/elements/1.1/>\n"
                 + "\n"
                 + "select ?d1 ?d2 ?featureType ?feature ?frequency ?datasetSize\n"
-                + "where {{graph ?d1 {?d2 void:subset ?ls.\n"
+                + "\n"
+                + "where {{graph ?d1 {?d1 a void:Dataset.\n"
+                + "?d2 void:subset ?ls.\n"
                 + "?ls void:objectsTarget ?feature.\n"
                 + "optional {?ls void:triples ?frequency}\n"
                 + "optional {?d1 void:triples ?datasetSize}\n"
                 + "bind(\"Linkset\" as ?featureType)}}\n"
                 + "\n"
-                + "union {graph ?d1 {?d2 void:subset ?ls.\n"
+                + "union {graph ?d1 {?d1 a void:Dataset.\n"
+                + "?d2 void:subset ?ls.\n"
                 + "?ls void:target ?feature.\n"
                 + "optional {?ls void:triples ?frequency}\n"
                 + "optional {?d1 void:triples ?datasetSize}\n"
                 + "bind(\"Linkset\" as ?featureType)\n"
-                + "\n"
                 + "filter (not exists {?feature void:subset ?ls})}}\n"
-                + "union {graph ?d1 {?d2 void:classPartition ?cp.\n"
+                + "  \n"
+                + "union {graph ?d1 {?d1 a void:Dataset.\n"
+                + "?d2 void:classPartition ?cp.\n"
                 + "?cp void:class ?feature.\n"
                 + "optional {?cp void:entities ?frequency}\n"
                 + "optional {?d1 void:triples ?datasetSize}\n"
                 + "bind(\"Class\" as ?featureType)}}\n"
                 + "\n"
-                + "union {graph ?d1 {?d2 void:propertyPartition ?pp.\n"
+                + "union {graph ?d1 {?d1 a void:Dataset.\n"
+                + "?d2 void:propertyPartition ?pp.\n"
                 + "?pp void:property ?feature.\n"
                 + "optional {?pp void:triples ?frequency}\n"
                 + "optional {?d1 void:triples ?datasetSize}\n"
                 + "bind(\"Property\" as ?featureType)}}\n"
                 + " \n"
-                + "union {graph ?d1 {?d2 foaf:topic ?object.\n"
-                + "      ?object prov:pairKey ?feature.\n"
-                + "      ?object prov:pairValue ?frequency\n"
-                + "      optional {?d1 void:triples ?datasetSize}\n"
-                + "      bind(\"Entites\" as ?featureType)	}}\n"
+                + "union {graph ?d1 { ?d1 a void:Dataset.\n"
+                + "?d2 foaf:topic ?object.\n"
+                + "?object prov:pairKey ?feature.\n"
+                + "?object prov:pairValue ?frequency\n"
+                + "optional {?d1 void:triples ?datasetSize}\n"
+                + "bind(\"Entites\" as ?featureType)	}}\n"
+                + "  \n"
+                + "union {graph ?d1 { ?d1 a void:Dataset.\n"
+                + "?d2 dc:subject ?object.\n"
+                + "?object prov:pairKey ?feature.\n"
+                + "?object prov:pairValue ?frequency\n"
+                + "optional {?d1 void:triples ?datasetSize}\n"
+                + "bind(\"Types\" as ?featureType)	}}\n"
                 + "}";
-
         Query query = QueryFactory.create(qr);
         QueryExecution exec = QueryExecutionFactory.create(query, ds2);
 
@@ -128,7 +140,7 @@ public class RDF {
             if (frequencia == null) {
                 num_frequencia = 0;
             } else {
-                num_frequencia = frequencia.getInt();
+                num_frequencia = frequencia.getDouble();
             }
             if (dataset_size == null) {
                 num_datset = 0;

@@ -15,14 +15,14 @@ public class Features {
     private String name_dataset;
     private String feature;
     private String type_feature;
-    private int frequen;
+    private double frequen;
     private int DatasetSize;
     
     public Features(){
         
     }
     
-    public Features (int id_feature, String name_dataset, String feature, String type_feature, int frequen, int DatasetSize){
+    public Features (int id_feature, String name_dataset, String feature, String type_feature, double frequen, int DatasetSize){
         this.id_feature = id_feature;
         this.name_dataset = name_dataset;
         this.feature = feature;
@@ -101,14 +101,14 @@ public class Features {
     /**
      * @return the frequen
      */
-    public int getFrequen() {
+    public double getFrequen() {
         return frequen;
     }
 
     /**
      * @param frequen the frequen to set
      */
-    public void setFrequen(int frequen) {
+    public void setFrequen(double frequen) {
         this.frequen = frequen;
     }
     

@@ -26,7 +26,7 @@ public class InsertBD {
             stm.setString(2, features.getName_dataset());
             stm.setString(3, features.getFeature());
             stm.setString(4, features.getType_feature());
-            stm.setInt(5, features.getFrequen());
+            stm.setDouble(5, features.getFrequen());
             stm.setInt(6, features.getDatasetSize());
             stm.executeUpdate();
            
