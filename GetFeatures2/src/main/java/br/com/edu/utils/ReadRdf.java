@@ -231,7 +231,7 @@ public class ReadRdf {
         File files_dump[];
         File files_directory[];
         files = file.listFiles();
-        for (int i = 19; i < files.length; i++) {
+        for (int i = 0; i < files.length; i++) {
             System.out.println(i);
             System.out.println("Lendo os datasets da base: " + files[i].toString());
             String[] getNameDataset = files[i].toString().split("/");
