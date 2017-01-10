@@ -6,6 +6,7 @@
 package br.com.edu.Utils;
 
 import br.com.edu.Connection.Methods;
+import com.sun.istack.internal.FinalArrayList;
 import java.io.File;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -59,9 +60,9 @@ public class Utils {
         return DatasetFactory.create();
     }
 
-    public static void SearchTotalTriples(Dataset ds, String nome_dataset) throws ClassNotFoundException, SQLException {
+    public static double SearchTotalTriples(Dataset ds) throws ClassNotFoundException, SQLException {
         String nome = "http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/"+"nome_dataset";
-        int triplas = 0;
+        double triplas = 0;
         String qr = "SELECT (count(*) as ?count) WHERE {\n"
                 + "  {?s ?p ?o }\n"
                 + "}";
@@ -73,24 +74,26 @@ public class Utils {
             Literal total = soln.getLiteral("count");
             triplas = total.getInt();
         }
-        if(triplas != 0){
-            Methods.Update(triplas, nome);
-        }
+        //System.out.println(triplas);
+        return triplas;
         
     }
 
     public static void VerificaDataset(ArrayList<String> nomes) throws ClassNotFoundException, SQLException {
+        ArrayList<Double> triplas = new FinalArrayList<>();
+        double sum = 0;
+        double triplas_retorno = 0;
         File file = new File("/media/angelo/DATA/Dumps/");
         File files[];
         files = file.listFiles();
         for (File file1 : files) {
+             String[] getNameDataset = file1.toString().split("/");
+             int size = getNameDataset.length - 1;
+             String name_dataset = getNameDataset[size];
             for (String nome : nomes) {
-                if (file1.toString() == nome) {
+                if (name_dataset.equals(nome)) {
                     System.out.println("Lendo os datasets da base: " + file1.toString());
-                    String[] getNameDataset = file1.toString().split("/");
-                    int size = getNameDataset.length - 1;
-                    String name_dataset = getNameDataset[size];
-                    File name_dump = new File(file.toString());
+                    File name_dump = new File(file1.toString());
                     File[] files_dump = name_dump.listFiles();
                     for (File files_dump1 : files_dump) {
                         if (files_dump1.isDirectory()) {
@@ -100,13 +103,24 @@ public class Utils {
                             for (int k = 0; k < files_directory.length; k++) {
                                 Dataset ds = read(files_directory[k]);
                                 if (ds != null) {
-                                    SearchTotalTriples(ds,name_dataset);
-                                }
+                                    triplas_retorno = SearchTotalTriples(ds);
+                                    triplas.add(triplas_retorno);
+                                    
+                                 }
                             }
+                          
+                            for(Double num_triplas: triplas){
+                                sum = sum + num_triplas;
+                                
+                            }
+                            
+                            System.out.println(name_dataset + " " + sum);
+                            
                         }else{
                             Dataset ds = read(file1);
                             if (ds != null) {
-                                SearchTotalTriples(ds,name_dataset);
+                                sum = SearchTotalTriples(ds);
+                                System.out.println(name_dataset + " " + sum);
                             }
                         }
                     }
