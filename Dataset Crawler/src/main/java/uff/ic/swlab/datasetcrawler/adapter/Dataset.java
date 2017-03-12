@@ -297,7 +297,7 @@ public class Dataset {
                         + "WHERE {{?s rdf:type ?class} union {graph ?g {?s rdf:type ?class}}}\n"
                         + "group by ?class\n"
                         + "order by desc(?freq)\n"
-                        + "limit 500";
+                        + "limit 200";
                 Callable<Map<String, Integer>> task = () -> {
                     Map<String, Integer> classes = new HashMap<>();
                     try (QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, queryString)) {
@@ -332,7 +332,7 @@ public class Dataset {
                         + "WHERE {{?s ?property []} union {graph ?g {?s ?property []}}}\n"
                         + "group by ?property\n"
                         + "order by desc(?freq)\n"
-                        + "limit 500";
+                        + "limit 200";
                 Callable<Map<String, Integer>> task = () -> {
                     Map<String, Integer> properties = new HashMap<>();
                     try (QueryExecution exec = new QueryEngineHTTP(sparqlEndPoint, queryString)) {
