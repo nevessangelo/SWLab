@@ -5,7 +5,7 @@ def convertTest(lista, max_tfidf):
     lista_retorno = []
     for i in lista:
         if(i != 0):
-            result = convert(i, max_tfidf)
+            result = int(convert(i, max_tfidf))
             lista_retorno.append(result)
         else:
             lista_retorno.append(0)

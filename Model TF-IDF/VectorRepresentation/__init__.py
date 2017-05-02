@@ -148,3 +148,28 @@ def vetores_treinamento(lista_treinamento, tamanho_vetor, vetor_aux, lista_teste
     
         return lista_retorno
     
+
+def vectorRepresentationDeep(nome_dataset, lista_conjunto, tamanho_vetor, vetor_aux, lista_treinamento, lista_teste):
+    tamanho_treinamento = len(lista_treinamento)
+    
+    vetor_dataset = []
+    for j in range(tamanho_vetor):
+        vetor_dataset.append(0)
+        
+    for i in lista_conjunto:
+        if(i in vetor_aux):
+            posicao = vetor_aux.index(i)
+            del vetor_dataset[posicao]
+            valor_tf = calculotf(nome_dataset, i)
+            valor_idf = calucloidf_treinamento(i,tamanho_treinamento,lista_teste)
+            if(valor_tf == 0):
+                tf_idf = 0
+                vetor_dataset.insert(posicao, tf_idf)
+            else:
+                tf_idf = abs(valor_tf * valor_idf)
+                vetor_dataset.insert(posicao, tf_idf)
+          
+    return vetor_dataset     
+            
+    
+    

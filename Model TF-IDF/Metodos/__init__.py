@@ -2,22 +2,149 @@
 
 import ConnectionMysql as connect
 import SimilaridadeCosseno as similaridade
-from PIL import Image
+import scipy.misc
+import numpy as np
+import tensorflow as tf
+import csv
+import Features
+import SimilaridadeTI
+from decimal import Decimal
+import math
 
-def exportImagem(particao, lista, nome_dataset):
-    print lista
-    vetor_nome = nome_dataset.split('/')
-    nome = vetor_nome[-1]
-    caminho = '/home/angelo/Área de Trabalho/'+ particao + "/" + nome + ".jpg"
-    im = Image.fromarray(lista)
-    im.save(caminho)
+def InsertPartition(entrada, particao, id_dataset):
+    db = connect.conexaoMysql()
+    cursor = db.cursor()
+    try:
+        cursor.execute("INSERT INTO Particao VALUES (0, %s, %s, %s)",(str(entrada), str(particao), str(id_dataset)))
+        db.commit()
+    except:
+        db.rollback()
+    
+    db.close()
+    
+    
+
+def VerificaRandom(entrada):
+    db = connect.conexaoMysql()
+    cursor = db.cursor()
+    sql = "SELECT * FROM Particao WHERE entrada = '"+str(entrada)+"'"
+    try:
+        cursor.execute(sql)
+        linhas = cursor.rowcount
+    except:
+        "Erro ao verificar" 
+    
+    db.close()
+    
+    return linhas
+        
+
+
+def calculoprobabilidade(feature, treinamento):
+    espaco_amostral = len(treinamento)
+    evento = 0
+    
+    db = connect.conexaoMysql()
+    cursor = db.cursor()
+    sql = "SELECT nome_dataset FROM Features WHERE features = '"+str(feature)+"' AND tipo_feature = 'Linkset'"
+    try:
+        cursor.execute(sql)
+        result  = cursor.fetchall()
+        for row in result:
+            if(row[0] in treinamento):
+                evento = evento + 1
+    
+    except:
+        "Erro ao calcular probabilidade" 
+    
+    db.close()
+    prob = float(evento)/float(espaco_amostral)
+    return prob
+        
+   
+        
+    
+def PrepararSimilaridadeTi(lista_conjunto, treinamento, dict_probabilidades):
+    dict_similaridade = {}
+    
+    soma = 0
+    for k in lista_conjunto:
+        get_prob = dict_probabilidades[k]
+        if(get_prob == 0):
+            log_prob = 0
+        else:
+            log_prob = math.log(get_prob)
+        union_teste = log_prob + soma
+        soma = union_teste
+    
+            
+    soma_ = 0
+    for k in treinamento:
+        lista_ls = Features.GetLinkSet(k)
+        multi= 0
+        inter = 0
+        for i in lista_conjunto:
+            if(i in lista_ls):
+                get_prob = dict_probabilidades[i]
+                if(get_prob == 0):
+                    log_prob = 0
+                else:
+                    log_prob = math.log(get_prob)
+                    inter = log_prob + multi
+                    multi = inter
+        
+        for i in lista_ls:
+            get_prob = dict_probabilidades[i]
+            if(get_prob == 0):
+                log_prob = 0
+            else:
+                log_prob = math.log(get_prob)
+            union_treinamento = log_prob + soma_
+            soma_ = union_treinamento
+    
+        union = union_treinamento + union_teste
+                 
+        try:
+            result = SimilaridadeTI.similaridade(inter , union)
+        except Exception,e: print str(e)
+        dict_similaridade[k] = result
+    
+    return dict_similaridade
+        
+            
+             
+    
+
+
+            
+            
+        
+def LSTreinamento(lista_treinamento):
+    lista_nome = []
+    dict_treinamentoLS = {}
+    lista_ls = []
+    lista_ls_dataset = []
+    for i in lista_treinamento:
+        nome_dataset = GetNomeDataset(i)
+        lista_nome.append(nome_dataset)
+        
+        
+    for i in lista_nome:
+        lista_ls = Features.GetLinkSet(i)
+        for j in lista_ls:
+            if(j in lista_nome):
+                lista_ls_dataset.append(j)
+                
+                       
+        dict_treinamentoLS[i] = lista_ls_dataset
+        
+    return dict_treinamentoLS
     
 
 def GetMaiorTFIDF(lista):
     return max(lista)
 
-def VerificaLSMAP(verificaLS, dataset):
-    nome_dataset = GetNomeDataset(dataset)
+def VerificaLSMAP(verificaLS, nome_dataset):
     db = connect.conexaoMysql()
     cursor_ls = db.cursor()
     sql_ls = "SELECT features FROM Features WHERE nome_dataset = '"+str(nome_dataset)+"' AND tipo_feature = 'Linkset'"
@@ -125,6 +252,8 @@ def GetNomeDataset(i):
         
     db.close()
     return nome_dataset
+
+        
 
             
         

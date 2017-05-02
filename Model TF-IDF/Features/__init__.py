@@ -1,12 +1,17 @@
 import ConnectionMysql as connect
 import Metodos
 
-def ConjuntoLS(lista_datasets):
+def ConjuntoLS(lista_datasets,lista_treinamento):
+    datasets_treinamento = []
+    for i in lista_treinamento:
+        nome_dataset = Metodos.GetNomeDataset(i)
+        datasets_treinamento.append(nome_dataset)
+        
     lista_retorno = []
     for i in lista_datasets:
         for nome_dataset, lista_ls in i.iteritems():
             for ls in lista_ls:
-                if(ls not in lista_retorno):
+                if(ls not in lista_retorno) and (ls in datasets_treinamento):
                     lista_retorno.append(ls) 
     
     return lista_retorno
@@ -68,13 +73,14 @@ def LSDataset(lista_treinamento, lista_teste):
     
             dicionario_datasets[nome_dataset] = lista_ls
             lista_dicionario.append(dicionario_datasets)
+    
         
-    for i in lista_teste:
-            dicionario_datasets = {}
-            nome_dataset = Metodos.GetNomeDataset(i)
-            lista_ls = GetLinkSet(nome_dataset)
-            dicionario_datasets[nome_dataset] = lista_ls
-            lista_dicionario.append(dicionario_datasets)
+    #for i in lista_teste:
+    #        dicionario_datasets = {}
+    #        nome_dataset = Metodos.GetNomeDataset(i)
+    #        lista_ls = GetLinkSet(nome_dataset)
+    #        dicionario_datasets[nome_dataset] = lista_ls
+    #        lista_dicionario.append(dicionario_datasets)
         
     return lista_dicionario
 
@@ -89,6 +95,7 @@ def VerificaLSTeste(linkset, lista_teste):
 def GetLinkSet(i):
     void = "void"
     rkbexplorer = "rkbexplorer"
+    id = "id"
     lista_ls = []
     db = connect.conexaoMysql()
     cursor_ls = db.cursor()
@@ -98,12 +105,13 @@ def GetLinkSet(i):
         result_ls  = cursor_ls.fetchall()
         for row_ls in result_ls:
             nome_linkset = row_ls[0]
-            vetor_nome_linkset = nome_linkset.split("/")
-            if(void in vetor_nome_linkset):
-                if(rkbexplorer in vetor_nome_linkset):
-                    nome_linkset = "http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/"+str(vetor_nome_linkset[2])
-                    lista_ls.append(nome_linkset)
-            else:
+        #    vetor_nome_linkset = nome_linkset.split("/")
+        #    if(void in vetor_nome_linkset):
+        #        if(rkbexplorer in vetor_nome_linkset):
+        #            nome_linkset = "http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/"+str(vetor_nome_linkset[2])
+        #            lista_ls.append(nome_linkset)
+        #    else:
+            if(nome_linkset.find(id) == -1) or (nome_linkset.find(void) == -1):    
                 lista_ls.append(nome_linkset)
             
     except:
