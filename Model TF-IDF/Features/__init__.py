@@ -96,6 +96,7 @@ def GetLinkSet(i):
     void = "void"
     rkbexplorer = "rkbexplorer"
     id = "id"
+    aux = "http://www.johngoodwin.me.uk/family/"
     lista_ls = []
     db = connect.conexaoMysql()
     cursor_ls = db.cursor()
@@ -111,8 +112,9 @@ def GetLinkSet(i):
         #            nome_linkset = "http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/"+str(vetor_nome_linkset[2])
         #            lista_ls.append(nome_linkset)
         #    else:
-            if(nome_linkset.find(id) == -1) or (nome_linkset.find(void) == -1):    
-                lista_ls.append(nome_linkset)
+            if(nome_linkset.find(aux) == -1):
+                if(nome_linkset.find(id) == -1) or (nome_linkset.find(void) == -1):    
+                    lista_ls.append(nome_linkset)
             
     except:
         print"Erro ao pegar o LinkSet do dataset: " + str(i)

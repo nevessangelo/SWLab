@@ -2,9 +2,7 @@
 
 import ConnectionMysql as connect
 import SimilaridadeCosseno as similaridade
-import scipy.misc
 import numpy as np
-import tensorflow as tf
 import csv
 import Features
 import SimilaridadeTI
@@ -116,9 +114,6 @@ def PrepararSimilaridadeTi(lista_conjunto, treinamento, dict_probabilidades):
     
 
 
-            
-            
-        
 def LSTreinamento(lista_treinamento):
     lista_nome = []
     dict_treinamentoLS = {}

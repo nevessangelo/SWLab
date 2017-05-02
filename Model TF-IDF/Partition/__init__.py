@@ -15,7 +15,7 @@ def Partition(entrada,type):
     if(verifica == 0):
         db = connect.conexaoMysql()
         cursor = db.cursor()
-        sql = "SELECT * FROM `Dataset` AS a INNER JOIN  `Entrada` AS b ON a.qE >= b.Entites AND a.qC >= b.classpartition AND a.qP >= b.propretypartition AND a.qLS >= b.Linkset AND a.qType >= b.type AND b.id_entrada = '"+str(entrada)+"' order by nome_dataset DESC limit 6" 
+        sql = "SELECT * FROM `Dataset` AS a INNER JOIN  `Entrada` AS b ON a.qE >= b.Entites AND a.qC >= b.classpartition AND a.qP >= b.propretypartition AND a.qLS >= b.Linkset AND a.qType >= b.type AND b.id_entrada = '"+str(entrada)+"'" 
         try:
             cursor.execute(sql)
             results = cursor.fetchall()
