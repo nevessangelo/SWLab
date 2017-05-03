@@ -1,6 +1,20 @@
 import ConnectionMysql as connect
 import Metodos
 
+def RetiraLS(lista_ls, lista_treinamento):
+    for i in lista_treinamento:
+        nome_dataset = Metodos.GetNomeDataset(i)
+        lista_ls = GetLinkSet(nome_dataset)
+        for k in lista_ls:
+            result = VerificaLSTreinamento(k, lista_treinamento)
+            if(result == 0):
+                if(k in lista_ls):
+                    lista_ls.remove(k)
+    
+    return lista_ls
+            
+    
+
 def ConjuntoLS(lista_datasets,lista_treinamento):
     datasets_treinamento = []
     for i in lista_treinamento:
@@ -83,6 +97,14 @@ def LSDataset(lista_treinamento, lista_teste):
     #        lista_dicionario.append(dicionario_datasets)
         
     return lista_dicionario
+
+def VerificaLSTreinamento(linkset, lista_treinamento):
+    for i in lista_treinamento:
+        nome_dataset = Metodos.GetNomeDataset(i)
+        if(linkset == nome_dataset):
+            return 1
+        
+    return 0
 
 def VerificaLSTeste(linkset, lista_teste):
     for i in lista_teste:

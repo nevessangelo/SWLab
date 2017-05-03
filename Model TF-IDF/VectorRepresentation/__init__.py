@@ -113,8 +113,6 @@ def vetores_treinamento(lista_treinamento, tamanho_vetor, vetor_aux, lista_teste
             dict_retorno = {}
             nome_dataset = Metodos.GetNomeDataset(i)
             ls = Features.GetLinkSet(nome_dataset)
-            #proprety = Features.Getproprety(nome_dataset)
-            #class_l = Features.GetClass(nome_dataset)
             
             vetor_dataset = []
             for j in range(tamanho_vetor): 
@@ -129,18 +127,6 @@ def vetores_treinamento(lista_treinamento, tamanho_vetor, vetor_aux, lista_teste
                         valor_idf = calucloidf_treinamento(k, tamanho_treinamento, lista_teste)
                         tf_idf = abs(valor_tf * valor_idf)
                         vetor_dataset.insert(posicao, tf_idf)
-                        
-            #if(len(proprety) != 0):
-            #    for k in proprety:
-            #        if(k in vetor_aux):
-            #            posicao = vetor_aux.index(k)
-            #            del vetor_dataset[posicao]
-            #            valor_tf = calculotf(nome_dataset, k)
-            #            valor_idf = calucloidf_treinamento(k, tamanho_treinamento, lista_teste)
-            #            tf_idf = abs(valor_tf * valor_idf)
-            #            vetor_dataset.insert(posicao, tf_idf)
-                        
-           # if(len)
                 
                                 
             dict_retorno[nome_dataset] = vetor_dataset
