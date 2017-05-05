@@ -9,6 +9,40 @@ import SimilaridadeTI
 from decimal import Decimal
 import math
 
+
+def GetGroup(nome_dataset):
+    db = connect.conexaoMysql()
+    cursor = db.cursor()
+    sql = "SELECT group_dataset FROM Groups WHERE nome_dataset = '"+str(nome_dataset)+"'"
+    try:
+        cursor.execute(sql)
+        result  = cursor.fetchall()
+        for row in result:
+            group = row[0]
+    except:
+        "Erro ao pegar grupo"
+    
+    db.close()
+    return group
+
+def GetQuantidadeLS(nome_dataset):
+    db = connect.conexaoMysql()
+    cursor = db.cursor()
+    sql = "SELECT qLS FROM Dataset WHERE nome_dataset = '"+str(nome_dataset)+"'"
+    try:
+        cursor.execute(sql)
+        result  = cursor.fetchall()
+        for row in result:
+            qLS = row[0]
+    except:
+        "Erro ao pegar quantidade de LS"
+    db.close()
+    return qLS
+    
+    
+     
+        
+
 def InsertPartition(entrada, particao, id_dataset):
     db = connect.conexaoMysql()
     cursor = db.cursor()

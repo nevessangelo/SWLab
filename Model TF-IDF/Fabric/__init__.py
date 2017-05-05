@@ -144,6 +144,7 @@ def fabric(type, num_linkset, num_class, num_proprety , num_entites,  lista_part
         features = Features.RetiraLS(lista_ls, lista_treinamento)
         vetor_aux = features
         tamanho_vetor = len(vetor_aux)
+        print "Tamanho do vetor de features "+ str(tamanho_vetor)
         #lista_aux = []
         vetores_treinamento = representation.vetores_treinamento(lista_treinamento,tamanho_vetor,vetor_aux,lista_parte1)
         
