@@ -2,16 +2,29 @@ import ConnectionMysql as connect
 import Metodos
 
 def RetiraLS(lista_ls, lista_treinamento):
+    datasets_treinamento = []
+    features = []
     for i in lista_treinamento:
         nome_dataset = Metodos.GetNomeDataset(i)
-        lista_ls = GetLinkSet(nome_dataset)
-        for k in lista_ls:
-            result = VerificaLSTreinamento(k, lista_treinamento)
-            if(result == 0):
-                if(k in lista_ls):
-                    lista_ls.remove(k)
+        datasets_treinamento.append(nome_dataset)
     
-    return lista_ls
+    
+    for i in lista_ls:
+        if(i in datasets_treinamento):
+            features.append(i)
+        
+    return features
+   # for i in lista_treinamento:
+   #     nome_dataset = Metodos.GetNomeDataset(i)
+   #     lista_ls_dataset = GetLinkSet(nome_dataset)
+   #     for k in lista_ls_dataset:
+   #         result = VerificaLSTreinamento(k, lista_treinamento)
+   #         if(result == 0):
+   #             if(k in lista_ls):
+   #                 print "oi"
+   #                 lista_ls.remove(k)
+    
+   # return lista_ls
             
     
 

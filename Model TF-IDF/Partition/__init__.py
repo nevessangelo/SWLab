@@ -15,7 +15,7 @@ def Partition(entrada,type):
     if(type == "JRIP" or type == "cosseno"):
         db = connect.conexaoMysql()
         cursor = db.cursor()
-        sql = "SELECT DISTINCT a.id_dataset FROM `Dataset` AS a INNER JOIN `Entrada` AS b INNER JOIN `Features'` c ON a.nome_dataset = c.nome_dataset AND a.qE >= b.Entites AND a.qC >= b.classpartition AND a.qP >= b.propretypartition AND a.qLS >= b.Linkset AND a.qType >= b.type AND b.id_entrada = " + str(entrada) + ""
+        sql = "SELECT DISTINCT a.id_dataset FROM `Dataset` AS a INNER JOIN `Entrada` AS b INNER JOIN `Features'` c ON a.nome_dataset = c.nome_dataset AND a.qE >= b.Entites AND a.qC >= b.classpartition AND a.qP >= b.propretypartition AND a.qLS >= b.Linkset AND a.qType >= b.type AND b.id_entrada = " + str(entrada) + " limit 50"
         try:
             cursor.execute(sql)
             results = cursor.fetchall()

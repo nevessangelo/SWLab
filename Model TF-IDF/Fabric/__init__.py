@@ -112,52 +112,17 @@ def fabric(type, num_linkset, num_class, num_proprety , num_entites,  lista_part
         the_file.close()
         filemap.exportFiles2(dict_query, lista_total_dataset, arquivo, lista_treinamento)
         
-    if(type == "JRIP"):
-        #print "Exportando arquivo de treinamento com 5 Features Randômicas"
-        #vetor_features = []
-        #lista_ls_selecionados = []
-        #lista_aux = []
-        #for i in lista_treinamento:
-        #    nome_dataset = Metodos.GetNomeDataset(i)
-        #    lista_ls = Features.GetLinkSet(nome_dataset)
-        #    features = random.sample(lista_ls, 5)
-        #    for k in lista_ls:
-        #        if(k not in features):
-        #            lista_ls_selecionados.append(k)
-        #        
-        #    for k in features:
-        #        if(k not in vetor_features):
-        #            vetor_features.append(k)
-            
-        #for i in lista_ls_selecionados:
-        #    if(i not in lista_aux):
-        #        lista_aux.append(i)
-                
-        #tamanho_vetor = len(vetor_features)
-        #vetores_treinamento = representation.vetores_treinamento(lista_treinamento,tamanho_vetor,vetor_features,lista_parte1)         
-        #weka.ExportFileWeka(vetores_treinamento, vetor_features, lista_aux)
-        
-        #print "Exportando arquivo de treinamento com Todas as Features"
-        
+    if(type == "JRIP"):  
         lista_datasetls = Features.LSDataset(lista_treinamento, lista_parte1)
         lista_ls = Features.ConjuntoLS(lista_datasetls,lista_treinamento)
         features = Features.RetiraLS(lista_ls, lista_treinamento)
         vetor_aux = features
         tamanho_vetor = len(vetor_aux)
         print "Tamanho do vetor de features "+ str(tamanho_vetor)
-        #lista_aux = []
         vetores_treinamento = representation.vetores_treinamento(lista_treinamento,tamanho_vetor,vetor_aux,lista_parte1)
-        
-        #for i in lista_treinamento:
-        #    nome_dataset = Metodos.GetNomeDataset(i)
-        #    lista_ls = Features.GetLinkSet(nome_dataset)
-        #    for k in lista_ls:
-        #        if(k not in lista_aux):
-        #            lista_aux.append(k)
-        
-    
-        
-        weka.ExportFileWeka(vetores_treinamento, vetor_aux)
+        vetores_final = representation.RepresentacaoClasse(vetor_aux, vetores_treinamento)
+        print vetores_final
+        #weka.ExportFileWeka(vetores_treinamento, vetor_aux)
         
         #lista_representacoes = fabricSets(num_linkset, num_class, num_proprety, num_entites, lista_parte1)
         #for i in lista_representacoes:

@@ -23,21 +23,28 @@ def ExportFileWeka(vetores_treinamento, vetor_aux):
         fp.write("@DATA")
         fp.write("\n")
         
-        for i in vetores_treinamento:
-            for nome_dataset, vetor_features in i.iteritems():
-                lista_ls = Features.GetLinkSet(nome_dataset)
-                for j in lista_ls:
-                    if(j in vetor_aux):
-                        posicao = vetor_aux.index(j)
-                        del vetor_features[posicao]
-                        vetor_features.insert(posicao, 0)
-                        for k in vetor_features:
-                            fp.write(str(k)+",")
+        #for i in vetores_treinamento:
+        #    for nome_dataset, vetor_features in i.iteritems():
+        #        lista_ls = Features.GetLinkSet(nome_dataset)
+        #        for j in lista_ls:
+        #            vetor_print = vetor_features
+        #            if(j in vetor_aux):
+        #                posicao = vetor_aux.index(j)
+        #                del vetor_print[posicao]
+        #                vetor_print.insert(posicao, 0)
+        #                for k in vetor_print:
+        #                    fp.write(str(k)+",")
+        #                
+        #                get_classe = j.split("/")
+        #                classe = get_classe[-1]
+        #                fp.write(str(classe))
+        #                fp.write("\n")
+        #                
+        #        fp.write("\n")
+        #        fp.write(str(nome_dataset))
+        #        fp.write("\n")
                             
-                        get_classe = j.split("/")
-                        classe = get_classe[-1]
-                        fp.write(str(classe))
-                        fp.write("\n")
+                       
 
                 
     
