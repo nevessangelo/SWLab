@@ -10,7 +10,9 @@ import weka
 import random
 
 def fabricSets(num_linkset, num_class, num_proprety, num_entites, lista_parte1):
-    lista_representacoes = ConjuntoFeatures.RepresentacaoConjunto(lista_parte1, num_linkset, num_class, num_proprety, num_entites)
+    try:
+        lista_representacoes = ConjuntoFeatures.RepresentacaoConjunto(lista_parte1, num_linkset, num_class, num_proprety, num_entites)
+    except Exception,e: print str(e)        
     return lista_representacoes
     
 
@@ -21,20 +23,21 @@ def fabric(type, num_linkset, num_class, num_proprety , num_entites,  lista_part
         dict_query = {}
         vetor_aux = []
         lista_ls = []
-        lista_datasetproprety = []
-        lista_datasetclass = []
+        #lista_datasetproprety = []
+        #lista_datasetclass = []
         lista_representacoes = fabricSets(num_linkset, num_class, num_proprety, num_entites, lista_parte1)
-        if(num_linkset > 0):
-            lista_datasetls = Features.LSDataset(lista_treinamento, lista_parte1)
-            lista_ls = Features.ConjuntoLS(lista_datasetls,lista_treinamento)
-        
-        if(num_proprety > 0):
-            lista_datasetproprety = Features.PropretyDataset(lista_treinamento, lista_parte1)
+       # if(num_linkset > 0):
+       #     lista_datasetls = Features.LSDataset(lista_treinamento, lista_parte1)
+       #     lista_ls = Features.ConjuntoLS(lista_datasetls,lista_treinamento)
+       #     features = Features.RetiraLS(lista_ls, lista_treinamento)
+        features = Features.GetFeatures(lista_parte1, lista_treinamento) 
+       # if(num_proprety > 0):
+       #     lista_datasetproprety = Features.PropretyDataset(lista_treinamento, lista_parte1)
             
-        if(num_class > 0):
-            lista_datasetclass = Features.ClassDataset(lista_treinamento, lista_parte1)
+       # if(num_class > 0):
+       #     lista_datasetclass = Features.ClassDataset(lista_treinamento, lista_parte1)
             
-        vetor_aux = lista_ls + lista_datasetproprety + lista_datasetclass
+        vetor_aux = features
         tamanho_vetor = len(vetor_aux)
         print  "Tamanho do vetor de Features: "+str(tamanho_vetor)
         vetores_treinamento = representation.vetores_treinamento(lista_treinamento,tamanho_vetor,vetor_aux,lista_parte1)
@@ -113,16 +116,17 @@ def fabric(type, num_linkset, num_class, num_proprety , num_entites,  lista_part
         filemap.exportFiles2(dict_query, lista_total_dataset, arquivo, lista_treinamento)
         
     if(type == "JRIP"):  
-        lista_datasetls = Features.LSDataset(lista_treinamento, lista_parte1)
-        lista_ls = Features.ConjuntoLS(lista_datasetls,lista_treinamento)
-        features = Features.RetiraLS(lista_ls, lista_treinamento)
+        #lista_datasetls = Features.LSDataset(lista_treinamento, lista_parte1)
+        #lista_ls = Features.ConjuntoLS(lista_datasetls,lista_treinamento)
+        #features = Features.RetiraLS(lista_ls, lista_treinamento)
+        
+        features = Features.GetFeatures(lista_parte1, lista_treinamento)
         vetor_aux = features
         tamanho_vetor = len(vetor_aux)
         print "Tamanho do vetor de features "+ str(tamanho_vetor)
         vetores_treinamento = representation.vetores_treinamento(lista_treinamento,tamanho_vetor,vetor_aux,lista_parte1)
-        vetores_final = representation.RepresentacaoClasse(vetor_aux, vetores_treinamento)
-        print vetores_final
-        #weka.ExportFileWeka(vetores_treinamento, vetor_aux)
+        weka.ExportFileWeka(vetores_treinamento, vetor_aux)
+        #weka.ExportFileWekaMultiClass(vetores_treinamento, vetor_aux)
         
         #lista_representacoes = fabricSets(num_linkset, num_class, num_proprety, num_entites, lista_parte1)
         #for i in lista_representacoes:

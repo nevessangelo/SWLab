@@ -12,10 +12,10 @@ def Partition(entrada,type):
     lista_parte2 = []
     lista_parte3 = []
     lista_datasets = []
-    if(type == "JRIP" or type == "cosseno"):
+    if(type == "JRIP" or type == "cosseno" or type == "TI"):
         db = connect.conexaoMysql()
         cursor = db.cursor()
-        sql = "SELECT DISTINCT a.id_dataset FROM `Dataset` AS a INNER JOIN `Entrada` AS b INNER JOIN `Features'` c ON a.nome_dataset = c.nome_dataset AND a.qE >= b.Entites AND a.qC >= b.classpartition AND a.qP >= b.propretypartition AND a.qLS >= b.Linkset AND a.qType >= b.type AND b.id_entrada = " + str(entrada) + " limit 50"
+        sql = "SELECT DISTINCT a.id_dataset FROM `Dataset` AS a INNER JOIN `Entrada` AS b INNER JOIN `Features'` c ON a.nome_dataset = c.nome_dataset AND a.qE >= b.Entites AND a.qC >= b.classpartition AND a.qP >= b.propretypartition AND a.qLS >= b.Linkset AND a.qType >= b.type AND b.id_entrada = " + str(entrada) + ""
         try:
             cursor.execute(sql)
             results = cursor.fetchall()
@@ -336,21 +336,21 @@ def Partition(entrada,type):
     num_entites = Metodos.VerificarEntites(entrada)
     
     total_datasets = len(lista_parte1) + len(lista_parte2) + len(lista_parte3)
+    
     print "Teste: " + str(lista_parte1)
     print "Treinamento: " + str(lista_parte2 + lista_parte3)
     print "Total de "+ str(total_datasets) + " Datasets"
     lista_total_dataset = lista_parte1 + lista_parte2 + lista_parte3
     
-
     arquivo = 1
     lista_treinamento = lista_parte2 + lista_parte3
     Fabric.fabric(type, num_linkset, num_class, num_proprety, num_entites, lista_parte1, lista_treinamento, lista_total_dataset, total_datasets, arquivo)
     
-    #arquivo = 2
-    #lista_treinamento = lista_parte1 + lista_parte3
-    #Fabric.fabric(type, num_linkset, num_class, num_proprety, num_entites, lista_parte2, lista_treinamento, lista_total_dataset, total_datasets, arquivo)
+    arquivo = 2
+    lista_treinamento = lista_parte1 + lista_parte3
+    Fabric.fabric(type, num_linkset, num_class, num_proprety, num_entites, lista_parte2, lista_treinamento, lista_total_dataset, total_datasets, arquivo)
     
-    #arquivo = 3
-    #lista_treinamento = lista_parte1 + lista_parte2
-    #Fabric.fabric(type, num_linkset, num_class, num_proprety, num_entites, lista_parte3, lista_treinamento, lista_total_dataset, total_datasets, arquivo)
+    arquivo = 3
+    lista_treinamento = lista_parte1 + lista_parte2
+    Fabric.fabric(type, num_linkset, num_class, num_proprety, num_entites, lista_parte3, lista_treinamento, lista_total_dataset, total_datasets, arquivo)
     

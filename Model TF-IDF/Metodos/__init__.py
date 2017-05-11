@@ -173,23 +173,19 @@ def LSTreinamento(lista_treinamento):
 def GetMaiorTFIDF(lista):
     return max(lista)
 
-def VerificaLSMAP(verificaLS, nome_dataset):
+def VerificaLSMAP(nome_dataset, verificaLS):
     db = connect.conexaoMysql()
     cursor_ls = db.cursor()
-    sql_ls = "SELECT features FROM Features WHERE nome_dataset = '"+str(nome_dataset)+"' AND tipo_feature = 'Linkset'"
+    sql_ls = "SELECT features FROM `Features'` WHERE nome_dataset = '"+str(nome_dataset)+"' AND features = '"+str(verificaLS)+"' AND tipo_feature = 'Linkset'"
     try:
         cursor_ls.execute(sql_ls)
-        result_ls  = cursor_ls.fetchall()
-        for row_ls in result_ls:
-            if(verificaLS == row_ls[0]):
-                return 1
-            
+        result_ls  = cursor_ls.rowcount
     except:
         "Erro"
         
     db.close()
-    return 0
-
+    return result_ls
+    
 
 def PrepararSimilaridade(lista_teste, lista_treinamento):
     dict = {}

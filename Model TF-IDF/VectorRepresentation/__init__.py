@@ -11,26 +11,7 @@ import math
 import Features
 
 
-def RepresentacaoClasse(vetor_aux, vetores_treinamento):
-    print vetor_aux
-    dict_datasets_features = {}
-    for i in vetores_treinamento:
-        for nome_dataset, vetor_features in i.iteritems():
-            print "Para Dataset: "+str(nome_dataset)
-            print "Vetor Original: "+str(vetor_features)
-            lista_classes = []
-            total_ls = Features.GetLinkSet(nome_dataset)
-            for k in total_ls:
-                if(k in vetor_aux):
-                    if(nome_dataset == "http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/rkb-explorer-eprints"):
-                        aux = vetor_features
-                        posicao = vetor_aux.index(k)
-                        #aux[posicao] = 0
-                        del aux[posicao]
-                        aux.insert(posicao, 0)
-                        #print posicao
-                        print aux
-                        aux = []
+
 
 def calucloidf_teste(feature, total):
     db = connect.conexaoMysql()

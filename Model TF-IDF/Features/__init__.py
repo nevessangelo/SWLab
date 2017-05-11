@@ -1,6 +1,56 @@
 import ConnectionMysql as connect
 import Metodos
 
+
+def GetFeatures(lista_teste, lista_treinamento):
+    datasets_teste = []
+    datasets_treinamento = []
+    features = []
+    all_ls  = []
+    void = "void"
+    rkbexplorer = "rkbexplorer"
+    id = "id"
+    aux = "http://www.johngoodwin.me.uk/family/"
+    for i in lista_teste:
+        nome_dataset = Metodos.GetNomeDataset(i)
+        datasets_teste.append(nome_dataset)
+    
+    for i in lista_treinamento:
+        nome_dataset = Metodos.GetNomeDataset(i)
+        datasets_treinamento.append(nome_dataset)
+
+        
+    db = connect.conexaoMysql()
+    cursor_ls = db.cursor()
+    sql_ls = "SELECT features FROM `Features'` WHERE tipo_feature = 'Linkset'"
+    try:
+        cursor_ls.execute(sql_ls)
+        result_ls  = cursor_ls.fetchall()
+        for row_ls in result_ls:
+            nome_linkset = row_ls[0]
+            if(nome_linkset.find(aux) == -1):
+                if(nome_linkset.find(id) == -1) or (nome_linkset.find(void) == -1):   
+                    if(nome_linkset not in all_ls): 
+                        all_ls.append(nome_linkset)
+    
+    except:
+        print "Erro ao pegar todos os LS"
+    
+    
+    for i in all_ls:
+        if(i in datasets_teste):
+            all_ls.remove(i)
+            
+    
+    for i in all_ls:
+        if(i in datasets_treinamento):
+            features.append(i)
+    
+    
+    return features
+    
+    
+
 def RetiraLS(lista_ls, lista_treinamento):
     datasets_treinamento = []
     features = []
