@@ -10,11 +10,12 @@ import java.io.IOException;
 import weka.core.Instances;
 import weka.core.converters.ArffLoader;
 import java.util.List;
-import weka.classifiers.evaluation.Prediction;
 import weka.core.Instance;
 import br.com.edu.tasks.Classifier;
 import java.util.ArrayList;
 import java.util.Collections;
+
+
 
 /**
  *
@@ -44,6 +45,9 @@ public class Ranker {
         testset.setClassIndex(testset.numAttributes() - 1);
         for (Instance instance : testset) {
             List<br.com.edu.tasks.Prediction> ranking = classifyInstance(instance, classifier);
+            
+   
+            
             for (br.com.edu.tasks.Prediction value: ranking){
                 System.out.println("O valor e : "+ value.confidence);
                 System.out.println("Classe: "+ value.prediction);

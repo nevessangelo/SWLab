@@ -18,9 +18,11 @@ public class Main {
     public static void main(String[] args) throws Exception {
         String file = new File("/home/angelo/Área de Trabalho/treinamento.arff").toString();
         Classifier classifier;
-        classifier = Trainer.Trainer_JRIP(file);
-        String file_test = new File("/home/angelo/Área de Trabalho/teste.arff").toString();
-        Ranker.RankerInstance(file_test, classifier);
+        Trainer.Trainer_JRIP(file);
+        
+        
+        //String file_test = new File("/home/angelo/Área de Trabalho/teste.arff").toString();
+        //Ranker.RankerInstance(file_test, classifier);
         
         //System.out.println(classifier);
     }
