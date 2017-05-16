@@ -8,6 +8,16 @@ import Features
 import SimilaridadeTI
 from decimal import Decimal
 import math
+import itertools
+
+
+def representacoes(lista_ls, dataset):
+    dicionairo_retorno = {}
+    list = itertools.combinations(lista_ls, 8)
+    dicionairo_retorno[dataset] = list
+    return dicionairo_retorno
+        
+
 
 
 def GetGroup(nome_dataset):

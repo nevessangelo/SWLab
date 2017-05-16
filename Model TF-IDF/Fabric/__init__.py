@@ -124,8 +124,28 @@ def fabric(type, num_linkset, num_class, num_proprety , num_entites,  lista_part
         vetor_aux = features
         tamanho_vetor = len(vetor_aux)
         print "Tamanho do vetor de features "+ str(tamanho_vetor)
-        vetores_treinamento = representation.vetores_treinamento(lista_treinamento,tamanho_vetor,vetor_aux,lista_parte1)
-        weka.ExportFileWeka(vetores_treinamento, vetor_aux)
+        
+        lista_dicionarios = []
+        for i in vetor_aux:
+            ls = []
+            lista_ls = Metodos.Features.GetLinkSet(i)
+            for k in lista_ls:
+                if(k in features):
+                    ls.append(k)
+            
+            if ( len(ls) >= 8):
+                dicionario_representacoes = Metodos.representacoes(ls, i)
+                lista_dicionarios.append(dicionario_representacoes)
+                
+        
+        for i in vetor_aux:
+            weka.ExportFileBinario(lista_dicionarios, vetor_aux, i)
+            
+               
+            
+        
+        #vetores_treinamento = representation.vetores_treinamento(lista_treinamento,tamanho_vetor,vetor_aux,lista_parte1)
+        #weka.ExportFileWeka(vetores_treinamento, vetor_aux)
         #weka.ExportFileWekaMultiClass(vetores_treinamento, vetor_aux)
         
         #lista_representacoes = fabricSets(num_linkset, num_class, num_proprety, num_entites, lista_parte1)

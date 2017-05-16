@@ -1,6 +1,46 @@
 #coding: utf-8
 import Features
 
+def ExportFileBinario(lista_dicionarios, vetor_aux, dataset):
+    nome_arquivo_vetor = dataset.split("/")
+    nome_arquivo = nome_arquivo_vetor[-1]
+        
+    output_filename = '/home/angelo/Área de Trabalho/Binario/'+str(nome_arquivo)+'.arff'
+    with open(output_filename,"w") as fp:
+        fp.write('''@RELATION features ''')
+        fp.write("\n\n\n")
+        for i in vetor_aux:
+            get_feature = i.split("/")
+            feature = get_feature[-1]
+            fp.write("@ATTRIBUTE feature_"+str(feature) +" "+ "REAL")
+            fp.write("\n")
+            
+        fp.write("@ATTRIBUTE class {0,1}")
+        fp.write("\n\n\n")
+        fp.write("@DATA")
+        fp.write("\n")
+        
+        for i in lista_dicionarios:
+            for nome_dataset, representacao in i.iteritems():
+                for k in representacao:
+                    aux = []
+                    for j in range(len(vetor_aux)):
+                        aux.append(0)
+                    
+                    for feature in k:
+                        
+                        posicao = vetor_aux.index(feature)
+        #                del aux[posicao]
+        #                aux.insert(posicao, object)
+                       
+                    
+                    
+                    
+            
+        
+    
+    
+
 def ExportFileWekaMultiClass(vetores_treinamento, vetor_aux):
     lista_classes = []
     for i in vetor_aux:
