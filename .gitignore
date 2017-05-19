@@ -21,3 +21,4 @@ __pycache__/
 /Dataset Crawler/src/main/resources/dat/rdf/
 /InsertEntitesBD/target/
 /RdfToRelational/target/
+/EntityRelatedness/target/

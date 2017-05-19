@@ -9,10 +9,10 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class MusicEntityPairs extends ArrayList<Pair> {
+public class MovieEntityPairs extends ArrayList<Pair> {
 
-    public MusicEntityPairs() {
-        try (InputStream in = new FileInputStream("./data/EntityRelatednessTestDataset/music_entity_pairs.txt");) {
+    public MovieEntityPairs() {
+        try (InputStream in = new FileInputStream("./data/EntityRelatednessTestDataset/movie_entity_pairs.txt");) {
             Scanner sc = new Scanner(in);
             int count = 0;
             while (sc.hasNext()) {
@@ -24,9 +24,9 @@ public class MusicEntityPairs extends ArrayList<Pair> {
                 }
             }
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(MusicEntityPairs.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MovieEntityPairs.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(MusicEntityPairs.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MovieEntityPairs.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
