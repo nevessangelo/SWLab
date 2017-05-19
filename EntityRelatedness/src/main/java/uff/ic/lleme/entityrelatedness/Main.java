@@ -6,6 +6,8 @@ import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Map;
+import org.apache.jena.query.DatasetAccessor;
+import org.apache.jena.query.DatasetAccessorFactory;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.RDFNode;
@@ -48,8 +50,25 @@ public class Main {
                 alignment.addProperty(model.createProperty(align + "map"), cell.as(RDFNode.class));
             }
 
-        OutputStream out = new FileOutputStream(new File("./data/EntityRelatednessTestDataset/EntityRelatednessTestData.rdf"));
-        RDFDataMgr.write(out, model, Lang.RDFXML);
+        for (Map.Entry<String, ArrayList<Pair>> entry : musicEntityMapping.entrySet())
+            for (Pair pair : entry.getValue()) {
+                Resource cell = model.createResource(pucrio + pair.label, model.createResource(align + "Cell"));
+                cell.addProperty(model.createProperty(align + "entity1"), pair.entity1);
+                cell.addProperty(model.createProperty(align + "entity2"), pair.entity2);
+                alignment.addProperty(model.createProperty(align + "map"), cell.as(RDFNode.class));
+            }
+
+        OutputStream out = new FileOutputStream(new File("./data/EntityRelatednessTestDataset/EntityRelatednessTestData.ttl"));
+        RDFDataMgr.write(out, model, Lang.TURTLE);
+
+        OutputStream out2 = new FileOutputStream(new File("./data/EntityRelatednessTestDataset/EntityRelatednessTestData.rdf"));
+        RDFDataMgr.write(out2, model, Lang.RDFXML);
+
+        OutputStream out3 = new FileOutputStream(new File("./data/EntityRelatednessTestDataset/EntityRelatednessTestData.json"));
+        RDFDataMgr.write(out3, model, Lang.JSONLD);
+
+        DatasetAccessor accessor = DatasetAccessorFactory.createHTTP("http://swlab.ic.uff.br/fuseki/EntityRelatedness/data");
+        accessor.putModel(model);
 
         System.out.println("Fim.");
     }
