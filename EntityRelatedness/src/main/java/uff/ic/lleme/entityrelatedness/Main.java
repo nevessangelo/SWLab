@@ -1,6 +1,17 @@
 package uff.ic.lleme.entityrelatedness;
 
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.Map;
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.rdf.model.RDFNode;
+import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.riot.Lang;
+import org.apache.jena.riot.RDFDataMgr;
 
 public class Main {
 
@@ -20,7 +31,26 @@ public class Main {
         MusicRankedPaths musicRankedPaths = new MusicRankedPaths();
         MusicScores musicScores = new MusicScores();
 
-        System.out.println("Fim.");
+        String align = "http://knowledgeweb.semanticweb.org/heterogeneity/alignment#";
+        String pucrio = "http://inf.puc-rio.br/";
+        Model model = ModelFactory.createDefaultModel();
+        model.setNsPrefix("", pucrio);
+        model.setNsPrefix("align", align);
 
+        Resource alignmentClass = model.createResource(align + "Alignment");
+        Resource alignment = model.createResource(alignmentClass);
+
+        for (Map.Entry<String, ArrayList<Pair>> entry : movieEntityMapping.entrySet())
+            for (Pair pair : entry.getValue()) {
+                Resource cell = model.createResource(pucrio + pair.label, model.createResource(align + "Cell"));
+                cell.addProperty(model.createProperty(align + "entity1"), pair.entity1);
+                cell.addProperty(model.createProperty(align + "entity2"), pair.entity2);
+                alignment.addProperty(model.createProperty(align + "map"), cell.as(RDFNode.class));
+            }
+
+        OutputStream out = new FileOutputStream(new File("./data/EntityRelatednessTestDataset/EntityRelatednessTestData.rdf"));
+        RDFDataMgr.write(out, model, Lang.RDFXML);
+
+        System.out.println("Fim.");
     }
 }

@@ -1,0 +1,3090 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:j.0="http://knowledgeweb.semanticweb.org/heterogeneity/alignment#">
+  <j.0:Alignment>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Jimmy_the_Gent">
+        <j.0:entity2>http://www.imdb.com/title/tt0025330/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Jimmy_the_Gent_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Claire_Trevor">
+        <j.0:entity2>http://www.imdb.com/name/nm0872456/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Claire_Trevor</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_V.I.P.s">
+        <j.0:entity2>http://www.imdb.com/title/tt0057634/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_V.I.P.s_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Wizard_of_Oz">
+        <j.0:entity2>http://www.imdb.com/title/tt0032138/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Wizard_of_Oz_(1939_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Outcasts_of_Poker_Flat">
+        <j.0:entity2>http://www.imdb.com/title/tt0045003/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Outcasts_of_Poker_Flat_(1952_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Four&apos;s_a_Crowd">
+        <j.0:entity2>http://www.imdb.com/title/tt0030151/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Four%27s_a_Crowd</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/No_Down_Payment">
+        <j.0:entity2>http://www.imdb.com/title/tt0050771/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/No_Down_Payment</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Mack_Swain">
+        <j.0:entity2>http://www.imdb.com/name/nm0841501/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Mack_Swain</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Seven-Per-Cent_Solution">
+        <j.0:entity2>http://www.imdb.com/title/tt0075194/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Seven-Per-Cent_Solution_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Kirk_Douglas">
+        <j.0:entity2>http://www.imdb.com/name/nm0000018/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Kirk_Douglas</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Romeo_and_Juliet">
+        <j.0:entity2>http://www.imdb.com/title/tt0063518/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Romeo_and_Juliet_(1968_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Dodge_City">
+        <j.0:entity2>http://www.imdb.com/title/tt0031235/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Dodge_City_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Forgotten_Faces">
+        <j.0:entity2>http://www.imdb.com/title/tt0018906/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Forgotten_Faces_(1928_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/John_Lee_Mahin">
+        <j.0:entity2>http://www.imdb.com/name/nm0536941/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/John_Lee_Mahin</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Joseph_LaShelle">
+        <j.0:entity2>http://www.imdb.com/name/nm0005766/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Joseph_LaShelle</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Joe_Pasternak">
+        <j.0:entity2>http://www.imdb.com/name/nm0664990/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Joe_Pasternak</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Hugo_Riesenfeld">
+        <j.0:entity2>http://www.imdb.com/name/nm0006252/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Hugo_Riesenfeld</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Paul_Newman">
+        <j.0:entity2>http://www.imdb.com/name/nm0000056/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Paul_Newman</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Arthur_Freed">
+        <j.0:entity2>http://www.imdb.com/name/nm0006085/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Arthur_Freed</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/That_Hamilton_Woman">
+        <j.0:entity2>http://www.imdb.com/title/tt0034272/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/That_Hamilton_Woman</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Devil&apos;s_Disciple">
+        <j.0:entity2>http://www.imdb.com/title/tt0052735/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Devil's_Disciple_(1959_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Young_Mr._Lincoln">
+        <j.0:entity2>http://www.imdb.com/title/tt0032155/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Young_Mr._Lincoln</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Dimitri_Tiomkin">
+        <j.0:entity2>http://www.imdb.com/name/nm0006323/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Dimitri_Tiomkin</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Ray_Heindorf">
+        <j.0:entity2>http://www.imdb.com/name/nm0006127/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Ray_Heindorf</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/War_and_Peace">
+        <j.0:entity2>http://www.imdb.com/title/tt0049934/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/War_and_Peace_(1956_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Vanessa_Redgrave">
+        <j.0:entity2>http://www.imdb.com/name/nm0000603/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Vanessa_Redgrave</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Dinner_at_Eight">
+        <j.0:entity1>http://dbpedia.org/resource/Dinner_at_Eight_(film)</j.0:entity1>
+        <j.0:entity2>http://www.imdb.com/title/tt0023948/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Dinner_at_Eight</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Public_Enemy">
+        <j.0:entity2>http://www.imdb.com/title/tt0022286/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Public_Enemy</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Walls_of_Jericho">
+        <j.0:entity2>http://www.imdb.com/title/tt0040949/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Walls_of_Jericho_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Awful_Truth">
+        <j.0:entity2>http://www.imdb.com/title/tt0028597/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Awful_Truth</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/North_by_Northwest">
+        <j.0:entity2>http://www.imdb.com/title/tt0053125/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/North_by_Northwest</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Father_of_the_Bride">
+        <j.0:entity2>http://www.imdb.com/title/tt0042451/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Father_of_the_Bride_(1950_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/All_About_Eve">
+        <j.0:entity2>http://www.imdb.com/title/tt0042192/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/All_About_Eve</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Big_City_Blues">
+        <j.0:entity2></j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Big_City_Blues_(1932_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/From_the_Terrace">
+        <j.0:entity2>http://www.imdb.com/title/tt0053841/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/From_the_Terrace</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Lester_Persky">
+        <j.0:entity2>http://www.imdb.com/name/nm0675483/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Lester_Persky</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Cowboys">
+        <j.0:entity2>http://www.imdb.com/title/tt0068421/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Cowboys</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/As_You_Like_It">
+        <j.0:entity2>http://www.imdb.com/title/tt0027311/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/As_You_Like_It_(1936_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Women">
+        <j.0:entity2>http://www.imdb.com/title/tt0032143/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Women_(1939_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Zulu">
+        <j.0:entity2>http://www.imdb.com/title/tt0058777/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Zulu_(1964_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Clark_Gable">
+        <j.0:entity2>http://www.imdb.com/name/nm0000022/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Clark_Gable</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Pandro_S._Berman">
+        <j.0:entity2>http://www.imdb.com/name/nm0075825/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Pandro_S._Berman</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Peter_the_Great">
+        <j.0:entity2>http://www.imdb.com/title/tt0090502/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Peter_the_Great</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/I_Love_You_Again">
+        <j.0:entity2>http://www.imdb.com/title/tt0032617/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/I_Love_You_Again</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Anthony_Havelock-Allan">
+        <j.0:entity2>http://www.imdb.com/name/nm0369743/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Anthony_Havelock-Allan</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Stage_Struck">
+        <j.0:entity2>http://www.imdb.com/title/tt0028305/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Stage_Struck_(1936_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Stella_Dallas">
+        <j.0:entity2>http://www.imdb.com/title/tt0016395/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Stella_Dallas_(1925_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Birds">
+        <j.0:entity2>http://www.imdb.com/title/tt0056869/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Birds_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Red-Headed_Woman">
+        <j.0:entity2>http://www.imdb.com/title/tt0023385/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Red-Headed_Woman</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Caesar_and_Cleopatra">
+        <j.0:entity2>http://www.imdb.com/title/tt0038390/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Caesar_and_Cleopatra_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Maggie_Smith">
+        <j.0:entity2>http://www.imdb.com/name/nm0001749/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Maggie_Smith</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Merry_Widow">
+        <j.0:entity2>http://www.imdb.com/title/tt0025493/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Merry_Widow_(1934_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Jack_Hildyard">
+        <j.0:entity2>http://www.imdb.com/name/nm0005742/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Jack_Hildyard</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Butcher_Boy">
+        <j.0:entity2>http://www.imdb.com/title/tt0007761/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Butcher_Boy_(1917_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Waterloo_Bridge">
+        <j.0:entity2>http://www.imdb.com/title/tt0033238/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Waterloo_Bridge_(1940_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Sound_and_the_Fury">
+        <j.0:entity2>http://www.imdb.com/title/tt0053298/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Sound_and_the_Fury_(1959_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Absolution">
+        <j.0:entity2>http://www.imdb.com/title/tt0081975/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Absolution_(1978_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Words_for_Battle">
+        <j.0:entity2>http://www.imdb.com/title/tt0034401/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Words_for_Battle</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Night_Watch">
+        <j.0:entity2>http://www.imdb.com/title/tt0070444/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Night_Watch_(1973_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/John_Barrymore">
+        <j.0:entity2>http://www.imdb.com/name/nm0000858/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/John_Barrymore</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Desire">
+        <j.0:entity2>http://www.imdb.com/title/tt0027515/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Desire_(1936_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/How_to_Marry_a_Millionaire">
+        <j.0:entity2>http://www.imdb.com/title/tt0045891/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/How_to_Marry_a_Millionaire</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Robert_Surtees">
+        <j.0:entity2>http://www.imdb.com/name/nm0005892/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Robert_Surtees_(cinematographer)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Wrong_Man">
+        <j.0:entity2>http://www.imdb.com/title/tt0051207/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Wrong_Man</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Ray_Milland">
+        <j.0:entity2>http://www.imdb.com/name/nm0001537/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Ray_Milland</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Twilight">
+        <j.0:entity2>http://www.imdb.com/title/tt011959/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Twilight_(1998_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Angel">
+        <j.0:entity2>http://www.imdb.com/title/tt0028575/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Angel_(1937_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Double_Wedding">
+        <j.0:entity2>http://www.imdb.com/title/tt0028804/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Double_Wedding</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Possessed">
+        <j.0:entity2>http://www.imdb.com/title/tt0022276/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Possessed_(1931_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Fugitive">
+        <j.0:entity2>http://www.imdb.com/title/tt0039402/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Fugitive_(1947_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Myrna_Loy">
+        <j.0:entity2>http://dbpedia.org/resource/Myrna_Loy</j.0:entity2>
+        <j.0:entity1>Artist</j.0:entity1>
+        <j.0:entity2>http://www.imdb.com/name/nm0001485/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Myrna_Loy</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Harvey">
+        <j.0:entity2>http://www.imdb.com/title/tt0042546/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Harvey_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Alexander_Korda">
+        <j.0:entity2>http://www.imdb.com/name/nm0466099/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Alexander_Korda</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Summer_Stock">
+        <j.0:entity2>http://www.imdb.com/title/tt0043012/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Summer_Stock</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/San_Francisco">
+        <j.0:entity2>http://www.imdb.com/title/tt0028216/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/San_Francisco_(1936_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Peter_Glenville">
+        <j.0:entity2>http://www.imdb.com/name/nm0322706/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Peter_Glenville</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Miriam_Hopkins">
+        <j.0:entity2>http://www.imdb.com/name/nm0394244/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Miriam_Hopkins</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Mr._Blandings_Builds_His_Dream_House">
+        <j.0:entity2>http://www.imdb.com/title/tt0040613/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Mr._Blandings_Builds_His_Dream_House</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Swarm">
+        <j.0:entity2>http://www.imdb.com/title/tt0078350/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Swarm_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Katharine_Hepburn">
+        <j.0:entity2>http://www.imdb.com/name/nm0000031/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Katharine_Hepburn</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Frances_Marion">
+        <j.0:entity2>http://www.imdb.com/name/nm0547966/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Frances_Marion</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Nana">
+        <j.0:entity2>http://www.imdb.com/title/tt0025555/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Nana_(1934_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/A_Little_Night_Music">
+        <j.0:entity2>http://www.imdb.com/title/tt0076319/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/A_Little_Night_Music_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/They_Died_with_Their_Boots_On">
+        <j.0:entity2>http://www.imdb.com/title/tt0034277/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/They_Died_with_Their_Boots_On</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/William_Hamilton">
+        <j.0:entity2>http://www.imdb.com/name/nm0358215/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/William_Hamilton_(film_editor)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Treasure_of_the_Sierra_Madre">
+        <j.0:entity2>http://www.imdb.com/title/tt0040897/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Treasure_of_the_Sierra_Madre_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Bringing_Up_Baby">
+        <j.0:entity2>http://www.imdb.com/title/tt0029947/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Bringing_Up_Baby</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/A_Kiss_Before_Dying">
+        <j.0:entity2>http://www.imdb.com/title/tt0049414/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/A_Kiss_Before_Dying_(1956_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Carrie">
+        <j.0:entity2>http://www.imdb.com/title/tt0044486/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Carrie_(1952_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/In_a_Lonely_Place">
+        <j.0:entity2>http://www.imdb.com/title/tt0042593/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/In_a_Lonely_Place</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/To_Catch_a_Thief">
+        <j.0:entity2>http://www.imdb.com/title/tt0048728/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/To_Catch_a_Thief</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Wife_vs._Secretary">
+        <j.0:entity2>http://www.imdb.com/title/tt0028505/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Wife_vs._Secretary</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Body_and_Soul">
+        <j.0:entity2>http://www.imdb.com/title/tt0021680/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Body_and_Soul_(1931_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Age_of_Innocence">
+        <j.0:entity2>http://www.imdb.com/title/tt0106226/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Age_of_Innocence_(1993_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Glass_Menagerie">
+        <j.0:entity2>http://www.imdb.com/title/tt0093093/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Glass_Menagerie_(1987_film)</j.0:entity1>
+        <j.0:entity2>http://www.imdb.com/title/tt0042509/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Glass_Menagerie_(1950_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Hustler">
+        <j.0:entity2>http://www.imdb.com/title/tt0054997/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Hustler_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Deep_Blue_Sea">
+        <j.0:entity2>http://www.imdb.com/title/tt0047978/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Deep_Blue_Sea_(1955_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Victor_Fleming">
+        <j.0:entity2>http://www.imdb.com/name/nm0281808/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Victor_Fleming</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Walter_Huston">
+        <j.0:entity2>http://www.imdb.com/name/nm0404158/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Walter_Huston</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Busby_Berkeley">
+        <j.0:entity2>http://www.imdb.com/name/nm0000923/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Busby_Berkeley</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Anne_of_the_Thousand_Days">
+        <j.0:entity2>http://www.imdb.com/title/tt0064030/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Anne_of_the_Thousand_Days</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Flamingo_Road">
+        <j.0:entity2>http://www.imdb.com/title/tt0041373/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Flamingo_Road_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Ralph_Richardson">
+        <j.0:entity2>http://www.imdb.com/name/nm0724732/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Ralph_Richardson</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Rooster_Cogburn">
+        <j.0:entity2>http://www.imdb.com/title/tt0073636/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Rooster_Cogburn_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Gregory_Peck">
+        <j.0:entity2>http://www.imdb.com/name/nm0000060/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Gregory_Peck</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Night_of_the_Iguana">
+        <j.0:entity2>http://www.imdb.com/title/tt0058404/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Night_of_the_Iguana_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Bette_Davis">
+        <j.0:entity2>http://www.imdb.com/name/nm0000012/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Bette_Davis</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Gone_with_the_Wind">
+        <j.0:entity2>http://www.imdb.com/title/tt0031381/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Gone_with_the_Wind_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Clock">
+        <j.0:entity2>http://www.imdb.com/title/tt0037604/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Clock_(1945_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Laurence_Rosenthal">
+        <j.0:entity2>http://www.imdb.com/name/nm0002304/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Laurence_Rosenthal</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Villain">
+        <j.0:entity2>http://www.imdb.com/title/tt0067952/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Villain_(1971_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Beau_Geste">
+        <j.0:entity2>http://www.imdb.com/title/tt0016634/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Beau_Geste_(1926_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Frank_D._Williams">
+        <j.0:entity2>http://www.imdb.com/name/nm0930596/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Frank_Williams_(cinematographer)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Hondo">
+        <j.0:entity2>http://www.imdb.com/title/tt0045883/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Hondo_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Henry_Blanke">
+        <j.0:entity2>http://www.imdb.com/name/nm0087533/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Henry_Blanke</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/My_Darling_Clementine">
+        <j.0:entity2>http://www.imdb.com/title/tt0038762/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/My_Darling_Clementine</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/A_Midsummer_Night&apos;s_Dream">
+        <j.0:entity1>http://dbpedia.org/resource/A_Midsummer_Night's_Dream_(1935_film)</j.0:entity1>
+        <j.0:entity2>http://www.imdb.com/title/tt0026714/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/A_Midsummer_Night%27s_Dream_(1935_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Divorce_of_Lady_X">
+        <j.0:entity2>http://www.imdb.com/title/tt0030063/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Divorce_of_Lady_X</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Erich_Wolfgang_Korngold">
+        <j.0:entity2>http://www.imdb.com/name/nm0006157/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Erich_Wolfgang_Korngold</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Chester_Conklin">
+        <j.0:entity2>http://www.imdb.com/name/nm0174682/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Chester_Conklin</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/E._W._Hornung">
+        <j.0:entity2>http://www.imdb.com/name/nm0395216/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/E._W._Hornung</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Richard_III">
+        <j.0:entity1>http://dbpedia.org/resource/Richard_III_(1955_film)</j.0:entity1>
+        <j.0:entity2>http://www.imdb.com/title/tt0049674/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Richard_III__(1955_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Behold_a_Pale_Horse">
+        <j.0:entity2>http://www.imdb.com/title/tt0057879/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Behold_a_Pale_Horse</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Marathon_Man">
+        <j.0:entity2>http://www.imdb.com/title/tt0074860/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Marathon_Man</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/William_Walton">
+        <j.0:entity2>http://www.imdb.com/name/nm0006338/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/William_Walton</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Grand_Hotel">
+        <j.0:entity2>http://www.imdb.com/title/tt0022958/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Grand_Hotel_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Laurence_Olivier">
+        <j.0:entity2>http://www.imdb.com/name/nm0000059/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Laurence_Olivier</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Vikings">
+        <j.0:entity2>http://www.imdb.com/title/tt0052365/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Viking_(1958_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Tennessee_Williams">
+        <j.0:entity2>http://www.imdb.com/name/nm0931783/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Tennessee_Williams</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/In_the_Good_Old_Summertime">
+        <j.0:entity2>http://www.imdb.com/title/tt0041507/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/In_the_Good_Old_Summertime</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/George_J._Folsey">
+        <j.0:entity2>http://www.imdb.com/name/nm0005706/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/George_J._Folsey</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Becket">
+        <j.0:entity2>http://www.imdb.com/title/tt0057877/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Becket_(1964_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/High_Sierra">
+        <j.0:entity2>http://www.imdb.com/title/tt0033717/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/High_Sierra_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Adam&apos;s_Rib">
+        <j.0:entity2>http://www.imdb.com/title/tt0041090/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Adam%27s_Rib</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Gregg_Toland">
+        <j.0:entity2>http://www.imdb.com/name/nm0005904/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Gregg_Toland</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Wait_Until_Dark">
+        <j.0:entity2>http://www.imdb.com/title/tt0062467/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Wait_Until_Dark_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Miklós_Rózsa">
+        <j.0:entity2>http://www.imdb.com/name/nm0000067/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Mikl%C3%B3s_R%C3%B3zsa</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Juarez">
+        <j.0:entity2>http://www.imdb.com/title/tt0031516/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Juarez_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Love_Among_the_Ruins">
+        <j.0:entity2>http://www.imdb.com/title/tt0073310/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Love_Among_the_Ruins_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Joan_Crawford">
+        <j.0:entity2>http://www.imdb.com/name/nm0001076/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Joan_Crawford</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Mr._Lucky">
+        <j.0:entity2>http://www.imdb.com/title/tt0036174/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Mr._Lucky_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Alfred_Hitchcock">
+        <j.0:entity2>http://www.imdb.com/name/nm0000033/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Alfred_Hitchcock</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Malcolm_Arnold">
+        <j.0:entity2>http://www.imdb.com/name/nm0002185/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Malcolm_Arnold</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Babes_on_Broadway">
+        <j.0:entity2>http://www.imdb.com/title/tt0034485/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Babes_on_Broadway</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/An_Affair_to_Remember">
+        <j.0:entity2>http://www.imdb.com/title/tt0050105/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/An_Affair_to_Remember</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Lawrence_Weingarten">
+        <j.0:entity2>http://www.imdb.com/name/nm0918318/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Lawrence_Weingarten</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Empire_Falls">
+        <j.0:entity2>http://www.imdb.com/title/tt0376591/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Empire_Falls_(miniseries)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Last_Train_from_Gun_Hill">
+        <j.0:entity2>http://www.imdb.com/title/tt0052993/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Last_Train_from_Gun_Hill</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Dodsworth">
+        <j.0:entity2>http://www.imdb.com/title/tt0027532/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Dodsworth_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/George_Bassman">
+        <j.0:entity2>http://www.imdb.com/name/nm0005956/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/George_Bassman</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Sidney_Buchman">
+        <j.0:entity2>http://www.imdb.com/name/nm0118227/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Sidney_Buchman</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Harold_F._Kress">
+        <j.0:entity2>http://www.imdb.com/name/nm0470932/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Harold_F._Kress</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Orson_Welles">
+        <j.0:entity2>http://www.imdb.com/name/nm0000080/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Orson_Welles</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Mildred_Pierce">
+        <j.0:entity2>http://www.imdb.com/title/tt0037913/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Mildred_Pierce_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Strip">
+        <j.0:entity2>http://www.imdb.com/title/tt0044083/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Strip_(1951_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Young_Man_with_a_Horn">
+        <j.0:entity2>http://www.imdb.com/title/tt0043153/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Young_Man_with_a_Horn_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Tillie&apos;s_Punctured_Romance">
+        <j.0:entity2>http://www.imdb.com/title/tt0004707/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Tillie%27s_Punctured_Romance_(1914_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Fort_Apache">
+        <j.0:entity2>http://www.imdb.com/title/tt0040369/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Fort_Apache_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/In_Harm&apos;s_Way">
+        <j.0:entity2>http://www.imdb.com/title/tt0059309/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/In_Harm%27s_Way</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Manhattan_Melodrama">
+        <j.0:entity2>http://www.imdb.com/title/tt0025464/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Manhattan_Melodrama</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Caine_Mutiny">
+        <j.0:entity2>http://www.imdb.com/title/tt0046816/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Caine_Mutiny_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/John_Wayne">
+        <j.0:entity2>http://www.imdb.com/name/nm0000078/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/John_Wayne</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Ziegfeld_Girl">
+        <j.0:entity2>http://www.imdb.com/title/tt0034415/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Ziegfeld_girl_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Gunfight_at_the_O.K._Corral">
+        <j.0:entity2>http://www.imdb.com/title/tt0050468/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Gunfight_at_the_O.K._Corral_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Modern_Times">
+        <j.0:entity2>http://www.imdb.com/title/tt0027977/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Modern_Times_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Hal_B._Wallis">
+        <j.0:entity2>http://www.imdb.com/name/nm0909259/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Hal_B._Wallis</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Stripper">
+        <j.0:entity2>http://www.imdb.com/title/tt0057537/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Stripper_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Michael_Hogan">
+        <j.0:entity2>http://www.imdb.com/name/nm0389580/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Michael_Hogan_(screenwriter)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Lee_J._Cobb">
+        <j.0:entity2>http://www.imdb.com/name/nm0002011/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Lee_J._Cobb</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/James_Cagney">
+        <j.0:entity2>http://www.imdb.com/name/nm0000010/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/James_Cagney</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/12_Angry_Men">
+        <j.0:entity2>http://www.imdb.com/title/tt0050083/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/12_Angry_Men_(1957_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Dial_M_for_Murder">
+        <j.0:entity2>http://www.imdb.com/title/tt0046912/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Dial_M_for_Murder</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Hombre">
+        <j.0:entity2>http://www.imdb.com/title/tt0061770/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Hombre_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Stagecoach">
+        <j.0:entity2>http://www.imdb.com/title/tt0031971/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Stagecoach_(1939_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Dead_Ringer">
+        <j.0:entity2>http://www.imdb.com/title/tt0057997/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Dead_Ringer_(1964_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Bad_and_the_Beautiful">
+        <j.0:entity2>http://www.imdb.com/title/tt0044391/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Bad_and_the_Beautiful</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Franz_Planer">
+        <j.0:entity2>http://www.imdb.com/name/nm0005832/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Franz_Planer</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Song_of_the_Thin_Man">
+        <j.0:entity2>http://www.imdb.com/title/tt0039853/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Song_of_the_Thin_Man</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Old_Acquaintance">
+        <j.0:entity2>http://www.imdb.com/title/tt0036230/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Old_Acquaintance</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Robert_Burks">
+        <j.0:entity2>http://www.imdb.com/name/nm0122079/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Robert_Burks</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Psycho">
+        <j.0:entity2>http://www.imdb.com/title/tt0054215/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Psycho_(1960_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/John_G._Adolfi">
+        <j.0:entity2>http://www.imdb.com/name/nm0012317/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/John_G._Adolfi</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Fire_Over_England">
+        <j.0:entity2>http://www.imdb.com/title/tt0028872/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Fire_Over_England</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Caught_in_a_Cabaret">
+        <j.0:entity2>http://www.imdb.com/title/tt0003758/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Caught_in_a_Cabaret</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Men_in_White">
+        <j.0:entity2>http://www.imdb.com/title/tt0025489/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Men_in_White_(1934_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Dede_Allen">
+        <j.0:entity2>http://www.imdb.com/name/nm0020441/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Dede_Allen</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Leon_Shamroy">
+        <j.0:entity2>http://www.imdb.com/name/nm0005872/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Leon_Shamroy</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/James_Naughton">
+        <j.0:entity2>http://www.imdb.com/name/nm0622553/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/James_Naughton</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Winner_Take_All">
+        <j.0:entity2>http://www.imdb.com/title/tt0023701/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Winner_takes_all_(1932_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Oh!_What_a_Lovely_War">
+        <j.0:entity2>http://www.imdb.com/title/tt0064754/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Oh!_What_a_Lovely_War</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Jerry_Goldsmith">
+        <j.0:entity2>http://www.imdb.com/name/nm0000025/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Jerry_Goldsmith</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Humoresque">
+        <j.0:entity2>http://www.imdb.com/title/tt0038622/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Humoresque_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Love_Crazy">
+        <j.0:entity2>http://www.imdb.com/title/tt0033852/</j.0:entity2>
+        <j.0:entity2>ttp://www.imdb.com/title/tt0033852/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Love_Crazy_(1941_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Othello">
+        <j.0:entity2>http://www.imdb.com/title/tt0045251/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Othello_(1952_film)</j.0:entity1>
+        <j.0:entity2>http://www.imdb.com/title/tt0059555/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Othello_(1965_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/This_Happy_Breed">
+        <j.0:entity2>http://www.imdb.com/title/tt0037367/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/This_Happy_Breed_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/North_to_Alaska">
+        <j.0:entity2>http://www.imdb.com/title/tt0054127/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/North_to_Alaska</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Herbert_Stothart">
+        <j.0:entity2>http://www.imdb.com/name/nm0006307/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Herbert_Stothart</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Woman_of_the_Year">
+        <j.0:entity2>http://www.imdb.com/title/tt0035567/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Woman_of_the_Year</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Bombshell">
+        <j.0:entity2>http://www.imdb.com/title/tt0023825/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Bombshell_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Clarence_Brown">
+        <j.0:entity2>http://www.imdb.com/name/nm0113284/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Clarence_Brown</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Light_That_Failed">
+        <j.0:entity2>http://www.imdb.com/title/tt0031572/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Light_That_Failed_(1939_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/National_Velvet">
+        <j.0:entity2>http://www.imdb.com/title/tt0037120/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/National_Velvet_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Mutiny_on_the_Bounty">
+        <j.0:entity2>http://www.imdb.com/title/tt0026752/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Mutiny_on_the_Bounty_(1935_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Pay_Day">
+        <j.0:entity2>http://www.imdb.com/title/tt0013486/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Pay_Day_(1922_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Franz_Waxman">
+        <j.0:entity2>http://www.imdb.com/name/nm0000077/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Franz_Waxman</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_300_Spartans">
+        <j.0:entity2>http://www.imdb.com/title/tt0055719/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_300_Spartans</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Albert_Akst">
+        <j.0:entity2>http://www.imdb.com/name/nm0015573/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Albert_Akst</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Sherlock_Holmes">
+        <j.0:entity2>http://www.imdb.com/title/tt0013597/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Sherlock_Holmes_(1922_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Unknown">
+        <j.0:entity2>http://www.imdb.com/title/tt0018528/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Unknown_(1927_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Way_Back_Home">
+        <j.0:entity2>http://www.imdb.com/title/tt0022551/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Way_Back_Home_(1931_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Rachel,_Rachel">
+        <j.0:entity2>http://www.imdb.com/title/tt0063483/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Rachel,_Rachel</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Thin_Man_Goes_Home">
+        <j.0:entity2>http://www.imdb.com/title/tt0037365/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Thin_Man_Goes_Home</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Charles_Boyer">
+        <j.0:entity2>http://www.imdb.com/name/nm0000964/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Charles_Boyer</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Rain">
+        <j.0:entity2>http://www.imdb.com/title/tt0023369/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Rain_(1932_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Human_Comedy">
+        <j.0:entity2>http://www.imdb.com/title/tt0036022/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Human_Comedy_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Edmund_Goulding">
+        <j.0:entity2>http://www.imdb.com/name/nm0332539/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Edmund_Goulding</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Long,_Hot_Summer">
+        <j.0:entity2>http://www.imdb.com/title/tt0051878/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Long,_Hot_Summer</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Merritt_B._Gerstad">
+        <j.0:entity2>http://www.imdb.com/name/nm0005719/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Merritt_B._Gerstad</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Irving_Thalberg">
+        <j.0:entity2>http://www.imdb.com/name/nm0856921/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Irving_Thalberg</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/One_Way_Passage">
+        <j.0:entity2>http://www.imdb.com/title/tt0023305/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/One_Way_Passage</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Rear_Window">
+        <j.0:entity2>http://www.imdb.com/title/tt0047396/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Rear_Window</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Wedding_Night">
+        <j.0:entity2>http://www.imdb.com/title/tt0027189/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Wedding_Night</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Eli_Wallach">
+        <j.0:entity2>http://www.imdb.com/name/nm0908919/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Eli_Wallach</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Test_Pilot">
+        <j.0:entity2>http://www.imdb.com/title/tt0030848/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Test_Pilot_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Mourning_Becomes_Electra">
+        <j.0:entity2>http://www.imdb.com/title/tt0039636/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Mourning_Becomes_Electra_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Cleopatra">
+        <j.0:entity2>http://www.imdb.com/title/tt0056937/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Cleopatra_(1963_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Louis_R._Loeffler">
+        <j.0:entity2>http://www.imdb.com/name/nm0517264/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Louis_R._Loeffler</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Love_Affair">
+        <j.0:entity2>http://www.imdb.com/title/tt0031593/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Love_Affair_(1939_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/George_Fitzmaurice">
+        <j.0:entity2>http://www.imdb.com/name/nm0280463</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/George_Fitzmaurice</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Wagner">
+        <j.0:entity2>http://www.imdb.com/title/tt0085107/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Wagner_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Raffles">
+        <j.0:entity2>http://www.imdb.com/title/tt0021281/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Raffles_(1930_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/49th_Parallel">
+        <j.0:entity2>http://www.imdb.com/title/tt0033627/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/49th_parallel_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Sandpiper">
+        <j.0:entity2>http://www.imdb.com/title/tt0059674/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Sandpiper</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Gentlemen&apos;s_Agreement">
+        <j.0:entity2>http://www.imdb.com/title/tt0026402/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Gentlemen%27s_agreement_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Rebecca">
+        <j.0:entity2>http://www.imdb.com/title/tt0032976/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Rebecca_(1940_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Kubec_Glasmon">
+        <j.0:entity2>http://www.imdb.com/name/nm0321891/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Kubec_Glasmon</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Breakfast_at_Tiffany&apos;s">
+        <j.0:entity2>http://www.imdb.com/title/tt0054698/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Breakfast_at_Tiffany's_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Strangers_When_We_Meet">
+        <j.0:entity2>http://www.imdb.com/title/tt0054345/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Strangers_When_We_Meet_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Leslie_Howard">
+        <j.0:entity2>http://www.imdb.com/name/nm0001366/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Leslie_Howard_(actor)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Meet_Me_in_St._Louis">
+        <j.0:entity2>http://www.imdb.com/title/tt0037059/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Meet_Me_in_St._Louis</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Elmer_Bernstein">
+        <j.0:entity2>http://www.imdb.com/name/nm0000930/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Elmer_Bernstein</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Smiling_Lieutenant">
+        <j.0:entity2>http://www.imdb.com/title/tt0022074/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Smiling_Lieutenant</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Shadow_of_the_Thin_Man">
+        <j.0:entity2>http://www.imdb.com/title/tt0034172/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Shadow_of_the_Thin_Man</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Children&apos;s_Hour">
+        <j.0:entity2>http://www.imdb.com/title/tt0054743/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Children's_Hour_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Awakening">
+        <j.0:entity2>http://www.imdb.com/title/tt0018666/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Awakening_(1928_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Ben_Hecht">
+        <j.0:entity2>http://www.imdb.com/name/nm0372942/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Ben_Hecht</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Three_Faces_of_Eve">
+        <j.0:entity2>http://www.imdb.com/title/tt0051077/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Three_Faces_of_Eve</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Paul_Dehn">
+        <j.0:entity2>http://www.imdb.com/name/nm0214989/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Paul_Dehn</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Reckless">
+        <j.0:entity2>http://www.imdb.com/title/tt0026914/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Reckless_(1935_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Taxi!">
+        <j.0:entity2>http://www.imdb.com/title/tt0023556/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Taxi!</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Battle_of_Midway">
+        <j.0:entity2>http://www.imdb.com/title/tt0034498/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Battle_of_Midway_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/William_Powell">
+        <j.0:entity2>http://www.imdb.com/name/nm0001635/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/William_Powell</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Jean_Harlow">
+        <j.0:entity2>http://www.imdb.com/name/nm0001318/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Jean_Harlow</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Thin_Man">
+        <j.0:entity2>http://www.imdb.com/title/tt0025878/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Thin_Man_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/George_Peppard">
+        <j.0:entity2>http://www.imdb.com/name/nm0000577/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/George_Peppard</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Mating_Season">
+        <j.0:entity2>http://www.imdb.com/title/tt0043792/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Mating_Season_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Beau_Brummell">
+        <j.0:entity2>http://www.imdb.com/title/tt0046759/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Beau_Brummell_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Once_Upon_a_Time">
+        <j.0:entity2>http://www.imdb.com/title/tt0037150/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Once_Upon_a_Time_(1944_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Little_Minister">
+        <j.0:entity2>http://www.imdb.com/title/tt0025409/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Little_Minister_(1934_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Joanne_Woodward">
+        <j.0:entity2>http://www.imdb.com/name/nm0940946/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Joanne_Woodward</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Cat_on_a_Hot_Tin_Roof">
+        <j.0:entity2>http://www.imdb.com/title/tt0051459/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Cat_on_a_Hot_Tin_Roof_(1958_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Thomas_Richards">
+        <j.0:entity2>http://www.imdb.com/name/nm0724360/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Thomas_Richards_(film_editor)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Marthe_Keller">
+        <j.0:entity2>http://www.imdb.com/name/nm0445715/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Marthe_Keller</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Elliott_Kastner">
+        <j.0:entity2>http://www.imdb.com/name/nm0440990/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Elliott_Kastner</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Dark_Passage">
+        <j.0:entity2>http://www.imdb.com/title/tt0039302/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Dark_Passage_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Herbert_Marshall">
+        <j.0:entity2>http://www.imdb.com/name/nm0003339/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Herbert_Marshall</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/W._Somerset_Maugham">
+        <j.0:entity2>http://www.imdb.com/name/nm0560857/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/W._Somerset_Maugham</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Girl_Crazy">
+        <j.0:entity2>http://www.imdb.com/title/tt0035942/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Girl_Crazy_(1943_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Comedians">
+        <j.0:entity2>http://www.imdb.com/title/tt0061502</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Comedian_(1967_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Rudi_Fehr">
+        <j.0:entity2>http://www.imdb.com/name/nm0270458/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Rudi_Fehr</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Trouble_in_Paradise">
+        <j.0:entity2>http://www.imdb.com/title/tt0023622/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Trouble_in_Paradise</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Lloyd_Bacon">
+        <j.0:entity2>http://www.imdb.com/name/nm0045800/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Lloyd_Bacon</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Michael_Hordern">
+        <j.0:entity2>http://www.imdb.com/name/nm0394588/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Michael_Hordern</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Geoffrey_Unsworth">
+        <j.0:entity2>http://www.imdb.com/name/nm0005910/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Geoffrey_Unsworth</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/A_Yank_at_Oxford">
+        <j.0:entity2>http://www.imdb.com/title/tt0030989/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/A_Yank_at_Oxford</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/She_Wore_a_Yellow_Ribbon">
+        <j.0:entity2>http://www.imdb.com/title/tt0041866/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/She_Wore_a_Yellow_Ribbon</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Outcast_of_the_Islands">
+        <j.0:entity2>http://www.imdb.com/title/tt0045002/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Outcast_of_the_Islands</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/William_H._Daniels">
+        <j.0:entity1>http://dbpedia.org/resource/William_H._Daniels</j.0:entity1>
+        <j.0:entity2>http://www.imdb.com/name/nm0200125/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/William_Daniels_(cinematographer)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/21_Days">
+        <j.0:entity2>http://www.imdb.com/title/tt0032179/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/21_Days</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Shop_Around_the_Corner">
+        <j.0:entity2>http://www.imdb.com/title/tt0033045/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Shop_Around_the_Corner</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/John_Barry">
+        <j.0:entity2>http://www.imdb.com/name/nm0000290/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/John_Barry_(composer)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Victor_Milner">
+        <j.0:entity2>http://www.imdb.com/name/nm0005800/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Victor_Milner</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Suddenly,_Last_Summer">
+        <j.0:entity2>http://www.imdb.com/title/tt0053318/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Suddenly,_Last_Summer_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/James_Wong_Howe">
+        <j.0:entity2>http://www.imdb.com/name/nm0002146/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/James_Wong_Howe</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Ian_McLellan_Hunter">
+        <j.0:entity2>http://www.imdb.com/name/nm0402848/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Ian_McLellan_Hunter</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Madigan">
+        <j.0:entity2>http://www.imdb.com/title/tt0063256/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Madigan</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Ray_Stark">
+        <j.0:entity2>http://www.imdb.com/name/nm0823256/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Ray_Stark</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Effect_of_Gamma_Rays_on_Man-in-the-Moon_Marigolds">
+        <j.0:entity2>http://www.imdb.com/title/tt0068528/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Effect_of_Gamma_Rays_on_Man-in-the-Moon_Marigolds_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Dick_Powell">
+        <j.0:entity2>http://www.imdb.com/name/nm0694090/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Dick_Powell</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Where_Eagles_Dare">
+        <j.0:entity2>http://www.imdb.com/title/tt0065207/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Where_Eagles_Dare</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Dick_Powell_Show">
+        <j.0:entity2>http://www.imdb.com/title/tt0054532/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Dick_Powell_Show</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Pride_and_Prejudice">
+        <j.0:entity2>http://www.imdb.com/title/tt0032943/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Pride_and_Prejudice_(1940_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Edmund_H._North">
+        <j.0:entity2>http://www.imdb.com/name/nm0636002/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Edmund_H._North</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/How_to_Steal_a_Million">
+        <j.0:entity2>http://www.imdb.com/title/tt0060522/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/How_to_Steal_a_Million</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Detective_Story">
+        <j.0:entity2>http://www.imdb.com/title/tt0043465/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Detective_Story_(1951_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Al_St._John">
+        <j.0:entity2>http://www.imdb.com/name/nm0820607/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Al_St._John</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Boys_Town">
+        <j.0:entity2>http://www.imdb.com/title/tt0029942/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Boys_Town_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Joseph_L._Mankiewicz">
+        <j.0:entity2>http://www.imdb.com/name/nm0000581/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Joseph_L._Mankiewicz</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/King:_A_Filmed_Record..._Montgomery_to_Memphis">
+        <j.0:entity2>http://www.imdb.com/title/tt0065944/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/King:_A_Filmed_Record..._Montgomery_to_Memphis</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Prize">
+        <j.0:entity2>http://www.imdb.com/title/tt0057426/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Prize_(1963_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Three_on_a_Match">
+        <j.0:entity2>http://www.imdb.com/title/tt0023590/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Three_on_a_Match</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Village_Squire">
+        <j.0:entity2>http://www.imdb.com/title/tt0027175/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Village_Squire</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Fred_Zinnemann">
+        <j.0:entity2>http://www.imdb.com/name/nm0003593/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Fred_Zinnemann</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Look_Back_in_Anger">
+        <j.0:entity2>http://www.imdb.com/title/tt0051879/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Look_Back_in_Anger_(1959_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Trevor_Howard">
+        <j.0:entity2>http://www.imdb.com/name/nm0002145/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Trevor_Howard</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Thelma_Ritter">
+        <j.0:entity2>http://www.imdb.com/name/nm0728812/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Thelma_Ritter</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Riffraff">
+        <j.0:entity1>http://dbpedia.org/resource/Riff_Raff_(1936_film)</j.0:entity1>
+        <j.0:entity2>http://www.imdb.com/title/tt0026932/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Riffraff_(1936_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Ace_in_the_Hole">
+        <j.0:entity2>http://www.imdb.com/title/tt0043338/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Ace_in_the_Hole_(1951_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Friends_and_Lovers">
+        <j.0:entity2>http://www.imdb.com/title/tt0021889/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Friends_and_Lovers_(1931_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Battle_of_Britain">
+        <j.0:entity2>http://www.imdb.com/title/tt0064072/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Battle_of_Britain_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Boy_Meets_Girl">
+        <j.0:entity2>http://www.imdb.com/title/tt0029940/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Boy_Meets_Girl_(1938_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Michael_Redgrave">
+        <j.0:entity2>http://www.imdb.com/name/nm0714878/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Michael_Redgrave</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Jay_Kanter">
+        <j.0:entity2>http://www.imdb.com/name/nm0437905/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Jay_Kanter</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Rendezvous">
+        <j.0:entity2>http://www.imdb.com/title/tt0026922/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Rendezvous_(1935_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Ronald_Colman">
+        <j.0:entity2>http://www.imdb.com/name/nm0172903/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Ronald_Colman</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Lionel_Barrymore">
+        <j.0:entity2>http://www.imdb.com/name/nm0000859/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Lionel_Barrymore</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Stewart_Stern">
+        <j.0:entity2>http://www.imdb.com/name/nm0827856/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Stewart_Stern</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Arrangement">
+        <j.0:entity2>ttp://www.imdb.com/title/tt0064041/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Arrangement_(1969_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Sybil">
+        <j.0:entity2>http://www.imdb.com/title/tt0075296/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Sybil_(1976_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Charles_Lang">
+        <j.0:entity2>http://www.imdb.com/name/nm0485702/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Charles_Lang</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Boom!">
+        <j.0:entity2>http://www.imdb.com/title/tt0062751/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Boom_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Big_Country">
+        <j.0:entity2>http://www.imdb.com/title/tt0051411/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Big_Country</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Richard_Widmark">
+        <j.0:entity2>http://www.imdb.com/name/nm0001847/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Richard_Widmark</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Central_Park">
+        <j.0:entity2>http://www.imdb.com/title/tt0022751/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Central_Park_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Vertigo">
+        <j.0:entity2>http://www.imdb.com/title/tt0052357/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Vertigo_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Spencer_Tracy">
+        <j.0:entity2>http://www.imdb.com/name/nm0000075/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Spencer_Tracy</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Roaring_Twenties">
+        <j.0:entity2>http://www.imdb.com/title/tt0031867/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Roaring_Twenties</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Ernest_Haller">
+        <j.0:entity2>http://www.imdb.com/name/nm0005735/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Ernest_Haller</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/George_Barnes">
+        <j.0:entity2>http://www.imdb.com/name/nm0055604/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/George_Barnes_(cinematographer)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Desert_Song">
+        <j.0:entity2>http://www.imdb.com/title/tt0019813/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Desert_Song_(1929_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Heiress">
+        <j.0:entity2>http://www.imdb.com/title/tt0041452/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Heiress</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Bold_Venture">
+        <j.0:entity2>http://www.imdb.com/title/tt0052450/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Bold_Venture</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Taming_of_the_Shrew">
+        <j.0:entity2>http://www.imdb.com/title/tt0061407/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Taming_of_the_Shrew_(1967_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Cluny_Brown">
+        <j.0:entity2>http://www.imdb.com/title/tt0038419/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Cluny_Brown</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Renegades">
+        <j.0:entity2>http://www.imdb.com/title/tt0021295/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Renegades_(1930_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/China_Seas">
+        <j.0:entity2>http://www.imdb.com/title/tt0026205/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/China_Seas_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Storm_in_a_Teacup">
+        <j.0:entity2>http://www.imdb.com/title/tt0029611/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Storm_in_a_Teacup_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Vittorio_Storaro">
+        <j.0:entity2>http://www.imdb.com/name/nm0005886/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Vittorio_Storaro</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Key_Largo">
+        <j.0:entity2>http://www.imdb.com/title/tt0040506/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Key_Largo</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Shoes_of_the_Fisherman">
+        <j.0:entity2>http://www.imdb.com/title/tt0063599/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Shoes_of_the_Fisherman</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Easter_Parade">
+        <j.0:entity2>http://www.imdb.com/title/tt0040308/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Easter_parade_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Lady_Killer">
+        <j.0:entity2>http://www.imdb.com/title/tt0024239/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Lady_Killer_(1933_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Blonde_Crazy">
+        <j.0:entity2>http://www.imdb.com/title/tt0021673/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Blonde_Crazy</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/John_Huston">
+        <j.0:entity2>http://www.imdb.com/name/nm0001379/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/John_Huston</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/John_Garfield">
+        <j.0:entity2>http://www.imdb.com/name/nm0002092/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/John_Garfield</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Lauren_Bacall">
+        <j.0:entity2>http://www.imdb.com/name/nm0000002/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Lauren_Bacall</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Hud">
+        <j.0:entity2>http://www.imdb.com/title/tt0057163/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Hud_(1963_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Richard_Russo">
+        <j.0:entity2>http://www.imdb.com/name/nm0751720/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Richard_Russo</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Richard_Burton">
+        <j.0:entity2>http://www.imdb.com/name/nm0000009/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Richard_Burton</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Zee_and_Co.">
+        <j.0:entity2>http://www.imdb.com/title/tt0069516/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Zee_and_Co.</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Khartoum">
+        <j.0:entity2>http://www.imdb.com/title/tt0060588/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Khartoum_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Donald_Ogden_Stewart">
+        <j.0:entity2>http://www.imdb.com/name/nm0829330/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Donald_Ogden_Stewart</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Stage_Door">
+        <j.0:entity2>http://www.imdb.com/title/tt0029604/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Stage_Door</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Mortal_Storm">
+        <j.0:entity2>http://www.imdb.com/title/tt0032811/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Mortal_Storm</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Night_Flight">
+        <j.0:entity2>http://www.imdb.com/title/tt0024381/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Night_Flight_(1933_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Captain_Blood">
+        <j.0:entity2>http://www.imdb.com/title/tt0026174/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Captain_Blood_(1935_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Strike_Up_the_Band">
+        <j.0:entity2>http://www.imdb.com/title/tt0033110/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Strike_Up_the_Band_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Libeled_Lady">
+        <j.0:entity2>http://www.imdb.com/title/tt0027884/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Libeled_Lady</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Humphrey_Bogart">
+        <j.0:entity2>http://www.imdb.com/name/nm0000007/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Humphrey_Bogart</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Millionaire">
+        <j.0:entity2>http://www.imdb.com/title/tt0022151/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Millionaire_(1931_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Prisoner_of_Zenda">
+        <j.0:entity2>http://www.imdb.com/title/tt0029442/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Prisoner_of_Zenda_(1937_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Of_Human_Bondage">
+        <j.0:entity2>http://www.imdb.com/title/tt0025586/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Of_Human_Bondage_(1934_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Margaret_Booth">
+        <j.0:entity2>http://www.imdb.com/name/nm0004290/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Margaret_Booth</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Condemned">
+        <j.0:entity2>http://www.imdb.com/title/tt0019785/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Condemnation</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Alexander_the_Great">
+        <j.0:entity2>http://www.imdb.com/title/tt0048937/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Alexander_the_Great_(1956_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Another_Thin_Man">
+        <j.0:entity2>http://www.imdb.com/title/tt0031047/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Another_Thin_Man</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Cry_Wolf">
+        <j.0:entity2>http://www.imdb.com/title/tt0039288/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Cry_Wolf_(1947_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Georgie_Stoll">
+        <j.0:entity2>http://www.imdb.com/name/nm4735525/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Georgie_Stoll</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Richard_Hageman">
+        <j.0:entity2>http://www.imdb.com/name/nm0006119/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Richard_Hageman</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Topaze">
+        <j.0:entity2>http://www.imdb.com/title/tt0024684/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Topaze_(1933_American_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Holiday">
+        <j.0:entity2>http://www.imdb.com/title/tt0030241/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Holiday_(1938_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Monkey_Business">
+        <j.0:entity2>http://www.imdb.com/title/tt0044916/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Monkey_Business_(1952_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Westerner">
+        <j.0:entity2>http://www.imdb.com/title/tt0033253/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Westerner</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Charlie_Chaplin">
+        <j.0:entity2>http://www.imdb.com/name/nm0000122/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Charlie_Chaplin</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Robert_Lord">
+        <j.0:entity2>http://www.imdb.com/name/nm0520501/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Robert_Lord</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Hugo_Friedhofer">
+        <j.0:entity2>http://www.imdb.com/name/nm0006087/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Hugo_Friedhofer</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Devotion">
+        <j.0:entity2>http://www.imdb.com/title/tt0038474/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Devotion_(1946_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/A_Letter_to_Three_Wives">
+        <j.0:entity2>http://www.imdb.com/title/tt0041587/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/A_Letter_to_Three_Wives</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Martin_Ritt">
+        <j.0:entity2>http://www.imdb.com/name/nm0728688/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Martin_Ritt</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Each_Dawn_I_Die">
+        <j.0:entity2>http://www.imdb.com/title/tt0031260/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Each_Dawn_I_Die</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Idle_Class">
+        <j.0:entity2>http://www.imdb.com/title/tt0012304/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Idle_Class</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Grace_Kelly">
+        <j.0:entity2>http://www.imdb.com/name/nm0000038/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Grace_Kelly</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Sidney_Howard">
+        <j.0:entity2>http://www.imdb.com/name/nm0397608/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Sidney_Howard</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Roman_Holiday">
+        <j.0:entity2>http://www.imdb.com/title/tt0046250/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Roman_Holiday</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Best_of_Everything">
+        <j.0:entity2>http://www.imdb.com/title/tt0052619/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Best_of_Everything_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Gold_Rush">
+        <j.0:entity2>http://www.imdb.com/title/tt0015864/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Gold_Rush</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Wild_Geese">
+        <j.0:entity2>http://www.imdb.com/title/tt0078492/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Wild_Geese</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Nun&apos;s_Story">
+        <j.0:entity2>http://www.imdb.com/title/tt0053131/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Nun's_Story_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Audrey_Hepburn">
+        <j.0:entity2>http://www.imdb.com/name/nm0000030/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Audrey_Hepburn</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Adventures_of_Robin_Hood">
+        <j.0:entity2>http://www.imdb.com/title/tt0029843/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Adventures_of_Robin_Hood</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/John_Gielgud">
+        <j.0:entity2>http://www.imdb.com/name/nm0000024/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/John_Gielgud</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Rescue">
+        <j.0:entity2>http://www.imdb.com/title/tt0020323/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Rescue_(1929_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Mannequin">
+        <j.0:entity2>http://www.imdb.com/title/tt0030413/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Mannequin_(1937_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Dark_Angel">
+        <j.0:entity2>http://www.imdb.com/title/tt0015735/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Dark_Angel_(1925_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Letter">
+        <j.0:entity2>http://www.imdb.com/title/tt0032701/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Lette_(1940_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Hal_Mohr">
+        <j.0:entity2>http://www.imdb.com/name/nm0005803/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Hal_Mohr</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Gift_of_Love">
+        <j.0:entity2>http://www.imdb.com/title/tt0051657/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Gift_of_Love</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Judy_Garland">
+        <j.0:entity2>http://www.imdb.com/name/nm0000023/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Judy_Garland</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Ernest_Vajda">
+        <j.0:entity2>http://www.imdb.com/name/nm0883328/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Ernest_Vajda</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Roy_Webb">
+        <j.0:entity2>http://www.imdb.com/name/nm0002202/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Roy_Webb</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Dudley_Nichols">
+        <j.0:entity2>http://www.imdb.com/name/nm0629580/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Dudley_Nichols</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Knockout">
+        <j.0:entity2>http://www.imdb.com/title/tt0004194/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Knockout</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Brian_G._Hutton">
+        <j.0:entity2>http://www.imdb.com/name/nm0404606/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Brian_G._Hutton</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Chained">
+        <j.0:entity2>http://www.imdb.com/title/tt0024963/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Chained_(1934_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/You_Only_Live_Once">
+        <j.0:entity2>http://www.imdb.com/title/tt0029808/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/You_Only_Live_Once_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Uncle_Vanya">
+        <j.0:entity2>http://www.imdb.com/title/tt0057620/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Uncle_Vanya_(1963_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Winning_of_Barbara_Worth">
+        <j.0:entity2>http://www.imdb.com/title/tt0017567/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Winning_of_Barbara_Worth</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Anna_Karenina">
+        <j.0:entity2>http://www.imdb.com/title/tt0040098/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Anna_Karenina_(1948_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Watch_on_the_Rhine">
+        <j.0:entity2>http://www.imdb.com/title/tt0036515/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Watch_on_the_Rhine</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Deception">
+        <j.0:entity2>http://www.imdb.com/title/tt0038461/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Deception_(1946_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Heinz_Roemheld">
+        <j.0:entity2>http://www.imdb.com/name/nm0006257/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Heinz_Roemheld</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Joan_Blondell">
+        <j.0:entity2>http://www.imdb.com/name/nm0000951/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Joan_Blondell</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Lionel_Newman">
+        <j.0:entity2>http://www.imdb.com/name/nm0006213/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Lionel_Newman</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Great_War">
+        <j.0:entity2>http://www.imdb.com/title/tt0057753/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Great_War_(documentary)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Max_Steiner">
+        <j.0:entity2>http://www.imdb.com/name/nm0000070/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Max_Steiner</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/How_the_West_Was_Won">
+        <j.0:entity2>http://www.imdb.com/title/tt0056085/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/How_the_West_Was_Won_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Henry_V">
+        <j.0:entity2>http://www.imdb.com/title/tt0036910/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Henry_V_(1944_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Virgin_Queen">
+        <j.0:entity2>http://www.imdb.com/title/tt0048791/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Virgin_Queen_(1955_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/George_Tomasini">
+        <j.0:entity2>http://www.imdb.com/name/nm0866462/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/George_Tomasini</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Sol_Polito">
+        <j.0:entity2>http://www.imdb.com/name/nm0005835/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Sol_Polito</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/John_Ford">
+        <j.0:entity2>http://www.imdb.com/name/nm0000406/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/John_Ford</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Errol_Flynn">
+        <j.0:entity2>http://www.imdb.com/name/nm0001224/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Errol_Flynn</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Howard_Hawks">
+        <j.0:entity2>http://www.imdb.com/name/nm0001328/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Howard_Hawks</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Dawn_Patrol">
+        <j.0:entity2>http://www.imdb.com/title/tt0030044/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Dawn_patrol_(1938_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Irving_Ravetch">
+        <j.0:entity2>http://www.imdb.com/name/nm0712419/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Irving_Ravetch</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Walter_Brennan">
+        <j.0:entity2>http://www.imdb.com/name/nm0000974/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Walter_Brennan</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Bullets_or_Ballots">
+        <j.0:entity2>http://www.imdb.com/title/tt0027407/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Bullets_or_Ballots</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Prince_of_Players">
+        <j.0:entity2>http://www.imdb.com/title/tt0048510/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Prince_of_Players</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Great_Lie">
+        <j.0:entity2>http://www.imdb.com/title/tt0033677/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Great_Lie</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Vincente_Minnelli">
+        <j.0:entity2>http://www.imdb.com/name/nm0591486/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Vincente_Minnelli</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Strange_Cargo">
+        <j.0:entity2>http://www.imdb.com/title/tt0033105/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Strange_Cargo_(1940_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Red_Dust">
+        <j.0:entity2>http://www.imdb.com/title/tt0023382/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Red_Dust</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Olivia_de_Havilland">
+        <j.0:entity2>http://www.imdb.com/name/nm0000014/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Olivia_de_Havilland</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Angels_with_Dirty_Faces">
+        <j.0:entity2>http://www.imdb.com/title/tt0029870/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Angels_with_Dirty_Faces</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Vivien_Leigh">
+        <j.0:entity2>http://www.imdb.com/name/nm0000046/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Vivien_Leigh</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Blue_and_the_Gray">
+        <j.0:entity2>http://www.imdb.com/title/tt0083387/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Blue_and_the_Gray_(miniseries)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Samuel_Bischoff">
+        <j.0:entity2>http://www.imdb.com/name/nm0083900/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Samuel_Bischoff</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Jules_Furthman">
+        <j.0:entity2>http://www.imdb.com/name/nm0299154/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Jules_Furthman</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Pat_O&apos;Brien">
+        <j.0:entity2>http://www.imdb.com/name/nm0002285/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Pat_O'Brien_(actor)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Ralph_Dawson">
+        <j.0:entity2>http://www.imdb.com/name/nm0206238/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Ralph_Dawson</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Harold_Rosson">
+        <j.0:entity2>http://www.imdb.com/name/nm0005849/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Harold_Rosson</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Private_Lives_of_Elizabeth_and_Essex">
+        <j.0:entity2>http://www.imdb.com/title/tt0031826/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Private_Lives_of_Elizabeth_and_Essex</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Warlock">
+        <j.0:entity2>http://www.imdb.com/title/tt0053434/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Warlock_(1959_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/James_Stewart">
+        <j.0:entity2>http://www.imdb.com/name/nm0000071/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/James_Stewart</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/To_Have_and_Have_Not">
+        <j.0:entity2>http://www.imdb.com/title/tt0037382/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/To_Have_and_Have_Not_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/William_Wyler">
+        <j.0:entity2>http://www.imdb.com/name/nm0943758/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/William_Wyler</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Twenty_Minutes_of_Love">
+        <j.0:entity2>http://www.imdb.com/title/tt0004736/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Twenty_Minutes_of_Love</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Strangers_on_a_Train">
+        <j.0:entity2>http://www.imdb.com/title/tt0044079/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Strangers_on_a_Train_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Sea_Hawk">
+        <j.0:entity2>http://www.imdb.com/title/tt0033028/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Sea_Hawk_(1940_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Equus">
+        <j.0:entity2>http://www.imdb.com/title/tt0075995/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Equus_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Ulysses">
+        <j.0:entity2>http://www.imdb.com/title/tt0047630/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Ulysses_(1954_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Homecoming">
+        <j.0:entity2>http://www.imdb.com/title/tt0040446/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Homecoming_(1948_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Man_Who_Shot_Liberty_Valance">
+        <j.0:entity2>http://www.imdb.com/title/tt0056217/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Man_Who_Shot_Liberty_Valance</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Robert_Swink">
+        <j.0:entity2>http://www.imdb.com/name/nm0842732/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Robert_Swink</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Philadelphia_Story">
+        <j.0:entity2>http://www.imdb.com/title/tt0032904/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Philadelphia_Story_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Reflections_in_a_Golden_Eye">
+        <j.0:entity2>http://www.imdb.com/title/tt0062185/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Reflections_in_a_Golden_Eye_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Grapes_of_Wrath">
+        <j.0:entity2>http://www.imdb.com/title/tt0032551/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Grapes_of_Wrath_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Our_Town">
+        <j.0:entity2>http://www.imdb.com/title/tt0353849/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Our_Town_(2003_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Come_Fill_the_Cup">
+        <j.0:entity2>http://www.imdb.com/title/tt0043424/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Come_Fill_the_Cup</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Mickey_Rooney">
+        <j.0:entity2>http://www.imdb.com/name/nm0001682/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Mickey_Rooney</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Dough_and_Dynamite">
+        <j.0:entity2>http://www.imdb.com/title/tt0003863/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Dough_and_Dynamite</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Dead_End">
+        <j.0:entity2>http://www.imdb.com/title/tt0028773/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Dead_End_(1937_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Directed_by_John_Ford">
+        <j.0:entity2>http://www.imdb.com/title/tt0066997/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Directed_by_John_Ford</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Masquerader">
+        <j.0:entity2>http://www.imdb.com/title/tt0004311/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Masquerade_(1914_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Jerry_Wald">
+        <j.0:entity2>http://www.imdb.com/name/nm0907003/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Jerry_Wald</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Medusa_Touch">
+        <j.0:entity2>http://www.imdb.com/title/tt0077921/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Medusa_Touch_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/David_Copperfield">
+        <j.0:entity2>http://www.imdb.com/title/tt0065615/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/David_Copperfield_(1969_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Arthur_Ibbetson">
+        <j.0:entity2>http://www.imdb.com/name/nm0406471/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Arthur_Ibbetson</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Dames">
+        <j.0:entity2>http://www.imdb.com/title/tt0025028/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Dames</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Made_for_Each_Other">
+        <j.0:entity2>http://www.imdb.com/title/tt0031602/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Made_for_Each_Other_(1939_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/When_Ladies_Meet">
+        <j.0:entity2>http://www.imdb.com/title/tt0034386/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/When_Ladies_Meet_(1941_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Mr._Skeffington">
+        <j.0:entity2>http://www.imdb.com/title/tt0037094/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Mr._Skeffington</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Blake_Edwards">
+        <j.0:entity2>http://www.imdb.com/name/nm0001175/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Blake_Edwards</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Jane_Murfin">
+        <j.0:entity2>http://www.imdb.com/name/nm0613848/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Jane_Murfin</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Wuthering_Heights">
+        <j.0:entity2>http://www.imdb.com/title/tt0032145/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Wuthering_Heights_(1939_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Design_for_Living">
+        <j.0:entity2>http://www.imdb.com/title/tt0023940/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Design_for_Living_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Room_for_One_More">
+        <j.0:entity2>http://www.imdb.com/title/tt0045102/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Room_for_One_More</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Paris_Blues">
+        <j.0:entity2>http://www.imdb.com/title/tt0055278/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Paris_Blues</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Crisis">
+        <j.0:entity2>http://www.imdb.com/title/tt0042352/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Crisis_(1950_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Life_Begins_for_Andy_Hardy">
+        <j.0:entity2>http://www.imdb.com/title/tt0033832/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Life_Begins_for_Andy_Hardy</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Henry_Fonda">
+        <j.0:entity2>http://www.imdb.com/name/nm0000020/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Henry_Fonda</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Mabel_at_the_Wheel">
+        <j.0:entity2>http://www.imdb.com/title/tt0004277/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Mabel_at_the_Wheel</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Dorothy_Spencer">
+        <j.0:entity2>http://www.imdb.com/name/nm0817929/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Dorothy_Spencer</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Prince_and_the_Pauper">
+        <j.0:entity2>http://www.imdb.com/title/tt0029440/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Prince_and_the_Pauper_(1937_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Judgment_at_Nuremberg">
+        <j.0:entity2>http://www.imdb.com/title/tt0055031/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Judgment_at_Nuremberg</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Samson_Raphaelson">
+        <j.0:entity2>http://www.imdb.com/name/nm0710723/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Samson_Raphaelson</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Ernst_Lubitsch">
+        <j.0:entity2>http://www.imdb.com/name/nm0523932/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Ernst_Lubitsch</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Presenting_Lily_Mars">
+        <j.0:entity2>http://www.imdb.com/title/tt0036275/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Presenting_Lily_Mars</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/David_O._Selznick">
+        <j.0:entity2>http://www.imdb.com/name/nm0006388/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/David_O._Selznick</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_African_Queen">
+        <j.0:entity2>http://www.imdb.com/title/tt0043265/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_African_Queen_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Yankee_Doodle_Dandy">
+        <j.0:entity2>http://www.imdb.com/title/tt0035575/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Yankee_Doodle_Dandy</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Oswald_Morris">
+        <j.0:entity2>http://www.imdb.com/name/nm0005807/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Oswald_Morris</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Suspicion">
+        <j.0:entity2>http://www.imdb.com/title/tt0034248/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Suspicion_(1941_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Edge_of_Darkness">
+        <j.0:entity2>http://www.imdb.com/title/tt0034694/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Edge_of_Darkness_(1943_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Charade">
+        <j.0:entity2>http://www.imdb.com/title/tt0056923/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Charade_(1963_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Off_the_Record">
+        <j.0:entity2>http://www.imdb.com/title/tt0031743/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Off_the_record</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/William_Axt">
+        <j.0:entity2>http://www.imdb.com/name/nm0002197/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/William_Axt</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Elizabeth_Taylor">
+        <j.0:entity2>http://www.imdb.com/name/nm0000072/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Elizabeth_Taylor</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/After_the_Thin_Man">
+        <j.0:entity2>http://www.imdb.com/title/tt0027260/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/After_the_Thin_Man</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Exodus">
+        <j.0:entity2>http://www.imdb.com/title/tt0053804/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Exodus_(1960_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Spy_Who_Came_in_from_the_Cold">
+        <j.0:entity2>http://www.imdb.com/title/tt0059749/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Spy_Who_Came_in_from_the_Cold_(film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Samuel_Goldwyn">
+        <j.0:entity2>http://www.imdb.com/name/nm0326418/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Samuel_Goldwyn</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Convention_City">
+        <j.0:entity2>http://www.imdb.com/title/tt0023906/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Convention_City</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/George_Cukor">
+        <j.0:entity2>http://www.imdb.com/name/nm0002030/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/George_Cukor</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Footlight_Parade">
+        <j.0:entity2>http://www.imdb.com/title/tt0024028/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Footlight_Parade</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Ian_Dalrymple">
+        <j.0:entity2>http://www.imdb.com/name/nm7458906/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Ian_Dalrymple</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Stuart_Heisler">
+        <j.0:entity2>http://www.imdb.com/name/nm0374702/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Stuart_Heisler</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Cary_Grant">
+        <j.0:entity2>http://www.imdb.com/name/nm0000026/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Cary_Grant</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Alfred_Newman">
+        <j.0:entity2>http://www.imdb.com/name/nm0000055/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Alfred_Newman_(composer)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/All_of_Me">
+        <j.0:entity2>http://www.imdb.com/title/tt0024822/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/All_of_Me_(1934_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/The_Bride_Came_C.O.D.">
+        <j.0:entity2>http://www.imdb.com/title/tt0033432/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/The_Bride_Came_C.O.D.</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+    <j.0:map>
+      <j.0:Cell rdf:about="http://inf.puc-rio.br/Sabrina">
+        <j.0:entity2>http://www.imdb.com/title/tt0047437/</j.0:entity2>
+        <j.0:entity1>http://dbpedia.org/resource/Sabrina_(1954_film)</j.0:entity1>
+      </j.0:Cell>
+    </j.0:map>
+  </j.0:Alignment>
+</rdf:RDF>
