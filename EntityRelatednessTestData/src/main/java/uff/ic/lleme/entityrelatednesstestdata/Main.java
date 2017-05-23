@@ -37,13 +37,16 @@ public class Main {
     private static String host = "swlab.ic.uff.br";
     private static String fusekiURL = "http://" + host + "/fuseki";
 
-    private static String user = "swlab";
-    private static String pass = "fluzao00";
+    private static String user = "";
+    private static String pass = "";
 
     private static String datasetName = "EntityRelatednessTestData";
     private static String jsonSerializationName = localRDFDataRoot + "/" + datasetName + ".json";
     private static String xmlSerializationName = localRDFDataRoot + "/" + datasetName + ".rdf";
     private static String turtleSerializationName = localRDFDataRoot + "/" + datasetName + ".ttl";
+    private static String localVoidName = localRDFDataRoot + "/void.ttl";
+    private static String localOntologyName = localRDFDataRoot + "/ontology/" + datasetName + ".rdf";
+
     private static String remoteVoidName = "/void.ttl";
     private static String remoteOntologyName = "/ontology/" + datasetName + ".rdf";
     private static String datasetURL = fusekiURL + "/" + datasetName + "/data";
@@ -87,12 +90,12 @@ public class Main {
 
         (new File(localRDFDataRoot)).mkdirs();
 
-        try (OutputStream out = new FileOutputStream(new File(localRDFDataRoot + "/void.ttl"));) {
+        try (OutputStream out = new FileOutputStream(localVoidName);) {
             RDFDataMgr.write(out, voidData, Lang.TURTLE);
         } finally {
         }
 
-        try (InputStream in = new FileInputStream(localRDFDataRoot + "/void.ttl")) {
+        try (InputStream in = new FileInputStream(localVoidName)) {
             HostProxy.upload(host, user, pass, remoteVoidName, in);
         } finally {
         }
@@ -150,12 +153,12 @@ public class Main {
 
         (new File(localRDFDataRoot + "/ontology")).mkdirs();
 
-        try (OutputStream out = new FileOutputStream(localRDFDataRoot + "/ontology/" + datasetName + ".rdf")) {;
+        try (OutputStream out = new FileOutputStream(localOntologyName)) {;
             RDFDataMgr.write(out, ontology, Lang.RDFXML);
         } finally {
         }
 
-        try (InputStream in = new FileInputStream(localRDFDataRoot + "/ontology/" + datasetName + ".rdf")) {
+        try (InputStream in = new FileInputStream(localOntologyName)) {
             HostProxy.upload(host, user, pass, remoteOntologyName, in);
         } finally {
         }
