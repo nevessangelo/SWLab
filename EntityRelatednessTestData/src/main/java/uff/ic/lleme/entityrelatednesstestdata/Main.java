@@ -1,4 +1,4 @@
-package uff.ic.lleme.entityrelatedness;
+package uff.ic.lleme.entityrelatednesstestdata;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -10,11 +10,6 @@ import java.io.OutputStream;
 import java.security.GeneralSecurityException;
 import java.util.ArrayList;
 import java.util.Map;
-import javax.net.ssl.KeyManager;
-import org.apache.commons.net.ftp.FTPReply;
-import org.apache.commons.net.ftp.FTPSClient;
-import org.apache.commons.net.util.KeyManagerUtils;
-import org.apache.commons.net.util.TrustManagerUtils;
 import org.apache.jena.query.DatasetAccessor;
 import org.apache.jena.query.DatasetAccessorFactory;
 import org.apache.jena.rdf.model.Model;
@@ -37,9 +32,21 @@ public class Main {
     private static String voidNS = "http://swlab.ic.uff.br/void.ttl#";
     private static String alignNS = "http://knowledgeweb.semanticweb.org/heterogeneity/alignment#";
 
-    private static String localDir = "./data/EntityRelatednessTestDataset";
+    private static String localDataRoot = "./data/EntityRelatednessTestDataset";
+    private static String localRDFDataRoot = localDataRoot + "/RDF";
+    private static String host = "swlab.ic.uff.br";
+    private static String fusekiURL = "http://" + host + "/fuseki";
+
+    private static String user = "swlab";
+    private static String pass = "fluzao00";
+
     private static String datasetName = "EntityRelatednessTestData";
-    private static String fusekiURL = "http://swlab.ic.uff.br/fuseki";
+    private static String jsonSerializationName = localRDFDataRoot + "/" + datasetName + ".json";
+    private static String xmlSerializationName = localRDFDataRoot + "/" + datasetName + ".rdf";
+    private static String turtleSerializationName = localRDFDataRoot + "/" + datasetName + ".ttl";
+    private static String remoteVoidName = "/void.ttl";
+    private static String remoteOntologyName = "/ontology/" + datasetName + ".rdf";
+    private static String datasetURL = fusekiURL + "/" + datasetName + "/data";
 
     private static MusicScores musicScores = new MusicScores();
     private static MusicRankedPaths musicRankedPaths = new MusicRankedPaths();
@@ -55,10 +62,41 @@ public class Main {
     private static MusicEntityPairs musicEntityPairs = new MusicEntityPairs();
 
     public static void main(String[] args) throws FileNotFoundException, IOException, GeneralSecurityException {
+        createVoID();
         createOntology();
         createDataset();
-        createVoID();
         System.out.println("Fim.");
+    }
+
+    private static void createVoID() throws FileNotFoundException, IOException {
+        Model voidVocab = ModelFactory.createDefaultModel();
+        voidVocab.setNsPrefix("", dataNS);
+        voidVocab.setNsPrefix("align", alignNS);
+        voidVocab.read("http://vocab.deri.ie/void#");
+
+        Model voidData = ModelFactory.createDefaultModel();
+        voidData.createResource(ontologyNS + "EntityRelatednessTestData", VOID.Dataset)
+                .addProperty(DCTerms.description, "The entity relatedness problem refers to the question of "
+                        + "computing the relationship paths that better describe the connectivity between a "
+                        + "given entity pair. This dataset supports the evaluation of approaches that address "
+                        + "the entity relatedness problem. It covers two familiar domains, music and movies, and "
+                        + "uses data available in IMDb and last.fm, which are popular reference datasets in these "
+                        + "domains. The dataset contains 20 entity pairs from each of these domains and, for each "
+                        + "entity pair, a ranked list with 50 relationship paths. It also contains entity ratings "
+                        + "and property relevance scores for the entities and properties used in the paths.");
+
+        (new File(localRDFDataRoot)).mkdirs();
+
+        try (OutputStream out = new FileOutputStream(new File(localRDFDataRoot + "/void.ttl"));) {
+            RDFDataMgr.write(out, voidData, Lang.TURTLE);
+        } finally {
+        }
+
+        try (InputStream in = new FileInputStream(localRDFDataRoot + "/void.ttl")) {
+            HostProxy.upload(host, user, pass, remoteVoidName, in);
+        } finally {
+        }
+
     }
 
     private static void createOntology() throws FileNotFoundException, IOException, GeneralSecurityException {
@@ -110,38 +148,21 @@ public class Main {
         restOfPathElements.addProperty(RDFS.domain, listOfPathElementsClass);
         restOfPathElements.addProperty(RDFS.range, listOfPathElementsClass);
 
-        (new File(localDir + "/RDF/Ontology")).mkdirs();
-        OutputStream out = new FileOutputStream(new File(localDir + "/RDF/Ontology/" + datasetName + ".rdf"));
-        RDFDataMgr.write(out, ontology, Lang.RDFXML);
+        (new File(localRDFDataRoot + "/ontology")).mkdirs();
 
-        File storeFile = new File("/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/security/cacerts");
-        KeyManager keyManager = KeyManagerUtils.createClientKeyManager(storeFile, "changeit");
+        try (OutputStream out = new FileOutputStream(localRDFDataRoot + "/ontology/" + datasetName + ".rdf")) {;
+            RDFDataMgr.write(out, ontology, Lang.RDFXML);
+        } finally {
+        }
 
-        FTPSClient ftpsClient = new FTPSClient(false);
+        try (InputStream in = new FileInputStream(localDataRoot + "/ontology/" + datasetName + ".rdf")) {
+            HostProxy.upload(host, user, pass, remoteOntologyName, in);
+        } finally {
+        }
 
-        ftpsClient.setTrustManager(TrustManagerUtils.getAcceptAllTrustManager());
-        ftpsClient.setKeyManager(keyManager);
-
-        ftpsClient.connect("swlab.ic.uff.br");
-        ftpsClient.login("swlab", "fluzao00");
-        //ftpClient.execAUTH("TLS");
-        ftpsClient.execPBSZ(0);  // Set protection buffer size
-        ftpsClient.execPROT("P"); // Set data channel protection to private
-        ftpsClient.enterLocalPassiveMode();
-        int reply = ftpsClient.getReplyCode();
-        if (FTPReply.isPositiveCompletion(reply))
-            try (InputStream in = new FileInputStream(localDir + "/RDF/Ontology/" + datasetName + ".rdf")) {
-                ftpsClient.storeFile(datasetName + ".rdf", in);
-                System.out.println("salvo");
-            } catch (Exception e) {
-                System.out.println(e.toString());
-            } finally {
-            }
-        ftpsClient.logout();
-        ftpsClient.disconnect();
     }
 
-    private static void createDataset() throws FileNotFoundException {
+    private static void createDataset() throws FileNotFoundException, IOException {
         Model dataset = ModelFactory.createDefaultModel();
         dataset.setNsPrefix("", dataNS);
         dataset.setNsPrefix("align", alignNS);
@@ -167,41 +188,25 @@ public class Main {
                 alignment.addProperty(dataset.createProperty(alignNS + "map"), cell.as(RDFNode.class));
             }
 
-        (new File(localDir + "/RDF")).mkdirs();
-        OutputStream out = new FileOutputStream(new File(localDir + "/RDF/" + datasetName + ".ttl"));
-        RDFDataMgr.write(out, dataset, Lang.TURTLE);
+        (new File(localRDFDataRoot)).mkdirs();
 
-        OutputStream out2 = new FileOutputStream(new File(localDir + "/RDF/" + datasetName + ".rdf"));
-        RDFDataMgr.write(out2, dataset, Lang.RDFXML);
+        try (OutputStream out = new FileOutputStream(turtleSerializationName);) {;
+            RDFDataMgr.write(out, dataset, Lang.TURTLE);
+        } finally {
+        }
 
-        OutputStream out3 = new FileOutputStream(new File(localDir + "/RDF/" + datasetName + ".json"));
-        RDFDataMgr.write(out3, dataset, Lang.JSONLD);
+        try (OutputStream out = new FileOutputStream(xmlSerializationName);) {;
+            RDFDataMgr.write(out, dataset, Lang.TURTLE);
+        } finally {
+        }
 
-        DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(fusekiURL + "/" + datasetName + "/data");
+        try (OutputStream out = new FileOutputStream(jsonSerializationName);) {;
+            RDFDataMgr.write(out, dataset, Lang.JSONLD);
+        } finally {
+        }
+
+        DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(datasetURL);
         accessor.putModel(dataset);
-    }
-
-    private static void createVoID() throws FileNotFoundException {
-        Model voidVocab = ModelFactory.createDefaultModel();
-        voidVocab.setNsPrefix("", dataNS);
-        voidVocab.setNsPrefix("align", alignNS);
-        voidVocab.read("http://vocab.deri.ie/void#");
-
-        Model voidData = ModelFactory.createDefaultModel();
-        voidData.createResource(ontologyNS + "EntityRelatednessTestData", VOID.Dataset)
-                .addProperty(DCTerms.description, "The entity relatedness problem refers to the question of "
-                        + "computing the relationship paths that better describe the connectivity between a "
-                        + "given entity pair. This dataset supports the evaluation of approaches that address "
-                        + "the entity relatedness problem. It covers two familiar domains, music and movies, and "
-                        + "uses data available in IMDb and last.fm, which are popular reference datasets in these "
-                        + "domains. The dataset contains 20 entity pairs from each of these domains and, for each "
-                        + "entity pair, a ranked list with 50 relationship paths. It also contains entity ratings "
-                        + "and property relevance scores for the entities and properties used in the paths.");
-
-        (new File(localDir + "/RDF")).mkdirs();
-        OutputStream out = new FileOutputStream(new File(localDir + "/RDF/void.ttl"));
-        RDFDataMgr.write(out, voidData, Lang.TURTLE);
-
     }
 
 }

@@ -22,3 +22,4 @@ __pycache__/
 /InsertEntitesBD/target/
 /RdfToRelational/target/
 /EntityRelatedness/target/
+/EntityRelatednessTestData/target/
