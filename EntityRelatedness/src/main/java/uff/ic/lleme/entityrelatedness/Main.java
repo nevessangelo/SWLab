@@ -1,12 +1,15 @@
 package uff.ic.lleme.entityrelatedness;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Map;
+import org.apache.commons.net.ftp.FTPSClient;
 import org.apache.jena.query.DatasetAccessor;
 import org.apache.jena.query.DatasetAccessorFactory;
 import org.apache.jena.rdf.model.Model;
@@ -53,7 +56,7 @@ public class Main {
         System.out.println("Fim.");
     }
 
-    private static void createOntology() throws FileNotFoundException {
+    private static void createOntology() throws FileNotFoundException, IOException {
         Model ontology = ModelFactory.createDefaultModel();
         ontology.setNsPrefix("", ontologyNS);
 
@@ -105,6 +108,15 @@ public class Main {
         (new File(localDir + "/RDF/Ontology")).mkdirs();
         OutputStream out = new FileOutputStream(new File(localDir + "/RDF/Ontology/" + datasetName + ".rdf"));
         RDFDataMgr.write(out, ontology, Lang.RDFXML);
+
+        FTPSClient ftpClient = new FTPSClient();
+        ftpClient.connect("swlab.ic.uff.br");
+        ftpClient.login("swlab", "fluzao00");
+        try (InputStream in = new FileInputStream(new File(localDir + "/RDF/Ontology/" + datasetName + ".rdf"))) {
+            ftpClient.storeFile(datasetName + ".rdf", in);
+        } finally {
+        }
+        ftpClient.disconnect();
     }
 
     private static void createDataset() throws FileNotFoundException {
