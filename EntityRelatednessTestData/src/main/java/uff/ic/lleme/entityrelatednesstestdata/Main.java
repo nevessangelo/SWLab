@@ -33,7 +33,7 @@ public class Main {
     private static String alignNS = "http://knowledgeweb.semanticweb.org/heterogeneity/alignment#";
 
     private static String localDataRoot = "./data/EntityRelatednessTestDataset";
-    private static String localRDFDataRoot = localDataRoot + "/RDF";
+    private static String localRDFDataRoot = "./data/RDF";
     private static String host = "swlab.ic.uff.br";
     private static String fusekiURL = "http://" + host + "/fuseki";
 
@@ -155,7 +155,7 @@ public class Main {
         } finally {
         }
 
-        try (InputStream in = new FileInputStream(localDataRoot + "/ontology/" + datasetName + ".rdf")) {
+        try (InputStream in = new FileInputStream(localRDFDataRoot + "/ontology/" + datasetName + ".rdf")) {
             HostProxy.upload(host, user, pass, remoteOntologyName, in);
         } finally {
         }
