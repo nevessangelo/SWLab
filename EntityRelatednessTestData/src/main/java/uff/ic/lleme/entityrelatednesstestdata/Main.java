@@ -27,42 +27,43 @@ import org.apache.jena.vocabulary.XSD;
 
 public class Main {
 
-    private static String ontologyNS = "http://swlab.ic.uff.br/ontologyEntityRelatednessTestDataset.rdf#";
-    private static String dataNS = "http://swlab.ic.uff.br/resource/";
-    private static String voidNS = "http://swlab.ic.uff.br/void.ttl#";
-    private static String alignNS = "http://knowledgeweb.semanticweb.org/heterogeneity/alignment#";
+    private static final String ONTOLOGY_NS = "http://swlab.ic.uff.br/ontologyEntityRelatednessTestDataset.rdf#";
+    private static final String DATA_NS = "http://swlab.ic.uff.br/resource/";
+    private static final String VOID_NS = "http://swlab.ic.uff.br/void.ttl#";
+    private static final String ALIGN_NS = "http://knowledgeweb.semanticweb.org/heterogeneity/alignment#";
 
-    private static String localDataRoot = "./data/EntityRelatednessTestDataset";
-    private static String localRDFDataRoot = "./data/RDF";
-    private static String host = "swlab.ic.uff.br";
-    private static String fusekiURL = "http://" + host + "/fuseki";
+    private static final String DATA_ROOT = "./data/EntityRelatednessTestDataset";
+    private static final String RDF_ROOT = "./data/RDF";
+    private static final String HOST_ADDR = "swlab.ic.uff.br";
+    private static final String FUSEKI_URL = "http://" + HOST_ADDR + "/fuseki";
 
-    private static String user = "";
-    private static String pass = "";
+    private static final String USERNAME = "";
+    private static final String PASSWORD = "";
 
-    private static String datasetName = "EntityRelatednessTestData";
-    private static String jsonSerializationName = localRDFDataRoot + "/" + datasetName + ".json";
-    private static String xmlSerializationName = localRDFDataRoot + "/" + datasetName + ".rdf";
-    private static String turtleSerializationName = localRDFDataRoot + "/" + datasetName + ".ttl";
-    private static String localVoidName = localRDFDataRoot + "/void.ttl";
-    private static String localOntologyName = localRDFDataRoot + "/ontology/" + datasetName + ".rdf";
+    private static final String DATASET_NAME = "EntityRelatednessTestData";
+    private static final String JSON_SERIALIZATION_NAME = RDF_ROOT + "/" + DATASET_NAME + ".json";
+    private static final String XML_SERIALIZATION_NAME = RDF_ROOT + "/" + DATASET_NAME + ".rdf";
+    private static final String TURTLE_SERIALIZATION_NAME = RDF_ROOT + "/" + DATASET_NAME + ".ttl";
+    private static final String LOCAL_VOID_NAME = RDF_ROOT + "/void.ttl";
+    private static final String LOCAL_ONTOLOGY_NAME = RDF_ROOT + "/ontology/" + DATASET_NAME + ".rdf";
 
-    private static String remoteVoidName = "/void.ttl";
-    private static String remoteOntologyName = "/ontology/" + datasetName + ".rdf";
-    private static String datasetURL = fusekiURL + "/" + datasetName + "/data";
+    private static final String REMOTE_VOID_NAME = "/void.ttl";
+    private static final String REMOTE_ONTOLOGY_NAME = "/ontology/" + DATASET_NAME + ".rdf";
+    private static final String DATASET_URL = FUSEKI_URL + "/" + DATASET_NAME + "/data";
 
-    private static MusicScores musicScores = new MusicScores();
-    private static MusicRankedPaths musicRankedPaths = new MusicRankedPaths();
-    private static MusicPropertyRelevanceScore musicPropertyRelevanceScore = new MusicPropertyRelevanceScore();
-    private static MusicEntityMappings musicEntityMapping = new MusicEntityMappings();
-    private static MovieScores movieScores = new MovieScores();
-    private static MovieRankedPaths movieRankedPaths = new MovieRankedPaths();
-    private static MoviePropertyRelevanceScore moviePropertyRelevanceScore = new MoviePropertyRelevanceScore();
-    private static MovieEntityMappings movieEntityMapping = new MovieEntityMappings();
-    private static MusicClassMapping musicClassMapping = new MusicClassMapping();
-    private static MovieClassMapping movieClassMapping = new MovieClassMapping();
-    private static MovieEntityPairs movieEntityPairs = new MovieEntityPairs();
-    private static MusicEntityPairs musicEntityPairs = new MusicEntityPairs();
+    private static final MusicScores MUSIC_SCORES = new MusicScores();
+    private static final MusicRankedPaths MUSIC_RANKED_SCORES = new MusicRankedPaths();
+    private static final MusicPropertyRelevanceScore MUSIC_PROPERTY_RELEVANCE_SCORE = new MusicPropertyRelevanceScore();
+    private static final MusicEntityMappings MUSIC_ENTITY_MAPPINGS = new MusicEntityMappings();
+    private static final MusicClassMapping MUSIC_CLASS_MAPPING = new MusicClassMapping();
+    private static final MusicEntityPairs MUSIC_ENTITY_PAIRS = new MusicEntityPairs();
+
+    private static final MovieScores MOVIE_SCORES = new MovieScores();
+    private static final MovieRankedPaths MOVIE_RANKED_PATHS = new MovieRankedPaths();
+    private static final MoviePropertyRelevanceScore MOVIE_PROPERTY_RELEVANCE_SCORE = new MoviePropertyRelevanceScore();
+    private static final MovieEntityMappings MOVIE_ENTITY_MAPPING = new MovieEntityMappings();
+    private static final MovieClassMapping MOVIE_CLASS_MAPPING = new MovieClassMapping();
+    private static final MovieEntityPairs MOVIE_ENTITY_PAIRS = new MovieEntityPairs();
 
     public static void main(String[] args) throws FileNotFoundException, IOException, GeneralSecurityException {
         createVoID();
@@ -73,12 +74,12 @@ public class Main {
 
     private static void createVoID() throws FileNotFoundException, IOException {
         Model voidVocab = ModelFactory.createDefaultModel();
-        voidVocab.setNsPrefix("", dataNS);
-        voidVocab.setNsPrefix("align", alignNS);
+        voidVocab.setNsPrefix("", DATA_NS);
+        voidVocab.setNsPrefix("align", ALIGN_NS);
         voidVocab.read("http://vocab.deri.ie/void#");
 
         Model voidData = ModelFactory.createDefaultModel();
-        voidData.createResource(ontologyNS + "EntityRelatednessTestData", VOID.Dataset)
+        voidData.createResource(ONTOLOGY_NS + "EntityRelatednessTestData", VOID.Dataset)
                 .addProperty(DCTerms.description, "The entity relatedness problem refers to the question of "
                         + "computing the relationship paths that better describe the connectivity between a "
                         + "given entity pair. This dataset supports the evaluation of approaches that address "
@@ -88,15 +89,15 @@ public class Main {
                         + "entity pair, a ranked list with 50 relationship paths. It also contains entity ratings "
                         + "and property relevance scores for the entities and properties used in the paths.");
 
-        (new File(localRDFDataRoot)).mkdirs();
+        (new File(RDF_ROOT)).mkdirs();
 
-        try (OutputStream out = new FileOutputStream(localVoidName);) {
+        try (OutputStream out = new FileOutputStream(LOCAL_VOID_NAME);) {
             RDFDataMgr.write(out, voidData, Lang.TURTLE);
         } finally {
         }
 
-        try (InputStream in = new FileInputStream(localVoidName)) {
-            HostProxy.upload(host, user, pass, remoteVoidName, in);
+        try (InputStream in = new FileInputStream(LOCAL_VOID_NAME)) {
+            HostProxy.upload(HOST_ADDR, USERNAME, PASSWORD, REMOTE_VOID_NAME, in);
         } finally {
         }
 
@@ -104,62 +105,62 @@ public class Main {
 
     private static void createOntology() throws FileNotFoundException, IOException, GeneralSecurityException {
         Model ontology = ModelFactory.createDefaultModel();
-        ontology.setNsPrefix("", ontologyNS);
+        ontology.setNsPrefix("", ONTOLOGY_NS);
 
-        Resource pathElementClass = ontology.createResource(ontologyNS + "PathElement", RDFS.Class);
-        Property score = ontology.createProperty(ontologyNS + "score");
+        Resource pathElementClass = ontology.createResource(ONTOLOGY_NS + "PathElement", RDFS.Class);
+        Property score = ontology.createProperty(ONTOLOGY_NS + "score");
         score.addProperty(RDFS.domain, pathElementClass);
         score.addProperty(RDFS.range, XSD.xdouble);
-        Resource entityClass = ontology.createResource(ontologyNS + "Entity", RDFS.Class);
+        Resource entityClass = ontology.createResource(ONTOLOGY_NS + "Entity", RDFS.Class);
         entityClass.addProperty(RDFS.subClassOf, pathElementClass);
-        Resource propertyClass = ontology.createResource(ontologyNS + "Property", RDFS.Class);
+        Resource propertyClass = ontology.createResource(ONTOLOGY_NS + "Property", RDFS.Class);
         propertyClass.addProperty(RDFS.subClassOf, pathElementClass);
 
-        Resource entityPairClass = ontology.createResource(ontologyNS + "EntityPair", RDFS.Class);
-        Property first = ontology.createProperty(ontologyNS + "first");
-        Property second = ontology.createProperty(ontologyNS + "second");
+        Resource entityPairClass = ontology.createResource(ONTOLOGY_NS + "EntityPair", RDFS.Class);
+        Property first = ontology.createProperty(ONTOLOGY_NS + "first");
+        Property second = ontology.createProperty(ONTOLOGY_NS + "second");
         first.addProperty(RDFS.domain, entityPairClass);
         first.addProperty(RDFS.range, entityClass);
         second.addProperty(RDFS.domain, entityPairClass);
         second.addProperty(RDFS.range, entityClass);
 
-        Property hasPath = ontology.createProperty(ontologyNS + "hasPath");
+        Property hasPath = ontology.createProperty(ONTOLOGY_NS + "hasPath");
         hasPath.addProperty(RDFS.domain, entityPairClass);
-        hasPath.addProperty(RDFS.range, ontology.createResource(ontologyNS + "Path", RDFS.Class));
+        hasPath.addProperty(RDFS.range, ontology.createResource(ONTOLOGY_NS + "Path", RDFS.Class));
 
-        Resource pathClass = ontology.createResource(ontologyNS + "Path", RDFS.Class);
+        Resource pathClass = ontology.createResource(ONTOLOGY_NS + "Path", RDFS.Class);
         score.addProperty(RDFS.domain, pathClass);
-        Property rank = ontology.createProperty(ontologyNS + "rank");
+        Property rank = ontology.createProperty(ONTOLOGY_NS + "rank");
         rank.addProperty(RDFS.domain, pathClass);
         rank.addProperty(RDFS.range, XSD.xlong);
-        Property expression = ontology.createProperty(ontologyNS + "expression");
+        Property expression = ontology.createProperty(ONTOLOGY_NS + "expression");
         expression.addProperty(RDFS.domain, pathClass);
         expression.addProperty(RDFS.range, XSD.xstring);
 
-        Property hasListOfPathElements = ontology.createProperty(ontologyNS + "hasListOfpathElements");
+        Property hasListOfPathElements = ontology.createProperty(ONTOLOGY_NS + "hasListOfpathElements");
         hasListOfPathElements.addProperty(RDFS.domain, pathClass);
-        hasListOfPathElements.addProperty(RDFS.range, ontology.createResource(ontologyNS + "ListOfPathElements", RDFS.Class));
+        hasListOfPathElements.addProperty(RDFS.range, ontology.createResource(ONTOLOGY_NS + "ListOfPathElements", RDFS.Class));
 
-        Resource listOfPathElementsClass = ontology.createResource(ontologyNS + "ListOfPathElements", RDFS.Class);
+        Resource listOfPathElementsClass = ontology.createResource(ONTOLOGY_NS + "ListOfPathElements", RDFS.Class);
         listOfPathElementsClass.addProperty(RDFS.subClassOf, RDF.List);
-        Property firstPathElement = ontology.createProperty(ontologyNS + "firstPathElement");
+        Property firstPathElement = ontology.createProperty(ONTOLOGY_NS + "firstPathElement");
         firstPathElement.addProperty(RDFS.subPropertyOf, RDF.first);
         firstPathElement.addProperty(RDFS.domain, listOfPathElementsClass);
         firstPathElement.addProperty(RDFS.range, pathElementClass);
-        Property restOfPathElements = ontology.createProperty(ontologyNS + "restOfPathElements");
+        Property restOfPathElements = ontology.createProperty(ONTOLOGY_NS + "restOfPathElements");
         restOfPathElements.addProperty(RDFS.subPropertyOf, RDF.rest);
         restOfPathElements.addProperty(RDFS.domain, listOfPathElementsClass);
         restOfPathElements.addProperty(RDFS.range, listOfPathElementsClass);
 
-        (new File(localRDFDataRoot + "/ontology")).mkdirs();
+        (new File(RDF_ROOT + "/ontology")).mkdirs();
 
-        try (OutputStream out = new FileOutputStream(localOntologyName)) {;
+        try (OutputStream out = new FileOutputStream(LOCAL_ONTOLOGY_NAME)) {
             RDFDataMgr.write(out, ontology, Lang.RDFXML);
         } finally {
         }
 
-        try (InputStream in = new FileInputStream(localOntologyName)) {
-            HostProxy.upload(host, user, pass, remoteOntologyName, in);
+        try (InputStream in = new FileInputStream(LOCAL_ONTOLOGY_NAME)) {
+            HostProxy.upload(HOST_ADDR, USERNAME, PASSWORD, REMOTE_ONTOLOGY_NAME, in);
         } finally {
         }
 
@@ -167,48 +168,48 @@ public class Main {
 
     private static void createDataset() throws FileNotFoundException, IOException {
         Model dataset = ModelFactory.createDefaultModel();
-        dataset.setNsPrefix("", dataNS);
-        dataset.setNsPrefix("align", alignNS);
+        dataset.setNsPrefix("", DATA_NS);
+        dataset.setNsPrefix("align", ALIGN_NS);
 
-        Resource alignmentClass = dataset.createResource(alignNS + "Alignment");
+        Resource alignmentClass = dataset.createResource(ALIGN_NS + "Alignment");
         Resource alignment = dataset.createResource(alignmentClass);
 
-        for (Map.Entry<String, ArrayList<Pair>> entry : movieEntityMapping.entrySet())
+        for (Map.Entry<String, ArrayList<Pair>> entry : MOVIE_ENTITY_MAPPING.entrySet())
             for (Pair pair : entry.getValue()) {
-                Resource cell = dataset.createResource(ontologyNS + pair.label, dataset.createResource(alignNS + "Cell"));
-                cell.addProperty(dataset.createProperty(alignNS + "entity1"), pair.entity1);
-                cell.addProperty(dataset.createProperty(alignNS + "entity2"), pair.entity2);
-                cell.addProperty(dataset.createProperty(alignNS + "relation"), "=");
-                alignment.addProperty(dataset.createProperty(alignNS + "map"), cell.as(RDFNode.class));
+                Resource cell = dataset.createResource(ONTOLOGY_NS + pair.label, dataset.createResource(ALIGN_NS + "Cell"));
+                cell.addProperty(dataset.createProperty(ALIGN_NS + "entity1"), pair.entity1);
+                cell.addProperty(dataset.createProperty(ALIGN_NS + "entity2"), pair.entity2);
+                cell.addProperty(dataset.createProperty(ALIGN_NS + "relation"), "=");
+                alignment.addProperty(dataset.createProperty(ALIGN_NS + "map"), cell.as(RDFNode.class));
             }
 
-        for (Map.Entry<String, ArrayList<Pair>> entry : musicEntityMapping.entrySet())
+        for (Map.Entry<String, ArrayList<Pair>> entry : MUSIC_ENTITY_MAPPINGS.entrySet())
             for (Pair pair : entry.getValue()) {
-                Resource cell = dataset.createResource(ontologyNS + pair.label, dataset.createResource(alignNS + "Cell"));
-                cell.addProperty(dataset.createProperty(alignNS + "entity1"), pair.entity1);
-                cell.addProperty(dataset.createProperty(alignNS + "entity2"), pair.entity2);
-                cell.addProperty(dataset.createProperty(alignNS + "relation"), "=");
-                alignment.addProperty(dataset.createProperty(alignNS + "map"), cell.as(RDFNode.class));
+                Resource cell = dataset.createResource(ONTOLOGY_NS + pair.label, dataset.createResource(ALIGN_NS + "Cell"));
+                cell.addProperty(dataset.createProperty(ALIGN_NS + "entity1"), pair.entity1);
+                cell.addProperty(dataset.createProperty(ALIGN_NS + "entity2"), pair.entity2);
+                cell.addProperty(dataset.createProperty(ALIGN_NS + "relation"), "=");
+                alignment.addProperty(dataset.createProperty(ALIGN_NS + "map"), cell.as(RDFNode.class));
             }
 
-        (new File(localRDFDataRoot)).mkdirs();
+        (new File(RDF_ROOT)).mkdirs();
 
-        try (OutputStream out = new FileOutputStream(turtleSerializationName);) {;
+        try (OutputStream out = new FileOutputStream(TURTLE_SERIALIZATION_NAME);) {
             RDFDataMgr.write(out, dataset, Lang.TURTLE);
         } finally {
         }
 
-        try (OutputStream out = new FileOutputStream(xmlSerializationName);) {;
+        try (OutputStream out = new FileOutputStream(XML_SERIALIZATION_NAME);) {
             RDFDataMgr.write(out, dataset, Lang.TURTLE);
         } finally {
         }
 
-        try (OutputStream out = new FileOutputStream(jsonSerializationName);) {;
+        try (OutputStream out = new FileOutputStream(JSON_SERIALIZATION_NAME);) {
             RDFDataMgr.write(out, dataset, Lang.JSONLD);
         } finally {
         }
 
-        DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(datasetURL);
+        DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(DATASET_URL);
         accessor.putModel(dataset);
     }
 
