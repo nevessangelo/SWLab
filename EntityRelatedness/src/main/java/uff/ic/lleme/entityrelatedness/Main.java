@@ -7,9 +7,14 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.security.GeneralSecurityException;
 import java.util.ArrayList;
 import java.util.Map;
+import javax.net.ssl.KeyManager;
+import org.apache.commons.net.ftp.FTPReply;
 import org.apache.commons.net.ftp.FTPSClient;
+import org.apache.commons.net.util.KeyManagerUtils;
+import org.apache.commons.net.util.TrustManagerUtils;
 import org.apache.jena.query.DatasetAccessor;
 import org.apache.jena.query.DatasetAccessorFactory;
 import org.apache.jena.rdf.model.Model;
@@ -49,14 +54,14 @@ public class Main {
     private static MovieEntityPairs movieEntityPairs = new MovieEntityPairs();
     private static MusicEntityPairs musicEntityPairs = new MusicEntityPairs();
 
-    public static void main(String[] args) throws FileNotFoundException, IOException {
+    public static void main(String[] args) throws FileNotFoundException, IOException, GeneralSecurityException {
         createOntology();
         createDataset();
         createVoID();
         System.out.println("Fim.");
     }
 
-    private static void createOntology() throws FileNotFoundException, IOException {
+    private static void createOntology() throws FileNotFoundException, IOException, GeneralSecurityException {
         Model ontology = ModelFactory.createDefaultModel();
         ontology.setNsPrefix("", ontologyNS);
 
@@ -109,14 +114,31 @@ public class Main {
         OutputStream out = new FileOutputStream(new File(localDir + "/RDF/Ontology/" + datasetName + ".rdf"));
         RDFDataMgr.write(out, ontology, Lang.RDFXML);
 
-        FTPSClient ftpClient = new FTPSClient();
-        ftpClient.connect("swlab.ic.uff.br");
-        ftpClient.login("swlab", "fluzao00");
-        try (InputStream in = new FileInputStream(new File(localDir + "/RDF/Ontology/" + datasetName + ".rdf"))) {
-            ftpClient.storeFile(datasetName + ".rdf", in);
-        } finally {
-        }
-        ftpClient.disconnect();
+        File storeFile = new File("/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre/lib/security/cacerts");
+        KeyManager keyManager = KeyManagerUtils.createClientKeyManager(storeFile, "changeit");
+
+        FTPSClient ftpsClient = new FTPSClient(false);
+
+        ftpsClient.setTrustManager(TrustManagerUtils.getAcceptAllTrustManager());
+        ftpsClient.setKeyManager(keyManager);
+
+        ftpsClient.connect("swlab.ic.uff.br");
+        ftpsClient.login("swlab", "fluzao00");
+        //ftpClient.execAUTH("TLS");
+        ftpsClient.execPBSZ(0);  // Set protection buffer size
+        ftpsClient.execPROT("P"); // Set data channel protection to private
+        ftpsClient.enterLocalPassiveMode();
+        int reply = ftpsClient.getReplyCode();
+        if (FTPReply.isPositiveCompletion(reply))
+            try (InputStream in = new FileInputStream(localDir + "/RDF/Ontology/" + datasetName + ".rdf")) {
+                ftpsClient.storeFile(datasetName + ".rdf", in);
+                System.out.println("salvo");
+            } catch (Exception e) {
+                System.out.println(e.toString());
+            } finally {
+            }
+        ftpsClient.logout();
+        ftpsClient.disconnect();
     }
 
     private static void createDataset() throws FileNotFoundException {
