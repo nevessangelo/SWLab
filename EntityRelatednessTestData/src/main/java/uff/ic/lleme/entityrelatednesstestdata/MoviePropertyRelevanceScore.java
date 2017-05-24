@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 public class MoviePropertyRelevanceScore extends HashMap<String, Double> {
 
     public MoviePropertyRelevanceScore() {
-        try (InputStream in = new FileInputStream("./data/EntityRelatednessTestDataset/movie_property_relevance_scores/properties.txt");) {
+        try (InputStream in = new FileInputStream(Config.DATA_ROOT + "/movie_property_relevance_scores/properties.txt");) {
             Scanner sc = new Scanner(in);
             int count = 0;
             while (sc.hasNext()) {

@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 public class MusicPropertyRelevanceScore extends HashMap<String, Double> {
 
     public MusicPropertyRelevanceScore() {
-        try (InputStream in = new FileInputStream("./data/EntityRelatednessTestDataset/music_property_relevance_scores/properties.txt");) {
+        try (InputStream in = new FileInputStream(Config.DATA_ROOT + "/music_property_relevance_scores/properties.txt");) {
             Scanner sc = new Scanner(in);
             int count = 0;
             while (sc.hasNext()) {

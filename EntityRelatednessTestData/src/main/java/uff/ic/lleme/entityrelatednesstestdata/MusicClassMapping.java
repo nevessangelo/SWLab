@@ -14,7 +14,7 @@ public class MusicClassMapping extends ArrayList<Pair> {
     public MusicClassMapping() {
         String mso = "http://purl.org/ontology/mo/";
         String dbo = "http://dbpedia.org/ontology/";
-        try (InputStream in = new FileInputStream("./data/EntityRelatednessTestDataset/music_class_mapping.txt");) {
+        try (InputStream in = new FileInputStream(Config.DATA_ROOT + "/music_class_mapping.txt");) {
             Scanner sc = new Scanner(in);
             int count = 0;
             while (sc.hasNext()) {

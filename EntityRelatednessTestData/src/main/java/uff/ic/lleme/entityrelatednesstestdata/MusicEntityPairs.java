@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 public class MusicEntityPairs extends ArrayList<Pair> {
 
     public MusicEntityPairs() {
-        try (InputStream in = new FileInputStream("./data/EntityRelatednessTestDataset/music_entity_pairs.txt");) {
+        try (InputStream in = new FileInputStream(Config.DATA_ROOT + "/music_entity_pairs.txt");) {
             Scanner sc = new Scanner(in);
             int count = 0;
             while (sc.hasNext()) {

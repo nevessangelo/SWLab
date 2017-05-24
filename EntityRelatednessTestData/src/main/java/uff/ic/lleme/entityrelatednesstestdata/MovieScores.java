@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 public class MovieScores extends HashMap<String, ArrayList<Score>> {
 
     public MovieScores() {
-        File dir = new File("./data/EntityRelatednessTestDataset/movie_scores");
+        File dir = new File(Config.DATA_ROOT + "/movie_scores");
         File[] files = dir.listFiles();
         for (File f : files) {
             String name = (f.getName().split("\\.")[1]);
