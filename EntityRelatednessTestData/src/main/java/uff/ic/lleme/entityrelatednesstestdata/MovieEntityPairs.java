@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 public class MovieEntityPairs extends ArrayList<Pair> {
 
     public MovieEntityPairs() {
-        try (InputStream in = new FileInputStream(Config.DATA_ROOT + "/movie_entity_pairs.txt");) {
+        try (InputStream in = new FileInputStream(MyConfig.DATA_ROOT + "/movie_entity_pairs.txt");) {
             Scanner sc = new Scanner(in);
             int count = 0;
             while (sc.hasNext()) {

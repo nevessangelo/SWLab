@@ -14,7 +14,7 @@ public class MovieClassMapping extends ArrayList<Pair> {
     public MovieClassMapping() {
         String mvo = "http://www.movieontology.org/2010/01/movieontology.owl#";
         String dbo = "http://dbpedia.org/ontology/";
-        try (InputStream in = new FileInputStream(Config.DATA_ROOT + "/movie_class_mapping.txt");) {
+        try (InputStream in = new FileInputStream(MyConfig.DATA_ROOT + "/movie_class_mapping.txt");) {
             Scanner sc = new Scanner(in);
             int count = 0;
             while (sc.hasNext()) {

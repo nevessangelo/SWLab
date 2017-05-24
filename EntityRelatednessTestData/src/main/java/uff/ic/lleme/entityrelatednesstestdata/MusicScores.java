@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 public class MusicScores extends HashMap<String, ArrayList<Score>> {
 
     public MusicScores() {
-        File dir = new File(Config.DATA_ROOT + "/music_scores");
+        File dir = new File(MyConfig.DATA_ROOT + "/music_scores");
         File[] files = dir.listFiles();
         for (File f : files) {
             String name = (f.getName().split("\\.")[1]);

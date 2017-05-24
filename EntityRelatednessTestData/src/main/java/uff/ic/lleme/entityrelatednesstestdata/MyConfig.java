@@ -1,6 +1,11 @@
 package uff.ic.lleme.entityrelatednesstestdata;
 
-public class Config {
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
+public class MyConfig {
 
     public static final String DATA_ROOT = "../../EntityRelatednessData/v3/txt";
     public static final String RDF_ROOT = "../../EntityRelatednessData/v3/rdf";
@@ -12,17 +17,26 @@ public class Config {
 
     public static final String LOCAL_VOID_NAME = RDF_ROOT + "/void.ttl";
     public static final String LOCAL_ONTOLOGY_NAME = RDF_ROOT + "/ontology/" + DATASET_NAME + ".rdf";
-    public static final String XML_SERIALIZATION_NAME = RDF_ROOT + "/" + Config.DATASET_NAME + ".rdf";
-    public static final String TURTLE_SERIALIZATION_NAME = RDF_ROOT + "/" + Config.DATASET_NAME + ".ttl";
+    public static final String XML_SERIALIZATION_NAME = RDF_ROOT + "/" + MyConfig.DATASET_NAME + ".rdf";
+    public static final String TURTLE_SERIALIZATION_NAME = RDF_ROOT + "/" + MyConfig.DATASET_NAME + ".ttl";
     public static final String JSON_SERIALIZATION_NAME = RDF_ROOT + "/" + DATASET_NAME + ".json";
 
     public static final String HOST_ADDR = "swlab.ic.uff.br";
-    public static final String PASSWORD = "";
-    public static final String USERNAME = "";
+    public static String USERNAME = "";
+    public static String PASSWORD = "";
     public static final String REMOTE_VOID_NAME = "/void.ttl";
-    public static final String REMOTE_ONTOLOGY_NAME = "/ontology/" + Config.DATASET_NAME + ".rdf";
+    public static final String REMOTE_ONTOLOGY_NAME = "/ontology/" + MyConfig.DATASET_NAME + ".rdf";
 
     public static final String FUSEKI_URL = "http://" + HOST_ADDR + "/fuseki";
     public static final String DATASET_URL = FUSEKI_URL + "/" + DATASET_NAME + "/data";
 
+    public static void configure(String file) throws IOException {
+        try (InputStream input = new FileInputStream(file);) {
+            Properties prop = new Properties();
+            prop.load(input);
+
+            USERNAME = prop.getProperty("username");
+            PASSWORD = prop.getProperty("password");
+        }
+    }
 }

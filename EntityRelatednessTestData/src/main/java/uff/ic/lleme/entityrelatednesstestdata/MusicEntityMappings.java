@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 public class MusicEntityMappings extends HashMap<String, ArrayList<Pair>> {
 
     public MusicEntityMappings() {
-        File dir = new File(Config.DATA_ROOT + "/music_entity_mappings");
+        File dir = new File(MyConfig.DATA_ROOT + "/music_entity_mappings");
         File[] files = dir.listFiles();
         for (File f : files) {
             String name = (f.getName().split("\\.")[1]);
