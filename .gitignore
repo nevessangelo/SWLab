@@ -8,6 +8,7 @@ __pycache__/
 .pydevproject
 *.log
 *.class
+*.properties
 
 
 /resource/target
