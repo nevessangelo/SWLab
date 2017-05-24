@@ -1,4 +1,4 @@
-package uff.ic.lleme.entityrelatednesstestdata;
+package uff.ic.lleme.entityrelatednesstestdata.util;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -7,8 +7,8 @@ import java.util.Properties;
 
 public class MyConfig {
 
-    public static final String DATA_ROOT = "../../EntityRelatednessData/v3/txt";
-    public static final String RDF_ROOT = "../../EntityRelatednessData/v3/rdf";
+    public static final String DATA_ROOT = "../../EntityRelatednessTestData/v3/txt";
+    public static final String RDF_ROOT = "../../EntityRelatednessTestData/v3/rdf";
     public static final String DATASET_NAME = "EntityRelatednessTestData";
 
     public static final String ALIGN_NS = "http://knowledgeweb.semanticweb.org/heterogeneity/alignment#";

@@ -25,6 +25,8 @@ import org.apache.jena.vocabulary.RDFS;
 import org.apache.jena.vocabulary.VOID;
 import org.apache.jena.vocabulary.XSD;
 import org.apache.log4j.PropertyConfigurator;
+import uff.ic.lleme.entityrelatednesstestdata.util.HostProxy;
+import uff.ic.lleme.entityrelatednesstestdata.util.MyConfig;
 
 public class Main {
 
@@ -43,12 +45,13 @@ public class Main {
     private static final MovieEntityPairs MOVIE_ENTITY_PAIRS = new MovieEntityPairs();
 
     public static void main(String[] args) throws FileNotFoundException, IOException, GeneralSecurityException {
-        PropertyConfigurator.configure("./src/main/resources/conf/log4j.properties");
-        MyConfig.configure("./src/main/resources/conf/entityrelatednesstestdata.properties");
+        PropertyConfigurator.configure("./resources/conf/log4j.properties");
+        MyConfig.configure("./resources/conf/entityrelatednesstestdata.properties");
 
         createVoID();
         createOntology();
         createDataset();
+
         System.out.println("Fim.");
     }
 
