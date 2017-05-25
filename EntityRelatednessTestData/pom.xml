@@ -47,5 +47,5 @@
             </resource>
         </resources>
     </build>
-    <name>EntityRelatednessTestData_v3</name>
+    <name>EntityRelatednessTestData</name>
 </project>
