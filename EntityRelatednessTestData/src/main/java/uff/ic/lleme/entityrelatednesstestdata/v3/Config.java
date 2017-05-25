@@ -22,8 +22,8 @@ public class Config {
     public static final String JSON_SERIALIZATION_NAME = RDF_ROOT + "/" + DATASET_NAME + ".json";
 
     public static final String HOST_ADDR = "swlab.ic.uff.br";
-    public static String USERNAME = "";
-    public static String PASSWORD = "";
+    public static String USERNAME = null;
+    public static String PASSWORD = null;
     public static final String REMOTE_VOID_NAME = "/void.ttl";
     public static final String ONTOLOGY_REMOTE_DIR = "/ontology/" + DATASET_NAME;
     public static final String REMOTE_ONTOLOGY_NAME = "/ontology/" + DATASET_NAME + "/v3.rdf";
