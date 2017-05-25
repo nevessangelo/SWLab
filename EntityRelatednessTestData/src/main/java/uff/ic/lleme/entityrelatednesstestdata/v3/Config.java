@@ -8,7 +8,7 @@ import java.util.Properties;
 public class Config {
 
     public static final String DATA_ROOT = "./resources/data/v3";
-    public static final String RDF_ROOT = "../../EntityRelatednessTestData_v3";
+    public static final String RDF_ROOT = "../../EntityRelatednessTestData";
     public static final String DATASET_NAME = "EntityRelatednessTestData";
 
     public static final String ALIGN_NS = "http://knowledgeweb.semanticweb.org/heterogeneity/alignment#";
@@ -16,10 +16,10 @@ public class Config {
     public static final String DATA_NS = "http://swlab.ic.uff.br/resource/";
 
     public static final String LOCAL_VOID_NAME = DATA_ROOT + "/void.ttl";
-    public static final String LOCAL_ONTOLOGY_NAME = RDF_ROOT + "/ontology/" + DATASET_NAME + ".rdf";
-    public static final String XML_SERIALIZATION_NAME = RDF_ROOT + "/" + DATASET_NAME + ".rdf";
-    public static final String TURTLE_SERIALIZATION_NAME = RDF_ROOT + "/" + DATASET_NAME + ".ttl";
-    public static final String JSON_SERIALIZATION_NAME = RDF_ROOT + "/" + DATASET_NAME + ".json";
+    public static final String LOCAL_ONTOLOGY_NAME = RDF_ROOT + "/ontology/" + DATASET_NAME + "_v3.rdf";
+    public static final String XML_SERIALIZATION_NAME = RDF_ROOT + "/" + DATASET_NAME + "_v3.rdf";
+    public static final String TURTLE_SERIALIZATION_NAME = RDF_ROOT + "/" + DATASET_NAME + "_v3.ttl";
+    public static final String JSON_SERIALIZATION_NAME = RDF_ROOT + "/" + DATASET_NAME + "_v3.json";
 
     public static final String HOST_ADDR = "swlab.ic.uff.br";
     public static String USERNAME = null;
