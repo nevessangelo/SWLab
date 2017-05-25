@@ -5,9 +5,9 @@ import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import uff.ic.swlab.commons.util.Config;
-import uff.ic.swlab.commons.util.adapter.FusekiServer;
-import uff.ic.swlab.commons.util.helper.VoIDHelper;
+import uff.ic.swlab.datasetcrawler.util.Config;
+import uff.ic.swlab.datasetcrawler.adapter.FusekiServer;
+import uff.ic.swlab.datasetcrawler.helper.VoIDHelper;
 import uff.ic.swlab.datasetcrawler.adapter.Dataset;
 
 public class GetVoIDTask implements Runnable {

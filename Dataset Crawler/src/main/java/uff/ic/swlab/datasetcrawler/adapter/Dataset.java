@@ -27,9 +27,9 @@ import org.apache.jena.riot.WebContent;
 import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
 import org.apache.jena.sparql.vocabulary.FOAF;
 import org.apache.jena.vocabulary.DCTerms;
-import uff.ic.swlab.commons.util.Config;
-import uff.ic.swlab.commons.util.Executor;
-import uff.ic.swlab.commons.util.helper.URLHelper;
+import uff.ic.swlab.datasetcrawler.util.Config;
+import uff.ic.swlab.datasetcrawler.util.Executor;
+import uff.ic.swlab.datasetcrawler.helper.URLHelper;
 
 public class Dataset {
 

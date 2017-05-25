@@ -19,10 +19,8 @@ import org.apache.jena.rdf.model.RDFNode;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
-import org.apache.jena.vocabulary.DCTerms;
 import org.apache.jena.vocabulary.RDF;
 import org.apache.jena.vocabulary.RDFS;
-import org.apache.jena.vocabulary.VOID;
 import org.apache.jena.vocabulary.XSD;
 import org.apache.log4j.PropertyConfigurator;
 import uff.ic.swlab.commons.util.Host;
@@ -47,42 +45,10 @@ public class Main {
         PropertyConfigurator.configure("./resources/conf/log4j.properties");
         MyConfig.configure("./resources/conf/entityrelatednesstestdata.properties");
 
-        createVoID();
         createOntology();
         createDataset();
 
         System.out.println("Fim.");
-    }
-
-    private static void createVoID() throws FileNotFoundException, IOException {
-        Model voidVocab = ModelFactory.createDefaultModel();
-        voidVocab.setNsPrefix("", MyConfig.DATA_NS);
-        voidVocab.setNsPrefix("align", MyConfig.ALIGN_NS);
-        voidVocab.read("http://vocab.deri.ie/void#");
-
-        Model voidData = ModelFactory.createDefaultModel();
-        voidData.createResource(MyConfig.ONTOLOGY_NS + "EntityRelatednessTestData", VOID.Dataset)
-                .addProperty(DCTerms.description, "The entity relatedness problem refers to the question of "
-                        + "computing the relationship paths that better describe the connectivity between a "
-                        + "given entity pair. This dataset supports the evaluation of approaches that address "
-                        + "the entity relatedness problem. It covers two familiar domains, music and movies, and "
-                        + "uses data available in IMDb and last.fm, which are popular reference datasets in these "
-                        + "domains. The dataset contains 20 entity pairs from each of these domains and, for each "
-                        + "entity pair, a ranked list with 50 relationship paths. It also contains entity ratings "
-                        + "and property relevance scores for the entities and properties used in the paths.");
-
-        (new File(MyConfig.RDF_ROOT)).mkdirs();
-
-        try (OutputStream out = new FileOutputStream(MyConfig.LOCAL_VOID_NAME);) {
-            RDFDataMgr.write(out, voidData, Lang.TURTLE);
-        } finally {
-        }
-
-        try (InputStream in = new FileInputStream(MyConfig.LOCAL_VOID_NAME)) {
-            Host.uploadViaFTP(MyConfig.HOST_ADDR, MyConfig.USERNAME, MyConfig.PASSWORD, MyConfig.REMOTE_VOID_NAME, in);
-        } finally {
-        }
-
     }
 
     private static void createOntology() throws FileNotFoundException, IOException, GeneralSecurityException {

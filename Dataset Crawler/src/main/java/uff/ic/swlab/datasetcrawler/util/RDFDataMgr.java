@@ -1,4 +1,4 @@
-package uff.ic.swlab.commons.util.riot;
+package uff.ic.swlab.datasetcrawler.util;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -39,9 +39,8 @@ import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFLanguages;
 import org.apache.jena.riot.WebContent;
 import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
-import uff.ic.swlab.commons.util.Config;
-import uff.ic.swlab.commons.util.Executor;
-import uff.ic.swlab.commons.util.helper.URLHelper;
+import uff.ic.swlab.datasetcrawler.util.Config;
+import uff.ic.swlab.datasetcrawler.helper.URLHelper;
 
 public abstract class RDFDataMgr {
 

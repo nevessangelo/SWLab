@@ -21,15 +21,13 @@ public class UpdateVoid {
         PropertyConfigurator.configure("./resources/conf/log4j.properties");
         MyConfig.configure("./resources/conf/entityrelatednesstestdata.properties");
 
-        Model model = (new SWLABVoID()).getModel();
+        Model void_ = (new SWLABVoID()).getModel();
 
         (new File(MyConfig.RDF_ROOT)).mkdirs();
-
         try (OutputStream out = new FileOutputStream(MyConfig.LOCAL_VOID_NAME);) {
-            RDFDataMgr.write(out, model, Lang.TURTLE);
+            RDFDataMgr.write(out, void_, Lang.TURTLE);
         } finally {
         }
-
         try (InputStream in = new FileInputStream(MyConfig.LOCAL_VOID_NAME)) {
             Host.uploadViaFTP(MyConfig.HOST_ADDR, MyConfig.USERNAME, MyConfig.PASSWORD, MyConfig.REMOTE_VOID_NAME, in);
         } finally {

@@ -6,8 +6,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.stream.Stream;
 import org.apache.log4j.PropertyConfigurator;
-import uff.ic.swlab.commons.util.Config;
-import uff.ic.swlab.commons.util.adapter.FusekiServer;
+import uff.ic.swlab.datasetcrawler.util.Config;
+import uff.ic.swlab.datasetcrawler.adapter.FusekiServer;
 import uff.ic.swlab.datasetcrawler.adapter.Dataset;
 
 public class Main {

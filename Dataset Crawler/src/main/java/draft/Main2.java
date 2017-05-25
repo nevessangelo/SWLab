@@ -5,7 +5,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import uff.ic.swlab.commons.util.adapter.FusekiServer;
+import uff.ic.swlab.datasetcrawler.adapter.FusekiServer;
 import uff.ic.swlab.datasetcrawler.GetVoIDTask;
 import uff.ic.swlab.datasetcrawler.LODCrawler;
 

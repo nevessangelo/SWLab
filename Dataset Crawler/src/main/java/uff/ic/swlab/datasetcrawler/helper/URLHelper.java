@@ -1,4 +1,4 @@
-package uff.ic.swlab.commons.util.helper;
+package uff.ic.swlab.datasetcrawler.helper;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -14,8 +14,8 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 import org.apache.commons.lang3.StringUtils;
-import uff.ic.swlab.commons.util.Config;
-import uff.ic.swlab.commons.util.Executor;
+import uff.ic.swlab.datasetcrawler.util.Config;
+import uff.ic.swlab.datasetcrawler.util.Executor;
 
 public abstract class URLHelper {
 
