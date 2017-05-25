@@ -7,7 +7,7 @@ import java.util.Properties;
 
 public class Config {
 
-    public static final String DATA_ROOT = "./resources/data";
+    public static final String DATA_ROOT = "./resources/data/v3";
     public static final String RDF_ROOT = "../../EntityRelatednessTestData_v3";
     public static final String DATASET_NAME = "EntityRelatednessTestData";
 
