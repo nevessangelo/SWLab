@@ -7,7 +7,7 @@ import java.util.Properties;
 
 public class MyConfig {
 
-    public static final String DATA_ROOT = "../../EntityRelatednessTestData/v3/txt";
+    public static final String DATA_ROOT = "./resources/data";
     public static final String RDF_ROOT = "../../EntityRelatednessTestData/v3/rdf";
     public static final String DATASET_NAME = "EntityRelatednessTestData";
 
@@ -15,7 +15,7 @@ public class MyConfig {
     public static final String ONTOLOGY_NS = "http://swlab.ic.uff.br/ontologyEntityRelatednessTestDataset.rdf#";
     public static final String DATA_NS = "http://swlab.ic.uff.br/resource/";
 
-    public static final String LOCAL_VOID_NAME = RDF_ROOT + "/void.ttl";
+    public static final String LOCAL_VOID_NAME = DATA_ROOT + "/void.ttl";
     public static final String LOCAL_ONTOLOGY_NAME = RDF_ROOT + "/ontology/" + DATASET_NAME + ".rdf";
     public static final String XML_SERIALIZATION_NAME = RDF_ROOT + "/" + MyConfig.DATASET_NAME + ".rdf";
     public static final String TURTLE_SERIALIZATION_NAME = RDF_ROOT + "/" + MyConfig.DATASET_NAME + ".ttl";
