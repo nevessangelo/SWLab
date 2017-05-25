@@ -1,13 +1,13 @@
-package uff.ic.lleme.entityrelatednesstestdata.util;
+package uff.ic.swlab.commons.util;
 
 import java.io.IOException;
 import java.io.InputStream;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPReply;
 
-public class HostProxy {
+public class Host {
 
-    public static void upload(String server, String user, String pass, String remoteName, final InputStream in) throws IOException {
+    public static void uploadViaFTP(String server, String user, String pass, String remoteName, final InputStream in) throws IOException {
         FTPClient ftpClient = new FTPClient();
         ftpClient.connect(server);
         if (FTPReply.isPositiveCompletion(ftpClient.getReplyCode())) {

@@ -1,6 +1,5 @@
 package uff.ic.lleme.entityrelatednesstestdata;
 
-import uff.ic.lleme.entityrelatednesstestdata.util.MyConfig;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

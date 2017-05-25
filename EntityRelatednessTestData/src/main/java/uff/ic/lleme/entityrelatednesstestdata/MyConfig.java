@@ -1,4 +1,4 @@
-package uff.ic.lleme.entityrelatednesstestdata.util;
+package uff.ic.lleme.entityrelatednesstestdata;
 
 import java.io.FileInputStream;
 import java.io.IOException;

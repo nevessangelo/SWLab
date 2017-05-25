@@ -25,8 +25,7 @@ import org.apache.jena.vocabulary.RDFS;
 import org.apache.jena.vocabulary.VOID;
 import org.apache.jena.vocabulary.XSD;
 import org.apache.log4j.PropertyConfigurator;
-import uff.ic.lleme.entityrelatednesstestdata.util.HostProxy;
-import uff.ic.lleme.entityrelatednesstestdata.util.MyConfig;
+import uff.ic.swlab.commons.util.Host;
 
 public class Main {
 
@@ -80,7 +79,7 @@ public class Main {
         }
 
         try (InputStream in = new FileInputStream(MyConfig.LOCAL_VOID_NAME)) {
-            HostProxy.upload(MyConfig.HOST_ADDR, MyConfig.USERNAME, MyConfig.PASSWORD, MyConfig.REMOTE_VOID_NAME, in);
+            Host.uploadViaFTP(MyConfig.HOST_ADDR, MyConfig.USERNAME, MyConfig.PASSWORD, MyConfig.REMOTE_VOID_NAME, in);
         } finally {
         }
 
@@ -143,7 +142,7 @@ public class Main {
         }
 
         try (InputStream in = new FileInputStream(MyConfig.LOCAL_ONTOLOGY_NAME)) {
-            HostProxy.upload(MyConfig.HOST_ADDR, MyConfig.USERNAME, MyConfig.PASSWORD, MyConfig.REMOTE_ONTOLOGY_NAME, in);
+            Host.uploadViaFTP(MyConfig.HOST_ADDR, MyConfig.USERNAME, MyConfig.PASSWORD, MyConfig.REMOTE_ONTOLOGY_NAME, in);
         } finally {
         }
 
