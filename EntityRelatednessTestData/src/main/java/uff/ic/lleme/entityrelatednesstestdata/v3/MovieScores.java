@@ -1,4 +1,4 @@
-package uff.ic.lleme.entityrelatednesstestdata;
+package uff.ic.lleme.entityrelatednesstestdata.v3;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -11,10 +11,10 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class MusicEntityMappings extends HashMap<String, ArrayList<Pair>> {
+public class MovieScores extends HashMap<String, ArrayList<Score>> {
 
-    public MusicEntityMappings() {
-        File dir = new File(MyConfig.DATA_ROOT + "/music_entity_mappings");
+    public MovieScores() {
+        File dir = new File(Config.DATA_ROOT + "/movie_scores");
         File[] files = dir.listFiles();
         for (File f : files) {
             String name = (f.getName().split("\\.")[1]);
@@ -27,28 +27,20 @@ public class MusicEntityMappings extends HashMap<String, ArrayList<Pair>> {
                     count++;
                     if (count > 1 && linha != null && !linha.equals("")) {
                         String[] cols = linha.split("\t");
-                        try {
-                            cols[0] = cols[0].trim();
-                            cols[1] = cols[1].trim();
-                            cols[2] = cols[2].trim();
-                            cols[3] = cols[3].trim();
-                        } catch (Exception e) {
-                            System.out.println(e.toString());
-                            System.out.println(String.format("Erro: class -> %1s, arq -> %1s, line -> %1s.", "MusicEntityMappings", f.getName(), linha));
-                            continue;
-                        }
-                        ArrayList<Pair> lista = get(name);
+                        cols[0] = cols[0].trim();
+                        cols[1] = cols[1].trim();
+                        ArrayList<Score> lista = get(name);
                         if (lista == null) {
                             lista = new ArrayList<>();
                             put(name, lista);
                         }
-                        lista.add(new Pair(cols[0], cols[1], cols[2], cols[3]));
+                        lista.add(new Score(cols[0], null, Double.valueOf(cols[1])));
                     }
                 }
             } catch (FileNotFoundException ex) {
-                Logger.getLogger(MusicEntityMappings.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(MovieScores.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
-                Logger.getLogger(MusicEntityMappings.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(MovieScores.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }

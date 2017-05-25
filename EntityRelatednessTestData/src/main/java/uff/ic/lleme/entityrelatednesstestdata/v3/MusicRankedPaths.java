@@ -1,4 +1,4 @@
-package uff.ic.lleme.entityrelatednesstestdata;
+package uff.ic.lleme.entityrelatednesstestdata.v3;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -11,10 +11,10 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class MovieRankedPaths extends HashMap<String, ArrayList<Score>> {
+public class MusicRankedPaths extends HashMap<String, ArrayList<Score>> {
 
-    public MovieRankedPaths() {
-        File dir = new File(MyConfig.DATA_ROOT + "/movie_ranked_paths");
+    public MusicRankedPaths() {
+        File dir = new File(Config.DATA_ROOT + "/music_ranked_paths");
         File[] files = dir.listFiles();
         for (File f : files) {
             String name = (f.getName().split("\\.")[1]);
@@ -38,9 +38,9 @@ public class MovieRankedPaths extends HashMap<String, ArrayList<Score>> {
                     }
                 }
             } catch (FileNotFoundException ex) {
-                Logger.getLogger(MovieRankedPaths.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(MusicRankedPaths.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
-                Logger.getLogger(MovieRankedPaths.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(MusicRankedPaths.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }

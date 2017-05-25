@@ -1,4 +1,4 @@
-package uff.ic.lleme.entityrelatednesstestdata;
+package uff.ic.lleme.entityrelatednesstestdata.v3;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 public class MovieEntityMappings extends HashMap<String, ArrayList<Pair>> {
 
     public MovieEntityMappings() {
-        File dir = new File(MyConfig.DATA_ROOT + "/movie_entity_mappings");
+        File dir = new File(Config.DATA_ROOT + "/movie_entity_mappings");
         File[] files = dir.listFiles();
         for (File f : files) {
             String name = (f.getName().split("\\.")[1]);

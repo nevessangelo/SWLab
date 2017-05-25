@@ -1,4 +1,4 @@
-package uff.ic.lleme.entityrelatednesstestdata;
+package uff.ic.lleme.entityrelatednesstestdata.v3;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -19,17 +19,17 @@ public class UpdateVoid {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, ParseException {
         PropertyConfigurator.configure("./resources/conf/log4j.properties");
-        MyConfig.configure("./resources/conf/entityrelatednesstestdata.properties");
+        Config.configure("./resources/conf/entityrelatednesstestdata.properties");
 
         Model void_ = (new SWLABVoID()).getModel();
 
-        (new File(MyConfig.RDF_ROOT)).mkdirs();
-        try (OutputStream out = new FileOutputStream(MyConfig.LOCAL_VOID_NAME);) {
+        (new File(Config.RDF_ROOT)).mkdirs();
+        try (OutputStream out = new FileOutputStream(Config.LOCAL_VOID_NAME);) {
             RDFDataMgr.write(out, void_, Lang.TURTLE);
         } finally {
         }
-        try (InputStream in = new FileInputStream(MyConfig.LOCAL_VOID_NAME)) {
-            Host.uploadViaFTP(MyConfig.HOST_ADDR, MyConfig.USERNAME, MyConfig.PASSWORD, MyConfig.REMOTE_VOID_NAME, in);
+        try (InputStream in = new FileInputStream(Config.LOCAL_VOID_NAME)) {
+            Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, "/", Config.REMOTE_VOID_NAME, in);
         } finally {
         }
     }

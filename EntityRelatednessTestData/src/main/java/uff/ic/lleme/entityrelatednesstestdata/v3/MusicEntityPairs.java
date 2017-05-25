@@ -1,4 +1,4 @@
-package uff.ic.lleme.entityrelatednesstestdata;
+package uff.ic.lleme.entityrelatednesstestdata.v3;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -9,10 +9,10 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class MovieEntityPairs extends ArrayList<Pair> {
+public class MusicEntityPairs extends ArrayList<Pair> {
 
-    public MovieEntityPairs() {
-        try (InputStream in = new FileInputStream(MyConfig.DATA_ROOT + "/movie_entity_pairs.txt");) {
+    public MusicEntityPairs() {
+        try (InputStream in = new FileInputStream(Config.DATA_ROOT + "/music_entity_pairs.txt");) {
             Scanner sc = new Scanner(in);
             int count = 0;
             while (sc.hasNext()) {
@@ -24,9 +24,9 @@ public class MovieEntityPairs extends ArrayList<Pair> {
                 }
             }
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(MovieEntityPairs.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MusicEntityPairs.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(MovieEntityPairs.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MusicEntityPairs.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

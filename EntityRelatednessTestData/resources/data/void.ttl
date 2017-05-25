@@ -16,12 +16,12 @@
         dcterms:source       <http://dbpedia.org/resource/DBpedia> , <http://www.imdb.com> , <http://lastfm.rdfize.com/meta.n3#Dataset> ;
         dcterms:subject      <http://dbpedia.org/resource/Category:Information_retrieval_techniques> , <http://dbpedia.org/resource/Web-based_technologies> ;
         dcterms:title        "Entity Relatedness Test Data" ;
-        void:dataDump        <http://swlab.ic.uff.br/dataset/EntityRelatednessTestData.json> , <http://swlab.ic.uff.br/dataset/EntityRelatednessTestData.ttl> , <https://ndownloader.figshare.com/articles/5007983/versions/1> , <http://swlab.ic.uff.br/dataset/EntityRelatednessTestData.rdf> ;
+        void:dataDump        <http://swlab.ic.uff.br/dump/EntityRelatednessTestData_v3.json> , <http://swlab.ic.uff.br/dump/EntityRelatednessTestData_v3.ttl> , <https://ndownloader.figshare.com/articles/5007983/versions/1> , <http://swlab.ic.uff.br/dump/EntityRelatednessTestData_v3.rdf> ;
         void:sparqlEndpoint  <http://swlab.ic.uff.br/fuseki/dataset.html?tab=query&ds=/EntityRelatednessTestData> ;
         void:subset          :LinksToIMDB , :LinksToDBpedia , :LinksToLastFM ;
         void:triples         "0"^^<http://www.w3.org/2001/XMLSchema#int> ;
         void:uriSpace        "http://swlab.ic.uff.br/resource" ;
-        void:vocabulary      <http://swlab.ic.uff.br/ontology/EntityRelatednessTestData/0.1/> ;
+        void:vocabulary      <http://swlab.ic.uff.br/ontology/EntityRelatednessTestData_v3.rdf#> ;
         foaf:homepage        <https://figshare.com/articles/Entity_Relatedness_Test_Dataset_-_V2/5007983> .
 
 :LinksToIMDB  a              void:Linkset ;

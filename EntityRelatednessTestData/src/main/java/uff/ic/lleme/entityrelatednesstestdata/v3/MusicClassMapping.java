@@ -1,4 +1,4 @@
-package uff.ic.lleme.entityrelatednesstestdata;
+package uff.ic.lleme.entityrelatednesstestdata.v3;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -9,12 +9,12 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class MovieClassMapping extends ArrayList<Pair> {
+public class MusicClassMapping extends ArrayList<Pair> {
 
-    public MovieClassMapping() {
-        String mvo = "http://www.movieontology.org/2010/01/movieontology.owl#";
+    public MusicClassMapping() {
+        String mso = "http://purl.org/ontology/mo/";
         String dbo = "http://dbpedia.org/ontology/";
-        try (InputStream in = new FileInputStream(MyConfig.DATA_ROOT + "/movie_class_mapping.txt");) {
+        try (InputStream in = new FileInputStream(Config.DATA_ROOT + "/music_class_mapping.txt");) {
             Scanner sc = new Scanner(in);
             int count = 0;
             while (sc.hasNext()) {
@@ -23,15 +23,13 @@ public class MovieClassMapping extends ArrayList<Pair> {
                 count++;
                 if (count > 1 && linha != null && !linha.equals("")) {
                     String[] cols = linha.split("\t");
-                    cols[0] = cols[0].trim().replace("mvo:Director", "dbo:Film_Director").replace("mvo:", mvo).replace("dbo:", dbo);
-                    cols[1] = cols[1].trim().replace("mvo:", mvo).replace("dbo:", dbo);
-                    add(new Pair(null, null, cols[0], cols[1]));
+                    add(new Pair(null, null, cols[0].trim().replace("mso:", mso).replace("dbo:", dbo), cols[1].trim().replace("mso:", mso).replace("dbo:", dbo)));
                 }
             }
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(MovieClassMapping.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MusicClassMapping.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(MovieClassMapping.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MusicClassMapping.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
