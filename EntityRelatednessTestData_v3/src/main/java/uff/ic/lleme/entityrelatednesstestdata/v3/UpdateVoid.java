@@ -17,7 +17,7 @@ import uff.ic.swlab.dataset.SWLABVoID;
 
 public class UpdateVoid {
 
-    public static void main(String[] args) throws FileNotFoundException, IOException, ParseException {
+    public static void main(String[] args) throws FileNotFoundException, IOException, ParseException, Exception {
         PropertyConfigurator.configure("./resources/conf/log4j.properties");
         Config.configure("./resources/conf/entityrelatednesstestdata.properties");
 

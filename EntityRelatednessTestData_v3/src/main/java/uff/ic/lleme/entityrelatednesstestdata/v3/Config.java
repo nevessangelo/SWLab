@@ -8,7 +8,7 @@ import java.util.Properties;
 public class Config {
 
     public static final String DATA_ROOT = "./resources/data";
-    public static final String RDF_ROOT = "../../EntityRelatednessTestData/v3";
+    public static final String RDF_ROOT = "../../EntityRelatednessTestData_v3";
     public static final String DATASET_NAME = "EntityRelatednessTestData";
 
     public static final String ALIGN_NS = "http://knowledgeweb.semanticweb.org/heterogeneity/alignment#";
@@ -25,15 +25,15 @@ public class Config {
     public static String USERNAME = "";
     public static String PASSWORD = "";
     public static final String REMOTE_VOID_NAME = "/void.ttl";
-    public static final String REMOTE_ONTOLOGY_NAME = "/ontology/" + DATASET_NAME + "/v3.rdf";
     public static final String ONTOLOGY_REMOTE_DIR = "/ontology/" + DATASET_NAME;
+    public static final String REMOTE_ONTOLOGY_NAME = "/ontology/" + DATASET_NAME + "/v3.rdf";
     public static final String DUMP_REMOTE_DIR = "/dump/" + DATASET_NAME;
     public static final String XML_SERIALIZATION_REMOTE_NAME = "/dump/" + DATASET_NAME + "/v3.rdf";
     public static final String TURTLE_SERIALIZATION_REMOTE_NAME = "/dump/" + DATASET_NAME + "/v3.ttl";
     public static final String JSON_SERIALIZATION_REMOTE_NAME = "/dump/" + DATASET_NAME + "/v3.json";
 
     public static final String FUSEKI_URL = "http://" + HOST_ADDR + "/fuseki";
-    public static final String DATASET_URL = FUSEKI_URL + "/" + DATASET_NAME + "/data";
+    public static final String DATASET_URL = FUSEKI_URL + "/" + DATASET_NAME + "_v3/data";
 
     public static void configure(String file) throws IOException {
         try (InputStream input = new FileInputStream(file);) {

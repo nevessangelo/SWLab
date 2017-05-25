@@ -41,7 +41,7 @@ public class Main {
     private static final MovieClassMapping MOVIE_CLASS_MAPPING = new MovieClassMapping();
     private static final MovieEntityPairs MOVIE_ENTITY_PAIRS = new MovieEntityPairs();
 
-    public static void main(String[] args) throws FileNotFoundException, IOException, GeneralSecurityException {
+    public static void main(String[] args) throws FileNotFoundException, IOException, GeneralSecurityException, Exception {
         PropertyConfigurator.configure("./resources/conf/log4j.properties");
         Config.configure("./resources/conf/entityrelatednesstestdata.properties");
 
@@ -51,7 +51,7 @@ public class Main {
         System.out.println("Fim.");
     }
 
-    private static void createOntology() throws FileNotFoundException, IOException, GeneralSecurityException {
+    private static void createOntology() throws FileNotFoundException, IOException, GeneralSecurityException, Exception {
         Model ontology = ModelFactory.createDefaultModel();
         ontology.setNsPrefix("", Config.ONTOLOGY_NS);
 
@@ -112,7 +112,7 @@ public class Main {
 
     }
 
-    private static void createDataset() throws FileNotFoundException, IOException {
+    private static void createDataset() throws FileNotFoundException, IOException, Exception {
         Model dataset = ModelFactory.createDefaultModel();
         dataset.setNsPrefix("", Config.DATA_NS);
         dataset.setNsPrefix("align", Config.ALIGN_NS);

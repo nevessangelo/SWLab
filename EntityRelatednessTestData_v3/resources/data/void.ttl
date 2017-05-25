@@ -3,47 +3,47 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf:  <http://xmlns.com/foaf/0.1/> .
 
-:EntityRelatednessTestData
+<http://swlab.ic.uff.br/void.ttl>
+        a                void:DatasetDescription ;
+        dcterms:creator  "http://profile.lleme.net/foaf.rdf#me" ;
+        dcterms:title    "Description of the available datasets at swlab.ic.uff.br" ;
+        foaf:topic       :EntityRelatednessTestData_v3 .
+
+:EntityRelatednessTestData_v3
         a                    void:Dataset ;
         dcterms:contributor  <mailto:bernardo@ccead.puc-rio.br> , <mailto:giseli.lopes@gmail.com> ;
         dcterms:created      "2017-05-19T03:00:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
-        dcterms:creator      <mailto:jthvasago@gmail.com> , <mailto:casanova@inf.puc-rio.br> ;
+        dcterms:creator      <mailto:casanova@inf.puc-rio.br> , <mailto:jthvasago@gmail.com> ;
         dcterms:description  "The entity relatedness problem refers to the question of computing the relationship paths that better describe the connectivity between a given entity pair. This dataset supports the evaluation of approaches that address the entity relatedness problem. It covers two familiar domains, music and movies, and uses data available in IMDb and last.fm, which are popular reference datasets in these domains. The dataset contains 20 entity pairs from each of these domains and, for each entity pair, a ranked list with 50 relationship paths. It also contains entity ratings and property relevance scores for the entities and properties used in the paths." ;
         dcterms:issued       "2017-05-29T03:00:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
         dcterms:license      <https://creativecommons.org/licenses> ;
         dcterms:modified     "2017-05-29T03:00:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
         dcterms:publisher    <http://profile.lleme.net/foaf.rdf#me> ;
-        dcterms:source       <http://dbpedia.org/resource/DBpedia> , <http://www.imdb.com> , <http://lastfm.rdfize.com/meta.n3#Dataset> ;
+        dcterms:source       <http://www.imdb.com> , <http://lastfm.rdfize.com/meta.n3#Dataset> , <http://dbpedia.org/resource/DBpedia> ;
         dcterms:subject      <http://dbpedia.org/resource/Category:Information_retrieval_techniques> , <http://dbpedia.org/resource/Web-based_technologies> ;
         dcterms:title        "Entity Relatedness Test Data" ;
-        void:dataDump        <http://swlab.ic.uff.br/dump/EntityRelatednessTestData_v3.json> , <http://swlab.ic.uff.br/dump/EntityRelatednessTestData_v3.ttl> , <https://ndownloader.figshare.com/articles/5007983/versions/1> , <http://swlab.ic.uff.br/dump/EntityRelatednessTestData_v3.rdf> ;
-        void:sparqlEndpoint  <http://swlab.ic.uff.br/fuseki/dataset.html?tab=query&ds=/EntityRelatednessTestData> ;
-        void:subset          :LinksToIMDB , :LinksToDBpedia , :LinksToLastFM ;
+        void:dataDump        <http://swlab.ic.uff.br/dump/EntityRelatednessTestData/v3.rdf> , <https://ndownloader.figshare.com/articles/5007983/versions/1> , <http://swlab.ic.uff.br/dump/EntityRelatednessTestData/v3.ttl> , <http://swlab.ic.uff.br/dump/EntityRelatednessTestData/v3.json> , <http://swlab.ic.uff.br/fuseki/EntityRelatednessTestData_v3/> ;
+        void:sparqlEndpoint  <http://swlab.ic.uff.br/fuseki/dataset.html?tab=query&ds=/EntityRelatednessTestData_v3> ;
+        void:subset          :LinksToLastFM_v3 , :LinksToIMDB_v3 , :LinksToDBpedia_v3 ;
         void:triples         "0"^^<http://www.w3.org/2001/XMLSchema#int> ;
-        void:uriSpace        "http://swlab.ic.uff.br/resource" ;
-        void:vocabulary      <http://swlab.ic.uff.br/ontology/EntityRelatednessTestData_v3.rdf#> ;
+        void:uriSpace        "http://swlab.ic.uff.br/resource/" ;
+        void:vocabulary      <http://swlab.ic.uff.br/ontology/EntityRelatednessTestData/v3.rdf#> ;
         foaf:homepage        <https://figshare.com/articles/Entity_Relatedness_Test_Dataset_-_V2/5007983> .
 
-:LinksToIMDB  a              void:Linkset ;
+:LinksToIMDB_v3  a           void:Linkset ;
         void:linkPredicate   <http://www.w3.org/2002/07/owl#sameAs> ;
         void:objectsTarget   <http://www.imdb.com> ;
-        void:subjectsTarget  :EntityRelatednessTestData ;
+        void:subjectsTarget  :EntityRelatednessTestData_v3 ;
         void:triples         "0"^^<http://www.w3.org/2001/XMLSchema#int> .
 
-<http://swlab.ic.uff.br/void.ttl>
-        a                void:DatasetDescription ;
-        dcterms:creator  "http://profile.lleme.net/foaf.rdf#me" ;
-        dcterms:title    "Description of the available datasets at swlab.ic.uff.br" ;
-        foaf:topic       :EntityRelatednessTestData .
-
-:LinksToLastFM  a            void:Linkset ;
-        void:linkPredicate   <http://www.w3.org/2002/07/owl#sameAs> ;
-        void:objectsTarget   <http://lastfm.rdfize.com/meta.n3#Dataset> ;
-        void:subjectsTarget  :EntityRelatednessTestData ;
-        void:triples         "0"^^<http://www.w3.org/2001/XMLSchema#int> .
-
-:LinksToDBpedia  a           void:Linkset ;
+:LinksToDBpedia_v3  a        void:Linkset ;
         void:linkPredicate   <http://www.w3.org/2002/07/owl#sameAs> ;
         void:objectsTarget   <http://dbpedia.org/resource/DBpedia> ;
-        void:subjectsTarget  :EntityRelatednessTestData ;
+        void:subjectsTarget  :EntityRelatednessTestData_v3 ;
+        void:triples         "0"^^<http://www.w3.org/2001/XMLSchema#int> .
+
+:LinksToLastFM_v3  a         void:Linkset ;
+        void:linkPredicate   <http://www.w3.org/2002/07/owl#sameAs> ;
+        void:objectsTarget   <http://lastfm.rdfize.com/meta.n3#Dataset> ;
+        void:subjectsTarget  :EntityRelatednessTestData_v3 ;
         void:triples         "0"^^<http://www.w3.org/2001/XMLSchema#int> .
