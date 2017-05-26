@@ -107,7 +107,8 @@ public class Main {
         }
 
         try (InputStream in = new FileInputStream(Config.LOCAL_ONTOLOGY_NAME)) {
-            Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.ONTOLOGY_REMOTE_DIR, Config.REMOTE_ONTOLOGY_NAME, in);
+            Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.REMOTE_ONTOLOGY_NAME, in);
+            Host.mkDirsViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.REMOTE_ONTOLOGY_NAME, in);
         }
 
     }
@@ -139,30 +140,38 @@ public class Main {
                 alignment.addProperty(dataset.createProperty(Config.ALIGN_NS + "map"), cell.as(RDFNode.class));
             }
 
-        (new File(Config.XML_SERIALIZATION_NAME)).getParentFile().mkdirs();
+        (new File(Config.XML_DUMP_NAME)).getParentFile().mkdirs();
 
-        try (OutputStream out = new FileOutputStream(Config.XML_SERIALIZATION_NAME);) {
+        try (OutputStream out = new FileOutputStream(Config.XML_DUMP_NAME);) {
             RDFDataMgr.write(out, dataset, Lang.RDFXML);
         }
 
-        try (OutputStream out = new FileOutputStream(Config.TURTLE_SERIALIZATION_NAME);) {
+        try (OutputStream out = new FileOutputStream(Config.TURTLE_DUMP_NAME);) {
             RDFDataMgr.write(out, dataset, Lang.TURTLE);
         }
 
-        try (OutputStream out = new FileOutputStream(Config.JSON_SERIALIZATION_NAME);) {
+        try (OutputStream out = new FileOutputStream(Config.JSON_DUMP_NAME);) {
             RDFDataMgr.write(out, dataset, Lang.RDFJSON);
         }
 
-        try (InputStream in = new FileInputStream(Config.XML_SERIALIZATION_NAME)) {
-            Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.DUMP_REMOTE_DIR, Config.XML_SERIALIZATION_REMOTE_NAME, in);
+        try (OutputStream out = new FileOutputStream(Config.NTRIPLES_DUMP_NAME);) {
+            RDFDataMgr.write(out, dataset, Lang.NTRIPLES);
         }
 
-        try (InputStream in = new FileInputStream(Config.TURTLE_SERIALIZATION_NAME)) {
-            Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.DUMP_REMOTE_DIR, Config.TURTLE_SERIALIZATION_REMOTE_NAME, in);
+        try (InputStream in = new FileInputStream(Config.XML_DUMP_NAME)) {
+            Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.XML_REMOTE_DUMP_NAME, in);
         }
 
-        try (InputStream in = new FileInputStream(Config.JSON_SERIALIZATION_NAME)) {
-            Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.DUMP_REMOTE_DIR, Config.JSON_SERIALIZATION_REMOTE_NAME, in);
+        try (InputStream in = new FileInputStream(Config.TURTLE_DUMP_NAME)) {
+            Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.TURTLE_REMOTE_DUMP_NAME, in);
+        }
+
+        try (InputStream in = new FileInputStream(Config.JSON_DUMP_NAME)) {
+            Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.JSON_REMOTE_DUMP_NAME, in);
+        }
+
+        try (InputStream in = new FileInputStream(Config.NTRIPLES_DUMP_NAME)) {
+            Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.NTRIPLES_REMOTE_DUMP_NAME, in);
         }
 
         DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(Config.DATASET_URL);

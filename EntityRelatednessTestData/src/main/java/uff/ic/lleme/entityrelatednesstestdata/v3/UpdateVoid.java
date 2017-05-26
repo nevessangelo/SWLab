@@ -29,7 +29,7 @@ public class UpdateVoid {
         } finally {
         }
         try (InputStream in = new FileInputStream(Config.LOCAL_VOID_NAME)) {
-            Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, "/", Config.REMOTE_VOID_NAME, in);
+            Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.REMOTE_VOID_NAME, in);
         } finally {
         }
     }

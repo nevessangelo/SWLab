@@ -12,25 +12,25 @@ public class Config {
     public static final String DATASET_NAME = "EntityRelatednessTestData";
 
     public static final String ALIGN_NS = "http://knowledgeweb.semanticweb.org/heterogeneity/alignment#";
-    public static final String ONTOLOGY_NS = "http://swlab.ic.uff.br/ontology/EntityRelatednessTestData/v3.rdf#";
+    public static final String ONTOLOGY_NS = "http://swlab.ic.uff.br/ontology/EntityRelatednessTestData_v1.rdf#";
     public static final String DATA_NS = "http://swlab.ic.uff.br/resource/";
 
     public static final String LOCAL_VOID_NAME = DATA_ROOT + "/void.ttl";
-    public static final String LOCAL_ONTOLOGY_NAME = RDF_ROOT + "/ontology/" + DATASET_NAME + "_v3.rdf";
-    public static final String XML_SERIALIZATION_NAME = RDF_ROOT + "/" + DATASET_NAME + "_v3.rdf";
-    public static final String TURTLE_SERIALIZATION_NAME = RDF_ROOT + "/" + DATASET_NAME + "_v3.ttl";
-    public static final String JSON_SERIALIZATION_NAME = RDF_ROOT + "/" + DATASET_NAME + "_v3.json";
+    public static final String LOCAL_ONTOLOGY_NAME = RDF_ROOT + "/ontology/" + DATASET_NAME + "_v1.rdf";
+    public static final String XML_DUMP_NAME = RDF_ROOT + "/" + DATASET_NAME + "_v3.rdf";
+    public static final String TURTLE_DUMP_NAME = RDF_ROOT + "/" + DATASET_NAME + "_v3.ttl";
+    public static final String JSON_DUMP_NAME = RDF_ROOT + "/" + DATASET_NAME + "_v3.json";
+    public static final String NTRIPLES_DUMP_NAME = RDF_ROOT + "/" + DATASET_NAME + "_v3.json";
 
     public static final String HOST_ADDR = "swlab.ic.uff.br";
     public static String USERNAME = null;
     public static String PASSWORD = null;
     public static final String REMOTE_VOID_NAME = "/void.ttl";
-    public static final String ONTOLOGY_REMOTE_DIR = "/ontology/" + DATASET_NAME;
-    public static final String REMOTE_ONTOLOGY_NAME = "/ontology/" + DATASET_NAME + "/v3.rdf";
-    public static final String DUMP_REMOTE_DIR = "/dump/" + DATASET_NAME;
-    public static final String XML_SERIALIZATION_REMOTE_NAME = "/dump/" + DATASET_NAME + "/v3.rdf";
-    public static final String TURTLE_SERIALIZATION_REMOTE_NAME = "/dump/" + DATASET_NAME + "/v3.ttl";
-    public static final String JSON_SERIALIZATION_REMOTE_NAME = "/dump/" + DATASET_NAME + "/v3.json";
+    public static final String REMOTE_ONTOLOGY_NAME = "/ontology/" + DATASET_NAME + "_v1.rdf";
+    public static final String XML_REMOTE_DUMP_NAME = "/dump/" + DATASET_NAME + "_v3.rdf";
+    public static final String TURTLE_REMOTE_DUMP_NAME = "/dump/" + DATASET_NAME + "_v3.ttl";
+    public static final String JSON_REMOTE_DUMP_NAME = "/dump/" + DATASET_NAME + "_v3.json";
+    public static final String NTRIPLES_REMOTE_DUMP_NAME = "/dump/" + DATASET_NAME + "_v3.nt";
 
     public static final String FUSEKI_URL = "http://" + HOST_ADDR + "/fuseki";
     public static final String DATASET_URL = FUSEKI_URL + "/" + DATASET_NAME + "_v3/data";
