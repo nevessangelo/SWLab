@@ -40,8 +40,8 @@ public class SWLABVoID {
 
     private Resource createEntityRelatednessTestDataV3Description() throws ParseException {
 
-        String uriSpace = "http://swlab.ic.uff.br/resource/";
         String datasetURI = uri + "#EntityRelatednessTestData_v3";
+        String uriSpace = "http://swlab.ic.uff.br/resource/";
         String title = "Entity Relatedness Test Data";
         String description = "The entity relatedness problem refers to the question of "
                 + "computing the relationship paths that better describe the connectivity between a "
@@ -51,6 +51,8 @@ public class SWLABVoID {
                 + "domains. The dataset contains 20 entity pairs from each of these domains and, for each "
                 + "entity pair, a ranked list with 50 relationship paths. It also contains entity ratings "
                 + "and property relevance scores for the entities and properties used in the paths.";
+        String vocabulary = "http://swlab.ic.uff.br/ontology/EntityRelatednessTestData_v1.rdf#";
+
         DateFormat format = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
         Calendar created = Calendar.getInstance();
         created.setTime(format.parse("19/05/2017"));
@@ -81,12 +83,13 @@ public class SWLABVoID {
                 .addProperty(DCTerms.subject, model.createResource("http://dbpedia.org/resource/Category:Information_retrieval_techniques"))
                 .addProperty(DCTerms.subject, model.createResource("http://dbpedia.org/resource/Web-based_technologies"))
                 .addProperty(VOID.dataDump, model.createResource("https://ndownloader.figshare.com/articles/5007983/versions/1"))
-                .addProperty(VOID.dataDump, model.createResource("http://swlab.ic.uff.br/dump/EntityRelatednessTestData/v3.rdf"))
-                .addProperty(VOID.dataDump, model.createResource("http://swlab.ic.uff.br/dump/EntityRelatednessTestData/v3.ttl"))
-                .addProperty(VOID.dataDump, model.createResource("http://swlab.ic.uff.br/dump/EntityRelatednessTestData/v3.json"))
+                .addProperty(VOID.dataDump, model.createResource("http://swlab.ic.uff.br/dump/EntityRelatednessTestData_v3.rdf"))
+                .addProperty(VOID.dataDump, model.createResource("http://swlab.ic.uff.br/dump/EntityRelatednessTestData_v3.ttl"))
+                .addProperty(VOID.dataDump, model.createResource("http://swlab.ic.uff.br/dump/EntityRelatednessTestData_v3.json"))
+                .addProperty(VOID.dataDump, model.createResource("http://swlab.ic.uff.br/dump/EntityRelatednessTestData_v3.nt"))
                 .addProperty(VOID.dataDump, model.createResource("http://swlab.ic.uff.br/fuseki/EntityRelatednessTestData_v3/"))
                 .addProperty(VOID.sparqlEndpoint, model.createResource("http://swlab.ic.uff.br/fuseki/dataset.html?tab=query&ds=/EntityRelatednessTestData_v3"))
-                .addProperty(VOID.vocabulary, model.createResource("http://swlab.ic.uff.br/ontology/EntityRelatednessTestData/v3.rdf#"))
+                .addProperty(VOID.vocabulary, model.createResource(vocabulary))
                 .addProperty(VOID.uriSpace, uriSpace)
                 .addProperty(VOID.triples, model.createTypedLiteral(0))
                 .addProperty(VOID.subset, model.createResource(uri + "#LinksToDBpedia_v3", VOID.Linkset)

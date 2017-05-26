@@ -15,7 +15,7 @@ import org.apache.log4j.PropertyConfigurator;
 import uff.ic.swlab.commons.util.Host;
 import uff.ic.swlab.dataset.SWLABVoID;
 
-public class UpdateVoid {
+public class _2_UpdateVoid {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, ParseException, Exception {
         PropertyConfigurator.configure("./resources/conf/log4j.properties");

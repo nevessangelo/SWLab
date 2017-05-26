@@ -1,4 +1,4 @@
-package uff.ic.lleme.entityrelatednesstestdata.v3;
+package uff.ic.lleme.entityrelatednesstestdata.v3.model;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -8,11 +8,12 @@ import java.util.HashMap;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import uff.ic.lleme.entityrelatednesstestdata.v3.Config;
 
-public class MusicPropertyRelevanceScore extends HashMap<String, Double> {
+public class MoviePropertyRelevanceScore extends HashMap<String, Double> {
 
-    public MusicPropertyRelevanceScore() {
-        try (InputStream in = new FileInputStream(Config.DATA_ROOT + "/music_property_relevance_scores/properties.txt");) {
+    public MoviePropertyRelevanceScore() {
+        try (InputStream in = new FileInputStream(Config.DATA_ROOT + "/movie_property_relevance_scores/properties.txt");) {
             Scanner sc = new Scanner(in);
             int count = 0;
             while (sc.hasNext()) {
@@ -26,9 +27,9 @@ public class MusicPropertyRelevanceScore extends HashMap<String, Double> {
                 }
             }
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(MusicPropertyRelevanceScore.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MoviePropertyRelevanceScore.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(MusicPropertyRelevanceScore.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MoviePropertyRelevanceScore.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

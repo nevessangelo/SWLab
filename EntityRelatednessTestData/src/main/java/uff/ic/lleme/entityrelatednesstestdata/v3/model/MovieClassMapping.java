@@ -1,4 +1,4 @@
-package uff.ic.lleme.entityrelatednesstestdata.v3;
+package uff.ic.lleme.entityrelatednesstestdata.v3.model;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import uff.ic.lleme.entityrelatednesstestdata.v3.Config;
 
 public class MovieClassMapping extends ArrayList<Pair> {
 

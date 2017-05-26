@@ -1,5 +1,18 @@
 package uff.ic.lleme.entityrelatednesstestdata.v3;
 
+import uff.ic.lleme.entityrelatednesstestdata.v3.model.MusicClassMapping;
+import uff.ic.lleme.entityrelatednesstestdata.v3.model.MovieEntityPairs;
+import uff.ic.lleme.entityrelatednesstestdata.v3.model.Pair;
+import uff.ic.lleme.entityrelatednesstestdata.v3.model.MovieRankedPaths;
+import uff.ic.lleme.entityrelatednesstestdata.v3.model.MusicEntityPairs;
+import uff.ic.lleme.entityrelatednesstestdata.v3.model.MovieClassMapping;
+import uff.ic.lleme.entityrelatednesstestdata.v3.model.MusicRankedPaths;
+import uff.ic.lleme.entityrelatednesstestdata.v3.model.MusicScores;
+import uff.ic.lleme.entityrelatednesstestdata.v3.model.MovieScores;
+import uff.ic.lleme.entityrelatednesstestdata.v3.model.MoviePropertyRelevanceScore;
+import uff.ic.lleme.entityrelatednesstestdata.v3.model.MusicEntityMappings;
+import uff.ic.lleme.entityrelatednesstestdata.v3.model.MusicPropertyRelevanceScore;
+import uff.ic.lleme.entityrelatednesstestdata.v3.model.MovieEntityMappings;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -25,7 +38,7 @@ import org.apache.jena.vocabulary.XSD;
 import org.apache.log4j.PropertyConfigurator;
 import uff.ic.swlab.commons.util.Host;
 
-public class Main {
+public class _1_CreateDataset {
 
     private static final MusicScores MUSIC_SCORES = new MusicScores();
     private static final MusicRankedPaths MUSIC_RANKED_SCORES = new MusicRankedPaths();

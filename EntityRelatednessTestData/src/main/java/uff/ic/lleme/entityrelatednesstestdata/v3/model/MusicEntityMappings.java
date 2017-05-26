@@ -1,4 +1,4 @@
-package uff.ic.lleme.entityrelatednesstestdata.v3;
+package uff.ic.lleme.entityrelatednesstestdata.v3.model;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -10,11 +10,12 @@ import java.util.HashMap;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import uff.ic.lleme.entityrelatednesstestdata.v3.Config;
 
-public class MovieEntityMappings extends HashMap<String, ArrayList<Pair>> {
+public class MusicEntityMappings extends HashMap<String, ArrayList<Pair>> {
 
-    public MovieEntityMappings() {
-        File dir = new File(Config.DATA_ROOT + "/movie_entity_mappings");
+    public MusicEntityMappings() {
+        File dir = new File(Config.DATA_ROOT + "/music_entity_mappings");
         File[] files = dir.listFiles();
         for (File f : files) {
             String name = (f.getName().split("\\.")[1]);
@@ -27,10 +28,16 @@ public class MovieEntityMappings extends HashMap<String, ArrayList<Pair>> {
                     count++;
                     if (count > 1 && linha != null && !linha.equals("")) {
                         String[] cols = linha.split("\t");
-                        cols[0] = cols[0].trim();
-                        cols[1] = cols[1].trim();
-                        cols[2] = cols[2].trim();
-                        cols[3] = cols[3].trim();
+                        try {
+                            cols[0] = cols[0].trim();
+                            cols[1] = cols[1].trim();
+                            cols[2] = cols[2].trim();
+                            cols[3] = cols[3].trim();
+                        } catch (Exception e) {
+                            System.out.println(e.toString());
+                            System.out.println(String.format("Erro: class -> %1s, arq -> %1s, line -> %1s.", "MusicEntityMappings", f.getName(), linha));
+                            continue;
+                        }
                         ArrayList<Pair> lista = get(name);
                         if (lista == null) {
                             lista = new ArrayList<>();
@@ -40,9 +47,9 @@ public class MovieEntityMappings extends HashMap<String, ArrayList<Pair>> {
                     }
                 }
             } catch (FileNotFoundException ex) {
-                Logger.getLogger(MovieEntityMappings.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(MusicEntityMappings.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
-                Logger.getLogger(MovieEntityMappings.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(MusicEntityMappings.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }

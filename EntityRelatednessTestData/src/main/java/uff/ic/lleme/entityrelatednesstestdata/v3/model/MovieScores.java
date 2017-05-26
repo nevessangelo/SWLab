@@ -1,4 +1,4 @@
-package uff.ic.lleme.entityrelatednesstestdata.v3;
+package uff.ic.lleme.entityrelatednesstestdata.v3.model;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -10,11 +10,12 @@ import java.util.HashMap;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import uff.ic.lleme.entityrelatednesstestdata.v3.Config;
 
-public class MovieRankedPaths extends HashMap<String, ArrayList<Score>> {
+public class MovieScores extends HashMap<String, ArrayList<Score>> {
 
-    public MovieRankedPaths() {
-        File dir = new File(Config.DATA_ROOT + "/movie_ranked_paths");
+    public MovieScores() {
+        File dir = new File(Config.DATA_ROOT + "/movie_scores");
         File[] files = dir.listFiles();
         for (File f : files) {
             String name = (f.getName().split("\\.")[1]);
@@ -23,24 +24,24 @@ public class MovieRankedPaths extends HashMap<String, ArrayList<Score>> {
                 int count = 0;
                 while (sc.hasNext()) {
                     String linha = sc.nextLine();
+                    linha = linha.replaceAll("  ", " ").replaceAll(" ", "\t").replaceAll("\t\t", "\t");
                     count++;
                     if (count > 1 && linha != null && !linha.equals("")) {
                         String[] cols = linha.split("\t");
                         cols[0] = cols[0].trim();
-                        cols[1] = cols[1].trim().replace("\"", "");
-                        cols[2] = cols[2].trim();
+                        cols[1] = cols[1].trim();
                         ArrayList<Score> lista = get(name);
                         if (lista == null) {
                             lista = new ArrayList<>();
                             put(name, lista);
                         }
-                        lista.add(new Score(cols[0], cols[1], Double.valueOf(cols[2])));
+                        lista.add(new Score(cols[0], null, Double.valueOf(cols[1])));
                     }
                 }
             } catch (FileNotFoundException ex) {
-                Logger.getLogger(MovieRankedPaths.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(MovieScores.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
-                Logger.getLogger(MovieRankedPaths.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(MovieScores.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }

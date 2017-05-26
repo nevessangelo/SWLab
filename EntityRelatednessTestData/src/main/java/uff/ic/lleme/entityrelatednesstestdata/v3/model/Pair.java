@@ -1,4 +1,4 @@
-package uff.ic.lleme.entityrelatednesstestdata.v3;
+package uff.ic.lleme.entityrelatednesstestdata.v3.model;
 
 public class Pair {
 
