@@ -33,4 +33,7 @@ public class MoviePropertyRelevanceScore extends HashMap<String, Double> {
         }
     }
 
+    public double getScore(String label) {
+        return get(label);
+    }
 }

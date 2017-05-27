@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -44,5 +45,13 @@ public class MovieScores extends HashMap<String, ArrayList<Score>> {
                 Logger.getLogger(MovieScores.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    }
+
+    public double getScore(String label) {
+        for (List<Score> entities : values())
+            for (Score entity : entities)
+                if (entity.label.equals(label))
+                    return entity.score;
+        return 0;
     }
 }

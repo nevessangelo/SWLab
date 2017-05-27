@@ -12,7 +12,6 @@ import java.security.GeneralSecurityException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import org.apache.commons.validator.routines.UrlValidator;
 import org.apache.jena.query.DatasetAccessor;
 import org.apache.jena.query.DatasetAccessorFactory;
@@ -78,14 +77,18 @@ public class _1_CreateDataset {
         Property score = ontology.createProperty(Config.ONTOLOGY_NS + "score");
         score.addProperty(RDFS.domain, pathElement);
         score.addProperty(RDFS.range, XSD.xdouble);
+
         Resource entity = ontology.createResource(Config.ONTOLOGY_NS + "Entity", RDFS.Class);
         entity.addProperty(RDFS.subClassOf, pathElement);
-        Resource propertyClass = ontology.createResource(Config.ONTOLOGY_NS + "Property", RDFS.Class);
-        propertyClass.addProperty(RDFS.subClassOf, pathElement);
-        Property category = ontology.createProperty(Config.ONTOLOGY_NS + "category");
-        category.addProperty(RDFS.domain, entity);
-        category.addProperty(RDFS.range, XSD.xstring);
         score.addProperty(RDFS.domain, entity);
+
+        Resource property = ontology.createResource(Config.ONTOLOGY_NS + "Property", RDFS.Class);
+        property.addProperty(RDFS.subClassOf, pathElement);
+
+        Resource category = ontology.createResource(Config.ONTOLOGY_NS + "Category", RDFS.Class);
+        Property type = ontology.createProperty(Config.ONTOLOGY_NS + "type");
+        type.addProperty(RDFS.domain, entity);
+        type.addProperty(RDFS.range, category);
 
         Resource entityPair = ontology.createResource(Config.ONTOLOGY_NS + "EntityPair", RDFS.Class);
         Property first = ontology.createProperty(Config.ONTOLOGY_NS + "first");
@@ -145,90 +148,91 @@ public class _1_CreateDataset {
         dataset.setNsPrefix("align", Config.ALIGN_NS);
         dataset.setNsPrefix("erel", Config.ONTOLOGY_NS);
 
-        List<Set<Map.Entry<String, ArrayList<Pair>>>> sets = new ArrayList<>();
-        sets.add(MOVIE_ENTITY_MAPPINGS.entrySet());
-        sets.add(MUSIC_ENTITY_MAPPINGS.entrySet());
+        List<Map.Entry<String, ArrayList<Pair>>> mappings = new ArrayList<>();
+        mappings.addAll(MOVIE_ENTITY_MAPPINGS.entrySet());
+        mappings.addAll(MUSIC_ENTITY_MAPPINGS.entrySet());
 
-        for (Set<Map.Entry<String, ArrayList<Pair>>> mappings : sets)
-            for (Map.Entry<String, ArrayList<Pair>> mapping : mappings)
-                for (Pair ep : mapping.getValue()) {
+        MOVIE_SCORES.putAll(MUSIC_SCORES);
+        MovieScores entityScores = MOVIE_SCORES;
 
-                    String entityURI = Config.DATA_NS + ep.label.trim().replaceAll("  ", " ");
-                    String entity1URI = ep.entity1.trim().replaceAll("  ", " ").replaceFirst("^ttp://", "http://");
-                    String entity2URI = ep.entity2.trim().replaceAll("  ", " ").replaceFirst("^ttp://", "http://");
+        MOVIE_PROPERTY_RELEVANCE_SCORE.putAll(MUSIC_PROPERTY_RELEVANCE_SCORE);
+        MoviePropertyRelevanceScore propertyScore = MOVIE_PROPERTY_RELEVANCE_SCORE;
 
-                    if (!validator.isValid(entityURI)) {
-                        String encodedURI = Config.DATA_NS + URLEncoder.encode(ep.label.trim().replaceAll("  ", " "), "UTF-8");
-                        System.out.println("Mappings//// Warning! BadFormedURI <" + entityURI + ">. Replaced with <" + encodedURI + ">.");
-                        entityURI = encodedURI;
-                    }
-                    if (!validator.isValid(entity1URI))
-                        System.out.println("Mappings//// BadFormedURI (entity1): <" + entity1URI + "> (Entity: " + entityURI + ")");
-                    if (!validator.isValid(entity2URI))
-                        System.out.println("Mappings//// BadFormedURI (entity2): <" + entity2URI + "> (Entity: " + entityURI + ")");
+        for (Map.Entry<String, ArrayList<Pair>> subset : mappings)
+            for (Pair mapping : subset.getValue()) {
 
-                    if (validator.isValid(entityURI) && validator.isValid(entity1URI) && validator.isValid(entity2URI)) {
-                        Resource entity = dataset.createResource(entityURI, EREL.Entity)
-                                .addProperty(EREL.category, ep.type)
-                                .addProperty(OWL.sameAs, dataset.createResource(ep.entity1))
-                                .addProperty(OWL.sameAs, dataset.createResource(ep.entity2));
-                        dataset.createResource(ep.entity1)
-                                .addProperty(OWL.sameAs, entity)
-                                .addProperty(OWL.sameAs, dataset.createResource(ep.entity2));
-                        dataset.createResource(ep.entity2)
-                                .addProperty(OWL.sameAs, entity)
-                                .addProperty(OWL.sameAs, dataset.createResource(ep.entity1));
-                    }
+                String entityURI = Config.DATA_NS + mapping.label;
+                String entity1URI = mapping.entity1;
+                String entity2URI = mapping.entity2;
 
-                    List<List<Pair>> lists = new ArrayList<>();
-                    lists.add(MUSIC_ENTITY_PAIRS);
-                    lists.add(MOVIE_ENTITY_PAIRS);
-
-                    MOVIE_RANKED_PATHS.putAll(MUSIC_RANKED_SCORES);
-                    MovieRankedPaths paths = MOVIE_RANKED_PATHS;
-
-                    List<Score> rank = paths.getRank(ep.entity1.trim(), ep.entity2.trim());
-                    for (Score s : rank) {
-
-                    }
+                if (!validator.isValid(entityURI)) {
+                    String encodedURI = Config.DATA_NS + URLEncoder.encode(mapping.label, "UTF-8");
+                    System.out.println("Mappings//// Warning! BadFormedURI <" + entityURI + ">. Replaced with <" + encodedURI + ">.");
+                    entityURI = encodedURI;
 
                 }
+                if (!validator.isValid(entity1URI))
+                    System.out.println("Mappings//// BadFormedURI (entity1): <" + entity1URI + "> (Entity: " + entityURI + ")");
+                if (!validator.isValid(entity2URI))
+                    System.out.println("Mappings//// BadFormedURI (entity2): <" + entity2URI + "> (Entity: " + entityURI + ")");
 
-        List<List<Pair>> lists = new ArrayList<>();
-        lists.add(MUSIC_ENTITY_PAIRS);
-        lists.add(MOVIE_ENTITY_PAIRS);
+                if (validator.isValid(entityURI) && validator.isValid(entity1URI) && validator.isValid(entity2URI)) {
+                    Resource entity = dataset.createResource(entityURI, EREL.Entity)
+                            .addProperty(EREL.category, dataset.createResource(Config.DATA_NS + mapping.type))
+                            .addProperty(OWL.sameAs, dataset.createResource(mapping.entity1))
+                            .addProperty(OWL.sameAs, dataset.createResource(mapping.entity2));
+                    dataset.createResource(mapping.entity1)
+                            .addProperty(OWL.sameAs, entity)
+                            .addProperty(OWL.sameAs, dataset.createResource(mapping.entity2));
+                    dataset.createResource(mapping.entity2)
+                            .addProperty(OWL.sameAs, entity)
+                            .addProperty(OWL.sameAs, dataset.createResource(mapping.entity1));
+
+                    double score = entityScores.getScore(mapping.label);
+                    if (score > 0)
+                        entity.addProperty(EREL.score, dataset.createTypedLiteral(score));
+                } else
+                    System.out.println("Error!!!");
+
+            }
+
+        List<Pair> lists = new ArrayList<>();
+        lists.addAll(MUSIC_ENTITY_PAIRS);
+        lists.addAll(MOVIE_ENTITY_PAIRS);
 
         MOVIE_RANKED_PATHS.putAll(MUSIC_RANKED_SCORES);
         MovieRankedPaths paths = MOVIE_RANKED_PATHS;
 
-        for (List<Pair> pairs : lists)
-            for (Pair ep : pairs) {
-                String entity1URI = ep.entity1.trim().replaceAll("  ", " ").replaceFirst("^ttp://", "http://");
-                String entity2URI = ep.entity2.trim().replaceAll("  ", " ").replaceFirst("^ttp://", "http://");
+        for (Pair ePair : lists) {
+            ePair.entity1 = ePair.entity1.replace("  ", " ").replace("  ", " ").replace(" ", "_");
+            ePair.entity2 = ePair.entity2.replace("  ", " ").replace("  ", " ").replace(" ", "_");
 
-                if (!validator.isValid(entity1URI)) {
-                    String encodedURI = Config.DATA_NS + URLEncoder.encode(ep.label.trim().replaceAll("  ", " "), "UTF-8");
-                    System.out.println("Pairs//// Warning! BadFormedURI <" + entity1URI + ">. Replaced with <" + encodedURI + ">.");
-                    entity1URI = encodedURI;
+            String entity1URI = Config.DATA_NS + ePair.entity1;
+            String entity2URI = Config.DATA_NS + ePair.entity2;
+
+            if (!validator.isValid(entity1URI)) {
+                String encodedURI = Config.DATA_NS + URLEncoder.encode(ePair.entity1, "UTF-8");
+                System.out.println("Pairs//// Warning! BadFormedURI <" + entity1URI + ">. Replaced with <" + encodedURI + ">.");
+                entity1URI = encodedURI;
+            }
+
+            if (!validator.isValid(entity2URI)) {
+                String encodedURI = Config.DATA_NS + URLEncoder.encode(ePair.entity2, "UTF-8");
+                System.out.println("Pairs//// Warning! BadFormedURI <" + entity2URI + ">. Replaced with <" + encodedURI + ">.");
+                entity2URI = encodedURI;
+            }
+            if (validator.isValid(entity1URI) && validator.isValid(entity2URI)) {
+                Resource entitypair = dataset.createResource(Config.DATA_NS + counter++, EREL.EntityPair)
+                        .addProperty(EREL.first, dataset.createResource(entity1URI, EREL.Entity))
+                        .addProperty(EREL.second, dataset.createResource(entity2URI, EREL.Entity));
+
+                List<Score> rank = paths.getRank(ePair.entity1, ePair.entity2);
+                for (Score s : rank) {
+
                 }
 
-                if (!validator.isValid(entity2URI)) {
-                    String encodedURI = Config.DATA_NS + URLEncoder.encode(ep.label.trim().replaceAll("  ", " "), "UTF-8");
-                    System.out.println("Pairs//// Warning! BadFormedURI <" + entity2URI + ">. Replaced with <" + encodedURI + ">.");
-                    entity2URI = encodedURI;
-                }
-                if (validator.isValid(entity1URI) && validator.isValid(entity2URI)) {
-                    Resource entitypair = dataset.createResource(Config.DATA_NS + counter++, EREL.EntityPair)
-                            .addProperty(EREL.first, dataset.createResource(entity1URI, EREL.Entity))
-                            .addProperty(EREL.second, dataset.createResource(entity2URI, EREL.Entity));
-
-                    List<Score> rank = paths.getRank(entity1URI, entity2URI);
-                    for (Score s : rank) {
-
-                    }
-
-                }
-            };
+            }
+        };
 
         (new File(Config.XML_DUMP_NAME)).getParentFile().mkdirs();
 

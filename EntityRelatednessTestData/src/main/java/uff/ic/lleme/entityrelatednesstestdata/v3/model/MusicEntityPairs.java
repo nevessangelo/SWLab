@@ -13,15 +13,19 @@ import uff.ic.lleme.entityrelatednesstestdata.v3.Config;
 public class MusicEntityPairs extends ArrayList<Pair> {
 
     public MusicEntityPairs() {
+        String linha;
         try (InputStream in = new FileInputStream(Config.DATA_ROOT + "/music_entity_pairs.txt");) {
             Scanner sc = new Scanner(in);
             int count = 0;
             while (sc.hasNext()) {
-                String linha = sc.nextLine();
+                linha = sc.nextLine();
                 count++;
                 if (count > 1 && linha != null && !linha.equals("")) {
                     String[] cols = linha.split("\t");
-                    add(new Pair(cols[0], null, cols[1], cols[2]));
+                    if (cols.length == 3)
+                        add(new Pair(cols[0], null, cols[1], cols[2]));
+                    else
+                        System.out.println(String.format("Error: class -> %1s, line -> %1s.", "MusicEntityPairs", linha));
                 }
             }
         } catch (FileNotFoundException ex) {
