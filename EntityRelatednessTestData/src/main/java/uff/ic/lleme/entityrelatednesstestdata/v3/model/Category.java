@@ -32,11 +32,15 @@ public class Category {
             throw new Exception();
     }
 
-    public boolean addSameAs(Resource resource) throws Exception {
-        if (resource != null)
-            return sameAS.add(resource);
-        else
+    public boolean addSameAs(String resource) throws Exception {
+        if (resource == null) {
+            System.out.println(String.format("Error: null sameAs resource. (entity -> %1s)", label));
             throw new Exception();
+        } else if (SetOfResources.getInstance().getResource(resource) == null) {
+            System.out.println(String.format("Error: invalid category."));
+            throw new Exception();
+        } else
+            return sameAS.add(SetOfResources.getInstance().getResource(resource));
     }
 
     public String getLabel() {

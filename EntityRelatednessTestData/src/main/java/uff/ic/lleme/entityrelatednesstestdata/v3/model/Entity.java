@@ -55,12 +55,11 @@ public class Entity {
         if (resource == null) {
             System.out.println(String.format("Error: null sameAs resource. (entity -> %1s)", label));
             throw new Exception();
-        } else if (SetOfResources.getInstance().getResource(category) == null) {
+        } else if (SetOfResources.getInstance().getResource(resource) == null) {
             System.out.println(String.format("Error: invalid category."));
             throw new Exception();
         } else
-            return sameAS.add(resource);
-
+            return sameAS.add(SetOfResources.getInstance().getResource(resource));
     }
 
     public String getLabel() {

@@ -4,10 +4,8 @@ import java.util.ArrayList;
 import java.util.Map;
 import uff.ic.lleme.entityrelatednesstestdata.v3.model.Category;
 import uff.ic.lleme.entityrelatednesstestdata.v3.model.Entity;
-import uff.ic.lleme.entityrelatednesstestdata.v3.model.Resource;
 import uff.ic.lleme.entityrelatednesstestdata.v3.model.SetOfCategories;
 import uff.ic.lleme.entityrelatednesstestdata.v3.model.SetOfEntities;
-import uff.ic.lleme.entityrelatednesstestdata.v3.model.SetOfResources;
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.MovieClassMapping;
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.MovieEntityMappings;
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.MovieScores;
@@ -34,14 +32,12 @@ public class Main {
                 try {
                     Category category = SetOfCategories.getInstance().addCategory(mapping.label);
                     try {
-                        Resource resource = SetOfResources.getInstance().addResource(mapping.entity1);
-                        category.addSameAs(resource);
+                        category.addSameAs(mapping.entity1);
                     } catch (Exception e) {
                         System.out.println(String.format("Error: invalid sameAs resource. (category -> %1s, resource -> %1s)", mapping.label, mapping.entity1));
                     }
                     try {
-                        Resource resource = SetOfResources.getInstance().addResource(mapping.entity2);
-                        category.addSameAs(resource);
+                        category.addSameAs(mapping.entity2);
                     } catch (Exception e) {
                         System.out.println(String.format("Error: invalid sameAs resource. (category -> %1s, resource -> %1s)", mapping.label, mapping.entity2));
                     }
@@ -75,14 +71,12 @@ public class Main {
                     try {
                         Entity entity = SetOfEntities.getInstance().addEntity(mapping.label, mapping.type);
                         try {
-                            Resource resource = SetOfResources.getInstance().addResource(mapping.entity1);
-                            entity.addSameAs(resource);
+                            entity.addSameAs(mapping.entity1);
                         } catch (Exception e) {
                             System.out.println(String.format("Error: invalid sameAs resource. (file -> %1s, entity -> %1s, resource -> %1s)", subset.getKey(), mapping.label, mapping.entity1));
                         }
                         try {
-                            Resource resource = SetOfResources.getInstance().addResource(mapping.entity1);
-                            entity.addSameAs(resource);
+                            entity.addSameAs(mapping.entity2);
                         } catch (Exception e) {
                             System.out.println(String.format("Error: invalid sameAs resource. (file -> %1s, entity -> %1s, resource -> %1s)", subset.getKey(), mapping.label, mapping.entity2));
                         }
