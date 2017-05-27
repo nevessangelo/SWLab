@@ -18,7 +18,7 @@ public class Resource {
 
     }
 
-    private String getURI() {
+    public String getURI() {
         return uri;
     }
 }

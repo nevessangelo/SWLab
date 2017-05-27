@@ -13,11 +13,12 @@ import uff.ic.lleme.entityrelatednesstestdata.v3.Config;
 public class MusicPropertyRelevanceScore extends HashMap<String, Double> {
 
     public MusicPropertyRelevanceScore() {
+        String linha;
         try (InputStream in = new FileInputStream(Config.DATA_ROOT + "/music_property_relevance_scores/properties.txt");) {
             Scanner sc = new Scanner(in);
             int count = 0;
             while (sc.hasNext()) {
-                String linha = sc.nextLine();
+                linha = sc.nextLine();
                 linha = linha.replaceAll("  ", " ").replaceAll(" ", "\t").replaceAll("\t\t", "\t");
                 count++;
                 if (count > 1 && linha != null && !linha.equals("")) {

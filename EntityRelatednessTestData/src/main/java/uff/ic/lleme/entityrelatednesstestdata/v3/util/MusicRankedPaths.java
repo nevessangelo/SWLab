@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
@@ -16,15 +17,17 @@ import uff.ic.lleme.entityrelatednesstestdata.v3.Config;
 public class MusicRankedPaths extends HashMap<String, ArrayList<Score>> {
 
     public MusicRankedPaths() {
+        String linha;
         File dir = new File(Config.DATA_ROOT + "/music_ranked_paths");
         File[] files = dir.listFiles();
         for (File f : files) {
-            String name = (f.getName().split("\\.")[1]);
+            String[] names = f.getName().split("\\.");
+            String name = (String.join("", Arrays.copyOfRange(names, 1, names.length - 1)));
             try (InputStream in = new FileInputStream(f);) {
                 Scanner sc = new Scanner(in);
                 int count = 0;
                 while (sc.hasNext()) {
-                    String linha = sc.nextLine();
+                    linha = sc.nextLine();
                     count++;
                     if (count > 1 && linha != null && !linha.equals("")) {
                         String[] cols = linha.split("\t");

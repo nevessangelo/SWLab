@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -15,11 +16,12 @@ import uff.ic.lleme.entityrelatednesstestdata.v3.Config;
 public class MovieEntityMappings extends HashMap<String, ArrayList<Pair>> {
 
     public MovieEntityMappings() {
-        String name, linha;
+        String linha;
         File dir = new File(Config.DATA_ROOT + "/movie_entity_mappings");
         File[] files = dir.listFiles();
         for (File f : files) {
-            name = (f.getName().split("\\.")[1]);
+            String[] names = f.getName().split("\\.");
+            String name = (String.join("", Arrays.copyOfRange(names, 1, names.length - 1)));
             try (InputStream in = new FileInputStream(f);) {
                 Scanner sc = new Scanner(in);
                 int count = 0;
@@ -33,6 +35,8 @@ public class MovieEntityMappings extends HashMap<String, ArrayList<Pair>> {
                             cols[1] = cols[1].trim();
                             cols[2] = cols[2].trim().replaceFirst("^ttp://", "http://");
                             cols[3] = cols[3].trim().replaceFirst("^ttp://", "http://");
+                            if (cols.length != 4)
+                                throw new Exception("Invalid columns.");
                         } catch (Exception e) {
                             System.out.println(e.toString());
                             System.out.println(String.format("Error: class -> %1s, arq -> %1s, line -> %1s.", "MovieEntityMappings", f.getName(), linha));

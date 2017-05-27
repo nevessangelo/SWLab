@@ -6,19 +6,18 @@ import java.util.List;
 import org.apache.commons.validator.routines.UrlValidator;
 import uff.ic.lleme.entityrelatednesstestdata.v3.Config;
 
-public class Property {
+public class Category {
 
     private String label = null;
     private String localName = null;
     private String uri = null;
-    private double score = 0;
     private List<Resource> sameAS = new ArrayList<>();
 
-    private Property() {
+    private Category() {
 
     }
 
-    public Property(String label, double score) throws Exception {
+    public Category(String label) throws Exception {
         if (!label.equals("")) {
             this.label = label.trim().replaceAll("  ", " ").replaceAll("  ", " ").replaceAll(" ", "_");
             String uriString = Config.DATA_NS + this.label;
@@ -29,7 +28,6 @@ public class Property {
                 this.uri = Config.DATA_NS + URLEncoder.encode(this.label, "UTF-8");
                 this.localName = URLEncoder.encode(this.label, "UTF-8");
             }
-            this.score = score;
         } else
             throw new Exception();
     }
@@ -51,10 +49,6 @@ public class Property {
 
     public String getUri() {
         return uri;
-    }
-
-    public Double getScore() {
-        return score;
     }
 
     public List<Resource> getSameAS() {

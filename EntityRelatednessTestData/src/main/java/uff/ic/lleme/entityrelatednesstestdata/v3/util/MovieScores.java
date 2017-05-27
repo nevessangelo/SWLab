@@ -6,9 +6,12 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import uff.ic.lleme.entityrelatednesstestdata.v3.Config;
@@ -16,15 +19,17 @@ import uff.ic.lleme.entityrelatednesstestdata.v3.Config;
 public class MovieScores extends HashMap<String, ArrayList<Score>> {
 
     public MovieScores() {
+        String linha;
         File dir = new File(Config.DATA_ROOT + "/movie_scores");
         File[] files = dir.listFiles();
         for (File f : files) {
-            String name = (f.getName().split("\\.")[1]);
+            String[] names = f.getName().split("\\.");
+            String name = (String.join("", Arrays.copyOfRange(names, 1, names.length - 1)));
             try (InputStream in = new FileInputStream(f);) {
                 Scanner sc = new Scanner(in);
                 int count = 0;
                 while (sc.hasNext()) {
-                    String linha = sc.nextLine();
+                    linha = sc.nextLine();
                     linha = linha.replaceAll("  ", " ").replaceAll(" ", "\t").replaceAll("\t\t", "\t");
                     count++;
                     if (count > 1 && linha != null && !linha.equals("")) {
@@ -47,11 +52,12 @@ public class MovieScores extends HashMap<String, ArrayList<Score>> {
         }
     }
 
-    public double getScore(String label) {
+    public Double[] getScore(String label) {
+        Set<Double> scores = new HashSet<>();
         for (List<Score> entities : values())
             for (Score entity : entities)
                 if (entity.label.equals(label))
-                    return entity.score;
-        return 0;
+                    scores.add(entity.score);
+        return scores.toArray(new Double[0]);
     }
 }

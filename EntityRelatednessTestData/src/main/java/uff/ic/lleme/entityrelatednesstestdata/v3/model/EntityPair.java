@@ -32,4 +32,12 @@ public class EntityPair {
         return rank;
     }
 
+    public Entity getEntity1() {
+        return entity1;
+    }
+
+    public Entity getEntity2() {
+        return entity2;
+    }
+
 }

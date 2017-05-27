@@ -9,6 +9,7 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import uff.ic.lleme.entityrelatednesstestdata.v3.Config;
+import uff.ic.lleme.entityrelatednesstestdata.v3.vocabulary.EREL;
 
 public class MovieClassMapping extends ArrayList<Pair> {
 
@@ -20,13 +21,14 @@ public class MovieClassMapping extends ArrayList<Pair> {
             int count = 0;
             while (sc.hasNext()) {
                 String linha = sc.nextLine();
-                linha = linha.replaceAll("  ", " ").replaceAll(" ", "\t").replaceAll("\t\t", "\t");
+                linha = linha.replaceAll("  ", " ").replaceAll("  ", " ").replaceAll(" ", "\t").replaceAll("\t\t", "\t");
                 count++;
                 if (count > 1 && linha != null && !linha.equals("")) {
                     String[] cols = linha.split("\t");
                     cols[0] = cols[0].trim().replace("mvo:Director", "dbo:Film_Director").replace("mvo:", mvo).replace("dbo:", dbo);
                     cols[1] = cols[1].trim().replace("mvo:", mvo).replace("dbo:", dbo);
-                    add(new Pair(null, null, cols[0], cols[1]));
+                    cols[2] = EREL.NS + cols[2].trim();
+                    add(new Pair(cols[2], null, cols[0], cols[1]));
                 }
             }
         } catch (FileNotFoundException ex) {
