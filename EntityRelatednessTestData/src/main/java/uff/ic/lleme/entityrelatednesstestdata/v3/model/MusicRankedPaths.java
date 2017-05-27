@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -44,5 +45,9 @@ public class MusicRankedPaths extends HashMap<String, ArrayList<Score>> {
                 Logger.getLogger(MusicRankedPaths.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    }
+
+    public List<Score> getPaths(String entity1, String entity2) {
+        return get(entity1 + "-" + entity2);
     }
 }

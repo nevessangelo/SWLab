@@ -24,14 +24,20 @@ public class MovieEntityMappings extends HashMap<String, ArrayList<Pair>> {
                 int count = 0;
                 while (sc.hasNext()) {
                     String linha = sc.nextLine();
-                    linha = linha.replaceAll("  ", " ").replaceAll(" ", "\t").replaceAll("\t\t", "\t");
+                    linha = linha.replaceAll("  ", " ").replaceAll("  ", " ").replaceAll(" ", "\t").replaceAll("\t\t", "\t");
                     count++;
                     if (count > 1 && linha != null && !linha.equals("")) {
                         String[] cols = linha.split("\t");
-                        cols[0] = cols[0].trim();
-                        cols[1] = cols[1].trim();
-                        cols[2] = cols[2].trim();
-                        cols[3] = cols[3].trim();
+                        try {
+                            cols[0] = cols[0].trim();
+                            cols[1] = cols[1].trim();
+                            cols[2] = cols[2].trim();
+                            cols[3] = cols[3].trim();
+                        } catch (Exception e) {
+                            System.out.println(e.toString());
+                            System.out.println(String.format("Error: class -> %1s, arq -> %1s, line -> %1s.", "MovieEntityMappings", f.getName(), linha));
+                            continue;
+                        }
                         ArrayList<Pair> lista = get(name);
                         if (lista == null) {
                             lista = new ArrayList<>();

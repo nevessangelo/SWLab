@@ -24,7 +24,7 @@ public class MusicEntityMappings extends HashMap<String, ArrayList<Pair>> {
                 int count = 0;
                 while (sc.hasNext()) {
                     String linha = sc.nextLine();
-                    linha = linha.replaceAll("  ", " ").replaceAll(" ", "\t").replaceAll("\t\t", "\t");
+                    linha = linha.replaceAll("  ", " ").replaceAll("  ", " ").replaceAll(" ", "\t").replaceAll("\t\t", "\t");
                     count++;
                     if (count > 1 && linha != null && !linha.equals("")) {
                         String[] cols = linha.split("\t");
@@ -35,7 +35,7 @@ public class MusicEntityMappings extends HashMap<String, ArrayList<Pair>> {
                             cols[3] = cols[3].trim();
                         } catch (Exception e) {
                             System.out.println(e.toString());
-                            System.out.println(String.format("Erro: class -> %1s, arq -> %1s, line -> %1s.", "MusicEntityMappings", f.getName(), linha));
+                            System.out.println(String.format("Error: class -> %1s, arq -> %1s, line -> %1s.", "MusicEntityMappings", f.getName(), linha));
                             continue;
                         }
                         ArrayList<Pair> lista = get(name);
