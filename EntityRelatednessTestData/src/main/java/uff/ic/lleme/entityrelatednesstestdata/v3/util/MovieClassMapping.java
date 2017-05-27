@@ -1,4 +1,4 @@
-package uff.ic.lleme.entityrelatednesstestdata.v3.model;
+package uff.ic.lleme.entityrelatednesstestdata.v3.util;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

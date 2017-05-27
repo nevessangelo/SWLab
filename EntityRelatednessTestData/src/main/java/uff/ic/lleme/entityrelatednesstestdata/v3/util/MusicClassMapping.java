@@ -1,19 +1,21 @@
-package uff.ic.lleme.entityrelatednesstestdata.v3.model;
+package uff.ic.lleme.entityrelatednesstestdata.v3.util;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import uff.ic.lleme.entityrelatednesstestdata.v3.Config;
 
-public class MusicPropertyRelevanceScore extends HashMap<String, Double> {
+public class MusicClassMapping extends ArrayList<Pair> {
 
-    public MusicPropertyRelevanceScore() {
-        try (InputStream in = new FileInputStream(Config.DATA_ROOT + "/music_property_relevance_scores/properties.txt");) {
+    public MusicClassMapping() {
+        String mso = "http://purl.org/ontology/mo/";
+        String dbo = "http://dbpedia.org/ontology/";
+        try (InputStream in = new FileInputStream(Config.DATA_ROOT + "/music_class_mapping.txt");) {
             Scanner sc = new Scanner(in);
             int count = 0;
             while (sc.hasNext()) {
@@ -22,18 +24,14 @@ public class MusicPropertyRelevanceScore extends HashMap<String, Double> {
                 count++;
                 if (count > 1 && linha != null && !linha.equals("")) {
                     String[] cols = linha.split("\t");
-                    cols[0] = cols[0].trim();
-                    put(cols[0], Double.valueOf(cols[1]));
+                    add(new Pair(null, null, cols[0].trim().replace("mso:", mso).replace("dbo:", dbo), cols[1].trim().replace("mso:", mso).replace("dbo:", dbo)));
                 }
             }
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(MusicPropertyRelevanceScore.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MusicClassMapping.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(MusicPropertyRelevanceScore.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MusicClassMapping.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    public double getScore(String label) {
-        return get(label);
-    }
 }
