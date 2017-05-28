@@ -39,15 +39,15 @@ public class Entity {
                     throw new Exception();
                 }
         }
-        this.category = SetOfCategories.getInstance().addCategory(category);
+        this.category = DB.Categories.addCategory(category);
 
     }
 
     public boolean addSameAs(String resource) throws Exception {
-        if (SetOfResources.getInstance().getResource(resource) != null)
-            return sameAS.add(SetOfResources.getInstance().getResource(resource));
+        if (DB.Resources.getResource(resource) != null)
+            return sameAS.add(DB.Resources.getResource(resource));
         else
-            return sameAS.add(SetOfResources.getInstance().addResource(resource));
+            return sameAS.add(DB.Resources.addResource(resource));
     }
 
     public String getLabel() {

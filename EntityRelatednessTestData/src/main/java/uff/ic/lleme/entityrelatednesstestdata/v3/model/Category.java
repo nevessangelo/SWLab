@@ -40,10 +40,10 @@ public class Category {
     }
 
     public boolean addSameAs(String resource) throws Exception {
-        if (SetOfResources.getInstance().getResource(resource) != null)
-            return sameAS.add(SetOfResources.getInstance().getResource(resource));
+        if (uff.ic.lleme.entityrelatednesstestdata.v3.model.DB.Resources.getResource(resource) != null)
+            return sameAS.add(uff.ic.lleme.entityrelatednesstestdata.v3.model.DB.Resources.getResource(resource));
         else
-            return sameAS.add(SetOfResources.getInstance().addResource(resource));
+            return sameAS.add(uff.ic.lleme.entityrelatednesstestdata.v3.model.DB.Resources.addResource(resource));
     }
 
     public String getLabel() {

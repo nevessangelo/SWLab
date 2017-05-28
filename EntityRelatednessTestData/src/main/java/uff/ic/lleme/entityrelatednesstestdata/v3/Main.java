@@ -3,20 +3,20 @@ package uff.ic.lleme.entityrelatednesstestdata.v3;
 import java.util.ArrayList;
 import java.util.Map;
 import uff.ic.lleme.entityrelatednesstestdata.v3.model.Category;
+import uff.ic.lleme.entityrelatednesstestdata.v3.model.DB;
 import uff.ic.lleme.entityrelatednesstestdata.v3.model.Entity;
 import uff.ic.lleme.entityrelatednesstestdata.v3.model.Property;
-import uff.ic.lleme.entityrelatednesstestdata.v3.model.SetOfCategories;
-import uff.ic.lleme.entityrelatednesstestdata.v3.model.SetOfEntities;
-import uff.ic.lleme.entityrelatednesstestdata.v3.model.SetOfProperties;
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.MovieClassMapping;
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.MovieEntityMappings;
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.MovieEntityPairs;
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.MoviePropertyRelevanceScore;
+import uff.ic.lleme.entityrelatednesstestdata.v3.util.MovieRankedPaths;
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.MovieScores;
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.MusicClassMapping;
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.MusicEntityMappings;
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.MusicEntityPairs;
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.MusicPropertyRelevanceScore;
+import uff.ic.lleme.entityrelatednesstestdata.v3.util.MusicRankedPaths;
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.MusicScores;
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.Pair;
 
@@ -36,7 +36,7 @@ public class Main {
 
             for (Pair mapping : categories)
                 try {
-                    Category category = SetOfCategories.getInstance().addCategory(mapping.label);
+                    Category category = DB.Categories.addCategory(mapping.label);
                     try {
                         category.addSameAs(mapping.entity1);
                     } catch (Exception e) {
@@ -74,7 +74,7 @@ public class Main {
             for (Map.Entry<String, ArrayList<Pair>> subset : mappings.entrySet())
                 for (Pair mapping : subset.getValue())
                     try {
-                        Entity entity = SetOfEntities.getInstance().addEntity(mapping.label, mapping.type);
+                        Entity entity = DB.Entities.addEntity(mapping.label, mapping.type);
                         try {
                             entity.addSameAs(mapping.entity1);
                         } catch (Exception e) {
@@ -102,7 +102,7 @@ public class Main {
 
             for (Map.Entry<String, Double> property : properties.entrySet())
                 try {
-                    Property p = SetOfProperties.getInstance().addProperty(property.getKey(), property.getValue());
+                    Property p = DB.Properties.addProperty(property.getKey(), property.getValue());
                 } catch (Exception e) {
                     System.out.println(String.format("Property error: invalid label. (file -> %1s, entity -> %1s)", property.getKey(), property.getValue()));
                 }
@@ -119,8 +119,10 @@ public class Main {
             MUSIC_ENTITY_PAIRS = null;
 
         }
-//        MusicRankedPaths MUSIC_RANKED_SCORES = new MusicRankedPaths();
-//
-//        MovieRankedPaths MOVIE_RANKED_PATHS = new MovieRankedPaths();
+
+        {
+            MusicRankedPaths MUSIC_RANKED_SCORES = new MusicRankedPaths();
+            MovieRankedPaths MOVIE_RANKED_PATHS = new MovieRankedPaths();
+        }
     }
 }

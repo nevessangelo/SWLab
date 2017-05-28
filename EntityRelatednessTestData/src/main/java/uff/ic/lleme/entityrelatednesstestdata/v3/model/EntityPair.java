@@ -14,8 +14,18 @@ public class EntityPair {
     }
 
     public EntityPair(String entity1, String entity2) throws Exception {
-        this.entity1 = SetOfEntityPairs.getInstance().addEntityPair(entity1, entity2);
-        this.entity2 = SetOfEntityPairs.getInstance().addCategory(entity2);
+        this.entity1 = DB.Entities.getEntity(entity1);
+        this.entity2 = DB.Entities.getEntity(entity2);
+        if (this.entity1 == null && this.entity2 == null) {
+            System.out.println(String.format("EntityPair error: undefined entity (label1 -> %1s, label2 -> %1s).", entity1, entity2));
+            throw new Exception();
+        } else if (this.entity1 == null) {
+            System.out.println(String.format("EntityPair error: undefined entity (label1 -> %1s).", entity1));
+            throw new Exception();
+        } else if (this.entity2 == null) {
+            System.out.println(String.format("EntityPair error: undefined entity (label2 -> %1s).", entity2));
+            throw new Exception();
+        }
     }
 
     public boolean add(Path path) throws Exception {
