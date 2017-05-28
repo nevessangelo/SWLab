@@ -6,7 +6,7 @@ import java.util.Map;
 public class SetOfProperties {
 
     private static SetOfProperties setOfProperties = null;
-    private Map<String, Property> properties = new HashMap<>();
+    private final Map<String, Property> PROPERTIES = new HashMap<>();
 
     private SetOfProperties() {
 
@@ -18,11 +18,17 @@ public class SetOfProperties {
         return setOfProperties;
     }
 
-    public Property addProperty(Property property) {
-        return properties.put(property.getLabel(), property);
+    public Property addProperty(String label, double score) throws Exception {
+        if (PROPERTIES.containsKey(label))
+            return PROPERTIES.get(label);
+        else {
+            Property property = new Property(label, score);
+            PROPERTIES.put(property.getLabel(), property);
+            return property;
+        }
     }
 
     public Property getPropety(String label) {
-        return properties.get(label);
+        return PROPERTIES.get(label);
     }
 }

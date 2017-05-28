@@ -13,12 +13,9 @@ public class EntityPair {
 
     }
 
-    public EntityPair(Entity entity1, Entity entity2) throws Exception {
-        if (entity1 != null && entity2 != null && entity1 != entity2) {
-            this.entity1 = entity1;
-            this.entity2 = entity2;
-        } else
-            throw new Exception();
+    public EntityPair(String entity1, String entity2) throws Exception {
+        this.entity1 = SetOfEntityPairs.getInstance().addEntityPair(entity1, entity2);
+        this.entity2 = SetOfEntityPairs.getInstance().addCategory(entity2);
     }
 
     public boolean add(Path path) throws Exception {

@@ -4,14 +4,18 @@ import java.util.ArrayList;
 import java.util.Map;
 import uff.ic.lleme.entityrelatednesstestdata.v3.model.Category;
 import uff.ic.lleme.entityrelatednesstestdata.v3.model.Entity;
+import uff.ic.lleme.entityrelatednesstestdata.v3.model.Property;
 import uff.ic.lleme.entityrelatednesstestdata.v3.model.SetOfCategories;
 import uff.ic.lleme.entityrelatednesstestdata.v3.model.SetOfEntities;
+import uff.ic.lleme.entityrelatednesstestdata.v3.model.SetOfProperties;
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.MovieClassMapping;
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.MovieEntityMappings;
+import uff.ic.lleme.entityrelatednesstestdata.v3.util.MovieEntityPairs;
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.MoviePropertyRelevanceScore;
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.MovieScores;
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.MusicClassMapping;
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.MusicEntityMappings;
+import uff.ic.lleme.entityrelatednesstestdata.v3.util.MusicEntityPairs;
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.MusicPropertyRelevanceScore;
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.MusicScores;
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.Pair;
@@ -91,17 +95,32 @@ public class Main {
             MusicPropertyRelevanceScore MUSIC_PROPERTY_RELEVANCE_SCORE = new MusicPropertyRelevanceScore();
 
             MOVIE_PROPERTY_RELEVANCE_SCORE.putAll(MUSIC_PROPERTY_RELEVANCE_SCORE);
-            MoviePropertyRelevanceScore mappings = MOVIE_PROPERTY_RELEVANCE_SCORE;
+            MoviePropertyRelevanceScore properties = MOVIE_PROPERTY_RELEVANCE_SCORE;
 
             MOVIE_PROPERTY_RELEVANCE_SCORE = null;
             MUSIC_PROPERTY_RELEVANCE_SCORE = null;
 
+            for (Map.Entry<String, Double> property : properties.entrySet())
+                try {
+                    Property p = SetOfProperties.getInstance().addProperty(property.getKey(), property.getValue());
+                } catch (Exception e) {
+                    System.out.println(String.format("Property error: invalid label. (file -> %1s, entity -> %1s)", property.getKey(), property.getValue()));
+                }
         }
 
+        {
+            MovieEntityPairs MOVIE_ENTITY_PAIRS = new MovieEntityPairs();
+            MusicEntityPairs MUSIC_ENTITY_PAIRS = new MusicEntityPairs();
+
+            MOVIE_ENTITY_PAIRS.addAll(MUSIC_ENTITY_PAIRS);
+            MovieEntityPairs pairs = MOVIE_ENTITY_PAIRS;
+
+            MOVIE_ENTITY_PAIRS = null;
+            MUSIC_ENTITY_PAIRS = null;
+
+        }
 //        MusicRankedPaths MUSIC_RANKED_SCORES = new MusicRankedPaths();
-//        MusicEntityPairs MUSIC_ENTITY_PAIRS = new MusicEntityPairs();
 //
 //        MovieRankedPaths MOVIE_RANKED_PATHS = new MovieRankedPaths();
-//        MovieEntityPairs MOVIE_ENTITY_PAIRS = new MovieEntityPairs();
     }
 }
