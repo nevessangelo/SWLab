@@ -24,7 +24,10 @@ import uff.ic.lleme.entityrelatednesstestdata.v3.util.Score;
 public class Main {
 
     public static void main(String[] args) {
+        prepareDB();
+    }
 
+    private static void prepareDB() {
         {
             MovieClassMapping MOVIE_CLASS_MAPPING = new MovieClassMapping();
             MusicClassMapping MUSIC_CLASS_MAPPING = new MusicClassMapping();
