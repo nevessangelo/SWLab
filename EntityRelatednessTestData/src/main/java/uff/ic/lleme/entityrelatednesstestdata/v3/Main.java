@@ -19,6 +19,7 @@ import uff.ic.lleme.entityrelatednesstestdata.v3.util.MusicPropertyRelevanceScor
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.MusicRankedPaths;
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.MusicScores;
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.Pair;
+import uff.ic.lleme.entityrelatednesstestdata.v3.util.Score;
 
 public class Main {
 
@@ -50,6 +51,7 @@ public class Main {
                 } catch (Exception e) {
                     System.out.println(String.format("Error: invalid label. (property -> %1s)", mapping.label));
                 }
+            System.out.println("");
         }
 
         {
@@ -78,15 +80,15 @@ public class Main {
                         try {
                             entity.addSameAs(mapping.entity1);
                         } catch (Exception e) {
-                            System.out.println(String.format("Error: invalid sameAs resource. (file -> %1s, entity -> %1s, resource -> %1s)", subset.getKey(), mapping.label, mapping.entity1));
+                            System.out.println(String.format("Entity error: invalid sameAs resource. (file -> %1s, label -> %1s, resource -> %1s)", subset.getKey(), mapping.label, mapping.entity1));
                         }
                         try {
                             entity.addSameAs(mapping.entity2);
                         } catch (Exception e) {
-                            System.out.println(String.format("Error: invalid sameAs resource. (file -> %1s, entity -> %1s, resource -> %1s)", subset.getKey(), mapping.label, mapping.entity2));
+                            System.out.println(String.format("Entity error: invalid sameAs resource. (file -> %1s, label -> %1s, resource -> %1s)", subset.getKey(), mapping.label, mapping.entity2));
                         }
                     } catch (Exception e) {
-                        System.out.println(String.format("Error: invalid label. (file -> %1s, entity -> %1s)", subset.getKey(), mapping.label));
+                        System.out.println(String.format("Entity error: invalid label or category. (file -> %1s, label -> %1s, category -> %1s)", subset.getKey(), mapping.label, mapping.type));
                     }
         }
 
@@ -104,7 +106,7 @@ public class Main {
                 try {
                     Property p = DB.Properties.addProperty(property.getKey(), property.getValue());
                 } catch (Exception e) {
-                    System.out.println(String.format("Property error: invalid label. (file -> %1s, entity -> %1s)", property.getKey(), property.getValue()));
+                    System.out.println(String.format("Property error: invalid label or score. (label -> %1s, score -> %1s)", property.getKey(), property.getValue()));
                 }
         }
 
@@ -118,11 +120,29 @@ public class Main {
             MOVIE_ENTITY_PAIRS = null;
             MUSIC_ENTITY_PAIRS = null;
 
+            for (Pair p : pairs)
+                try {
+                    DB.EntityPairs.addEntityPair(p.entity1, p.entity2);
+                } catch (Exception e) {
+                    System.out.println(String.format("EntityPair error: invalid entity. (entity1 -> %1s, entity2 -> %1s)", p.entity1, p.entity2));
+                }
         }
 
         {
-            MusicRankedPaths MUSIC_RANKED_SCORES = new MusicRankedPaths();
             MovieRankedPaths MOVIE_RANKED_PATHS = new MovieRankedPaths();
+            MusicRankedPaths MUSIC_RANKED_PATHS = new MusicRankedPaths();
+
+            MOVIE_RANKED_PATHS.putAll(MUSIC_RANKED_PATHS);
+            MovieRankedPaths movieRankedPaths = MOVIE_RANKED_PATHS;
+
+            MOVIE_RANKED_PATHS = null;
+            MUSIC_RANKED_PATHS = null;
+
+            for (Map.Entry<String, ArrayList<Score>> paths : movieRankedPaths.entrySet())
+                for (Score path : paths.getValue()) {
+
+                }
+
         }
     }
 }

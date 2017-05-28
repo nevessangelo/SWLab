@@ -5,6 +5,69 @@ import java.util.Map;
 
 public class DB {
 
+    public static class Resources {
+
+        private static Resources setOfResources = null;
+        private final Map<String, Resource> RESOURCES = new HashMap<>();
+
+        private Resources() {
+            super();
+        }
+
+        private static Resources getInstance() {
+            if (setOfResources == null)
+                setOfResources = new Resources();
+            return setOfResources;
+        }
+
+        public static Resource addResource(String uriString) throws Exception {
+            if (getInstance().RESOURCES.containsKey(uriString))
+                return getInstance().RESOURCES.get(uriString);
+            else {
+                Resource resource = new Resource(uriString);
+                getInstance().RESOURCES.put(resource.getURI(), resource);
+                return resource;
+            }
+        }
+
+        public static Resource getResource(String uriString) {
+            return getInstance().RESOURCES.get(uriString);
+        }
+    }
+
+    public static class Categories {
+
+        private static Categories setOfCategories = null;
+        private final Map<String, Category> CATEGORIES = new HashMap<>();
+
+        private Categories() {
+            super();
+        }
+
+        private static Categories getInstance() {
+            if (setOfCategories == null)
+                setOfCategories = new Categories();
+            return setOfCategories;
+        }
+
+        public static Category addCategory(String label) throws Exception {
+            label = label.trim().replaceAll("  ", " ").replaceAll("  ", " ").replaceAll(" ", "_");
+
+            if (getInstance().CATEGORIES.containsKey(label))
+                return getInstance().CATEGORIES.get(label);
+            else {
+                Category category = new Category(label);
+                getInstance().CATEGORIES.put(category.getLabel(), category);
+                return category;
+            }
+        }
+
+        public static Category getCategory(String label) {
+            label = label.trim().replaceAll("  ", " ").replaceAll("  ", " ").replaceAll(" ", "_");
+            return getInstance().CATEGORIES.get(label);
+        }
+    }
+
     public static class Entities {
 
         private static Entities setOfEntities = null;
@@ -21,6 +84,8 @@ public class DB {
         }
 
         public static Entity addEntity(String label, String category) throws Exception {
+            label = label.trim().replaceAll("  ", " ").replaceAll("  ", " ").replaceAll(" ", "_");
+
             if (getInstance().ENTITIES.containsKey(label))
                 return getInstance().ENTITIES.get(label);
             else {
@@ -51,6 +116,8 @@ public class DB {
         }
 
         public static Property addProperty(String label, double score) throws Exception {
+            label = label.trim().replaceAll("  ", " ").replaceAll("  ", " ").replaceAll(" ", "_");
+
             if (getInstance().PROPERTIES.containsKey(label))
                 return getInstance().PROPERTIES.get(label);
             else {
@@ -61,37 +128,8 @@ public class DB {
         }
 
         public static Property getPropety(String label) {
+            label = label.trim().replaceAll("  ", " ").replaceAll("  ", " ").replaceAll(" ", "_");
             return getInstance().PROPERTIES.get(label);
-        }
-    }
-
-    public static class Resources {
-
-        private static Resources setOfResources = null;
-        private final Map<String, Resource> RESOURCES = new HashMap<>();
-
-        private Resources() {
-            super();
-        }
-
-        private static Resources getInstance() {
-            if (setOfResources == null)
-                setOfResources = new Resources();
-            return setOfResources;
-        }
-
-        public static Resource addResource(String uriString) throws Exception {
-            if (getInstance().RESOURCES.containsKey(uriString))
-                return getInstance().RESOURCES.get(uriString);
-            else {
-                Resource resource = new Resource(uriString);
-                getInstance().RESOURCES.put(resource.getURI(), resource);
-                return resource;
-            }
-        }
-
-        public static Resource getResource(String label) {
-            return getInstance().RESOURCES.get(label);
         }
     }
 
@@ -111,6 +149,9 @@ public class DB {
         }
 
         public static EntityPair addEntityPair(String entity1, String entity2) throws Exception {
+            entity1 = entity1.trim().replaceAll("  ", " ").replaceAll("  ", " ").replaceAll(" ", "_");
+            entity2 = entity2.trim().replaceAll("  ", " ").replaceAll("  ", " ").replaceAll(" ", "_");
+
             if (getInstance().ENTITY_PAIRS.containsKey(entity1 + "-" + entity2))
                 return getInstance().ENTITY_PAIRS.get(entity1 + "-" + entity2);
             else {
@@ -121,38 +162,10 @@ public class DB {
         }
 
         public static EntityPair getEntityPair(String entity1, String entity2) {
+            entity1 = entity1.trim().replaceAll("  ", " ").replaceAll("  ", " ").replaceAll(" ", "_");
+            entity2 = entity2.trim().replaceAll("  ", " ").replaceAll("  ", " ").replaceAll(" ", "_");
+
             return getInstance().ENTITY_PAIRS.get(entity1 + "-" + entity2);
         }
     }
-
-    public static class Categories {
-
-        private static Categories setOfCategories = null;
-        private final Map<String, Category> CATEGORIES = new HashMap<>();
-
-        private Categories() {
-            super();
-        }
-
-        private static Categories getInstance() {
-            if (setOfCategories == null)
-                setOfCategories = new Categories();
-            return setOfCategories;
-        }
-
-        public static Category addCategory(String label) throws Exception {
-            if (getInstance().CATEGORIES.containsKey(label))
-                return getInstance().CATEGORIES.get(label);
-            else {
-                Category category = new Category(label);
-                getInstance().CATEGORIES.put(category.getLabel(), category);
-                return category;
-            }
-        }
-
-        public static Category getCategory(String label) {
-            return getInstance().CATEGORIES.get(label);
-        }
-    }
-
 }

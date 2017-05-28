@@ -2,8 +2,8 @@ package uff.ic.lleme.entityrelatednesstestdata.v3.model;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 import org.apache.commons.validator.routines.UrlValidator;
 import uff.ic.lleme.entityrelatednesstestdata.v3.Config;
 
@@ -14,7 +14,7 @@ public class Entity {
     private String uri = null;
     private double score = 0;
     private Category category = null;
-    private List<Resource> sameAS = new ArrayList<>();
+    private Set<Resource> sameAS = new HashSet<>();
 
     private Entity() {
 
@@ -66,7 +66,7 @@ public class Entity {
         return score;
     }
 
-    public List<Resource> getSameAS() {
+    public Set<Resource> getSameAS() {
         return sameAS;
     }
 

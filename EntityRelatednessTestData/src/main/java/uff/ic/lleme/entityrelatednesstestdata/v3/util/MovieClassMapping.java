@@ -25,9 +25,11 @@ public class MovieClassMapping extends ArrayList<Pair> {
                 if (count > 1 && linha != null && !linha.equals("")) {
                     String[] cols = linha.split("\t");
                     cols[0] = cols[0].trim().replace("mvo:Director", "dbo:Film_Director").replace("mvo:", mvo).replace("dbo:", dbo);
-                    cols[1] = cols[1].trim().replace("mvo:", mvo).replace("dbo:", dbo);
+                    cols[1] = cols[1].trim().replaceFirst("^dpo:", "dbo:").replace("mvo:", mvo).replace("dbo:", dbo);
                     cols[2] = cols[2].trim();
                     add(new Pair(cols[2], null, cols[0], cols[1]));
+                    if (count == 3)
+                        System.out.println("");
                 }
             }
         } catch (FileNotFoundException ex) {
