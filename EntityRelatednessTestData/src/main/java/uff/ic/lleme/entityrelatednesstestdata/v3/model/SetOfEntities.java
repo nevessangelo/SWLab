@@ -6,7 +6,7 @@ import java.util.Map;
 public class SetOfEntities {
 
     private static SetOfEntities setOfEntities = null;
-    private Map<String, Entity> entities = new HashMap<>();
+    private final Map<String, Entity> ENTITIES = new HashMap<>();
 
     private SetOfEntities() {
 
@@ -19,16 +19,16 @@ public class SetOfEntities {
     }
 
     public Entity addEntity(String label, String category) throws Exception {
-        if (entities.containsKey(label))
-            return entities.get(label);
+        if (ENTITIES.containsKey(label))
+            return ENTITIES.get(label);
         else {
             Entity entity = new Entity(label, category);
-            entities.put(entity.getLabel(), entity);
+            ENTITIES.put(entity.getLabel(), entity);
             return entity;
         }
     }
 
     public Entity getEntity(String label) {
-        return entities.get(label);
+        return ENTITIES.get(label);
     }
 }

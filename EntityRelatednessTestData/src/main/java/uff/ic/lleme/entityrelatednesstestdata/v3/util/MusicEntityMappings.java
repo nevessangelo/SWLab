@@ -39,7 +39,7 @@ public class MusicEntityMappings extends HashMap<String, ArrayList<Pair>> {
                                 throw new Exception("Invalid columns.");
                         } catch (Exception e) {
                             System.out.println(e.toString());
-                            System.out.println(String.format("Error: class -> %1s, arq -> %1s, line -> %1s.", "MusicEntityMappings", f.getName(), linha));
+                            System.out.println(String.format("Error: class -> %1s, file -> %1s, line -> %1s.", "MusicEntityMappings", f.getName(), linha));
                             continue;
                         }
                         ArrayList<Pair> lista = get(name);

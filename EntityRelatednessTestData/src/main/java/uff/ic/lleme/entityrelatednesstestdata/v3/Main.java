@@ -8,9 +8,11 @@ import uff.ic.lleme.entityrelatednesstestdata.v3.model.SetOfCategories;
 import uff.ic.lleme.entityrelatednesstestdata.v3.model.SetOfEntities;
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.MovieClassMapping;
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.MovieEntityMappings;
+import uff.ic.lleme.entityrelatednesstestdata.v3.util.MoviePropertyRelevanceScore;
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.MovieScores;
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.MusicClassMapping;
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.MusicEntityMappings;
+import uff.ic.lleme.entityrelatednesstestdata.v3.util.MusicPropertyRelevanceScore;
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.MusicScores;
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.Pair;
 
@@ -44,7 +46,6 @@ public class Main {
                 } catch (Exception e) {
                     System.out.println(String.format("Error: invalid label. (property -> %1s)", mapping.label));
                 }
-
         }
 
         {
@@ -86,14 +87,21 @@ public class Main {
         }
 
         {
+            MoviePropertyRelevanceScore MOVIE_PROPERTY_RELEVANCE_SCORE = new MoviePropertyRelevanceScore();
+            MusicPropertyRelevanceScore MUSIC_PROPERTY_RELEVANCE_SCORE = new MusicPropertyRelevanceScore();
+
+            MOVIE_PROPERTY_RELEVANCE_SCORE.putAll(MUSIC_PROPERTY_RELEVANCE_SCORE);
+            MoviePropertyRelevanceScore mappings = MOVIE_PROPERTY_RELEVANCE_SCORE;
+
+            MOVIE_PROPERTY_RELEVANCE_SCORE = null;
+            MUSIC_PROPERTY_RELEVANCE_SCORE = null;
+
         }
 
 //        MusicRankedPaths MUSIC_RANKED_SCORES = new MusicRankedPaths();
-//        MusicPropertyRelevanceScore MUSIC_PROPERTY_RELEVANCE_SCORE = new MusicPropertyRelevanceScore();
 //        MusicEntityPairs MUSIC_ENTITY_PAIRS = new MusicEntityPairs();
 //
 //        MovieRankedPaths MOVIE_RANKED_PATHS = new MovieRankedPaths();
-//        MoviePropertyRelevanceScore MOVIE_PROPERTY_RELEVANCE_SCORE = new MoviePropertyRelevanceScore();
 //        MovieEntityPairs MOVIE_ENTITY_PAIRS = new MovieEntityPairs();
     }
 }

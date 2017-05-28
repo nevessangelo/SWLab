@@ -43,7 +43,7 @@ public class MusicScores extends HashMap<String, ArrayList<Score>> {
                             lista.add(new Score(cols[0], null, Double.valueOf(cols[1])));
                         } catch (NumberFormatException e) {
                             System.out.println(e.toString());
-                            System.out.println(String.format("Erro: class -> %1s, arq -> %1s, line -> %1s.", "MusicEntityMappings", f.getName(), linha));
+                            System.out.println(String.format("Erro: class -> %1s, file -> %1s, line -> %1s.", "MusicEntityMappings", f.getName(), linha));
                             continue;
                         }
                 }

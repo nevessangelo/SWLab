@@ -6,7 +6,7 @@ import java.util.Map;
 public class SetOfResources {
 
     private static SetOfResources setOfResources = null;
-    private Map<String, Resource> resources = new HashMap<>();
+    private final Map<String, Resource> RESOURCES = new HashMap<>();
 
     private SetOfResources() {
 
@@ -19,16 +19,16 @@ public class SetOfResources {
     }
 
     public Resource addResource(String uriString) throws Exception {
-        if (resources.containsKey(uriString))
-            return resources.get(uriString);
+        if (RESOURCES.containsKey(uriString))
+            return RESOURCES.get(uriString);
         else {
             Resource resource = new Resource(uriString);
-            resources.put(resource.getURI(), resource);
+            RESOURCES.put(resource.getURI(), resource);
             return resource;
         }
     }
 
     public Resource getResource(String label) {
-        return resources.get(label);
+        return RESOURCES.get(label);
     }
 }

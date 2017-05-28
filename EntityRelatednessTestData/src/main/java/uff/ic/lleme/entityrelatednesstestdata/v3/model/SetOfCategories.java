@@ -6,7 +6,7 @@ import java.util.Map;
 public class SetOfCategories {
 
     private static SetOfCategories setOfCategories = null;
-    private Map<String, Category> categories = new HashMap<>();
+    private final Map<String, Category> CATEGORIES = new HashMap<>();
 
     private SetOfCategories() {
 
@@ -19,17 +19,17 @@ public class SetOfCategories {
     }
 
     public Category addCategory(String label) throws Exception {
-        if (categories.containsKey(label))
-            return categories.get(label);
+        if (CATEGORIES.containsKey(label))
+            return CATEGORIES.get(label);
         else {
             Category category = new Category(label);
-            categories.put(category.getLabel(), category);
+            CATEGORIES.put(category.getLabel(), category);
             return category;
         }
 
     }
 
     public Category getCategory(String label) {
-        return categories.get(label);
+        return CATEGORIES.get(label);
     }
 }

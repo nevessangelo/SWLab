@@ -22,44 +22,32 @@ public class Entity {
 
     public Entity(String label, String category) throws Exception {
         if (label == null || label.equals("")) {
-            System.out.println(String.format("Error: invalid entity label. (entity -> %1s)", label));
+            System.out.println(String.format("Entity error: invalid label (label -> %1s).", label));
             throw new Exception();
         } else {
             this.label = label.trim().replaceAll("  ", " ").replaceAll("  ", " ").replaceAll(" ", "_");
             String uriString = Config.DATA_NS + this.label;
             if ((new UrlValidator()).isValid(uriString)) {
-                this.uri = uriString;
                 this.localName = this.label;
+                this.uri = uriString;
             } else
                 try {
-                    this.uri = Config.DATA_NS + URLEncoder.encode(this.label, "UTF-8");
                     this.localName = URLEncoder.encode(this.label, "UTF-8");
+                    this.uri = Config.DATA_NS + URLEncoder.encode(this.label, "UTF-8");
                 } catch (UnsupportedEncodingException e) {
-                    System.out.println(String.format("Error: unsupported encoding entity label. (entity -> %1s)", label));
+                    System.out.println(String.format("Entity error: unsupported label encoding (label -> %1s).", label));
                     throw new Exception();
                 }
         }
-
-        if (category == null) {
-            System.out.println(String.format("Error: null category."));
-            throw new Exception();
-        } else if (SetOfCategories.getInstance().getCategory(category) == null) {
-            System.out.println(String.format("Error: invalid category."));
-            throw new Exception();
-        } else
-            this.category = SetOfCategories.getInstance().getCategory(category);
+        this.category = SetOfCategories.getInstance().addCategory(category);
 
     }
 
     public boolean addSameAs(String resource) throws Exception {
-        if (resource == null) {
-            System.out.println(String.format("Error: null sameAs resource. (entity -> %1s)", label));
-            throw new Exception();
-        } else if (SetOfResources.getInstance().getResource(resource) == null) {
-            System.out.println(String.format("Error: invalid category."));
-            throw new Exception();
-        } else
+        if (SetOfResources.getInstance().getResource(resource) != null)
             return sameAS.add(SetOfResources.getInstance().getResource(resource));
+        else
+            return sameAS.add(SetOfResources.getInstance().addResource(resource));
     }
 
     public String getLabel() {

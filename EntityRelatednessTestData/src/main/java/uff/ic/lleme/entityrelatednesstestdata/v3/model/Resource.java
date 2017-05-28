@@ -11,10 +11,11 @@ public class Resource {
     }
 
     public Resource(String uriString) throws Exception {
-        if ((new UrlValidator()).isValid(uriString))
-            this.uri = uriString;
-        else
+        if (!(new UrlValidator()).isValid(uriString)) {
+            System.out.println(String.format("Resource error: invalid uriString. (uri -> %1s)", uriString));
             throw new Exception();
+        } else
+            this.uri = uriString;
 
     }
 

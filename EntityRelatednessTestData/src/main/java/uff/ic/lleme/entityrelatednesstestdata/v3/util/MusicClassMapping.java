@@ -9,7 +9,6 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import uff.ic.lleme.entityrelatednesstestdata.v3.Config;
-import uff.ic.lleme.entityrelatednesstestdata.v3.vocabulary.EREL;
 
 public class MusicClassMapping extends ArrayList<Pair> {
 
@@ -28,7 +27,7 @@ public class MusicClassMapping extends ArrayList<Pair> {
                     String[] cols = linha.split("\t");
                     cols[0] = cols[0].trim().replace("mso:", mso).replace("dbo:", dbo);
                     cols[1] = cols[1].trim().replace("mso:", mso).replace("dbo:", dbo);
-                    cols[2] = EREL.NS + cols[2].trim();
+                    cols[2] = cols[2].trim();
                     add(new Pair(cols[2], null, cols[0], cols[1]));
                 }
             }
