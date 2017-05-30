@@ -182,6 +182,15 @@ public class Main {
                         + "We say that an entity of B is a URI that occurs as a subject or "
                         + "object of a triple in B.");
 
+        Resource category = ontology.createResource(EREL.NS + "Category", RDFS.Class)
+                .addProperty(RDFS.label, "Category")
+                .addProperty(RDFS.comment, "The category of an entity.");
+        Resource type = ontology.createProperty(EREL.NS + "type")
+                .addProperty(RDFS.domain, entity)
+                .addProperty(RDFS.range, category)
+                .addProperty(RDFS.label, "type")
+                .addProperty(RDFS.comment, "The category of an entity.");
+
         Resource entityPair = ontology.createResource(EREL.NS + "EntityPair", RDFS.Class)
                 .addProperty(RDFS.label, "EntityPair")
                 .addProperty(RDFS.comment, "A pair of entities for which one want to find"
