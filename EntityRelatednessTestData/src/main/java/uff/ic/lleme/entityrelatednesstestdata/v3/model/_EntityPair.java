@@ -3,17 +3,17 @@ package uff.ic.lleme.entityrelatednesstestdata.v3.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EntityPair {
+public class _EntityPair {
 
-    private Entity entity1 = null;
-    private Entity entity2 = null;
+    private _Entity entity1 = null;
+    private _Entity entity2 = null;
     private List<Path> rank = new ArrayList<>();
 
-    private EntityPair() {
+    private _EntityPair() {
 
     }
 
-    public EntityPair(String entity1, String entity2) throws Exception {
+    public _EntityPair(String entity1, String entity2) throws Exception {
         this.entity1 = DB.Entities.getEntity(entity1);
         this.entity2 = DB.Entities.getEntity(entity2);
         if (this.entity1 == null && this.entity2 == null) {
@@ -32,11 +32,11 @@ public class EntityPair {
         return (entity1.getLabel() + "-" + entity2.getLabel());
     }
 
-    public Entity getEntity1() {
+    public _Entity getEntity1() {
         return entity1;
     }
 
-    public Entity getEntity2() {
+    public _Entity getEntity2() {
         return entity2;
     }
 
@@ -54,13 +54,13 @@ public class EntityPair {
 
     public static class Path {
 
-        private EntityPair entityPair = null;
+        private _EntityPair entityPair = null;
         private int rankPosition = 0;
         private double score = 0;
         private String expression = null;
         private List<PathElement> elements = new ArrayList<>();
 
-        public Path(Entity entity) {
+        public Path(_Entity entity) {
             super();
         }
 
@@ -83,7 +83,7 @@ public class EntityPair {
                 this.expression = expression;
         }
 
-        public EntityPair getEntityPair() {
+        public _EntityPair getEntityPair() {
             return entityPair;
         }
 
@@ -98,9 +98,9 @@ public class EntityPair {
 
         public static abstract class PathElement {
 
-            private EntityPair.Path path = null;
+            private _EntityPair.Path path = null;
 
-            public EntityPair.Path getPath() {
+            public _EntityPair.Path getPath() {
                 return path;
             }
 
@@ -109,9 +109,9 @@ public class EntityPair {
             public abstract Double getScore();
         }
 
-        public static class EntityElement extends EntityPair.Path.PathElement {
+        public static class EntityElement extends _EntityPair.Path.PathElement {
 
-            private Entity entity = null;
+            private _Entity entity = null;
             private double score = 0;
 
             public EntityElement(String entity, Double[] score) throws Exception {
@@ -143,9 +143,9 @@ public class EntityPair {
 
         }
 
-        public static class PropertyElement extends EntityPair.Path.PathElement {
+        public static class PropertyElement extends _EntityPair.Path.PathElement {
 
-            private Property property = null;
+            private _Property property = null;
 
             private PropertyElement() {
                 super();

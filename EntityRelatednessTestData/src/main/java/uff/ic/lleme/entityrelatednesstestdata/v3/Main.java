@@ -1,11 +1,28 @@
 package uff.ic.lleme.entityrelatednesstestdata.v3;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.security.GeneralSecurityException;
 import java.util.ArrayList;
 import java.util.Map;
-import uff.ic.lleme.entityrelatednesstestdata.v3.model.Category;
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.riot.Lang;
+import org.apache.jena.riot.RDFDataMgr;
+import org.apache.jena.vocabulary.RDF;
+import org.apache.jena.vocabulary.RDFS;
+import org.apache.jena.vocabulary.XSD;
+import org.apache.log4j.PropertyConfigurator;
 import uff.ic.lleme.entityrelatednesstestdata.v3.model.DB;
-import uff.ic.lleme.entityrelatednesstestdata.v3.model.Entity;
-import uff.ic.lleme.entityrelatednesstestdata.v3.model.Property;
+import uff.ic.lleme.entityrelatednesstestdata.v3.model._Category;
+import uff.ic.lleme.entityrelatednesstestdata.v3.model._Entity;
+import uff.ic.lleme.entityrelatednesstestdata.v3.model._Property;
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.MovieClassMapping;
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.MovieEntityMappings;
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.MovieEntityPairs;
@@ -20,11 +37,17 @@ import uff.ic.lleme.entityrelatednesstestdata.v3.util.MusicRankedPaths;
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.MusicScores;
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.Pair;
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.Score;
+import uff.ic.lleme.entityrelatednesstestdata.v3.vocabulary.EREL;
+import uff.ic.swlab.commons.util.Host;
 
 public class Main {
 
-    public static void main(String[] args) {
-        prepareDB();
+    public static void main(String[] args) throws IOException, GeneralSecurityException, Exception {
+        PropertyConfigurator.configure("./resources/conf/log4j.properties");
+        Config.configure("./resources/conf/entityrelatednesstestdata.properties");
+
+        //prepareDB();
+        createOntology();
     }
 
     private static void prepareDB() {
@@ -40,7 +63,7 @@ public class Main {
 
             for (Pair mapping : categories)
                 try {
-                    Category category = DB.Categories.addCategory(mapping.label);
+                    _Category category = DB.Categories.addCategory(mapping.label);
                     try {
                         category.addSameAs(mapping.entity1);
                     } catch (Exception e) {
@@ -79,7 +102,7 @@ public class Main {
             for (Map.Entry<String, ArrayList<Pair>> subset : mappings.entrySet())
                 for (Pair mapping : subset.getValue())
                     try {
-                        Entity entity = DB.Entities.addEntity(mapping.label, mapping.type);
+                        _Entity entity = DB.Entities.addEntity(mapping.label, mapping.type);
                         try {
                             entity.addSameAs(mapping.entity1);
                         } catch (Exception e) {
@@ -107,7 +130,7 @@ public class Main {
 
             for (Map.Entry<String, Double> property : properties.entrySet())
                 try {
-                    Property p = DB.Properties.addProperty(property.getKey(), property.getValue());
+                    _Property p = DB.Properties.addProperty(property.getKey(), property.getValue());
                 } catch (Exception e) {
                     System.out.println(String.format("Property error: invalid label or score. (label -> %1s, score -> %1s)", property.getKey(), property.getValue()));
                 }
@@ -147,5 +170,122 @@ public class Main {
                 }
 
         }
+    }
+
+    private static void createOntology() throws FileNotFoundException, IOException, GeneralSecurityException, Exception {
+        Model ontology = ModelFactory.createDefaultModel();
+        ontology.setNsPrefix("", EREL.NS);
+
+        Resource entity = ontology.createResource(EREL.NS + "Entity", RDFS.Class)
+                .addProperty(RDFS.label, "Entity")
+                .addProperty(RDFS.comment, "A knowledge base B is a set of RDF triples. "
+                        + "We say that an entity of B is a URI that occurs as a subject or "
+                        + "object of a triple in B.");
+
+        Resource entityPair = ontology.createResource(EREL.NS + "EntityPair", RDFS.Class)
+                .addProperty(RDFS.label, "EntityPair")
+                .addProperty(RDFS.comment, "A pair of entities for which one want to find"
+                        + "connectivity profiles.");
+        Resource entity1 = ontology.createProperty(EREL.NS + "entity1")
+                .addProperty(RDFS.domain, entityPair)
+                .addProperty(RDFS.range, entity)
+                .addProperty(RDFS.label, "entity1")
+                .addProperty(RDFS.comment, "The first entity of a pair of entities.");
+        Resource entity2 = ontology.createProperty(EREL.NS + "entity2")
+                .addProperty(RDFS.domain, entityPair)
+                .addProperty(RDFS.range, entity)
+                .addProperty(RDFS.label, "entity2")
+                .addProperty(RDFS.comment, "The second entity of a pair of entities.");
+
+        Resource path = ontology.createResource(EREL.NS + "Path", RDFS.Class)
+                .addProperty(RDFS.label, "Path")
+                .addProperty(RDFS.comment, "A path π of a knowledge base B is an undirected path "
+                        + "in the graph GB induced by B. The notions of start node and end node "
+                        + "of a path are defined as usual. Note that, by considering an undirected "
+                        + "path, we allow the edges of the RDF graph to be reversely traversed.");
+        Resource rank = ontology.createProperty(EREL.NS + "rank")
+                .addProperty(RDFS.domain, path)
+                .addProperty(RDFS.range, XSD.xlong)
+                .addProperty(RDFS.label, "rank")
+                .addProperty(RDFS.comment, "The rank position of a path with respect to a pair of entities.");
+        Resource score = ontology.createProperty(EREL.NS + "score")
+                .addProperty(RDFS.domain, path)
+                .addProperty(RDFS.range, XSD.xdouble)
+                .addProperty(RDFS.label, "score")
+                .addProperty(RDFS.comment, "The rank score of a path with respect to a pair of entities.");
+        Resource expression = ontology.createProperty(EREL.NS + "expression")
+                .addProperty(RDFS.domain, path)
+                .addProperty(RDFS.range, XSD.xstring)
+                .addProperty(RDFS.label, "expression")
+                .addProperty(RDFS.comment, "The label of a path.");
+        Resource hasPath = ontology.createProperty(EREL.NS + "hasPath")
+                .addProperty(RDFS.domain, entityPair)
+                .addProperty(RDFS.range, path)
+                .addProperty(RDFS.label, "hasPath")
+                .addProperty(RDFS.comment, "The relationship between a pair of entities and a path."
+                        + "The set of all paths of a pair of entities make up the rank list of relevant "
+                        + "paths between the pair of entities.");
+        Resource pathElement = ontology.createResource(EREL.NS + "PathElement", RDFS.Class)
+                .addProperty(RDFS.label, "PathElement")
+                .addProperty(RDFS.comment, "The elements (entities and properties) of a path.");
+        Resource position = ontology.createProperty(EREL.NS + "position")
+                .addProperty(RDFS.domain, pathElement)
+                .addProperty(RDFS.range, XSD.xint)
+                .addProperty(RDFS.label, "position")
+                .addProperty(RDFS.comment, "The position of the element in the path.");
+        score.addProperty(RDFS.domain, pathElement);
+
+        Resource listOfPathElements = ontology.createResource(EREL.NS + "ListOfPathElements", RDFS.Class)
+                .addProperty(RDFS.subClassOf, RDF.List)
+                .addProperty(RDFS.label, "ListOfPathElements")
+                .addProperty(RDFS.comment, "The container of the elements of a path.");
+        Resource first = ontology.createProperty(EREL.NS + "first")
+                .addProperty(RDFS.subPropertyOf, RDF.first)
+                .addProperty(RDFS.domain, listOfPathElements)
+                .addProperty(RDFS.range, pathElement)
+                .addProperty(RDFS.label, "first")
+                .addProperty(RDFS.comment, "The first element of a list of path elements.");
+        Resource rest = ontology.createProperty(EREL.NS + "rest")
+                .addProperty(RDFS.subPropertyOf, RDF.rest)
+                .addProperty(RDFS.domain, listOfPathElements)
+                .addProperty(RDFS.range, listOfPathElements)
+                .addProperty(RDFS.label, "rest")
+                .addProperty(RDFS.comment, "The remaining elements of a list of path elelements.");
+        Resource hasListOfPathElements = ontology.createProperty(EREL.NS + "hasListOfpathElements")
+                .addProperty(RDFS.domain, path)
+                .addProperty(RDFS.range, listOfPathElements)
+                .addProperty(RDFS.label, "hasListOfpathElements")
+                .addProperty(RDFS.comment, "The relationship between a path and a list of path elements.");
+
+        Resource propertyElement = ontology.createResource(EREL.NS + "PropertyElement", RDFS.Class)
+                .addProperty(RDFS.subClassOf, pathElement)
+                .addProperty(RDFS.label, "PropertyElement")
+                .addProperty(RDFS.comment, "A property of a path.");
+        Resource property = ontology.createProperty(EREL.NS + "property")
+                .addProperty(RDFS.domain, propertyElement)
+                .addProperty(RDFS.range, RDF.Property)
+                .addProperty(RDFS.label, "property")
+                .addProperty(RDFS.comment, "A reference to an rdf:Property.");
+        Resource entityElement = ontology.createResource(EREL.NS + "EntityElement", RDFS.Class)
+                .addProperty(RDFS.subClassOf, pathElement)
+                .addProperty(RDFS.label, "EntityElement")
+                .addProperty(RDFS.comment, "An entity of a path.");
+        Resource entity_ = ontology.createProperty(EREL.NS + "entity")
+                .addProperty(RDFS.domain, entityElement)
+                .addProperty(RDFS.range, entity)
+                .addProperty(RDFS.label, "entity")
+                .addProperty(RDFS.comment, "A reference to an erel:Entity.");
+
+        (new File(Config.LOCAL_ONTOLOGY_NAME)).getParentFile().mkdirs();
+
+        try (OutputStream out = new FileOutputStream(Config.LOCAL_ONTOLOGY_NAME)) {
+            RDFDataMgr.write(out, ontology, Lang.RDFXML);
+        }
+
+        try (InputStream in = new FileInputStream(Config.LOCAL_ONTOLOGY_NAME)) {
+            Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.REMOTE_ONTOLOGY_NAME, in);
+            Host.mkDirsViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.REMOTE_ONTOLOGY_NAME, in);
+        }
+
     }
 }

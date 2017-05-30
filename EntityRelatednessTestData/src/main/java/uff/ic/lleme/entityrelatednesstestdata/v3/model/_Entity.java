@@ -7,20 +7,20 @@ import java.util.Set;
 import org.apache.commons.validator.routines.UrlValidator;
 import uff.ic.lleme.entityrelatednesstestdata.v3.Config;
 
-public class Entity {
+public class _Entity {
 
     private String label = null;
     private String localName = null;
     private String uri = null;
     private double score = 0;
-    private Category category = null;
-    private Set<Resource> sameAS = new HashSet<>();
+    private _Category category = null;
+    private Set<_Resource> sameAS = new HashSet<>();
 
-    private Entity() {
+    private _Entity() {
 
     }
 
-    public Entity(String label, String category) throws Exception {
+    public _Entity(String label, String category) throws Exception {
         if (label == null || label.equals("")) {
             System.out.println(String.format("Entity error: invalid label (label -> %1s).", label));
             throw new Exception();
@@ -66,7 +66,7 @@ public class Entity {
         return score;
     }
 
-    public Set<Resource> getSameAS() {
+    public Set<_Resource> getSameAS() {
         return sameAS;
     }
 
