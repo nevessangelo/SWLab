@@ -160,15 +160,6 @@ public class Main {
             MOVIE_ENTITY_PAIRS = null;
             MUSIC_ENTITY_PAIRS = null;
 
-            for (Pair p : pairs)
-                try {
-                    DB.EntityPairs.addEntityPair(p.entity1, p.entity2);
-                } catch (Exception e) {
-                    System.out.println(String.format("EntityPair error: invalid entity. (entity1 -> %1s, entity2 -> %1s)", p.entity1, p.entity2));
-                }
-        }
-
-        {
             MovieRankedPaths MOVIE_RANKED_PATHS = new MovieRankedPaths();
             MusicRankedPaths MUSIC_RANKED_PATHS = new MusicRankedPaths();
 
@@ -178,12 +169,22 @@ public class Main {
             MOVIE_RANKED_PATHS = null;
             MUSIC_RANKED_PATHS = null;
 
-            for (Map.Entry<String, ArrayList<Score>> pts : paths.entrySet())
-                for (Score path : pts.getValue()) {
+            for (Pair prs : pairs)
+                try {
+                    EntityPair_ pair = DB.EntityPairs.addEntityPair(prs.entity1, prs.entity2);
 
+                    for (Score s : paths.getRank(prs.entity1, prs.entity2))
+                        try {
+                            pair.add(new EntityPair_.Path_(Integer.parseInt(s.label), s.score, s.description));
+                        } catch (Exception e) {
+                            System.out.println(e.toString());
+                            System.out.println(String.format("Path error: invalid attributes. (rankPosition -> %1s, score -> %1s, expression -> %1s)", s.label, s.score, s.description));
+                        }
+                } catch (Exception e) {
+                    System.out.println(String.format("EntityPair error: invalid entity. (entity1 -> %1s, entity2 -> %1s)", prs.entity1, prs.entity2));
                 }
-
         }
+
     }
 
     private static void createOntology() throws FileNotFoundException, IOException, GeneralSecurityException, Exception {

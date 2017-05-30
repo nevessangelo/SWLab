@@ -57,10 +57,10 @@ public class EntityPair_ {
     }
 
     public boolean add(Path_ path) throws Exception {
-        path.entityPair = this;
-        if (path != null)
+        if (path != null) {
+            path.entityPair = this;
             return rank.add(path);
-        else
+        } else
             throw new Exception();
     }
 
@@ -78,21 +78,12 @@ public class EntityPair_ {
         private String expression = null;
         private List<PathElement_> elements = new ArrayList<>();
 
-        public Path_(Entity_ entity) {
-            super();
+        private Path_() {
         }
 
-        public Path_(int position, Double[] score, String expression) throws Exception {
+        public Path_(int position, double score, String expression) throws Exception {
             this.rankPosition = position;
-
-            if (score.length == 0) {
-                System.out.println(String.format("Path error: missing score."));
-                throw new Exception();
-            } else if (score.length > 1) {
-                System.out.println(String.format("Path error: duplicate scores."));
-                throw new Exception();
-            } else
-                this.score = score[0];
+            this.score = score;
 
             if (expression.equals("")) {
                 System.out.println(String.format("Path error: missing expression."));

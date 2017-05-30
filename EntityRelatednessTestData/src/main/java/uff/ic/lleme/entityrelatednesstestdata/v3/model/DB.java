@@ -101,6 +101,8 @@ public class DB {
         }
 
         public static Entity_ getEntity(String label) {
+            label = label.trim().replaceAll("  ", " ").replaceAll("  ", " ").replaceAll(" ", "_");
+
             return getInstance().ENTITIES.get(label);
         }
 

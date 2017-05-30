@@ -22,6 +22,9 @@ public class MovieEntityPairs extends ArrayList<Pair> {
                 count++;
                 if (count > 1 && linha != null && !linha.equals("")) {
                     String[] cols = linha.split("\t");
+                    cols[0] = cols[0].trim();
+                    cols[1] = cols[1].trim();
+                    cols[2] = cols[2].trim();
                     if (cols.length == 3)
                         add(new Pair(cols[0], null, cols[1], cols[2]));
                     else

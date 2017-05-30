@@ -6,7 +6,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
@@ -21,11 +20,17 @@ public class MusicScores extends HashMap<String, ArrayList<Score>> {
         File dir = new File(Config.DATA_ROOT + "/music_scores");
         File[] files = dir.listFiles();
         for (File f : files) {
-            String[] names = f.getName().split("\\.");
-            String name = (String.join("", Arrays.copyOfRange(names, 1, names.length - 1)));
+            //String[] names = f.getName().split("\\.");
+            //String name = (String.join("", Arrays.copyOfRange(names, 1, names.length - 1)));
+            String name = f.getName().trim().replaceAll(".txt$", "").replaceAll("^\\d*\\.", "");
             try (InputStream in = new FileInputStream(f);) {
                 Scanner sc = new Scanner(in);
                 int count = 0;
+                ArrayList<Score> lista = get(name);
+                if (lista == null) {
+                    lista = new ArrayList<>();
+                    put(name, lista);
+                }
                 while (sc.hasNext()) {
                     linha = sc.nextLine();
                     linha = linha.replaceAll("  ", " ").replaceAll(" ", "\t").replaceAll("\t\t", "\t");
@@ -35,11 +40,6 @@ public class MusicScores extends HashMap<String, ArrayList<Score>> {
                             String[] cols = linha.split("\t");
                             cols[0] = cols[0].trim();
                             cols[1] = cols[1].trim();
-                            ArrayList<Score> lista = get(name);
-                            if (lista == null) {
-                                lista = new ArrayList<>();
-                                put(name, lista);
-                            }
                             lista.add(new Score(cols[0], null, Double.valueOf(cols[1])));
                         } catch (NumberFormatException e) {
                             System.out.println(e.toString());

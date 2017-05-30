@@ -6,7 +6,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -20,8 +19,9 @@ public class MovieEntityMappings extends HashMap<String, ArrayList<Pair>> {
         File dir = new File(Config.DATA_ROOT + "/movie_entity_mappings");
         File[] files = dir.listFiles();
         for (File f : files) {
-            String[] names = f.getName().split("\\.");
-            String name = (String.join("", Arrays.copyOfRange(names, 1, names.length - 1)));
+            //String[] names = f.getName().split("\\.");
+            //String name = (String.join("", Arrays.copyOfRange(names, 1, names.length - 1)));
+            String name = f.getName().trim().replaceAll(".txt$", "").replaceAll("^\\d*\\.", "");
             try (InputStream in = new FileInputStream(f);) {
                 Scanner sc = new Scanner(in);
                 int count = 0;
