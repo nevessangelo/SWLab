@@ -7,20 +7,20 @@ import java.util.Set;
 import org.apache.commons.validator.routines.UrlValidator;
 import uff.ic.lleme.entityrelatednesstestdata.v3.Config;
 
-public class _Entity {
+public class Entity_ {
 
     private String label = null;
     private String localName = null;
     private String uri = null;
     private double score = 0;
-    private _Category category = null;
-    private Set<_Resource> sameAS = new HashSet<>();
+    private Category_ category = null;
+    private Set<Resource_> sameAS = new HashSet<>();
 
-    private _Entity() {
+    private Entity_() {
 
     }
 
-    public _Entity(String label, String category) throws Exception {
+    public Entity_(String label, String category) throws Exception {
         if (label == null || label.equals("")) {
             System.out.println(String.format("Entity error: invalid label (label -> %1s).", label));
             throw new Exception();
@@ -43,13 +43,6 @@ public class _Entity {
 
     }
 
-    public boolean addSameAs(String resource) throws Exception {
-        if (DB.Resources.getResource(resource) != null)
-            return sameAS.add(DB.Resources.getResource(resource));
-        else
-            return sameAS.add(DB.Resources.addResource(resource));
-    }
-
     public String getLabel() {
         return label;
     }
@@ -66,8 +59,19 @@ public class _Entity {
         return score;
     }
 
-    public Set<_Resource> getSameAS() {
+    public Category_ getCategory() {
+        return category;
+    }
+
+    public Set<Resource_> listSameAS() {
         return sameAS;
+    }
+
+    public boolean addSameAs(String resource) throws Exception {
+        if (DB.Resources.getResource(resource) != null)
+            return sameAS.add(DB.Resources.getResource(resource));
+        else
+            return sameAS.add(DB.Resources.addResource(resource));
     }
 
 }

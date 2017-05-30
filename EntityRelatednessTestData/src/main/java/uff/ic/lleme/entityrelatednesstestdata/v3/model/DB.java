@@ -1,5 +1,6 @@
 package uff.ic.lleme.entityrelatednesstestdata.v3.model;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -8,7 +9,7 @@ public class DB {
     public static class Resources {
 
         private static Resources setOfResources = null;
-        private final Map<String, _Resource> RESOURCES = new HashMap<>();
+        private final Map<String, Resource_> RESOURCES = new HashMap<>();
 
         private Resources() {
             super();
@@ -20,17 +21,17 @@ public class DB {
             return setOfResources;
         }
 
-        public static _Resource addResource(String uriString) throws Exception {
+        public static Resource_ addResource(String uriString) throws Exception {
             if (getInstance().RESOURCES.containsKey(uriString))
                 return getInstance().RESOURCES.get(uriString);
             else {
-                _Resource resource = new _Resource(uriString);
+                Resource_ resource = new Resource_(uriString);
                 getInstance().RESOURCES.put(resource.getURI(), resource);
                 return resource;
             }
         }
 
-        public static _Resource getResource(String uriString) {
+        public static Resource_ getResource(String uriString) {
             return getInstance().RESOURCES.get(uriString);
         }
     }
@@ -38,7 +39,7 @@ public class DB {
     public static class Categories {
 
         private static Categories setOfCategories = null;
-        private final Map<String, _Category> CATEGORIES = new HashMap<>();
+        private final Map<String, Category_> CATEGORIES = new HashMap<>();
 
         private Categories() {
             super();
@@ -50,28 +51,32 @@ public class DB {
             return setOfCategories;
         }
 
-        public static _Category addCategory(String label) throws Exception {
+        public static Category_ addCategory(String label) throws Exception {
             label = label.trim().replaceAll("  ", " ").replaceAll("  ", " ").replaceAll(" ", "_");
 
             if (getInstance().CATEGORIES.containsKey(label))
                 return getInstance().CATEGORIES.get(label);
             else {
-                _Category category = new _Category(label);
+                Category_ category = new Category_(label);
                 getInstance().CATEGORIES.put(category.getLabel(), category);
                 return category;
             }
         }
 
-        public static _Category getCategory(String label) {
+        public static Category_ getCategory(String label) {
             label = label.trim().replaceAll("  ", " ").replaceAll("  ", " ").replaceAll(" ", "_");
             return getInstance().CATEGORIES.get(label);
+        }
+
+        public static Collection<Category_> listCategories() {
+            return getInstance().CATEGORIES.values();
         }
     }
 
     public static class Entities {
 
         private static Entities setOfEntities = null;
-        private final Map<String, _Entity> ENTITIES = new HashMap<>();
+        private final Map<String, Entity_> ENTITIES = new HashMap<>();
 
         private Entities() {
             super();
@@ -83,27 +88,31 @@ public class DB {
             return setOfEntities;
         }
 
-        public static _Entity addEntity(String label, String category) throws Exception {
+        public static Entity_ addEntity(String label, String category) throws Exception {
             label = label.trim().replaceAll("  ", " ").replaceAll("  ", " ").replaceAll(" ", "_");
 
             if (getInstance().ENTITIES.containsKey(label))
                 return getInstance().ENTITIES.get(label);
             else {
-                _Entity entity = new _Entity(label, category);
+                Entity_ entity = new Entity_(label, category);
                 getInstance().ENTITIES.put(entity.getLabel(), entity);
                 return entity;
             }
         }
 
-        public static _Entity getEntity(String label) {
+        public static Entity_ getEntity(String label) {
             return getInstance().ENTITIES.get(label);
+        }
+
+        public static Collection<Entity_> listEntities() {
+            return getInstance().ENTITIES.values();
         }
     }
 
     public static class Properties {
 
         private static Properties setOfProperties = null;
-        private final Map<String, _Property> PROPERTIES = new HashMap<>();
+        private final Map<String, Property_> PROPERTIES = new HashMap<>();
 
         private Properties() {
             super();
@@ -115,19 +124,19 @@ public class DB {
             return setOfProperties;
         }
 
-        public static _Property addProperty(String label, double score) throws Exception {
+        public static Property_ addProperty(String label, double score) throws Exception {
             label = label.trim().replaceAll("  ", " ").replaceAll("  ", " ").replaceAll(" ", "_");
 
             if (getInstance().PROPERTIES.containsKey(label))
                 return getInstance().PROPERTIES.get(label);
             else {
-                _Property property = new _Property(label, score);
+                Property_ property = new Property_(label, score);
                 getInstance().PROPERTIES.put(property.getLabel(), property);
                 return property;
             }
         }
 
-        public static _Property getPropety(String label) {
+        public static Property_ getPropety(String label) {
             label = label.trim().replaceAll("  ", " ").replaceAll("  ", " ").replaceAll(" ", "_");
             return getInstance().PROPERTIES.get(label);
         }
@@ -136,7 +145,7 @@ public class DB {
     public static class EntityPairs {
 
         private static EntityPairs setOfEntityPairs = null;
-        private final Map<String, _EntityPair> ENTITY_PAIRS = new HashMap<>();
+        private final Map<String, EntityPair_> ENTITY_PAIRS = new HashMap<>();
 
         private EntityPairs() {
             super();
@@ -148,24 +157,28 @@ public class DB {
             return setOfEntityPairs;
         }
 
-        public static _EntityPair addEntityPair(String entity1, String entity2) throws Exception {
+        public static EntityPair_ addEntityPair(String entity1, String entity2) throws Exception {
             entity1 = entity1.trim().replaceAll("  ", " ").replaceAll("  ", " ").replaceAll(" ", "_");
             entity2 = entity2.trim().replaceAll("  ", " ").replaceAll("  ", " ").replaceAll(" ", "_");
 
             if (getInstance().ENTITY_PAIRS.containsKey(entity1 + "-" + entity2))
                 return getInstance().ENTITY_PAIRS.get(entity1 + "-" + entity2);
             else {
-                _EntityPair entityPair = new _EntityPair(entity1, entity2);
+                EntityPair_ entityPair = new EntityPair_(entity1, entity2);
                 getInstance().ENTITY_PAIRS.put(entity1 + "-" + entity2, entityPair);
                 return entityPair;
             }
         }
 
-        public static _EntityPair getEntityPair(String entity1, String entity2) {
+        public static EntityPair_ getEntityPair(String entity1, String entity2) {
             entity1 = entity1.trim().replaceAll("  ", " ").replaceAll("  ", " ").replaceAll(" ", "_");
             entity2 = entity2.trim().replaceAll("  ", " ").replaceAll("  ", " ").replaceAll(" ", "_");
 
             return getInstance().ENTITY_PAIRS.get(entity1 + "-" + entity2);
+        }
+
+        public static Collection<EntityPair_> listEntityPairs() {
+            return getInstance().ENTITY_PAIRS.values();
         }
     }
 }

@@ -2,18 +2,22 @@ package uff.ic.lleme.entityrelatednesstestdata.v3.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
+import uff.ic.lleme.entityrelatednesstestdata.v3.Config;
 
-public class _EntityPair {
+public class EntityPair_ {
 
-    private _Entity entity1 = null;
-    private _Entity entity2 = null;
-    private List<Path> rank = new ArrayList<>();
+    private final String localName = "id-" + UUID.randomUUID().toString();
+    private final String uri = Config.DATA_NS + localName;
+    private Entity_ entity1 = null;
+    private Entity_ entity2 = null;
+    private List<Path_> rank = new ArrayList<>();
 
-    private _EntityPair() {
+    private EntityPair_() {
 
     }
 
-    public _EntityPair(String entity1, String entity2) throws Exception {
+    public EntityPair_(String entity1, String entity2) throws Exception {
         this.entity1 = DB.Entities.getEntity(entity1);
         this.entity2 = DB.Entities.getEntity(entity2);
         if (this.entity1 == null && this.entity2 == null) {
@@ -32,15 +36,27 @@ public class _EntityPair {
         return (entity1.getLabel() + "-" + entity2.getLabel());
     }
 
-    public _Entity getEntity1() {
+    public String getLocalName() {
+        return localName;
+    }
+
+    public String getUri() {
+        return uri;
+    }
+
+    public Entity_ getEntity1() {
         return entity1;
     }
 
-    public _Entity getEntity2() {
+    public Entity_ getEntity2() {
         return entity2;
     }
 
-    public boolean add(Path path) throws Exception {
+    public List<Path_> listPaths() {
+        return rank;
+    }
+
+    public boolean add(Path_ path) throws Exception {
         path.entityPair = this;
         if (path != null)
             return rank.add(path);
@@ -48,23 +64,25 @@ public class _EntityPair {
             throw new Exception();
     }
 
-    public List<Path> getRank() {
+    public List<Path_> getRank() {
         return rank;
     }
 
-    public static class Path {
+    public static class Path_ {
 
-        private _EntityPair entityPair = null;
+        private EntityPair_ entityPair = null;
+        private String localName = "id-" + UUID.randomUUID().toString();
+        private String uri = Config.DATA_NS + localName;
         private int rankPosition = 0;
         private double score = 0;
         private String expression = null;
-        private List<PathElement> elements = new ArrayList<>();
+        private List<PathElement_> elements = new ArrayList<>();
 
-        public Path(_Entity entity) {
+        public Path_(Entity_ entity) {
             super();
         }
 
-        public Path(int position, Double[] score, String expression) throws Exception {
+        public Path_(int position, Double[] score, String expression) throws Exception {
             this.rankPosition = position;
 
             if (score.length == 0) {
@@ -83,25 +101,55 @@ public class _EntityPair {
                 this.expression = expression;
         }
 
-        public _EntityPair getEntityPair() {
+        public EntityPair_ getEntityPair() {
             return entityPair;
         }
 
-        public boolean addPathElement(PathElement element) {
+        public int getRankPosition() {
+            return rankPosition;
+        }
+
+        public double getScore() {
+            return score;
+        }
+
+        public String getExpression() {
+            return expression;
+        }
+
+        public String getLocalName() {
+            return localName;
+        }
+
+        public String getUri() {
+            return uri;
+        }
+
+        public List<PathElement_> listElements() {
+            return elements;
+        }
+
+        public boolean addPathElement(PathElement_ element) {
             element.path = this;
             return elements.add(element);
         }
 
-        public List<PathElement> getElements() {
-            return elements;
-        }
+        public static abstract class PathElement_ {
 
-        public static abstract class PathElement {
+            private String localName = "id-" + UUID.randomUUID().toString();
+            private String uri = Config.DATA_NS + localName;
+            private EntityPair_.Path_ path = null;
 
-            private _EntityPair.Path path = null;
-
-            public _EntityPair.Path getPath() {
+            public EntityPair_.Path_ getPath() {
                 return path;
+            }
+
+            public String getLocalName() {
+                return localName;
+            }
+
+            public String getUri() {
+                return uri;
             }
 
             public abstract String getLabel();
@@ -109,12 +157,12 @@ public class _EntityPair {
             public abstract Double getScore();
         }
 
-        public static class EntityElement extends _EntityPair.Path.PathElement {
+        public static class EntityElement_ extends EntityPair_.Path_.PathElement_ {
 
-            private _Entity entity = null;
+            private Entity_ entity = null;
             private double score = 0;
 
-            public EntityElement(String entity, Double[] score) throws Exception {
+            public EntityElement_(String entity, Double[] score) throws Exception {
                 this.entity = DB.Entities.getEntity(entity);
                 if (this.entity == null) {
                     System.out.println(String.format("Error: null entity."));
@@ -143,15 +191,15 @@ public class _EntityPair {
 
         }
 
-        public static class PropertyElement extends _EntityPair.Path.PathElement {
+        public static class PropertyElement_ extends EntityPair_.Path_.PathElement_ {
 
-            private _Property property = null;
+            private Property_ property = null;
 
-            private PropertyElement() {
+            private PropertyElement_() {
                 super();
             }
 
-            public PropertyElement(String property) throws Exception {
+            public PropertyElement_(String property) throws Exception {
                 this.property = DB.Properties.getPropety(property);
                 if (this.property == null) {
                     System.out.println(String.format("Error: null entity."));

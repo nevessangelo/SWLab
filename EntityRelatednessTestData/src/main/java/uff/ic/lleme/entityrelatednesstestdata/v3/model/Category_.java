@@ -7,18 +7,18 @@ import java.util.Set;
 import org.apache.commons.validator.routines.UrlValidator;
 import uff.ic.lleme.entityrelatednesstestdata.v3.vocabulary.EREL;
 
-public class _Category {
+public class Category_ {
 
     private String label = null;
     private String localName = null;
     private String uri = null;
-    private Set<_Resource> sameAS = new HashSet<>();
+    private Set<Resource_> sameAS = new HashSet<>();
 
-    private _Category() {
+    private Category_() {
 
     }
 
-    public _Category(String label) throws Exception {
+    public Category_(String label) throws Exception {
         if (label == null || label.equals("")) {
             System.out.println(String.format("Category error: invalid label (label -> %1s).", label));
             throw new Exception();
@@ -58,7 +58,7 @@ public class _Category {
         return uri;
     }
 
-    public Set<_Resource> getSameAS() {
+    public Set<Resource_> listSameAS() {
         return sameAS;
     }
 

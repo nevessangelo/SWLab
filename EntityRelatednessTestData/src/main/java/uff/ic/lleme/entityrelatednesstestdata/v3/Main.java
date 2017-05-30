@@ -10,19 +10,25 @@ import java.io.OutputStream;
 import java.security.GeneralSecurityException;
 import java.util.ArrayList;
 import java.util.Map;
+import org.apache.commons.validator.routines.UrlValidator;
+import org.apache.jena.query.DatasetAccessor;
+import org.apache.jena.query.DatasetAccessorFactory;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
+import org.apache.jena.vocabulary.OWL;
 import org.apache.jena.vocabulary.RDF;
 import org.apache.jena.vocabulary.RDFS;
 import org.apache.jena.vocabulary.XSD;
 import org.apache.log4j.PropertyConfigurator;
+import uff.ic.lleme.entityrelatednesstestdata.v3.model.Category_;
 import uff.ic.lleme.entityrelatednesstestdata.v3.model.DB;
-import uff.ic.lleme.entityrelatednesstestdata.v3.model._Category;
-import uff.ic.lleme.entityrelatednesstestdata.v3.model._Entity;
-import uff.ic.lleme.entityrelatednesstestdata.v3.model._Property;
+import uff.ic.lleme.entityrelatednesstestdata.v3.model.EntityPair_;
+import uff.ic.lleme.entityrelatednesstestdata.v3.model.Entity_;
+import uff.ic.lleme.entityrelatednesstestdata.v3.model.Property_;
+import uff.ic.lleme.entityrelatednesstestdata.v3.model.Resource_;
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.MovieClassMapping;
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.MovieEntityMappings;
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.MovieEntityPairs;
@@ -42,12 +48,20 @@ import uff.ic.swlab.commons.util.Host;
 
 public class Main {
 
+    private static Model ontology = ModelFactory.createDefaultModel();
+    private static Model dataset = ModelFactory.createDefaultModel();
+
     public static void main(String[] args) throws IOException, GeneralSecurityException, Exception {
         PropertyConfigurator.configure("./resources/conf/log4j.properties");
         Config.configure("./resources/conf/entityrelatednesstestdata.properties");
 
-        //prepareDB();
+        prepareDB();
+
         createOntology();
+        createDataset();
+
+        exportOntology(ontology);
+        exportDataset(dataset);
     }
 
     private static void prepareDB() {
@@ -63,7 +77,7 @@ public class Main {
 
             for (Pair mapping : categories)
                 try {
-                    _Category category = DB.Categories.addCategory(mapping.label);
+                    Category_ category = DB.Categories.addCategory(mapping.label);
                     try {
                         category.addSameAs(mapping.entity1);
                     } catch (Exception e) {
@@ -102,7 +116,7 @@ public class Main {
             for (Map.Entry<String, ArrayList<Pair>> subset : mappings.entrySet())
                 for (Pair mapping : subset.getValue())
                     try {
-                        _Entity entity = DB.Entities.addEntity(mapping.label, mapping.type);
+                        Entity_ entity = DB.Entities.addEntity(mapping.label, mapping.type);
                         try {
                             entity.addSameAs(mapping.entity1);
                         } catch (Exception e) {
@@ -130,7 +144,7 @@ public class Main {
 
             for (Map.Entry<String, Double> property : properties.entrySet())
                 try {
-                    _Property p = DB.Properties.addProperty(property.getKey(), property.getValue());
+                    Property_ p = DB.Properties.addProperty(property.getKey(), property.getValue());
                 } catch (Exception e) {
                     System.out.println(String.format("Property error: invalid label or score. (label -> %1s, score -> %1s)", property.getKey(), property.getValue()));
                 }
@@ -159,13 +173,13 @@ public class Main {
             MusicRankedPaths MUSIC_RANKED_PATHS = new MusicRankedPaths();
 
             MOVIE_RANKED_PATHS.putAll(MUSIC_RANKED_PATHS);
-            MovieRankedPaths movieRankedPaths = MOVIE_RANKED_PATHS;
+            MovieRankedPaths paths = MOVIE_RANKED_PATHS;
 
             MOVIE_RANKED_PATHS = null;
             MUSIC_RANKED_PATHS = null;
 
-            for (Map.Entry<String, ArrayList<Score>> paths : movieRankedPaths.entrySet())
-                for (Score path : paths.getValue()) {
+            for (Map.Entry<String, ArrayList<Score>> pts : paths.entrySet())
+                for (Score path : pts.getValue()) {
 
                 }
 
@@ -173,7 +187,7 @@ public class Main {
     }
 
     private static void createOntology() throws FileNotFoundException, IOException, GeneralSecurityException, Exception {
-        Model ontology = ModelFactory.createDefaultModel();
+
         ontology.setNsPrefix("", EREL.NS);
 
         Resource entity = ontology.createResource(EREL.NS + "Entity", RDFS.Class)
@@ -186,6 +200,7 @@ public class Main {
                 .addProperty(RDFS.label, "Category")
                 .addProperty(RDFS.comment, "The category of an entity.");
         Resource type = ontology.createProperty(EREL.NS + "type")
+                .addProperty(RDFS.subPropertyOf, RDF.type)
                 .addProperty(RDFS.domain, entity)
                 .addProperty(RDFS.range, category)
                 .addProperty(RDFS.label, "type")
@@ -212,10 +227,10 @@ public class Main {
                         + "in the graph GB induced by B. The notions of start node and end node "
                         + "of a path are defined as usual. Note that, by considering an undirected "
                         + "path, we allow the edges of the RDF graph to be reversely traversed.");
-        Resource rank = ontology.createProperty(EREL.NS + "rank")
+        Resource rank = ontology.createProperty(EREL.NS + "rankPosition")
                 .addProperty(RDFS.domain, path)
                 .addProperty(RDFS.range, XSD.xlong)
-                .addProperty(RDFS.label, "rank")
+                .addProperty(RDFS.label, "rankPosition")
                 .addProperty(RDFS.comment, "The rank position of a path with respect to a pair of entities.");
         Resource score = ontology.createProperty(EREL.NS + "score")
                 .addProperty(RDFS.domain, path)
@@ -285,6 +300,45 @@ public class Main {
                 .addProperty(RDFS.label, "entity")
                 .addProperty(RDFS.comment, "A reference to an erel:Entity.");
 
+    }
+
+    private static void createDataset() throws FileNotFoundException, IOException, Exception {
+        UrlValidator validator = new UrlValidator();
+        Integer counter = 0;
+
+        dataset.setNsPrefix("", Config.DATA_NS);
+        dataset.setNsPrefix("erel", EREL.NS);
+
+        for (Category_ c : DB.Categories.listCategories()) {
+            Resource category = ontology.createResource(c.getUri(), RDFS.Class)
+                    .addProperty(RDFS.subClassOf, EREL.Category)
+                    .addProperty(RDFS.label, c.getLabel());
+            for (Resource_ r : c.listSameAS())
+                category.addProperty(OWL.sameAs, ontology.createResource(r.getURI()));
+        }
+
+        for (Entity_ e : DB.Entities.listEntities()) {
+            Resource entity = dataset.createResource(e.getUri(), EREL.Entity)
+                    .addProperty(EREL.type, e.getCategory().getUri());
+            for (Resource_ r : e.listSameAS())
+                entity.addProperty(OWL.sameAs, dataset.createResource(r.getURI()));
+        }
+
+        for (EntityPair_ pr : DB.EntityPairs.listEntityPairs()) {
+            Resource entityPair = dataset.createResource(pr.getUri(), EREL.EntityPair)
+                    .addProperty(EREL.entity1, pr.getEntity1().getUri())
+                    .addProperty(EREL.entity2, pr.getEntity2().getUri());
+
+            for (EntityPair_.Path_ pt : pr.listPaths())
+                entityPair.addProperty(EREL.hasPath, dataset.createResource(pt.getUri(), EREL.Path)
+                        .addProperty(EREL.rankPosition, dataset.createTypedLiteral(pt.getRankPosition()))
+                        .addProperty(EREL.score, dataset.createTypedLiteral(pt.getScore()))
+                        .addProperty(EREL.expression, pt.getExpression()));
+        }
+
+    }
+
+    private static void exportOntology(Model ontology) throws IOException, Exception {
         (new File(Config.LOCAL_ONTOLOGY_NAME)).getParentFile().mkdirs();
 
         try (OutputStream out = new FileOutputStream(Config.LOCAL_ONTOLOGY_NAME)) {
@@ -295,6 +349,44 @@ public class Main {
             Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.REMOTE_ONTOLOGY_NAME, in);
             Host.mkDirsViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.REMOTE_ONTOLOGY_NAME, in);
         }
+    }
 
+    private static void exportDataset(Model dataset) throws Exception, IOException {
+        (new File(Config.XML_DUMP_NAME)).getParentFile().mkdirs();
+
+        try (OutputStream out = new FileOutputStream(Config.XML_DUMP_NAME);) {
+            RDFDataMgr.write(out, dataset, Lang.RDFXML);
+        }
+
+        try (OutputStream out = new FileOutputStream(Config.TURTLE_DUMP_NAME);) {
+            RDFDataMgr.write(out, dataset, Lang.TURTLE);
+        }
+
+        try (OutputStream out = new FileOutputStream(Config.JSON_DUMP_NAME);) {
+            RDFDataMgr.write(out, dataset, Lang.RDFJSON);
+        }
+
+        try (OutputStream out = new FileOutputStream(Config.NTRIPLES_DUMP_NAME);) {
+            RDFDataMgr.write(out, dataset, Lang.NTRIPLES);
+        }
+
+        try (InputStream in = new FileInputStream(Config.XML_DUMP_NAME)) {
+            Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.XML_REMOTE_DUMP_NAME, in);
+        }
+
+        try (InputStream in = new FileInputStream(Config.TURTLE_DUMP_NAME)) {
+            Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.TURTLE_REMOTE_DUMP_NAME, in);
+        }
+
+        try (InputStream in = new FileInputStream(Config.JSON_DUMP_NAME)) {
+            Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.JSON_REMOTE_DUMP_NAME, in);
+        }
+
+        try (InputStream in = new FileInputStream(Config.NTRIPLES_DUMP_NAME)) {
+            Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.NTRIPLES_REMOTE_DUMP_NAME, in);
+        }
+
+        DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(Config.DATASET_URL);
+        accessor.putModel(dataset);
     }
 }

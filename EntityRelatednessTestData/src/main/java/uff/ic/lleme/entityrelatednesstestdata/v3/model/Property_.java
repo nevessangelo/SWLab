@@ -6,19 +6,19 @@ import java.util.List;
 import org.apache.commons.validator.routines.UrlValidator;
 import uff.ic.lleme.entityrelatednesstestdata.v3.Config;
 
-public class _Property {
+public class Property_ {
 
     private String label = null;
     private String localName = null;
     private String uri = null;
     private double score = 0;
-    private List<_Resource> sameAS = new ArrayList<>();
+    private List<Resource_> sameAS = new ArrayList<>();
 
-    private _Property() {
+    private Property_() {
 
     }
 
-    public _Property(String label, double score) throws Exception {
+    public Property_(String label, double score) throws Exception {
         if (!label.equals("")) {
             this.label = label.trim().replaceAll("  ", " ").replaceAll("  ", " ").replaceAll(" ", "_");
             String uriString = Config.DATA_NS + this.label;
@@ -34,7 +34,7 @@ public class _Property {
             throw new Exception();
     }
 
-    public boolean addSameAs(_Resource resource) throws Exception {
+    public boolean addSameAs(Resource_ resource) throws Exception {
         if (resource != null)
             return sameAS.add(resource);
         else
@@ -57,7 +57,7 @@ public class _Property {
         return score;
     }
 
-    public List<_Resource> getSameAS() {
+    public List<Resource_> getSameAS() {
         return sameAS;
     }
 
