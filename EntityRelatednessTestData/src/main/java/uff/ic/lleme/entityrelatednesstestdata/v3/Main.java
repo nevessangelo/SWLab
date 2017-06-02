@@ -23,12 +23,7 @@ import org.apache.jena.vocabulary.RDF;
 import org.apache.jena.vocabulary.RDFS;
 import org.apache.jena.vocabulary.XSD;
 import org.apache.log4j.PropertyConfigurator;
-import uff.ic.lleme.entityrelatednesstestdata.v3.model.Category_;
 import uff.ic.lleme.entityrelatednesstestdata.v3.model.DB;
-import uff.ic.lleme.entityrelatednesstestdata.v3.model.EntityPair_;
-import uff.ic.lleme.entityrelatednesstestdata.v3.model.Entity_;
-import uff.ic.lleme.entityrelatednesstestdata.v3.model.Property_;
-import uff.ic.lleme.entityrelatednesstestdata.v3.model.Resource_;
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.MovieClassMapping;
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.MovieEntityMappings;
 import uff.ic.lleme.entityrelatednesstestdata.v3.util.MovieEntityPairs;
@@ -77,7 +72,7 @@ public class Main {
 
             for (Pair mapping : categories)
                 try {
-                    Category_ category = DB.Categories.addCategory(mapping.label);
+                    DB.Category category = DB.Categories.addCategory(mapping.label);
                     try {
                         category.addSameAs(mapping.entity1);
                     } catch (Exception e) {
@@ -116,7 +111,7 @@ public class Main {
             for (Map.Entry<String, ArrayList<Pair>> subset : mappings.entrySet())
                 for (Pair mapping : subset.getValue())
                     try {
-                        Entity_ entity = DB.Entities.addEntity(mapping.label, mapping.type);
+                        DB.Entity entity = DB.Entities.addEntity(mapping.label, mapping.type);
                         try {
                             entity.addSameAs(mapping.entity1);
                         } catch (Exception e) {
@@ -144,7 +139,7 @@ public class Main {
 
             for (Map.Entry<String, Double> property : properties.entrySet())
                 try {
-                    Property_ p = DB.Properties.addProperty(property.getKey(), property.getValue());
+                    DB.Property p = DB.Properties.addProperty(property.getKey(), property.getValue());
                 } catch (Exception e) {
                     System.out.println(String.format("Property error: invalid label or score. (label -> %1s, score -> %1s)", property.getKey(), property.getValue()));
                 }
@@ -171,11 +166,11 @@ public class Main {
 
             for (Pair prs : pairs)
                 try {
-                    EntityPair_ pair = DB.EntityPairs.addEntityPair(prs.entity1, prs.entity2);
+                    DB.EntityPair pair = DB.EntityPairs.addEntityPair(prs.entity1, prs.entity2);
 
                     for (Score s : paths.getRank(prs.entity1, prs.entity2))
                         try {
-                            pair.add(new EntityPair_.Path_(Integer.parseInt(s.label), s.score, s.description));
+                            new DB.Path(prs.entity1, prs.entity2, Integer.parseInt(s.label), s.score, s.description);
                         } catch (Exception e) {
                             System.out.println(e.toString());
                             System.out.println(String.format("Path error: invalid attributes. (rankPosition -> %1s, score -> %1s, expression -> %1s)", s.label, s.score, s.description));
@@ -310,27 +305,27 @@ public class Main {
         dataset.setNsPrefix("", Config.DATA_NS);
         dataset.setNsPrefix("erel", EREL.NS);
 
-        for (Category_ c : DB.Categories.listCategories()) {
+        for (DB.Category c : DB.Categories.listCategories()) {
             Resource category = ontology.createResource(c.getUri(), RDFS.Class)
                     .addProperty(RDFS.subClassOf, EREL.Category)
                     .addProperty(RDFS.label, c.getLabel());
-            for (Resource_ r : c.listSameAS())
+            for (DB.Resource r : c.listSameAS())
                 category.addProperty(OWL.sameAs, ontology.createResource(r.getURI()));
         }
 
-        for (Entity_ e : DB.Entities.listEntities()) {
+        for (DB.Entity e : DB.Entities.listEntities()) {
             Resource entity = dataset.createResource(e.getUri(), EREL.Entity)
                     .addProperty(EREL.type, e.getCategory().getUri());
-            for (Resource_ r : e.listSameAS())
+            for (DB.Resource r : e.listSameAS())
                 entity.addProperty(OWL.sameAs, dataset.createResource(r.getURI()));
         }
 
-        for (EntityPair_ pr : DB.EntityPairs.listEntityPairs()) {
+        for (DB.EntityPair pr : DB.EntityPairs.listEntityPairs()) {
             Resource entityPair = dataset.createResource(pr.getUri(), EREL.EntityPair)
                     .addProperty(EREL.entity1, pr.getEntity1().getUri())
                     .addProperty(EREL.entity2, pr.getEntity2().getUri());
 
-            for (EntityPair_.Path_ pt : pr.listPaths())
+            for (DB.Path pt : pr.listPaths())
                 entityPair.addProperty(EREL.hasPath, dataset.createResource(pt.getUri(), EREL.Path)
                         .addProperty(EREL.rankPosition, dataset.createTypedLiteral(pt.getRankPosition()))
                         .addProperty(EREL.score, dataset.createTypedLiteral(pt.getScore()))
