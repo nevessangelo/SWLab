@@ -18,9 +18,10 @@ public class MovieClassMapping extends ArrayList<Pair> {
         try (InputStream in = new FileInputStream(Config.DATA_ROOT + "/movie_class_mapping.txt");) {
             Scanner sc = new Scanner(in);
             int count = 0;
+            String linha;
             while (sc.hasNext()) {
-                String linha = sc.nextLine();
-                linha = linha.replaceAll("  ", " ").replaceAll("  ", " ").replaceAll(" ", "\t").replaceAll("\t\t", "\t");
+                linha = sc.nextLine();
+                linha = linha.replace('\u00A0', ' ').replaceAll("  ", " ").replaceAll("  ", " ").replaceAll(" ", "\t").replaceAll("\t\t", "\t");
                 count++;
                 if (count > 1 && linha != null && !linha.equals("")) {
                     String[] cols = linha.split("\t");

@@ -76,15 +76,15 @@ public class Main {
                     try {
                         category.addSameAs(mapping.entity1);
                     } catch (Exception e) {
-                        System.out.println(String.format("Error: invalid sameAs resource. (category -> %1s, resource -> %1s)", mapping.label, mapping.entity1));
+                        System.out.println(String.format("Category error: invalid sameAs resource. (category -> %1s, resource -> %1s)", mapping.label, mapping.entity1));
                     }
                     try {
                         category.addSameAs(mapping.entity2);
                     } catch (Exception e) {
-                        System.out.println(String.format("Error: invalid sameAs resource. (category -> %1s, resource -> %1s)", mapping.label, mapping.entity2));
+                        System.out.println(String.format("Category error: invalid sameAs resource. (category -> %1s, resource -> %1s)", mapping.label, mapping.entity2));
                     }
                 } catch (Exception e) {
-                    System.out.println(String.format("Error: invalid label. (property -> %1s)", mapping.label));
+                    System.out.println(String.format("Category error: invalid label. (property -> %1s)", mapping.label));
                 }
             System.out.println("");
         }
@@ -139,7 +139,7 @@ public class Main {
 
             for (Map.Entry<String, Double> property : properties.entrySet())
                 try {
-                    DB.Property p = DB.Properties.addProperty(property.getKey(), property.getValue());
+                    DB.Properties.addProperty(property.getKey(), property.getValue());
                 } catch (Exception e) {
                     System.out.println(String.format("Property error: invalid label or score. (label -> %1s, score -> %1s)", property.getKey(), property.getValue()));
                 }
@@ -159,24 +159,23 @@ public class Main {
             MusicRankedPaths MUSIC_RANKED_PATHS = new MusicRankedPaths();
 
             MOVIE_RANKED_PATHS.putAll(MUSIC_RANKED_PATHS);
-            MovieRankedPaths paths = MOVIE_RANKED_PATHS;
+            MovieRankedPaths ranks = MOVIE_RANKED_PATHS;
 
             MOVIE_RANKED_PATHS = null;
             MUSIC_RANKED_PATHS = null;
 
-            for (Pair prs : pairs)
+            for (Pair pair : pairs)
                 try {
-                    DB.EntityPair pair = DB.EntityPairs.addEntityPair(prs.entity1, prs.entity2);
-
-                    for (Score s : paths.getRank(prs.entity1, prs.entity2))
+                    DB.EntityPairs.addEntityPair(pair.entity1, pair.entity2);
+                    for (Score rank : ranks.getRank(pair.entity1, pair.entity2))
                         try {
-                            new DB.Path(prs.entity1, prs.entity2, Integer.parseInt(s.label), s.score, s.description);
+                            new DB.Path(pair.entity1, pair.entity2, Integer.parseInt(rank.label), rank.score, rank.description);
                         } catch (Exception e) {
                             System.out.println(e.toString());
-                            System.out.println(String.format("Path error: invalid attributes. (rankPosition -> %1s, score -> %1s, expression -> %1s)", s.label, s.score, s.description));
+                            System.out.println(String.format("Path error: invalid attributes. (rankPosition -> %1s, score -> %1s, expression -> %1s)", rank.label, rank.score, rank.description));
                         }
                 } catch (Exception e) {
-                    System.out.println(String.format("EntityPair error: invalid entity. (entity1 -> %1s, entity2 -> %1s)", prs.entity1, prs.entity2));
+                    System.out.println(String.format("EntityPair error: invalid entity. (entity1 -> %1s, entity2 -> %1s)", pair.entity1, pair.entity2));
                 }
         }
 

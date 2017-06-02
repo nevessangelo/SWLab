@@ -22,15 +22,13 @@ public class MovieScores extends HashMap<String, ArrayList<Score>> {
         File dir = new File(Config.DATA_ROOT + "/movie_scores");
         File[] files = dir.listFiles();
         for (File f : files) {
-            //String[] names = f.getName().split("\\.");
-            //String name = (String.join("", Arrays.copyOfRange(names, 1, names.length - 1)));
             String name = f.getName().trim().replaceAll(".txt$", "").replaceAll("^\\d*\\.", "");
             try (InputStream in = new FileInputStream(f);) {
                 Scanner sc = new Scanner(in);
                 int count = 0;
                 while (sc.hasNext()) {
                     linha = sc.nextLine();
-                    linha = linha.replaceAll("  ", " ").replaceAll(" ", "\t").replaceAll("\t\t", "\t");
+                    linha = linha.replaceAll("\u00a0", " ").replaceAll("  ", " ").replaceAll(" ", "\t").replaceAll("\t\t", "\t");
                     count++;
                     if (count > 1 && linha != null && !linha.equals("")) {
                         String[] cols = linha.split("\t");

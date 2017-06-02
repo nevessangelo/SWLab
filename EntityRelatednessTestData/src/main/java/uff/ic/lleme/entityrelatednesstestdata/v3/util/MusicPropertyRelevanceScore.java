@@ -19,7 +19,7 @@ public class MusicPropertyRelevanceScore extends HashMap<String, Double> {
             int count = 0;
             while (sc.hasNext()) {
                 linha = sc.nextLine();
-                linha = linha.replaceAll("  ", " ").replaceAll(" ", "\t").replaceAll("\t\t", "\t");
+                linha = linha.replaceAll("\u00a0", " ").replaceAll("  ", " ").replaceAll(" ", "\t").replaceAll("\t\t", "\t");
                 count++;
                 if (count > 1 && linha != null && !linha.equals("")) {
                     String[] cols = linha.split("\t");

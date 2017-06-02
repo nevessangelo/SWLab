@@ -486,8 +486,10 @@ public class DB {
             if (expression.equals("")) {
                 System.out.println(String.format("Path error: missing expression."));
                 throw new Exception();
-            } else
+            } else {
                 this.expression = expression;
+                addPathElemente(expression);
+            }
 
             try {
                 this.entityPair = DB.EntityPairs.getEntityPair(entity1, entity2);
@@ -527,7 +529,21 @@ public class DB {
         }
 
         private boolean addPathElemente(String expression) {
-
+            String[] elements = expression.split(" ");
+            int count = 0;
+            for (String element : elements) {
+                PathElement pe = null;
+                try {
+                    if (count % 2 == 0)
+                        pe = new EntityElement(element.replaceAll("@", ""), 0);
+                    else
+                        pe = new PropertyElement(element.replaceAll("@", ""));
+                    this.elements.add(pe);
+                    pe.path = this;
+                } catch (Exception e) {
+                }
+                count++;
+            }
             return true;
         }
 

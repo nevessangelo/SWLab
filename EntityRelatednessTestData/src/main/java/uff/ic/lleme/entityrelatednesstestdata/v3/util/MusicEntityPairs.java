@@ -19,6 +19,7 @@ public class MusicEntityPairs extends ArrayList<Pair> {
             int count = 0;
             while (sc.hasNext()) {
                 linha = sc.nextLine();
+                linha = linha.replaceAll("\u00a0", " ");
                 count++;
                 if (count > 1 && linha != null && !linha.equals("")) {
                     String[] cols = linha.split("\t");
