@@ -31,7 +31,8 @@ public class MusicScores extends HashMap<String, ArrayList<Score>> {
                 }
                 while (sc.hasNext()) {
                     linha = sc.nextLine();
-                    linha = linha.replaceAll("\u00a0", " ").replaceAll("\\u00a0", " ").replaceAll("  ", " ").replaceAll(" ", "\t").replaceAll("\t\t", "\t");
+                    linha = linha.replace('\u00A0', '\0').replace('\u00C2', '\0');
+                    linha = linha.replaceAll("\\u00a0", " ").replaceAll("  ", " ").replaceAll(" ", "\t").replaceAll("\t\t", "\t");
                     count++;
                     if (count > 1 && linha != null && !linha.equals(""))
                         try {

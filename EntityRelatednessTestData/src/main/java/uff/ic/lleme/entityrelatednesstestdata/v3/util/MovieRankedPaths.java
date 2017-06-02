@@ -31,7 +31,7 @@ public class MovieRankedPaths extends HashMap<String, ArrayList<Score>> {
                 }
                 while (sc.hasNext()) {
                     linha = sc.nextLine();
-                    linha = linha.replaceAll("\u00a0", " ");
+                    linha = linha.replace('\u00A0', '\0').replace('\u00C2', '\0');
                     count++;
                     if (count > 1 && linha != null && !linha.equals("")) {
                         String[] cols = linha.split("\t");

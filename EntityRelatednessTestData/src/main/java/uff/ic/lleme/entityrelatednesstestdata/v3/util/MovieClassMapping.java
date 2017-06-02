@@ -21,7 +21,8 @@ public class MovieClassMapping extends ArrayList<Pair> {
             String linha;
             while (sc.hasNext()) {
                 linha = sc.nextLine();
-                linha = linha.replace('\u00A0', ' ').replaceAll("  ", " ").replaceAll("  ", " ").replaceAll(" ", "\t").replaceAll("\t\t", "\t");
+                linha = linha.replace('\u00A0', '\0').replace('\u00C2', '\0');
+                linha = linha.replaceAll("  ", " ").replaceAll("  ", " ").replaceAll(" ", "\t").replaceAll("\t\t", "\t");
                 count++;
                 if (count > 1 && linha != null && !linha.equals("")) {
                     String[] cols = linha.split("\t");
