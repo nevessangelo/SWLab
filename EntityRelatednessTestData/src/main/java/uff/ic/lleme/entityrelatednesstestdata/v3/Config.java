@@ -25,12 +25,12 @@ public class Config {
     public static final String HOST_ADDR = "swlab.ic.uff.br";
     public static String USERNAME = null;
     public static String PASSWORD = null;
-    public static final String REMOTE_VOID_NAME = "/void.ttl";
-    public static final String REMOTE_ONTOLOGY_NAME = "/ontology/" + DATASET_NAME + "_v1.rdf";
-    public static final String XML_REMOTE_DUMP_NAME = "/dump/" + DATASET_NAME + "_v3.rdf";
-    public static final String TURTLE_REMOTE_DUMP_NAME = "/dump/" + DATASET_NAME + "_v3.ttl";
-    public static final String JSON_REMOTE_DUMP_NAME = "/dump/" + DATASET_NAME + "_v3.json";
-    public static final String NTRIPLES_REMOTE_DUMP_NAME = "/dump/" + DATASET_NAME + "_v3.nt";
+    public static final String REMOTE_VOID_NAME = "/tomcat/void.ttl";
+    public static final String REMOTE_ONTOLOGY_NAME = "/tomcat/ontology/" + DATASET_NAME + "_v1.rdf";
+    public static final String XML_REMOTE_DUMP_NAME = "/tomcat/dump/" + DATASET_NAME + "_v3.rdf";
+    public static final String TURTLE_REMOTE_DUMP_NAME = "/tomcat/dump/" + DATASET_NAME + "_v3.ttl";
+    public static final String JSON_REMOTE_DUMP_NAME = "/tomcat/dump/" + DATASET_NAME + "_v3.json";
+    public static final String NTRIPLES_REMOTE_DUMP_NAME = "/tomcat/dump/" + DATASET_NAME + "_v3.nt";
 
     public static final String FUSEKI_URL = "http://" + HOST_ADDR + "/fuseki";
     public static final String DATASET_URL = FUSEKI_URL + "/" + DATASET_NAME + "_v3/data";
