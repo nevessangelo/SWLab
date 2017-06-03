@@ -332,10 +332,13 @@ public class DB {
         }
 
         public boolean addSameAs(String resource) throws Exception {
-            if (DB.Resources.getResource(resource) != null)
-                return sameAS.add(DB.Resources.getResource(resource));
+            if (resource != null)
+                if (DB.Resources.getResource(resource) != null)
+                    return sameAS.add(DB.Resources.getResource(resource));
+                else
+                    return sameAS.add(DB.Resources.addResource(resource));
             else
-                return sameAS.add(DB.Resources.addResource(resource));
+                return false;
         }
     }
 

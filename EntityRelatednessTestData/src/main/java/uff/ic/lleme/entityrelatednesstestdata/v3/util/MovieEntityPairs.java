@@ -1,5 +1,6 @@
 package uff.ic.lleme.entityrelatednesstestdata.v3.util;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -14,7 +15,8 @@ public class MovieEntityPairs extends ArrayList<Pair> {
 
     public MovieEntityPairs() {
         String linha;
-        try (InputStream in = new FileInputStream(Config.DATA_ROOT + "/movie_entity_pairs.txt");) {
+        File f = new File(Config.DATA_ROOT + "/movie_entity_pairs.txt");
+        try (InputStream in = new FileInputStream(f);) {
             Scanner sc = new Scanner(in);
             int count = 0;
             while (sc.hasNext()) {
@@ -23,12 +25,13 @@ public class MovieEntityPairs extends ArrayList<Pair> {
                 count++;
                 if (count > 1 && linha != null && !linha.equals("")) {
                     String[] cols = linha.split("\t");
-                    cols[0] = cols[0].trim();
-                    cols[1] = cols[1].trim();
-                    cols[2] = cols[2].trim();
-                    if (cols.length == 3)
-                        add(new Pair(cols[0], null, cols[1], cols[2]));
-                    else
+                    if (cols.length == 3) {
+                        cols[0] = cols[0].trim();
+                        cols[1] = cols[1].trim();
+                        cols[2] = cols[2].trim();
+                        if (cols.length == 3)
+                            add(new Pair(cols[0], null, cols[1], cols[2]));
+                    } else
                         System.out.println(String.format("Error: class -> %1s, line -> %1s.", "MovieEntityPairs", linha));
                 }
             }

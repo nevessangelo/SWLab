@@ -1,5 +1,6 @@
 package uff.ic.lleme.entityrelatednesstestdata.v3.util;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -15,7 +16,8 @@ public class MovieClassMapping extends ArrayList<Pair> {
     public MovieClassMapping() {
         String mvo = "http://www.movieontology.org/2010/01/movieontology.owl#";
         String dbo = "http://dbpedia.org/ontology/";
-        try (InputStream in = new FileInputStream(Config.DATA_ROOT + "/movie_class_mapping.txt");) {
+        File f = new File(Config.DATA_ROOT + "/movie_class_mapping.txt");
+        try (InputStream in = new FileInputStream(f);) {
             Scanner sc = new Scanner(in);
             int count = 0;
             String linha;
@@ -26,12 +28,13 @@ public class MovieClassMapping extends ArrayList<Pair> {
                 count++;
                 if (count > 1 && linha != null && !linha.equals("")) {
                     String[] cols = linha.split("\t");
-                    cols[0] = cols[0].trim().replace("mvo:Director", "dbo:Film_Director").replace("mvo:", mvo).replace("dbo:", dbo);
-                    cols[1] = cols[1].trim().replaceFirst("^dpo:", "dbo:").replace("mvo:", mvo).replace("dbo:", dbo);
-                    cols[2] = cols[2].trim();
-                    add(new Pair(cols[2], null, cols[0], cols[1]));
-                    if (count == 3)
-                        System.out.println("");
+                    if (cols.length == 3) {
+                        cols[0] = cols[0].trim().replace("mvo:Director", "dbo:Film_Director").replace("mvo:", mvo).replace("dbo:", dbo);
+                        cols[1] = cols[1].trim().replaceFirst("^dpo:", "dbo:").replace("mvo:", mvo).replace("dbo:", dbo);
+                        cols[2] = cols[2].trim();
+                        add(new Pair(cols[2], null, cols[0], cols[1]));
+                    } else
+                        System.out.println(String.format("Error: class -> %1s, line -> %1s.", "MovieClassMapping", linha));
                 }
             }
         } catch (FileNotFoundException ex) {

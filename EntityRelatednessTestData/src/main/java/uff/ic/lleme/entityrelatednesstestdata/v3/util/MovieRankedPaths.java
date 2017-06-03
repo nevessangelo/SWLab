@@ -16,29 +16,31 @@ import uff.ic.lleme.entityrelatednesstestdata.v3.Config;
 public class MovieRankedPaths extends HashMap<String, ArrayList<Score>> {
 
     public MovieRankedPaths() {
-        String linha;
+        String linha, name;
         File dir = new File(Config.DATA_ROOT + "/movie_ranked_paths");
-        File[] files = dir.listFiles();
-        for (File f : files) {
-            String name = f.getName().trim().replaceAll(".txt$", "").replaceAll("^\\d*\\.", "");
+        for (File f : dir.listFiles()) {
+            name = f.getName().trim().replaceAll(".txt$", "").replaceAll("^\\d*\\.", "");
+            ArrayList<Score> lista = get(name);
+            if (lista == null) {
+                lista = new ArrayList<>();
+                put(name, lista);
+            }
             try (InputStream in = new FileInputStream(f);) {
                 Scanner sc = new Scanner(in);
                 int count = 0;
-                ArrayList<Score> lista = get(name);
-                if (lista == null) {
-                    lista = new ArrayList<>();
-                    put(name, lista);
-                }
                 while (sc.hasNext()) {
                     linha = sc.nextLine();
                     linha = linha.replace('\u00A0', '\0').replace('\u00C2', '\0');
                     count++;
                     if (count > 1 && linha != null && !linha.equals("")) {
                         String[] cols = linha.split("\t");
-                        cols[0] = cols[0].trim();
-                        cols[1] = cols[1].trim().replace("\"", "");
-                        cols[2] = cols[2].trim();
-                        lista.add(new Score(cols[0], cols[1], Double.valueOf(cols[2])));
+                        if (cols.length == 3) {
+                            cols[0] = cols[0].trim();
+                            cols[1] = cols[1].trim().replace("\"", "");
+                            cols[2] = cols[2].trim();
+                            lista.add(new Score(cols[0], cols[1], Double.valueOf(cols[2])));
+                        } else
+                            System.out.println(String.format("Error: class -> %1s, file -> %1s, line -> %1s.", "MovieRankedPaths", f.getName(), linha));
                     }
                 }
             } catch (FileNotFoundException ex) {

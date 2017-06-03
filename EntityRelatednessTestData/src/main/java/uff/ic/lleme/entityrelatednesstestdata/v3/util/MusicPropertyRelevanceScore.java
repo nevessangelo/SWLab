@@ -1,5 +1,6 @@
 package uff.ic.lleme.entityrelatednesstestdata.v3.util;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -14,7 +15,8 @@ public class MusicPropertyRelevanceScore extends HashMap<String, Double> {
 
     public MusicPropertyRelevanceScore() {
         String linha;
-        try (InputStream in = new FileInputStream(Config.DATA_ROOT + "/music_property_relevance_scores/properties.txt");) {
+        File f = new File(Config.DATA_ROOT + "/music_property_relevance_scores/properties.txt");
+        try (InputStream in = new FileInputStream(f);) {
             Scanner sc = new Scanner(in);
             int count = 0;
             while (sc.hasNext()) {
@@ -24,8 +26,11 @@ public class MusicPropertyRelevanceScore extends HashMap<String, Double> {
                 count++;
                 if (count > 1 && linha != null && !linha.equals("")) {
                     String[] cols = linha.split("\t");
-                    cols[0] = cols[0].trim();
-                    put(cols[0], Double.valueOf(cols[1]));
+                    if (cols.length == 2) {
+                        cols[0] = cols[0].trim();
+                        put(cols[0], Double.valueOf(cols[1]));
+                    } else
+                        System.out.println(String.format("Error: class -> %1s, line -> %1s.", "MusicPropertyRelevanceScore", linha));
                 }
             }
         } catch (FileNotFoundException ex) {

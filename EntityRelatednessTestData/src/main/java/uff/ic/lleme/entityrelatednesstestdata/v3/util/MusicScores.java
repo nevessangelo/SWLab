@@ -16,35 +16,36 @@ import uff.ic.lleme.entityrelatednesstestdata.v3.Config;
 public class MusicScores extends HashMap<String, ArrayList<Score>> {
 
     public MusicScores() {
-        String linha;
+        String linha, name;
         File dir = new File(Config.DATA_ROOT + "/music_scores");
-        File[] files = dir.listFiles();
-        for (File f : files) {
-            String name = f.getName().trim().replaceAll(".txt$", "").replaceAll("^\\d*\\.", "");
+        for (File f : dir.listFiles()) {
+            name = f.getName().trim().replaceAll(".txt$", "").replaceAll("^\\d*\\.", "");
+            ArrayList<Score> lista = get(name);
+            if (lista == null) {
+                lista = new ArrayList<>();
+                put(name, lista);
+            }
             try (InputStream in = new FileInputStream(f);) {
                 Scanner sc = new Scanner(in);
                 int count = 0;
-                ArrayList<Score> lista = get(name);
-                if (lista == null) {
-                    lista = new ArrayList<>();
-                    put(name, lista);
-                }
                 while (sc.hasNext()) {
                     linha = sc.nextLine();
                     linha = linha.replace('\u00A0', '\0').replace('\u00C2', '\0');
-                    linha = linha.replaceAll("\\u00a0", " ").replaceAll("  ", " ").replaceAll(" ", "\t").replaceAll("\t\t", "\t");
+                    linha = linha.replaceAll("  ", " ").replaceAll(" ", "\t").replaceAll("\t\t", "\t");
                     count++;
-                    if (count > 1 && linha != null && !linha.equals(""))
-                        try {
-                            String[] cols = linha.split("\t");
+                    if (count > 1 && linha != null && !linha.equals("")) {
+                        String[] cols = linha.split("\t");
+                        if (cols.length == 2) {
                             cols[0] = cols[0].trim();
                             cols[1] = cols[1].trim();
-                            lista.add(new Score(cols[0], null, Double.valueOf(cols[1])));
-                        } catch (NumberFormatException e) {
-                            System.out.println(e.toString());
-                            System.out.println(String.format("Erro: class -> %1s, file -> %1s, line -> %1s.", "MusicEntityMappings", f.getName(), linha));
-                            continue;
-                        }
+                            try {
+                                lista.add(new Score(cols[0], null, Double.valueOf(cols[1])));
+                            } catch (Exception e) {
+                                System.out.println(String.format("Erro: class -> %1s, file -> %1s, line -> %1s.", "MusicScores", f.getName(), linha));
+                            }
+                        } else
+                            System.out.println(String.format("Erro: class -> %1s, file -> %1s, line -> %1s.", "MusicScores", f.getName(), linha));
+                    }
                 }
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(MusicScores.class.getName()).log(Level.SEVERE, null, ex);

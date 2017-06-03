@@ -18,11 +18,10 @@ import uff.ic.lleme.entityrelatednesstestdata.v3.Config;
 public class MovieScores extends HashMap<String, ArrayList<Score>> {
 
     public MovieScores() {
-        String linha;
+        String linha, name;
         File dir = new File(Config.DATA_ROOT + "/movie_scores");
-        File[] files = dir.listFiles();
-        for (File f : files) {
-            String name = f.getName().trim().replaceAll(".txt$", "").replaceAll("^\\d*\\.", "");
+        for (File f : dir.listFiles()) {
+            name = f.getName().trim().replaceAll(".txt$", "").replaceAll("^\\d*\\.", "");
             try (InputStream in = new FileInputStream(f);) {
                 Scanner sc = new Scanner(in);
                 int count = 0;
@@ -33,14 +32,17 @@ public class MovieScores extends HashMap<String, ArrayList<Score>> {
                     count++;
                     if (count > 1 && linha != null && !linha.equals("")) {
                         String[] cols = linha.split("\t");
-                        cols[0] = cols[0].trim();
-                        cols[1] = cols[1].trim();
-                        ArrayList<Score> lista = get(name);
-                        if (lista == null) {
-                            lista = new ArrayList<>();
-                            put(name, lista);
-                        }
-                        lista.add(new Score(cols[0], null, Double.valueOf(cols[1])));
+                        if (cols.length == 2) {
+                            cols[0] = cols[0].trim();
+                            cols[1] = cols[1].trim();
+                            ArrayList<Score> lista = get(name);
+                            if (lista == null) {
+                                lista = new ArrayList<>();
+                                put(name, lista);
+                            }
+                            lista.add(new Score(cols[0], null, Double.valueOf(cols[1])));
+                        } else
+                            System.out.println(String.format("Error: class -> %1s, file -> %1s, line -> %1s.", "MovieScores", f.getName(), linha));
                     }
                 }
             } catch (FileNotFoundException ex) {
