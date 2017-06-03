@@ -1,4 +1,4 @@
-package uff.ic.lleme.entityrelatednesstestdata.v3;
+package uff.ic.swlab.dataset.entityrelatednesstestdata.v3;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,9 +13,9 @@ import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.log4j.PropertyConfigurator;
 import uff.ic.swlab.commons.util.Host;
-import uff.ic.swlab.dataset.SWLABVoID;
+import uff.ic.swlab.datasets.SWLABVoID;
 
-public class _2_UpdateVoid {
+public class UpdateVoid {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, ParseException, Exception {
         PropertyConfigurator.configure("./resources/conf/log4j.properties");

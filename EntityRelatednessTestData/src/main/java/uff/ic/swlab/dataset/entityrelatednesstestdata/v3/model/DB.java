@@ -1,4 +1,4 @@
-package uff.ic.lleme.entityrelatednesstestdata.v3.model;
+package uff.ic.swlab.dataset.entityrelatednesstestdata.v3.model;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -11,8 +11,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 import org.apache.commons.validator.routines.UrlValidator;
-import uff.ic.lleme.entityrelatednesstestdata.v3.Config;
-import uff.ic.lleme.entityrelatednesstestdata.v3.vocabulary.EREL;
+import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.Config;
+import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.vocabulary.EREL;
 
 public class DB {
 

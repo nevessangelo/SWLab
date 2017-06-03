@@ -1,4 +1,4 @@
-package uff.ic.lleme.entityrelatednesstestdata.v3.util;
+package uff.ic.swlab.dataset.entityrelatednesstestdata.v3.util;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -9,13 +9,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import uff.ic.lleme.entityrelatednesstestdata.v3.Config;
+import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.Config;
 
-public class MovieEntityPairs extends ArrayList<Pair> {
+public class MusicEntityPairs extends ArrayList<Pair> {
 
-    public MovieEntityPairs() {
+    public MusicEntityPairs() {
         String linha;
-        File f = new File(Config.DATA_ROOT + "/movie_entity_pairs.txt");
+        File f = new File(Config.DATA_ROOT + "/music_entity_pairs.txt");
         try (InputStream in = new FileInputStream(f);) {
             Scanner sc = new Scanner(in);
             int count = 0;
@@ -29,16 +29,15 @@ public class MovieEntityPairs extends ArrayList<Pair> {
                         cols[0] = cols[0].trim();
                         cols[1] = cols[1].trim();
                         cols[2] = cols[2].trim();
-                        if (cols.length == 3)
-                            add(new Pair(cols[0], null, cols[1], cols[2]));
+                        add(new Pair(cols[0], null, cols[1], cols[2]));
                     } else
-                        System.out.println(String.format("Error: class -> %1s, line -> %1s.", "MovieEntityPairs", linha));
+                        System.out.println(String.format("Error: class -> %1s, line -> %1s.", "MusicEntityPairs", linha));
                 }
             }
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(MovieEntityPairs.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MusicEntityPairs.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(MovieEntityPairs.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MusicEntityPairs.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

@@ -1,4 +1,4 @@
-package uff.ic.lleme.entityrelatednesstestdata.v3.util;
+package uff.ic.swlab.dataset.entityrelatednesstestdata.v3.util;
 
 public class Score {
 

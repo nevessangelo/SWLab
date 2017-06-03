@@ -1,4 +1,4 @@
-package uff.ic.lleme.entityrelatednesstestdata.v3.util;
+package uff.ic.swlab.dataset.entityrelatednesstestdata.v3.util;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import uff.ic.lleme.entityrelatednesstestdata.v3.Config;
+import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.Config;
 
 public class MovieEntityMappings extends HashMap<String, ArrayList<Pair>> {
 
