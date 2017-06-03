@@ -611,6 +611,9 @@ public class DB {
             return entity.getUri();
         }
 
+        public DB.Entity getEntity() {
+            return entity;
+        }
     }
 
     public static class PropertyElement extends PathElement {
@@ -644,5 +647,8 @@ public class DB {
             return property.getUri();
         }
 
+        public DB.Property getProperty() {
+            return property;
+        }
     }
 }

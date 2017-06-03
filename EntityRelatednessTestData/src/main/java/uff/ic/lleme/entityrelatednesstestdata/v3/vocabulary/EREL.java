@@ -16,7 +16,7 @@ public class EREL {
     public static Resource Entity = m.createResource(NS + "Entity");
     public static Resource EntityPair = m.createResource(NS + "EntityPair");
     public static Resource Path = m.createResource(NS + "Path");
-    public static Resource ListOfPathElement = m.createResource(NS + "ListOfPathElement");
+    public static Resource ListOfPathElements = m.createResource(NS + "ListOfPathElements");
     public static Resource PathElement = m.createResource(NS + "PathElement");
     public static Resource EntityElement = m.createResource(NS + "EntityElement");
     public static Resource PropertyElement = m.createResource(NS + "PropertyElement");
@@ -29,9 +29,9 @@ public class EREL {
     public static final Property score = m.createProperty(NS + "score");
     public static final Property expression = m.createProperty(NS + "expression");
     public static final Property first = m.createProperty(NS + "first");
-    public static final Property rest = m.createProperty(NS + "restOfPathElement");
+    public static final Property rest = m.createProperty(NS + "rest");
     public static final Property position = m.createProperty(NS + "position");
-    public static final Property haslistOfPathElements = m.createProperty(NS + "haslistOfPathElements");
+    public static final Property hasListOfPathElements = m.createProperty(NS + "hasListOfPathElements");
     public static final Property property = m.createProperty(NS + "property");
     public static final Property entity = m.createProperty(NS + "entity");
 
