@@ -331,25 +331,36 @@ public class Main {
                         .addProperty(EREL.score, dataset.createTypedLiteral(pt.getScore()))
                         .addProperty(EREL.expression, pt.getExpression()));
 
-                dataset.createResource(pt.getUri())
-                        .addProperty(EREL.haslistOfPathElements)
-
-                String uri1 = Config.DATA_NS + "id-" + UUID.randomUUID().toString();
-                String uri2 = null;
+                String uri0 = null;
                 for (DB.PathElement e : pt.listElements()) {
+                    String uri1 = Config.DATA_NS + "id-" + UUID.randomUUID().toString();
+                    if (e instanceof DB.EntityElement)
+                        dataset.createResource(uri1, EREL.ListOfPathElement)
+                                .addProperty(EREL.first, dataset.createResource(e.getUri(), EREL.EntityElement))
+                                .addProperty(EREL.entity, e.getReferencedElementURI())
+                                .addProperty(EREL.score, dataset.createTypedLiteral(e.getScore()));
+                    else if (e instanceof DB.PropertyElement)
+                        dataset.createResource(uri1, EREL.ListOfPathElement)
+                                .addProperty(EREL.first, dataset.createResource(e.getUri(), EREL.PropertyElement))
+                                .addProperty(EREL.entity, e.getReferencedElementURI())
+                                .addProperty(EREL.score, dataset.createTypedLiteral(e.getScore()));
+                    else
+                        dataset.createResource(uri1, EREL.ListOfPathElement)
+                                .addProperty(EREL.first, dataset.createResource(e.getUri(), EREL.PathElement))
+                                .addProperty(EREL.entity, e.getReferencedElementURI())
+                                .addProperty(EREL.score, dataset.createTypedLiteral(e.getScore()));
 
-                    if (uri2 != null)
-                        dataset.createResource(uri1)
-                                .addProperty(EREL.rest, dataset.createResource(uri2, EREL.ListOfPathElement));
+                    if (uri0 == null)
+                        dataset.createResource(pt.getUri(), EREL.Path)
+                                .addProperty(EREL.haslistOfPathElements, dataset.createResource(uri1, EREL.ListOfPathElement));
+                    else
+                        dataset.createResource(uri0, EREL.ListOfPathElement)
+                                .addProperty(EREL.rest, dataset.createResource(uri1, EREL.ListOfPathElement));
 
-                    uri2 = Config.DATA_NS + "id-" + UUID.randomUUID().toString();
-                    dataset.createResource(pt.getUri())
-                            .addProperty(EREL.haslistOfPathElements, dataset.createResource(uri1, EREL.ListOfPathElement)
-                                    .addProperty(EREL.first, e.getUri()));
-                    uri1 = uri2;
+                    uri1 = uri0;
                 }
-                dataset.createResource(uri1)
-                        .addProperty(EREL.haslistOfPathElements, RDF.nil);
+                dataset.createResource(uri0)
+                        .addProperty(EREL.rest, RDF.nil);
 
             }
 

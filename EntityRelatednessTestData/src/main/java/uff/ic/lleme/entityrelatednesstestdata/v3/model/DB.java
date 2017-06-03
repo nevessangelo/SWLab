@@ -573,6 +573,8 @@ public class DB {
         }
 
         public abstract double getScore();
+
+        public abstract String getReferencedElementURI();
     }
 
     public static class EntityElement extends PathElement {
@@ -604,6 +606,11 @@ public class DB {
             return score;
         }
 
+        @Override
+        public String getReferencedElementURI() {
+            return entity.getUri();
+        }
+
     }
 
     public static class PropertyElement extends PathElement {
@@ -630,6 +637,11 @@ public class DB {
         @Override
         public double getScore() {
             return property.getScore();
+        }
+
+        @Override
+        public String getReferencedElementURI() {
+            return property.getUri();
         }
 
     }
