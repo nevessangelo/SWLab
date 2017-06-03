@@ -338,27 +338,27 @@ public class Main {
                         .addProperty(EREL.expression, pt.getExpression()));
 
                 // Path elements
-                int count = 0;
+                int position = 0;
                 String uri0 = null;
                 for (DB.PathElement e : pt.listElements()) {
                     String uri1 = Config.DATA_NS + "id-" + UUID.randomUUID().toString();
                     if (e instanceof DB.EntityElement)
                         dataset.createResource(uri1, EREL.ListOfPathElements)
-                                .addProperty(EREL.first, dataset.createResource(e.getUri(), EREL.EntityElement))
-                                .addProperty(EREL.entity, ((DB.EntityElement) e).getEntity().getUri())
-                                .addProperty(EREL.position, dataset.createTypedLiteral(count++))
-                                .addProperty(EREL.score, dataset.createTypedLiteral(e.getScore()));
+                                .addProperty(EREL.first, dataset.createResource(e.getUri(), EREL.EntityElement)
+                                        .addProperty(EREL.entity, dataset.createResource(((DB.EntityElement) e).getEntity().getUri(), EREL.Entity))
+                                        .addProperty(EREL.position, dataset.createTypedLiteral(position++))
+                                        .addProperty(EREL.score, dataset.createTypedLiteral(e.getScore())));
                     else if (e instanceof DB.PropertyElement)
                         dataset.createResource(uri1, EREL.ListOfPathElements)
-                                .addProperty(EREL.first, dataset.createResource(e.getUri(), EREL.PropertyElement))
-                                .addProperty(EREL.property, ((DB.PropertyElement) e).getProperty().getUri())
-                                .addProperty(EREL.position, dataset.createTypedLiteral(count++))
-                                .addProperty(EREL.score, dataset.createTypedLiteral(e.getScore()));
+                                .addProperty(EREL.first, dataset.createResource(e.getUri(), EREL.PropertyElement)
+                                        .addProperty(EREL.property, dataset.createResource(((DB.PropertyElement) e).getProperty().getUri(), EREL.property))
+                                        .addProperty(EREL.position, dataset.createTypedLiteral(position++))
+                                        .addProperty(EREL.score, dataset.createTypedLiteral(e.getScore())));
                     else
                         dataset.createResource(uri1, EREL.ListOfPathElements)
-                                .addProperty(EREL.first, dataset.createResource(e.getUri(), EREL.PathElement))
-                                .addProperty(EREL.position, dataset.createTypedLiteral(count++))
-                                .addProperty(EREL.score, dataset.createTypedLiteral(e.getScore()));
+                                .addProperty(EREL.first, dataset.createResource(e.getUri(), EREL.PathElement)
+                                        .addProperty(EREL.position, dataset.createTypedLiteral(position++))
+                                        .addProperty(EREL.score, dataset.createTypedLiteral(e.getScore())));
 
                     if (uri0 == null)
                         dataset.createResource(pt.getUri(), EREL.Path)
@@ -369,7 +369,7 @@ public class Main {
 
                     uri0 = uri1;
                 }
-                if (count > 0)
+                if (position > 0)
                     dataset.createResource(uri0)
                             .addProperty(EREL.rest, RDF.nil);
             }
