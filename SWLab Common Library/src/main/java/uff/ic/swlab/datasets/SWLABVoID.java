@@ -16,11 +16,11 @@ import org.apache.jena.vocabulary.VOID;
 
 public class SWLABVoID {
 
-    private final String uri = "http://swlab.ic.uff.br/void.ttl#";
+    private final String voidNamespace = "http://swlab.ic.uff.br/void.ttl#";
     private final Model model = ModelFactory.createDefaultModel();
 
     public String getUri() {
-        return uri;
+        return voidNamespace;
     }
 
     public Model getModel() {
@@ -31,9 +31,9 @@ public class SWLABVoID {
         model.setNsPrefix("void", VOID.NS);
         model.setNsPrefix("dcterms", DCTerms.NS);
         model.setNsPrefix("foaf", FOAF.NS);
-        model.setNsPrefix("", uri);
+        model.setNsPrefix("", voidNamespace);
 
-        Resource dsDesc = model.createResource(uri, VOID.DatasetDescription);
+        Resource dsDesc = model.createResource(voidNamespace, VOID.DatasetDescription);
         dsDesc.addProperty(DCTerms.title, "Description of the available datasets at swlab.ic.uff.br")
                 .addProperty(DCTerms.creator, "http://profile.lleme.net/foaf.rdf#me")
                 .addProperty(FOAF.topic, createEntityRelatednessTestDataV3Description());
@@ -41,9 +41,10 @@ public class SWLABVoID {
 
     private Resource createEntityRelatednessTestDataV3Description() throws ParseException {
 
-        String datasetURI = uri + "EntityRelatednessTestData_v3";
+        String datasetURI = voidNamespace + "EntityRelatednessTestData_v3";
         String uriSpace = "http://swlab.ic.uff.br/resource/";
-        String title = "Entity Relatedness Test Data";
+        String regexPattern = "^http://swlab\\.ic\\.uff\\.br/dump/(.+)\\.ttl$";
+        String title = "Entity Relatedness Test Data (V3)";
         String description = "The entity relatedness problem refers to the question of "
                 + "computing the relationship paths that better describe the connectivity between a "
                 + "given entity pair. This dataset supports the evaluation of approaches that address "
@@ -69,6 +70,7 @@ public class SWLABVoID {
                 .addProperty(DCTerms.description, description)
                 .addProperty(FOAF.homepage, model.createResource("https://swlab.ic.uff.br/dataset/EntityRelatednessTestData_v3"))
                 .addProperty(RDFS.seeAlso, model.createResource("https://doi.org/10.6084/m9.figshare.5007983.v1"))
+                .addProperty(FOAF.page, model.createResource("https://swlab.ic.uff.br/ontology/EntityRelatednessTestData_v1"))
                 //.addProperty(RDFS.seeAlso, model.createResource("https://datahub.io/dataset/EntityRelatednessTestData_v3"))
                 .addProperty(DCTerms.creator, model.createResource("mailto:jthvasago@gmail.com"))
                 .addProperty(DCTerms.creator, model.createResource("mailto:casanova@inf.puc-rio.br"))
@@ -86,6 +88,11 @@ public class SWLABVoID {
                 .addProperty(DCTerms.subject, model.createResource("http://dbpedia.org/resource/Web-based_technologies"))
                 .addProperty(VOID.exampleResource, model.createResource("http://swlab.ic.uff.br/resource/Michael_Jackson"))
                 .addProperty(VOID.exampleResource, model.createResource("http://swlab.ic.uff.br/resource/Metallica"))
+                //.addProperty(VOID.rootResource, model.createResource("http://swlab.ic.uff.br/resource/Metallica"))
+                .addProperty(VOID.feature, model.createResource("http://www.w3.org/ns/formats/RDF_XML"))
+                .addProperty(VOID.feature, model.createResource("http://www.w3.org/ns/formats/Turtle"))
+                .addProperty(VOID.feature, model.createResource(" http://www.w3.org/ns/formats/RDF_JSON"))
+                .addProperty(VOID.feature, model.createResource("http://www.w3.org/ns/formats/N-Triples"))
                 .addProperty(VOID.dataDump, model.createResource("https://ndownloader.figshare.com/articles/5007983/versions/1"))
                 .addProperty(VOID.dataDump, model.createResource("http://swlab.ic.uff.br/dump/EntityRelatednessTestData_v3.rdf"))
                 .addProperty(VOID.dataDump, model.createResource("http://swlab.ic.uff.br/dump/EntityRelatednessTestData_v3.ttl"))
@@ -95,18 +102,19 @@ public class SWLABVoID {
                 .addProperty(VOID.sparqlEndpoint, model.createResource("http://swlab.ic.uff.br/fuseki/dataset.html?tab=query&ds=/EntityRelatednessTestData_v3"))
                 .addProperty(VOID.vocabulary, model.createResource(vocabulary))
                 .addProperty(VOID.uriSpace, uriSpace)
+                .addProperty(VOID.uriRegexPattern, regexPattern)
                 .addProperty(VOID.triples, model.createTypedLiteral(127541))
-                .addProperty(VOID.subset, model.createResource(uri + "LinksToDBpedia_v3", VOID.Linkset)
+                .addProperty(VOID.subset, model.createResource(voidNamespace + "LinksToDBpedia_v3", VOID.Linkset)
                         .addProperty(VOID.objectsTarget, model.createResource("http://dbpedia.org/resource/DBpedia"))
                         .addProperty(VOID.subjectsTarget, model.createResource(datasetURI))
                         .addProperty(VOID.linkPredicate, OWL.sameAs)
                         .addProperty(VOID.triples, model.createTypedLiteral(736)))
-                .addProperty(VOID.subset, model.createResource(uri + "LinksToLastFM_v3", VOID.Linkset)
+                .addProperty(VOID.subset, model.createResource(voidNamespace + "LinksToLastFM_v3", VOID.Linkset)
                         .addProperty(VOID.objectsTarget, model.createResource("http://lastfm.rdfize.com/meta.n3#Dataset"))
                         .addProperty(VOID.subjectsTarget, model.createResource(datasetURI))
                         .addProperty(VOID.linkPredicate, OWL.sameAs)
                         .addProperty(VOID.triples, model.createTypedLiteral(216)))
-                .addProperty(VOID.subset, model.createResource(uri + "LinksToIMDB_v3", VOID.Linkset)
+                .addProperty(VOID.subset, model.createResource(voidNamespace + "LinksToIMDB_v3", VOID.Linkset)
                         .addProperty(VOID.objectsTarget, model.createResource("http://www.imdb.com"))
                         .addProperty(VOID.subjectsTarget, model.createResource(datasetURI))
                         .addProperty(VOID.linkPredicate, OWL.sameAs)
