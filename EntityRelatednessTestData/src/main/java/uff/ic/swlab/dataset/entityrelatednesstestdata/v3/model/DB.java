@@ -574,6 +574,8 @@ public class DB {
 
         public abstract double getScore();
 
+        public abstract void setScore(double score);
+
         public abstract String getReferencedElementURI();
     }
 
@@ -604,6 +606,11 @@ public class DB {
         @Override
         public double getScore() {
             return score;
+        }
+
+        @Override
+        public void setScore(double score) {
+            this.score = score;
         }
 
         @Override
@@ -640,6 +647,11 @@ public class DB {
         @Override
         public double getScore() {
             return property.getScore();
+        }
+
+        @Override
+        public void setScore(double score) {
+            property.score = score;
         }
 
         @Override

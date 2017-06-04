@@ -9,6 +9,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.security.GeneralSecurityException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 import org.apache.commons.validator.routines.UrlValidator;
@@ -63,6 +64,7 @@ public class CreateDataset {
 
         exportOntology(ontology);
         exportDataset(dataset);
+
         runStatistics();
     }
 
@@ -105,15 +107,6 @@ public class CreateDataset {
 
             MOVIE_ENTITY_MAPPINGS = null;
             MUSIC_ENTITY_MAPPINGS = null;
-
-            MovieScores MOVIE_SCORES = new MovieScores();
-            MusicScores MUSIC_SCORES = new MusicScores();
-
-            MOVIE_SCORES.putAll(MUSIC_SCORES);
-            MovieScores scores = MOVIE_SCORES;
-
-            MOVIE_SCORES = null;
-            MUSIC_SCORES = null;
 
             for (Map.Entry<String, ArrayList<Pair>> subset : mappings.entrySet())
                 for (Pair mapping : subset.getValue())
@@ -184,6 +177,37 @@ public class CreateDataset {
                 } catch (Exception e) {
                     System.out.println(String.format("EntityPair error: invalid entity. (entity1 -> %1s, entity2 -> %1s)", pair.entity1, pair.entity2));
                 }
+        }
+
+        {
+            MovieScores MOVIE_SCORES = new MovieScores();
+            MusicScores MUSIC_SCORES = new MusicScores();
+
+            MOVIE_SCORES.putAll(MUSIC_SCORES);
+            MovieScores scores = MOVIE_SCORES;
+
+            MOVIE_SCORES = null;
+            MUSIC_SCORES = null;
+
+            for (Map.Entry<String, ArrayList<Score>> subset : scores.entrySet()) {
+                String entity1 = subset.getKey().split("-")[0];
+                String entity2 = subset.getKey().split("-")[1];
+
+                Map<String, Double> s = new HashMap<>();
+                for (Score score : subset.getValue())
+                    s.put(score.label, score.score);
+
+                DB.EntityPair pair = DB.EntityPairs.getEntityPair(entity1, entity2);
+                for (DB.Path p : pair.listPaths())
+                    for (DB.PathElement e : p.listElements())
+                        if (e instanceof DB.EntityElement) {
+                            Double score = s.get(e.getLabel());
+                            if (score != null)
+                                e.setScore(score);
+                            else
+                                System.out.println(String.format("Error: missing score: pair -> %1s, element -> %1s.", subset.getKey(), e.getLabel()));
+                        }
+            }
         }
 
     }
