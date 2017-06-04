@@ -67,7 +67,7 @@ public class SWLABVoID {
         return model.createResource(datasetURI, VOID.Dataset)
                 .addProperty(DCTerms.title, title)
                 .addProperty(DCTerms.description, description)
-                .addProperty(FOAF.homepage, model.createResource("https://figshare.com/articles/Entity_Relatedness_Test_Dataset_-_V2/5007983"))
+                .addProperty(FOAF.homepage, model.createResource("https://swlab.ic.uff.br/dataset/EntityRelatednessTestData_v3"))
                 .addProperty(RDFS.seeAlso, model.createResource("https://doi.org/10.6084/m9.figshare.5007983.v1"))
                 //.addProperty(FOAF.page, model.createResource("https://datahub.io/dataset/EntityRelatednessTestData_v3"))
                 .addProperty(DCTerms.creator, model.createResource("mailto:jthvasago@gmail.com"))

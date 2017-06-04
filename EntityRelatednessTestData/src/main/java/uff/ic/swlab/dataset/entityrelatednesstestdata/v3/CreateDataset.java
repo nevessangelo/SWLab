@@ -59,13 +59,17 @@ public class CreateDataset {
 
         prepareDB();
 
-        createOntology();
-        createDataset();
-
-        exportOntology(ontology);
-        exportDataset(dataset);
-
-        runStatistics();
+//        createOntology();
+//        createOntologyHomepage();
+//        createDataset();
+//        createDatasetHomepage();
+//
+//        exportOntology(ontology);
+//        exportOntologyHomepage();
+//        exportDataset(dataset);
+//        exportDatasetHomepage();
+//
+//        runStatistics();
     }
 
     private static void prepareDB() {
@@ -198,14 +202,16 @@ public class CreateDataset {
                     s.put(score.label, score.score);
 
                 DB.EntityPair pair = DB.EntityPairs.getEntityPair(entity1, entity2);
-                for (DB.Path p : pair.listPaths())
-                    for (DB.PathElement e : p.listElements())
+                for (DB.Path paths : pair.listPaths())
+                    for (DB.PathElement e : paths.listElements())
                         if (e instanceof DB.EntityElement) {
                             Double score = s.get(e.getLabel());
-                            if (score != null)
+                            if (score != null) {
+                                if (score == 0)
+                                    System.out.println(String.format("Warning: score=0.0 (pair -> %1s, element -> %1s).", subset.getKey(), e.getLabel()));
                                 e.setScore(score);
-                            else
-                                System.out.println(String.format("Error: missing score: pair -> %1s, element -> %1s.", subset.getKey(), e.getLabel()));
+                            } else
+                                System.out.println(String.format("Error: missing score (pair -> %1s, element -> %1s).", subset.getKey(), e.getLabel()));
                         }
             }
         }
@@ -507,5 +513,21 @@ public class CreateDataset {
                 + "  union {?s ?e ?o. bind (\"PropertyPartition\" as ?partition)}}\n"
                 + "group by ?partition ?e\n"
                 + "order by ?partition ?e";
+    }
+
+    private static void createDatasetHomepage() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private static void createOntologyHomepage() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private static void exportOntologyHomepage() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private static void exportDatasetHomepage() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
