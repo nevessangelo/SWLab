@@ -54,8 +54,6 @@ public class SWLABVoID {
     private Resource createEntityRelatednessTestDataV3() throws ParseException {
 
         String datasetURI = voidNamespace + "EntityRelatednessTestData_v3";
-        String uriSpace = "http://swlab.ic.uff.br/resource/";
-        String regexPattern = "^http://swlab\\.ic\\.uff\\.br/dump/(.+)\\.ttl$";
         String title = "Entity Relatedness Test Data (V3)";
         String description = "The entity relatedness problem refers to the question of "
                 + "computing the relationship paths that better describe the connectivity between a "
@@ -65,7 +63,6 @@ public class SWLABVoID {
                 + "domains. The dataset contains 20 entity pairs from each of these domains and, for each "
                 + "entity pair, a ranked list with 50 relationship paths. It also contains entity ratings "
                 + "and property relevance scores for the entities and properties used in the paths.";
-        String vocabulary = "http://swlab.ic.uff.br/ontology/EntityRelatednessTestData_v1.rdf#";
 
         DateFormat format = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
         Calendar created = Calendar.getInstance();
@@ -112,9 +109,12 @@ public class SWLABVoID {
                 .addProperty(VOID.dataDump, model.createResource("http://swlab.ic.uff.br/dump/EntityRelatednessTestData_v3.nt"))
                 .addProperty(VOID.dataDump, model.createResource("http://swlab.ic.uff.br/fuseki/EntityRelatednessTestData_v3/"))
                 .addProperty(VOID.sparqlEndpoint, model.createResource("http://swlab.ic.uff.br/fuseki/dataset.html?tab=query&ds=/EntityRelatednessTestData_v3"))
-                .addProperty(VOID.vocabulary, model.createResource(vocabulary))
-                .addProperty(VOID.uriSpace, uriSpace)
-                .addProperty(VOID.uriRegexPattern, regexPattern)
+                .addProperty(VOID.vocabulary, model.createResource("http://swlab.ic.uff.br/ontology/EntityRelatednessTestData_v1.rdf#"))
+                .addProperty(VOID.uriSpace, "http://swlab.ic.uff.br/resource/")
+                .addProperty(VOID.uriRegexPattern, "^http://swlab\\.ic\\.uff\\.br/dataset/(.+)\\.ttl$")
+                .addProperty(VOID.uriRegexPattern, "^http://swlab\\.ic\\.uff\\.br/dataset/(.+)\\.rdf$")
+                .addProperty(VOID.uriRegexPattern, "^http://swlab\\.ic\\.uff\\.br/dataset/(.+)\\.json$")
+                .addProperty(VOID.uriRegexPattern, "^http://swlab\\.ic\\.uff\\.br/dataset/(.+)\\.n3$")
                 .addProperty(VOID.triples, model.createTypedLiteral(127541))
                 .addProperty(VOID.subset, model.createResource(voidNamespace + "LinksToDBpedia_v3", VOID.Linkset)
                         .addProperty(VOID.objectsTarget, model.createResource("http://dbpedia.org/resource/DBpedia"))
@@ -142,7 +142,7 @@ public class SWLABVoID {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, ParseException, Exception {
         PropertyConfigurator.configure("./resources/conf/log4j.properties");
-        configure("./resources/conf/entityrelatednesstestdata.properties");
+        configure("./resources/conf/swlab.properties");
 
         Model void_ = (new SWLABVoID()).getModel();
 
