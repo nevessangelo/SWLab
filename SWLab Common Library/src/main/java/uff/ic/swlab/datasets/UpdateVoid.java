@@ -17,13 +17,12 @@ import uff.ic.swlab.commons.util.Host;
 
 public class UpdateVoid {
 
-    private static String USERNAME = null;
-    private static String PASSWORD = null;
-    private static final String DATA_ROOT = "./resources/data/v3";
-    private static final String RDF_ROOT = "../../EntityRelatednessTestData";
-    private static final String LOCAL_VOID_NAME = DATA_ROOT + "/void.ttl";
+    private static final String ROOT = "./resources/data";
+    private static final String LOCAL_VOID_NAME = ROOT + "/void.ttl";
     private static final String HOST_ADDR = "swlab.ic.uff.br";
     private static final String REMOTE_VOID_NAME = "/tomcat/void.ttl";
+    private static String USERNAME = null;
+    private static String PASSWORD = null;
 
     public static void main(String[] args) throws FileNotFoundException, IOException, ParseException, Exception {
         PropertyConfigurator.configure("./resources/conf/log4j.properties");
@@ -31,7 +30,7 @@ public class UpdateVoid {
 
         Model void_ = (new SWLABVoID()).getModel();
 
-        (new File(RDF_ROOT)).mkdirs();
+        (new File(ROOT)).mkdirs();
         try (OutputStream out = new FileOutputStream(LOCAL_VOID_NAME);) {
             RDFDataMgr.write(out, void_, Lang.TURTLE);
         } finally {
