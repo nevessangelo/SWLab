@@ -59,17 +59,12 @@ public class CreateDataset {
 
         prepareDB();
 
-//        createOntology();
-//        createOntologyHomepage();
-//        createDataset();
-//        createDatasetHomepage();
-//
-//        exportOntology(ontology);
-//        exportOntologyHomepage();
-//        exportDataset(dataset);
-//        exportDatasetHomepage();
-//
-//        runStatistics();
+        createOntology();
+        createDataset();
+
+        exportOntology(ontology);
+        exportDataset(dataset);
+
     }
 
     private static void prepareDB() {
@@ -515,19 +510,4 @@ public class CreateDataset {
                 + "order by ?partition ?e";
     }
 
-    private static void createDatasetHomepage() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private static void createOntologyHomepage() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private static void exportOntologyHomepage() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private static void exportDatasetHomepage() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
