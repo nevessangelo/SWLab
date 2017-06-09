@@ -62,8 +62,8 @@ public class CreateDataset {
         createOntology();
         createDataset();
 
-        exportOntology(ONTOLOGY);
-        exportDataset(DATASET);
+        exportOntology();
+        exportDataset();
 
     }
 
@@ -418,72 +418,74 @@ public class CreateDataset {
         }
     }
 
-    private static void exportOntology(Model ontology) throws IOException, Exception {
+    private static void exportOntology() throws IOException, Exception {
         {
-            (new File(Config.LOCAL_ONTOLOGY_NAME)).getParentFile().mkdirs();
+            (new File(Config.LOCAL_ONTOLOGY_HOMEPAGE)).getParentFile().mkdirs();
 
             try (OutputStream out = new FileOutputStream(Config.LOCAL_ONTOLOGY_NAME)) {
-                RDFDataMgr.write(out, ontology, Lang.RDFXML);
+                RDFDataMgr.write(out, ONTOLOGY, Lang.RDFXML);
             }
         }
 
         {
             Host.mkDirsViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.REMOTE_ONTOLOGY_HOMEPAGE);
 
-            try (InputStream in = new FileInputStream(Config.LOCAL_ONTOLOGY_NAME)) {
-                Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.REMOTE_ONTOLOGY_NAME, in);
-            }
             try (InputStream in = new FileInputStream(Config.LOCAL_ONTOLOGY_HOMEPAGE)) {
                 Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.REMOTE_ONTOLOGY_HOMEPAGE, in);
+            }
+
+            try (InputStream in = new FileInputStream(Config.LOCAL_ONTOLOGY_NAME)) {
+                Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.REMOTE_ONTOLOGY_NAME, in);
             }
         }
     }
 
-    private static void exportDataset(Model dataset) throws Exception, IOException {
+    private static void exportDataset() throws Exception, IOException {
         {
-            (new File(Config.XML_DUMP_NAME)).getParentFile().mkdirs();
+            (new File(Config.LOCAL_DATASET_HOMEPAGE)).getParentFile().mkdirs();
 
-            try (OutputStream out = new FileOutputStream(Config.XML_DUMP_NAME);) {
-                RDFDataMgr.write(out, dataset, Lang.RDFXML);
+            try (OutputStream out = new FileOutputStream(Config.LOCAL_XML_DUMP_NAME);) {
+                RDFDataMgr.write(out, DATASET, Lang.RDFXML);
             }
 
-            try (OutputStream out = new FileOutputStream(Config.TURTLE_DUMP_NAME);) {
-                RDFDataMgr.write(out, dataset, Lang.TURTLE);
+            try (OutputStream out = new FileOutputStream(Config.LOCAL_TURTLE_DUMP_NAME);) {
+                RDFDataMgr.write(out, DATASET, Lang.TURTLE);
             }
 
-            try (OutputStream out = new FileOutputStream(Config.JSON_DUMP_NAME);) {
-                RDFDataMgr.write(out, dataset, Lang.RDFJSON);
+            try (OutputStream out = new FileOutputStream(Config.LOCAL_JSON_DUMP_NAME);) {
+                RDFDataMgr.write(out, DATASET, Lang.RDFJSON);
             }
 
-            try (OutputStream out = new FileOutputStream(Config.NTRIPLES_DUMP_NAME);) {
-                RDFDataMgr.write(out, dataset, Lang.NTRIPLES);
+            try (OutputStream out = new FileOutputStream(Config.LOCAL_NTRIPLES_DUMP_NAME);) {
+                RDFDataMgr.write(out, DATASET, Lang.NTRIPLES);
             }
         }
 
         {
             Host.mkDirsViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.REMOTE_DATASET_HOMEPAGE);
 
-            try (InputStream in = new FileInputStream(Config.XML_DUMP_NAME)) {
-                Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.XML_REMOTE_DUMP_NAME, in);
-            }
-
-            try (InputStream in = new FileInputStream(Config.TURTLE_DUMP_NAME)) {
-                Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.TURTLE_REMOTE_DUMP_NAME, in);
-            }
-
-            try (InputStream in = new FileInputStream(Config.JSON_DUMP_NAME)) {
-                Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.JSON_REMOTE_DUMP_NAME, in);
-            }
-
-            try (InputStream in = new FileInputStream(Config.NTRIPLES_DUMP_NAME)) {
-                Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.NTRIPLES_REMOTE_DUMP_NAME, in);
-            }
             try (InputStream in = new FileInputStream(Config.LOCAL_DATASET_HOMEPAGE)) {
                 Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.REMOTE_DATASET_HOMEPAGE, in);
             }
 
+            try (InputStream in = new FileInputStream(Config.LOCAL_XML_DUMP_NAME)) {
+                Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.REMOTE_XML_DUMP_NAME, in);
+            }
+
+            try (InputStream in = new FileInputStream(Config.LOCAL_TURTLE_DUMP_NAME)) {
+                Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.REMOTE_TURTLE_DUMP_NAME, in);
+            }
+
+            try (InputStream in = new FileInputStream(Config.LOCAL_JSON_DUMP_NAME)) {
+                Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.REMOTE_JSON_DUMP_NAME, in);
+            }
+
+            try (InputStream in = new FileInputStream(Config.LOCAL_NTRIPLES_DUMP_NAME)) {
+                Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.REMOTE_NTRIPLES_DUMP_NAME, in);
+            }
+
             DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(Config.DATASET_URL);
-            accessor.putModel(dataset);
+            accessor.putModel(DATASET);
         }
     }
 
