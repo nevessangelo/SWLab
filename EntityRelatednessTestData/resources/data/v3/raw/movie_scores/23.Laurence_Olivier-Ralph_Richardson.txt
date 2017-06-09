@@ -11,7 +11,7 @@ Marathon_Man	7.5
 Marthe_Keller	6.27553
 Michael_Redgrave	6.50877
 Oh!_What_a_Lovely_War	7.2
-Othello	7.8
+Othello	7.3
 Outcast_of_the_Islands	7.2
 Peter_the_Great	3.12
 Ralph_Richardson	4.40222

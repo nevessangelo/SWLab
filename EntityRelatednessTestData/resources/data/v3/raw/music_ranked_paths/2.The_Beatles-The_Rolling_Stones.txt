@@ -1,4 +1,3 @@
-ID	NAME_PATH	SCORE
 1	"The_Beatles @artist I_Wanna_Be_Your_Man musicalArtist The_Rolling_Stones"	206175113.33333
 2	"The_Beatles @artist I_Wanna_Be_Your_Man musicalBand The_Rolling_Stones"	206175113.33333
 3	"The_Beatles @artist I_Wanna_Be_Your_Man artist The_Rolling_Stones"	206175113.33333
@@ -9,7 +8,7 @@ ID	NAME_PATH	SCORE
 8	"The_Beatles @associatedMusicalArtist The_Dirty_Mac associatedBand The_Rolling_Stones"	205865847.66667
 9	"The_Beatles @associatedMusicalArtist The_Dirty_Mac associatedMusicalArtist The_Rolling_Stones"	205865847.66667
 10	"The_Beatles @associatedBand The_Dirty_Mac associatedBand The_Rolling_Stones"	205865847.66667
-11	"The_Beatles @associatedActs John_Kosh associatedActs The_Rolling_Stones"	205844990.66667
+11	"The_Beatles @associatedActs John_Kosh associatedActs The_Rolling_Stones"	205844917.66667
 12	"The_Beatles @associatedBand Ronnie_Schneider associatedActs The_Rolling_Stones"	205842792
 13	"The_Beatles @associatedBand Robert_Fitzpatrick associatedMusicalArtist The_Rolling_Stones"	205842792
 14	"The_Beatles @associatedMusicalArtist Robert_Fitzpatrick associatedMusicalArtist The_Rolling_Stones"	205842792

@@ -1,15 +1,12 @@
-package uff.ic.swlab.dataset.entityrelatednesstestdata.v3;
+package uff.ic.swlab.dataset.entityrelatednesstestdata.v3.util;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.util.MovieScores;
-import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.util.MusicScores;
-import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.util.Score;
 
-public class NewClass {
+public class DuplicateEntityScores {
 
     private static class Score2 {
 

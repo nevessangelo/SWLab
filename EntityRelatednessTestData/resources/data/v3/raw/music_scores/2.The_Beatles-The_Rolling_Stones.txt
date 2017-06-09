@@ -1,7 +1,7 @@
 CODE	SCORE
 George_Harrison	17285119
 I_Wanna_Be_Your_Man	996965
-John_Kosh	6597
+John_Kosh	6378
 John_Lennon	34166969
 Not_Fade_Away_(song)	895252
 Paul_McCartney	26355426

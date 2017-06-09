@@ -11,7 +11,7 @@ Dudley_Nichols	6.96087
 Fort_Apache	7.6
 Gunfight_at_the_O.K._Corral	7.2
 Hondo	7.1
-How_the_West_Was_Won	7.3
+How_the_West_Was_Won	7.1
 Hugo_Friedhofer	6.81111
 In_Harm's_Way	7.3
 John_Wayne	4.18508

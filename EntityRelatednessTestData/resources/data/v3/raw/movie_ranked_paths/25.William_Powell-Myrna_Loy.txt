@@ -1,5 +1,4 @@
-ID	NAME_PATH	SCORE
-1	"William_Powell @starring Forgotten_Faces editing David_O._Selznick @producer Topaze starring Myrna_Loy"	6.753128
+1	"William_Powell @starring Forgotten_Faces editing David_O._Selznick @producer Topaze starring Myrna_Loy"	6.733128
 2	"William_Powell @starring One_Way_Passage editing Ralph_Dawson @editing The_Desert_Song starring Myrna_Loy"	6.656756
 3	"William_Powell @starring Forgotten_Faces editing David_O._Selznick @producer Night_Flight starring Myrna_Loy"	6.633128
 4	"William_Powell @starring Forgotten_Faces producer David_O._Selznick @producer Night_Flight starring Myrna_Loy"	6.633128

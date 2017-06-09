@@ -1,4 +1,3 @@
-ID	NAME_PATH	SCORE
 1	"Laurence_Olivier @starring Uncle_Vanya starring Michael_Redgrave @narrated The_Great_War voices Ralph_Richardson"	6.481512
 2	"Laurence_Olivier @starring Uncle_Vanya starring Michael_Redgrave @narrated The_Great_War voice Ralph_Richardson"	6.481512
 3	"Laurence_Olivier @starring Uncle_Vanya starring Michael_Redgrave @narrator The_Great_War voices Ralph_Richardson"	6.481512
@@ -24,11 +23,11 @@ ID	NAME_PATH	SCORE
 23	"Laurence_Olivier @starring Oh!_What_a_Lovely_War starring Vanessa_Redgrave @starring Wagner starring Ralph_Richardson"	6.279374
 24	"Laurence_Olivier @starring Wagner starring Vanessa_Redgrave @starring Oh!_What_a_Lovely_War starring Ralph_Richardson"	6.279374
 25	"Laurence_Olivier @starring Marathon_Man starring Marthe_Keller @starring Wagner starring Ralph_Richardson"	6.254864
-26	"Laurence_Olivier @starring Othello starring Maggie_Smith @starring Oh!_What_a_Lovely_War starring Ralph_Richardson"	6.2393
-27	"Laurence_Olivier @starring Oh!_What_a_Lovely_War starring John_Gielgud @starring Wagner starring Ralph_Richardson"	6.2288
-28	"Laurence_Olivier @starring Wagner starring John_Gielgud @starring Oh!_What_a_Lovely_War starring Ralph_Richardson"	6.2288
-29	"Laurence_Olivier @starring The_Seven-Per-Cent_Solution starring Vanessa_Redgrave @starring Wagner starring Ralph_Richardson"	6.199374
-30	"Laurence_Olivier @starring Othello cinematography Geoffrey_Unsworth @cinematography The_300_Spartans starring Ralph_Richardson"	6.165106
+26	"Laurence_Olivier @starring Oh!_What_a_Lovely_War starring John_Gielgud @starring Wagner starring Ralph_Richardson"	6.2288
+27	"Laurence_Olivier @starring Wagner starring John_Gielgud @starring Oh!_What_a_Lovely_War starring Ralph_Richardson"	6.2288
+28	"Laurence_Olivier @starring The_Seven-Per-Cent_Solution starring Vanessa_Redgrave @starring Wagner starring Ralph_Richardson"	6.199374
+29	"Laurence_Olivier @starring Othello starring Maggie_Smith @starring Oh!_What_a_Lovely_War starring Ralph_Richardson"	6.1393
+30	"Laurence_Olivier @starring Othello cinematography Geoffrey_Unsworth @cinematography The_300_Spartans starring Ralph_Richardson"	6.065106
 31	"Laurence_Olivier @starring As_You_Like_It musicComposer William_Walton @musicComposer Richard_III starring Ralph_Richardson"	5.98239
 32	"Laurence_Olivier @starring As_You_Like_It musicComposer William_Walton @music Richard_III starring Ralph_Richardson"	5.98239
 33	"Laurence_Olivier @starring As_You_Like_It music William_Walton @musicComposer Richard_III starring Ralph_Richardson"	5.98239

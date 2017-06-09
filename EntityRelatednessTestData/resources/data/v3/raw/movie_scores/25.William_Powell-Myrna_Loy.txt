@@ -27,7 +27,7 @@ Song_of_the_Thin_Man	7
 The_Desert_Song	7.2
 The_Thin_Man	8.1
 The_Thin_Man_Goes_Home	7.4
-Topaze	6.9
+Topaze	6.8
 William_Axt	6.89235
 William_H._Daniels	6.93452
 William_Powell	5.696
