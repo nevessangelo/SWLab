@@ -538,9 +538,9 @@ public class DB {
                 PathElement pe = null;
                 try {
                     if (count % 2 == 0)
-                        pe = new EntityElement(element.replaceAll("@", ""), 0);
+                        pe = new EntityElement(element, 0);
                     else
-                        pe = new PropertyElement(element.replaceAll("@", ""));
+                        pe = new PropertyElement(element.replaceAll("@", "inv_"));
                     this.elements.add(pe);
                     pe.path = this;
                 } catch (Exception e) {
