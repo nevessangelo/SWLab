@@ -12,10 +12,11 @@ public class Host {
         FTPClient ftpClient = new FTPClient();
         ftpClient.connect(server);
 
-        String[] path = remoteName.split("/");
+        String[] dirs = remoteName.split("/");
         if (FTPReply.isPositiveCompletion(ftpClient.getReplyCode())) {
             if (ftpClient.login(user, pass)) {
-                ftpClient.mkd(String.join("/", Arrays.copyOf(path, path.length - 1)));
+                String name = String.join("/", Arrays.copyOfRange(dirs, 0, dirs.length - 1));
+                ftpClient.mkd(String.join("/", Arrays.copyOfRange(dirs, 0, dirs.length - 1)));
                 ftpClient.storeFile(remoteName, in);
                 ftpClient.logout();
             } else
@@ -25,13 +26,14 @@ public class Host {
             throw new Exception();
     }
 
-    public static void mkDirsViaFTP(String server, String user, String pass, String remoteName, final InputStream in) throws IOException, Exception {
+    public static void mkDirsViaFTP(String server, String user, String pass, String remoteName) throws IOException, Exception {
         FTPClient ftpClient = new FTPClient();
         ftpClient.connect(server);
 
         if (FTPReply.isPositiveCompletion(ftpClient.getReplyCode())) {
             if (ftpClient.login(user, pass)) {
-                ftpClient.mkd(remoteName.split("\\.")[0]);
+                String[] dirs = remoteName.split("/");
+                ftpClient.mkd(String.join("/", Arrays.copyOfRange(dirs, 0, dirs.length - 1)));
                 ftpClient.logout();
             } else
                 throw new Exception();

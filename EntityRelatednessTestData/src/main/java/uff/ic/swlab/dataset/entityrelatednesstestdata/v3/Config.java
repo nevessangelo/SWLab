@@ -15,19 +15,19 @@ public class Config {
     public static final String ONTOLOGY_NS = "http://swlab.ic.uff.br/ontology/EntityRelatednessTestData_v1.rdf#";
     public static final String DATA_NS = "http://swlab.ic.uff.br/resource/";
 
-    public static final String LOCAL_ONTOLOGY_HOMEPAGE = RDF_ROOT + "/ontology/" + DATASET_NAME + "_v1";
+    public static final String LOCAL_ONTOLOGY_HOMEPAGE = RDF_ROOT + "/ontology/" + DATASET_NAME + "_v1/default.jsp";
     public static final String LOCAL_ONTOLOGY_NAME = RDF_ROOT + "/ontology/" + DATASET_NAME + "_v1.rdf";
-    public static final String DATASET_HOMEPAGE = RDF_ROOT + "/" + DATASET_NAME + "_v3";
+    public static final String LOCAL_DATASET_HOMEPAGE = RDF_ROOT + "/" + DATASET_NAME + "_v3/index.html";
     public static final String XML_DUMP_NAME = RDF_ROOT + "/" + DATASET_NAME + "_v3.rdf";
     public static final String TURTLE_DUMP_NAME = RDF_ROOT + "/" + DATASET_NAME + "_v3.ttl";
     public static final String JSON_DUMP_NAME = RDF_ROOT + "/" + DATASET_NAME + "_v3.json";
-    public static final String NTRIPLES_DUMP_NAME = RDF_ROOT + "/" + DATASET_NAME + "_v3.n3";
+    public static final String NTRIPLES_DUMP_NAME = RDF_ROOT + "/" + DATASET_NAME + "_v3.nt";
 
     public static final String HOST_ADDR = "swlab.ic.uff.br";
     public static String USERNAME = null;
     public static String PASSWORD = null;
     public static final String REMOTE_ONTOLOGY_NAME = "/tomcat/ontology/" + DATASET_NAME + "_v1.rdf";
-    public static final String REMOTE_ONTOLOGY_HOMEPAGE = "/tomcat/ontology/" + DATASET_NAME + "_v1";
+    public static final String REMOTE_ONTOLOGY_HOMEPAGE = "/tomcat/ontology/" + DATASET_NAME + "_v1/defaulf.jsp";
     public static final String XML_REMOTE_DUMP_NAME = "/tomcat/dataset/" + DATASET_NAME + "_v3.rdf";
     public static final String TURTLE_REMOTE_DUMP_NAME = "/tomcat/dataset/" + DATASET_NAME + "_v3.ttl";
     public static final String JSON_REMOTE_DUMP_NAME = "/tomcat/dataset/" + DATASET_NAME + "_v3.json";

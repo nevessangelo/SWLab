@@ -50,8 +50,8 @@ import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.vocabulary.EREL;
 
 public class CreateDataset {
 
-    private static Model ontology = ModelFactory.createDefaultModel();
-    private static Model dataset = ModelFactory.createDefaultModel();
+    private static final Model ONTOLOGY = ModelFactory.createDefaultModel();
+    private static final Model DATASET = ModelFactory.createDefaultModel();
 
     public static void main(String[] args) throws IOException, GeneralSecurityException, Exception {
         PropertyConfigurator.configure("./resources/conf/log4j.properties");
@@ -62,8 +62,8 @@ public class CreateDataset {
         createOntology();
         createDataset();
 
-        exportOntology(ontology);
-        exportDataset(dataset);
+        exportOntology(ONTOLOGY);
+        exportDataset(DATASET);
 
     }
 
@@ -179,6 +179,13 @@ public class CreateDataset {
         }
 
         {
+            Map<String, Double> ns = new HashMap<>();
+            ns.put("Topaze", 6.8);
+            ns.put("John_Kosh", 6378.0);
+            ns.put("The_Glass_Menagerie", 7.1);
+            ns.put("How_the_West_Was_Won", 7.1);
+            ns.put("Othello", 7.3);
+
             MovieScores MOVIE_SCORES = new MovieScores();
             MusicScores MUSIC_SCORES = new MusicScores();
 
@@ -204,6 +211,10 @@ public class CreateDataset {
                             if (score != null) {
                                 if (score == 0)
                                     System.out.println(String.format("Warning: score=0.0 (pair -> %1s, element -> %1s).", subset.getKey(), e.getLabel()));
+                                if (ns.containsKey(e.getLabel())) {
+                                    score = ns.get(e.getLabel());
+                                    System.out.println(String.format("Warning: replacing duplicate score. (pair -> %1s, element -> %1s).", subset.getKey(), e.getLabel()));
+                                }
                                 e.setScore(score);
                             } else
                                 System.out.println(String.format("Error: missing score (pair -> %1s, element -> %1s).", subset.getKey(), e.getLabel()));
@@ -215,113 +226,113 @@ public class CreateDataset {
 
     private static void createOntology() throws FileNotFoundException, IOException, GeneralSecurityException, Exception {
 
-        ontology.setNsPrefix("", EREL.NS);
+        ONTOLOGY.setNsPrefix("", EREL.NS);
 
-        Resource entity = ontology.createResource(EREL.Entity.getURI(), RDFS.Class)
+        Resource entity = ONTOLOGY.createResource(EREL.Entity.getURI(), RDFS.Class)
                 .addProperty(RDFS.label, "Entity")
                 .addProperty(RDFS.comment, "A knowledge base B is a set of RDF triples. "
                         + "We say that an entity of B is a URI that occurs as a subject or "
                         + "object of a triple in B.");
 
-        Resource category = ontology.createResource(EREL.Category.getURI(), RDFS.Class)
+        Resource category = ONTOLOGY.createResource(EREL.Category.getURI(), RDFS.Class)
                 .addProperty(RDFS.label, "Category")
                 .addProperty(RDFS.comment, "The category of an entity.");
-        Resource type = ontology.createProperty(EREL.type.getURI())
+        Resource type = ONTOLOGY.createProperty(EREL.type.getURI())
                 .addProperty(RDFS.subPropertyOf, RDF.type)
                 .addProperty(RDFS.domain, entity)
                 .addProperty(RDFS.range, category)
                 .addProperty(RDFS.label, "type")
                 .addProperty(RDFS.comment, "The category of an entity.");
 
-        Resource entityPair = ontology.createResource(EREL.EntityPair.getURI(), RDFS.Class)
+        Resource entityPair = ONTOLOGY.createResource(EREL.EntityPair.getURI(), RDFS.Class)
                 .addProperty(RDFS.label, "EntityPair")
                 .addProperty(RDFS.comment, "A pair of entities for which one want to find"
                         + "connectivity profiles.");
-        Resource entity1 = ontology.createProperty(EREL.entity1.getURI())
+        Resource entity1 = ONTOLOGY.createProperty(EREL.entity1.getURI())
                 .addProperty(RDFS.domain, entityPair)
                 .addProperty(RDFS.range, entity)
                 .addProperty(RDFS.label, "entity1")
                 .addProperty(RDFS.comment, "The first entity of a pair of entities.");
-        Resource entity2 = ontology.createProperty(EREL.entity2.getURI())
+        Resource entity2 = ONTOLOGY.createProperty(EREL.entity2.getURI())
                 .addProperty(RDFS.domain, entityPair)
                 .addProperty(RDFS.range, entity)
                 .addProperty(RDFS.label, "entity2")
                 .addProperty(RDFS.comment, "The second entity of a pair of entities.");
 
-        Resource path = ontology.createResource(EREL.Path.getURI(), RDFS.Class)
+        Resource path = ONTOLOGY.createResource(EREL.Path.getURI(), RDFS.Class)
                 .addProperty(RDFS.label, "Path")
                 .addProperty(RDFS.comment, "A path π of a knowledge base B is an undirected path "
                         + "in the graph GB induced by B. The notions of start node and end node "
                         + "of a path are defined as usual. Note that, by considering an undirected "
                         + "path, we allow the edges of the RDF graph to be reversely traversed.");
-        Resource rank = ontology.createProperty(EREL.rankPosition.getURI())
+        Resource rank = ONTOLOGY.createProperty(EREL.rankPosition.getURI())
                 .addProperty(RDFS.domain, path)
                 .addProperty(RDFS.range, XSD.xlong)
                 .addProperty(RDFS.label, "rankPosition")
                 .addProperty(RDFS.comment, "The rank position of a path with respect to a pair of entities.");
-        Resource score = ontology.createProperty(EREL.score.getURI())
+        Resource score = ONTOLOGY.createProperty(EREL.score.getURI())
                 .addProperty(RDFS.domain, path)
                 .addProperty(RDFS.range, XSD.xdouble)
                 .addProperty(RDFS.label, "score")
                 .addProperty(RDFS.comment, "The rank score of a path with respect to a pair of entities.");
-        Resource expression = ontology.createProperty(EREL.expression.getURI())
+        Resource expression = ONTOLOGY.createProperty(EREL.expression.getURI())
                 .addProperty(RDFS.domain, path)
                 .addProperty(RDFS.range, XSD.xstring)
                 .addProperty(RDFS.label, "expression")
                 .addProperty(RDFS.comment, "The label of a path.");
-        Resource hasPath = ontology.createProperty(EREL.hasPath.getURI())
+        Resource hasPath = ONTOLOGY.createProperty(EREL.hasPath.getURI())
                 .addProperty(RDFS.domain, entityPair)
                 .addProperty(RDFS.range, path)
                 .addProperty(RDFS.label, "hasPath")
                 .addProperty(RDFS.comment, "The relationship between a pair of entities and a path."
                         + "The set of all paths of a pair of entities make up the rank list of relevant "
                         + "paths between the pair of entities.");
-        Resource pathElement = ontology.createResource(EREL.PathElement.getURI(), RDFS.Class)
+        Resource pathElement = ONTOLOGY.createResource(EREL.PathElement.getURI(), RDFS.Class)
                 .addProperty(RDFS.label, "PathElement")
                 .addProperty(RDFS.comment, "The elements (entities and properties) of a path.");
-        Resource position = ontology.createProperty(EREL.position.getURI())
+        Resource position = ONTOLOGY.createProperty(EREL.position.getURI())
                 .addProperty(RDFS.domain, pathElement)
                 .addProperty(RDFS.range, XSD.xint)
                 .addProperty(RDFS.label, "position")
                 .addProperty(RDFS.comment, "The position of the element in the path.");
         score.addProperty(RDFS.domain, pathElement);
 
-        Resource listOfPathElements = ontology.createResource(EREL.ListOfPathElements.getURI(), RDFS.Class)
+        Resource listOfPathElements = ONTOLOGY.createResource(EREL.ListOfPathElements.getURI(), RDFS.Class)
                 .addProperty(RDFS.subClassOf, RDF.List)
                 .addProperty(RDFS.label, "ListOfPathElements")
                 .addProperty(RDFS.comment, "The container of the elements of a path.");
-        Resource first = ontology.createProperty(EREL.first.getURI())
+        Resource first = ONTOLOGY.createProperty(EREL.first.getURI())
                 .addProperty(RDFS.subPropertyOf, RDF.first)
                 .addProperty(RDFS.domain, listOfPathElements)
                 .addProperty(RDFS.range, pathElement)
                 .addProperty(RDFS.label, "first")
                 .addProperty(RDFS.comment, "The first element of a list of path elements.");
-        Resource rest = ontology.createProperty(EREL.rest.getURI())
+        Resource rest = ONTOLOGY.createProperty(EREL.rest.getURI())
                 .addProperty(RDFS.subPropertyOf, RDF.rest)
                 .addProperty(RDFS.domain, listOfPathElements)
                 .addProperty(RDFS.range, listOfPathElements)
                 .addProperty(RDFS.label, "rest")
                 .addProperty(RDFS.comment, "The remaining elements of a list of path elelements.");
-        Resource hasListOfPathElements = ontology.createProperty(EREL.hasListOfPathElements.getURI())
+        Resource hasListOfPathElements = ONTOLOGY.createProperty(EREL.hasListOfPathElements.getURI())
                 .addProperty(RDFS.domain, path)
                 .addProperty(RDFS.range, listOfPathElements)
                 .addProperty(RDFS.label, "hasListOfPathElements")
                 .addProperty(RDFS.comment, "The relationship between a path and a list of path elements.");
 
-        Resource propertyElement = ontology.createResource(EREL.PropertyElement.getURI(), RDFS.Class)
+        Resource propertyElement = ONTOLOGY.createResource(EREL.PropertyElement.getURI(), RDFS.Class)
                 .addProperty(RDFS.subClassOf, pathElement)
                 .addProperty(RDFS.label, "PropertyElement")
                 .addProperty(RDFS.comment, "A property of a path.");
-        Resource property = ontology.createProperty(EREL.property.getURI())
+        Resource property = ONTOLOGY.createProperty(EREL.property.getURI())
                 .addProperty(RDFS.domain, propertyElement)
                 .addProperty(RDFS.range, RDF.Property)
                 .addProperty(RDFS.label, "property")
                 .addProperty(RDFS.comment, "A reference to an rdf:Property.");
-        Resource entityElement = ontology.createResource(EREL.EntityElement.getURI(), RDFS.Class)
+        Resource entityElement = ONTOLOGY.createResource(EREL.EntityElement.getURI(), RDFS.Class)
                 .addProperty(RDFS.subClassOf, pathElement)
                 .addProperty(RDFS.label, "EntityElement")
                 .addProperty(RDFS.comment, "An entity of a path.");
-        Resource entity_ = ontology.createProperty(EREL.entity.getURI())
+        Resource entity_ = ONTOLOGY.createProperty(EREL.entity.getURI())
                 .addProperty(RDFS.domain, entityElement)
                 .addProperty(RDFS.range, entity)
                 .addProperty(RDFS.label, "entity")
@@ -333,39 +344,39 @@ public class CreateDataset {
         UrlValidator validator = new UrlValidator();
         Integer counter = 0;
 
-        dataset.setNsPrefix("", Config.DATA_NS);
-        dataset.setNsPrefix("erel", EREL.NS);
+        DATASET.setNsPrefix("", Config.DATA_NS);
+        DATASET.setNsPrefix("erel", EREL.NS);
 
         // Categories
         for (DB.Category c : DB.Categories.listCategories()) {
-            Resource category = ontology.createResource(c.getUri(), RDFS.Class)
+            Resource category = ONTOLOGY.createResource(c.getUri(), RDFS.Class)
                     .addProperty(RDFS.subClassOf, EREL.Category)
                     .addProperty(RDFS.label, c.getLabel());
 
             for (DB.Resource r : c.listSameAS())
-                category.addProperty(OWL.sameAs, ontology.createResource(r.getURI()));
+                category.addProperty(OWL.sameAs, ONTOLOGY.createResource(r.getURI()));
         }
 
         //Entities
         for (DB.Entity e : DB.Entities.listEntities()) {
-            Resource entity = dataset.createResource(e.getUri(), EREL.Entity)
-                    .addProperty(EREL.type, dataset.createResource(e.getCategory().getUri()));
+            Resource entity = DATASET.createResource(e.getUri(), EREL.Entity)
+                    .addProperty(EREL.type, DATASET.createResource(e.getCategory().getUri()));
 
             for (DB.Resource r : e.listSameAS())
-                entity.addProperty(OWL.sameAs, dataset.createResource(r.getURI()));
+                entity.addProperty(OWL.sameAs, DATASET.createResource(r.getURI()));
         }
 
         //Entity pairs
         for (DB.EntityPair ep : DB.EntityPairs.listEntityPairs()) {
-            Resource entityPair = dataset.createResource(ep.getUri(), EREL.EntityPair)
-                    .addProperty(EREL.entity1, dataset.createResource(ep.getEntity1().getUri(), EREL.Entity))
-                    .addProperty(EREL.entity2, dataset.createResource(ep.getEntity2().getUri(), EREL.Entity));
+            Resource entityPair = DATASET.createResource(ep.getUri(), EREL.EntityPair)
+                    .addProperty(EREL.entity1, DATASET.createResource(ep.getEntity1().getUri(), EREL.Entity))
+                    .addProperty(EREL.entity2, DATASET.createResource(ep.getEntity2().getUri(), EREL.Entity));
 
             // Paths
             for (DB.Path pt : ep.listPaths()) {
-                entityPair.addProperty(EREL.hasPath, dataset.createResource(pt.getUri(), EREL.Path)
-                        .addProperty(EREL.rankPosition, dataset.createTypedLiteral(pt.getRankPosition()))
-                        .addProperty(EREL.score, dataset.createTypedLiteral(pt.getScore()))
+                entityPair.addProperty(EREL.hasPath, DATASET.createResource(pt.getUri(), EREL.Path)
+                        .addProperty(EREL.rankPosition, DATASET.createTypedLiteral(pt.getRankPosition()))
+                        .addProperty(EREL.score, DATASET.createTypedLiteral(pt.getScore()))
                         .addProperty(EREL.expression, pt.getExpression()));
 
                 // Path elements
@@ -374,89 +385,106 @@ public class CreateDataset {
                 for (DB.PathElement e : pt.listElements()) {
                     String uri1 = Config.DATA_NS + "id-" + UUID.randomUUID().toString();
                     if (e instanceof DB.EntityElement)
-                        dataset.createResource(uri1, EREL.ListOfPathElements)
-                                .addProperty(EREL.first, dataset.createResource(e.getUri(), EREL.EntityElement)
-                                        .addProperty(EREL.entity, dataset.createResource(((DB.EntityElement) e).getEntity().getUri(), EREL.Entity))
-                                        .addProperty(EREL.position, dataset.createTypedLiteral(position++))
-                                        .addProperty(EREL.score, dataset.createTypedLiteral(e.getScore())));
+                        DATASET.createResource(uri1, EREL.ListOfPathElements)
+                                .addProperty(EREL.first, DATASET.createResource(e.getUri(), EREL.EntityElement)
+                                        .addProperty(EREL.entity, DATASET.createResource(((DB.EntityElement) e).getEntity().getUri(), EREL.Entity))
+                                        .addProperty(EREL.position, DATASET.createTypedLiteral(position++))
+                                        .addProperty(EREL.score, DATASET.createTypedLiteral(e.getScore())));
                     else if (e instanceof DB.PropertyElement)
-                        dataset.createResource(uri1, EREL.ListOfPathElements)
-                                .addProperty(EREL.first, dataset.createResource(e.getUri(), EREL.PropertyElement)
-                                        .addProperty(EREL.property, dataset.createResource(((DB.PropertyElement) e).getProperty().getUri(), RDF.Property))
-                                        .addProperty(EREL.position, dataset.createTypedLiteral(position++))
-                                        .addProperty(EREL.score, dataset.createTypedLiteral(e.getScore())));
+                        DATASET.createResource(uri1, EREL.ListOfPathElements)
+                                .addProperty(EREL.first, DATASET.createResource(e.getUri(), EREL.PropertyElement)
+                                        .addProperty(EREL.property, DATASET.createResource(((DB.PropertyElement) e).getProperty().getUri(), RDF.Property))
+                                        .addProperty(EREL.position, DATASET.createTypedLiteral(position++))
+                                        .addProperty(EREL.score, DATASET.createTypedLiteral(e.getScore())));
                     else
-                        dataset.createResource(uri1, EREL.ListOfPathElements)
-                                .addProperty(EREL.first, dataset.createResource(e.getUri(), EREL.PathElement)
-                                        .addProperty(EREL.position, dataset.createTypedLiteral(position++))
-                                        .addProperty(EREL.score, dataset.createTypedLiteral(e.getScore())));
+                        DATASET.createResource(uri1, EREL.ListOfPathElements)
+                                .addProperty(EREL.first, DATASET.createResource(e.getUri(), EREL.PathElement)
+                                        .addProperty(EREL.position, DATASET.createTypedLiteral(position++))
+                                        .addProperty(EREL.score, DATASET.createTypedLiteral(e.getScore())));
 
                     if (uri0 == null)
-                        dataset.createResource(pt.getUri(), EREL.Path)
-                                .addProperty(EREL.hasListOfPathElements, dataset.createResource(uri1, EREL.ListOfPathElements));
+                        DATASET.createResource(pt.getUri(), EREL.Path)
+                                .addProperty(EREL.hasListOfPathElements, DATASET.createResource(uri1, EREL.ListOfPathElements));
                     else
-                        dataset.createResource(uri0, EREL.ListOfPathElements)
-                                .addProperty(EREL.rest, dataset.createResource(uri1, EREL.ListOfPathElements));
+                        DATASET.createResource(uri0, EREL.ListOfPathElements)
+                                .addProperty(EREL.rest, DATASET.createResource(uri1, EREL.ListOfPathElements));
 
                     uri0 = uri1;
                 }
                 if (position > 0)
-                    dataset.createResource(uri0)
+                    DATASET.createResource(uri0)
                             .addProperty(EREL.rest, RDF.nil);
             }
         }
     }
 
     private static void exportOntology(Model ontology) throws IOException, Exception {
-        (new File(Config.LOCAL_ONTOLOGY_NAME)).getParentFile().mkdirs();
+        {
+            (new File(Config.LOCAL_ONTOLOGY_NAME)).getParentFile().mkdirs();
 
-        try (OutputStream out = new FileOutputStream(Config.LOCAL_ONTOLOGY_NAME)) {
-            RDFDataMgr.write(out, ontology, Lang.RDFXML);
+            try (OutputStream out = new FileOutputStream(Config.LOCAL_ONTOLOGY_NAME)) {
+                RDFDataMgr.write(out, ontology, Lang.RDFXML);
+            }
         }
 
-        try (InputStream in = new FileInputStream(Config.LOCAL_ONTOLOGY_NAME)) {
-            Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.REMOTE_ONTOLOGY_NAME, in);
-            Host.mkDirsViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.REMOTE_ONTOLOGY_NAME, in);
+        {
+            Host.mkDirsViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.REMOTE_ONTOLOGY_HOMEPAGE);
+
+            try (InputStream in = new FileInputStream(Config.LOCAL_ONTOLOGY_NAME)) {
+                Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.REMOTE_ONTOLOGY_NAME, in);
+            }
+            try (InputStream in = new FileInputStream(Config.LOCAL_ONTOLOGY_HOMEPAGE)) {
+                Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.REMOTE_ONTOLOGY_HOMEPAGE, in);
+            }
         }
     }
 
     private static void exportDataset(Model dataset) throws Exception, IOException {
-        (new File(Config.XML_DUMP_NAME)).getParentFile().mkdirs();
+        {
+            (new File(Config.XML_DUMP_NAME)).getParentFile().mkdirs();
 
-        try (OutputStream out = new FileOutputStream(Config.XML_DUMP_NAME);) {
-            RDFDataMgr.write(out, dataset, Lang.RDFXML);
+            try (OutputStream out = new FileOutputStream(Config.XML_DUMP_NAME);) {
+                RDFDataMgr.write(out, dataset, Lang.RDFXML);
+            }
+
+            try (OutputStream out = new FileOutputStream(Config.TURTLE_DUMP_NAME);) {
+                RDFDataMgr.write(out, dataset, Lang.TURTLE);
+            }
+
+            try (OutputStream out = new FileOutputStream(Config.JSON_DUMP_NAME);) {
+                RDFDataMgr.write(out, dataset, Lang.RDFJSON);
+            }
+
+            try (OutputStream out = new FileOutputStream(Config.NTRIPLES_DUMP_NAME);) {
+                RDFDataMgr.write(out, dataset, Lang.NTRIPLES);
+            }
         }
 
-        try (OutputStream out = new FileOutputStream(Config.TURTLE_DUMP_NAME);) {
-            RDFDataMgr.write(out, dataset, Lang.TURTLE);
-        }
+        {
+            Host.mkDirsViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.REMOTE_DATASET_HOMEPAGE);
 
-        try (OutputStream out = new FileOutputStream(Config.JSON_DUMP_NAME);) {
-            RDFDataMgr.write(out, dataset, Lang.RDFJSON);
-        }
+            try (InputStream in = new FileInputStream(Config.XML_DUMP_NAME)) {
+                Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.XML_REMOTE_DUMP_NAME, in);
+            }
 
-        try (OutputStream out = new FileOutputStream(Config.NTRIPLES_DUMP_NAME);) {
-            RDFDataMgr.write(out, dataset, Lang.NTRIPLES);
-        }
+            try (InputStream in = new FileInputStream(Config.TURTLE_DUMP_NAME)) {
+                Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.TURTLE_REMOTE_DUMP_NAME, in);
+            }
 
-        try (InputStream in = new FileInputStream(Config.XML_DUMP_NAME)) {
-            Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.XML_REMOTE_DUMP_NAME, in);
-        }
+            try (InputStream in = new FileInputStream(Config.JSON_DUMP_NAME)) {
+                Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.JSON_REMOTE_DUMP_NAME, in);
+            }
 
-        try (InputStream in = new FileInputStream(Config.TURTLE_DUMP_NAME)) {
-            Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.TURTLE_REMOTE_DUMP_NAME, in);
-        }
+            try (InputStream in = new FileInputStream(Config.NTRIPLES_DUMP_NAME)) {
+                Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.NTRIPLES_REMOTE_DUMP_NAME, in);
+            }
+            try (InputStream in = new FileInputStream(Config.LOCAL_DATASET_HOMEPAGE)) {
+                Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.REMOTE_DATASET_HOMEPAGE, in);
+            }
 
-        try (InputStream in = new FileInputStream(Config.JSON_DUMP_NAME)) {
-            Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.JSON_REMOTE_DUMP_NAME, in);
+            DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(Config.DATASET_URL);
+            accessor.putModel(dataset);
         }
-
-        try (InputStream in = new FileInputStream(Config.NTRIPLES_DUMP_NAME)) {
-            Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.NTRIPLES_REMOTE_DUMP_NAME, in);
-        }
-
-        DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(Config.DATASET_URL);
-        accessor.putModel(dataset);
     }
 
     private static void runStatistics() {

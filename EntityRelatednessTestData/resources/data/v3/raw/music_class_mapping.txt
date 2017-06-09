@@ -11,5 +11,5 @@ mso:album 	dbo:Album 	Album 
 mso:single 	dbo:Single 	Track 
 mso:soundtrack 	dbo:Song 	Track 
 mso:track 	dbo:MusicalWork 	Track 
-mso:MusicalWork 	dbo:MusicalWork 	Track 
-
+mso:MusicalWork 	dbo:MusicalWork 	Track
+mso:track 	dbo:Song 	Song 
