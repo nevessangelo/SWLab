@@ -25,7 +25,8 @@ import uff.ic.swlab.commons.util.Host;
 
 public class SWLABVoID {
 
-    public static final String NAMESPACE = "http://swlab.ic.uff.br/void.ttl#";
+    public static final sTRING HOST = "http://swlab.ic.uff.br";
+    public static final String NAMESPACE = HOST + "/void.ttl#";
     private static final String SPARQL_ENDPOINT_URL = "http://swlab.ic.uff.br/fuseki/%1s/sparql";
     private static final Model MODEL = ModelFactory.createDefaultModel();
 
@@ -42,10 +43,10 @@ public class SWLABVoID {
         Resource dsDesc = MODEL.createResource(NAMESPACE, VOID.DatasetDescription);
         dsDesc.addProperty(DCTerms.title, "Description of the available datasets at swlab.ic.uff.br")
                 .addProperty(DCTerms.creator, "http://profile.lleme.net/foaf/#me")
-                .addProperty(FOAF.topic, EntityRelatednessTestData_v3.createResource());
+                .addProperty(FOAF.topic, EntityRelatednessTestData_v3.createDatasetDescription());
     }
 
-    private static Model getStatistics(String queryString, String dataset) {
+    public static Model execConstruct(String queryString, String dataset) {
         Model result = ModelFactory.createDefaultModel();
         String endpoint = String.format(SPARQL_ENDPOINT_URL, dataset);
         try (QueryExecution exec = new QueryEngineHTTP(endpoint, queryString)) {
