@@ -347,6 +347,7 @@ public class DB {
         private String label = null;
         private String localName = null;
         private String uri = null;
+        private String inverseURI = null;
         private double score = 0;
         private List<DB.Resource> sameAS = new ArrayList<>();
 
@@ -360,12 +361,13 @@ public class DB {
                 this.label = label.trim().replaceAll("  ", " ").replaceAll("  ", " ").replaceAll(" ", "_");
                 String uriString = Config.DATA_NS + this.label;
                 if ((new UrlValidator()).isValid(uriString)) {
-                    this.uri = uriString;
                     this.localName = this.label;
+                    this.uri = uriString;
+                    this.inverseURI = Config.DATA_NS + "inverseOf_" + this.label;
                 } else
                     try {
                         this.localName = URLEncoder.encode(this.label, "UTF-8");
-                        this.uri = Config.DATA_NS + URLEncoder.encode(this.label, "UTF-8");
+                        this.uri = Config.DATA_NS + "inverseOf_" + this.localName;
                     } catch (UnsupportedEncodingException e) {
                         System.out.println(String.format("Entity error: unsupported label encoding (label -> %1s).", label));
                         throw e;
@@ -392,6 +394,10 @@ public class DB {
 
         public String getUri() {
             return uri;
+        }
+
+        public String getUriOfInverse() {
+            return inverseURI;
         }
 
         public Double getScore() {
@@ -539,8 +545,11 @@ public class DB {
                 try {
                     if (count % 2 == 0)
                         pe = new EntityElement(element, 0);
+                    else if (element.contains("@"))
+                        pe = new PropertyElement(element.replaceAll("@", ""), true);
                     else
-                        pe = new PropertyElement(element.replaceAll("@", "inv_"));
+                        pe = new PropertyElement(element.replaceAll("@", ""), false);
+
                     this.elements.add(pe);
                     pe.path = this;
                 } catch (Exception e) {
@@ -626,13 +635,14 @@ public class DB {
     public static class PropertyElement extends PathElement {
 
         private DB.Property property = null;
+        private boolean inverse = false;
 
         private PropertyElement() {
         }
 
-        public PropertyElement(String property) throws Exception {
-            super();
+        public PropertyElement(String property, boolean inverse) throws Exception {
             this.property = DB.Properties.getPropety(property);
+            this.inverse = inverse;
             if (this.property == null) {
                 System.out.println(String.format("Property element error: undefined property (property -> %1s).", property));
                 throw new Exception();
@@ -656,7 +666,10 @@ public class DB {
 
         @Override
         public String getReferencedElementURI() {
-            return property.getUri();
+            if (inverse)
+                return property.getUriOfInverse();
+            else
+                return property.getUri();
         }
 
         public DB.Property getProperty() {

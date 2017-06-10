@@ -209,7 +209,7 @@ public class CreateDataset {
                         if (e instanceof DB.EntityElement) {
                             Double score = s.get(e.getLabel());
                             if (score != null) {
-                                if (score == 0)
+                                if (!ns.containsKey(e.getLabel()) && score == 0)
                                     System.out.println(String.format("Warning: score=0.0 (pair -> %1s, element -> %1s).", subset.getKey(), e.getLabel()));
                                 if (ns.containsKey(e.getLabel())) {
                                     score = ns.get(e.getLabel());
@@ -349,12 +349,11 @@ public class CreateDataset {
 
         // Categories
         for (DB.Category c : DB.Categories.listCategories()) {
-            Resource category = ONTOLOGY.createResource(c.getUri(), RDFS.Class)
-                    .addProperty(RDFS.subClassOf, EREL.Category)
+            Resource category = DATASET.createResource(c.getUri(), EREL.Category)
                     .addProperty(RDFS.label, c.getLabel());
 
             for (DB.Resource r : c.listSameAS())
-                category.addProperty(OWL.sameAs, ONTOLOGY.createResource(r.getURI()));
+                category.addProperty(OWL.sameAs, DATASET.createResource(r.getURI()));
         }
 
         //Entities
