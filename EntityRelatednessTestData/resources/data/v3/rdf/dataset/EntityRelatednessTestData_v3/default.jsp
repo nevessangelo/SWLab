@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Entity Relatedness Test Dataset - V3</title>
+        <title>Entity Relatedness Test Data - V3</title>
     </head>
     <body>
         <h1 style="text-align:center">Entity Relatedness Test Dataset (v3)</h1>
