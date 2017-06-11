@@ -9,7 +9,7 @@ public class EREL {
 
     private static final Model m = ModelFactory.createDefaultModel();
 
-    public static final String NS = "http://swlab.ic.uff.br/ontology/EntityRelatednessTestData_v1.rdf#";
+    public static final String NS = "http://swlab.ic.uff.br/ontology/EntityRelatednessTestData_v1/#";
     public static final Resource NAMESPACE = m.createResource(NS);
 
     public static Resource Category = m.createResource(NS + "Category");

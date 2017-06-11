@@ -12,7 +12,6 @@ public class Config {
     public static final String RDF_ROOT_0 = "../../EntityRelatednessTestData";
     public static final String DATASET_NAME = "EntityRelatednessTestData";
 
-    public static final String ONTOLOGY_NS = "http://swlab.ic.uff.br/ontology/EntityRelatednessTestData_v1/#";
     public static final String DATA_NS = "http://swlab.ic.uff.br/resource/";
 
     public static final String LOCAL_ONTOLOGY_HOMEPAGE = RDF_ROOT + "/ontology/" + DATASET_NAME + "_v1/default.jsp";

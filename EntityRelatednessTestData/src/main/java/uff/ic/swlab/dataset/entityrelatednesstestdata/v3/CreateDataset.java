@@ -15,16 +15,11 @@ import java.util.UUID;
 import org.apache.commons.validator.routines.UrlValidator;
 import org.apache.jena.query.DatasetAccessor;
 import org.apache.jena.query.DatasetAccessorFactory;
-import org.apache.jena.query.QueryExecution;
-import org.apache.jena.query.QuerySolution;
-import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
-import org.apache.jena.riot.WebContent;
-import org.apache.jena.sparql.engine.http.QueryEngineHTTP;
 import org.apache.jena.vocabulary.OWL;
 import org.apache.jena.vocabulary.RDF;
 import org.apache.jena.vocabulary.RDFS;
@@ -486,57 +481,6 @@ public class CreateDataset {
             DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(Config.DATASET_URL);
             accessor.putModel(DATASET);
         }
-    }
-
-    private static void runStatistics() {
-        String SPARQL_ENDPOINT_URL = "http://swlab.ic.uff.br/fuseki/%1s/sparql";
-        String endPoint = String.format(SPARQL_ENDPOINT_URL, Config.DATASET_NAME + "_v3");
-
-        String queryString = "prefix owl: <http://www.w3.org/2002/07/owl#>\n"
-                + "SELECT ?d (count(?s) as ?triples)\n"
-                + "WHERE {\n"
-                + "  {?s owl:sameAs ?o. \n"
-                + "    bind (\"http://dbpedia.org\" as ?d)\n"
-                + "    filter regex (str(?o), \"http://dbpedia.org\")}\n"
-                + "  union {?s owl:sameAs ?o. \n"
-                + "	    bind (\"https://www.last.fm\" as ?d)\n"
-                + "    	filter regex (str(?o), \"https://www.last.fm\")}\n"
-                + "  union {?s owl:sameAs ?o. \n"
-                + "	    bind (\"http://www.imdb.com\" as ?d)\n"
-                + "    	filter regex (str(?o), \"http://www.imdb.com\")}\n"
-                + "}\n"
-                + "group by ?d";
-        try (QueryExecution exec = new QueryEngineHTTP(endPoint, queryString)) {
-            ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
-            ResultSet rs = exec.execSelect();
-            System.out.println("");
-            while (rs.hasNext()) {
-                QuerySolution soln = rs.nextSolution();
-                System.out.println(String.format("Linkset %1s -> triples %1s", soln.getLiteral("d"), soln.getLiteral("triples")));
-            }
-        }
-
-        String queryString2 = "SELECT (count(?s) as ?triples)\n"
-                + "WHERE {?s ?p ?o.}";
-        try (QueryExecution exec = new QueryEngineHTTP(endPoint, queryString2)) {
-            ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
-            ResultSet rs = exec.execSelect();
-            System.out.println("");
-            while (rs.hasNext()) {
-                QuerySolution soln = rs.nextSolution();
-                System.out.println(String.format("Total triples %1s", soln.getLiteral("triples")));
-            }
-        }
-
-        String queryString3 = "PREFIX erel: <http://swlab.ic.uff.br/ontology/EntityRelatednessTestData_v1.rdf#>\n"
-                + "prefix owl: <http://www.w3.org/2002/07/owl#>\n"
-                + "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
-                + "\n"
-                + "SELECT ?partition ?e (count(?s) as ?triples)\n"
-                + "WHERE {{?s a ?e. bind (\"ClassPartition\" as ?partition)}\n"
-                + "  union {?s ?e ?o. bind (\"PropertyPartition\" as ?partition)}}\n"
-                + "group by ?partition ?e\n"
-                + "order by ?partition ?e";
     }
 
 }
