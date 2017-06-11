@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
+import java.util.zip.GZIPOutputStream;
 import org.apache.commons.validator.routines.UrlValidator;
 import org.apache.jena.query.DatasetAccessor;
 import org.apache.jena.query.DatasetAccessorFactory;
@@ -416,8 +417,9 @@ public class CreateDataset {
         {
             (new File(Config.LOCAL_ONTOLOGY_HOMEPAGE)).getParentFile().mkdirs();
 
-            try (OutputStream out = new FileOutputStream(Config.LOCAL_ONTOLOGY_NAME)) {
-                RDFDataMgr.write(out, ONTOLOGY, Lang.RDFXML);
+            try (OutputStream out = new FileOutputStream(Config.LOCAL_ONTOLOGY_NAME);
+                    GZIPOutputStream out2 = new GZIPOutputStream(out)) {
+                RDFDataMgr.write(out2, ONTOLOGY, Lang.RDFXML);
             }
         }
 
@@ -438,20 +440,24 @@ public class CreateDataset {
         {
             (new File(Config.LOCAL_DATASET_HOMEPAGE)).getParentFile().mkdirs();
 
-            try (OutputStream out = new FileOutputStream(Config.LOCAL_XML_DUMP_NAME);) {
-                RDFDataMgr.write(out, DATASET, Lang.RDFXML);
+            try (OutputStream out = new FileOutputStream(Config.LOCAL_XML_DUMP_NAME);
+                    GZIPOutputStream out2 = new GZIPOutputStream(out)) {
+                RDFDataMgr.write(out2, DATASET, Lang.RDFXML);
             }
 
-            try (OutputStream out = new FileOutputStream(Config.LOCAL_TURTLE_DUMP_NAME);) {
-                RDFDataMgr.write(out, DATASET, Lang.TURTLE);
+            try (OutputStream out = new FileOutputStream(Config.LOCAL_TURTLE_DUMP_NAME);
+                    GZIPOutputStream out2 = new GZIPOutputStream(out)) {
+                RDFDataMgr.write(out2, DATASET, Lang.TURTLE);
             }
 
-            try (OutputStream out = new FileOutputStream(Config.LOCAL_JSON_DUMP_NAME);) {
-                RDFDataMgr.write(out, DATASET, Lang.RDFJSON);
+            try (OutputStream out = new FileOutputStream(Config.LOCAL_JSON_DUMP_NAME);
+                    GZIPOutputStream out2 = new GZIPOutputStream(out)) {
+                RDFDataMgr.write(out2, DATASET, Lang.RDFJSON);
             }
 
-            try (OutputStream out = new FileOutputStream(Config.LOCAL_NTRIPLES_DUMP_NAME);) {
-                RDFDataMgr.write(out, DATASET, Lang.NTRIPLES);
+            try (OutputStream out = new FileOutputStream(Config.LOCAL_NTRIPLES_DUMP_NAME);
+                    GZIPOutputStream out2 = new GZIPOutputStream(out)) {
+                RDFDataMgr.write(out2, DATASET, Lang.NTRIPLES);
             }
         }
 

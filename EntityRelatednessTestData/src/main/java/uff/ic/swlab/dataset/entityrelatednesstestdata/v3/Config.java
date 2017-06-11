@@ -17,10 +17,10 @@ public class Config {
     public static final String LOCAL_ONTOLOGY_HOMEPAGE = RDF_ROOT + "/ontology/" + DATASET_NAME + "_v1/default.jsp";
     public static final String LOCAL_ONTOLOGY_NAME = RDF_ROOT + "/ontology/" + DATASET_NAME + "_v1.rdf";
     public static final String LOCAL_DATASET_HOMEPAGE = RDF_ROOT + "/dataset/" + DATASET_NAME + "_v3/index.html";
-    public static final String LOCAL_XML_DUMP_NAME = RDF_ROOT + "/dataset/" + DATASET_NAME + "_v3.rdf";
-    public static final String LOCAL_TURTLE_DUMP_NAME = RDF_ROOT + "/dataset/" + DATASET_NAME + "_v3.ttl";
-    public static final String LOCAL_JSON_DUMP_NAME = RDF_ROOT + "/dataset/" + DATASET_NAME + "_v3.json";
-    public static final String LOCAL_NTRIPLES_DUMP_NAME = RDF_ROOT + "/dataset/" + DATASET_NAME + "_v3.nt";
+    public static final String LOCAL_XML_DUMP_NAME = RDF_ROOT + "/dataset/" + DATASET_NAME + "_v3.rdf.gz";
+    public static final String LOCAL_TURTLE_DUMP_NAME = RDF_ROOT + "/dataset/" + DATASET_NAME + "_v3.ttl.gz";
+    public static final String LOCAL_JSON_DUMP_NAME = RDF_ROOT + "/dataset/" + DATASET_NAME + "_v3.json.gz";
+    public static final String LOCAL_NTRIPLES_DUMP_NAME = RDF_ROOT + "/dataset/" + DATASET_NAME + "_v3.nt.gz";
 
     public static final String HOST_ADDR = "swlab.ic.uff.br";
     public static String USERNAME = null;
