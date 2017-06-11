@@ -1,6 +1,8 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
         <title>Entity Relatedness Test Dataset Ontology (v1)</title>
     </head>
     <body>
