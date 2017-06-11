@@ -387,7 +387,7 @@ public class CreateDataset {
                     else if (e instanceof DB.PropertyElement)
                         DATASET.createResource(uri1, EREL.ListOfPathElements)
                                 .addProperty(EREL.first, DATASET.createResource(e.getUri(), EREL.PropertyElement)
-                                        .addProperty(EREL.property, DATASET.createResource(((DB.PropertyElement) e).getProperty().getUri(), RDF.Property))
+                                        .addProperty(EREL.property, DATASET.createResource(((DB.PropertyElement) e).getReferencedElementURI(), RDF.Property))
                                         .addProperty(EREL.position, DATASET.createTypedLiteral(position++))
                                         .addProperty(EREL.score, DATASET.createTypedLiteral(e.getScore())));
                     else

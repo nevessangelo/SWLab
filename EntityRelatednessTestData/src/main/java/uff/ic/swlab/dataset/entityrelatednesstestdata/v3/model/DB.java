@@ -368,6 +368,7 @@ public class DB {
                     try {
                         this.localName = URLEncoder.encode(this.label, "UTF-8");
                         this.uri = Config.DATA_NS + "inverseOf_" + this.localName;
+                        this.inverseURI = Config.DATA_NS + "inverseOf_" + this.localName;
                     } catch (UnsupportedEncodingException e) {
                         System.out.println(String.format("Entity error: unsupported label encoding (label -> %1s).", label));
                         throw e;
@@ -548,7 +549,7 @@ public class DB {
                     else if (element.contains("@"))
                         pe = new PropertyElement(element.replaceAll("@", ""), true);
                     else
-                        pe = new PropertyElement(element.replaceAll("@", ""), false);
+                        pe = new PropertyElement(element, false);
 
                     this.elements.add(pe);
                     pe.path = this;
