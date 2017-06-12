@@ -291,14 +291,14 @@ public class DB {
                 throw new Exception();
             } else {
                 this.label = label.trim().replaceAll("  ", " ").replaceAll("  ", " ").replaceAll(" ", "_");
-                String uriString = Config.DATA_NS + this.label;
+                String uriString = Config.DATASET_NS + this.label;
                 if ((new UrlValidator()).isValid(uriString)) {
                     this.localName = this.label;
                     this.uri = uriString;
                 } else
                     try {
                         this.localName = URLEncoder.encode(this.label, "UTF-8");
-                        this.uri = Config.DATA_NS + URLEncoder.encode(this.label, "UTF-8");
+                        this.uri = Config.DATASET_NS + URLEncoder.encode(this.label, "UTF-8");
                     } catch (UnsupportedEncodingException e) {
                         System.out.println(String.format("Entity error: unsupported label encoding (label -> %1s).", label));
                         throw e;
@@ -359,16 +359,16 @@ public class DB {
             super();
             if (!label.equals("")) {
                 this.label = label.trim().replaceAll("  ", " ").replaceAll("  ", " ").replaceAll(" ", "_");
-                String uriString = Config.DATA_NS + this.label;
+                String uriString = Config.DATASET_NS + this.label;
                 if ((new UrlValidator()).isValid(uriString)) {
                     this.localName = this.label;
                     this.uri = uriString;
-                    this.inverseURI = Config.DATA_NS + "inverseOf_" + this.label;
+                    this.inverseURI = Config.DATASET_NS + "inverseOf_" + this.label;
                 } else
                     try {
                         this.localName = URLEncoder.encode(this.label, "UTF-8");
-                        this.uri = Config.DATA_NS + "inverseOf_" + this.localName;
-                        this.inverseURI = Config.DATA_NS + "inverseOf_" + this.localName;
+                        this.uri = Config.DATASET_NS + "inverseOf_" + this.localName;
+                        this.inverseURI = Config.DATASET_NS + "inverseOf_" + this.localName;
                     } catch (UnsupportedEncodingException e) {
                         System.out.println(String.format("Entity error: unsupported label encoding (label -> %1s).", label));
                         throw e;
@@ -413,7 +413,7 @@ public class DB {
     public static class EntityPair {
 
         private final String localName = "id-" + UUID.randomUUID().toString();
-        private final String uri = Config.DATA_NS + localName;
+        private final String uri = Config.DATASET_NS + localName;
         private DB.Entity entity1 = null;
         private DB.Entity entity2 = null;
         private List<Path> rank = new ArrayList<>();
@@ -480,7 +480,7 @@ public class DB {
 
         private EntityPair entityPair = null;
         private String localName = "id-" + UUID.randomUUID().toString();
-        private String uri = Config.DATA_NS + localName;
+        private String uri = Config.DATASET_NS + localName;
         private int rankPosition = 0;
         private double score = 0;
         private String expression = null;
@@ -566,7 +566,7 @@ public class DB {
 
         private Path path = null;
         private String localName = "id-" + UUID.randomUUID().toString();
-        private String uri = Config.DATA_NS + this.localName;
+        private String uri = Config.DATASET_NS + this.localName;
 
         public Path getPath() {
             return path;

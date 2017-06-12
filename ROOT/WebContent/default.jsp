@@ -173,7 +173,7 @@
             </tr>
         </table>
 
-        <c:import url="http://rdf-translator.appspot.com/convert/xml/rdfa/http://swlab.ic.uff.br/ontology/EntityRelatednessTestData_v1.rdf" />
+        <c:import url="http://rdf-translator.appspot.com/convert/detect/rdfa/http://swlab.ic.uff.br/_void.ttl" />
 
     </body>
 </html>

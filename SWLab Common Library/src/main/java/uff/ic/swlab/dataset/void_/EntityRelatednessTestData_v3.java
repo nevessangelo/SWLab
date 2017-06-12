@@ -1,4 +1,4 @@
-package uff.ic.swlab.voiddescription;
+package uff.ic.swlab.dataset.void_;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -15,13 +15,19 @@ import org.apache.jena.vocabulary.VOID;
 
 public class EntityRelatednessTestData_v3 extends DatasetDescription {
 
-    public static final String NAME = "EntityRelatednessTestData_v3";
-    public static final String URI = VoIDDescription.NAMESPACE + NAME;
-    public static final String ONTOLOGY_NS = "http://" + VoIDDescription.HOST_ADDR + "/ontology/EntityRelatednessTestData_v1/#";
+    public final String NAME = "EntityRelatednessTestData_v3";
+    public final String EREL_NS = "http://" + VoIDDescription.HOST_ADDR + "/ontology/EntityRelatednessTestData_v1/#";
+    public final String URI;
+    public final VoIDDescription v;
     public final Resource root;
     public final Model description = ModelFactory.createDefaultModel();
 
-    public EntityRelatednessTestData_v3() throws ParseException {
+    public EntityRelatednessTestData_v3(VoIDDescription v) throws ParseException {
+        this.v = v;
+        this.URI = v.DESCRIPTION_NS + NAME;
+
+        description.setNsPrefix("erel", EREL_NS);
+
         String title = "Entity Relatedness Test Data (V3)";
         String description = "The entity relatedness problem refers to the question of "
                 + "computing the relationship paths that better describe the connectivity between a "
@@ -48,7 +54,7 @@ public class EntityRelatednessTestData_v3 extends DatasetDescription {
                 .addProperty(FOAF.homepage, this.description.createResource("https://" + VoIDDescription.HOST_ADDR + "/dataset/" + NAME))
                 .addProperty(RDFS.seeAlso, this.description.createResource("https://doi.org/10.6084/m9.figshare.5007983.v1"))
                 //.addProperty(RDFS.seeAlso, description.createDatasetDescription("https://datahub.io/dataset/EntityRelatednessTestData_v3"))
-                .addProperty(FOAF.page, this.description.createResource(ONTOLOGY_NS))
+                .addProperty(FOAF.page, this.description.createResource(EREL_NS))
                 .addProperty(DCTerms.creator, this.description.createResource("http://lattes.cnpq.br/2460021788616803"))
                 .addProperty(DCTerms.creator, this.description.createResource("http://www.inf.puc-rio.br/~casanova"))
                 .addProperty(DCTerms.publisher, this.description.createResource("http://www.ic.uff.br/~lapaesleme/foaf/#me"))
@@ -80,7 +86,7 @@ public class EntityRelatednessTestData_v3 extends DatasetDescription {
                 .addProperty(VOID.uriRegexPattern, "^http://swlab\\.ic\\.uff\\.br/dataset/(.+)\\.rdf.gz$")
                 .addProperty(VOID.uriRegexPattern, "^http://swlab\\.ic\\.uff\\.br/dataset/(.+)\\.json.gz$")
                 .addProperty(VOID.uriRegexPattern, "^http://swlab\\.ic\\.uff\\.br/dataset/(.+)\\.nt.gz$")
-                .addProperty(VOID.vocabulary, this.description.createResource(ONTOLOGY_NS));
+                .addProperty(VOID.vocabulary, this.description.createResource(EREL_NS));
         this.description.add(getStructure());
     }
 
@@ -89,23 +95,23 @@ public class EntityRelatednessTestData_v3 extends DatasetDescription {
         String query = "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
                 + "prefix owl: <http://www.w3.org/2002/07/owl#>\n"
                 + "PREFIX void: <http://rdfs.org/ns/void#>\n"
-                + "prefix swlabvoid: <%s>\n"
-                + "prefix swlab: <%s>\n"
+                + "prefix desc: <%s>\n"
                 + "prefix erel: <%s>\n"
+                + "prefix swlab: <%s>\n"
                 + "\n"
                 + "construct {?dataset a void:Dataset.\n"
                 + "           ?dataset void:triples ?triples.\n"
-                + "           swlabvoid:%s void:subset ?linkset.\n"
+                + "           desc:%s void:subset ?linkset.\n"
                 + "           ?linkset a void:Linkset.\n"
-                + "           ?linkset void:subjectsTarget swlabvoid:%s.\n"
+                + "           ?linkset void:subjectsTarget desc:%s.\n"
                 + "           ?linkset void:objectsTarget ?target.\n"
                 + "           ?linkset void:linkPredicate ?linkpredicate.\n"
                 + "           ?linkset void:triples ?triples.\n"
-                + "           swlabvoid:%s void:subset ?classpartition.\n"
+                + "           desc:%s void:subset ?classpartition.\n"
                 + "           ?classpartition a void:ClassPartition.\n"
                 + "           ?classpartition void:class ?class.\n"
                 + "           ?classpartition void:triples ?triples.\n"
-                + "           swlabvoid:%s void:subset ?propertypartition.\n"
+                + "           desc:%s void:subset ?propertypartition.\n"
                 + "           ?propertypartition a void:PropertyPartition.\n"
                 + "           ?propertypartition void:property ?property.\n"
                 + "           ?propertypartition void:triples ?triples.\n"
@@ -114,24 +120,24 @@ public class EntityRelatednessTestData_v3 extends DatasetDescription {
                 + "{SELECT ?dataset ?triples\n"
                 + "WHERE {\n"
                 + "{SELECT (count(?s) as ?triples) WHERE {?s ?p [].}}\n"
-                + "bind (swlabvoid:%s as ?dataset)}}\n"
+                + "bind (desc:%s as ?dataset)}}\n"
                 + "\n"
                 + "union {select ?linkset ?target ?linkpredicate (count (?s) as ?triples)\n"
                 + "WHERE {{?s owl:sameAs ?o.\n"
                 + "filter regex (str(?o), \"http://dbpedia.org\")\n"
-                + "bind (swlabvoid:LinksToDBpedia_v3 as ?linkset)\n"
+                + "bind (desc:LinksToDBpedia_v3 as ?linkset)\n"
                 + "bind (<http://dbpedia.org/resource/DBpedia> as ?target)\n"
                 + "bind (owl:sameAs as ?linkpredicate)}\n"
                 + "\n"
                 + "union {?s owl:sameAs ?o.\n"
                 + "filter regex (str(?o), \"https://www.last.fm\")\n"
-                + "bind (swlabvoid:LinksToLastFM_v3 as ?linkset)\n"
+                + "bind (desc:LinksToLastFM_v3 as ?linkset)\n"
                 + "bind (<http://lastfm.rdfize.com/meta.n3#Dataset> as ?target)\n"
                 + "bind (owl:sameAs as ?linkpredicate)}\n"
                 + "\n"
                 + "union {?s owl:sameAs ?o. \n"
                 + "filter regex (str(?o), \"http://www.imdb.com\")\n"
-                + "bind (swlabvoid:LinksToIMDB_v3 as ?linkset)\n"
+                + "bind (desc:LinksToIMDB_v3 as ?linkset)\n"
                 + "bind (<http://www.imdb.com> as ?target)\n"
                 + "bind (owl:sameAs as ?linkpredicate)}	  \n"
                 + "} group by ?linkset ?target ?linkpredicate }\n"
@@ -141,7 +147,7 @@ public class EntityRelatednessTestData_v3 extends DatasetDescription {
                 + "{SELECT ?class (count(?s) as ?triples)\n"
                 + "WHERE {?s a|erel:type ?class.}\n"
                 + "GROUP BY ?class}\n"
-                + "bind (iri(str(swlabvoid:)+\"id-\"+STRUUID()) as ?classpartition)}}\n"
+                + "bind (iri(str(desc:)+\"id-\"+STRUUID()) as ?classpartition)}}\n"
                 + "\n"
                 + "union {SELECT ?propertypartition ?property ?triples\n"
                 + "WHERE {\n"
@@ -149,9 +155,9 @@ public class EntityRelatednessTestData_v3 extends DatasetDescription {
                 + "WHERE {?s ?property [].\n"
                 + "filter (?property not in (owl:sameAs,rdf:type,erel:type))}\n"
                 + "GROUP BY ?property}\n"
-                + "bind (iri(str(swlabvoid:)+\"id-\"+STRUUID()) as ?propertypartition)}}\n"
+                + "bind (iri(str(desc:)+\"id-\"+STRUUID()) as ?propertypartition)}}\n"
                 + "}";
-        query = String.format(query, VoIDDescription.NAMESPACE, VoIDDescription.DATASET_NS, ONTOLOGY_NS, NAME, NAME, NAME, NAME, NAME);
+        query = String.format(query, v.DESCRIPTION_NS, EREL_NS, v.DATASET_NS, NAME, NAME, NAME, NAME, NAME);
         return execConstruct(query, VoIDDescription.getSPARQLEndpoint(NAME));
     }
 }

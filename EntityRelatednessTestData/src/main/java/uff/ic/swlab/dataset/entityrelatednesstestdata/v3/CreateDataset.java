@@ -340,7 +340,7 @@ public class CreateDataset {
         UrlValidator validator = new UrlValidator();
         Integer counter = 0;
 
-        DATASET.setNsPrefix("", Config.DATA_NS);
+        DATASET.setNsPrefix("", Config.DATASET_NS);
         DATASET.setNsPrefix("erel", EREL.NS);
 
         // Categories
@@ -378,7 +378,7 @@ public class CreateDataset {
                 int position = 0;
                 String uri0 = null;
                 for (DB.PathElement e : pt.listElements()) {
-                    String uri1 = Config.DATA_NS + "id-" + UUID.randomUUID().toString();
+                    String uri1 = Config.DATASET_NS + "id-" + UUID.randomUUID().toString();
                     if (e instanceof DB.EntityElement)
                         DATASET.createResource(uri1, EREL.ListOfPathElements)
                                 .addProperty(EREL.first, DATASET.createResource(e.getUri(), EREL.EntityElement)
