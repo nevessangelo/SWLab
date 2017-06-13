@@ -41,21 +41,22 @@ public class Resource extends HttpServlet {
 
         String uri = request.getParameter("id");
         String accept = request.getHeader("Accept");
-        Lang lang = detectLang(accept);
+        Lang lang = detectRequestedLang(accept);
 
         Model model = getDescription(uri);
-        OutputStream output = response.getOutputStream();
+        OutputStream httpReponse = response.getOutputStream();
 
         if (lang == null) {
-            response.setContentType("text/html");
-            RDFTranslator.write(output, model, lang);
+            response.setStatus(HttpServletResponse.SC_SEE_OTHER);
+            response.setHeader("Location", "http://linkeddata.uriburner.com/about/html/" + request.getRequestURL() + "/" + uri);
+            response.sendRedirect("http://linkeddata.uriburner.com/about/html/" + request.getRequestURL() + "/" + uri);
         } else {
             response.setContentType(lang.getContentType().getContentType());
-            RDFDataMgr.write(output, model, lang);
+            RDFDataMgr.write(httpReponse, model, lang);
         }
 
-        output.flush();
-        output.close();
+        httpReponse.flush();
+        httpReponse.close();
     }
 
     @Override
@@ -64,8 +65,8 @@ public class Resource extends HttpServlet {
         response.getWriter().write("Error: POST method not implemented.");
     }
 
-    private Lang detectLang(String accept) {
-        Lang[] langs = {Lang.TURTLE, Lang.TTL, Lang.TRIG, Lang.TRIX, Lang.JSONLD, Lang.RDFJSON, Lang.RDFXML,
+    private Lang detectRequestedLang(String accept) {
+        Lang[] langs = {Lang.RDFXML, Lang.TURTLE, Lang.TTL, Lang.TRIG, Lang.TRIX, Lang.JSONLD, Lang.RDFJSON,
             Lang.RDFTHRIFT, Lang.NQUADS, Lang.NQ, Lang.NTRIPLES, Lang.N3, Lang.NT};
         for (Lang lang : langs)
             if (accept.toLowerCase().contains(lang.getHeaderString().toLowerCase()))
