@@ -42,21 +42,20 @@ public class Resource extends HttpServlet {
         String uri = request.getParameter("id");
         String accept = request.getHeader("Accept");
         Lang lang = detectRequestedLang(accept);
-
         Model model = getDescription(uri);
-        OutputStream httpReponse = response.getOutputStream();
 
-        if (lang == null) {
-            response.setStatus(HttpServletResponse.SC_SEE_OTHER);
-            response.setHeader("Location", "http://linkeddata.uriburner.com/about/html/" + request.getRequestURL() + "/" + uri);
-            response.sendRedirect("http://linkeddata.uriburner.com/about/html/" + request.getRequestURL() + uri);
-        } else {
-            response.setContentType(lang.getContentType().getContentType());
-            RDFDataMgr.write(httpReponse, model, lang);
+        try (OutputStream httpReponse = response.getOutputStream()) {
+            if (lang == null) {
+                response.setStatus(HttpServletResponse.SC_SEE_OTHER);
+                response.setHeader("Location", "http://linkeddata.uriburner.com/about/html/" + request.getRequestURL() + "/" + uri);
+                response.sendRedirect("http://linkeddata.uriburner.com/about/html/" + request.getRequestURL() + uri);
+            } else {
+                response.setContentType(lang.getContentType().getContentType());
+                RDFDataMgr.write(httpReponse, model, lang);
+            }
+
+            httpReponse.flush();
         }
-
-        httpReponse.flush();
-        httpReponse.close();
     }
 
     @Override
