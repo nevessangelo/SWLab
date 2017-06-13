@@ -10,6 +10,8 @@ public abstract class DatasetDescription {
 
     protected abstract Model getStructure();
 
+    protected abstract Model getRootResources();
+
     protected Model execConstruct(String queryString, String endpoint) {
         Model result = ModelFactory.createDefaultModel();
         try (QueryExecution exec = new QueryEngineHTTP(endpoint, queryString)) {

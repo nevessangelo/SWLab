@@ -68,8 +68,8 @@ public class EntityRelatednessTestData_v3 extends DatasetDescription {
                 .addProperty(DCTerms.subject, this.description.createResource("http://dbpedia.org/resource/Category:Information_retrieval_techniques"))
                 .addProperty(DCTerms.subject, this.description.createResource("http://dbpedia.org/resource/Web-based_technologies"))
                 .addProperty(VOID.uriSpace, "http://" + VoIDDescription.HOST_ADDR + "/resource/")
-                .addProperty(VOID.exampleResource, this.description.createResource("http://" + VoIDDescription.HOST_ADDR + "/resource/Michael_Jackson"))
-                .addProperty(VOID.exampleResource, this.description.createResource("http://" + VoIDDescription.HOST_ADDR + "/resource/Metallica"))
+                //.addProperty(VOID.exampleResource, this.description.createResource("http://" + VoIDDescription.HOST_ADDR + "/resource/Michael_Jackson"))
+                //.addProperty(VOID.exampleResource, this.description.createResource("http://" + VoIDDescription.HOST_ADDR + "/resource/Metallica"))
                 //.addProperty(VOID.rootResource, description.createDatasetDescription("http://" + HOST_ADDR + "/resource/Metallica"))
                 .addProperty(VOID.sparqlEndpoint, this.description.createResource("http://" + VoIDDescription.HOST_ADDR + "/fuseki/dataset.html?tab=query&ds=/" + NAME))
                 .addProperty(VOID.dataDump, this.description.createResource("https://ndownloader.figshare.com/articles/5007983/versions/1"))
@@ -88,6 +88,25 @@ public class EntityRelatednessTestData_v3 extends DatasetDescription {
                 .addProperty(VOID.uriRegexPattern, "^http://swlab\\.ic\\.uff\\.br/dataset/(.+)\\.nt.gz$")
                 .addProperty(VOID.vocabulary, this.description.createResource(EREL_NS));
         this.description.add(getStructure());
+        this.description.add(getRootResources());
+    }
+
+    @Override
+    protected final Model getRootResources() {
+        String query = "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
+                + "prefix owl: <http://www.w3.org/2002/07/owl#>\n"
+                + "PREFIX void: <http://rdfs.org/ns/void#>\n"
+                + "prefix desc: <%s>\n"
+                + "prefix erel: <%s>\n"
+                + "prefix swlab: <%s>\n"
+                + "\n"
+                + "construct {?dataset void:rootResource ?rootResource.\n"
+                + "}\n"
+                + "where{?rootResource a erel:EntityPair.\n"
+                + "      bind (desc:%s as ?dataset)}\n";
+
+        query = String.format(query, v.DESCRIPTION_NS, EREL_NS, v.DATASET_NS, NAME);
+        return execConstruct(query, VoIDDescription.getSPARQLEndpoint(NAME));
     }
 
     @Override
@@ -107,12 +126,12 @@ public class EntityRelatednessTestData_v3 extends DatasetDescription {
                 + "           ?linkset void:objectsTarget ?target.\n"
                 + "           ?linkset void:linkPredicate ?linkpredicate.\n"
                 + "           ?linkset void:triples ?triples.\n"
-                + "           desc:%s void:subset ?classpartition.\n"
-                + "           ?classpartition a void:ClassPartition.\n"
+                + "           desc:%s void:classPartition ?classpartition.\n"
+                + "           ?classpartition a void:Dataset.\n"
                 + "           ?classpartition void:class ?class.\n"
                 + "           ?classpartition void:triples ?triples.\n"
-                + "           desc:%s void:subset ?propertypartition.\n"
-                + "           ?propertypartition a void:PropertyPartition.\n"
+                + "           desc:%s void:propertyPartition ?propertypartition.\n"
+                + "           ?propertypartition a void:Dataset.\n"
                 + "           ?propertypartition void:property ?property.\n"
                 + "           ?propertypartition void:triples ?triples.\n"
                 + "}\n"
