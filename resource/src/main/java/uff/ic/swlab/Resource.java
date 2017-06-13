@@ -53,7 +53,6 @@ public class Resource extends HttpServlet {
                 response.setContentType(lang.getContentType().getContentType());
                 RDFDataMgr.write(httpReponse, model, lang);
             }
-
             httpReponse.flush();
         }
     }
