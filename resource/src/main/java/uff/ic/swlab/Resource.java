@@ -39,14 +39,14 @@ public class Resource extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String uri = request.getParameter("id");
+        String id = request.getParameter("id");
         String accept = request.getHeader("Accept");
         Lang lang = detectRequestedLang(accept);
-        Model model = getDescription(uri);
+        Model model = getDescription(id);
 
         try (OutputStream httpReponse = response.getOutputStream()) {
             if (lang == null) {
-                String url = "http://linkeddata.uriburner.com/about/html/" + request.getRequestURL() + uri + "?@Lookup@=&refresh=clean";
+                String url = "http://linkeddata.uriburner.com/about/html/" + request.getRequestURL() + id + "?@Lookup@=&refresh=clean";
                 response.setStatus(HttpServletResponse.SC_SEE_OTHER);
                 response.setHeader("Location", url);
                 response.sendRedirect(url);
