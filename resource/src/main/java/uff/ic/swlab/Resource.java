@@ -46,9 +46,10 @@ public class Resource extends HttpServlet {
 
         try (OutputStream httpReponse = response.getOutputStream()) {
             if (lang == null) {
+                String url = "http://linkeddata.uriburner.com/about/html/" + request.getRequestURL() + uri + "?@Lookup@=&refresh=clean";
                 response.setStatus(HttpServletResponse.SC_SEE_OTHER);
-                response.setHeader("Location", "http://linkeddata.uriburner.com/about/html/" + request.getRequestURL() + "/" + uri);
-                response.sendRedirect("http://linkeddata.uriburner.com/about/html/" + request.getRequestURL() + uri);
+                response.setHeader("Location", url);
+                response.sendRedirect(url);
             } else {
                 response.setContentType(lang.getContentType().getContentType());
                 RDFDataMgr.write(httpReponse, model, lang);
