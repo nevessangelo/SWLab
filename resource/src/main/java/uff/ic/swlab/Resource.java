@@ -49,7 +49,7 @@ public class Resource extends HttpServlet {
         if (lang == null) {
             response.setStatus(HttpServletResponse.SC_SEE_OTHER);
             response.setHeader("Location", "http://linkeddata.uriburner.com/about/html/" + request.getRequestURL() + "/" + uri);
-            response.sendRedirect("http://linkeddata.uriburner.com/about/html/" + request.getRequestURL() + "/" + uri);
+            response.sendRedirect("http://linkeddata.uriburner.com/about/html/" + request.getRequestURL() + uri);
         } else {
             response.setContentType(lang.getContentType().getContentType());
             RDFDataMgr.write(httpReponse, model, lang);
