@@ -33,8 +33,8 @@ public class Main2 {
         Integer counter = 0;
         Config.configure("./src/main/resources/conf/datasetcrawler.properties");
         ExecutorService pool = Executors.newWorkStealingPool(Config.PARALLELISM);
-        File file = new File(System.getProperty("user.dir") + "/Dumps/");
-        //File file = new File("/media/angelo/DATA/Dumps/");
+        //File file = new File(System.getProperty("user.dir") + "/Dumps/");
+        File file = new File("/media/angelo/DATA/Dumps/");
         File files[];
         File files_dump[];
         File files_directory[];
