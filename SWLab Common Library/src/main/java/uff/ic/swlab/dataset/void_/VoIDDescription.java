@@ -85,7 +85,7 @@ public class VoIDDescription {
 
         EntityRelatednessTestData_v3 d1 = new EntityRelatednessTestData_v3(this);
 
-        Resource dsDesc = model.createResource(DESCRIPTION_NS, VOID.DatasetDescription);
+        Resource dsDesc = model.createResource(DESCRIPTION_NS + (filename.startsWith("_") ? "this" : ""), VOID.DatasetDescription);
         dsDesc.addProperty(DCTerms.title, "Description of the available datasets at " + HOST_ADDR)
                 .addProperty(DCTerms.creator, "http://www.ic.uff.br/~lapaesleme/foaf.rdf#me")
                 .addProperty(FOAF.topic, d1.root);

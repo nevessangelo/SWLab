@@ -31,9 +31,11 @@
              foaf: http://xmlns.com/foaf/0.1/
              rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
              dcterms: http://purl.org/dc/terms/
-             rdfs: http://www.w3.org/2000/01/rdf-schema#">
-            <div rel="foaf:primaryTopic" resource="http://swlab.ic.uff.br/void.ttl#EntityRelatednessTestData_v3">
-                <div property="dcterms:title" content="Entity Relatedness Test Data (v3)"/>
+             rdfs: http://www.w3.org/2000/01/rdf-schema#"
+             >
+            <div typeof="foaf:Document" about="http://swlab.ic.uff.br/dataset/EntityRelatednessTestData_v3/#this">
+                <div rel="foaf:primaryTopic" resource="http://swlab.ic.uff.br/void.ttl#EntityRelatednessTestData_v3"></div>
+                <div rel="dcterms:creator" resource="http://swlab.ic.uff.br/~lapasesleme/foaf.rdf#me"></div>
             </div>
         </div>
     </body>
