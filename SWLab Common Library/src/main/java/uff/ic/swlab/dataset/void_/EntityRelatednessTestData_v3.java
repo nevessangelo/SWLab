@@ -28,7 +28,7 @@ public class EntityRelatednessTestData_v3 extends DatasetDescription {
 
         description.setNsPrefix("erel", EREL_NS);
 
-        String title = "Entity Relatedness Test Data (V3)";
+        String title = "Entity Relatedness Test Data (v3)";
         String description = "The entity relatedness problem refers to the question of "
                 + "computing the relationship paths that better describe the connectivity between a "
                 + "given entity pair. This dataset supports the evaluation of approaches that address "
