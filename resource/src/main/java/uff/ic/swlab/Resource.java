@@ -44,10 +44,10 @@ public class Resource extends HttpServlet {
         Lang lang = detectRequestedLang(accept);
         Model model = getDescription(id);
 
+        response.setStatus(HttpServletResponse.SC_SEE_OTHER);
         try (OutputStream httpReponse = response.getOutputStream()) {
             if (lang == null) {
                 String url = "http://linkeddata.uriburner.com/about/html/" + request.getRequestURL() + id + "?@Lookup@=&refresh=clean";
-                response.setStatus(HttpServletResponse.SC_SEE_OTHER);
                 response.setHeader("Location", url);
                 response.sendRedirect(url);
             } else {
