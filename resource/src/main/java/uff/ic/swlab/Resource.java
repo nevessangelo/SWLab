@@ -51,7 +51,7 @@ public class Resource extends HttpServlet {
                 response.setHeader("Location", url);
                 response.sendRedirect(url);
             } else {
-                response.setContentType(lang.getContentType());
+                response.setContentType(lang.getContentType().getContentType());
                 RDFDataMgr.write(httpReponse, model, lang);
             }
             httpReponse.flush();
