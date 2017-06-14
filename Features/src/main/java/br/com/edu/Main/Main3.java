@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 import uff.ic.swlab.commons.util.Config;
 
 /**
@@ -38,7 +39,11 @@ public class Main3 {
             pool.submit(new GetTypes(nome_dataset, conn));
             
         }
+        pool.shutdown();
+        System.out.println("Waiting for remaining tasks...");
+        pool.awaitTermination(Config.POOL_SHUTDOWN_TIMEOUT, Config.POOL_SHUTDOWN_TIMEOUT_UNIT);
         conn.close();
+        
         
         
 
