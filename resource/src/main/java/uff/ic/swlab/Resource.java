@@ -1,21 +1,15 @@
 package uff.ic.swlab;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.apache.jena.query.QueryExecution;
-import org.apache.jena.query.QueryExecutionFactory;
-import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.LangBuilder;
 import org.apache.jena.riot.RDFDataMgr;
@@ -44,18 +38,17 @@ public class Resource extends HttpServlet {
         Lang lang = detectRequestedLang(accept);
         Model model = getDescription(id);
 
-        try (OutputStream httpReponse = response.getOutputStream()) {
-            if (lang == null) {
-                String url = "http://linkeddata.uriburner.com/about/html/" + request.getRequestURL() + id + "?@Lookup@=&refresh=clean";
-                response.setStatus(HttpServletResponse.SC_SEE_OTHER);
-                response.setHeader("Location", url);
-                //response.sendRedirect(url);
-            } else {
+        if (lang == null) {
+            String url = "http://linkeddata.uriburner.com/about/html/" + request.getRequestURL() + id + "?@Lookup@=&refresh=clean";
+            response.setStatus(HttpServletResponse.SC_SEE_OTHER);
+            response.setHeader("Location", url);
+            //response.sendRedirect(url);
+        } else
+            try (OutputStream httpReponse = response.getOutputStream()) {
                 response.setContentType(lang.getContentType().getContentType());
                 RDFDataMgr.write(httpReponse, model, lang);
+                httpReponse.flush();
             }
-            httpReponse.flush();
-        }
     }
 
     @Override
