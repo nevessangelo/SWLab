@@ -15,9 +15,9 @@ public class Config {
 
     public static final String DATASET_NS = "http://" + SWLabServer.ADDRESS + "/resource/";
 
-    public static final String LOCAL_ONTOLOGY_HOMEPAGE = RDF_ROOT + "/ontology/" + DATASET_NAME + "_v1/default.jsp";
+    public static final String LOCAL_ONTOLOGY_HOMEPAGE = RDF_ROOT + "/ontology/" + DATASET_NAME + "_v1/index.jsp";
     public static final String LOCAL_ONTOLOGY_NAME = RDF_ROOT + "/ontology/" + DATASET_NAME + "_v1.rdf.gz";
-    public static final String LOCAL_DATASET_HOMEPAGE = RDF_ROOT + "/dataset/" + DATASET_NAME + "_v3/default.jsp";
+    public static final String LOCAL_DATASET_HOMEPAGE = RDF_ROOT + "/dataset/" + DATASET_NAME + "_v3/index.jsp";
     public static final String LOCAL_XML_DUMP_NAME = RDF_ROOT + "/dataset/" + DATASET_NAME + "_v3.rdf.gz";
     public static final String LOCAL_TURTLE_DUMP_NAME = RDF_ROOT + "/dataset/" + DATASET_NAME + "_v3.ttl.gz";
     public static final String LOCAL_JSON_DUMP_NAME = RDF_ROOT + "/dataset/" + DATASET_NAME + "_v3.json.gz";
@@ -26,9 +26,9 @@ public class Config {
     public static String USERNAME = null;
     public static String PASSWORD = null;
     public static int PORT = 0;
-    public static final String REMOTE_ONTOLOGY_HOMEPAGE = "/tomcat/ontology/" + DATASET_NAME + "_v1/default.jsp";
+    public static final String REMOTE_ONTOLOGY_HOMEPAGE = "/tomcat/ontology/" + DATASET_NAME + "_v1/index.jsp";
     public static final String REMOTE_ONTOLOGY_NAME = "/tomcat/ontology/" + DATASET_NAME + "_v1.rdf.gz";
-    public static final String REMOTE_DATASET_HOMEPAGE = "/tomcat/dataset/" + DATASET_NAME + "_v3/default.jsp";
+    public static final String REMOTE_DATASET_HOMEPAGE = "/tomcat/dataset/" + DATASET_NAME + "_v3/index.jsp";
     public static final String REMOTE_XML_DUMP_NAME = "/tomcat/dataset/" + DATASET_NAME + "_v3.rdf.gz";
     public static final String REMOTE_TURTLE_DUMP_NAME = "/tomcat/dataset/" + DATASET_NAME + "_v3.ttl.gz";
     public static final String REMOTE_JSON_DUMP_NAME = "/tomcat/dataset/" + DATASET_NAME + "_v3.json.gz";

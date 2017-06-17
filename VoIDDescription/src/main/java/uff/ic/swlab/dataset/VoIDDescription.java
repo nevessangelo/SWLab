@@ -67,7 +67,7 @@ public class VoIDDescription {
     public static void main(String[] args) throws FileNotFoundException, IOException, ParseException, Exception {
         PropertyConfigurator.configure("./resources/conf/log4j.properties");
 
-        try (InputStream input = new FileInputStream("./resources/conf/common.properties");) {
+        try (InputStream input = new FileInputStream("./resources/conf/voiddescription.properties");) {
             Properties prop = new Properties();
             prop.load(input);
 
