@@ -5,11 +5,12 @@ import java.io.InputStream;
 import java.util.Arrays;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPReply;
+import org.apache.commons.net.ftp.FTPSClient;
 
 public class Host {
 
     public static void uploadViaFTP(String server, Integer port, String user, String pass, String remoteName, final InputStream in) throws IOException, Exception {
-        FTPClient ftpClient = new FTPClient();
+        FTPSClient ftpClient = new FTPSClient();
         ftpClient.connect(server, port == null || port == 0 ? 21 : port);
 
         try {
