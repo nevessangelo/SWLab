@@ -16,6 +16,7 @@ public class Host {
             String[] dirs = remoteName.split("/");
             if (FTPReply.isPositiveCompletion(ftpClient.getReplyCode()))
                 if (ftpClient.login(user, pass)) {
+                    ftpClient.enterLocalPassiveMode();
                     ftpClient.mkd(String.join("/", Arrays.copyOfRange(dirs, 0, dirs.length - 1)));
                     ftpClient.storeFile(remoteName, in);
                     ftpClient.logout();
