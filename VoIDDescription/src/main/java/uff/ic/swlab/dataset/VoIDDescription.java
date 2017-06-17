@@ -71,6 +71,7 @@ public class VoIDDescription {
             Properties prop = new Properties();
             prop.load(input);
 
+            int port = Integer.parseInt(prop.getProperty("port"));
             String USERNAME = prop.getProperty("username");
             String PASSWORD = prop.getProperty("password");
 
@@ -82,7 +83,7 @@ public class VoIDDescription {
                 } finally {
                 }
                 try (InputStream in = new FileInputStream(v.LOCAL_NAME)) {
-                    Host.uploadViaFTP(v.HOST_ADDR, USERNAME, PASSWORD, v.REMOTE_NAME, in);
+                    Host.uploadViaFTP(v.HOST_ADDR, port, USERNAME, PASSWORD, v.REMOTE_NAME, in);
                 } finally {
                 }
             }
@@ -97,7 +98,7 @@ public class VoIDDescription {
                 } finally {
                 }
                 try (InputStream in = new FileInputStream(v.LOCAL_NAME)) {
-                    Host.uploadViaFTP(v.HOST_ADDR, USERNAME, PASSWORD, v.REMOTE_NAME, in);
+                    Host.uploadViaFTP(v.HOST_ADDR, port, USERNAME, PASSWORD, v.REMOTE_NAME, in);
                 } finally {
                 }
             }
