@@ -1,4 +1,4 @@
-package uff.ic.swlab.dataset.void_;
+package uff.ic.swlab.dataset;
 
 import org.apache.jena.query.QueryExecution;
 import org.apache.jena.rdf.model.Model;

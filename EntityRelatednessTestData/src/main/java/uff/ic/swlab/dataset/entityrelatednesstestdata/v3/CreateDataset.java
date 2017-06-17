@@ -26,6 +26,7 @@ import org.apache.jena.vocabulary.RDF;
 import org.apache.jena.vocabulary.RDFS;
 import org.apache.jena.vocabulary.XSD;
 import org.apache.log4j.PropertyConfigurator;
+import uff.ic.swlab.SWLabServer;
 import uff.ic.swlab.commons.util.Host;
 import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.model.DB;
 import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.util.MovieClassMapping;
@@ -424,14 +425,14 @@ public class CreateDataset {
         }
 
         {
-            Host.mkDirsViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.REMOTE_ONTOLOGY_HOMEPAGE);
+            Host.mkDirsViaFTP(SWLabServer.ADDRESS, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_ONTOLOGY_HOMEPAGE);
 
             try (InputStream in = new FileInputStream(Config.LOCAL_ONTOLOGY_HOMEPAGE)) {
-                Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.REMOTE_ONTOLOGY_HOMEPAGE, in);
+                Host.uploadViaFTP(SWLabServer.ADDRESS, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_ONTOLOGY_HOMEPAGE, in);
             }
 
             try (InputStream in = new FileInputStream(Config.LOCAL_ONTOLOGY_NAME)) {
-                Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.REMOTE_ONTOLOGY_NAME, in);
+                Host.uploadViaFTP(SWLabServer.ADDRESS, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_ONTOLOGY_NAME, in);
             }
         }
     }
@@ -462,26 +463,26 @@ public class CreateDataset {
         }
 
         {
-            Host.mkDirsViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.REMOTE_DATASET_HOMEPAGE);
+            Host.mkDirsViaFTP(SWLabServer.ADDRESS, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_DATASET_HOMEPAGE);
 
             try (InputStream in = new FileInputStream(Config.LOCAL_DATASET_HOMEPAGE)) {
-                Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.REMOTE_DATASET_HOMEPAGE, in);
+                Host.uploadViaFTP(SWLabServer.ADDRESS, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_DATASET_HOMEPAGE, in);
             }
 
             try (InputStream in = new FileInputStream(Config.LOCAL_XML_DUMP_NAME)) {
-                Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.REMOTE_XML_DUMP_NAME, in);
+                Host.uploadViaFTP(SWLabServer.ADDRESS, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_XML_DUMP_NAME, in);
             }
 
             try (InputStream in = new FileInputStream(Config.LOCAL_TURTLE_DUMP_NAME)) {
-                Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.REMOTE_TURTLE_DUMP_NAME, in);
+                Host.uploadViaFTP(SWLabServer.ADDRESS, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_TURTLE_DUMP_NAME, in);
             }
 
             try (InputStream in = new FileInputStream(Config.LOCAL_JSON_DUMP_NAME)) {
-                Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.REMOTE_JSON_DUMP_NAME, in);
+                Host.uploadViaFTP(SWLabServer.ADDRESS, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_JSON_DUMP_NAME, in);
             }
 
             try (InputStream in = new FileInputStream(Config.LOCAL_NTRIPLES_DUMP_NAME)) {
-                Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.REMOTE_NTRIPLES_DUMP_NAME, in);
+                Host.uploadViaFTP(SWLabServer.ADDRESS, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_NTRIPLES_DUMP_NAME, in);
             }
 
             DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(Config.DATASET_URL);
