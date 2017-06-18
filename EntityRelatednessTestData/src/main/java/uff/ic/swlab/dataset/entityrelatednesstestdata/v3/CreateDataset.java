@@ -342,9 +342,9 @@ public class CreateDataset {
         Integer counter = 0;
 
         DATASET.setNsPrefix("owl", OWL.NS);
-        DATASET.setNsPrefix("xsd", XMLSchema.NAMESPACE);
+        DATASET.setNsPrefix(XMLSchema.PREFIX, XMLSchema.NAMESPACE);
         DATASET.setNsPrefix("", Config.DATASET_NS);
-        DATASET.setNsPrefix("erel", EREL.NS);
+        DATASET.setNsPrefix(EREL.PREFIX, EREL.NS);
 
         // Categories
         for (DB.Category c : DB.Categories.listCategories()) {
@@ -426,14 +426,14 @@ public class CreateDataset {
             }
         }
         {
-            Host.mkDirsViaFTP(SWLabServer.ADDRESS, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_ONTOLOGY_HOMEPAGE);
+            Host.mkDirsViaFTP(SWLabServer.HOSTNAME, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_ONTOLOGY_HOMEPAGE);
 
             try (InputStream in = new FileInputStream(Config.LOCAL_ONTOLOGY_HOMEPAGE)) {
-                Host.uploadViaFTP(SWLabServer.ADDRESS, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_ONTOLOGY_HOMEPAGE, in);
+                Host.uploadViaFTP(SWLabServer.HOSTNAME, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_ONTOLOGY_HOMEPAGE, in);
             }
 
             try (InputStream in = new FileInputStream(Config.LOCAL_ONTOLOGY_NAME)) {
-                Host.uploadViaFTP(SWLabServer.ADDRESS, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_ONTOLOGY_NAME, in);
+                Host.uploadViaFTP(SWLabServer.HOSTNAME, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_ONTOLOGY_NAME, in);
             }
         }
     }
@@ -463,26 +463,26 @@ public class CreateDataset {
             }
         }
         {
-            Host.mkDirsViaFTP(SWLabServer.ADDRESS, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_DATASET_HOMEPAGE);
+            Host.mkDirsViaFTP(SWLabServer.HOSTNAME, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_DATASET_HOMEPAGE);
 
             try (InputStream in = new FileInputStream(Config.LOCAL_DATASET_HOMEPAGE)) {
-                Host.uploadViaFTP(SWLabServer.ADDRESS, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_DATASET_HOMEPAGE, in);
+                Host.uploadViaFTP(SWLabServer.HOSTNAME, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_DATASET_HOMEPAGE, in);
             }
 
             try (InputStream in = new FileInputStream(Config.LOCAL_XML_DUMP_NAME)) {
-                Host.uploadViaFTP(SWLabServer.ADDRESS, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_XML_DUMP_NAME, in);
+                Host.uploadViaFTP(SWLabServer.HOSTNAME, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_XML_DUMP_NAME, in);
             }
 
             try (InputStream in = new FileInputStream(Config.LOCAL_TURTLE_DUMP_NAME)) {
-                Host.uploadViaFTP(SWLabServer.ADDRESS, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_TURTLE_DUMP_NAME, in);
+                Host.uploadViaFTP(SWLabServer.HOSTNAME, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_TURTLE_DUMP_NAME, in);
             }
 
             try (InputStream in = new FileInputStream(Config.LOCAL_JSON_DUMP_NAME)) {
-                Host.uploadViaFTP(SWLabServer.ADDRESS, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_JSON_DUMP_NAME, in);
+                Host.uploadViaFTP(SWLabServer.HOSTNAME, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_JSON_DUMP_NAME, in);
             }
 
             try (InputStream in = new FileInputStream(Config.LOCAL_NTRIPLES_DUMP_NAME)) {
-                Host.uploadViaFTP(SWLabServer.ADDRESS, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_NTRIPLES_DUMP_NAME, in);
+                Host.uploadViaFTP(SWLabServer.HOSTNAME, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_NTRIPLES_DUMP_NAME, in);
             }
 
             DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(Config.DATASET_URL);

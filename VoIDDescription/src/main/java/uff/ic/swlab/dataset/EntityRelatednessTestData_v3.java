@@ -12,6 +12,7 @@ import org.apache.jena.sparql.vocabulary.FOAF;
 import org.apache.jena.vocabulary.DCTerms;
 import org.apache.jena.vocabulary.RDFS;
 import org.apache.jena.vocabulary.VOID;
+import uff.ic.swlab.SWLabServer;
 import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.vocabulary.EREL;
 
 public class EntityRelatednessTestData_v3 extends DatasetDescription {
@@ -52,7 +53,7 @@ public class EntityRelatednessTestData_v3 extends DatasetDescription {
         this.root = this.description.createResource(URI, VOID.Dataset)
                 .addProperty(DCTerms.title, title)
                 .addProperty(DCTerms.description, description)
-                .addProperty(FOAF.homepage, this.description.createResource("https://" + v.HOST_ADDR + v.HOST_PORT + "/dataset/" + NAME))
+                .addProperty(FOAF.homepage, this.description.createResource(SWLabServer.BASE_URL + "dataset/" + NAME))
                 .addProperty(RDFS.seeAlso, this.description.createResource("https://doi.org/10.6084/m9.figshare.5007983.v1"))
                 //.addProperty(RDFS.seeAlso, description.createDatasetDescription("https://datahub.io/dataset/EntityRelatednessTestData_v3"))
                 .addProperty(FOAF.page, this.description.createResource(EREL.NS))
@@ -68,17 +69,17 @@ public class EntityRelatednessTestData_v3 extends DatasetDescription {
                 .addProperty(DCTerms.modified, this.description.createTypedLiteral(modified))
                 .addProperty(DCTerms.subject, this.description.createResource("http://dbpedia.org/resource/Category:Information_retrieval_techniques"))
                 .addProperty(DCTerms.subject, this.description.createResource("http://dbpedia.org/resource/Web-based_technologies"))
-                .addProperty(VOID.uriSpace, "http://" + v.HOST_ADDR + v.HOST_PORT + "/resource/")
+                .addProperty(VOID.uriSpace, SWLabServer.BASE_URL + "resource/")
                 //.addProperty(VOID.exampleResource, this.description.createResource("http://" + VoIDDescription.HOST_ADDR + "/resource/Michael_Jackson"))
                 //.addProperty(VOID.exampleResource, this.description.createResource("http://" + VoIDDescription.HOST_ADDR + "/resource/Metallica"))
                 //.addProperty(VOID.rootResource, description.createDatasetDescription("http://" + HOST_ADDR + "/resource/Metallica"))
-                .addProperty(VOID.sparqlEndpoint, this.description.createResource("http://" + v.HOST_ADDR + v.HOST_PORT + "/fuseki/dataset.html?tab=query&ds=/" + NAME))
+                .addProperty(VOID.sparqlEndpoint, this.description.createResource(SWLabServer.BASE_URL + "fuseki/dataset.html?tab=query&ds=/" + NAME))
                 .addProperty(VOID.dataDump, this.description.createResource("https://ndownloader.figshare.com/articles/5007983/versions/1"))
-                .addProperty(VOID.dataDump, this.description.createResource("http://" + v.HOST_ADDR + v.HOST_PORT + "/dataset/" + NAME + ".rdf.gz"))
-                .addProperty(VOID.dataDump, this.description.createResource("http://" + v.HOST_ADDR + v.HOST_PORT + "/dataset/" + NAME + ".ttl.gz"))
-                .addProperty(VOID.dataDump, this.description.createResource("http://" + v.HOST_ADDR + v.HOST_PORT + "/dataset/" + NAME + ".json.gz"))
-                .addProperty(VOID.dataDump, this.description.createResource("http://" + v.HOST_ADDR + v.HOST_PORT + "/dataset/" + NAME + ".nt.gz"))
-                .addProperty(VOID.dataDump, this.description.createResource("http://" + v.HOST_ADDR + v.HOST_PORT + "/fuseki/" + NAME + "/"))
+                .addProperty(VOID.dataDump, this.description.createResource(SWLabServer.BASE_URL + "dataset/" + NAME + ".rdf.gz"))
+                .addProperty(VOID.dataDump, this.description.createResource(SWLabServer.BASE_URL + "dataset/" + NAME + ".ttl.gz"))
+                .addProperty(VOID.dataDump, this.description.createResource(SWLabServer.BASE_URL + "dataset/" + NAME + ".json.gz"))
+                .addProperty(VOID.dataDump, this.description.createResource(SWLabServer.BASE_URL + "dataset/" + NAME + ".nt.gz"))
+                .addProperty(VOID.dataDump, this.description.createResource(SWLabServer.BASE_URL + "fuseki/" + NAME + "/"))
                 .addProperty(VOID.feature, this.description.createResource("http://www.w3.org/ns/formats/RDF_XML"))
                 .addProperty(VOID.feature, this.description.createResource("http://www.w3.org/ns/formats/Turtle"))
                 .addProperty(VOID.feature, this.description.createResource(" http://www.w3.org/ns/formats/RDF_JSON"))
