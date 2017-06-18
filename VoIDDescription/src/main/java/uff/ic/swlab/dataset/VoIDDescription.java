@@ -25,7 +25,8 @@ import uff.ic.swlab.commons.util.Host;
 public class VoIDDescription {
 
     public final String HOST_ADDR = SWLabServer.ADDRESS;
-    public final String HOST_URL = "http://" + HOST_ADDR;
+    public final String HOST_PORT = SWLabServer.PORT;
+    public final String HOST_URL = "http://" + HOST_ADDR + HOST_PORT;
     private final String SPARQL_ENDPOINT_URL = HOST_URL + "/fuseki/%1s/sparql";
 
     public final String MYVOID_NS;
@@ -52,7 +53,7 @@ public class VoIDDescription {
         EntityRelatednessTestData_v3 d1 = new EntityRelatednessTestData_v3(this);
 
         Resource dsDesc = model.createResource(MYVOID_NS + (filename.startsWith("_") ? "this" : ""), VOID.DatasetDescription);
-        dsDesc.addProperty(DCTerms.title, "Description of the available datasets at " + HOST_ADDR)
+        dsDesc.addProperty(DCTerms.title, "Description of the available datasets at " + HOST_ADDR + HOST_PORT)
                 .addProperty(DCTerms.creator, "http://www.ic.uff.br/~lapaesleme/foaf.rdf#me")
                 .addProperty(FOAF.topic, d1.root);
 

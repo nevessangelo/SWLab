@@ -1,4 +1,3 @@
-<!-- <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %> -->
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,7 +5,7 @@
             <title>Entity Relatedness Test Data (v3)</title>
     </head>
     <body>
-        <h1 style="text-align:center">Entity Relatedness Test Dataset (v3)</h1>
+        <h1 style="text-align:center">Entity Relatedness Test Data (v3)</h1>
         <br/><br/><br/>
         <div style="margin:auto; text-align:justify; width:70%; height:90%">
             <p>
@@ -31,7 +30,9 @@
              rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
              dcterms: http://purl.org/dc/terms/
              rdfs: http://www.w3.org/2000/01/rdf-schema#">
-            <div rel="foaf:primaryTopic" resource="http://swlab.ic.uff.br/void.ttl#EntityRelatednessTestData_v3"></div>
+            <div about="this">
+                <div rel="foaf:primaryTopic" resource="http://swlab.ic.uff.br/void.ttl#EntityRelatednessTestData_v3"/>
+            </div>
         </div>
     </body>
 </html>

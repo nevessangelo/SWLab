@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Entity Relatedness Test Dataset Ontology (v1)</title>
+        <title>Entity Relatedness Test Data Ontology (v1)</title>
     </head>
     <body>
         <embed style="width:100%; height:100%" src="http://visualdataweb.de/webvowl/#iri=http://swlab.ic.uff.br/ontology/EntityRelatednessTestData_v1.rdf#"/>
