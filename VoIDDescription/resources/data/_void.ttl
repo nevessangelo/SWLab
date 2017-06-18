@@ -1,52 +1,43 @@
+@prefix :      <http://www.paes-leme.name:8080/resource/> .
 @prefix myvoid: <http://www.paes-leme.name:8080/#> .
 @prefix void:  <http://rdfs.org/ns/void#> .
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix swlab: <http://www.paes-leme.name:8080/resource/> .
+@prefix swlab: <http://swlab.ic.uff.br/resource/> .
 @prefix owl:   <http://www.w3.org/2002/07/owl#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix erel:  <http://www.paes-leme.name/ontology/EntityRelatednessTestData_v1/#> .
+@prefix erel:  <http://swlab.ic.uff.br/ontology/EntityRelatednessTestData_v1/#> .
 @prefix foaf:  <http://xmlns.com/foaf/0.1/> .
 
-myvoid:id-24fe5451-9a93-445e-8235-c089662ffd45
+myvoid:id-c2fd4154-b734-4fac-befd-c051499e52ca
+        a             void:Dataset ;
+        void:class    <http://www.paes-leme.name/ontology/EntityRelatednessTestData_v1/#Path> ;
+        void:triples  1995 .
+
+myvoid:id-1a0296ea-42ac-4eff-857a-179812323673
         a              void:Dataset ;
-        void:property  erel:expression ;
+        void:property  <http://www.paes-leme.name/ontology/EntityRelatednessTestData_v1/#hasPath> ;
         void:triples   1995 .
 
-myvoid:id-17b172f4-39b0-4a8c-99fa-aca7e9072182
-        a              void:Dataset ;
-        void:property  erel:first ;
-        void:triples   16025 .
-
-myvoid:id-4bac5220-b532-432d-83bd-d4b4cd05ffb5
+myvoid:id-3d039a67-5ba1-43ea-8519-a4060f66e71b
         a             void:Dataset ;
-        void:class    erel:Movie ;
-        void:triples  327 .
-
-myvoid:id-d4d1aebb-b623-467d-b058-9badbf590957
-        a              void:Dataset ;
-        void:property  erel:position ;
-        void:triples   16025 .
-
-myvoid:id-e39726db-51a5-4107-abc2-3eebc3b8cad2
-        a              void:Dataset ;
-        void:property  erel:hasListOfPathElements ;
-        void:triples   1995 .
-
-myvoid:id-67b4c60b-ec68-45a8-93a6-a175f404072b
-        a              void:Dataset ;
-        void:property  rdfs:label ;
-        void:triples   5 .
-
-myvoid:id-711440f3-a256-42a8-847a-87bcaf3a5f71
-        a             void:Dataset ;
-        void:class    erel:EntityElement ;
+        void:class    <http://www.paes-leme.name/ontology/EntityRelatednessTestData_v1/#EntityElement> ;
         void:triples  9010 .
 
-myvoid:id-b0b4ce76-6860-4902-a8f1-c75b670b0972
+myvoid:id-b7754b07-9297-444f-965d-a4cb03d739cb
         a             void:Dataset ;
-        void:class    erel:PropertyElement ;
+        void:class    <http://www.paes-leme.name/ontology/EntityRelatednessTestData_v1/#PropertyElement> ;
         void:triples  7015 .
+
+myvoid:id-a5fdfcbe-a150-4f2c-a3f6-1d6b9b52e9af
+        a              void:Dataset ;
+        void:property  <http://www.paes-leme.name/ontology/EntityRelatednessTestData_v1/#property> ;
+        void:triples   7015 .
+
+myvoid:id-5a417da7-1ee5-4754-b608-6a641013c6b5
+        a              void:Dataset ;
+        void:property  <http://www.paes-leme.name/ontology/EntityRelatednessTestData_v1/#entity1> ;
+        void:triples   40 .
 
 myvoid:LinksToLastFM_v3
         a                    void:Linkset ;
@@ -55,25 +46,25 @@ myvoid:LinksToLastFM_v3
         void:subjectsTarget  myvoid:EntityRelatednessTestData_v3 ;
         void:triples         216 .
 
-myvoid:id-ac026419-cd15-4f77-883c-e34314fce441
+myvoid:id-55cfbf63-b163-4f2c-8783-228d32afdb58
         a              void:Dataset ;
-        void:property  erel:entity ;
+        void:property  <http://www.paes-leme.name/ontology/EntityRelatednessTestData_v1/#entity> ;
         void:triples   9010 .
 
-myvoid:id-6e0bf182-1261-4e1e-ac7c-598a4bc53029
+myvoid:id-374bf0cf-cb9f-4ee9-b8e5-90b0146abc71
         a              void:Dataset ;
-        void:property  erel:rest ;
+        void:property  <http://www.paes-leme.name/ontology/EntityRelatednessTestData_v1/#position> ;
         void:triples   16025 .
 
-myvoid:id-1541eaeb-439c-442c-a4d8-662604d075c3
+myvoid:id-69c71a03-24ed-4c22-967e-28fda29995b6
         a             void:Dataset ;
-        void:class    erel:Album ;
-        void:triples  28 .
+        void:class    <http://www.paes-leme.name/ontology/EntityRelatednessTestData_v1/#Entity> ;
+        void:triples  729 .
 
-myvoid:id-30d78aa7-aa56-4c6a-967a-cead9084c2bc
+myvoid:id-5557c588-ab5a-49fd-a37f-c7ac2913e0a8
         a             void:Dataset ;
-        void:class    erel:Path ;
-        void:triples  1995 .
+        void:class    <http://www.paes-leme.name/ontology/EntityRelatednessTestData_v1/#Category> ;
+        void:triples  5 .
 
 myvoid:LinksToIMDB_v3
         a                    void:Linkset ;
@@ -82,10 +73,20 @@ myvoid:LinksToIMDB_v3
         void:subjectsTarget  myvoid:EntityRelatednessTestData_v3 ;
         void:triples         514 .
 
-myvoid:id-5d96f738-d750-41ed-b279-3d381eb4b5ab
+myvoid:id-44fcd6a4-9321-4b42-a9c6-20ac10ea712d
+        a             void:Dataset ;
+        void:class    <http://www.paes-leme.name/ontology/EntityRelatednessTestData_v1/#ListOfPathElements> ;
+        void:triples  16025 .
+
+myvoid:id-1cfc128d-33a8-4f50-99dd-39d14f2160be
         a              void:Dataset ;
-        void:property  erel:entity2 ;
-        void:triples   40 .
+        void:property  rdfs:label ;
+        void:triples   5 .
+
+myvoid:id-79cba4cb-835a-4334-950b-6c55940eecc6
+        a              void:Dataset ;
+        void:property  <http://www.paes-leme.name/ontology/EntityRelatednessTestData_v1/#hasListOfPathElements> ;
+        void:triples   1995 .
 
 myvoid:LinksToDBpedia_v3
         a                    void:Linkset ;
@@ -94,25 +95,30 @@ myvoid:LinksToDBpedia_v3
         void:subjectsTarget  myvoid:EntityRelatednessTestData_v3 ;
         void:triples         755 .
 
-myvoid:id-388b7e0b-7bfc-4fb9-bac8-c2eccf978eb9
+myvoid:id-d7dd761f-23f5-440b-997b-4ef635a7049c
         a              void:Dataset ;
-        void:property  erel:score ;
+        void:property  <http://www.paes-leme.name/ontology/EntityRelatednessTestData_v1/#type> ;
+        void:triples   729 .
+
+myvoid:id-bd411470-ba83-4c29-8797-d75d1be52500
+        a              void:Dataset ;
+        void:property  <http://www.paes-leme.name/ontology/EntityRelatednessTestData_v1/#expression> ;
+        void:triples   1995 .
+
+myvoid:id-ab684f8b-a123-46bf-bbb3-c222581082e8
+        a              void:Dataset ;
+        void:property  <http://www.paes-leme.name/ontology/EntityRelatednessTestData_v1/#score> ;
         void:triples   18020 .
 
-myvoid:id-42c152cf-9684-498c-913e-6a82ac032295
-        a             void:Dataset ;
-        void:class    erel:Song ;
-        void:triples  57 .
-
-myvoid:id-3f5b08b3-1ca0-4a87-8edf-c668c5fa8373
+myvoid:id-7cb2b625-5ce2-4010-bd78-4a766379bc3f
         a              void:Dataset ;
-        void:property  erel:hasPath ;
-        void:triples   1995 .
+        void:property  <http://www.paes-leme.name/ontology/EntityRelatednessTestData_v1/#first> ;
+        void:triples   16025 .
 
-myvoid:id-0e7e1e44-567c-459c-b691-47fc15552675
+myvoid:id-b72829f0-0115-4168-8dae-2a7811338a04
         a              void:Dataset ;
-        void:property  erel:rankPosition ;
-        void:triples   1995 .
+        void:property  <http://www.paes-leme.name/ontology/EntityRelatednessTestData_v1/#rest> ;
+        void:triples   16025 .
 
 myvoid:EntityRelatednessTestData_v3
         a                       void:Dataset ;
@@ -127,61 +133,41 @@ myvoid:EntityRelatednessTestData_v3
         dcterms:source          <http://www.imdb.com> , <http://lastfm.rdfize.com/meta.n3#Dataset> , <http://dbpedia.org/resource/DBpedia> ;
         dcterms:subject         <http://dbpedia.org/resource/Category:Information_retrieval_techniques> , <http://dbpedia.org/resource/Web-based_technologies> ;
         dcterms:title           "Entity Relatedness Test Data (v3)" ;
-        void:classPartition     myvoid:id-20e5e713-3b90-43fd-a114-019a7b5b0ce9 , myvoid:id-711440f3-a256-42a8-847a-87bcaf3a5f71 , myvoid:id-30d78aa7-aa56-4c6a-967a-cead9084c2bc , myvoid:id-074e40c6-bc2e-49c7-8427-edccdb9185e3 , myvoid:id-1541eaeb-439c-442c-a4d8-662604d075c3 , myvoid:id-747efa25-c448-47f6-9917-97b91442df88 , myvoid:id-b0b4ce76-6860-4902-a8f1-c75b670b0972 , myvoid:id-efb2d2d8-322c-40a0-a491-c63f0874a9ac , myvoid:id-44cdd184-cb2b-4668-a16b-38eae73f71b5 , myvoid:id-4bac5220-b532-432d-83bd-d4b4cd05ffb5 , myvoid:id-42c152cf-9684-498c-913e-6a82ac032295 , myvoid:id-01fda445-c841-45ea-bbd2-e9fcd6700359 ;
-        void:dataDump           <http://www.paes-leme.name:8080/dataset/EntityRelatednessTestData_v3.rdf.gz> , <http://www.paes-leme.name:8080/dataset/EntityRelatednessTestData_v3.nt.gz> , <http://www.paes-leme.name:8080/dataset/EntityRelatednessTestData_v3.ttl.gz> , <https://ndownloader.figshare.com/articles/5007983/versions/1> , <http://www.paes-leme.name:8080/dataset/EntityRelatednessTestData_v3.json.gz> , <http://www.paes-leme.name:8080/fuseki/EntityRelatednessTestData_v3/> ;
+        void:classPartition     myvoid:id-659bde0d-8efd-48a3-9979-64226a47f89a , myvoid:id-5557c588-ab5a-49fd-a37f-c7ac2913e0a8 , myvoid:id-c2fd4154-b734-4fac-befd-c051499e52ca , myvoid:id-44fcd6a4-9321-4b42-a9c6-20ac10ea712d , myvoid:id-a2e0d34c-2cdf-4ffb-8b2d-019f7d55d514 , myvoid:id-b7754b07-9297-444f-965d-a4cb03d739cb , myvoid:id-3d039a67-5ba1-43ea-8519-a4060f66e71b , myvoid:id-69c71a03-24ed-4c22-967e-28fda29995b6 ;
+        void:dataDump           <http://swlab.ic.uff.br/dataset/EntityRelatednessTestData_v3.rdf.gz> , <http://swlab.ic.uff.br/dataset/EntityRelatednessTestData_v3.ttl.gz> , <http://swlab.ic.uff.br/fuseki/EntityRelatednessTestData_v3/> , <https://ndownloader.figshare.com/articles/5007983/versions/1> , <http://swlab.ic.uff.br/dataset/EntityRelatednessTestData_v3.json.gz> , <http://swlab.ic.uff.br/dataset/EntityRelatednessTestData_v3.nt.gz> ;
+        void:entities           34880 ;
         void:feature            <http://www.w3.org/ns/formats/Turtle> , <http://www.w3.org/ns/formats/RDF_XML> , < http://www.w3.org/ns/formats/RDF_JSON> , <http://www.w3.org/ns/formats/N-Triples> ;
-        void:propertyPartition  myvoid:id-0e7e1e44-567c-459c-b691-47fc15552675 , myvoid:id-67b4c60b-ec68-45a8-93a6-a175f404072b , myvoid:id-a2f01e01-6e78-40f1-a03e-b1447179c7a8 , myvoid:id-5d96f738-d750-41ed-b279-3d381eb4b5ab , myvoid:id-3f5b08b3-1ca0-4a87-8edf-c668c5fa8373 , myvoid:id-5aac7b99-38af-4288-ad72-9978b2e69fab , myvoid:id-17b172f4-39b0-4a8c-99fa-aca7e9072182 , myvoid:id-24fe5451-9a93-445e-8235-c089662ffd45 , myvoid:id-e39726db-51a5-4107-abc2-3eebc3b8cad2 , myvoid:id-388b7e0b-7bfc-4fb9-bac8-c2eccf978eb9 , myvoid:id-ac026419-cd15-4f77-883c-e34314fce441 , myvoid:id-d4d1aebb-b623-467d-b058-9badbf590957 , myvoid:id-6e0bf182-1261-4e1e-ac7c-598a4bc53029 ;
-        void:rootResource       swlab:id-47ae80f6-7014-4704-8128-237e700c1de6 , swlab:id-b52c4356-15e7-41f0-bf2c-a5ed1cc65560 , swlab:id-878e2bb4-fc8a-4d85-b912-ed4d1b9c2b0b , swlab:id-1b889fa7-1c17-48ab-8583-d445df386d14 , swlab:id-b8924c7c-1a45-4ec7-a634-91f9aa041ce9 , swlab:id-325b3cea-c4b5-4dd7-ba8b-e315b975ce25 , swlab:id-38d6d1db-0943-41a7-b83d-178349ee69da , swlab:id-5434bd60-4ffe-467b-989f-2b7dcbd75deb , swlab:id-c73301dd-4262-4adc-a50a-a82f0c6e75ab , swlab:id-e62409f4-9d3e-4583-a9ab-0029407dd29d , swlab:id-ef12e247-497f-46cd-b743-1f4b3030fb4e , swlab:id-855b898e-225f-479a-b574-b21811f6a5fe , swlab:id-2f534b68-fa62-4926-8e7f-197047257c5a , swlab:id-3f3804bc-5914-44d5-85dd-8b8934db6034 , swlab:id-eac46666-7f27-468e-b3bd-a8ab66b8322c , swlab:id-a7708dab-62c4-40af-a550-e5f5ddddf1c7 , swlab:id-03ca113d-6d87-497c-b5c3-d36af0bb653b , swlab:id-cd9263cb-96e4-4bce-a799-2c4fdb0af40a , swlab:id-13930aa4-badf-4343-bae0-0dfbee258b25 , swlab:id-a538e123-e301-430b-bf40-a42b8c26a79f , swlab:id-eb55c2a7-6973-43d9-b2af-a88f349663fb , swlab:id-ee5d658d-7d61-4d2c-94f7-508edb8b0b74 , swlab:id-c2e5be11-be55-4c65-ac42-9dcf6f8e1ef1 , swlab:id-16701ecb-d152-4b7b-b609-3eff7e9d808b , swlab:id-f0a5bac4-3dee-4f2b-a746-24598034bdfe , swlab:id-b2d28026-e6bd-4280-9335-47446034216e , swlab:id-0cc5bb17-4455-4ce7-8837-9e0ba14a25b8 , swlab:id-82ff44a4-8ee8-499c-8358-91f96345f86b , swlab:id-3ebe0982-7c13-466c-aea5-d4cdebb7af94 , swlab:id-36440e2d-c6cf-4867-b662-4d6cf542e02a , swlab:id-d0e680cc-99c7-4578-a0a9-0bd26513c58c , swlab:id-ec448b67-5b40-4195-96fb-66b8b092dca1 , swlab:id-e340923b-342b-43ee-be35-34c3f6813757 , swlab:id-745d3a7d-beb1-47d3-874a-571c31ef21da , swlab:id-cfff283c-b102-44dc-8b82-91c47aacf7fa , swlab:id-0bbd2622-af57-4a62-ab37-88f2df35a556 , swlab:id-b2da9d7a-ba45-41f3-96df-64387ec489f5 , swlab:id-6033fe2a-641e-432a-abda-9560874374bc , swlab:id-6e4f84c8-1a19-4476-b537-dd73621b5007 , swlab:id-30e01d32-8f55-4822-92f1-96f08d0f5165 ;
-        void:sparqlEndpoint     <http://www.paes-leme.name:8080/fuseki/dataset.html?tab=query&ds=/EntityRelatednessTestData_v3> ;
+        void:propertyPartition  myvoid:id-a5fdfcbe-a150-4f2c-a3f6-1d6b9b52e9af , myvoid:id-1cfc128d-33a8-4f50-99dd-39d14f2160be , myvoid:id-d7dd761f-23f5-440b-997b-4ef635a7049c , myvoid:id-1a0296ea-42ac-4eff-857a-179812323673 , myvoid:id-ab684f8b-a123-46bf-bbb3-c222581082e8 , myvoid:id-5a417da7-1ee5-4754-b608-6a641013c6b5 , myvoid:id-55cfbf63-b163-4f2c-8783-228d32afdb58 , myvoid:id-88a5ee99-6260-425f-bcb6-b076eb740df6 , myvoid:id-79cba4cb-835a-4334-950b-6c55940eecc6 , myvoid:id-374bf0cf-cb9f-4ee9-b8e5-90b0146abc71 , myvoid:id-64e7a2df-cb98-4ee1-a020-e806140584ac , myvoid:id-bd411470-ba83-4c29-8797-d75d1be52500 , myvoid:id-7cb2b625-5ce2-4010-bd78-4a766379bc3f , myvoid:id-b72829f0-0115-4168-8dae-2a7811338a04 ;
+        void:sparqlEndpoint     <http://swlab.ic.uff.br/fuseki/dataset.html?tab=query&ds=/EntityRelatednessTestData_v3> ;
         void:subset             myvoid:LinksToIMDB_v3 , myvoid:LinksToLastFM_v3 , myvoid:LinksToDBpedia_v3 ;
         void:triples            127292 ;
         void:uriRegexPattern    "^http://swlab\\.ic\\.uff\\.br/dataset/(.+)\\.json.gz$" , "^http://swlab\\.ic\\.uff\\.br/dataset/(.+)\\.nt.gz$" , "^http://swlab\\.ic\\.uff\\.br/dataset/(.+)\\.ttl.gz$" , "^http://swlab\\.ic\\.uff\\.br/dataset/(.+)\\.rdf.gz$" ;
-        void:uriSpace           "http://www.paes-leme.name:8080/resource/" ;
+        void:uriSpace           "http://swlab.ic.uff.br/resource/" ;
         void:vocabulary         erel: ;
-        foaf:homepage           <https://www.paes-leme.name:8080/dataset/EntityRelatednessTestData_v3> ;
+        foaf:homepage           <https://swlab.ic.uff.br/dataset/EntityRelatednessTestData_v3> ;
         foaf:page               erel: .
 
-myvoid:id-5aac7b99-38af-4288-ad72-9978b2e69fab
-        a              void:Dataset ;
-        void:property  erel:property ;
-        void:triples   7015 .
-
-myvoid:id-44cdd184-cb2b-4668-a16b-38eae73f71b5
+myvoid:id-a2e0d34c-2cdf-4ffb-8b2d-019f7d55d514
         a             void:Dataset ;
-        void:class    erel:Entity ;
-        void:triples  729 .
-
-myvoid:id-a2f01e01-6e78-40f1-a03e-b1447179c7a8
-        a              void:Dataset ;
-        void:property  erel:entity1 ;
-        void:triples   40 .
-
-myvoid:id-01fda445-c841-45ea-bbd2-e9fcd6700359
-        a             void:Dataset ;
-        void:class    erel:ListOfPathElements ;
-        void:triples  16025 .
-
-myvoid:id-074e40c6-bc2e-49c7-8427-edccdb9185e3
-        a             void:Dataset ;
-        void:class    erel:EntityPair ;
+        void:class    <http://www.paes-leme.name/ontology/EntityRelatednessTestData_v1/#EntityPair> ;
         void:triples  40 .
+
+myvoid:id-88a5ee99-6260-425f-bcb6-b076eb740df6
+        a              void:Dataset ;
+        void:property  <http://www.paes-leme.name/ontology/EntityRelatednessTestData_v1/#rankPosition> ;
+        void:triples   1995 .
+
+myvoid:id-64e7a2df-cb98-4ee1-a020-e806140584ac
+        a              void:Dataset ;
+        void:property  <http://www.paes-leme.name/ontology/EntityRelatednessTestData_v1/#entity2> ;
+        void:triples   40 .
 
 myvoid:this  a           void:DatasetDescription ;
         dcterms:creator  "http://www.ic.uff.br/~lapaesleme/foaf.rdf#me" ;
         dcterms:title    "Description of the available datasets at www.paes-leme.name:8080" ;
         foaf:topic       myvoid:EntityRelatednessTestData_v3 .
 
-myvoid:id-747efa25-c448-47f6-9917-97b91442df88
-        a             void:Dataset ;
-        void:class    erel:Category ;
-        void:triples  5 .
-
-myvoid:id-20e5e713-3b90-43fd-a114-019a7b5b0ce9
+myvoid:id-659bde0d-8efd-48a3-9979-64226a47f89a
         a             void:Dataset ;
         void:class    rdf:Property ;
         void:triples  61 .
-
-myvoid:id-efb2d2d8-322c-40a0-a491-c63f0874a9ac
-        a             void:Dataset ;
-        void:class    erel:Artist ;
-        void:triples  317 .

@@ -138,7 +138,7 @@ public class EntityRelatednessTestData_v3 extends DatasetDescription {
                 + "           ?propertypartition void:triples ?triples.\n"
                 + "}\n"
                 + "where{\n"
-                + "      {SELECT ?dataset ?triples\n"
+                + "      {SELECT ?dataset ?triples ?entities\n"
                 + "       WHERE {\n"
                 + "              {SELECT (count(?s) as ?triples) WHERE {?s ?p [].}}\n"
                 + "              {SELECT (count(distinct(?s)) as ?entities) WHERE {?s ?p [].}}\n"
