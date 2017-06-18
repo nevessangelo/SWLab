@@ -1,9 +1,11 @@
 package uff.ic.swlab.dataset.entityrelatednesstestdata.v3;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.security.GeneralSecurityException;
 import java.util.ArrayList;
@@ -12,6 +14,8 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.zip.GZIPOutputStream;
 import org.apache.commons.validator.routines.UrlValidator;
+import org.apache.jena.query.DatasetAccessor;
+import org.apache.jena.query.DatasetAccessorFactory;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Resource;
@@ -23,6 +27,8 @@ import org.apache.jena.vocabulary.RDFS;
 import org.apache.jena.vocabulary.XSD;
 import org.apache.log4j.PropertyConfigurator;
 import org.openrdf.model.vocabulary.XMLSchema;
+import uff.ic.swlab.SWLabServer;
+import uff.ic.swlab.commons.util.Host;
 import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.model.DB;
 import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.util.MovieClassMapping;
 import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.util.MovieEntityMappings;
@@ -419,7 +425,6 @@ public class CreateDataset {
                 RDFDataMgr.write(out2, ONTOLOGY, Lang.RDFXML);
             }
         }
-        /*
         {
             Host.mkDirsViaFTP(SWLabServer.ADDRESS, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_ONTOLOGY_HOMEPAGE);
 
@@ -431,7 +436,6 @@ public class CreateDataset {
                 Host.uploadViaFTP(SWLabServer.ADDRESS, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_ONTOLOGY_NAME, in);
             }
         }
-         */
     }
 
     private static void exportDataset() throws Exception, IOException {
@@ -458,7 +462,6 @@ public class CreateDataset {
                 RDFDataMgr.write(out2, DATASET, Lang.NTRIPLES);
             }
         }
-        /*
         {
             Host.mkDirsViaFTP(SWLabServer.ADDRESS, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_DATASET_HOMEPAGE);
 
@@ -485,7 +488,6 @@ public class CreateDataset {
             DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(Config.DATASET_URL);
             accessor.putModel(DATASET);
         }
-         */
     }
 
 }
