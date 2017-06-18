@@ -343,8 +343,8 @@ public class CreateDataset {
 
         DATASET.setNsPrefix("owl", OWL.NS);
         DATASET.setNsPrefix(XMLSchema.PREFIX, XMLSchema.NAMESPACE);
-        DATASET.setNsPrefix("", Config.DATASET_NS);
         DATASET.setNsPrefix(EREL.PREFIX, EREL.NS);
+        DATASET.setNsPrefix("", Config.DATASET_NS);
 
         // Categories
         for (DB.Category c : DB.Categories.listCategories()) {

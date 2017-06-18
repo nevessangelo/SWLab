@@ -44,8 +44,8 @@ public class VoIDDescription {
         model.setNsPrefix("dcterms", DCTerms.NS);
         model.setNsPrefix("foaf", FOAF.NS);
         model.setNsPrefix("owl", OWL.NS);
-        model.setNsPrefix("myvoid", MYVOID_NS);
         model.setNsPrefix("swlab", SWLAB_NS);
+        model.setNsPrefix("", MYVOID_NS);
 
         EntityRelatednessTestData_v3 d1 = new EntityRelatednessTestData_v3(this);
 

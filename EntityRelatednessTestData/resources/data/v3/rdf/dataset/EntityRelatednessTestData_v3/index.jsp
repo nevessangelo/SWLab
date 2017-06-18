@@ -28,10 +28,11 @@
         <div xmlns="http://www.w3.org/1999/xhtml"
              prefix="foaf: http://xmlns.com/foaf/0.1/
              rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
-             dcterms: http://purl.org/dc/terms/
              rdfs: http://www.w3.org/2000/01/rdf-schema#">
             <div typeof="foaf:Document" about="#this">
-                <div rel="foaf:primaryTopic" resource="/void.ttl#EntityRelatednessTestData_v3"/>
+                <div rel="foaf:primaryTopic">
+                    <div typeof="rdf:Resource" about="/void.ttl#EntityRelatednessTestData_v3"/>
+                </div>
             </div>
         </div>
     </body>
