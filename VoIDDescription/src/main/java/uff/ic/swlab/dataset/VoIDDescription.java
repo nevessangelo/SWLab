@@ -27,9 +27,9 @@ public class VoIDDescription {
     private final String SPARQL_ENDPOINT_URL = SWLabServer.BASE_URL + "fuseki/%1s/sparql";
 
     public final String MYVOID_NS;
-    public final String SWLAB_NS = SWLabServer.BASE_URL + "resource/";
+    public final String SWLAB_NS;
 
-    private final String ROOT = "./resources/data";
+    private final String ROOT_DIR = "./resources/data";
     private final String LOCAL_NAME;
     private final String REMOTE_NAME;
 
@@ -37,7 +37,9 @@ public class VoIDDescription {
 
     public VoIDDescription(String nsPart, String filename) throws ParseException {
         MYVOID_NS = SWLabServer.BASE_URL + nsPart;
-        LOCAL_NAME = ROOT + "/" + filename;
+        SWLAB_NS = SWLabServer.BASE_URL + "resource/";
+
+        LOCAL_NAME = ROOT_DIR + "/" + filename;
         REMOTE_NAME = "/tomcat/" + filename;
 
         model.setNsPrefix("void", VOID.NS);
@@ -75,7 +77,7 @@ public class VoIDDescription {
 
             {
                 VoIDDescription v = new VoIDDescription("void.ttl#", "void.ttl");
-                (new File(v.ROOT)).mkdirs();
+                (new File(v.ROOT_DIR)).mkdirs();
                 try (OutputStream out = new FileOutputStream(v.LOCAL_NAME);) {
                     RDFDataMgr.write(out, v.model, Lang.TURTLE);
                 } finally {
@@ -90,7 +92,7 @@ public class VoIDDescription {
 
                 VoIDDescription v = new VoIDDescription("#", "_void.ttl");
 
-                (new File(v.ROOT)).mkdirs();
+                (new File(v.ROOT_DIR)).mkdirs();
                 try (OutputStream out = new FileOutputStream(v.LOCAL_NAME);) {
                     RDFDataMgr.write(out, v.model, Lang.TURTLE);
                 } finally {
