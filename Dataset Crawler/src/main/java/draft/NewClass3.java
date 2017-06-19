@@ -25,8 +25,8 @@ public class NewClass3 {
 
         //Alternativa 2
         //Alimentando banco de dados de triplas local com dados de um arquivo de dump compactado
-        new File("./src/main/resources/dat/tdb").mkdirs();
-        String assemblerFile = "./src/main/resources/conf/voids.ttl";
+        new File("./resources/dat/tdb").mkdirs();
+        String assemblerFile = "./resources/conf/voids.ttl";
         Dataset ds2 = TDBFactory.assembleDataset(assemblerFile);
         RDFDataMgr.read(ds2, filename);
 

@@ -4,17 +4,17 @@ import java.io.IOException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.apache.log4j.PropertyConfigurator;
-import uff.ic.swlab.datasetcrawler.util.Config;
-import uff.ic.swlab.datasetcrawler.adapter.FusekiServer;
 import uff.ic.swlab.datasetcrawler.CatalogCrawler;
 import uff.ic.swlab.datasetcrawler.GetVoIDTask;
 import uff.ic.swlab.datasetcrawler.adapter.Dataset;
+import uff.ic.swlab.datasetcrawler.adapter.FusekiServer;
+import uff.ic.swlab.datasetcrawler.util.Config;
 
 public class NewClass4 {
 
     public static void main(String[] args) throws InterruptedException, IOException {
-        PropertyConfigurator.configure("./src/main/resources/conf/log4j.properties");
-        Config.configure("./src/main/resources/conf/datasetcrawler.properties");
+        PropertyConfigurator.configure("./resources/conf/log4j.properties");
+        Config.configure("./resources/conf/datasetcrawler.properties");
         FusekiServer server = FusekiServer.getInstance(Config.FUSEKI_SERVER);
         CatalogCrawler crawler = new CatalogCrawler(Config.CKAN_CATALOG);
 
