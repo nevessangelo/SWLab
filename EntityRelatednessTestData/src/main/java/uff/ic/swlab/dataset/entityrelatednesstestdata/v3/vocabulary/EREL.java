@@ -4,12 +4,14 @@ import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Property;
 import org.apache.jena.rdf.model.Resource;
+import uff.ic.swlab.SWLabServer;
 
 public class EREL {
 
     private static final Model m = ModelFactory.createDefaultModel();
 
-    public static final String NS = "http://swlab.ic.uff.br/ontology/EntityRelatednessTestData_v1/#";
+    public static final String PREFIX = "erel";
+    public static final String NS = SWLabServer.BASE_URL + "ontology/EntityRelatednessTestData_v1/#";
     public static final Resource NAMESPACE = m.createResource(NS);
 
     public static Resource Category = m.createResource(NS + "Category");

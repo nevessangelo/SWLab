@@ -26,6 +26,8 @@ import org.apache.jena.vocabulary.RDF;
 import org.apache.jena.vocabulary.RDFS;
 import org.apache.jena.vocabulary.XSD;
 import org.apache.log4j.PropertyConfigurator;
+import org.openrdf.model.vocabulary.XMLSchema;
+import uff.ic.swlab.SWLabServer;
 import uff.ic.swlab.commons.util.Host;
 import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.model.DB;
 import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.util.MovieClassMapping;
@@ -43,6 +45,7 @@ import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.util.MusicScores;
 import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.util.Pair;
 import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.util.Score;
 import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.vocabulary.EREL;
+import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.vocabulary.ERTD;
 
 public class CreateDataset {
 
@@ -60,7 +63,6 @@ public class CreateDataset {
 
         exportOntology();
         exportDataset();
-
     }
 
     private static void prepareDB() {
@@ -340,8 +342,10 @@ public class CreateDataset {
         UrlValidator validator = new UrlValidator();
         Integer counter = 0;
 
-        DATASET.setNsPrefix("", Config.DATASET_NS);
-        DATASET.setNsPrefix("erel", EREL.NS);
+        DATASET.setNsPrefix("owl", OWL.NS);
+        DATASET.setNsPrefix(XMLSchema.PREFIX, XMLSchema.NAMESPACE);
+        DATASET.setNsPrefix(EREL.PREFIX, EREL.NS);
+        DATASET.setNsPrefix("", ERTD.NS);
 
         // Categories
         for (DB.Category c : DB.Categories.listCategories()) {
@@ -378,7 +382,7 @@ public class CreateDataset {
                 int position = 0;
                 String uri0 = null;
                 for (DB.PathElement e : pt.listElements()) {
-                    String uri1 = Config.DATASET_NS + "id-" + UUID.randomUUID().toString();
+                    String uri1 = ERTD.NS + "id-" + UUID.randomUUID().toString();
                     if (e instanceof DB.EntityElement)
                         DATASET.createResource(uri1, EREL.ListOfPathElements)
                                 .addProperty(EREL.first, DATASET.createResource(e.getUri(), EREL.EntityElement)
@@ -422,16 +426,15 @@ public class CreateDataset {
                 RDFDataMgr.write(out2, ONTOLOGY, Lang.RDFXML);
             }
         }
-
         {
-            Host.mkDirsViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.REMOTE_ONTOLOGY_HOMEPAGE);
+            Host.mkDirsViaFTP(SWLabServer.HOSTNAME, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_ONTOLOGY_HOMEPAGE);
 
             try (InputStream in = new FileInputStream(Config.LOCAL_ONTOLOGY_HOMEPAGE)) {
-                Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.REMOTE_ONTOLOGY_HOMEPAGE, in);
+                Host.uploadViaFTP(SWLabServer.HOSTNAME, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_ONTOLOGY_HOMEPAGE, in);
             }
 
             try (InputStream in = new FileInputStream(Config.LOCAL_ONTOLOGY_NAME)) {
-                Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.REMOTE_ONTOLOGY_NAME, in);
+                Host.uploadViaFTP(SWLabServer.HOSTNAME, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_ONTOLOGY_NAME, in);
             }
         }
     }
@@ -460,31 +463,30 @@ public class CreateDataset {
                 RDFDataMgr.write(out2, DATASET, Lang.NTRIPLES);
             }
         }
-
         {
-            Host.mkDirsViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.REMOTE_DATASET_HOMEPAGE);
+            Host.mkDirsViaFTP(SWLabServer.HOSTNAME, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_DATASET_HOMEPAGE);
 
             try (InputStream in = new FileInputStream(Config.LOCAL_DATASET_HOMEPAGE)) {
-                Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.REMOTE_DATASET_HOMEPAGE, in);
+                Host.uploadViaFTP(SWLabServer.HOSTNAME, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_DATASET_HOMEPAGE, in);
             }
 
             try (InputStream in = new FileInputStream(Config.LOCAL_XML_DUMP_NAME)) {
-                Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.REMOTE_XML_DUMP_NAME, in);
+                Host.uploadViaFTP(SWLabServer.HOSTNAME, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_XML_DUMP_NAME, in);
             }
 
             try (InputStream in = new FileInputStream(Config.LOCAL_TURTLE_DUMP_NAME)) {
-                Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.REMOTE_TURTLE_DUMP_NAME, in);
+                Host.uploadViaFTP(SWLabServer.HOSTNAME, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_TURTLE_DUMP_NAME, in);
             }
 
             try (InputStream in = new FileInputStream(Config.LOCAL_JSON_DUMP_NAME)) {
-                Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.REMOTE_JSON_DUMP_NAME, in);
+                Host.uploadViaFTP(SWLabServer.HOSTNAME, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_JSON_DUMP_NAME, in);
             }
 
             try (InputStream in = new FileInputStream(Config.LOCAL_NTRIPLES_DUMP_NAME)) {
-                Host.uploadViaFTP(Config.HOST_ADDR, Config.USERNAME, Config.PASSWORD, Config.REMOTE_NTRIPLES_DUMP_NAME, in);
+                Host.uploadViaFTP(SWLabServer.HOSTNAME, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_NTRIPLES_DUMP_NAME, in);
             }
 
-            DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(Config.DATASET_URL);
+            DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(Config.FUSEKI_URL);
             accessor.putModel(DATASET);
         }
     }
