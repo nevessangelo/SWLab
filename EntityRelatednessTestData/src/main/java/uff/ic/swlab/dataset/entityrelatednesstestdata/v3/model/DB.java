@@ -232,18 +232,13 @@ public class DB {
                 throw new Exception();
             } else {
                 this.label = label.trim().replaceAll("  ", " ").replaceAll("  ", " ").replaceAll(" ", "_");
-                String uriString = EREL.NS + this.label;
-                if ((new UrlValidator()).isValid(uriString)) {
-                    this.localName = this.label;
-                    this.uri = uriString;
-                } else
-                    try {
-                        this.localName = URLEncoder.encode(this.label, "UTF-8");
-                        this.uri = EREL.NS + URLEncoder.encode(this.label, "UTF-8");
-                    } catch (UnsupportedEncodingException e) {
-                        System.out.println(String.format("Category error: unsupported label encoding (label -> %1s).", label));
-                        throw e;
-                    }
+                try {
+                    this.localName = URLEncoder.encode(this.label, "UTF-8").replaceAll("_", "-").toLowerCase();
+                    this.uri = EREL.NS + "id-" + UUID.randomUUID().toString();
+                } catch (UnsupportedEncodingException e) {
+                    System.out.println(String.format("Category error: unsupported label encoding (label -> %1s).", label));
+                    throw e;
+                }
             }
         }
 
@@ -291,18 +286,13 @@ public class DB {
                 throw new Exception();
             } else {
                 this.label = label.trim().replaceAll("  ", " ").replaceAll("  ", " ").replaceAll(" ", "_");
-                String uriString = ERTD.NS + this.label;
-                if ((new UrlValidator()).isValid(uriString)) {
-                    this.localName = this.label;
-                    this.uri = uriString;
-                } else
-                    try {
-                        this.localName = URLEncoder.encode(this.label, "UTF-8");
-                        this.uri = ERTD.NS + URLEncoder.encode(this.label, "UTF-8");
-                    } catch (UnsupportedEncodingException e) {
-                        System.out.println(String.format("Entity error: unsupported label encoding (label -> %1s).", label));
-                        throw e;
-                    }
+                try {
+                    this.localName = URLEncoder.encode(this.label, "UTF-8").replaceAll("_", "-").toLowerCase();
+                    this.uri = ERTD.NS + "id-" + UUID.randomUUID().toString();
+                } catch (UnsupportedEncodingException e) {
+                    System.out.println(String.format("Entity error: unsupported label encoding (label -> %1s).", label));
+                    throw e;
+                }
             }
             this.category = DB.Categories.addCategory(category);
         }
@@ -359,20 +349,14 @@ public class DB {
             super();
             if (!label.equals("")) {
                 this.label = label.trim().replaceAll("  ", " ").replaceAll("  ", " ").replaceAll(" ", "_");
-                String uriString = ERTD.NS + this.label;
-                if ((new UrlValidator()).isValid(uriString)) {
-                    this.localName = this.label;
-                    this.uri = uriString;
-                    this.inverseURI = ERTD.NS + "inverseOf_" + this.label;
-                } else
-                    try {
-                        this.localName = URLEncoder.encode(this.label, "UTF-8");
-                        this.uri = ERTD.NS + "inverseOf_" + this.localName;
-                        this.inverseURI = ERTD.NS + "inverseOf_" + this.localName;
-                    } catch (UnsupportedEncodingException e) {
-                        System.out.println(String.format("Entity error: unsupported label encoding (label -> %1s).", label));
-                        throw e;
-                    }
+                try {
+                    this.localName = URLEncoder.encode(this.label, "UTF-8").replaceAll("_", "-");
+                    this.uri = ERTD.NS + this.localName;
+                    this.inverseURI = ERTD.NS + "inverseOf_" + this.localName;
+                } catch (UnsupportedEncodingException e) {
+                    System.out.println(String.format("Entity error: unsupported label encoding (label -> %1s).", label));
+                    throw e;
+                }
                 this.score = score;
             } else
                 throw new Exception();

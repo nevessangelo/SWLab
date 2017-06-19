@@ -16,6 +16,10 @@ import java.util.zip.GZIPOutputStream;
 import org.apache.commons.validator.routines.UrlValidator;
 import org.apache.jena.query.DatasetAccessor;
 import org.apache.jena.query.DatasetAccessorFactory;
+import org.apache.jena.query.Query;
+import org.apache.jena.query.QueryExecution;
+import org.apache.jena.query.QueryExecutionFactory;
+import org.apache.jena.query.QueryFactory;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Resource;
@@ -27,8 +31,8 @@ import org.apache.jena.vocabulary.RDFS;
 import org.apache.jena.vocabulary.XSD;
 import org.apache.log4j.PropertyConfigurator;
 import org.openrdf.model.vocabulary.XMLSchema;
-import uff.ic.swlab.commons.util.SWLabHost;
 import uff.ic.swlab.commons.util.FTPHost;
+import uff.ic.swlab.commons.util.SWLabHost;
 import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.model.DB;
 import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.util.MovieClassMapping;
 import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.util.MovieEntityMappings;
@@ -60,6 +64,7 @@ public class CreateDataset {
 
         createOntology();
         createDataset();
+        createInDataset();
 
         exportOntology();
         exportDataset();
@@ -359,7 +364,8 @@ public class CreateDataset {
         //Entities
         for (DB.Entity e : DB.Entities.listEntities()) {
             Resource entity = DATASET.createResource(e.getUri(), EREL.Entity)
-                    .addProperty(EREL.type, DATASET.createResource(e.getCategory().getUri()));
+                    .addProperty(EREL.type, DATASET.createResource(e.getCategory().getUri()))
+                    .addProperty(RDFS.label, e.getLabel());
 
             for (DB.Resource r : e.listSameAS())
                 entity.addProperty(OWL.sameAs, DATASET.createResource(r.getURI()));
@@ -369,14 +375,16 @@ public class CreateDataset {
         for (DB.EntityPair ep : DB.EntityPairs.listEntityPairs()) {
             Resource entityPair = DATASET.createResource(ep.getUri(), EREL.EntityPair)
                     .addProperty(EREL.entity1, DATASET.createResource(ep.getEntity1().getUri(), EREL.Entity))
-                    .addProperty(EREL.entity2, DATASET.createResource(ep.getEntity2().getUri(), EREL.Entity));
+                    .addProperty(EREL.entity2, DATASET.createResource(ep.getEntity2().getUri(), EREL.Entity))
+                    .addProperty(RDFS.label, ep.getLabel());
 
             // Paths
             for (DB.Path pt : ep.listPaths()) {
                 entityPair.addProperty(EREL.hasPath, DATASET.createResource(pt.getUri(), EREL.Path)
                         .addProperty(EREL.rankPosition, DATASET.createTypedLiteral(pt.getRankPosition()))
                         .addProperty(EREL.score, DATASET.createTypedLiteral(pt.getScore()))
-                        .addProperty(EREL.expression, pt.getExpression()));
+                        .addProperty(EREL.expression, pt.getExpression())
+                        .addProperty(RDFS.label, pt.getExpression()));
 
                 // Path elements
                 int position = 0;
@@ -388,13 +396,15 @@ public class CreateDataset {
                                 .addProperty(EREL.first, DATASET.createResource(e.getUri(), EREL.EntityElement)
                                         .addProperty(EREL.entity, DATASET.createResource(((DB.EntityElement) e).getEntity().getUri(), EREL.Entity))
                                         .addProperty(EREL.position, DATASET.createTypedLiteral(position++))
-                                        .addProperty(EREL.score, DATASET.createTypedLiteral(e.getScore())));
+                                        .addProperty(EREL.score, DATASET.createTypedLiteral(e.getScore()))
+                                        .addProperty(RDFS.label, e.getLabel()));
                     else if (e instanceof DB.PropertyElement)
                         DATASET.createResource(uri1, EREL.ListOfPathElements)
                                 .addProperty(EREL.first, DATASET.createResource(e.getUri(), EREL.PropertyElement)
                                         .addProperty(EREL.property, DATASET.createResource(((DB.PropertyElement) e).getReferencedElementURI(), RDF.Property))
                                         .addProperty(EREL.position, DATASET.createTypedLiteral(position++))
-                                        .addProperty(EREL.score, DATASET.createTypedLiteral(e.getScore())));
+                                        .addProperty(EREL.score, DATASET.createTypedLiteral(e.getScore()))
+                                        .addProperty(RDFS.label, e.getLabel()));
                     else
                         DATASET.createResource(uri1, EREL.ListOfPathElements)
                                 .addProperty(EREL.first, DATASET.createResource(e.getUri(), EREL.PathElement)
@@ -415,6 +425,21 @@ public class CreateDataset {
                             .addProperty(EREL.rest, RDF.nil);
             }
         }
+    }
+
+    private static void createInDataset() {
+        String queryString = "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
+                + "PREFIX void: <http://rdfs.org/ns/void#>\n"
+                + "construct {?resource void:inDataset <%s>.}\n"
+                + "where{?resource ?p [].}";
+        queryString = String.format(queryString, SWLabHost.BASE_URL + "void.ttl#" + Config.DATASET_NAME);
+
+        Model result = ModelFactory.createDefaultModel();
+        Query query = QueryFactory.create(queryString);
+        try (QueryExecution qexec = QueryExecutionFactory.create(query, DATASET)) {
+            qexec.execConstruct(result);
+        }
+        DATASET.add(result);
     }
 
     private static void exportOntology() throws IOException, Exception {
