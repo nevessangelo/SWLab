@@ -45,6 +45,7 @@ import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.util.MusicScores;
 import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.util.Pair;
 import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.util.Score;
 import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.vocabulary.EREL;
+import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.vocabulary.ERTD;
 
 public class CreateDataset {
 
@@ -344,7 +345,7 @@ public class CreateDataset {
         DATASET.setNsPrefix("owl", OWL.NS);
         DATASET.setNsPrefix(XMLSchema.PREFIX, XMLSchema.NAMESPACE);
         DATASET.setNsPrefix(EREL.PREFIX, EREL.NS);
-        DATASET.setNsPrefix("", Config.DATASET_NS);
+        DATASET.setNsPrefix("", ERTD.NS);
 
         // Categories
         for (DB.Category c : DB.Categories.listCategories()) {
@@ -381,7 +382,7 @@ public class CreateDataset {
                 int position = 0;
                 String uri0 = null;
                 for (DB.PathElement e : pt.listElements()) {
-                    String uri1 = Config.DATASET_NS + "id-" + UUID.randomUUID().toString();
+                    String uri1 = ERTD.NS + "id-" + UUID.randomUUID().toString();
                     if (e instanceof DB.EntityElement)
                         DATASET.createResource(uri1, EREL.ListOfPathElements)
                                 .addProperty(EREL.first, DATASET.createResource(e.getUri(), EREL.EntityElement)
@@ -485,7 +486,7 @@ public class CreateDataset {
                 FTPHost.uploadViaFTP(SWLabHost.HOSTNAME, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_NTRIPLES_DUMP_NAME, in);
             }
 
-            DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(Config.DATASET_URL);
+            DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(Config.FUSEKI_URL);
             accessor.putModel(DATASET);
         }
     }
