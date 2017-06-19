@@ -1,4 +1,4 @@
-package uff.ic.swlab.dataset.entityrelatednesstestdata.v3;
+package uff.ic.swlab.dataset.ertd.v3;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -33,23 +33,23 @@ import org.apache.log4j.PropertyConfigurator;
 import org.openrdf.model.vocabulary.XMLSchema;
 import uff.ic.swlab.commons.util.FTPHost;
 import uff.ic.swlab.commons.util.SWLabHost;
-import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.model.DB;
-import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.util.MovieClassMapping;
-import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.util.MovieEntityMappings;
-import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.util.MovieEntityPairs;
-import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.util.MoviePropertyRelevanceScore;
-import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.util.MovieRankedPaths;
-import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.util.MovieScores;
-import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.util.MusicClassMapping;
-import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.util.MusicEntityMappings;
-import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.util.MusicEntityPairs;
-import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.util.MusicPropertyRelevanceScore;
-import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.util.MusicRankedPaths;
-import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.util.MusicScores;
-import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.util.Pair;
-import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.util.Score;
-import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.vocabulary.EREL;
-import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.vocabulary.ERTD;
+import uff.ic.swlab.dataset.ertd.v3.model.DB;
+import uff.ic.swlab.dataset.ertd.v3.util.MovieClassMapping;
+import uff.ic.swlab.dataset.ertd.v3.util.MovieEntityMappings;
+import uff.ic.swlab.dataset.ertd.v3.util.MovieEntityPairs;
+import uff.ic.swlab.dataset.ertd.v3.util.MoviePropertyRelevanceScore;
+import uff.ic.swlab.dataset.ertd.v3.util.MovieRankedPaths;
+import uff.ic.swlab.dataset.ertd.v3.util.MovieScores;
+import uff.ic.swlab.dataset.ertd.v3.util.MusicClassMapping;
+import uff.ic.swlab.dataset.ertd.v3.util.MusicEntityMappings;
+import uff.ic.swlab.dataset.ertd.v3.util.MusicEntityPairs;
+import uff.ic.swlab.dataset.ertd.v3.util.MusicPropertyRelevanceScore;
+import uff.ic.swlab.dataset.ertd.v3.util.MusicRankedPaths;
+import uff.ic.swlab.dataset.ertd.v3.util.MusicScores;
+import uff.ic.swlab.dataset.ertd.v3.util.Pair;
+import uff.ic.swlab.dataset.ertd.v3.util.Score;
+import uff.ic.swlab.vocabulary.ertd.v1.EREL;
+import uff.ic.swlab.vocabulary.RSC;
 
 public class CreateDataset {
 
@@ -350,7 +350,7 @@ public class CreateDataset {
         DATASET.setNsPrefix("owl", OWL.NS);
         DATASET.setNsPrefix(XMLSchema.PREFIX, XMLSchema.NAMESPACE);
         DATASET.setNsPrefix(EREL.PREFIX, EREL.NS);
-        DATASET.setNsPrefix("", ERTD.NS);
+        DATASET.setNsPrefix("", RSC.NS);
 
         // Categories
         for (DB.Category c : DB.Categories.listCategories()) {
@@ -390,7 +390,7 @@ public class CreateDataset {
                 int position = 0;
                 String uri0 = null;
                 for (DB.PathElement e : pt.listElements()) {
-                    String uri1 = ERTD.NS + "id-" + UUID.randomUUID().toString();
+                    String uri1 = RSC.NS + "id-" + UUID.randomUUID().toString();
                     if (e instanceof DB.EntityElement)
                         DATASET.createResource(uri1, EREL.ListOfPathElements)
                                 .addProperty(EREL.first, DATASET.createResource(e.getUri(), EREL.EntityElement)

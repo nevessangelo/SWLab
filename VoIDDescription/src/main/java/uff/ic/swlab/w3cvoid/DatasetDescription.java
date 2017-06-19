@@ -12,12 +12,4 @@ public abstract class DatasetDescription {
 
     protected abstract Model getRootResources();
 
-    protected Model execConstruct(String queryString, String endpoint) {
-        Model result = ModelFactory.createDefaultModel();
-        try (QueryExecution exec = new QueryEngineHTTP(endpoint, queryString)) {
-            ((QueryEngineHTTP) exec).setModelContentType(WebContent.contentTypeRDFXML);
-            exec.execConstruct(result);
-        }
-        return result;
-    }
 }

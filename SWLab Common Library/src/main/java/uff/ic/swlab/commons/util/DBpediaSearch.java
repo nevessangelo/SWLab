@@ -1,4 +1,4 @@
-package uff.ic.swlab.commons.util.adapter;
+package uff.ic.swlab.commons.util;
 
 import java.util.ArrayList;
 import java.util.List;

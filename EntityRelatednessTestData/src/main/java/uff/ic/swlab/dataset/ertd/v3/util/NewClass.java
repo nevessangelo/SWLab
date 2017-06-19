@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package uff.ic.swlab.dataset.entityrelatednesstestdata.v3.util;
+package uff.ic.swlab.dataset.ertd.v3.util;
 
 /**
  *

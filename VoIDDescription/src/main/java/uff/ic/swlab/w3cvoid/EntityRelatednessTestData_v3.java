@@ -13,7 +13,8 @@ import org.apache.jena.vocabulary.DCTerms;
 import org.apache.jena.vocabulary.RDFS;
 import org.apache.jena.vocabulary.VOID;
 import uff.ic.swlab.commons.util.SWLabHost;
-import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.vocabulary.EREL;
+import uff.ic.swlab.vocabulary.RSC;
+import uff.ic.swlab.vocabulary.ertd.v1.EREL;
 
 public class EntityRelatednessTestData_v3 extends DatasetDescription {
 
@@ -100,15 +101,14 @@ public class EntityRelatednessTestData_v3 extends DatasetDescription {
                 + "PREFIX void: <http://rdfs.org/ns/void#>\n"
                 + "prefix : <%s>\n"
                 + "prefix erel: <%s>\n"
-                + "prefix swlab: <%s>\n"
+                + "prefix rsc: <%s>\n"
                 + "\n"
                 + "construct {?dataset void:rootResource ?rootResource.\n"
-                + "}\n"
                 + "where{?rootResource a erel:EntityPair.\n"
                 + "      bind (:%s as ?dataset)}\n";
 
-        query = String.format(query, v.MYVOID_NS, EREL.NS, v.SWLAB_NS, NAME);
-        return execConstruct(query, v.getSPARQLEndpoint(NAME));
+        query = String.format(query, v.MYVOID_NS, EREL.NS, RSC.NS, NAME);
+        return SWLabHost.execConstruct(query, SWLabHost.getSPARQLEndpoint(NAME));
     }
 
     @Override
@@ -118,7 +118,7 @@ public class EntityRelatednessTestData_v3 extends DatasetDescription {
                 + "PREFIX void: <http://rdfs.org/ns/void#>\n"
                 + "prefix : <%s>\n"
                 + "prefix erel: <%s>\n"
-                + "prefix swlab: <%s>\n"
+                + "prefix rsc: <%s>\n"
                 + "\n"
                 + "construct {?dataset a void:Dataset.\n"
                 + "           ?dataset void:triples ?triples.\n"
@@ -137,7 +137,6 @@ public class EntityRelatednessTestData_v3 extends DatasetDescription {
                 + "           ?propertypartition a void:Dataset.\n"
                 + "           ?propertypartition void:property ?property.\n"
                 + "           ?propertypartition void:triples ?triples.\n"
-                + "}\n"
                 + "where{\n"
                 + "      {SELECT ?dataset ?triples ?entities\n"
                 + "       WHERE {\n"
@@ -181,7 +180,7 @@ public class EntityRelatednessTestData_v3 extends DatasetDescription {
                 + "                     GROUP BY ?property}\n"
                 + "                    bind (iri(str(:)+\"id-\"+STRUUID()) as ?propertypartition)}}\n"
                 + "}";
-        query = String.format(query, v.MYVOID_NS, EREL.NS, v.SWLAB_NS, NAME, NAME, NAME, NAME, NAME);
-        return execConstruct(query, v.getSPARQLEndpoint(NAME));
+        query = String.format(query, v.MYVOID_NS, EREL.NS, RSC.NS, NAME, NAME, NAME, NAME, NAME);
+        return SWLabHost.execConstruct(query, SWLabHost.getSPARQLEndpoint(NAME));
     }
 }

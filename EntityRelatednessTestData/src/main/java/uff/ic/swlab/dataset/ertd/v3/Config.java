@@ -1,4 +1,4 @@
-package uff.ic.swlab.dataset.entityrelatednesstestdata.v3;
+package uff.ic.swlab.dataset.ertd.v3;
 
 import java.io.FileInputStream;
 import java.io.IOException;

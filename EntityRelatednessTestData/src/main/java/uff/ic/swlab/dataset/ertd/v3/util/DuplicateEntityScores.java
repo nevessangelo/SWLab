@@ -1,4 +1,4 @@
-package uff.ic.swlab.dataset.entityrelatednesstestdata.v3.util;
+package uff.ic.swlab.dataset.ertd.v3.util;
 
 import java.util.ArrayList;
 import java.util.HashMap;

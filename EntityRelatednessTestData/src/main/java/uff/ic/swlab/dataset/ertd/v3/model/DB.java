@@ -1,4 +1,4 @@
-package uff.ic.swlab.dataset.entityrelatednesstestdata.v3.model;
+package uff.ic.swlab.dataset.ertd.v3.model;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -11,8 +11,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 import org.apache.commons.validator.routines.UrlValidator;
-import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.vocabulary.EREL;
-import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.vocabulary.ERTD;
+import uff.ic.swlab.vocabulary.ertd.v1.EREL;
+import uff.ic.swlab.vocabulary.RSC;
 
 public class DB {
 
@@ -288,7 +288,7 @@ public class DB {
                 this.label = label.trim().replaceAll("  ", " ").replaceAll("  ", " ").replaceAll(" ", "_");
                 try {
                     this.localName = URLEncoder.encode(this.label, "UTF-8").replaceAll("_", "-").toLowerCase();
-                    this.uri = ERTD.NS + "id-" + UUID.randomUUID().toString();
+                    this.uri = RSC.NS + "id-" + UUID.randomUUID().toString();
                 } catch (UnsupportedEncodingException e) {
                     System.out.println(String.format("Entity error: unsupported label encoding (label -> %1s).", label));
                     throw e;
@@ -351,8 +351,8 @@ public class DB {
                 this.label = label.trim().replaceAll("  ", " ").replaceAll("  ", " ").replaceAll(" ", "_");
                 try {
                     this.localName = URLEncoder.encode(this.label, "UTF-8").replaceAll("_", "-");
-                    this.uri = ERTD.NS + this.localName;
-                    this.inverseURI = ERTD.NS + "inverseOf_" + this.localName;
+                    this.uri = RSC.NS + this.localName;
+                    this.inverseURI = RSC.NS + "inverseOf_" + this.localName;
                 } catch (UnsupportedEncodingException e) {
                     System.out.println(String.format("Entity error: unsupported label encoding (label -> %1s).", label));
                     throw e;
@@ -397,7 +397,7 @@ public class DB {
     public static class EntityPair {
 
         private final String localName = "id-" + UUID.randomUUID().toString();
-        private final String uri = ERTD.NS + localName;
+        private final String uri = RSC.NS + localName;
         private DB.Entity entity1 = null;
         private DB.Entity entity2 = null;
         private List<Path> rank = new ArrayList<>();
@@ -464,7 +464,7 @@ public class DB {
 
         private EntityPair entityPair = null;
         private String localName = "id-" + UUID.randomUUID().toString();
-        private String uri = ERTD.NS + localName;
+        private String uri = RSC.NS + localName;
         private int rankPosition = 0;
         private double score = 0;
         private String expression = null;
@@ -550,7 +550,7 @@ public class DB {
 
         private Path path = null;
         private String localName = "id-" + UUID.randomUUID().toString();
-        private String uri = ERTD.NS + this.localName;
+        private String uri = RSC.NS + this.localName;
 
         public Path getPath() {
             return path;

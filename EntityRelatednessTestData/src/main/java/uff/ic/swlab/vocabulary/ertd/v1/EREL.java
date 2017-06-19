@@ -1,4 +1,4 @@
-package uff.ic.swlab.dataset.entityrelatednesstestdata.v3.vocabulary;
+package uff.ic.swlab.vocabulary.ertd.v1;
 
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;

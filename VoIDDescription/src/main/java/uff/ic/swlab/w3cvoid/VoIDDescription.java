@@ -19,15 +19,13 @@ import org.apache.jena.vocabulary.DCTerms;
 import org.apache.jena.vocabulary.VOID;
 import org.apache.log4j.PropertyConfigurator;
 import org.semarglproject.vocab.OWL;
-import uff.ic.swlab.commons.util.SWLabHost;
 import uff.ic.swlab.commons.util.FTPHost;
+import uff.ic.swlab.commons.util.SWLabHost;
+import uff.ic.swlab.vocabulary.RSC;
 
 public class VoIDDescription {
 
-    private final String SPARQL_ENDPOINT_URL = SWLabHost.BASE_URL + "fuseki/%1s/sparql";
-
     public final String MYVOID_NS;
-    public final String SWLAB_NS;
 
     private final String ROOT_DIR = "./resources/data";
     private final String LOCAL_NAME;
@@ -37,7 +35,6 @@ public class VoIDDescription {
 
     public VoIDDescription(String nsPart, String filename) throws ParseException {
         MYVOID_NS = SWLabHost.BASE_URL + nsPart;
-        SWLAB_NS = SWLabHost.BASE_URL + "resource/";
 
         LOCAL_NAME = ROOT_DIR + "/" + filename;
         REMOTE_NAME = "/tomcat/" + filename;
@@ -46,7 +43,7 @@ public class VoIDDescription {
         model.setNsPrefix("dcterms", DCTerms.NS);
         model.setNsPrefix("foaf", FOAF.NS);
         model.setNsPrefix("owl", OWL.NS);
-        model.setNsPrefix("swlab", SWLAB_NS);
+        model.setNsPrefix(RSC.PREFIX, RSC.NS);
         model.setNsPrefix("", MYVOID_NS);
 
         EntityRelatednessTestData_v3 d1 = new EntityRelatednessTestData_v3(this);
@@ -58,10 +55,6 @@ public class VoIDDescription {
 
         model.getNsPrefixMap().putAll(d1.description.getNsPrefixMap());
         model.add(d1.description);
-    }
-
-    public String getSPARQLEndpoint(String datasetname) {
-        return String.format(SPARQL_ENDPOINT_URL, datasetname);
     }
 
     public static void main(String[] args) throws FileNotFoundException, IOException, ParseException, Exception {
@@ -89,7 +82,6 @@ public class VoIDDescription {
             }
 
             {
-
                 VoIDDescription v = new VoIDDescription("#", "_void.ttl");
 
                 (new File(v.ROOT_DIR)).mkdirs();
