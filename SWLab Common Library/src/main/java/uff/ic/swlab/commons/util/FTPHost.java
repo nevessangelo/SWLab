@@ -6,7 +6,7 @@ import java.util.Arrays;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPReply;
 
-public class Host {
+public class FTPHost {
 
     public static void uploadViaFTP(String server, Integer port, String user, String pass, String remoteName, final InputStream in) throws IOException, Exception {
         FTPClient ftpClient = new FTPClient();

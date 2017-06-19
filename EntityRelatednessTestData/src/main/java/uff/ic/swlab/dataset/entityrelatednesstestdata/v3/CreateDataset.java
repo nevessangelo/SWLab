@@ -27,8 +27,8 @@ import org.apache.jena.vocabulary.RDFS;
 import org.apache.jena.vocabulary.XSD;
 import org.apache.log4j.PropertyConfigurator;
 import org.openrdf.model.vocabulary.XMLSchema;
-import uff.ic.swlab.SWLabServer;
-import uff.ic.swlab.commons.util.Host;
+import uff.ic.swlab.SWLabHost;
+import uff.ic.swlab.commons.util.FTPHost;
 import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.model.DB;
 import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.util.MovieClassMapping;
 import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.util.MovieEntityMappings;
@@ -426,14 +426,14 @@ public class CreateDataset {
             }
         }
         {
-            Host.mkDirsViaFTP(SWLabServer.HOSTNAME, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_ONTOLOGY_HOMEPAGE);
+            FTPHost.mkDirsViaFTP(SWLabHost.HOSTNAME, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_ONTOLOGY_HOMEPAGE);
 
             try (InputStream in = new FileInputStream(Config.LOCAL_ONTOLOGY_HOMEPAGE)) {
-                Host.uploadViaFTP(SWLabServer.HOSTNAME, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_ONTOLOGY_HOMEPAGE, in);
+                FTPHost.uploadViaFTP(SWLabHost.HOSTNAME, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_ONTOLOGY_HOMEPAGE, in);
             }
 
             try (InputStream in = new FileInputStream(Config.LOCAL_ONTOLOGY_NAME)) {
-                Host.uploadViaFTP(SWLabServer.HOSTNAME, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_ONTOLOGY_NAME, in);
+                FTPHost.uploadViaFTP(SWLabHost.HOSTNAME, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_ONTOLOGY_NAME, in);
             }
         }
     }
@@ -463,26 +463,26 @@ public class CreateDataset {
             }
         }
         {
-            Host.mkDirsViaFTP(SWLabServer.HOSTNAME, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_DATASET_HOMEPAGE);
+            FTPHost.mkDirsViaFTP(SWLabHost.HOSTNAME, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_DATASET_HOMEPAGE);
 
             try (InputStream in = new FileInputStream(Config.LOCAL_DATASET_HOMEPAGE)) {
-                Host.uploadViaFTP(SWLabServer.HOSTNAME, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_DATASET_HOMEPAGE, in);
+                FTPHost.uploadViaFTP(SWLabHost.HOSTNAME, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_DATASET_HOMEPAGE, in);
             }
 
             try (InputStream in = new FileInputStream(Config.LOCAL_XML_DUMP_NAME)) {
-                Host.uploadViaFTP(SWLabServer.HOSTNAME, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_XML_DUMP_NAME, in);
+                FTPHost.uploadViaFTP(SWLabHost.HOSTNAME, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_XML_DUMP_NAME, in);
             }
 
             try (InputStream in = new FileInputStream(Config.LOCAL_TURTLE_DUMP_NAME)) {
-                Host.uploadViaFTP(SWLabServer.HOSTNAME, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_TURTLE_DUMP_NAME, in);
+                FTPHost.uploadViaFTP(SWLabHost.HOSTNAME, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_TURTLE_DUMP_NAME, in);
             }
 
             try (InputStream in = new FileInputStream(Config.LOCAL_JSON_DUMP_NAME)) {
-                Host.uploadViaFTP(SWLabServer.HOSTNAME, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_JSON_DUMP_NAME, in);
+                FTPHost.uploadViaFTP(SWLabHost.HOSTNAME, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_JSON_DUMP_NAME, in);
             }
 
             try (InputStream in = new FileInputStream(Config.LOCAL_NTRIPLES_DUMP_NAME)) {
-                Host.uploadViaFTP(SWLabServer.HOSTNAME, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_NTRIPLES_DUMP_NAME, in);
+                FTPHost.uploadViaFTP(SWLabHost.HOSTNAME, Config.PORT, Config.USERNAME, Config.PASSWORD, Config.REMOTE_NTRIPLES_DUMP_NAME, in);
             }
 
             DatasetAccessor accessor = DatasetAccessorFactory.createHTTP(Config.DATASET_URL);
