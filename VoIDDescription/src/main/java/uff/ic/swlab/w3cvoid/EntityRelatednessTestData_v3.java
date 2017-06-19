@@ -1,4 +1,4 @@
-package uff.ic.swlab.dataset;
+package uff.ic.swlab.w3cvoid;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -12,7 +12,7 @@ import org.apache.jena.sparql.vocabulary.FOAF;
 import org.apache.jena.vocabulary.DCTerms;
 import org.apache.jena.vocabulary.RDFS;
 import org.apache.jena.vocabulary.VOID;
-import uff.ic.swlab.SWLabHost;
+import uff.ic.swlab.commons.util.SWLabHost;
 import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.vocabulary.EREL;
 
 public class EntityRelatednessTestData_v3 extends DatasetDescription {

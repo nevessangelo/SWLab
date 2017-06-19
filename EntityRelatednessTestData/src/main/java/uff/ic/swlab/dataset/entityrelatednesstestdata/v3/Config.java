@@ -4,7 +4,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
-import uff.ic.swlab.SWLabHost;
+import uff.ic.swlab.commons.util.SWLabHost;
 
 public class Config {
 

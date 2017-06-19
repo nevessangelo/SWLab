@@ -1,4 +1,4 @@
-package uff.ic.swlab.dataset;
+package uff.ic.swlab.w3cvoid;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -19,7 +19,7 @@ import org.apache.jena.vocabulary.DCTerms;
 import org.apache.jena.vocabulary.VOID;
 import org.apache.log4j.PropertyConfigurator;
 import org.semarglproject.vocab.OWL;
-import uff.ic.swlab.SWLabHost;
+import uff.ic.swlab.commons.util.SWLabHost;
 import uff.ic.swlab.commons.util.FTPHost;
 
 public class VoIDDescription {

@@ -1,6 +1,6 @@
 package uff.ic.swlab.dataset.entityrelatednesstestdata.v3.vocabulary;
 
-import uff.ic.swlab.SWLabHost;
+import uff.ic.swlab.commons.util.SWLabHost;
 
 public class ERTD {
 

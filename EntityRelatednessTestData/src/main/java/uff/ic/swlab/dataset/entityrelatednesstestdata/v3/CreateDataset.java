@@ -27,7 +27,7 @@ import org.apache.jena.vocabulary.RDFS;
 import org.apache.jena.vocabulary.XSD;
 import org.apache.log4j.PropertyConfigurator;
 import org.openrdf.model.vocabulary.XMLSchema;
-import uff.ic.swlab.SWLabHost;
+import uff.ic.swlab.commons.util.SWLabHost;
 import uff.ic.swlab.commons.util.FTPHost;
 import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.model.DB;
 import uff.ic.swlab.dataset.entityrelatednesstestdata.v3.util.MovieClassMapping;

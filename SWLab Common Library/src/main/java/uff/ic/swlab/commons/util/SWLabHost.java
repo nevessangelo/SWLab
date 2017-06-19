@@ -1,4 +1,4 @@
-package uff.ic.swlab;
+package uff.ic.swlab.commons.util;
 
 public class SWLabHost {
 
