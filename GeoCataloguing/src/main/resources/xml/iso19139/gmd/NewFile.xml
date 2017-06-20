@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gmd:MD_Metadata xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:p="http://www.isotc211.org/2005/gco" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.isotc211.org/2005/gmd metadataEntity.xsd http://www.isotc211.org/2005/gco ../gco/gco.xsd ">
+  <gmd:contact>gmd:contact</gmd:contact>
+  <gmd:dateStamp>gmd:dateStamp</gmd:dateStamp>
+  <gmd:spatialRepresentationInfo>
+  	<gmd:MD_Georectified>
+  		<gmd:numberOfDimensions></gmd:numberOfDimensions>
+  		<gmd:cellGeometry></gmd:cellGeometry>
+  		<gmd:transformationParameterAvailability></gmd:transformationParameterAvailability>
+  		<gmd:checkPointAvailability></gmd:checkPointAvailability>
+  		<gmd:cornerPoints>
+  			<Point id="idvalue0">
+  				<coordinates>coordinates</coordinates>
+  				
+  			</Point>
+  		</gmd:cornerPoints>
+  		<gmd:cornerPoints>
+  			<Point id="idvalue0">
+  				<coordinates>coordinates</coordinates>
+  				
+  			</Point>
+  		</gmd:cornerPoints>
+  		<gmd:pointInPixel></gmd:pointInPixel>
+  	</gmd:MD_Georectified>
+  </gmd:spatialRepresentationInfo>
+  <gmd:identificationInfo>
+  	gmd:identificationInfo
+  </gmd:identificationInfo>
+</gmd:MD_Metadata>

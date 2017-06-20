@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gmd:DS_OtherAggregate xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:p="http://www.isotc211.org/2005/gco" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.isotc211.org/2005/gmd metadataApplication.xsd http://www.isotc211.org/2005/gco ../gco/gco.xsd ">
+  <gmd:composedOf>
+  	<gmd:DS_DataSet>
+  		<gmd:has>
+  			<gmd:MD_Metadata>
+  				<gmd:fileIdentifier></gmd:fileIdentifier>
+  				<gmd:contact></gmd:contact>
+  				<gmd:dateStamp></gmd:dateStamp>
+  				<gmd:identificationInfo>
+  					<gmd:MD_DataIdentification>
+  						<gmd:citation></gmd:citation>
+  						<gmd:abstract></gmd:abstract>
+  						<gmd:language></gmd:language>
+  					</gmd:MD_DataIdentification>
+  				</gmd:identificationInfo>
+  			</gmd:MD_Metadata>
+  		</gmd:has>
+  	</gmd:DS_DataSet>
+  </gmd:composedOf>
+  <gmd:seriesMetadata>gmd:seriesMetadata</gmd:seriesMetadata>
+  <gmd:subset>
+  	<gmd:DS_OtherAggregate>
+  		<gmd:composedOf></gmd:composedOf>
+  		<gmd:composedOf></gmd:composedOf>
+  		<gmd:seriesMetadata></gmd:seriesMetadata>
+  	</gmd:DS_OtherAggregate>
+  </gmd:subset>
+</gmd:DS_OtherAggregate>
