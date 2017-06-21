@@ -36,7 +36,11 @@ public class Main3 {
         Connection conn = ConnectionMySql.Conectar();
         datasets = InsertFeaturesBD.GetDatasets(conn);
         for (String nome_dataset: datasets){
-            pool.submit(new GetTypes(nome_dataset, conn));
+            int verifica_type = InsertFeaturesBD.VerificaType(nome_dataset, conn);
+            if(verifica_type == 0){
+                pool.submit(new GetTypes(nome_dataset, conn));
+            }
+            
             
         }
         pool.shutdown();

@@ -6,6 +6,8 @@
 package br.com.edu.Main;
 
 import br.com.edu.Connection.ConnectionMySql;
+import br.com.edu.Connection.ConnectionMySql2;
+import br.com.edu.Connection.InsertFeaturesBD;
 import br.com.edu.tasks.CountTriples;
 import java.io.File;
 import java.io.IOException;
@@ -29,12 +31,16 @@ public class MainCountTriples {
         File files_dump[];
         File files_directory[];
         files = file.listFiles();
-        Connection conn = ConnectionMySql.Conectar();
+        Connection conn = ConnectionMySql2.Conectar();
         for (int i = 0; i < files.length; i++) {
             String[] getNameDataset = files[i].toString().split("/");
             int size = getNameDataset.length - 1;
             String name_dataset = getNameDataset[size];
-            pool.submit(new CountTriples(files[i].toString(), name_dataset, conn));
+            Double verifica_count = InsertFeaturesBD.VerificaCount(name_dataset, conn);
+            if(verifica_count == 0){
+                pool.submit(new CountTriples(files[i].toString(), name_dataset, conn));
+            }
+            
             
         }
         pool.shutdown();

@@ -5,9 +5,11 @@
  */
 package br.com.edu.tasks;
 
+import br.com.edu.Connection.InsertFeaturesBD;
 import static br.com.edu.tasks.ReadRDF.Read;
 import java.io.File;
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
@@ -142,7 +144,14 @@ public class CountTriples implements Runnable {
 
             }
         }
-        System.out.println(total);
+        try {
+            InsertFeaturesBD.UpdateTriples(name_dataset, total, conn);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(CountTriples.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(CountTriples.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
 }
