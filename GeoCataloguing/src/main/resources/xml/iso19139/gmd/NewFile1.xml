@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gmd:DS_DataSet xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:p="http://www.isotc211.org/2005/gco" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.isotc211.org/2005/gmd metadataApplication.xsd http://www.isotc211.org/2005/gco ../gco/gco.xsd ">
+  <gmd:has>
+  	<gmd:MD_Metadata>
+  		<gmd:fileIdentifier></gmd:fileIdentifier>
+  		<gmd:contact></gmd:contact>
+  		<gmd:dateStamp></gmd:dateStamp>
+  		<gmd:identificationInfo></gmd:identificationInfo>
+  	</gmd:MD_Metadata>
+  </gmd:has>
+  <gmd:has>
+  	<gmd:MD_Metadata>
+  		<gmd:fileIdentifier></gmd:fileIdentifier>
+  		<gmd:contact></gmd:contact>
+  		<gmd:dateStamp></gmd:dateStamp>
+  		<gmd:identificationInfo></gmd:identificationInfo>
+  	</gmd:MD_Metadata>
+  </gmd:has>
+</gmd:DS_DataSet>

@@ -1,0 +1,2386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:adl="http://www.esri.com/metadata/catalog/adl/#" xmlns:voc="http://www.esri.com/metadata/catalog/voc/#" xml:base="http://www.esri.com/metadata/catalog/adl/">
+
+	<!-- ADL -->
+	<rdfs:Class rdf:ID="PT">
+		<rdfs:label>ADL Preferred Term</rdfs:label>
+	</rdfs:Class>
+	
+	<rdf:Property rdf:about="http://www.esri.com/metadata/catalog/voc/#RT">
+		<rdfs:label>Related Term</rdfs:label>
+	</rdf:Property>
+
+	<rdf:Property rdf:about="http://www.esri.com/metadata/catalog/voc/#BT">
+		<rdfs:label>Broader Term</rdfs:label>
+	</rdf:Property>
+
+	<rdf:Property rdf:about="http://www.esri.com/metadata/catalog/voc/#NT">
+		<rdfs:label>Narrower Term</rdfs:label>
+	</rdf:Property>
+
+	<rdf:Property rdf:about="http://www.esri.com/metadata/catalog/voc/#NT">
+		<rdfs:label>Narrower Term</rdfs:label>
+	</rdf:Property>
+
+	<rdf:Property rdf:about="http://www.esri.com/metadata/catalog/voc/#UF">
+		<rdfs:label>Use For</rdfs:label>
+	</rdf:Property>
+
+	<rdf:Property rdf:about="http://www.esri.com/metadata/catalog/voc/#SN">
+		<rdfs:label>Scope Note</rdfs:label>
+	</rdf:Property>
+	
+
+   <adl:PT rdf:about="#d0e8">
+      <rdfs:label>abyssal features</rdfs:label>
+      <voc:UF>abyssal hills</voc:UF>
+      <voc:UF>abyssal plains</voc:UF>
+      <voc:BT rdf:resource="#d0e422"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e26">
+      <rdfs:label>educational facilities</rdfs:label>
+      <voc:UF>academies</voc:UF>
+      <voc:UF>agricultural schools</voc:UF>
+      <voc:UF>campuses</voc:UF>
+      <voc:UF>colleges</voc:UF>
+      <voc:UF>military schools</voc:UF>
+      <voc:UF>schools</voc:UF>
+      <voc:UF>seminaries</voc:UF>
+      <voc:UF>training centers</voc:UF>
+      <voc:UF>universities</voc:UF>
+      <voc:RT rdf:resource="#d0e368"/>
+      <voc:RT rdf:resource="#d0e35"/>
+      <voc:BT rdf:resource="#d0e4139"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e35">
+      <rdfs:label>research facilities</rdfs:label>
+      <voc:UF>accelerators</voc:UF>
+      <voc:UF>archaeological centers</voc:UF>
+      <voc:UF>atomic centers</voc:UF>
+      <voc:UF>experiment stations</voc:UF>
+      <voc:UF>laboratories</voc:UF>
+      <voc:UF>observatories</voc:UF>
+      <voc:UF>observatorios</voc:UF>
+      <voc:UF>proving grounds</voc:UF>
+      <voc:UF>radio observatories</voc:UF>
+      <voc:UF>reflectors</voc:UF>
+      <voc:UF>research institutes</voc:UF>
+      <voc:UF>scientific research bases</voc:UF>
+      <voc:UF>space centers</voc:UF>
+      <voc:UF>telescopes</voc:UF>
+      <voc:UF>weather stations</voc:UF>
+      <voc:RT rdf:resource="#d0e242"/>
+      <voc:RT rdf:resource="#d0e26"/>
+      <voc:RT rdf:resource="#d0e4139"/>
+      <voc:RT rdf:resource="#d0e2654"/>
+      <voc:BT rdf:resource="#d0e80"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e44">
+      <rdfs:label>recreational facilities</rdfs:label>
+      <voc:UF>access areas</voc:UF>
+      <voc:UF>access sites</voc:UF>
+      <voc:UF>boardwalks</voc:UF>
+      <voc:UF>casinos</voc:UF>
+      <voc:UF>clubs (recreational)</voc:UF>
+      <voc:UF>country clubs</voc:UF>
+      <voc:UF>fairgrounds</voc:UF>
+      <voc:UF>fishing areas</voc:UF>
+      <voc:UF>fishing lodges</voc:UF>
+      <voc:UF>fitness centers</voc:UF>
+      <voc:UF>gun clubs</voc:UF>
+      <voc:UF>hunt posts</voc:UF>
+      <voc:UF>hunting lodges</voc:UF>
+      <voc:UF>ice skating rinks</voc:UF>
+      <voc:UF>playgrounds</voc:UF>
+      <voc:UF>recreation sites</voc:UF>
+      <voc:UF>resorts</voc:UF>
+      <voc:UF>riding stables</voc:UF>
+      <voc:UF>spas</voc:UF>
+      <voc:UF>sportsman lodges</voc:UF>
+      <voc:UF>stables</voc:UF>
+      <voc:UF>yacht clubs</voc:UF>
+      <voc:UF>youth centers</voc:UF>
+      <voc:UF>youth facilities</voc:UF>
+      <voc:RT rdf:resource="#d0e341"/>
+      <voc:BT rdf:resource="#d0e13202"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e62">
+      <rdfs:label>mine sites</rdfs:label>
+      <voc:UF>adits  (mine sites)</voc:UF>
+      <voc:UF>chrome mines</voc:UF>
+      <voc:UF>coal mines</voc:UF>
+      <voc:UF>collieries</voc:UF>
+      <voc:UF>copper mines</voc:UF>
+      <voc:UF>diatomite mines</voc:UF>
+      <voc:UF>gold mines</voc:UF>
+      <voc:UF>gravel pits</voc:UF>
+      <voc:UF>iron mines</voc:UF>
+      <voc:UF>lead mines</voc:UF>
+      <voc:UF>mine entrances</voc:UF>
+      <voc:UF>mine shafts</voc:UF>
+      <voc:UF>mines</voc:UF>
+      <voc:UF>mining areas</voc:UF>
+      <voc:UF>mining camps</voc:UF>
+      <voc:UF>nickel mines</voc:UF>
+      <voc:UF>open pit mines</voc:UF>
+      <voc:UF>placer mines</voc:UF>
+      <voc:UF>quarries</voc:UF>
+      <voc:UF>salt mines</voc:UF>
+      <voc:UF>strip mines</voc:UF>
+      <voc:UF>tin mines</voc:UF>
+      <voc:RT rdf:resource="#d0e2501"/>
+      <voc:RT rdf:resource="#d0e1547"/>
+      <voc:RT rdf:resource="#d0e5750"/>
+      <voc:BT rdf:resource="#d0e13202"/>
+      <voc:SN>An excavation in the Earth for the purpose of extracting Earth materials. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e71">
+      <rdfs:label>administrative areas</rdfs:label>
+      <voc:UF>administrative divisions</voc:UF>
+      <voc:UF>buffer zones</voc:UF>
+      <voc:UF>civil areas</voc:UF>
+      <voc:UF>concession areas</voc:UF>
+      <voc:UF>demilitarized zones</voc:UF>
+      <voc:UF>districts</voc:UF>
+      <voc:UF>free trade zones</voc:UF>
+      <voc:UF>leased areas (government)</voc:UF>
+      <voc:UF>leased zones (government)</voc:UF>
+      <voc:UF>prefectures</voc:UF>
+      <voc:UF>protectorates</voc:UF>
+      <voc:UF>sheikdoms</voc:UF>
+      <voc:UF>sultanates</voc:UF>
+      <voc:UF>trade zones</voc:UF>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e80">
+      <rdfs:label>buildings</rdfs:label>
+      <voc:UF>adminstrative facilities</voc:UF>
+      <voc:UF>animal pounds</voc:UF>
+      <voc:UF>animal shelters</voc:UF>
+      <voc:UF>aquariums</voc:UF>
+      <voc:UF>barns</voc:UF>
+      <voc:UF>border posts</voc:UF>
+      <voc:UF>cabins</voc:UF>
+      <voc:UF>castles</voc:UF>
+      <voc:UF>city halls</voc:UF>
+      <voc:UF>civic centers</voc:UF>
+      <voc:UF>club houses</voc:UF>
+      <voc:UF>coast guard stations</voc:UF>
+      <voc:UF>commissaries</voc:UF>
+      <voc:UF>community centers</voc:UF>
+      <voc:UF>community houses</voc:UF>
+      <voc:UF>conference facilities</voc:UF>
+      <voc:UF>consulates</voc:UF>
+      <voc:UF>convention centers</voc:UF>
+      <voc:UF>customs houses</voc:UF>
+      <voc:UF>customs posts</voc:UF>
+      <voc:UF>depots</voc:UF>
+      <voc:UF>embassy buildings</voc:UF>
+      <voc:UF>exhibition buildings</voc:UF>
+      <voc:UF>facilities</voc:UF>
+      <voc:UF>facility centers</voc:UF>
+      <voc:UF>fire stations</voc:UF>
+      <voc:UF>firehouses</voc:UF>
+      <voc:UF>forest stations</voc:UF>
+      <voc:UF>government  buildings</voc:UF>
+      <voc:UF>guard stations</voc:UF>
+      <voc:UF>halls</voc:UF>
+      <voc:UF>headquarters</voc:UF>
+      <voc:UF>hostels</voc:UF>
+      <voc:UF>hotels</voc:UF>
+      <voc:UF>houses</voc:UF>
+      <voc:UF>inns</voc:UF>
+      <voc:UF>inspection stations</voc:UF>
+      <voc:UF>legation buildings</voc:UF>
+      <voc:UF>lodges</voc:UF>
+      <voc:UF>missions</voc:UF>
+      <voc:UF>motels</voc:UF>
+      <voc:UF>neighborhood centers</voc:UF>
+      <voc:UF>offices</voc:UF>
+      <voc:UF>park headquarters</voc:UF>
+      <voc:UF>patrol posts</voc:UF>
+      <voc:UF>pavilions</voc:UF>
+      <voc:UF>planetariums</voc:UF>
+      <voc:UF>plazas</voc:UF>
+      <voc:UF>police posts</voc:UF>
+      <voc:UF>public buildings</voc:UF>
+      <voc:UF>ranger stations</voc:UF>
+      <voc:UF>restaurants</voc:UF>
+      <voc:UF>shelters</voc:UF>
+      <voc:UF>shops</voc:UF>
+      <voc:UF>stations</voc:UF>
+      <voc:UF>structures</voc:UF>
+      <voc:UF>student unions</voc:UF>
+      <voc:UF>studios</voc:UF>
+      <voc:UF>substations</voc:UF>
+      <voc:UF>taverns</voc:UF>
+      <voc:UF>town halls</voc:UF>
+      <voc:UF>trading posts</voc:UF>
+      <voc:UF>treatment plants</voc:UF>
+      <voc:UF>United States Government establishments</voc:UF>
+      <voc:UF>visitor centers</voc:UF>
+      <voc:UF>walls</voc:UF>
+      <voc:UF>warehouses</voc:UF>
+      <voc:RT rdf:resource="#d0e143"/>
+      <voc:RT rdf:resource="#d0e1448"/>
+      <voc:BT rdf:resource="#d0e13202"/>
+      <voc:SN>A permanent construction that is roofed and usually walled. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e89">
+      <rdfs:label>populated places</rdfs:label>
+      <voc:UF>agricultural colonies</voc:UF>
+      <voc:UF>communes</voc:UF>
+      <voc:UF>communities</voc:UF>
+      <voc:UF>hamlets</voc:UF>
+      <voc:UF>homesteads</voc:UF>
+      <voc:UF>locales</voc:UF>
+      <voc:UF>localities</voc:UF>
+      <voc:UF>metropolitan areas</voc:UF>
+      <voc:UF>populated localities</voc:UF>
+      <voc:UF>ppl</voc:UF>
+      <voc:UF>pueblos</voc:UF>
+      <voc:UF>religious populated places</voc:UF>
+      <voc:UF>settlements</voc:UF>
+      <voc:UF>suburbs</voc:UF>
+      <voc:UF>villages</voc:UF>
+      <voc:RT rdf:resource="#d0e5291"/>
+      <voc:BT rdf:resource="#d0e71"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e98">
+      <rdfs:label>agricultural sites</rdfs:label>
+      <voc:UF>agricultural facilities</voc:UF>
+      <voc:UF>agricultural reserves</voc:UF>
+      <voc:UF>bailing stations</voc:UF>
+      <voc:UF>banana plantations</voc:UF>
+      <voc:UF>barns</voc:UF>
+      <voc:UF>cattle dipping tanks</voc:UF>
+      <voc:UF>corrals</voc:UF>
+      <voc:UF>cotton plantations</voc:UF>
+      <voc:UF>croplands</voc:UF>
+      <voc:UF>cultivated areas</voc:UF>
+      <voc:UF>cultivated croplands</voc:UF>
+      <voc:UF>dairies</voc:UF>
+      <voc:UF>farms</voc:UF>
+      <voc:UF>farmsteads</voc:UF>
+      <voc:UF>feedlots</voc:UF>
+      <voc:UF>fields</voc:UF>
+      <voc:UF>granges</voc:UF>
+      <voc:UF>irrigated fields</voc:UF>
+      <voc:UF>nurseries</voc:UF>
+      <voc:UF>oil palm plantations</voc:UF>
+      <voc:UF>orchards</voc:UF>
+      <voc:UF>pastures</voc:UF>
+      <voc:UF>plantations</voc:UF>
+      <voc:UF>ranches</voc:UF>
+      <voc:UF>rice fields</voc:UF>
+      <voc:UF>rubber plantations</voc:UF>
+      <voc:UF>sheepfolds</voc:UF>
+      <voc:UF>sisal plantations</voc:UF>
+      <voc:UF>stockyards</voc:UF>
+      <voc:UF>sugar plantations</voc:UF>
+      <voc:UF>tea plantations</voc:UF>
+      <voc:UF>vineyards</voc:UF>
+      <voc:BT rdf:resource="#d0e13202"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e116">
+      <rdfs:label>reserves</rdfs:label>
+      <voc:UF>agricultural reserves</voc:UF>
+      <voc:UF>conservation areas</voc:UF>
+      <voc:UF>demonstration areas</voc:UF>
+      <voc:UF>environmental areas</voc:UF>
+      <voc:UF>forest reserves</voc:UF>
+      <voc:UF>game management areas</voc:UF>
+      <voc:UF>hunting reserves</voc:UF>
+      <voc:UF>management areas (reserves)</voc:UF>
+      <voc:UF>natural areas</voc:UF>
+      <voc:UF>nature reserves</voc:UF>
+      <voc:UF>palm tree reserves</voc:UF>
+      <voc:UF>preserves</voc:UF>
+      <voc:UF>primitive areas</voc:UF>
+      <voc:UF>protected areas</voc:UF>
+      <voc:UF>reservations (nature sites)</voc:UF>
+      <voc:UF>roadless areas</voc:UF>
+      <voc:UF>sanctuaries (wildlife)</voc:UF>
+      <voc:UF>wildlife areas</voc:UF>
+      <voc:UF>wildlife refuges</voc:UF>
+      <voc:UF>wildlife reserves</voc:UF>
+      <voc:RT rdf:resource="#d0e746"/>
+      <voc:RT rdf:resource="#d0e341"/>
+      <voc:RT rdf:resource="#d0e1673"/>
+      <voc:BT rdf:resource="#d0e71"/>
+      <voc:SN>A tract of land set aside for a specific use.</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e134">
+      <rdfs:label>mountain summits</rdfs:label>
+      <voc:UF>ahus</voc:UF>
+      <voc:UF>mountain crests</voc:UF>
+      <voc:UF>nunataks</voc:UF>
+      <voc:UF>peaks</voc:UF>
+      <voc:UF>summits</voc:UF>
+      <voc:RT rdf:resource="#d0e404"/>
+      <voc:BT rdf:resource="#d0e1358"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e143">
+      <rdfs:label>military areas</rdfs:label>
+      <voc:UF>air force bases</voc:UF>
+      <voc:UF>army facilities</voc:UF>
+      <voc:UF>arsenals</voc:UF>
+      <voc:UF>artillery ranges</voc:UF>
+      <voc:UF>barracks</voc:UF>
+      <voc:UF>bases (military)</voc:UF>
+      <voc:UF>camps (military)</voc:UF>
+      <voc:UF>forts</voc:UF>
+      <voc:UF>infantry camps</voc:UF>
+      <voc:UF>maneuver areas</voc:UF>
+      <voc:UF>military bases</voc:UF>
+      <voc:UF>military installations</voc:UF>
+      <voc:UF>national guard facilities</voc:UF>
+      <voc:UF>naval bases</voc:UF>
+      <voc:RT rdf:resource="#d0e80"/>
+      <voc:RT rdf:resource="#d0e1133"/>
+      <voc:RT rdf:resource="#d0e1268"/>
+      <voc:BT rdf:resource="#d0e71"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e152">
+      <rdfs:label>transportation features</rdfs:label>
+      <voc:UF>air routes</voc:UF>
+      <voc:UF>caravan routes</voc:UF>
+      <voc:UF>corridors</voc:UF>
+      <voc:UF>crossings</voc:UF>
+      <voc:UF>depots</voc:UF>
+      <voc:UF>ferries</voc:UF>
+      <voc:UF>fords (crossings)</voc:UF>
+      <voc:UF>fuel depots</voc:UF>
+      <voc:UF>gates (manmade)</voc:UF>
+      <voc:UF>halting places (transportation)</voc:UF>
+      <voc:UF>highway maintenance sites</voc:UF>
+      <voc:UF>portages</voc:UF>
+      <voc:UF>resthouses</voc:UF>
+      <voc:UF>routes</voc:UF>
+      <voc:UF>ship tracks</voc:UF>
+      <voc:UF>stock routes</voc:UF>
+      <voc:UF>terminals (transportation)</voc:UF>
+      <voc:UF>transit facilities</voc:UF>
+      <voc:RT rdf:resource="#d0e1169"/>
+      <voc:RT rdf:resource="#d0e233"/>
+      <voc:RT rdf:resource="#d0e863"/>
+      <voc:BT rdf:resource="#d0e13202"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e161">
+      <rdfs:label>airport features</rdfs:label>
+      <voc:UF>airbases</voc:UF>
+      <voc:UF>airfields</voc:UF>
+      <voc:UF>airports</voc:UF>
+      <voc:UF>airstrips</voc:UF>
+      <voc:UF>landing fields</voc:UF>
+      <voc:UF>landing strips</voc:UF>
+      <voc:UF>runways</voc:UF>
+      <voc:BT rdf:resource="#d0e152"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e197">
+      <rdfs:label>seaplane bases</rdfs:label>
+      <voc:UF>amphibious bases</voc:UF>
+      <voc:UF>seaplane landing areas</voc:UF>
+      <voc:RT rdf:resource="#d0e863"/>
+      <voc:BT rdf:resource="#d0e161"/>
+      <voc:SN>An installation supporting aircraft capable of taking off and landing on water. [FACC]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e206">
+      <rdfs:label>performance sites</rdfs:label>
+      <voc:UF>amphitheaters</voc:UF>
+      <voc:UF>amphitheatres</voc:UF>
+      <voc:UF>auditoriums</voc:UF>
+      <voc:UF>bowls (performance)</voc:UF>
+      <voc:UF>coliseums</voc:UF>
+      <voc:UF>concert halls</voc:UF>
+      <voc:UF>opera houses</voc:UF>
+      <voc:UF>playhouses</voc:UF>
+      <voc:UF>recital halls</voc:UF>
+      <voc:UF>stages  (performance)</voc:UF>
+      <voc:UF>symphony halls</voc:UF>
+      <voc:UF>theaters</voc:UF>
+      <voc:UF>theatres</voc:UF>
+      <voc:RT rdf:resource="#d0e332"/>
+      <voc:BT rdf:resource="#d0e44"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e224">
+      <rdfs:label>streams</rdfs:label>
+      <voc:UF>anabranches</voc:UF>
+      <voc:UF>brooks</voc:UF>
+      <voc:UF>burns (hydrographic)</voc:UF>
+      <voc:UF>confluences</voc:UF>
+      <voc:UF>creeks</voc:UF>
+      <voc:UF>distributaries</voc:UF>
+      <voc:UF>dry stream beds</voc:UF>
+      <voc:UF>forks (physiographic features)</voc:UF>
+      <voc:UF>intermittent streams</voc:UF>
+      <voc:UF>lost rivers</voc:UF>
+      <voc:UF>meanders</voc:UF>
+      <voc:UF>stream bends</voc:UF>
+      <voc:UF>stream mouths</voc:UF>
+      <voc:UF>tidal creeks</voc:UF>
+      <voc:UF>tributaries</voc:UF>
+      <voc:UF>watercourses</voc:UF>
+      <voc:RT rdf:resource="#d0e1286"/>
+      <voc:RT rdf:resource="#d0e10097"/>
+      <voc:RT rdf:resource="#d0e539"/>
+      <voc:BT rdf:resource="#d0e917"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e233">
+      <rdfs:label>harbors</rdfs:label>
+      <voc:UF>anchorages</voc:UF>
+      <voc:UF>anclajes</voc:UF>
+      <voc:UF>boat yards</voc:UF>
+      <voc:UF>boatyards</voc:UF>
+      <voc:UF>dock yards</voc:UF>
+      <voc:UF>docking basins</voc:UF>
+      <voc:UF>dockyards</voc:UF>
+      <voc:UF>dry docks</voc:UF>
+      <voc:UF>harbours</voc:UF>
+      <voc:UF>marine terminals</voc:UF>
+      <voc:UF>moorings</voc:UF>
+      <voc:UF>ports</voc:UF>
+      <voc:UF>roadsteads (anchorages)</voc:UF>
+      <voc:UF>turning basins</voc:UF>
+      <voc:RT rdf:resource="#d0e5201"/>
+      <voc:RT rdf:resource="#d0e2375"/>
+      <voc:RT rdf:resource="#d0e152"/>
+      <voc:BT rdf:resource="#d0e863"/>
+      <voc:SN>A sheltered area of water where ships or other watercraft can anchor or dock.</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e242">
+      <rdfs:label>archaeological sites</rdfs:label>
+      <voc:UF>ancient sites</voc:UF>
+      <voc:UF>archeological sites</voc:UF>
+      <voc:UF>burial caves</voc:UF>
+      <voc:UF>cliff dwellings</voc:UF>
+      <voc:UF>petroglyphs</voc:UF>
+      <voc:UF>pyramids</voc:UF>
+      <voc:RT rdf:resource="#d0e4976"/>
+      <voc:RT rdf:resource="#d0e9575"/>
+      <voc:RT rdf:resource="#d0e35"/>
+      <voc:BT rdf:resource="#d0e692"/>
+      <voc:SN>For ancient structures still largely intact and remains of ancient structures; also includes active excavations. [Lib of Congress, Thesaurus of Graphic Materials I ]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e278">
+      <rdfs:label>telecommunication features</rdfs:label>
+      <voc:UF>antenna field sites</voc:UF>
+      <voc:UF>communication centers</voc:UF>
+      <voc:UF>radio stations</voc:UF>
+      <voc:UF>television stations</voc:UF>
+      <voc:UF>transmission lines</voc:UF>
+      <voc:RT rdf:resource="#d0e1232"/>
+      <voc:BT rdf:resource="#d0e13202"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e287">
+      <rdfs:label>residential sites</rdfs:label>
+      <voc:UF>apartment blocks</voc:UF>
+      <voc:UF>apartment houses</voc:UF>
+      <voc:UF>barracks</voc:UF>
+      <voc:UF>childrens homes</voc:UF>
+      <voc:UF>condominiums</voc:UF>
+      <voc:UF>dormitories</voc:UF>
+      <voc:UF>homes</voc:UF>
+      <voc:UF>leper colonies</voc:UF>
+      <voc:UF>mansions</voc:UF>
+      <voc:UF>mobile home sites</voc:UF>
+      <voc:UF>monasteries</voc:UF>
+      <voc:UF>novitiates</voc:UF>
+      <voc:UF>nursing homes</voc:UF>
+      <voc:UF>orphanages</voc:UF>
+      <voc:UF>palaces</voc:UF>
+      <voc:UF>parsonages</voc:UF>
+      <voc:UF>rectories</voc:UF>
+      <voc:UF>rowhouses</voc:UF>
+      <voc:UF>trailer parks (residential)</voc:UF>
+      <voc:UF>villas</voc:UF>
+      <voc:RT rdf:resource="#d0e485"/>
+      <voc:BT rdf:resource="#d0e80"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e305">
+      <rdfs:label>physiographic features</rdfs:label>
+      <voc:UF>aprons (geological)</voc:UF>
+      <voc:UF>blowholes</voc:UF>
+      <voc:UF>blowouts</voc:UF>
+      <voc:UF>boulder fields</voc:UF>
+      <voc:UF>cones (geological)</voc:UF>
+      <voc:UF>crevasses</voc:UF>
+      <voc:UF>fissures</voc:UF>
+      <voc:UF>furrows</voc:UF>
+      <voc:UF>geological features</voc:UF>
+      <voc:UF>grades (physiographic)</voc:UF>
+      <voc:UF>hammocks</voc:UF>
+      <voc:UF>inclines</voc:UF>
+      <voc:UF>landslides</voc:UF>
+      <voc:UF>meander necks</voc:UF>
+      <voc:UF>pitches (physiographic)</voc:UF>
+      <voc:UF>polders</voc:UF>
+      <voc:UF>potholes</voc:UF>
+      <voc:UF>rockfalls</voc:UF>
+      <voc:UF>sinkholes</voc:UF>
+      <voc:UF>sinks</voc:UF>
+      <voc:UF>siphon (physiographic)</voc:UF>
+      <voc:UF>slides (natural)</voc:UF>
+      <voc:UF>slopes</voc:UF>
+      <voc:UF>talus slopes</voc:UF>
+      <voc:UF>terraces (physiographic)</voc:UF>
+      <voc:UF>uplands</voc:UF>
+      <voc:RT rdf:resource="#d0e800"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e314">
+      <rdfs:label>fisheries</rdfs:label>
+      <voc:UF>aquacultural sites</voc:UF>
+      <voc:UF>fish farms</voc:UF>
+      <voc:UF>fish hatcheries</voc:UF>
+      <voc:UF>hatcheries</voc:UF>
+      <voc:UF>trout farms</voc:UF>
+      <voc:BT rdf:resource="#d0e13202"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e332">
+      <rdfs:label>sports facilities</rdfs:label>
+      <voc:UF>aquatic centers</voc:UF>
+      <voc:UF>arenas</voc:UF>
+      <voc:UF>athletic complexes</voc:UF>
+      <voc:UF>athletic fields</voc:UF>
+      <voc:UF>ball parks</voc:UF>
+      <voc:UF>baseball fields</voc:UF>
+      <voc:UF>dragways</voc:UF>
+      <voc:UF>equestrian centers</voc:UF>
+      <voc:UF>fields</voc:UF>
+      <voc:UF>football fields</voc:UF>
+      <voc:UF>golf clubs</voc:UF>
+      <voc:UF>golf courses</voc:UF>
+      <voc:UF>gymnasiums</voc:UF>
+      <voc:UF>natatoriums</voc:UF>
+      <voc:UF>physical education facilities</voc:UF>
+      <voc:UF>polo fields</voc:UF>
+      <voc:UF>pools, swimming</voc:UF>
+      <voc:UF>race tracks</voc:UF>
+      <voc:UF>racecourses</voc:UF>
+      <voc:UF>racetracks</voc:UF>
+      <voc:UF>raceways</voc:UF>
+      <voc:UF>rifle ranges</voc:UF>
+      <voc:UF>rodeo grounds</voc:UF>
+      <voc:UF>shooting ranges</voc:UF>
+      <voc:UF>skeet shooting ranges</voc:UF>
+      <voc:UF>ski areas</voc:UF>
+      <voc:UF>ski facilities</voc:UF>
+      <voc:UF>ski trails</voc:UF>
+      <voc:UF>speedways</voc:UF>
+      <voc:UF>stadiums</voc:UF>
+      <voc:UF>swim clubs</voc:UF>
+      <voc:UF>swimming pools</voc:UF>
+      <voc:UF>tennis clubs</voc:UF>
+      <voc:UF>tennis courts</voc:UF>
+      <voc:RT rdf:resource="#d0e206"/>
+      <voc:BT rdf:resource="#d0e44"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e341">
+      <rdfs:label>parks</rdfs:label>
+      <voc:UF>arboretums</voc:UF>
+      <voc:UF>botanical gardens</voc:UF>
+      <voc:UF>commemorative areas</voc:UF>
+      <voc:UF>commons</voc:UF>
+      <voc:UF>gardens</voc:UF>
+      <voc:UF>lookout (vista)</voc:UF>
+      <voc:UF>marine parks</voc:UF>
+      <voc:UF>national forests</voc:UF>
+      <voc:UF>national parks</voc:UF>
+      <voc:UF>national seashores</voc:UF>
+      <voc:UF>observation points</voc:UF>
+      <voc:UF>park gates</voc:UF>
+      <voc:UF>picnic areas</voc:UF>
+      <voc:UF>playgrounds</voc:UF>
+      <voc:UF>provincial parks</voc:UF>
+      <voc:UF>public use areas</voc:UF>
+      <voc:UF>recreation areas</voc:UF>
+      <voc:UF>rest areas</voc:UF>
+      <voc:UF>scenic areas</voc:UF>
+      <voc:UF>state forests</voc:UF>
+      <voc:UF>state parks</voc:UF>
+      <voc:UF>urban parks</voc:UF>
+      <voc:UF>village squares</voc:UF>
+      <voc:UF>wilderness areas</voc:UF>
+      <voc:UF>zoological gardens</voc:UF>
+      <voc:UF>zoos</voc:UF>
+      <voc:RT rdf:resource="#d0e692"/>
+      <voc:RT rdf:resource="#d0e4976"/>
+      <voc:RT rdf:resource="#d0e44"/>
+      <voc:RT rdf:resource="#d0e116"/>
+      <voc:RT rdf:resource="#d0e6497"/>
+      <voc:BT rdf:resource="#d0e71"/>
+      <voc:SN>Place or area set aside for recreation or preservation of a cultural or natural resource and under some form of government administration.</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e368">
+      <rdfs:label>library buildings</rdfs:label>
+      <voc:UF>archive buildings</voc:UF>
+      <voc:UF>archives</voc:UF>
+      <voc:UF>libraries</voc:UF>
+      <voc:RT rdf:resource="#d0e26"/>
+      <voc:BT rdf:resource="#d0e80"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e386">
+      <rdfs:label>tundras</rdfs:label>
+      <voc:UF>Arctic land</voc:UF>
+      <voc:BT rdf:resource="#d0e800"/>
+      <voc:SN>A treeless, level, or gently rolling plain characteristic of arctic or subarctic regions, having a permanently frozen subsoil, and usually supporting low growing vegetation such as lichens, mosses, and stunted shrubs. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e404">
+      <rdfs:label>ridges</rdfs:label>
+      <voc:UF>aretes</voc:UF>
+      <voc:UF>beach ridges</voc:UF>
+      <voc:UF>cuestas</voc:UF>
+      <voc:UF>eskers</voc:UF>
+      <voc:UF>hogbacks</voc:UF>
+      <voc:UF>icecap ridges</voc:UF>
+      <voc:UF>rises (seafloor)</voc:UF>
+      <voc:UF>spurs (physiographic)</voc:UF>
+      <voc:RT rdf:resource="#d0e836"/>
+      <voc:RT rdf:resource="#d0e134"/>
+      <voc:RT rdf:resource="#d0e422"/>
+      <voc:BT rdf:resource="#d0e1358"/>
+      <voc:SN>A long and narrow upland with steep sides. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e422">
+      <rdfs:label>seafloor features</rdfs:label>
+      <voc:UF>arrugados</voc:UF>
+      <voc:UF>banks (seafloor)</voc:UF>
+      <voc:UF>benches (seafloor)</voc:UF>
+      <voc:UF>holes (seafloor)</voc:UF>
+      <voc:UF>moats (seafloor)</voc:UF>
+      <voc:UF>ocean floor features</voc:UF>
+      <voc:UF>ramps (seafloor)</voc:UF>
+      <voc:UF>rises (seafloor)</voc:UF>
+      <voc:UF>seachannels (seafloor)</voc:UF>
+      <voc:UF>shelf valleys (seafloor)</voc:UF>
+      <voc:UF>subsea features</voc:UF>
+      <voc:UF>tongues (seafloor)</voc:UF>
+      <voc:UF>underwater features</voc:UF>
+      <voc:RT rdf:resource="#d0e10553"/>
+      <voc:RT rdf:resource="#d0e656"/>
+      <voc:RT rdf:resource="#d0e404"/>
+      <voc:RT rdf:resource="#d0e3059"/>
+      <voc:BT rdf:resource="#d0e305"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e440">
+      <rdfs:label>museum buildings</rdfs:label>
+      <voc:UF>art galleries</voc:UF>
+      <voc:UF>galleries</voc:UF>
+      <voc:UF>museums</voc:UF>
+      <voc:BT rdf:resource="#d0e80"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e449">
+      <rdfs:label>offshore platforms</rdfs:label>
+      <voc:UF>artificial islands</voc:UF>
+      <voc:UF>oil platforms</voc:UF>
+      <voc:UF>platforms (offshore)</voc:UF>
+      <voc:RT rdf:resource="#d0e3221"/>
+      <voc:BT rdf:resource="#d0e863"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e467">
+      <rdfs:label>basins</rdfs:label>
+      <voc:UF>asphalt lakes</voc:UF>
+      <voc:UF>depressions</voc:UF>
+      <voc:UF>pans (geologic)</voc:UF>
+      <voc:RT rdf:resource="#d0e548"/>
+      <voc:RT rdf:resource="#d0e2150"/>
+      <voc:RT rdf:resource="#d0e1124"/>
+      <voc:RT rdf:resource="#d0e1286"/>
+      <voc:RT rdf:resource="#d0e755"/>
+      <voc:RT rdf:resource="#d0e1547"/>
+      <voc:RT rdf:resource="#d0e1403"/>
+      <voc:RT rdf:resource="#d0e9764"/>
+      <voc:RT rdf:resource="#d0e3059"/>
+      <voc:BT rdf:resource="#d0e305"/>
+      <voc:SN>A bowl-shaped depression in the surface of the land or ocean floor. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e476">
+      <rdfs:label>reference locations</rdfs:label>
+      <voc:UF>astronomical stations</voc:UF>
+      <voc:UF>beacons</voc:UF>
+      <voc:UF>bench marks</voc:UF>
+      <voc:UF>boundaries</voc:UF>
+      <voc:UF>boundary markers</voc:UF>
+      <voc:UF>buoys</voc:UF>
+      <voc:UF>control points</voc:UF>
+      <voc:UF>geodectic stations</voc:UF>
+      <voc:UF>geographic centers</voc:UF>
+      <voc:UF>light houses</voc:UF>
+      <voc:UF>light stations</voc:UF>
+      <voc:UF>lighthouses</voc:UF>
+      <voc:UF>markers</voc:UF>
+      <voc:UF>milestones</voc:UF>
+      <voc:UF>plaques</voc:UF>
+      <voc:UF>poles (sphere)</voc:UF>
+      <voc:UF>triangulation stations</voc:UF>
+      <voc:RT rdf:resource="#d0e4985"/>
+      <voc:RT rdf:resource="#d0e5156"/>
+      <voc:RT rdf:resource="#d0e2654"/>
+      <voc:RT rdf:resource="#d0e1232"/>
+      <voc:BT rdf:resource="#d0e71"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e485">
+      <rdfs:label>medical facilities</rdfs:label>
+      <voc:UF>asylums</voc:UF>
+      <voc:UF>clinics</voc:UF>
+      <voc:UF>convalescent centers</voc:UF>
+      <voc:UF>dispensaries (medical)</voc:UF>
+      <voc:UF>health facilities</voc:UF>
+      <voc:UF>hospitals</voc:UF>
+      <voc:UF>infirmaries</voc:UF>
+      <voc:UF>leprosariums</voc:UF>
+      <voc:UF>medical centers</voc:UF>
+      <voc:UF>nursing homes</voc:UF>
+      <voc:UF>rehabilitation centers</voc:UF>
+      <voc:UF>sanatariums</voc:UF>
+      <voc:UF>sanatoriums</voc:UF>
+      <voc:UF>veterinary facilities</voc:UF>
+      <voc:RT rdf:resource="#d0e287"/>
+      <voc:BT rdf:resource="#d0e4139"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e512">
+      <rdfs:label>islands</rdfs:label>
+      <voc:UF>atolls</voc:UF>
+      <voc:UF>cays</voc:UF>
+      <voc:UF>island arcs</voc:UF>
+      <voc:UF>isles</voc:UF>
+      <voc:UF>islets</voc:UF>
+      <voc:UF>keys (islands)</voc:UF>
+      <voc:UF>land-tied islands</voc:UF>
+      <voc:UF>mangrove islands</voc:UF>
+      <voc:RT rdf:resource="#d0e6677"/>
+      <voc:BT rdf:resource="#d0e4472"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e539">
+      <rdfs:label>wetlands</rdfs:label>
+      <voc:UF>backwaters</voc:UF>
+      <voc:UF>bayous</voc:UF>
+      <voc:UF>bogs</voc:UF>
+      <voc:UF>cienagas</voc:UF>
+      <voc:UF>fens</voc:UF>
+      <voc:UF>forested wetlands</voc:UF>
+      <voc:UF>intermittent wetlands</voc:UF>
+      <voc:UF>mangrove swamps</voc:UF>
+      <voc:UF>marshes</voc:UF>
+      <voc:UF>mires</voc:UF>
+      <voc:UF>mud flats</voc:UF>
+      <voc:UF>peat cutting areas</voc:UF>
+      <voc:UF>peatlands</voc:UF>
+      <voc:UF>quagmires</voc:UF>
+      <voc:UF>riparian areas</voc:UF>
+      <voc:UF>salt marshes</voc:UF>
+      <voc:UF>sloughs</voc:UF>
+      <voc:UF>slues</voc:UF>
+      <voc:UF>swamps</voc:UF>
+      <voc:UF>tidal flats</voc:UF>
+      <voc:RT rdf:resource="#d0e548"/>
+      <voc:RT rdf:resource="#d0e9809"/>
+      <voc:RT rdf:resource="#d0e10097"/>
+      <voc:RT rdf:resource="#d0e755"/>
+      <voc:RT rdf:resource="#d0e1403"/>
+      <voc:RT rdf:resource="#d0e224"/>
+      <voc:BT rdf:resource="#d0e800"/>
+      <voc:SN>An area that is saturated by surface or ground water with vegetation adapted for life under those soil conditions, as swamps, bogs, fens, marshes, and estuaries. [EPA Terms of Environment]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e548">
+      <rdfs:label>bays</rdfs:label>
+      <voc:UF>bahias</voc:UF>
+      <voc:UF>coves</voc:UF>
+      <voc:UF>embayments</voc:UF>
+      <voc:RT rdf:resource="#d0e467"/>
+      <voc:RT rdf:resource="#d0e9791"/>
+      <voc:RT rdf:resource="#d0e1430"/>
+      <voc:RT rdf:resource="#d0e9809"/>
+      <voc:RT rdf:resource="#d0e9818"/>
+      <voc:RT rdf:resource="#d0e539"/>
+      <voc:BT rdf:resource="#d0e917"/>
+      <voc:SN>A water area that is an inlet of the sea/ocean. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e566">
+      <rdfs:label>deserts</rdfs:label>
+      <voc:UF>bajadas</voc:UF>
+      <voc:UF>rock deserts</voc:UF>
+      <voc:UF>sandy areas</voc:UF>
+      <voc:UF>sandy deserts</voc:UF>
+      <voc:UF>stony deserts</voc:UF>
+      <voc:RT rdf:resource="#d0e9608"/>
+      <voc:RT rdf:resource="#d0e9611"/>
+      <voc:RT rdf:resource="#d0e4157"/>
+      <voc:RT rdf:resource="#d0e10295"/>
+      <voc:BT rdf:resource="#d0e800"/>
+      <voc:SN>A region rendered barren or partially barren by environmental extremes, expecially by low rainfall. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e593">
+      <rdfs:label>commercial sites</rdfs:label>
+      <voc:UF>banks (commercial)</voc:UF>
+      <voc:UF>breweries</voc:UF>
+      <voc:UF>business centers</voc:UF>
+      <voc:UF>companies</voc:UF>
+      <voc:UF>malls</voc:UF>
+      <voc:UF>marketplaces</voc:UF>
+      <voc:UF>markets</voc:UF>
+      <voc:UF>shopping centers</voc:UF>
+      <voc:UF>shopping malls</voc:UF>
+      <voc:UF>stores</voc:UF>
+      <voc:UF>wineries</voc:UF>
+      <voc:BT rdf:resource="#d0e80"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e647">
+      <rdfs:label>canyons</rdfs:label>
+      <voc:UF>barrancas</voc:UF>
+      <voc:UF>chasms</voc:UF>
+      <voc:UF>flumes (natural)</voc:UF>
+      <voc:UF>gorges</voc:UF>
+      <voc:UF>gulches</voc:UF>
+      <voc:UF>quebradas</voc:UF>
+      <voc:UF>ravines</voc:UF>
+      <voc:RT rdf:resource="#d0e1943"/>
+      <voc:RT rdf:resource="#d0e9608"/>
+      <voc:RT rdf:resource="#d0e836"/>
+      <voc:RT rdf:resource="#d0e10025"/>
+      <voc:BT rdf:resource="#d0e3059"/>
+      <voc:SN>For valleys between precipitous walls. [ Lib of Congress Thesaurus of Graphic Materials I ]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e656">
+      <rdfs:label>reefs</rdfs:label>
+      <voc:UF>barrier reefs</voc:UF>
+      <voc:UF>fringing reefs</voc:UF>
+      <voc:RT rdf:resource="#d0e6677"/>
+      <voc:RT rdf:resource="#d0e422"/>
+      <voc:BT rdf:resource="#d0e305"/>
+      <voc:SN>A chain of rocks or coral at or near the surface of water. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e665">
+      <rdfs:label>countries, 3rd order divisions</rdfs:label>
+      <voc:UF>barrios</voc:UF>
+      <voc:UF>precincts</voc:UF>
+      <voc:UF>third-order administrative divisions</voc:UF>
+      <voc:UF>townships</voc:UF>
+      <voc:BT rdf:resource="#d0e1673"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e692">
+      <rdfs:label>historical sites</rdfs:label>
+      <voc:UF>battle grounds</voc:UF>
+      <voc:UF>battle sites</voc:UF>
+      <voc:UF>battlefields</voc:UF>
+      <voc:UF>dry stream beds</voc:UF>
+      <voc:UF>historic sites</voc:UF>
+      <voc:UF>historical landmarks</voc:UF>
+      <voc:UF>historical markers</voc:UF>
+      <voc:UF>historical parks</voc:UF>
+      <voc:UF>lake beds</voc:UF>
+      <voc:UF>massacre sites</voc:UF>
+      <voc:UF>ruins</voc:UF>
+      <voc:UF>wreck sites</voc:UF>
+      <voc:UF>wrecks</voc:UF>
+      <voc:RT rdf:resource="#d0e1070"/>
+      <voc:RT rdf:resource="#d0e1115"/>
+      <voc:RT rdf:resource="#d0e4976"/>
+      <voc:RT rdf:resource="#d0e341"/>
+      <voc:BT rdf:resource="#d0e13202"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e746">
+      <rdfs:label>habitats</rdfs:label>
+      <voc:UF>beaver dams</voc:UF>
+      <voc:UF>rookeries</voc:UF>
+      <voc:RT rdf:resource="#d0e116"/>
+      <voc:BT rdf:resource="#d0e800"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e755">
+      <rdfs:label>lakes</rdfs:label>
+      <voc:UF>beaver ponds</voc:UF>
+      <voc:UF>crater lakes</voc:UF>
+      <voc:UF>dry lakes</voc:UF>
+      <voc:UF>fish ponds</voc:UF>
+      <voc:UF>fishponds</voc:UF>
+      <voc:UF>inland seas</voc:UF>
+      <voc:UF>intermittent lakes</voc:UF>
+      <voc:UF>intermittent oxbow lakes</voc:UF>
+      <voc:UF>intermittent ponds</voc:UF>
+      <voc:UF>intermittent pools</voc:UF>
+      <voc:UF>intermittent salt lakes</voc:UF>
+      <voc:UF>intermittent salt ponds</voc:UF>
+      <voc:UF>lagoons</voc:UF>
+      <voc:UF>laguna</voc:UF>
+      <voc:UF>lake beds</voc:UF>
+      <voc:UF>lochs</voc:UF>
+      <voc:UF>millponds</voc:UF>
+      <voc:UF>oxbow lakes</voc:UF>
+      <voc:UF>ponds</voc:UF>
+      <voc:UF>pools  (water bodies)</voc:UF>
+      <voc:UF>salt evaporation ponds</voc:UF>
+      <voc:UF>salt lakes</voc:UF>
+      <voc:UF>salt ponds</voc:UF>
+      <voc:UF>tarns</voc:UF>
+      <voc:RT rdf:resource="#d0e467"/>
+      <voc:RT rdf:resource="#d0e9809"/>
+      <voc:RT rdf:resource="#d0e2006"/>
+      <voc:RT rdf:resource="#d0e539"/>
+      <voc:BT rdf:resource="#d0e917"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e773">
+      <rdfs:label>ledges</rdfs:label>
+      <voc:UF>benches (natural)</voc:UF>
+      <voc:RT rdf:resource="#d0e836"/>
+      <voc:BT rdf:resource="#d0e305"/>
+      <voc:SN>A projecting horizontal, shelf-like mass of rock on a mountain- or cliff-side. [Monkhouse &amp; Small, A dictionary of the natural environment]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e791">
+      <rdfs:label>levees</rdfs:label>
+      <voc:UF>berms</voc:UF>
+      <voc:UF>dikes  (manmade)</voc:UF>
+      <voc:UF>embankments</voc:UF>
+      <voc:UF>revetments</voc:UF>
+      <voc:RT rdf:resource="#d0e8270"/>
+      <voc:RT rdf:resource="#d0e5201"/>
+      <voc:RT rdf:resource="#d0e2168"/>
+      <voc:RT rdf:resource="#d0e2375"/>
+      <voc:BT rdf:resource="#d0e863"/>
+      <voc:SN>Natural or manmade embankments flanking rivers or streams. [Lib of Congress, Thesaurus of Graphic Materials I].</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e800">
+      <rdfs:label>biogeographic regions</rdfs:label>
+      <voc:UF>biomes</voc:UF>
+      <voc:UF>ecoregions</voc:UF>
+      <voc:UF>vegetation</voc:UF>
+      <voc:RT rdf:resource="#d0e305"/>
+      <voc:BT rdf:resource="#d0e11249"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e809">
+      <rdfs:label>industrial sites</rdfs:label>
+      <voc:UF>blast furnaces</voc:UF>
+      <voc:UF>canneries</voc:UF>
+      <voc:UF>cement plants</voc:UF>
+      <voc:UF>cooper works</voc:UF>
+      <voc:UF>cotton gins</voc:UF>
+      <voc:UF>distilleries</voc:UF>
+      <voc:UF>factories</voc:UF>
+      <voc:UF>forges</voc:UF>
+      <voc:UF>foundaries</voc:UF>
+      <voc:UF>furnaces (industrial)</voc:UF>
+      <voc:UF>gas-oil separation plants</voc:UF>
+      <voc:UF>grist mills</voc:UF>
+      <voc:UF>industrial areas</voc:UF>
+      <voc:UF>industrial parks</voc:UF>
+      <voc:UF>limekilns</voc:UF>
+      <voc:UF>mill sites</voc:UF>
+      <voc:UF>mills</voc:UF>
+      <voc:UF>millsites</voc:UF>
+      <voc:UF>munitions plants</voc:UF>
+      <voc:UF>oil refineries</voc:UF>
+      <voc:UF>olive oil mills</voc:UF>
+      <voc:UF>ore treatment plants</voc:UF>
+      <voc:UF>phosphate works</voc:UF>
+      <voc:UF>plants (industrial)</voc:UF>
+      <voc:UF>processing plants</voc:UF>
+      <voc:UF>refineries</voc:UF>
+      <voc:UF>sawmills</voc:UF>
+      <voc:UF>smelters</voc:UF>
+      <voc:UF>sugar mills</voc:UF>
+      <voc:UF>sugar refineries</voc:UF>
+      <voc:UF>tank farms</voc:UF>
+      <voc:UF>whaling stations</voc:UF>
+      <voc:BT rdf:resource="#d0e593"/>
+      <voc:SN>A group of associated strutures functioning as a unit used for refining a material or manufacturing a product. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e836">
+      <rdfs:label>cliffs</rdfs:label>
+      <voc:UF>bluffs</voc:UF>
+      <voc:UF>clefts</voc:UF>
+      <voc:UF>escarpments</voc:UF>
+      <voc:UF>precipices</voc:UF>
+      <voc:UF>scraps</voc:UF>
+      <voc:RT rdf:resource="#d0e647"/>
+      <voc:RT rdf:resource="#d0e773"/>
+      <voc:RT rdf:resource="#d0e404"/>
+      <voc:BT rdf:resource="#d0e305"/>
+      <voc:SN>A high vertical, near-vertical, or overhanging face of rock, earth, or ice. [USGS Circ. 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e854">
+      <rdfs:label>marinas</rdfs:label>
+      <voc:UF>boat houses</voc:UF>
+      <voc:UF>boathouses</voc:UF>
+      <voc:BT rdf:resource="#d0e233"/>
+      <voc:SN>A harbor facility for recreational craft where supplies, repairs, and various services are available. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e863">
+      <rdfs:label>hydrographic structures</rdfs:label>
+      <voc:UF>boat landings</voc:UF>
+      <voc:UF>boat launches</voc:UF>
+      <voc:UF>boat ramps</voc:UF>
+      <voc:UF>sluices</voc:UF>
+      <voc:UF>water mills</voc:UF>
+      <voc:RT rdf:resource="#d0e917"/>
+      <voc:RT rdf:resource="#d0e197"/>
+      <voc:RT rdf:resource="#d0e152"/>
+      <voc:RT rdf:resource="#d0e5750"/>
+      <voc:BT rdf:resource="#d0e13202"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e917">
+      <rdfs:label>hydrographic features</rdfs:label>
+      <voc:UF>bodies of water</voc:UF>
+      <voc:UF>eddies</voc:UF>
+      <voc:UF>fluvial features</voc:UF>
+      <voc:UF>marine features</voc:UF>
+      <voc:UF>overfalls</voc:UF>
+      <voc:UF>upwellings</voc:UF>
+      <voc:UF>water bodies</voc:UF>
+      <voc:UF>waterholes</voc:UF>
+      <voc:UF>whirlpools</voc:UF>
+      <voc:RT rdf:resource="#d0e863"/>
+      <voc:RT rdf:resource="#d0e10295"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e944">
+      <rdfs:label>continental margins</rdfs:label>
+      <voc:UF>borderlands (continental margins)</voc:UF>
+      <voc:UF>continental rises</voc:UF>
+      <voc:UF>continental shelves</voc:UF>
+      <voc:UF>continental slopes</voc:UF>
+      <voc:UF>platforms (continental margins)</voc:UF>
+      <voc:UF>shelf edges (ocean)</voc:UF>
+      <voc:UF>shelves, continental</voc:UF>
+      <voc:RT rdf:resource="#d0e1583"/>
+      <voc:BT rdf:resource="#d0e422"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e953">
+      <rdfs:label>countries, 2nd order divisions</rdfs:label>
+      <voc:UF>boroughs</voc:UF>
+      <voc:UF>counties</voc:UF>
+      <voc:UF>judicial divisions</voc:UF>
+      <voc:UF>municipios</voc:UF>
+      <voc:UF>parishes</voc:UF>
+      <voc:UF>second-order administrative divisions</voc:UF>
+      <voc:BT rdf:resource="#d0e1673"/>
+      <voc:SN>Second-order division of a nation such as parish, borough, county, municipio, or judicial division, and independent cities in Maryland, Missouri, Nevada, and Virginia. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e971">
+      <rdfs:label>floodplains</rdfs:label>
+      <voc:UF>bottomlands</voc:UF>
+      <voc:RT rdf:resource="#d0e2717"/>
+      <voc:RT rdf:resource="#d0e1286"/>
+      <voc:BT rdf:resource="#d0e917"/>
+      <voc:SN>The flat or nearly flat land along a river or stream or in a tidal area that is covered by water during a flood. [EPA Terms of Environment]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e1070">
+      <rdfs:label>cemeteries</rdfs:label>
+      <voc:UF>burying grounds</voc:UF>
+      <voc:UF>grave sites</voc:UF>
+      <voc:UF>graves</voc:UF>
+      <voc:UF>graveyards</voc:UF>
+      <voc:UF>mausoleums</voc:UF>
+      <voc:UF>memorial gardens</voc:UF>
+      <voc:UF>sepulchers</voc:UF>
+      <voc:UF>tombs</voc:UF>
+      <voc:RT rdf:resource="#d0e692"/>
+      <voc:RT rdf:resource="#d0e4976"/>
+      <voc:BT rdf:resource="#d0e13202"/>
+      <voc:SN>An area of land for burying the dead with two or more graves. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e1079">
+      <rdfs:label>shrublands</rdfs:label>
+      <voc:UF>bushes</voc:UF>
+      <voc:UF>chapparal areas</voc:UF>
+      <voc:UF>heaths</voc:UF>
+      <voc:UF>moors</voc:UF>
+      <voc:UF>scrublands</voc:UF>
+      <voc:BT rdf:resource="#d0e800"/>
+      <voc:SN>Areas covered with low-growing or stunted perennial vegetation and usually not mixed with trees. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e1097">
+      <rdfs:label>mesas</rdfs:label>
+      <voc:UF>buttes</voc:UF>
+      <voc:RT rdf:resource="#d0e7352"/>
+      <voc:RT rdf:resource="#d0e1358"/>
+      <voc:RT rdf:resource="#d0e4166"/>
+      <voc:RT rdf:resource="#d0e8522"/>
+      <voc:BT rdf:resource="#d0e305"/>
+      <voc:SN>A flat-topped elevation with steep sides. [Amer. Heritage Dictionary]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e1115">
+      <rdfs:label>landmarks</rdfs:label>
+      <voc:UF>cairns</voc:UF>
+      <voc:RT rdf:resource="#d0e692"/>
+      <voc:RT rdf:resource="#d0e4976"/>
+      <voc:BT rdf:resource="#d0e13202"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e1124">
+      <rdfs:label>craters</rdfs:label>
+      <voc:UF>calderas</voc:UF>
+      <voc:RT rdf:resource="#d0e467"/>
+      <voc:RT rdf:resource="#d0e10205"/>
+      <voc:BT rdf:resource="#d0e305"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e1133">
+      <rdfs:label>camps</rdfs:label>
+      <voc:UF>campgrounds</voc:UF>
+      <voc:UF>camping sites</voc:UF>
+      <voc:UF>logging camps</voc:UF>
+      <voc:UF>oil camps</voc:UF>
+      <voc:UF>refugee camps</voc:UF>
+      <voc:UF>RV parks</voc:UF>
+      <voc:UF>trailer parks (recreational)</voc:UF>
+      <voc:RT rdf:resource="#d0e143"/>
+      <voc:BT rdf:resource="#d0e44"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e1169">
+      <rdfs:label>canals</rdfs:label>
+      <voc:UF>canal bends</voc:UF>
+      <voc:UF>canalized streams</voc:UF>
+      <voc:UF>ditch mouths</voc:UF>
+      <voc:UF>ditches</voc:UF>
+      <voc:UF>drainage canals</voc:UF>
+      <voc:UF>drainage ditches</voc:UF>
+      <voc:UF>drains (channels)</voc:UF>
+      <voc:UF>flumes (manmade)</voc:UF>
+      <voc:UF>irrigation canals</voc:UF>
+      <voc:UF>irrigation ditches</voc:UF>
+      <voc:UF>irrigation systems</voc:UF>
+      <voc:UF>laterals</voc:UF>
+      <voc:UF>navigation canals</voc:UF>
+      <voc:UF>underground irrigation canals</voc:UF>
+      <voc:RT rdf:resource="#d0e9554"/>
+      <voc:RT rdf:resource="#d0e1430"/>
+      <voc:RT rdf:resource="#d0e9971"/>
+      <voc:RT rdf:resource="#d0e152"/>
+      <voc:RT rdf:resource="#d0e1178"/>
+      <voc:BT rdf:resource="#d0e863"/>
+      <voc:SN>Manmade waterway used by watercraft or for drainage, irrigation, mining, or water power.</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e1178">
+      <rdfs:label>tunnels</rdfs:label>
+      <voc:UF>canal tunnels</voc:UF>
+      <voc:UF>railroad tunnels</voc:UF>
+      <voc:UF>road tunnels</voc:UF>
+      <voc:RT rdf:resource="#d0e1169"/>
+      <voc:BT rdf:resource="#d0e152"/>
+      <voc:SN>An underground or underwater passage. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e1205">
+      <rdfs:label>countries, 1st order divisions</rdfs:label>
+      <voc:UF>cantons</voc:UF>
+      <voc:UF>first-order administrative divisions</voc:UF>
+      <voc:UF>provinces</voc:UF>
+      <voc:UF>states</voc:UF>
+      <voc:UF>territories</voc:UF>
+      <voc:BT rdf:resource="#d0e1673"/>
+      <voc:SN>First-order division of a nation. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e1214">
+      <rdfs:label>roadways</rdfs:label>
+      <voc:UF>caravan routes</voc:UF>
+      <voc:UF>causeways</voc:UF>
+      <voc:UF>drives</voc:UF>
+      <voc:UF>highways</voc:UF>
+      <voc:UF>intersections</voc:UF>
+      <voc:UF>parkways</voc:UF>
+      <voc:UF>road bends</voc:UF>
+      <voc:UF>road cuts</voc:UF>
+      <voc:UF>road junctions</voc:UF>
+      <voc:UF>roads</voc:UF>
+      <voc:UF>streets</voc:UF>
+      <voc:UF>traffic circles</voc:UF>
+      <voc:BT rdf:resource="#d0e152"/>
+      <voc:SN>An open way for passage of vehicles. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e1232">
+      <rdfs:label>towers</rdfs:label>
+      <voc:UF>carillons</voc:UF>
+      <voc:UF>fire lookouts</voc:UF>
+      <voc:UF>pagodas</voc:UF>
+      <voc:RT rdf:resource="#d0e476"/>
+      <voc:RT rdf:resource="#d0e278"/>
+      <voc:RT rdf:resource="#d0e11960"/>
+      <voc:BT rdf:resource="#d0e13202"/>
+      <voc:SN>A structure designed primarily with a view to elevation, typically higher than wide. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e1241">
+      <rdfs:label>waterfalls</rdfs:label>
+      <voc:UF>cascades</voc:UF>
+      <voc:UF>cataracts</voc:UF>
+      <voc:UF>falls</voc:UF>
+      <voc:BT rdf:resource="#d0e7136"/>
+      <voc:SN>A vertical or nearly vertical descent of water over a step or ledge in the bed of a river. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e1268">
+      <rdfs:label>fortifications</rdfs:label>
+      <voc:UF>castles</voc:UF>
+      <voc:UF>forts</voc:UF>
+      <voc:UF>moats (manmade)</voc:UF>
+      <voc:UF>redoubts</voc:UF>
+      <voc:UF>stockades</voc:UF>
+      <voc:RT rdf:resource="#d0e143"/>
+      <voc:BT rdf:resource="#d0e13202"/>
+      <voc:SN>General term for any works made to oppose a small number of troops against a greater. [AAT]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e1286">
+      <rdfs:label>drainage basins</rdfs:label>
+      <voc:UF>catchments</voc:UF>
+      <voc:UF>headwaters</voc:UF>
+      <voc:UF>watersheds</voc:UF>
+      <voc:RT rdf:resource="#d0e467"/>
+      <voc:RT rdf:resource="#d0e971"/>
+      <voc:RT rdf:resource="#d0e224"/>
+      <voc:BT rdf:resource="#d0e917"/>
+      <voc:SN>The area of land that drains water, sediment, and dissolved materials to a common outlet at some point along a stream channel. [EPA Terms of Environment]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e1295">
+      <rdfs:label>religious facilities</rdfs:label>
+      <voc:UF>cathedrals</voc:UF>
+      <voc:UF>chapels</voc:UF>
+      <voc:UF>churches</voc:UF>
+      <voc:UF>convents</voc:UF>
+      <voc:UF>monasteries</voc:UF>
+      <voc:UF>mosques</voc:UF>
+      <voc:UF>novitiates</voc:UF>
+      <voc:UF>religious centers</voc:UF>
+      <voc:UF>religious populated places</voc:UF>
+      <voc:UF>religious sites</voc:UF>
+      <voc:UF>retreats (religious)</voc:UF>
+      <voc:UF>sanctuaries (religious)</voc:UF>
+      <voc:UF>synagogues</voc:UF>
+      <voc:UF>tabernacles</voc:UF>
+      <voc:UF>temples</voc:UF>
+      <voc:BT rdf:resource="#d0e4139"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e1322">
+      <rdfs:label>caves</rdfs:label>
+      <voc:UF>cave entrances</voc:UF>
+      <voc:UF>caverns</voc:UF>
+      <voc:UF>grottoes</voc:UF>
+      <voc:UF>natural tunnels</voc:UF>
+      <voc:UF>underground lakes</voc:UF>
+      <voc:BT rdf:resource="#d0e305"/>
+      <voc:SN>A naturally formed, subterranean open area or chamber. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e1358">
+      <rdfs:label>mountains</rdfs:label>
+      <voc:UF>cerros</voc:UF>
+      <voc:UF>cordilleras</voc:UF>
+      <voc:UF>foothills</voc:UF>
+      <voc:UF>hills</voc:UF>
+      <voc:UF>knolls</voc:UF>
+      <voc:UF>mounds</voc:UF>
+      <voc:UF>mounts</voc:UF>
+      <voc:RT rdf:resource="#d0e2393"/>
+      <voc:RT rdf:resource="#d0e10958"/>
+      <voc:RT rdf:resource="#d0e1097"/>
+      <voc:RT rdf:resource="#d0e3536"/>
+      <voc:RT rdf:resource="#d0e10205"/>
+      <voc:BT rdf:resource="#d0e305"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e1403">
+      <rdfs:label>playas</rdfs:label>
+      <voc:UF>chotts</voc:UF>
+      <voc:UF>kavirs</voc:UF>
+      <voc:RT rdf:resource="#d0e467"/>
+      <voc:RT rdf:resource="#d0e7352"/>
+      <voc:RT rdf:resource="#d0e539"/>
+      <voc:BT rdf:resource="#d0e305"/>
+      <voc:SN>A closed depression in an arid or semi-arid region that is periodically inundated by surface runoff, or the salt flat within such a closed basin. It is derived from the Spanish word for a 'beach' and is thus probably incorrectly used by English-speaking geomorphologists. [Encyc. Dictionary of Physical Geography]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e1430">
+      <rdfs:label>channels</rdfs:label>
+      <voc:UF>chutes (hydrographic)</voc:UF>
+      <voc:UF>cutoffs (hydrographic)</voc:UF>
+      <voc:UF>inlets</voc:UF>
+      <voc:UF>lake channels</voc:UF>
+      <voc:UF>marine channels</voc:UF>
+      <voc:UF>narrows (hydrographic)</voc:UF>
+      <voc:UF>navigation channels</voc:UF>
+      <voc:UF>reaches (hydrographic)</voc:UF>
+      <voc:UF>sounds (bodies of water)</voc:UF>
+      <voc:UF>straits</voc:UF>
+      <voc:RT rdf:resource="#d0e548"/>
+      <voc:RT rdf:resource="#d0e1169"/>
+      <voc:RT rdf:resource="#d0e10097"/>
+      <voc:RT rdf:resource="#d0e7136"/>
+      <voc:BT rdf:resource="#d0e917"/>
+      <voc:SN>Linear deep part of a body of water through which the main volume of water flows and is frequently used as a route for watercraft.</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e1448">
+      <rdfs:label>storage structures</rdfs:label>
+      <voc:UF>cisterns</voc:UF>
+      <voc:UF>elevators (agricultural)</voc:UF>
+      <voc:UF>storage tanks</voc:UF>
+      <voc:UF>storehouses</voc:UF>
+      <voc:UF>warehouses</voc:UF>
+      <voc:UF>water tanks</voc:UF>
+      <voc:RT rdf:resource="#d0e80"/>
+      <voc:BT rdf:resource="#d0e13202"/>
+      <voc:SN>A large container used for storage. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e1484">
+      <rdfs:label>land parcels</rdfs:label>
+      <voc:UF>claims (land)</voc:UF>
+      <voc:UF>estates</voc:UF>
+      <voc:UF>land grants</voc:UF>
+      <voc:UF>lots (land parcels)</voc:UF>
+      <voc:UF>tracts</voc:UF>
+      <voc:RT rdf:resource="#d0e8801"/>
+      <voc:SN>A tract or plot of the Earth's surface distinguishable by ownership. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e1493">
+      <rdfs:label>grasslands</rdfs:label>
+      <voc:UF>clearings</voc:UF>
+      <voc:UF>glades</voc:UF>
+      <voc:UF>grazing areas</voc:UF>
+      <voc:UF>meadows</voc:UF>
+      <voc:UF>pampas</voc:UF>
+      <voc:UF>prairies</voc:UF>
+      <voc:UF>savannahs</voc:UF>
+      <voc:UF>savannas</voc:UF>
+      <voc:BT rdf:resource="#d0e800"/>
+      <voc:SN>An extensive noncultivated area where vegetation is dominated by grasses or grass-like plants. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e1547">
+      <rdfs:label>mineral deposit areas</rdfs:label>
+      <voc:UF>coal fields</voc:UF>
+      <voc:UF>coalfields</voc:UF>
+      <voc:UF>lodes (mineral)</voc:UF>
+      <voc:UF>petroleum basins</voc:UF>
+      <voc:UF>placers</voc:UF>
+      <voc:UF>salt deposit areas</voc:UF>
+      <voc:RT rdf:resource="#d0e467"/>
+      <voc:RT rdf:resource="#d0e62"/>
+      <voc:BT rdf:resource="#d0e305"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e1583">
+      <rdfs:label>coastal zones</rdfs:label>
+      <voc:UF>coastal plains</voc:UF>
+      <voc:UF>coasts</voc:UF>
+      <voc:UF>intertidal zones</voc:UF>
+      <voc:UF>offshore areas</voc:UF>
+      <voc:UF>shorelines</voc:UF>
+      <voc:UF>shores</voc:UF>
+      <voc:RT rdf:resource="#d0e7469"/>
+      <voc:RT rdf:resource="#d0e5201"/>
+      <voc:RT rdf:resource="#d0e944"/>
+      <voc:BT rdf:resource="#d0e11249"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e1601">
+      <rdfs:label>woods</rdfs:label>
+      <voc:UF>coconut groves</voc:UF>
+      <voc:UF>groves</voc:UF>
+      <voc:UF>olive groves</voc:UF>
+      <voc:UF>palm groves</voc:UF>
+      <voc:UF>pine groves</voc:UF>
+      <voc:UF>trees</voc:UF>
+      <voc:BT rdf:resource="#d0e3005"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e1637">
+      <rdfs:label>gaps</rdfs:label>
+      <voc:UF>cols</voc:UF>
+      <voc:UF>defiles</voc:UF>
+      <voc:UF>passes</voc:UF>
+      <voc:UF>saddles (physiographic)</voc:UF>
+      <voc:UF>sills (physiographic)</voc:UF>
+      <voc:RT rdf:resource="#d0e3059"/>
+      <voc:BT rdf:resource="#d0e305"/>
+      <voc:SN>A low point or opening between mounts or in a ridge. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e1673">
+      <rdfs:label>political areas</rdfs:label>
+      <voc:UF>commonwealths</voc:UF>
+      <voc:UF>dependent political entities</voc:UF>
+      <voc:UF>freely associated states</voc:UF>
+      <voc:UF>independent political entities</voc:UF>
+      <voc:UF>oblasts</voc:UF>
+      <voc:UF>political entities</voc:UF>
+      <voc:UF>semi-independent political entities</voc:UF>
+      <voc:RT rdf:resource="#d0e116"/>
+      <voc:BT rdf:resource="#d0e71"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e1736">
+      <rdfs:label>pipelines</rdfs:label>
+      <voc:UF>compressor stations</voc:UF>
+      <voc:UF>gas pipelines</voc:UF>
+      <voc:UF>oil pipeline junctions</voc:UF>
+      <voc:UF>oil pipeline terminals</voc:UF>
+      <voc:UF>oil pipelines</voc:UF>
+      <voc:UF>oil pumping stations</voc:UF>
+      <voc:UF>pump houses</voc:UF>
+      <voc:UF>pumphouses</voc:UF>
+      <voc:UF>pumping stations</voc:UF>
+      <voc:UF>water pumping stations</voc:UF>
+      <voc:RT rdf:resource="#d0e2798"/>
+      <voc:BT rdf:resource="#d0e152"/>
+      <voc:SN>A tubular conduit of substantial length, with pumps, valves, and control devices, for conveying fluids, gases, or finely divided solids. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e1943">
+      <rdfs:label>arroyos</rdfs:label>
+      <voc:UF>coulees</voc:UF>
+      <voc:UF>gullies</voc:UF>
+      <voc:UF>wadi bends</voc:UF>
+      <voc:UF>wadi junctions</voc:UF>
+      <voc:UF>wadi mouths</voc:UF>
+      <voc:UF>wadis</voc:UF>
+      <voc:UF>washes</voc:UF>
+      <voc:RT rdf:resource="#d0e647"/>
+      <voc:RT rdf:resource="#d0e3059"/>
+      <voc:BT rdf:resource="#d0e305"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e1970">
+      <rdfs:label>housing areas</rdfs:label>
+      <voc:UF>country houses</voc:UF>
+      <voc:UF>dwellings</voc:UF>
+      <voc:UF>guest houses</voc:UF>
+      <voc:UF>hermitages</voc:UF>
+      <voc:UF>houses</voc:UF>
+      <voc:UF>housing developments</voc:UF>
+      <voc:UF>huts</voc:UF>
+      <voc:UF>neighborhoods (residential)</voc:UF>
+      <voc:UF>subdivisions</voc:UF>
+      <voc:BT rdf:resource="#d0e287"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e1979">
+      <rdfs:label>capitals</rdfs:label>
+      <voc:UF>county seats</voc:UF>
+      <voc:UF>national capitals</voc:UF>
+      <voc:UF>state capitals</voc:UF>
+      <voc:RT rdf:resource="#d0e10043"/>
+      <voc:BT rdf:resource="#d0e5318"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e1988">
+      <rdfs:label>court houses</rdfs:label>
+      <voc:UF>courthouses</voc:UF>
+      <voc:UF>municipal courts</voc:UF>
+      <voc:BT rdf:resource="#d0e80"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e1997">
+      <rdfs:label>bridges</rdfs:label>
+      <voc:UF>covered bridges</voc:UF>
+      <voc:UF>drawbridges</voc:UF>
+      <voc:UF>overpasses</voc:UF>
+      <voc:UF>trestles</voc:UF>
+      <voc:UF>viaducts</voc:UF>
+      <voc:BT rdf:resource="#d0e152"/>
+      <voc:SN>A structure erected over a depression or obstacle to carry traffic. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e2006">
+      <rdfs:label>reservoirs</rdfs:label>
+      <voc:UF>covered reservoirs</voc:UF>
+      <voc:UF>intermittent reservoirs</voc:UF>
+      <voc:RT rdf:resource="#d0e755"/>
+      <voc:BT rdf:resource="#d0e863"/>
+      <voc:SN>A constructed basin formed for recreation use, storage, treatment, collection, or processing of water or other liquids. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e2024">
+      <rdfs:label>natural rock formations</rdfs:label>
+      <voc:UF>crags</voc:UF>
+      <voc:UF>pillars (natural formation)</voc:UF>
+      <voc:UF>pinnacles  (natural formation)</voc:UF>
+      <voc:UF>rock towers</voc:UF>
+      <voc:UF>rocks</voc:UF>
+      <voc:BT rdf:resource="#d0e305"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e2042">
+      <rdfs:label>volcanic features</rdfs:label>
+      <voc:UF>crater lakes</voc:UF>
+      <voc:UF>dykes (geologic)</voc:UF>
+      <voc:BT rdf:resource="#d0e305"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e2114">
+      <rdfs:label>ocean currents</rdfs:label>
+      <voc:UF>currents</voc:UF>
+      <voc:BT rdf:resource="#d0e12848"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e2150">
+      <rdfs:label>cirques</rdfs:label>
+      <voc:UF>cwms</voc:UF>
+      <voc:RT rdf:resource="#d0e467"/>
+      <voc:BT rdf:resource="#d0e305"/>
+      <voc:SN>A horseshoe-shaped, steep-walled valley head caused by glacial erosion. [Kearey, Dict of Geology]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e2168">
+      <rdfs:label>dam sites</rdfs:label>
+      <voc:UF>dams</voc:UF>
+      <voc:UF>spillways</voc:UF>
+      <voc:UF>sub-surface dams</voc:UF>
+      <voc:UF>weirs</voc:UF>
+      <voc:RT rdf:resource="#d0e791"/>
+      <voc:BT rdf:resource="#d0e863"/>
+      <voc:SN>An area including a dam and associated structures functioning to control the flow or raise the level of water. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e2177">
+      <rdfs:label>ocean trenches</rdfs:label>
+      <voc:UF>deep-sea trenches</voc:UF>
+      <voc:UF>deeps (ocean)</voc:UF>
+      <voc:UF>trenches (seafloor)</voc:UF>
+      <voc:UF>troughs (seafloor)</voc:UF>
+      <voc:RT rdf:resource="#d0e10025"/>
+      <voc:BT rdf:resource="#d0e422"/>
+      <voc:SN>The topographic expression of subduction; the large linear depression of the oceanic lithosphere at a subduction zone. [Penguin Dict. of Geology, Kearey]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e2258">
+      <rdfs:label>correctional facilities</rdfs:label>
+      <voc:UF>detention camps</voc:UF>
+      <voc:UF>detention centers</voc:UF>
+      <voc:UF>detention homes</voc:UF>
+      <voc:UF>honor camps</voc:UF>
+      <voc:UF>honor farms</voc:UF>
+      <voc:UF>jails</voc:UF>
+      <voc:UF>juvenile facilities</voc:UF>
+      <voc:UF>labor camps</voc:UF>
+      <voc:UF>penal camps</voc:UF>
+      <voc:UF>penal farms</voc:UF>
+      <voc:UF>penitentiaries</voc:UF>
+      <voc:UF>prisons</voc:UF>
+      <voc:UF>reformatories</voc:UF>
+      <voc:BT rdf:resource="#d0e4139"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e2375">
+      <rdfs:label>piers</rdfs:label>
+      <voc:UF>docks</voc:UF>
+      <voc:UF>jetties</voc:UF>
+      <voc:UF>quays</voc:UF>
+      <voc:UF>wharves</voc:UF>
+      <voc:RT rdf:resource="#d0e233"/>
+      <voc:RT rdf:resource="#d0e791"/>
+      <voc:BT rdf:resource="#d0e863"/>
+      <voc:SN>Structures to which vessels may be berthed. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e2393">
+      <rdfs:label>anticlines</rdfs:label>
+      <voc:UF>domes (physiographic)</voc:UF>
+      <voc:RT rdf:resource="#d0e1358"/>
+      <voc:BT rdf:resource="#d0e10385"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e2501">
+      <rdfs:label>disposal sites</rdfs:label>
+      <voc:UF>dumps</voc:UF>
+      <voc:UF>incinerators</voc:UF>
+      <voc:UF>landfills</voc:UF>
+      <voc:UF>mine dumps</voc:UF>
+      <voc:UF>refuse disposal sites</voc:UF>
+      <voc:UF>sanitary landfills</voc:UF>
+      <voc:UF>scrap yards</voc:UF>
+      <voc:UF>slag heaps</voc:UF>
+      <voc:UF>tailing ponds</voc:UF>
+      <voc:UF>tailings</voc:UF>
+      <voc:UF>waste disposal sites</voc:UF>
+      <voc:UF>wrecking yards</voc:UF>
+      <voc:RT rdf:resource="#d0e62"/>
+      <voc:RT rdf:resource="#d0e2798"/>
+      <voc:BT rdf:resource="#d0e13202"/>
+      <voc:SN>An area where refuse is dumped. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e2546">
+      <rdfs:label>power generation sites</rdfs:label>
+      <voc:UF>electric plants</voc:UF>
+      <voc:UF>generating centers</voc:UF>
+      <voc:UF>generation sites</voc:UF>
+      <voc:UF>hydroelectric power stations</voc:UF>
+      <voc:UF>nuclear power plants</voc:UF>
+      <voc:UF>power plants</voc:UF>
+      <voc:UF>power stations</voc:UF>
+      <voc:UF>powerhouses</voc:UF>
+      <voc:UF>solar power generation sites</voc:UF>
+      <voc:UF>steam plants</voc:UF>
+      <voc:UF>windmill power generation sites</voc:UF>
+      <voc:BT rdf:resource="#d0e809"/>
+      <voc:SN>A group of associated structures functioning as a unit used for generating electricity. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e2654">
+      <rdfs:label>research areas</rdfs:label>
+      <voc:UF>experimental areas</voc:UF>
+      <voc:UF>experimental fields</voc:UF>
+      <voc:UF>field campaigns</voc:UF>
+      <voc:UF>observation sites</voc:UF>
+      <voc:UF>study areas</voc:UF>
+      <voc:UF>test sites</voc:UF>
+      <voc:RT rdf:resource="#d0e4985"/>
+      <voc:RT rdf:resource="#d0e5156"/>
+      <voc:RT rdf:resource="#d0e476"/>
+      <voc:RT rdf:resource="#d0e35"/>
+      <voc:BT rdf:resource="#d0e11249"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e2717">
+      <rdfs:label>alluvial fans</rdfs:label>
+      <voc:UF>fans (alluvial)</voc:UF>
+      <voc:RT rdf:resource="#d0e9530"/>
+      <voc:RT rdf:resource="#d0e971"/>
+      <voc:BT rdf:resource="#d0e305"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e2798">
+      <rdfs:label>waterworks</rdfs:label>
+      <voc:UF>filter plants</voc:UF>
+      <voc:UF>filtration plants</voc:UF>
+      <voc:UF>sewage treatment plants</voc:UF>
+      <voc:UF>treatment plants</voc:UF>
+      <voc:UF>water plants</voc:UF>
+      <voc:UF>water treatment plants</voc:UF>
+      <voc:UF>water works</voc:UF>
+      <voc:RT rdf:resource="#d0e2501"/>
+      <voc:RT rdf:resource="#d0e1736"/>
+      <voc:BT rdf:resource="#d0e863"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e2816">
+      <rdfs:label>fjords</rdfs:label>
+      <voc:UF>fiords</voc:UF>
+      <voc:UF>lochs</voc:UF>
+      <voc:RT rdf:resource="#d0e9809"/>
+      <voc:RT rdf:resource="#d0e10097"/>
+      <voc:BT rdf:resource="#d0e548"/>
+      <voc:SN>Narrow deep inlets of the sea between cliffs or steep slopes.  [Lib of Congress, Thesaurus of Graphic Materials I ]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e2933">
+      <rdfs:label>storage basins</rdfs:label>
+      <voc:UF>flood control basins</voc:UF>
+      <voc:UF>floodways</voc:UF>
+      <voc:UF>retention basins</voc:UF>
+      <voc:BT rdf:resource="#d0e467"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e3005">
+      <rdfs:label>forests</rdfs:label>
+      <voc:UF>forest reserves</voc:UF>
+      <voc:UF>national forests</voc:UF>
+      <voc:BT rdf:resource="#d0e800"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e3059">
+      <rdfs:label>valleys</rdfs:label>
+      <voc:UF>forks (physiographic features)</voc:UF>
+      <voc:UF>glens</voc:UF>
+      <voc:UF>hanging valleys</voc:UF>
+      <voc:UF>hollows</voc:UF>
+      <voc:UF>median valleys</voc:UF>
+      <voc:UF>shelf valleys (seafloor)</voc:UF>
+      <voc:RT rdf:resource="#d0e1943"/>
+      <voc:RT rdf:resource="#d0e467"/>
+      <voc:RT rdf:resource="#d0e1637"/>
+      <voc:RT rdf:resource="#d0e422"/>
+      <voc:BT rdf:resource="#d0e305"/>
+      <voc:SN>An elongated depression in the Earth's surface that generally slopes from one end to the other. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e3086">
+      <rdfs:label>petrified forests</rdfs:label>
+      <voc:UF>fossilized forests</voc:UF>
+      <voc:RT rdf:resource="#d0e9575"/>
+      <voc:BT rdf:resource="#d0e3005"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e3104">
+      <rdfs:label>countries, 4th order divisions</rdfs:label>
+      <voc:UF>fourth-order administrative divisions</voc:UF>
+      <voc:BT rdf:resource="#d0e1673"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e3149">
+      <rdfs:label>firebreaks</rdfs:label>
+      <voc:UF>fuelbreaks</voc:UF>
+      <voc:BT rdf:resource="#d0e11249"/>
+      <voc:SN>An area cleared of vegetation for the purpose of impeding the progress of a grass or forest fire. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e3158">
+      <rdfs:label>thermal features</rdfs:label>
+      <voc:UF>fumaroles</voc:UF>
+      <voc:UF>geysers</voc:UF>
+      <voc:UF>hot springs</voc:UF>
+      <voc:BT rdf:resource="#d0e917"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e3203">
+      <rdfs:label>parking sites</rdfs:label>
+      <voc:UF>garages</voc:UF>
+      <voc:UF>parking lots</voc:UF>
+      <voc:BT rdf:resource="#d0e152"/>
+      <voc:SN>A designated area where motor vehicles are set and left temporarily. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e3221">
+      <rdfs:label>oil fields</rdfs:label>
+      <voc:UF>gas fields</voc:UF>
+      <voc:UF>gasfields</voc:UF>
+      <voc:UF>oilfields</voc:UF>
+      <voc:UF>petroleum fields</voc:UF>
+      <voc:UF>storage fields (petroleum)</voc:UF>
+      <voc:RT rdf:resource="#d0e449"/>
+      <voc:RT rdf:resource="#d0e5750"/>
+      <voc:BT rdf:resource="#d0e13202"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e3320">
+      <rdfs:label>glacier features</rdfs:label>
+      <voc:UF>glaciers</voc:UF>
+      <voc:UF>nunataks</voc:UF>
+      <voc:RT rdf:resource="#d0e10346"/>
+      <voc:RT rdf:resource="#d0e10583"/>
+      <voc:BT rdf:resource="#d0e3932"/>
+      <voc:SN>Body or stream of ice moving outward and downslope from an area of accumulation; an area of relatively permanent snow or ice on the top or side of a mountain or mountainous area.</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e3392">
+      <rdfs:label>fault zones</rdfs:label>
+      <voc:UF>grabens</voc:UF>
+      <voc:BT rdf:resource="#d0e10376"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e3536">
+      <rdfs:label>seamounts</rdfs:label>
+      <voc:UF>guyots</voc:UF>
+      <voc:UF>tablemounts (seafloor)</voc:UF>
+      <voc:RT rdf:resource="#d0e1358"/>
+      <voc:BT rdf:resource="#d0e422"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e3617">
+      <rdfs:label>capes</rdfs:label>
+      <voc:UF>headlands</voc:UF>
+      <voc:UF>peninsulas</voc:UF>
+      <voc:UF>points (physiographic)</voc:UF>
+      <voc:UF>promontories</voc:UF>
+      <voc:RT rdf:resource="#d0e9791"/>
+      <voc:BT rdf:resource="#d0e305"/>
+      <voc:SN>A projection of land extending into a body of water that prominently marks a change in or interrupts the coastal trend of that water body. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e3662">
+      <rdfs:label>heliports</rdfs:label>
+      <voc:UF>helibases</voc:UF>
+      <voc:UF>helipads</voc:UF>
+      <voc:UF>helistops</voc:UF>
+      <voc:BT rdf:resource="#d0e161"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e3932">
+      <rdfs:label>ice masses</rdfs:label>
+      <voc:UF>ice fields</voc:UF>
+      <voc:UF>ice patches</voc:UF>
+      <voc:UF>ice sheets</voc:UF>
+      <voc:UF>icebergs</voc:UF>
+      <voc:UF>icecap depressions</voc:UF>
+      <voc:UF>icecap domes</voc:UF>
+      <voc:UF>icecaps</voc:UF>
+      <voc:UF>icefalls</voc:UF>
+      <voc:RT rdf:resource="#d0e7991"/>
+      <voc:BT rdf:resource="#d0e917"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e4049">
+      <rdfs:label>tribal areas</rdfs:label>
+      <voc:UF>indian reservations</voc:UF>
+      <voc:UF>indian reserves</voc:UF>
+      <voc:UF>reservations (indian)</voc:UF>
+      <voc:BT rdf:resource="#d0e71"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e4139">
+      <rdfs:label>institutional sites</rdfs:label>
+      <voc:UF>institutes</voc:UF>
+      <voc:UF>institutions</voc:UF>
+      <voc:RT rdf:resource="#d0e35"/>
+      <voc:BT rdf:resource="#d0e80"/>
+      <voc:SN>A group of buildings or associated structures functioning as a unit used predominantly for educational. correctional, governmental, medical, or religious purposes. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e4157">
+      <rdfs:label>dunes</rdfs:label>
+      <voc:UF>interdune troughs</voc:UF>
+      <voc:UF>sandy areas</voc:UF>
+      <voc:RT rdf:resource="#d0e7469"/>
+      <voc:RT rdf:resource="#d0e566"/>
+      <voc:BT rdf:resource="#d0e305"/>
+      <voc:SN>Hills of sand piled up by the wind. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e4166">
+      <rdfs:label>plains</rdfs:label>
+      <voc:UF>interfluves</voc:UF>
+      <voc:UF>llanos</voc:UF>
+      <voc:RT rdf:resource="#d0e7352"/>
+      <voc:RT rdf:resource="#d0e1097"/>
+      <voc:RT rdf:resource="#d0e8522"/>
+      <voc:BT rdf:resource="#d0e305"/>
+      <voc:SN>A region of general uniform slope, comparatively level and of considerable extent. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e4472">
+      <rdfs:label>land regions</rdfs:label>
+      <voc:UF>lake districts</voc:UF>
+      <voc:UF>lake regions</voc:UF>
+      <voc:BT rdf:resource="#d0e11249"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e4553">
+      <rdfs:label>lava fields</rdfs:label>
+      <voc:UF>lava areas</voc:UF>
+      <voc:BT rdf:resource="#d0e2042"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e4760">
+      <rdfs:label>ecological research sites</rdfs:label>
+      <voc:UF>LTERs</voc:UF>
+      <voc:BT rdf:resource="#d0e2654"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e4850">
+      <rdfs:label>ocean regions</rdfs:label>
+      <voc:UF>marine regions</voc:UF>
+      <voc:RT rdf:resource="#d0e11249"/>
+      <voc:BT rdf:resource="#d0e12848"/>
+      <voc:SN>The great body of salt water of the oceans. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e4976">
+      <rdfs:label>monuments</rdfs:label>
+      <voc:UF>memorials</voc:UF>
+      <voc:UF>national monuments</voc:UF>
+      <voc:UF>pyramids</voc:UF>
+      <voc:UF>shrines</voc:UF>
+      <voc:UF>statues</voc:UF>
+      <voc:UF>tombs</voc:UF>
+      <voc:RT rdf:resource="#d0e242"/>
+      <voc:RT rdf:resource="#d0e1070"/>
+      <voc:RT rdf:resource="#d0e692"/>
+      <voc:RT rdf:resource="#d0e1115"/>
+      <voc:RT rdf:resource="#d0e341"/>
+      <voc:BT rdf:resource="#d0e13202"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e4985">
+      <rdfs:label>data collection facilities</rdfs:label>
+      <voc:UF>meteorological stations</voc:UF>
+      <voc:UF>satellite stations</voc:UF>
+      <voc:RT rdf:resource="#d0e5156"/>
+      <voc:RT rdf:resource="#d0e476"/>
+      <voc:RT rdf:resource="#d0e2654"/>
+      <voc:BT rdf:resource="#d0e35"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e5003">
+      <rdfs:label>railroad features</rdfs:label>
+      <voc:UF>metrorail stations</voc:UF>
+      <voc:UF>railroad junctions</voc:UF>
+      <voc:UF>railroad sidings</voc:UF>
+      <voc:UF>railroad spurs</voc:UF>
+      <voc:UF>railroad stations</voc:UF>
+      <voc:UF>railroad stops</voc:UF>
+      <voc:UF>railroad switches</voc:UF>
+      <voc:UF>railroad yards</voc:UF>
+      <voc:UF>railways</voc:UF>
+      <voc:UF>subway stations</voc:UF>
+      <voc:UF>switches (railroad)</voc:UF>
+      <voc:UF>tramways</voc:UF>
+      <voc:BT rdf:resource="#d0e152"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e5111">
+      <rdfs:label>springs (hydrographic)</rdfs:label>
+      <voc:UF>mineral springs</voc:UF>
+      <voc:UF>sulfur springs</voc:UF>
+      <voc:RT rdf:resource="#d0e10295"/>
+      <voc:RT rdf:resource="#d0e7136"/>
+      <voc:BT rdf:resource="#d0e224"/>
+      <voc:SN>A place where water issues from the ground naturally. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e5156">
+      <rdfs:label>launch facilities</rdfs:label>
+      <voc:UF>missile sites</voc:UF>
+      <voc:RT rdf:resource="#d0e4985"/>
+      <voc:RT rdf:resource="#d0e476"/>
+      <voc:RT rdf:resource="#d0e2654"/>
+      <voc:BT rdf:resource="#d0e13202"/>
+      <voc:SN>An area from which rockets/missiles may be housed and projected, usually equipped with associated buildings and facilities. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e5201">
+      <rdfs:label>breakwaters</rdfs:label>
+      <voc:UF>moles (structural)</voc:UF>
+      <voc:UF>seawalls</voc:UF>
+      <voc:RT rdf:resource="#d0e1583"/>
+      <voc:RT rdf:resource="#d0e233"/>
+      <voc:RT rdf:resource="#d0e791"/>
+      <voc:BT rdf:resource="#d0e863"/>
+      <voc:SN>Structure built to break the force of waves or to restrain or direct current so as to protect a breach, harbor, or other waterfront facility. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e5291">
+      <rdfs:label>Metropolitan Statistical Areas</rdfs:label>
+      <voc:UF>MSAs</voc:UF>
+      <voc:RT rdf:resource="#d0e5318"/>
+      <voc:RT rdf:resource="#d0e89"/>
+      <voc:BT rdf:resource="#d0e13508"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e5318">
+      <rdfs:label>cities</rdfs:label>
+      <voc:UF>municipalities</voc:UF>
+      <voc:UF>towns</voc:UF>
+      <voc:UF>urban areas</voc:UF>
+      <voc:RT rdf:resource="#d0e5291"/>
+      <voc:BT rdf:resource="#d0e89"/>
+      <voc:SN>An incorporated populated place such as a village, city, town, borough, or hamlet, and includes an independent city. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e5435">
+      <rdfs:label>countries</rdfs:label>
+      <voc:UF>nations</voc:UF>
+      <voc:UF>republics</voc:UF>
+      <voc:BT rdf:resource="#d0e1673"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e5453">
+      <rdfs:label>arches (natural formation)</rdfs:label>
+      <voc:UF>natural bridges</voc:UF>
+      <voc:UF>sea arches</voc:UF>
+      <voc:BT rdf:resource="#d0e2024"/>
+      <voc:SN>A naturally occurring curved structure that supports the weight of material over space. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e5750">
+      <rdfs:label>wells</rdfs:label>
+      <voc:UF>oil wells</voc:UF>
+      <voc:UF>water wells</voc:UF>
+      <voc:RT rdf:resource="#d0e863"/>
+      <voc:RT rdf:resource="#d0e62"/>
+      <voc:RT rdf:resource="#d0e3221"/>
+      <voc:RT rdf:resource="#d0e11960"/>
+      <voc:BT rdf:resource="#d0e13202"/>
+      <voc:SN>A pit or hole dug or bored into the Earth for the extraction of oil, water, other fluids or gases. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e6371">
+      <rdfs:label>post office buildings</rdfs:label>
+      <voc:UF>post offices</voc:UF>
+      <voc:BT rdf:resource="#d0e80"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e6497">
+      <rdfs:label>trails</rdfs:label>
+      <voc:UF>promenades</voc:UF>
+      <voc:UF>steps (manmade)</voc:UF>
+      <voc:UF>trailheads</voc:UF>
+      <voc:UF>walking paths</voc:UF>
+      <voc:RT rdf:resource="#d0e341"/>
+      <voc:BT rdf:resource="#d0e152"/>
+      <voc:SN>A cleared path, beaten track, or improved surface, as through woods or wilderness, not usually trafficked by vehicles because of width, seasonal conditions, or access restrictions. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e6632">
+      <rdfs:label>map quadrangle regions</rdfs:label>
+      <voc:UF>quadrangle regions</voc:UF>
+      <voc:UF>topographic quadrangle regions</voc:UF>
+      <voc:BT rdf:resource="#d0e13526"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e6677">
+      <rdfs:label>bars (physiographic)</rdfs:label>
+      <voc:UF>quicksand areas</voc:UF>
+      <voc:UF>sandbars</voc:UF>
+      <voc:UF>shoals</voc:UF>
+      <voc:UF>spits</voc:UF>
+      <voc:RT rdf:resource="#d0e7172"/>
+      <voc:RT rdf:resource="#d0e512"/>
+      <voc:RT rdf:resource="#d0e9683"/>
+      <voc:RT rdf:resource="#d0e656"/>
+      <voc:BT rdf:resource="#d0e305"/>
+      <voc:SN>A natural accumulation of sand, gravel, or other material forming an underwater or exposed embankment. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e6848">
+      <rdfs:label>mountain ranges</rdfs:label>
+      <voc:UF>ranges (physiographic)</voc:UF>
+      <voc:UF>sierra</voc:UF>
+      <voc:BT rdf:resource="#d0e1358"/>
+      <voc:SN>A chain of mounts. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e7136">
+      <rdfs:label>rivers</rdfs:label>
+      <voc:UF>rios</voc:UF>
+      <voc:RT rdf:resource="#d0e1430"/>
+      <voc:RT rdf:resource="#d0e10097"/>
+      <voc:RT rdf:resource="#d0e5111"/>
+      <voc:BT rdf:resource="#d0e224"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e7172">
+      <rdfs:label>bends (river)</rdfs:label>
+      <voc:UF>river bends</voc:UF>
+      <voc:RT rdf:resource="#d0e6677"/>
+      <voc:BT rdf:resource="#d0e7136"/>
+      <voc:SN>The land within the curve of a stream sometimes including the course of the stream. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e7352">
+      <rdfs:label>flats</rdfs:label>
+      <voc:UF>sabkhas</voc:UF>
+      <voc:RT rdf:resource="#d0e1097"/>
+      <voc:RT rdf:resource="#d0e4166"/>
+      <voc:RT rdf:resource="#d0e8522"/>
+      <voc:RT rdf:resource="#d0e1403"/>
+      <voc:BT rdf:resource="#d0e305"/>
+      <voc:SN>A level tract of land. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e7469">
+      <rdfs:label>beaches</rdfs:label>
+      <voc:UF>sandy areas</voc:UF>
+      <voc:UF>strands</voc:UF>
+      <voc:RT rdf:resource="#d0e1583"/>
+      <voc:RT rdf:resource="#d0e4157"/>
+      <voc:BT rdf:resource="#d0e305"/>
+      <voc:SN>The gently sloping shore that is washed by waves, usually composed of sand and pebbles. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e7991">
+      <rdfs:label>snow regions</rdfs:label>
+      <voc:UF>snowfields</voc:UF>
+      <voc:RT rdf:resource="#d0e3932"/>
+      <voc:BT rdf:resource="#d0e800"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e8270">
+      <rdfs:label>banks (hydrographic)</rdfs:label>
+      <voc:UF>stream banks</voc:UF>
+      <voc:RT rdf:resource="#d0e791"/>
+      <voc:BT rdf:resource="#d0e305"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e8522">
+      <rdfs:label>plateaus</rdfs:label>
+      <voc:UF>table mountains</voc:UF>
+      <voc:UF>tablelands</voc:UF>
+      <voc:RT rdf:resource="#d0e7352"/>
+      <voc:RT rdf:resource="#d0e10958"/>
+      <voc:RT rdf:resource="#d0e1097"/>
+      <voc:RT rdf:resource="#d0e4166"/>
+      <voc:BT rdf:resource="#d0e305"/>
+      <voc:SN>An upland with a more or less uniform summit level, sometimes bounded by slopes falling steeply away, sometimes rising by steep slopes to mountain ridges. [Monkshouse &amp; Small, A Dictionary of the Natural Environment]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e8801">
+      <rdfs:label>cadastral areas</rdfs:label>
+      <voc:UF>township and range areas</voc:UF>
+      <voc:RT rdf:resource="#d0e1484"/>
+      <voc:BT rdf:resource="#d0e11249"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e9503">
+      <rdfs:label>postal areas</rdfs:label>
+      <voc:UF>zip code areas</voc:UF>
+      <voc:BT rdf:resource="#d0e71"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e9530">
+      <rdfs:label>deltas</rdfs:label>
+      <voc:RT rdf:resource="#d0e2717"/>
+      <voc:RT rdf:resource="#d0e9809"/>
+      <voc:BT rdf:resource="#d0e917"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e9554">
+      <rdfs:label>aqueducts</rdfs:label>
+      <voc:RT rdf:resource="#d0e1169"/>
+      <voc:BT rdf:resource="#d0e152"/>
+      <voc:SN>A structure designed to transport water from a remote source, usually by gravity. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e9575">
+      <rdfs:label>paleontological sites</rdfs:label>
+      <voc:RT rdf:resource="#d0e242"/>
+      <voc:RT rdf:resource="#d0e3086"/>
+      <voc:BT rdf:resource="#d0e2654"/>
+      <voc:SN>Sites with notable fossil remains</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e9608">
+      <rdfs:label>badlands</rdfs:label>
+      <voc:RT rdf:resource="#d0e9611"/>
+      <voc:RT rdf:resource="#d0e647"/>
+      <voc:RT rdf:resource="#d0e566"/>
+      <voc:BT rdf:resource="#d0e305"/>
+      <voc:SN>An area characterized by a maze of very closely spaced, deep, narrow, steep-sided ravines, and sharp crests and pinnacles. [NIMA]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e9611">
+      <rdfs:label>barren lands</rdfs:label>
+      <voc:RT rdf:resource="#d0e9608"/>
+      <voc:RT rdf:resource="#d0e566"/>
+      <voc:BT rdf:resource="#d0e800"/>
+      <voc:SN>Places composed of bare rock, sand, gravel, or other earthen material with little or no vegetation and having limited ability to support life. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e9683">
+      <rdfs:label>rapids</rdfs:label>
+      <voc:RT rdf:resource="#d0e6677"/>
+      <voc:BT rdf:resource="#d0e7136"/>
+      <voc:SN>An area of swift current in a stream or river, characterized by standing waves or by boulders and rocks. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e9764">
+      <rdfs:label>synclines</rdfs:label>
+      <voc:RT rdf:resource="#d0e467"/>
+      <voc:BT rdf:resource="#d0e10385"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e9791">
+      <rdfs:label>bights</rdfs:label>
+      <voc:RT rdf:resource="#d0e548"/>
+      <voc:RT rdf:resource="#d0e3617"/>
+      <voc:BT rdf:resource="#d0e305"/>
+      <voc:SN>A wide gentle curve or indentation of the coast, commonly between two headlands. [A dictionary of the natural environment, by Monkhouse and Small]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e9809">
+      <rdfs:label>estuaries</rdfs:label>
+      <voc:RT rdf:resource="#d0e548"/>
+      <voc:RT rdf:resource="#d0e9530"/>
+      <voc:RT rdf:resource="#d0e2816"/>
+      <voc:RT rdf:resource="#d0e755"/>
+      <voc:RT rdf:resource="#d0e539"/>
+      <voc:BT rdf:resource="#d0e917"/>
+      <voc:SN>Region of interaction between rivers and near-shore ocean waters, where tidal action and river flow mix fresh and salt water. Such areas include bays, mouths of rivers, salt marshes, and lagoons. These brackish water ecosystems shelter and feed marine life, birds, and wildlife. [EPA Terms of Environment]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e9818">
+      <rdfs:label>gulfs</rdfs:label>
+      <voc:RT rdf:resource="#d0e548"/>
+      <voc:BT rdf:resource="#d0e917"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e9971">
+      <rdfs:label>locks</rdfs:label>
+      <voc:RT rdf:resource="#d0e1169"/>
+      <voc:BT rdf:resource="#d0e152"/>
+      <voc:SN>An enclosure used to raise or lower vessels as they pass from one level to another. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e10025">
+      <rdfs:label>submarine canyons</rdfs:label>
+      <voc:RT rdf:resource="#d0e647"/>
+      <voc:RT rdf:resource="#d0e2177"/>
+      <voc:BT rdf:resource="#d0e422"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e10043">
+      <rdfs:label>capitol buildings</rdfs:label>
+      <voc:RT rdf:resource="#d0e1979"/>
+      <voc:BT rdf:resource="#d0e80"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e10097">
+      <rdfs:label>guts</rdfs:label>
+      <voc:RT rdf:resource="#d0e1430"/>
+      <voc:RT rdf:resource="#d0e2816"/>
+      <voc:RT rdf:resource="#d0e7136"/>
+      <voc:RT rdf:resource="#d0e224"/>
+      <voc:RT rdf:resource="#d0e539"/>
+      <voc:BT rdf:resource="#d0e917"/>
+      <voc:SN>A narrow natural passage or contracted strait connecting two bodies of water where no flow can be determined. [USGS Circ 1048]. A narrow channel opening into the sea or a large estuary, esp. in E. USA. [Monkhouse &amp; Small: Dictionary of the Natural Environment]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e10205">
+      <rdfs:label>volcanoes</rdfs:label>
+      <voc:RT rdf:resource="#d0e1124"/>
+      <voc:RT rdf:resource="#d0e1358"/>
+      <voc:BT rdf:resource="#d0e2042"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e10295">
+      <rdfs:label>oases</rdfs:label>
+      <voc:RT rdf:resource="#d0e566"/>
+      <voc:RT rdf:resource="#d0e917"/>
+      <voc:RT rdf:resource="#d0e5111"/>
+      <voc:BT rdf:resource="#d0e800"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e10346">
+      <rdfs:label>drumlins</rdfs:label>
+      <voc:RT rdf:resource="#d0e3320"/>
+      <voc:BT rdf:resource="#d0e404"/>
+      <voc:SN>An elongated hill or ridge of glacial drift. [Amer. Heritage Dictionary]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e10373">
+      <rdfs:label>earthquake features</rdfs:label>
+      <voc:RT rdf:resource="#d0e10376"/>
+      <voc:RT rdf:resource="#d0e10385"/>
+      <voc:BT rdf:resource="#d0e13769"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e10376">
+      <rdfs:label>faults</rdfs:label>
+      <voc:RT rdf:resource="#d0e10373"/>
+      <voc:BT rdf:resource="#d0e13769"/>
+      <voc:SN>A fracture in the Earth's crust accompanied by a displacement of one side of the fracture with respect to the other. [UGSG Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e10385">
+      <rdfs:label>folds (geologic)</rdfs:label>
+      <voc:RT rdf:resource="#d0e10373"/>
+      <voc:BT rdf:resource="#d0e13769"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e10553">
+      <rdfs:label>fracture zones</rdfs:label>
+      <voc:RT rdf:resource="#d0e422"/>
+      <voc:BT rdf:resource="#d0e10376"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e10583">
+      <rdfs:label>moraines</rdfs:label>
+      <voc:RT rdf:resource="#d0e3320"/>
+      <voc:BT rdf:resource="#d0e305"/>
+      <voc:SN>An accumulation of earth and stones carried and deposited by a glacier. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e10796">
+      <rdfs:label>jungles</rdfs:label>
+      <voc:RT rdf:resource="#d0e10799"/>
+      <voc:BT rdf:resource="#d0e800"/>
+      <voc:SN>Denotes generally impenetrable tropical forests with dense tangled undergrowth of grasses, vines, shrubs, and trees. [AAT]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e10799">
+      <rdfs:label>rain forests</rdfs:label>
+      <voc:RT rdf:resource="#d0e10796"/>
+      <voc:BT rdf:resource="#d0e3005"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e10958">
+      <rdfs:label>massifs</rdfs:label>
+      <voc:RT rdf:resource="#d0e1358"/>
+      <voc:RT rdf:resource="#d0e8522"/>
+      <voc:BT rdf:resource="#d0e305"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e11249">
+      <rdfs:label>regions</rdfs:label>
+      <voc:RT rdf:resource="#d0e4850"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e11960">
+      <rdfs:label>windmills</rdfs:label>
+      <voc:RT rdf:resource="#d0e1232"/>
+      <voc:RT rdf:resource="#d0e5750"/>
+      <voc:BT rdf:resource="#d0e13202"/>
+      <voc:SN>A mill or other machine that runs on the energy generated by a wheel of adjustable blades or flats rotated by the wind. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e12191">
+      <rdfs:label>adits  (mine sites)</rdfs:label>
+      <voc:SN>A nearly horizontal passage from the surface in a mine. [WWWebster Dictionary]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e12200">
+      <rdfs:label>anclajes</rdfs:label>
+      <voc:SN>anchorages</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e12218">
+      <rdfs:label>aquifers</rdfs:label>
+      <voc:BT rdf:resource="#d0e917"/>
+      <voc:SN>An underground geological formation, or group of formations, containing water. Are sources of groundwater for wells and springs. [EPA Terms of Environment]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e12245">
+      <rdfs:label>astronomical stations</rdfs:label>
+      <voc:SN>A point on the earth whose position has been determined by observations of celestrial bodies [NIMA]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e12326">
+      <rdfs:label>blowouts</rdfs:label>
+      <voc:SN>A small depression in sandy terrain, caused by wind. [NIMA]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e12335">
+      <rdfs:label>bottomlands</rdfs:label>
+      <voc:SN>Low-lying alluvium-covered floodplain along a river valley. [Monkhouse &amp; Small: Dictionary of the Natural Environment]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e12371">
+      <rdfs:label>cableways</rdfs:label>
+      <voc:BT rdf:resource="#d0e152"/>
+      <voc:SN>A conveyor system in which carrier units run on wire cables strung between supports. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e12461">
+      <rdfs:label>collieries</rdfs:label>
+      <voc:SN>A coal mine and its connected buildings. [WWWebster Dictionary]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e12470">
+      <rdfs:label>commonwealths</rdfs:label>
+      <voc:SN>A nation, state, or other political unit: as a : one founded on law and united by compact or tacit agreement of the people for the common good. A state of the U.S. -- used officially of Kentucky, Massachusetts, Pennsylvania, and Virginia. An association of self-governing autonomous states more or less loosely associated in a common allegiance (as to the British crown). A political unit having local autonomy but voluntarily united with the U.S. -- used officially of Puerto Rico and of the Northern Mariana Islands. [WWWebster Dictionary}</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e12497">
+      <rdfs:label>cwms</rdfs:label>
+      <voc:SN>Welsh name for a cirque.</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e12542">
+      <rdfs:label>drains (channels)</rdfs:label>
+      <voc:SN>An artificial channel for carrying off excess water [A Dictionary of the natural environment]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e12632">
+      <rdfs:label>gaging stations</rdfs:label>
+      <voc:BT rdf:resource="#d0e863"/>
+      <voc:SN>A site on a stream, lake, reservoir or other body of water where direct systematic observations of hydrologic data     are obtained. [Water Resources Center, College of Agriculture, Univ. of Arizona, Glossary of Water Terms]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e12650">
+      <rdfs:label>geysers</rdfs:label>
+      <voc:SN>Eruptive spring from which hot water and/or steam and in some cases mud are periodically thrown.</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e12713">
+      <rdfs:label>isthmuses</rdfs:label>
+      <voc:BT rdf:resource="#d0e305"/>
+      <voc:SN>A narrow strip of land, bordered on both sides by water that connects two larger land areas. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e12821">
+      <rdfs:label>nunataks</rdfs:label>
+      <voc:SN>Rocks or mountain peaks protruding through glacial ice. [NIMA]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e12848">
+      <rdfs:label>oceans</rdfs:label>
+      <voc:BT rdf:resource="#d0e14372"/>
+      <voc:SN>One of the major divisions of the vast expanse of salt water covering part of the earth. [NIMA]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e12893">
+      <rdfs:label>pinnacles  (natural formation)</rdfs:label>
+      <voc:SN>A vertical, standing, often spire-shaped natural rock formation.  [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e12938">
+      <rdfs:label>polders</rdfs:label>
+      <voc:SN>A flat, low-lying area of land reclaimed from the sea or a lake by artificial drainage. [Penguin Dict of Geology, Kearey]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e12956">
+      <rdfs:label>prefectures</rdfs:label>
+      <voc:SN>The district governed by a prefect. [Merriam-Webster Online]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e13001">
+      <rdfs:label>revetments</rdfs:label>
+      <voc:SN>A facing (as of stone or concrete) to sustain an embankment. [WWWebster's Dictionary]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e13028">
+      <rdfs:label>sabkhas</rdfs:label>
+      <voc:SN>A broad plain or salt flat in an arid or semi-arid region containing evaporites at a level dependent on the local water table. [Penguin Dict. of Geology, Kearey]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e13046">
+      <rdfs:label>sheikdoms</rdfs:label>
+      <voc:SN>A region under the rule of a sheikh. [Merriam-Webster Online]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e13082">
+      <rdfs:label>subcontinents</rdfs:label>
+      <voc:BT rdf:resource="#d0e4472"/>
+      <voc:SN>Land masses of great size but smaller than those generally called continents; also large subdivisions of continents having a certain geographical independence. [AAT]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e13091">
+      <rdfs:label>sultanates</rdfs:label>
+      <voc:SN>A state or country governed by a sultan. [Merriam-Webster Online]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e13118">
+      <rdfs:label>transmission lines</rdfs:label>
+      <voc:SN>A system of wires that transmit electrical signals or electricity over distance. [USGS Circ 1048]</voc:SN>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e13202">
+      <rdfs:label>manmade features</rdfs:label>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e13226">
+      <rdfs:label>amusement parks</rdfs:label>
+      <voc:BT rdf:resource="#d0e44"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e13280">
+      <rdfs:label>archipelagos</rdfs:label>
+      <voc:BT rdf:resource="#d0e512"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e13505">
+      <rdfs:label>census areas</rdfs:label>
+      <voc:BT rdf:resource="#d0e13508"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e13508">
+      <rdfs:label>statistical areas</rdfs:label>
+      <voc:BT rdf:resource="#d0e71"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e13523">
+      <rdfs:label>chart regions</rdfs:label>
+      <voc:BT rdf:resource="#d0e13526"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e13526">
+      <rdfs:label>map regions</rdfs:label>
+      <voc:BT rdf:resource="#d0e11249"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e13559">
+      <rdfs:label>climatic regions</rdfs:label>
+      <voc:BT rdf:resource="#d0e11249"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e13586">
+      <rdfs:label>continental divides</rdfs:label>
+      <voc:BT rdf:resource="#d0e1358"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e13604">
+      <rdfs:label>continents</rdfs:label>
+      <voc:BT rdf:resource="#d0e4472"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e13613">
+      <rdfs:label>coral reefs</rdfs:label>
+      <voc:BT rdf:resource="#d0e656"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e13769">
+      <rdfs:label>tectonic features</rdfs:label>
+      <voc:BT rdf:resource="#d0e305"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e13784">
+      <rdfs:label>economic regions</rdfs:label>
+      <voc:BT rdf:resource="#d0e11249"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e14018">
+      <rdfs:label>hydrothermal vents</rdfs:label>
+      <voc:BT rdf:resource="#d0e422"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e14081">
+      <rdfs:label>karst areas</rdfs:label>
+      <voc:BT rdf:resource="#d0e305"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e14261">
+      <rdfs:label>mobile home parks</rdfs:label>
+      <voc:BT rdf:resource="#d0e287"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e14372">
+      <rdfs:label>seas</rdfs:label>
+      <voc:BT rdf:resource="#d0e917"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e14459">
+      <rdfs:label>pistol ranges</rdfs:label>
+      <voc:BT rdf:resource="#d0e332"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e14657">
+      <rdfs:label>rift zones</rdfs:label>
+      <voc:BT rdf:resource="#d0e10376"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e14684">
+      <rdfs:label>school districts</rdfs:label>
+      <voc:BT rdf:resource="#d0e71"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e14846">
+      <rdfs:label>territorial waters</rdfs:label>
+      <voc:BT rdf:resource="#d0e71"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e14918">
+      <rdfs:label>UTM zones</rdfs:label>
+      <voc:BT rdf:resource="#d0e13526"/>
+   </adl:PT>
+   <adl:PT rdf:about="#d0e14936">
+      <rdfs:label>vistas</rdfs:label>
+      <voc:BT rdf:resource="#d0e341"/>
+   </adl:PT>
+</rdf:RDF>
