@@ -25,11 +25,15 @@ public class DirToBeRenamed extends File {
         rename(this);
     }
 
+    public static String replaceLast(String text, String regex, String replacement) {
+        return text.replaceFirst("(?s)" + regex + "(?!.*?" + regex + ")", replacement);
+    }
+
     private void rename(DirToBeRenamed dir) {
         for (DirToBeRenamed f : dir.listFiles())
             if (f.isFile()) {
                 String oldName = f.getPath();
-                String newName = f.getParent() + "/" + f.getName().replaceAll(":", "-");
+                String newName = f.getParent() + "/" + replaceLast(f.getName(), "-", "-id-");
                 if (!newName.equals(oldName)) {
                     System.out.println("from: " + oldName + " to: " + newName);
                     f.renameTo(new File(newName));
