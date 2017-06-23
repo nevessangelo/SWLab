@@ -1,4 +1,4 @@
-package br.com.edu.util;
+package br.com.edu.renamearff;
 
 import java.io.File;
 
