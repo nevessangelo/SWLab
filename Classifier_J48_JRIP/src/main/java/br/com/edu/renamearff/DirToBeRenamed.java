@@ -10,15 +10,15 @@ public class DirToBeRenamed extends File {
 
     @Override
     public DirToBeRenamed[] listFiles() {
-        DirToBeRenamed[] files2 = null;
         if (isDirectory()) {
             File[] files = super.listFiles();
             int i = 0;
-            files2 = new DirToBeRenamed[files.length];
+            DirToBeRenamed[] files2 = new DirToBeRenamed[files.length];
             for (File f : files)
                 files2[i++] = new DirToBeRenamed(f.getPath());
-        }
-        return files2;
+            return files2;
+        } else
+            return new DirToBeRenamed[0];
     }
 
     public void rename() {
@@ -26,13 +26,16 @@ public class DirToBeRenamed extends File {
     }
 
     private void rename(DirToBeRenamed dir) {
-        if (dir.isDirectory())
-            for (DirToBeRenamed f : dir.listFiles())
-                if (f.isFile()) {
-                    String newName = f.getParent() + "/" + f.getName().replaceAll(":", "-");
+        for (DirToBeRenamed f : dir.listFiles())
+            if (f.isFile()) {
+                String oldName = f.getPath();
+                String newName = f.getParent() + "/" + f.getName().replaceAll(":", "-");
+                if (!newName.equals(oldName)) {
+                    System.out.println("from: " + oldName + " to: " + newName);
                     f.renameTo(new File(newName));
-                } else if (f.isDirectory())
-                    rename(f);
+                }
+            } else if (f.isDirectory())
+                rename(f);
 
     }
 
