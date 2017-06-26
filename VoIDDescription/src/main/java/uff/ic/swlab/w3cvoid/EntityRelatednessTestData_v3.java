@@ -43,13 +43,13 @@ public class EntityRelatednessTestData_v3 extends DatasetDescription {
 
         DateFormat format = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
         Calendar created = Calendar.getInstance();
-        created.setTime(format.parse("19/05/2017"));
+        created.setTime(format.parse("26/06/2017"));
 
         Calendar issued = Calendar.getInstance();
-        issued.setTime(format.parse("29/05/2017"));
+        issued.setTime(format.parse("26/06/2017"));
 
         Calendar modified = Calendar.getInstance();
-        modified.setTime(format.parse("29/05/2017"));
+        modified.setTime(format.parse("26/06/2017"));
 
         this.root = this.description.createResource(URI, VOID.Dataset)
                 .addProperty(DCTerms.title, title)
@@ -60,7 +60,7 @@ public class EntityRelatednessTestData_v3 extends DatasetDescription {
                 .addProperty(FOAF.page, this.description.createResource(EREL.NS))
                 .addProperty(DCTerms.creator, this.description.createResource("http://lattes.cnpq.br/2460021788616803"))
                 .addProperty(DCTerms.creator, this.description.createResource("http://www.inf.puc-rio.br/~casanova"))
-                .addProperty(DCTerms.publisher, this.description.createResource("http://www.ic.uff.br/~lapaesleme/foaf/#me"))
+                .addProperty(DCTerms.contributor, this.description.createResource("http://www.ic.uff.br/~lapaesleme/foaf/#me"))
                 .addProperty(DCTerms.source, this.description.createResource("http://dbpedia.org/resource/DBpedia"))
                 .addProperty(DCTerms.source, this.description.createResource("http://lastfm.rdfize.com/meta.n3#Dataset"))
                 .addProperty(DCTerms.source, this.description.createResource("http://www.imdb.com"))
