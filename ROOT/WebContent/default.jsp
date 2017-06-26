@@ -70,6 +70,9 @@
         <link href="swlab.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
+        <div style="text-align:right">
+            <a href="http://linkeddata.uriburner.com/about/html/http/swlab.ic.uff.br/?@Lookup@=&refresh=clean"><img title="Browse with" src="uriburnerlogo_small.png" style="width:10%; height:auto"/></a>
+        </div>
         <h1 style="text-align: center">IC/UFF Semantic Web Lab (SWLab)</h1>
         <br>
         <br>
@@ -168,12 +171,6 @@
                             relevance scores for the entities and properties used in the paths.
                         </li>
                     </ul>
-                </td>
-
-            </tr>
-            <tr>
-                <td style="text-align:right">
-                    <a href="http://linkeddata.uriburner.com/about/html/http/swlab.ic.uff.br/?@Lookup@=&refresh=clean"><img title="Browse with" src="uriburnerlogo_small.png" style="width:10%; height:auto"/></a>
                 </td>
             </tr>
         </table>

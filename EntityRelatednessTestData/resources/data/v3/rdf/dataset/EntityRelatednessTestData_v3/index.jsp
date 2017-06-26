@@ -5,6 +5,11 @@
             <title>Entity Relatedness Test Data (v3)</title>
     </head>
     <body>
+        <div style="text-align:right">
+            <a href="http://linkeddata.uriburner.com/about/html/http/swlab.ic.uff.br/void.ttl%01EntityRelatednessTestData_v3">
+                <img title="Browse with" src="/uriburnerlogo_small.png" style="vertical-align:middle; width:10%; height:auto"/>
+            </a>
+        </div>
         <h1 style="text-align:center">Entity Relatedness Test Data (v3)</h1>
         <br/><br/><br/>
         <div style="margin:auto; text-align:justify; width:70%; height:90%">
@@ -20,9 +25,6 @@
             </p>
             <div style="text-align:right">
                 <a href="https://doi.org/10.6084/m9.figshare.5143945.v2">https://doi.org/10.6084/m9.figshare.5143945.v2</a>
-                <a href="http://linkeddata.uriburner.com/about/html/http/swlab.ic.uff.br/void.ttl%01EntityRelatednessTestData_v3">
-                    <img title="Browse with" src="/uriburnerlogo_small.png" style="vertical-align:middle; width:10%; height:auto"/>
-                </a>
             </div>
             <br/><br/>
             <iframe style="border:0; width:100%; height:351px"  src="https://widgets.figshare.com/articles/5143945/embed?show_title=1"/>
