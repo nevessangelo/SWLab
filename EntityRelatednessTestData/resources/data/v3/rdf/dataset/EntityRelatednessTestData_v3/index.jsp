@@ -20,10 +20,12 @@
             </p>
             <div style="text-align:right">
                 <a href="https://doi.org/10.6084/m9.figshare.5143945.v2">https://doi.org/10.6084/m9.figshare.5143945.v2</a>
+                <a href="http://linkeddata.uriburner.com/about/html/http/swlab.ic.uff.br/void.ttl%01EntityRelatednessTestData_v3">
+                    <img title="Browse with" src="/uriburnerlogo_small.png" style="vertical-align:middle; width:10%; height:auto"/>
+                </a>
             </div>
             <br/><br/>
-            <iframe style="border:0; width:100%; height:351px"  src="https://widgets.figshare.com/articles/5143945/embed?show_title=1">
-            </iframe>
+            <iframe style="border:0; width:100%; height:351px"  src="https://widgets.figshare.com/articles/5143945/embed?show_title=1"/>
         </div>
         <div xmlns="http://www.w3.org/1999/xhtml"
              prefix="foaf: http://xmlns.com/foaf/0.1/

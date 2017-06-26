@@ -171,6 +171,11 @@
                 </td>
 
             </tr>
+            <tr>
+                <td style="text-align:right">
+                    <a href="http://linkeddata.uriburner.com/about/html/http/swlab.ic.uff.br/?@Lookup@=&refresh=clean"><img title="Browse with" src="uriburnerlogo_small.png" style="width:10%; height:auto"/></a>
+                </td>
+            </tr>
         </table>
 
         <c:import url="http://rdf-translator.appspot.com/convert/detect/rdfa/http://swlab.ic.uff.br/_void.ttl" />
