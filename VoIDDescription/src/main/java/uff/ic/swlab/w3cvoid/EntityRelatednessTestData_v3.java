@@ -55,7 +55,7 @@ public class EntityRelatednessTestData_v3 extends DatasetDescription {
                 .addProperty(DCTerms.title, title)
                 .addProperty(DCTerms.description, description)
                 .addProperty(FOAF.homepage, this.description.createResource(SWLabHost.BASE_URL + "dataset/" + NAME))
-                .addProperty(RDFS.seeAlso, this.description.createResource("https://doi.org/10.6084/m9.figshare.5007983.v1"))
+                .addProperty(RDFS.seeAlso, this.description.createResource("https://doi.org/10.6084/m9.figshare.5143945.v2"))
                 //.addProperty(RDFS.seeAlso, description.createDatasetDescription("https://datahub.io/dataset/EntityRelatednessTestData_v3"))
                 .addProperty(FOAF.page, this.description.createResource(EREL.NS))
                 .addProperty(DCTerms.creator, this.description.createResource("http://lattes.cnpq.br/2460021788616803"))
@@ -103,7 +103,7 @@ public class EntityRelatednessTestData_v3 extends DatasetDescription {
                 + "prefix erel: <%s>\n"
                 + "prefix rsc: <%s>\n"
                 + "\n"
-                + "construct {?dataset void:rootResource ?rootResource.\n"
+                + "construct {?dataset void:rootResource ?rootResource.}\n"
                 + "where{?rootResource a erel:EntityPair.\n"
                 + "      bind (:%s as ?dataset)}\n";
 
@@ -136,7 +136,7 @@ public class EntityRelatednessTestData_v3 extends DatasetDescription {
                 + "           :%s void:propertyPartition ?propertypartition.\n"
                 + "           ?propertypartition a void:Dataset.\n"
                 + "           ?propertypartition void:property ?property.\n"
-                + "           ?propertypartition void:triples ?triples.\n"
+                + "           ?propertypartition void:triples ?triples.}\n"
                 + "where{\n"
                 + "      {SELECT ?dataset ?triples ?entities\n"
                 + "       WHERE {\n"

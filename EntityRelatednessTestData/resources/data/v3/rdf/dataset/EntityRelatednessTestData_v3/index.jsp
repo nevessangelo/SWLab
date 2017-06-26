@@ -19,10 +19,10 @@
                 relevance scores for the entities and properties used in the paths.
             </p>
             <div style="text-align:right">
-                <a href="https://doi.org/10.6084/m9.figshare.5007983.v1">https://doi.org/10.6084/m9.figshare.5007983.v1</a>
+                <a href="https://doi.org/10.6084/m9.figshare.5143945.v2">https://doi.org/10.6084/m9.figshare.5143945.v2</a>
             </div>
             <br/><br/>
-            <iframe style="border:0; width:100%; height:351px"  src="https://widgets.figshare.com/articles/5007983/embed?show_title=1">
+            <iframe style="border:0; width:100%; height:351px"  src="https://widgets.figshare.com/articles/5143945/embed?show_title=1">
             </iframe>
         </div>
         <div xmlns="http://www.w3.org/1999/xhtml"
