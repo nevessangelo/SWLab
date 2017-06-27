@@ -25,7 +25,7 @@ public class InsertFeaturesBD {
         Double verifica = 0.0;
         if (conn != null) {
             java.sql.Statement stmt = conn.createStatement();
-            String query = "SELECT DISTINCT nome_dataset, dataset_size  FROM Features` WHERE dataset_size = 0 AND nome_dataset = '" + name_dataset + "';";
+            String query = "SELECT DISTINCT nome_dataset, dataset_size FROM Features_ WHERE nome_dataset = '" + name_dataset + "';";
             java.sql.ResultSet rs = stmt.executeQuery(query);
             while (rs.next()) {
                 verifica = rs.getDouble("dataset_size");
@@ -71,7 +71,7 @@ public class InsertFeaturesBD {
     public static void UpdateTriples(String name_dataset, int total, Connection conn) throws ClassNotFoundException, SQLException {
         //Connection conn = ConnectionMySql.Conectar();
         if (conn != null) {
-            String query = "UPDATE Features set type_frequen = ? WHERE nome_dataset = ?";
+            String query = "UPDATE Features_ set dataset_size = ? WHERE nome_dataset = ?";
             PreparedStatement preparedStmt = conn.prepareStatement(query);
             preparedStmt.setInt(1, total);
             preparedStmt.setString(2, name_dataset);

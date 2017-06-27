@@ -96,7 +96,8 @@ public class DownloadDump implements Runnable {
 
     @Override
     public void run() {
-        File diretorio = new File(System.getProperty("user.dir") + "/Dumps/" + nome_dataset);
+        //File diretorio = new File(System.getProperty("user.dir") + "/Dumps/" + nome_dataset);
+        File diretorio = new File("/media/angelo/DATA/Dumps2/" + nome_dataset);
         if (!diretorio.exists()) {
             for (String vetor_url : url) {
                 try {

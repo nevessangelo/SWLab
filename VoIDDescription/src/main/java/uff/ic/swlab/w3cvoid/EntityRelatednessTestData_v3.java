@@ -43,24 +43,24 @@ public class EntityRelatednessTestData_v3 extends DatasetDescription {
 
         DateFormat format = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
         Calendar created = Calendar.getInstance();
-        created.setTime(format.parse("19/05/2017"));
+        created.setTime(format.parse("26/06/2017"));
 
         Calendar issued = Calendar.getInstance();
-        issued.setTime(format.parse("29/05/2017"));
+        issued.setTime(format.parse("26/06/2017"));
 
         Calendar modified = Calendar.getInstance();
-        modified.setTime(format.parse("29/05/2017"));
+        modified.setTime(format.parse("26/06/2017"));
 
         this.root = this.description.createResource(URI, VOID.Dataset)
                 .addProperty(DCTerms.title, title)
                 .addProperty(DCTerms.description, description)
                 .addProperty(FOAF.homepage, this.description.createResource(SWLabHost.BASE_URL + "dataset/" + NAME))
-                .addProperty(RDFS.seeAlso, this.description.createResource("https://doi.org/10.6084/m9.figshare.5007983.v1"))
+                .addProperty(RDFS.seeAlso, this.description.createResource("https://doi.org/10.6084/m9.figshare.5143945.v2"))
                 //.addProperty(RDFS.seeAlso, description.createDatasetDescription("https://datahub.io/dataset/EntityRelatednessTestData_v3"))
                 .addProperty(FOAF.page, this.description.createResource(EREL.NS))
                 .addProperty(DCTerms.creator, this.description.createResource("http://lattes.cnpq.br/2460021788616803"))
                 .addProperty(DCTerms.creator, this.description.createResource("http://www.inf.puc-rio.br/~casanova"))
-                .addProperty(DCTerms.publisher, this.description.createResource("http://www.ic.uff.br/~lapaesleme/foaf/#me"))
+                .addProperty(DCTerms.contributor, this.description.createResource("http://www.ic.uff.br/~lapaesleme/foaf/#me"))
                 .addProperty(DCTerms.source, this.description.createResource("http://dbpedia.org/resource/DBpedia"))
                 .addProperty(DCTerms.source, this.description.createResource("http://lastfm.rdfize.com/meta.n3#Dataset"))
                 .addProperty(DCTerms.source, this.description.createResource("http://www.imdb.com"))
@@ -103,7 +103,7 @@ public class EntityRelatednessTestData_v3 extends DatasetDescription {
                 + "prefix erel: <%s>\n"
                 + "prefix rsc: <%s>\n"
                 + "\n"
-                + "construct {?dataset void:rootResource ?rootResource.\n"
+                + "construct {?dataset void:rootResource ?rootResource.}\n"
                 + "where{?rootResource a erel:EntityPair.\n"
                 + "      bind (:%s as ?dataset)}\n";
 
@@ -136,7 +136,7 @@ public class EntityRelatednessTestData_v3 extends DatasetDescription {
                 + "           :%s void:propertyPartition ?propertypartition.\n"
                 + "           ?propertypartition a void:Dataset.\n"
                 + "           ?propertypartition void:property ?property.\n"
-                + "           ?propertypartition void:triples ?triples.\n"
+                + "           ?propertypartition void:triples ?triples.}\n"
                 + "where{\n"
                 + "      {SELECT ?dataset ?triples ?entities\n"
                 + "       WHERE {\n"
