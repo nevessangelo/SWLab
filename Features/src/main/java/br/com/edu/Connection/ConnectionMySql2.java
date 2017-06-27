@@ -25,7 +25,7 @@ public class ConnectionMySql2 {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             //connection = DriverManager.getConnection(url, username, password);
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Features","root","123");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Features_Completo","root","123");
             return connection; 
         } catch (SQLException e) {
             System.out.println("Problemas na conexao com o banco de dados." + e);

@@ -148,7 +148,7 @@ public class SparqlDBPedia {
             }
 
             GetSuperClass(nome_dataset, classse, entite_decode, conn);
-            GetSubClass(nome_dataset, classse, entite_decode, conn);
+            //GetSubClass(nome_dataset, classse, entite_decode, conn);
 
         } else {
             //System.out.println("Type repetido do dataset: " + nome_dataset);

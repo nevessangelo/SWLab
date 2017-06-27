@@ -73,23 +73,24 @@ public class CountTriples implements Runnable {
 
     }
 
-    public static int Triples(Dataset ds, String name_dataset, Connection conn) {
-        int total_triples = 0;
-        String qr = "SELECT (COUNT (*) as ?total) \n"
-                + "WHERE {\n"
-                + "  ?subject ?predicate ?object.\n"
-                + "}";
-        Query qy = QueryFactory.create(qr);
-        QueryExecution qe = QueryExecutionFactory.create(qy, ds);
-        ResultSet rs = qe.execSelect();
-        while (rs.hasNext()) {
-            QuerySolution soln = rs.nextSolution();
-            Literal frequencia = soln.getLiteral("total");
-            total_triples = frequencia.getInt();
-            
-        }
-        return total_triples;
+    public static int Triples(Dataset ds, Connection conn) throws InterruptedException, ExecutionException, TimeoutException {
+        Callable<Integer> task = () -> {
+            int total_triples = 0;
+            String qr = "SELECT (COUNT (*) as ?total) WHERE {{ graph ?g {?subject ?predicate ?object.}}\n"
+                    + "   union {?subject ?predicate ?object.}\n"
+                    + "}";
+            Query qy = QueryFactory.create(qr);
+            QueryExecution qe = QueryExecutionFactory.create(qy, ds);
+            ResultSet rs = qe.execSelect();
+            while (rs.hasNext()) {
+                QuerySolution soln = rs.nextSolution();
+                Literal frequencia = soln.getLiteral("total");
+                total_triples = frequencia.getInt();
 
+            }
+            return total_triples;
+        };
+        return Executor.execute(task, Config.MODEL_READ_TIMEOUT);
     }
 
     @Override
@@ -117,9 +118,18 @@ public class CountTriples implements Runnable {
                         Logger.getLogger(ReadRDF.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     if (ds != null || !ds.equals("") || !ds.equals("null")) {
-                        int total_triples = Triples(ds, name_dataset, conn);
-                        total = total_triples + aux;
-                        aux = total;
+                        try {
+                            int total_triples = Triples(ds, conn);
+                            total = total_triples + aux;
+                            aux = total;
+                        } catch (InterruptedException ex) {
+                            Logger.getLogger(CountTriples.class.getName()).log(Level.SEVERE, null, ex);
+                        } catch (ExecutionException ex) {
+                            Logger.getLogger(CountTriples.class.getName()).log(Level.SEVERE, null, ex);
+                        } catch (TimeoutException ex) {
+                            Logger.getLogger(CountTriples.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        
                     }
                 }
 
@@ -137,13 +147,23 @@ public class CountTriples implements Runnable {
                     // Logger.getLogger(ReadRDF.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 if (ds != null || !ds.equals("") || !ds.equals("null")) {
-                    int total_triples = Triples(ds, name_dataset, conn);
-                    total = total_triples + aux;
-                    aux = total;
+                    try {
+                        int total_triples = Triples(ds, conn);
+                        total = total_triples + aux;
+                        aux = total;
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(CountTriples.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (ExecutionException ex) {
+                        Logger.getLogger(CountTriples.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (TimeoutException ex) {
+                        Logger.getLogger(CountTriples.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
 
             }
         }
+        //System.out.println(name_dataset + "----" + total);
+
         try {
             InsertFeaturesBD.UpdateTriples(name_dataset, total, conn);
         } catch (ClassNotFoundException ex) {
@@ -151,7 +171,6 @@ public class CountTriples implements Runnable {
         } catch (SQLException ex) {
             Logger.getLogger(CountTriples.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
     }
 
 }

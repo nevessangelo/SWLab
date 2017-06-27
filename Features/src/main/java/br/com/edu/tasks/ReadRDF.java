@@ -50,33 +50,66 @@ public class ReadRDF implements Runnable {
 
     public static Dataset Read(File files_dump) throws InterruptedException, ExecutionException, TimeoutException {
         Callable<Dataset> task = () -> {
-            Dataset tempDataset = DatasetFactory.create();
             try {
                 Lang[] langs = {null, Lang.TURTLE, Lang.RDFXML, Lang.NTRIPLES, Lang.TRIG,
-                    Lang.NQUADS, Lang.JSONLD, Lang.RDFJSON, Lang.TRIX, Lang.RDFTHRIFT};
+                    Lang.NQUADS, Lang.JSONLD, Lang.RDFJSON, Lang.TRIX, Lang.RDFTHRIFT, Lang.NQ, Lang.N3, Lang.NT, Lang.TTL};
                 for (Lang lang : langs) {
                     try {
                         if (lang == null) {
+                            Dataset tempDataset = DatasetFactory.create();
                             org.apache.jena.riot.RDFDataMgr.read(tempDataset, files_dump.toString());
                             return tempDataset;
                         } else {
+                            Dataset tempDataset = DatasetFactory.create();
                             org.apache.jena.riot.RDFDataMgr.read(tempDataset, files_dump.toString(), lang);
                             return tempDataset;
                         }
+
                     } catch (Throwable e) {
-                        continue;
+                        System.out.println(e + "do arquivo: "+files_dump.toString());
                     }
                 }
+
             } catch (Throwable e) {
-                return tempDataset;
+                System.out.println(e + "do arquivo: "+files_dump.toString());
             }
             return DatasetFactory.create();
-
         };
         return Executor.execute(task, Config.MODEL_READ_TIMEOUT);
 
     }
-    
+
+//
+//    public static Dataset Read(File files_dump) throws InterruptedException, ExecutionException, TimeoutException {
+//        Callable<Dataset> task = () -> {
+//            Dataset tempDataset = DatasetFactory.create();
+//            try {
+//                Lang[] langs = {null, Lang.TURTLE, Lang.RDFXML, Lang.NTRIPLES, Lang.TRIG,
+//                    Lang.NQUADS, Lang.JSONLD, Lang.RDFJSON, Lang.TRIX, Lang.RDFTHRIFT, Lang.NQ, Lang.N3, Lang.NT, Lang.TTL};
+//                for (Lang lang : langs) {
+//                    try {
+//                        if (lang == null) {
+//                            System.out.println("aqui");
+//                            org.apache.jena.riot.RDFDataMgr.read(tempDataset, files_dump.toString());
+//                            return tempDataset;
+//                        } else {
+//                            System.out.println(lang);
+//                            org.apache.jena.riot.RDFDataMgr.read(tempDataset, files_dump.toString(), lang);
+//                            return tempDataset;
+//                        }
+//                    } catch (Throwable e) {
+//                        continue;
+//                    }
+//                }
+//            } catch (Throwable e) {
+//                return tempDataset;
+//            }
+//            return DatasetFactory.create();
+//
+//        };
+//        return Executor.execute(task, Config.MODEL_READ_TIMEOUT);
+//
+//    }
     public static void SearchEntites(Dataset ds, String name_dataset, Connection conn) throws Exception {
         double frequencia = 0;
         String qr = "SELECT ?object\n"
@@ -99,27 +132,29 @@ public class ReadRDF implements Runnable {
                 br.com.edu.DBPedia.DBpediaWB.getEntite(text, name_dataset, conn);
             }
         }
-       
-       
 
     }
 
-
     public static void SearchClass(Dataset ds, String name_dataset, Connection conn) throws ClassNotFoundException, SQLException {
         double frequen, frequencia_update = 0;
-        String qr = "SELECT (COUNT (?cl) as ?freq) ?cl\n"
-                + "WHERE {\n"
-                + " 		{ [] a ?cl }\n"
-                + " 		UNION { graph ?g {[] a ?cl }}\n"
-                + "} \n"
-                + "group by ?cl";
+        String qr = "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
+                + "select ?class (count(?s) as ?freq)\n"
+                + "WHERE {{?s rdf:type ?class} union {graph ?g {?s rdf:type ?class}}}\n"
+                + "group by ?class\n"
+                + "order by desc(?freq)";
+//        String qr = "SELECT (COUNT (?cl) as ?freq) ?cl\n"
+//                + "WHERE {\n"
+//                + " 		{ [] a ?cl }\n"
+//                + " 		UNION { graph ?g {[] a ?cl }}\n"
+//                + "} \n"
+//                + "group by ?cl";
 
         Query qy = QueryFactory.create(qr);
         QueryExecution qe = QueryExecutionFactory.create(qy, ds);
         ResultSet rs = qe.execSelect();
         while (rs.hasNext()) {
             QuerySolution soln = rs.nextSolution();
-            String classpartition = String.valueOf(soln.get("cl"));
+            String classpartition = String.valueOf(soln.get("class"));
             Literal frequencia = soln.getLiteral("freq");
             int num_frequencia = frequencia.getInt();
             if (classpartition != null || !classpartition.equals("") || !classpartition.equals("null")) {
@@ -133,16 +168,16 @@ public class ReadRDF implements Runnable {
                     classp.setFeature(classpartition);
                     classp.setFrequen(num_frequencia);
                     classp.setType("dump");
-                    if(!classp.getFeature().equals("null")){
+                    if (!classp.getFeature().equals("null")) {
                         InsertFeaturesBD.InsertClass(classp, conn);
                     }
-                    
+
                 }
             }
 
         }
     }
-    
+
     public static void SearchProprety(Dataset ds, String name_dataset, Connection conn) throws ClassNotFoundException, SQLException {
         double frequen, frequencia_update = 0;
         String qr = "SELECT (COUNT (?p) as ?freq) ?p\n"
@@ -169,29 +204,27 @@ public class ReadRDF implements Runnable {
                 pp.setFeature(propretypartition);
                 pp.setFrequen(num_frequencia);
                 pp.setType("dump");
-                if(!pp.getFeature().equals("null")){
+                if (!pp.getFeature().equals("null")) {
                     InsertFeaturesBD.InsertProprety(pp, conn);
                 }
-                
+
             }
 
         }
     }
-    
-      public static void GetNotes(String nome_dataset, Connection conn) throws IOException{
+
+    public static void GetNotes(String nome_dataset, Connection conn) throws IOException {
         PropertyConfigurator.configure("./src/main/resources/conf/log4j.properties");
         Config.configure("./src/main/resources/conf/datasetcrawler.properties");
         CatalogCrawler crawler = new CatalogCrawler(Config.CKAN_CATALOG);
         uff.ic.swlab.datasetcrawler.adapter.Dataset dataset = crawler.getDataset(nome_dataset);
         String notes = dataset.getNotes();
-        if(notes != null || !notes.equals("")){
+        if (notes != null || !notes.equals("")) {
             String notes_url = java.net.URLEncoder.encode(notes);
             br.com.edu.DBPedia.DBpediaWB.getEntite(notes_url, nome_dataset, conn);
         }
-        
-        
-    }
 
+    }
 
     @Override
     public void run() {
@@ -233,7 +266,7 @@ public class ReadRDF implements Runnable {
             } else {
                 Dataset ds = null;
                 try {
-                    System.out.println("Read file: "+ files_dump[j]);
+                    System.out.println("Read file: " + files_dump[j]);
                     ds = Read(files_dump[j]);
                 } catch (InterruptedException ex) {
                     //Logger.getLogger(ReadRDF.class.getName()).log(Level.SEVERE, null, ex);
@@ -259,12 +292,12 @@ public class ReadRDF implements Runnable {
             }
         }
         try {
-            System.out.println("Notes do: "+name_dataset);
+            System.out.println("Notes do: " + name_dataset);
             GetNotes(name_dataset, conn);
         } catch (IOException ex) {
             Logger.getLogger(ReadRDF.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
 }

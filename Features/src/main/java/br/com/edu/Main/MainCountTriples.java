@@ -31,14 +31,17 @@ public class MainCountTriples {
         File files_dump[];
         File files_directory[];
         files = file.listFiles();
+        Integer counter = 0;
         Connection conn = ConnectionMySql2.Conectar();
         for (int i = 0; i < files.length; i++) {
             String[] getNameDataset = files[i].toString().split("/");
             int size = getNameDataset.length - 1;
-            String name_dataset = getNameDataset[size];
+            String name_dataset = "http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/"+getNameDataset[size];
+            
             Double verifica_count = InsertFeaturesBD.VerificaCount(name_dataset, conn);
-            if(verifica_count == 0){
+            if(verifica_count == 0.0 && !name_dataset.equals("http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/abs-linked-data") && !name_dataset.equals("http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/bio2rdf-pathwaycommons") && !name_dataset.equals("http://linkeddatacatalog.dws.informatik.uni-mannheim.de/api/rest/dataset/bio2rdf-wikipathways")){
                 pool.submit(new CountTriples(files[i].toString(), name_dataset, conn));
+                System.out.println((++counter) + ": Submitting task " + name_dataset);
             }
             
             

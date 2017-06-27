@@ -41,7 +41,7 @@ public class DBpediaWB {
             //Client client = new Client(ch);
             Client client = new Client();
             WebResource webResource = client
-                    .resource("http://model.dbpedia-spotlight.org/en/annotate/?confidence=0.8&text="+ text + "&support=100");
+                    .resource("http://model.dbpedia-spotlight.org/en/annotate/?confidence=0.6&text="+ text + "&support=100");
             
             ClientResponse response = webResource.accept("application/json")
                     .get(ClientResponse.class);
@@ -54,7 +54,6 @@ public class DBpediaWB {
             String output = response.getEntity(String.class);
 
             System.out.println("Output from Server .... \n");
-            System.out.println(output);
             JSONObject my_obj = new JSONObject(output);
             try {
                 JSONArray Resources = my_obj.getJSONArray("Resources");
