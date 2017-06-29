@@ -14,14 +14,14 @@
         <br/><br/><br/>
         <div style="margin:auto; text-align:justify; width:70%; height:90%">
             <p>
-                &emsp;&emsp;The entity relatedness problem refers to the question
-                of computing the relationship paths that better describe the connectivity between a given
-                entity pair. This dataset supports the evaluation of approaches that address the entity
+                &emsp;&emsp;The entity relatedness problem refers to the question of computing
+                the relationship paths that better describe the connectivity between a given entity
+                pair. This dataset supports the evaluation of approaches that address the entity
                 relatedness problem. It covers two familiar domains, music and movies, and uses data
-                available in IMDb and Last.fm, which are popular reference datasets in these domains. The
-                dataset contains 20 entity pairs from each of these domains and, for each entity pair, a
-                ranked list with 50 relationship paths. It also contains entity ratings and property
-                relevance scores for the entities and properties used in the paths.
+                available in IMDb and Last.fm, which are popular reference datasets in these domains.
+                The dataset contains 20 entity pairs from each of these domains and, for each entity
+                pair, a ranked list with 50 relationship paths. It also contains entity ratings and
+                property relevance scores for the entities and properties used in the paths.
             </p>
             <div style="text-align:right">
                 <a href="https://doi.org/10.6084/m9.figshare.5143945.v2">https://doi.org/10.6084/m9.figshare.5143945.v2</a>
