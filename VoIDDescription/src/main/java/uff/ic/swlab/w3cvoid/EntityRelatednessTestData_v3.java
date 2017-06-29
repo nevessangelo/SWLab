@@ -12,9 +12,8 @@ import org.apache.jena.sparql.vocabulary.FOAF;
 import org.apache.jena.vocabulary.DCTerms;
 import org.apache.jena.vocabulary.RDFS;
 import org.apache.jena.vocabulary.VOID;
-import uff.ic.swlab.commons.util.SWLabHost;
-import uff.ic.swlab.vocabulary.RSC;
 import uff.ic.swlab.vocabulary.ertd.v1.EREL;
+import uff.ic.swlab.vocabulary.ertd.v1.RSC;
 
 public class EntityRelatednessTestData_v3 extends DatasetDescription {
 
@@ -54,7 +53,7 @@ public class EntityRelatednessTestData_v3 extends DatasetDescription {
         this.root = this.description.createResource(URI, VOID.Dataset)
                 .addProperty(DCTerms.title, title)
                 .addProperty(DCTerms.description, description)
-                .addProperty(FOAF.homepage, this.description.createResource(SWLabHost.BASE_URL + "dataset/" + NAME))
+                .addProperty(FOAF.homepage, this.description.createResource(v.HOST.baseHttpUrl() + "dataset/" + NAME))
                 .addProperty(RDFS.seeAlso, this.description.createResource("https://doi.org/10.6084/m9.figshare.5143945.v2"))
                 //.addProperty(RDFS.seeAlso, description.createDatasetDescription("https://datahub.io/dataset/EntityRelatednessTestData_v3"))
                 .addProperty(FOAF.page, this.description.createResource(EREL.NS))
@@ -70,17 +69,17 @@ public class EntityRelatednessTestData_v3 extends DatasetDescription {
                 .addProperty(DCTerms.modified, this.description.createTypedLiteral(modified))
                 .addProperty(DCTerms.subject, this.description.createResource("http://dbpedia.org/resource/Category:Information_retrieval_techniques"))
                 .addProperty(DCTerms.subject, this.description.createResource("http://dbpedia.org/resource/Web-based_technologies"))
-                .addProperty(VOID.uriSpace, SWLabHost.BASE_URL + "resource/")
+                .addProperty(VOID.uriSpace, v.HOST.baseHttpUrl() + "resource/")
                 //.addProperty(VOID.exampleResource, this.description.createResource("http://" + VoIDDescription.HOST_ADDR + "/resource/Michael_Jackson"))
                 //.addProperty(VOID.exampleResource, this.description.createResource("http://" + VoIDDescription.HOST_ADDR + "/resource/Metallica"))
                 //.addProperty(VOID.rootResource, description.createDatasetDescription("http://" + HOST_ADDR + "/resource/Metallica"))
-                .addProperty(VOID.sparqlEndpoint, this.description.createResource(SWLabHost.BASE_URL + "fuseki/dataset.html?tab=query&ds=/" + NAME))
+                .addProperty(VOID.sparqlEndpoint, this.description.createResource(v.HOST.baseHttpUrl() + "fuseki/dataset.html?tab=query&ds=/" + NAME))
                 .addProperty(VOID.dataDump, this.description.createResource("https://ndownloader.figshare.com/articles/5007983/versions/1"))
-                .addProperty(VOID.dataDump, this.description.createResource(SWLabHost.BASE_URL + "dataset/" + NAME + ".rdf.gz"))
-                .addProperty(VOID.dataDump, this.description.createResource(SWLabHost.BASE_URL + "dataset/" + NAME + ".ttl.gz"))
-                .addProperty(VOID.dataDump, this.description.createResource(SWLabHost.BASE_URL + "dataset/" + NAME + ".json.gz"))
-                .addProperty(VOID.dataDump, this.description.createResource(SWLabHost.BASE_URL + "dataset/" + NAME + ".nt.gz"))
-                .addProperty(VOID.dataDump, this.description.createResource(SWLabHost.BASE_URL + "fuseki/" + NAME + "/"))
+                .addProperty(VOID.dataDump, this.description.createResource(v.HOST.baseHttpUrl() + "dataset/" + NAME + ".rdf.gz"))
+                .addProperty(VOID.dataDump, this.description.createResource(v.HOST.baseHttpUrl() + "dataset/" + NAME + ".ttl.gz"))
+                .addProperty(VOID.dataDump, this.description.createResource(v.HOST.baseHttpUrl() + "dataset/" + NAME + ".json.gz"))
+                .addProperty(VOID.dataDump, this.description.createResource(v.HOST.baseHttpUrl() + "dataset/" + NAME + ".nt.gz"))
+                .addProperty(VOID.dataDump, this.description.createResource(v.HOST.baseHttpUrl() + "fuseki/" + NAME + "/"))
                 .addProperty(VOID.feature, this.description.createResource("http://www.w3.org/ns/formats/RDF_XML"))
                 .addProperty(VOID.feature, this.description.createResource("http://www.w3.org/ns/formats/Turtle"))
                 .addProperty(VOID.feature, this.description.createResource(" http://www.w3.org/ns/formats/RDF_JSON"))
@@ -96,7 +95,7 @@ public class EntityRelatednessTestData_v3 extends DatasetDescription {
 
     @Override
     protected final Model getRootResources() {
-        String query = "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
+        String queryString = "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
                 + "prefix owl: <http://www.w3.org/2002/07/owl#>\n"
                 + "PREFIX void: <http://rdfs.org/ns/void#>\n"
                 + "prefix : <%s>\n"
@@ -107,13 +106,13 @@ public class EntityRelatednessTestData_v3 extends DatasetDescription {
                 + "where{?rootResource a erel:EntityPair.\n"
                 + "      bind (:%s as ?dataset)}\n";
 
-        query = String.format(query, v.MYVOID_NS, EREL.NS, RSC.NS, NAME);
-        return SWLabHost.execConstruct(query, SWLabHost.getSPARQLEndpoint(NAME));
+        queryString = String.format(queryString, v.MYVOID_NS, EREL.NS, RSC.NS, NAME);
+        return v.HOST.execConstruct(queryString, NAME);
     }
 
     @Override
     protected final Model getStructure() {
-        String query = "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
+        String queryString = "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
                 + "prefix owl: <http://www.w3.org/2002/07/owl#>\n"
                 + "PREFIX void: <http://rdfs.org/ns/void#>\n"
                 + "prefix : <%s>\n"
@@ -180,7 +179,7 @@ public class EntityRelatednessTestData_v3 extends DatasetDescription {
                 + "                     GROUP BY ?property}\n"
                 + "                    bind (iri(str(:)+\"id-\"+STRUUID()) as ?propertypartition)}}\n"
                 + "}";
-        query = String.format(query, v.MYVOID_NS, EREL.NS, RSC.NS, NAME, NAME, NAME, NAME, NAME);
-        return SWLabHost.execConstruct(query, SWLabHost.getSPARQLEndpoint(NAME));
+        queryString = String.format(queryString, v.MYVOID_NS, EREL.NS, RSC.NS, NAME, NAME, NAME, NAME, NAME);
+        return v.HOST.execConstruct(queryString, NAME);
     }
 }

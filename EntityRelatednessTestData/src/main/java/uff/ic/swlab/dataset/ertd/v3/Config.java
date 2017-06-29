@@ -8,6 +8,8 @@ import uff.ic.swlab.commons.util.SWLabHost;
 
 public class Config {
 
+    public static final SWLabHost HOST = SWLabHost.ALTERNATE_HOST;
+
     public static final String DATA_ROOT = "./resources/data/v3/raw";
     public static final String RDF_ROOT = "./resources/data/v3/rdf";
     public static final String NAME = "EntityRelatednessTestData";
@@ -33,7 +35,7 @@ public class Config {
     public static final String REMOTE_JSON_DUMP_NAME = "/tomcat/dataset/" + NAME + "_v3.json.gz";
     public static final String REMOTE_NTRIPLES_DUMP_NAME = "/tomcat/dataset/" + NAME + "_v3.nt.gz";
 
-    public static final String FUSEKI_URL = SWLabHost.BASE_URL + "fuseki/" + NAME + "_v3/data";
+    public static final String FUSEKI_DATA_URL = HOST.sparqlDataUrl(NAME + "_v3");
 
     public static void configure(String file) throws IOException {
         try (InputStream input = new FileInputStream(file);) {

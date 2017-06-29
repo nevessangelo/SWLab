@@ -19,22 +19,23 @@ import org.apache.jena.vocabulary.DCTerms;
 import org.apache.jena.vocabulary.VOID;
 import org.apache.log4j.PropertyConfigurator;
 import org.semarglproject.vocab.OWL;
-import uff.ic.swlab.commons.util.FTPHost;
 import uff.ic.swlab.commons.util.SWLabHost;
-import uff.ic.swlab.vocabulary.RSC;
+import uff.ic.swlab.vocabulary.ertd.v1.RSC;
 
 public class VoIDDescription {
 
+    public static final SWLabHost HOST = SWLabHost.ALTERNATE_HOST;
+
     public final String MYVOID_NS;
 
-    private final String ROOT_DIR = "./resources/data";
+    private final String ROOT_DIR = "../Root/WebContent";
     private final String LOCAL_NAME;
     private final String REMOTE_NAME;
 
     public final Model model = ModelFactory.createDefaultModel();
 
     public VoIDDescription(String nsPart, String filename) throws ParseException {
-        MYVOID_NS = SWLabHost.BASE_URL + nsPart;
+        MYVOID_NS = HOST.baseHttpUrl() + nsPart;
 
         LOCAL_NAME = ROOT_DIR + "/" + filename;
         REMOTE_NAME = "/tomcat/" + filename;
@@ -49,7 +50,7 @@ public class VoIDDescription {
         EntityRelatednessTestData_v3 d1 = new EntityRelatednessTestData_v3(this);
 
         Resource dsDesc = model.createResource(MYVOID_NS + (filename.startsWith("_") ? "this" : ""), VOID.DatasetDescription);
-        dsDesc.addProperty(DCTerms.title, "Description of the available datasets at " + SWLabHost.BASE_URL)
+        dsDesc.addProperty(DCTerms.title, "Description of the available datasets at " + HOST.baseHttpUrl())
                 .addProperty(DCTerms.creator, "http://www.ic.uff.br/~lapaesleme/foaf.rdf#me")
                 .addProperty(FOAF.topic, d1.root);
 
@@ -76,7 +77,7 @@ public class VoIDDescription {
                 } finally {
                 }
                 try (InputStream in = new FileInputStream(v.LOCAL_NAME)) {
-                    FTPHost.uploadViaFTP(SWLabHost.HOSTNAME, port, USERNAME, PASSWORD, v.REMOTE_NAME, in);
+                    HOST.uploadViaFTP(USERNAME, PASSWORD, v.REMOTE_NAME, in);
                 } finally {
                 }
             }
@@ -90,7 +91,7 @@ public class VoIDDescription {
                 } finally {
                 }
                 try (InputStream in = new FileInputStream(v.LOCAL_NAME)) {
-                    FTPHost.uploadViaFTP(SWLabHost.HOSTNAME, port, USERNAME, PASSWORD, v.REMOTE_NAME, in);
+                    HOST.uploadViaFTP(USERNAME, PASSWORD, v.REMOTE_NAME, in);
                 } finally {
                 }
             }

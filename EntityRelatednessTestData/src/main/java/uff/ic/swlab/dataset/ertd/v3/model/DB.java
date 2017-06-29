@@ -12,7 +12,7 @@ import java.util.Set;
 import java.util.UUID;
 import org.apache.commons.validator.routines.UrlValidator;
 import uff.ic.swlab.vocabulary.ertd.v1.EREL;
-import uff.ic.swlab.vocabulary.RSC;
+import uff.ic.swlab.vocabulary.ertd.v1.RSC;
 
 public class DB {
 
