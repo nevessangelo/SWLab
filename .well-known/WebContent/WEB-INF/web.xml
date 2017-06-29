@@ -4,14 +4,13 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          id="well-known" version="3.1">
     <display-name>.well-known</display-name>
-    <filter>
-        <filter-name>UrlRewriteFilter</filter-name>
-        <filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>UrlRewriteFilter</filter-name>
-        <url-pattern>/*</url-pattern>
-        <dispatcher>REQUEST</dispatcher>
-        <dispatcher>FORWARD</dispatcher>
-    </filter-mapping>
+    <servlet>
+        <display-name>void</display-name>
+        <servlet-name>void</servlet-name>
+        <servlet-class>uff.ic.swlab.VoID</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>void</servlet-name>
+        <url-pattern>/void</url-pattern>
+    </servlet-mapping>
 </web-app>
