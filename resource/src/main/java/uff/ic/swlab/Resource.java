@@ -45,8 +45,8 @@ public class Resource extends HttpServlet {
         Model model = getDescription(id);
 
         if (lang == null) {
-            String url = "http://linkeddata.uriburner.com/about/html/" + request.getRequestURL() + id + "?@Lookup@=&refresh=clean";
-            response.setStatus(HttpServletResponse.SC_SEE_OTHER);
+            String url = "http://linkeddata.uriburner.com/about/html/" + request.getRequestURL() + "?id=" + id + "&@Lookup@=&refresh=clean";
+            response.setStatus(HttpServletResponse.SC_MOVED_TEMPORARILY);
             response.setHeader("Location", url);
             //response.sendRedirect(url);
         } else
