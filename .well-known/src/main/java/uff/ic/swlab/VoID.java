@@ -29,4 +29,5 @@ public class VoID extends HttpServlet {
         response.setStatus(HttpServletResponse.SC_MOVED_TEMPORARILY);
         response.setHeader("Location", url);
     }
+
 }
