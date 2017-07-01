@@ -70,7 +70,7 @@ public class Resource extends HttpServlet implements Servlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.getWriter().write("Error: POST method not implemented.");
+        response.setStatus(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
     }
 
     @Override

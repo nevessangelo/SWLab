@@ -25,6 +25,8 @@ public class VoID extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.getWriter().write("Error: POST method not implemented.");
+        String url = "/void.ttl";
+        response.setStatus(HttpServletResponse.SC_MOVED_TEMPORARILY);
+        response.setHeader("Location", url);
     }
 }
