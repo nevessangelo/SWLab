@@ -46,7 +46,6 @@ public class Resource extends HttpServlet implements Servlet {
         String id = request.getParameter("id");
         String accept = request.getHeader("Accept");
         Lang lang = detectRequestedLang(accept);
-        Model model = getDescription(id);
 
         if (path == null && id != null)
             if (lang == null) {
@@ -55,6 +54,7 @@ public class Resource extends HttpServlet implements Servlet {
                 response.setHeader("Location", url);
             } else
                 try (OutputStream httpReponse = response.getOutputStream()) {
+                    Model model = getDescription(id);
                     response.setContentType(lang.getContentType().getContentType());
                     RDFDataMgr.write(httpReponse, model, lang);
                     httpReponse.flush();
