@@ -3,9 +3,9 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>uff.ic.swlab</groupId>
     <artifactId>commons-lib</artifactId>
+    <name>SWLab Common Library</name>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>SWLab Common Library</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -25,7 +25,6 @@
             <artifactId>apache-log4j-extras</artifactId>
             <version>1.2.17</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12 -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
@@ -64,14 +63,13 @@
             <version>3.1.1</version>
             <type>pom</type>
         </dependency>
-
         <dependency>
             <groupId>net.sourceforge.owlapi</groupId>
             <artifactId>owlapi-distribution</artifactId>
             <version>5.0.2</version>
         </dependency>
-
     </dependencies>
+
     <build>
         <sourceDirectory>./src/main/java</sourceDirectory>
         <testSourceDirectory>./src/test/java</testSourceDirectory>
