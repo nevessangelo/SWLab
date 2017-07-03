@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<script type="text/javascript">
+	function previous_() {
+		document.getElementById("command").value = "previous";
+		document.getElementById("pagination").submit();
+	}
+	function top_() {
+		document.getElementById("command").value = "top";
+		document.getElementById("pagination").submit();
+	}
+	function next_() {
+		document.getElementById("command").value = "next";
+		document.getElementById("pagination").submit();
+	}
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Datasets</title>
+</head>
+<body>
+	<center>
+		<h1>Datasets</h1>
+	</center>
+	<br>
+	<hr>
+	<center>
+		<table width="75%">
+			{% for r in results%}
+			<tr>
+				<td>
+					<p>
+						<a href="{{r.datasets.0.extras2.name_web}}">{{r.datasets.0.title}}</a><br>{{r.datasets.0.notes|truncatewords:50}} 
+						{%if r.datasets|length > 1%} 	
+						<details> 
+						<summary>duplicate descriptions</summary>
+						<div style="width: 90%; text-align: justify">
+							<ol>
+								{% for d in r.datasets%}
+									<li><a href="{{d.extras2.name_web}}">{{d.title}}</a> (source: <a href="{{d.extras2.catalog_home}}">{{d.extras2.catalog_name}}</a>)
+									<br>{{d.notes|truncatewords:50}}</li>
+								{% endfor %} 
+							<ol>
+						</div>
+						</details>
+						{%endif%}
+					</p>
+				</td>
+			</tr>
+			{% endfor %}
+		</table>
+	</center>
+	<hr>
+	<center>
+		<form name="pagination" id="pagination" action="search" method="post">
+			<input type="hidden" name="command" id="command">
+		</form>
+		<a href="javascript:previous_();">previous</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="javascript:top_();">top</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		<a href="javascript:next_();">next</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		<a href="/datasearch/">(new search)</a>
+	</center>
+</body>
+</html>
