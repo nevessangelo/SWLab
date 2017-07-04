@@ -180,7 +180,7 @@
              rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
              rdfs: http://www.w3.org/2000/01/rdf-schema#">
             <div typeof="foaf:Document" about="#this">
-                <div rel="foaf:primaryTopic">
+                <div rel="foaf:topic">
                     <div typeof="rdf:Resource" about="/void.ttl#EntityRelatednessTestData_v3"/>
                 </div>
             </div>
