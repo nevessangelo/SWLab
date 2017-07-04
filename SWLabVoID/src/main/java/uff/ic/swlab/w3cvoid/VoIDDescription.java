@@ -49,7 +49,7 @@ public class VoIDDescription {
 
         EntityRelatednessTestData_v3 d1 = new EntityRelatednessTestData_v3(this);
 
-        Resource dsDesc = model.createResource(MYVOID_NS + (filename.startsWith("_") ? "this" : ""), VOID.DatasetDescription);
+        Resource dsDesc = model.createResource(MYVOID_NS, VOID.DatasetDescription);
         dsDesc.addProperty(DCTerms.title, "Description of the available datasets at " + HOST.baseHttpUrl())
                 .addProperty(DCTerms.creator, "http://www.ic.uff.br/~lapaesleme/foaf.rdf#me")
                 .addProperty(FOAF.topic, d1.root);
@@ -69,31 +69,14 @@ public class VoIDDescription {
             String USERNAME = prop.getProperty("username");
             String PASSWORD = prop.getProperty("password");
 
-            {
-                VoIDDescription v = new VoIDDescription("void.ttl#", "void.ttl");
-                (new File(v.ROOT_DIR)).mkdirs();
-                try (OutputStream out = new FileOutputStream(v.LOCAL_NAME);) {
-                    RDFDataMgr.write(out, v.model, Lang.TURTLE);
-                } finally {
-                }
-                try (InputStream in = new FileInputStream(v.LOCAL_NAME)) {
-                    HOST.uploadViaFTP(USERNAME, PASSWORD, v.REMOTE_NAME, in);
-                } finally {
-                }
+            VoIDDescription v = new VoIDDescription("void.ttl#", "void.ttl");
+            (new File(v.ROOT_DIR)).mkdirs();
+            try (OutputStream out = new FileOutputStream(v.LOCAL_NAME);) {
+                RDFDataMgr.write(out, v.model, Lang.TURTLE);
             }
 
-            {
-                VoIDDescription v = new VoIDDescription("#", "_void.ttl");
-
-                (new File(v.ROOT_DIR)).mkdirs();
-                try (OutputStream out = new FileOutputStream(v.LOCAL_NAME);) {
-                    RDFDataMgr.write(out, v.model, Lang.TURTLE);
-                } finally {
-                }
-                try (InputStream in = new FileInputStream(v.LOCAL_NAME)) {
-                    HOST.uploadViaFTP(USERNAME, PASSWORD, v.REMOTE_NAME, in);
-                } finally {
-                }
+            try (InputStream in = new FileInputStream(v.LOCAL_NAME)) {
+                HOST.uploadViaFTP(USERNAME, PASSWORD, v.REMOTE_NAME, in);
             }
         }
     }
