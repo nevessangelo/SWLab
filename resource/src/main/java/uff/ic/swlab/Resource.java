@@ -46,15 +46,18 @@ public class Resource extends HttpServlet {
 
         if (path == null && id != null)
             if (lang == null) {
-                String url = "http://linkeddata.uriburner.com/about/html/" + request.getRequestURL() + "?id=" + id + "&@Lookup@=&refresh=clean";
+                String url = "http://linkeddata.uriburner.com/about/html/" + ("" + request.getRequestURL()).replaceFirst("http://", "http/") + "/" + id + "&@Lookup@=&refresh=clean";
                 response.setStatus(HttpServletResponse.SC_MOVED_TEMPORARILY);
                 response.setHeader("Location", url);
             } else
                 try (OutputStream httpReponse = response.getOutputStream()) {
                     Model model = getDescription(id);
-                    response.setContentType(lang.getContentType().getContentType());
-                    RDFDataMgr.write(httpReponse, model, lang);
-                    httpReponse.flush();
+                    if (model.size() > 0) {
+                        response.setContentType(lang.getContentType().getContentType());
+                        RDFDataMgr.write(httpReponse, model, lang);
+                        httpReponse.flush();
+                    } else
+                        response.setStatus(HttpServletResponse.SC_NOT_FOUND);
                 }
         else if (path != null && path.split("/").length == 2 && request.getQueryString() == null) {
             String url = ("" + request.getRequestURL()).replaceFirst(path, "") + "?id=" + path.replaceAll("/", "");
