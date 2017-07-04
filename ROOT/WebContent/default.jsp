@@ -1,4 +1,4 @@
-<!--<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>-->
+<!-- %@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" % -->
 <%@page import="org.apache.jena.rdf.model.ModelFactory"%>
 <%@page import="org.apache.http.util.EntityUtils"%>
 <%@page import="org.apache.http.HttpEntity"%>
@@ -186,6 +186,6 @@
             </div>
         </div>
 
-        <!-- <c:import url="http://rdf-translator.appspot.com/convert/detect/rdfa/http://swlab.ic.uff.br/_void.ttl" />-->
+        <!-- c:import url="http://rdf-translator.appspot.com/convert/detect/rdfa/http://swlab.ic.uff.br/_void.ttl" / -->
     </body>
 </html>
