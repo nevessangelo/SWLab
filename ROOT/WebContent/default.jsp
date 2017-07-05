@@ -61,22 +61,20 @@
         e.printStackTrace();
     }
 %>
+<!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-        <meta name="google-site-verification"
-              content="ycmk3pZqoz4GPdQaQi7-tldtH0DoA0YN3nwj5_qnZXU" />
+        <meta charset="UTF-8">
+        <meta name="google-site-verification" content="ycmk3pZqoz4GPdQaQi7-tldtH0DoA0YN3nwj5_qnZXU">
+        <link href="swlab.css" rel="stylesheet" type="text/css">
         <title>IC/UFF Semantic Web Lab (SWLab)</title>
-        <link href="swlab.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
         <div style="text-align:right">
             <a href="http://linkeddata.uriburner.com/about/html/http/swlab.ic.uff.br/?@Lookup@=&refresh=clean"><img title="Browse with" src="uriburnerlogo_small.png" style="width:10%; height:auto"/></a>
         </div>
         <h1 style="text-align: center">IC/UFF Semantic Web Lab (SWLab)</h1>
-        <br>
-        <br>
-        <br>
+        <br/><br/><br/>
 
         <table style="margin:auto; border:0px; text-align:justify; width:70%">
             <tr>
@@ -121,7 +119,7 @@
                                                 Data Challenge, co-located with the LAK 2014 conference, 2014.
                                                 v. 1. p. 1-6.</a>
                                         </li>
-                                        <li>Lopes, Giseli Rabello; Leme, Luiz Andre P. Paes; Nunes,
+                                        <li>Lopes, Giseli Rabello; Leme, Luiz Andr&ecute; P. Paes; Nunes,
                                             Bernardo Pereira; CASANOVA, Marco A.; Dietze, Stefan. Two
                                             Approaches to the Dataset Interlinking Recommendation Problem.
                                             In: 15th International Conference on Web Information System
@@ -176,12 +174,13 @@
         </table>
 
         <div xmlns="http://www.w3.org/1999/xhtml"
-             prefix="foaf: http://xmlns.com/foaf/0.1/
-             rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
-             rdfs: http://www.w3.org/2000/01/rdf-schema#">
-            <div typeof="foaf:Document" about="#this">
+             xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+             xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+             xmlns:foaf="http://xmlns.com/foaf/0.1/">
+            <div  about="#this" typeof="foaf:Document">
                 <div rel="foaf:topic">
-                    <div typeof="rdf:Resource" about="/void.ttl#EntityRelatednessTestData_v3"/>
+                    <div about="/void.ttl#EntityRelatednessTestData_v3" typeof="rdf:Resource" >
+                    </div>
                 </div>
             </div>
         </div>

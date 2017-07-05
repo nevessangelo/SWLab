@@ -20,6 +20,7 @@ public enum SWLabHost {
     public final String hostname;
     public final int httpPort;
     public final int ftpPort;
+    public static final SWLabHost DEFAULT_HOST = PRIMARY_HOST;
 
     SWLabHost(String hostname, int httpPort, int ftpPort) {
         this.hostname = hostname;

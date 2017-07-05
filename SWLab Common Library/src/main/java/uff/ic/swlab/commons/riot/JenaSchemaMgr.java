@@ -1,4 +1,4 @@
-package uff.ic.swlab.commons.util.riot;
+package uff.ic.swlab.commons.riot;
 
 import java.io.BufferedInputStream;
 import java.io.File;

@@ -8,7 +8,7 @@ import uff.ic.swlab.commons.util.SWLabHost;
 
 public class Config {
 
-    public static final SWLabHost HOST = SWLabHost.ALTERNATE_HOST;
+    public static final SWLabHost HOST = SWLabHost.DEFAULT_HOST;
 
     public static final String DATA_ROOT = "./resources/data/v3/raw";
     public static final String RDF_ROOT = "./resources/data/v3/rdf";

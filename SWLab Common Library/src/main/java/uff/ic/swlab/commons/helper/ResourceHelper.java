@@ -1,4 +1,4 @@
-package uff.ic.swlab.commons.util.helper;
+package uff.ic.swlab.commons.helper;
 
 import java.net.URL;
 import java.util.Comparator;

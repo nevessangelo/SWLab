@@ -1,7 +1,9 @@
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
+            <link href="swlab.css" rel="stylesheet" type="text/css"/>
             <title>Entity Relatedness Test Data (v3)</title>
     </head>
     <body>
@@ -27,17 +29,21 @@
                 <a href="https://doi.org/10.6084/m9.figshare.5143945.v2">https://doi.org/10.6084/m9.figshare.5143945.v2</a>
             </div>
             <br/><br/>
-            <iframe style="border:0; width:100%; height:351px"  src="https://widgets.figshare.com/articles/5143945/embed?show_title=1"/>
+            <iframe style="border:0; width:100%; height:351px"  src="https://widgets.figshare.com/articles/5143945/embed?show_title=1">
+            </iframe>
         </div>
+
         <div xmlns="http://www.w3.org/1999/xhtml"
-             prefix="foaf: http://xmlns.com/foaf/0.1/
-             rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
-             rdfs: http://www.w3.org/2000/01/rdf-schema#">
-            <div typeof="foaf:Document" about="#this">
-                <div rel="foaf:primaryTopic">
-                    <div typeof="rdf:Resource" about="/void.ttl#EntityRelatednessTestData_v3"/>
+             xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+             xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+             xmlns:foaf="http://xmlns.com/foaf/0.1/">
+            <div  about="#this" typeof="foaf:Document">
+                <div rel="foaf:topic">
+                    <div about="/void.ttl#EntityRelatednessTestData_v3" typeof="rdf:Resource" >
+                    </div>
                 </div>
             </div>
         </div>
+
     </body>
 </html>

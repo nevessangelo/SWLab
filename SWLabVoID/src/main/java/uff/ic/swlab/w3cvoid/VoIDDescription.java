@@ -24,7 +24,7 @@ import uff.ic.swlab.vocabulary.ertd.v1.RSC;
 
 public class VoIDDescription {
 
-    public static final SWLabHost HOST = SWLabHost.ALTERNATE_HOST;
+    public static final SWLabHost HOST = SWLabHost.DEFAULT_HOST;
 
     public final String MYVOID_NS;
 
