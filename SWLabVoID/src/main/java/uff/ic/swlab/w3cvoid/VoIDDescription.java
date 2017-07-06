@@ -61,11 +61,10 @@ public class VoIDDescription {
     public static void main(String[] args) throws FileNotFoundException, IOException, ParseException, Exception {
         PropertyConfigurator.configure("./resources/conf/log4j.properties");
 
-        try (InputStream input = new FileInputStream("./resources/conf/voiddescription.properties");) {
+        try (InputStream input = new FileInputStream("./resources/conf/swlabvoid.properties");) {
             Properties prop = new Properties();
             prop.load(input);
 
-            int port = Integer.parseInt(prop.getProperty("port"));
             String USERNAME = prop.getProperty("username");
             String PASSWORD = prop.getProperty("password");
 

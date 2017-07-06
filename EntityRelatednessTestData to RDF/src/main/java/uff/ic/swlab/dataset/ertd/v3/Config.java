@@ -42,7 +42,6 @@ public class Config {
             Properties prop = new Properties();
             prop.load(input);
 
-            PORT = Integer.parseInt(prop.getProperty("port"));
             USERNAME = prop.getProperty("username");
             PASSWORD = prop.getProperty("password");
         }

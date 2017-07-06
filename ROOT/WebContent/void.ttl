@@ -1,147 +1,106 @@
-@prefix :      <http://swlab.paes-leme.name:8080/void.ttl#> .
-@prefix rsc:   <http://swlab.paes-leme.name:8080/resource/> .
+@prefix :      <http://swlab.ic.uff.br/void.ttl#> .
+@prefix rsc:   <http://swlab.ic.uff.br/resource/> .
 @prefix void:  <http://rdfs.org/ns/void#> .
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix owl:   <http://www.w3.org/2002/07/owl#> .
 @prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix erel:  <http://swlab.paes-leme.name:8080/ontology/EntityRelatednessTestData_v1/#> .
+@prefix erel:  <http://swlab.ic.uff.br/ontology/EntityRelatednessTestData_v1/#> .
 @prefix foaf:  <http://xmlns.com/foaf/0.1/> .
 
-:id-892cd069-f630-4740-a377-cc293842f72a
-        a             void:Dataset ;
-        void:class    erel:id-4d9e8f5b-e39b-41cf-8dae-6615814e1140 ;
-        void:triples  57 .
-
-:id-11957cb6-47dc-408a-aa0e-1691461584e9
-        a              void:Dataset ;
-        void:property  erel:expression ;
-        void:triples   1995 .
-
-:id-bd469986-484f-4104-8633-17a08eee9542
-        a              void:Dataset ;
-        void:property  erel:rest ;
-        void:triples   16025 .
-
-:id-42876791-495c-41f0-aaaf-e72b1c59ce1c
-        a             void:Dataset ;
-        void:class    erel:id-743020a0-8990-4b97-b99b-9edf57f867ca ;
-        void:triples  317 .
-
-:id-b4244dea-fb8c-4813-989c-815ed31c354f
-        a              void:Dataset ;
-        void:property  rdfs:label ;
-        void:triples   18794 .
-
-:id-0697446f-1dab-42f8-b289-5dedcba4219c
-        a              void:Dataset ;
-        void:property  void:inDataset ;
-        void:triples   34880 .
-
-:id-e08f8bc9-a0f3-4219-b277-e6e661389a9f
-        a             void:Dataset ;
-        void:class    erel:EntityElement ;
-        void:triples  9010 .
-
-:id-91ca71f1-9914-4145-92e7-3a93d4ed1089
-        a              void:Dataset ;
-        void:property  erel:first ;
-        void:triples   16025 .
-
-:id-ed160eff-4b98-42de-a450-1d9b7287e0e7
-        a             void:Dataset ;
-        void:class    erel:Entity ;
-        void:triples  729 .
-
-:id-bccb7bcd-b567-4f0c-9c80-74f7c2813fb6
-        a             void:Dataset ;
-        void:class    erel:EntityPair ;
-        void:triples  40 .
-
-:id-5cc4be30-4929-4ba5-a92f-06c8082ac707
-        a             void:Dataset ;
-        void:class    erel:Category ;
-        void:triples  5 .
-
-:id-9b66b596-ba31-4f59-a33c-e10f72fd1da3
-        a              void:Dataset ;
-        void:property  erel:property ;
-        void:triples   7015 .
-
-:id-3f825032-763f-4907-9efc-fe9972fca531
-        a              void:Dataset ;
-        void:property  erel:position ;
-        void:triples   16025 .
-
-:id-edf58f10-e31e-46fc-b23d-2b74d7434651
-        a              void:Dataset ;
-        void:property  erel:entity1 ;
-        void:triples   40 .
-
-:id-ff2ea838-4863-413b-9a6a-062164429750
-        a              void:Dataset ;
-        void:property  erel:entity2 ;
-        void:triples   40 .
-
-:id-6d7cbf83-b72a-4308-b74e-c4e592063241
+:id-9aae3368-d613-4201-8bb5-fc6527805a3f
         a             void:Dataset ;
         void:class    erel:PropertyElement ;
         void:triples  7015 .
 
-:id-72d4a6ca-b275-4a4f-bcc0-afeee8a669a4
+:id-3103f303-f581-4c65-9aef-345a0d514be8
         a             void:Dataset ;
-        void:class    erel:id-7a60a504-2836-44b5-bced-8b5a3431f9b3 ;
-        void:triples  28 .
+        void:class    erel:ListOfPathElements ;
+        void:triples  16025 .
+
+:id-8584ad20-1d2a-4238-896a-2acb87b70404
+        a              void:Dataset ;
+        void:property  erel:rest ;
+        void:triples   16025 .
+
+:id-2e7ee5c9-b0fd-4f8a-80e5-c5948fd712b9
+        a              void:Dataset ;
+        void:property  erel:property ;
+        void:triples   7015 .
+
+:id-55eb56d2-9df0-4535-b11a-44655d5da3ff
+        a             void:Dataset ;
+        void:class    erel:Path ;
+        void:triples  1995 .
+
+:       a                void:DatasetDescription ;
+        dcterms:creator  "http://www.ic.uff.br/~lapaesleme/foaf.rdf#me" ;
+        dcterms:title    "Description of the available datasets at http://swlab.ic.uff.br/" ;
+        foaf:topic       :EntityRelatednessTestData_v3 .
+
+:id-e412ab1a-a0be-4b1e-a47b-d1fb192cd6e7
+        a             void:Dataset ;
+        void:class    erel:Entity ;
+        void:triples  729 .
+
+:id-f966e1a5-cdee-42a0-821a-46238e9bf1de
+        a              void:Dataset ;
+        void:property  erel:first ;
+        void:triples   16025 .
+
+:id-7893258d-b7a9-41f6-aec9-6a6a05f280ef
+        a              void:Dataset ;
+        void:property  erel:expression ;
+        void:triples   1995 .
 
 :EntityRelatednessTestData_v3
         a                       void:Dataset ;
         rdfs:seeAlso            <https://doi.org/10.6084/m9.figshare.5143945.v2> ;
         dcterms:contributor     <http://www.ic.uff.br/~lapaesleme/foaf/#me> ;
         dcterms:created         "2017-06-26T03:00:00Z"^^xsd:dateTime ;
-        dcterms:creator         <http://lattes.cnpq.br/2460021788616803> , <http://www.inf.puc-rio.br/~casanova> ;
+        dcterms:creator         <http://www.inf.puc-rio.br/~casanova> , <http://lattes.cnpq.br/2460021788616803> ;
         dcterms:description     "The entity relatedness problem refers to the question of computing the relationship paths that better describe the connectivity between a given entity pair. This dataset supports the evaluation of approaches that address the entity relatedness problem. It covers two familiar domains, music and movies, and uses data available in IMDb and last.fm, which are popular reference datasets in these domains. The dataset contains 20 entity pairs from each of these domains and, for each entity pair, a ranked list with 50 relationship paths. It also contains entity ratings and property relevance scores for the entities and properties used in the paths." ;
         dcterms:issued          "2017-06-26T03:00:00Z"^^xsd:dateTime ;
         dcterms:license         <https://creativecommons.org/licenses> ;
         dcterms:modified        "2017-06-26T03:00:00Z"^^xsd:dateTime ;
-        dcterms:source          <http://www.imdb.com> , <http://lastfm.rdfize.com/meta.n3#Dataset> , <http://dbpedia.org/resource/DBpedia> ;
+        dcterms:source          <http://dbpedia.org/resource/DBpedia> , <http://lastfm.rdfize.com/meta.n3#Dataset> , <http://www.imdb.com> ;
         dcterms:subject         <http://dbpedia.org/resource/Category:Information_retrieval_techniques> , <http://dbpedia.org/resource/Web-based_technologies> ;
         dcterms:title           "Entity Relatedness Test Data (v3)" ;
-        void:classPartition     :id-5cc4be30-4929-4ba5-a92f-06c8082ac707 , :id-bd4c1420-022a-43ef-b7f7-dc4d5f10cc5f , :id-e08f8bc9-a0f3-4219-b277-e6e661389a9f , :id-ed160eff-4b98-42de-a450-1d9b7287e0e7 , :id-6d7cbf83-b72a-4308-b74e-c4e592063241 , :id-72d4a6ca-b275-4a4f-bcc0-afeee8a669a4 , :id-3b56c2d3-a58e-4b84-b3df-e92bf0a19443 , :id-8d498c8b-26cf-452b-86fd-cf7d8ea023e8 , :id-bccb7bcd-b567-4f0c-9c80-74f7c2813fb6 , :id-a7f7c870-4cdd-479c-bac7-286bbe049748 , :id-42876791-495c-41f0-aaaf-e72b1c59ce1c , :id-892cd069-f630-4740-a377-cc293842f72a ;
-        void:dataDump           <http://swlab.paes-leme.name:8080/dataset/EntityRelatednessTestData_v3.nt.gz> , <http://swlab.paes-leme.name:8080/dataset/EntityRelatednessTestData_v3.rdf.gz> , <https://ndownloader.figshare.com/articles/5007983/versions/1> , <http://swlab.paes-leme.name:8080/fuseki/EntityRelatednessTestData_v3/> , <http://swlab.paes-leme.name:8080/dataset/EntityRelatednessTestData_v3.json.gz> , <http://swlab.paes-leme.name:8080/dataset/EntityRelatednessTestData_v3.ttl.gz> ;
+        void:classPartition     :id-8c923a96-e3a8-42b9-8a79-e05e589e935e , :id-681db7ec-9000-444e-ab59-805767fb6fae , :id-55eb56d2-9df0-4535-b11a-44655d5da3ff , :id-a265228a-59d5-4aab-88f7-4cc4713ab9ea , :id-9d3f3f4b-8035-4d3b-a1c3-783aa4f14cb6 , :id-e412ab1a-a0be-4b1e-a47b-d1fb192cd6e7 , :id-9aae3368-d613-4201-8bb5-fc6527805a3f , :id-a7530bc6-34f6-4330-b5ad-a554f25a05d8 , :id-f4915532-c9a9-4afd-942c-4fd691514be8 , :id-3103f303-f581-4c65-9aef-345a0d514be8 , :id-5a5dc81c-eac8-4d9e-8b2f-341991b658c7 , :id-e319ea6f-9ad1-4d87-882f-703a00452ac1 ;
+        void:dataDump           <http://swlab.ic.uff.br/dataset/EntityRelatednessTestData_v3.json.gz> , <http://swlab.ic.uff.br/fuseki/EntityRelatednessTestData_v3/> , <http://swlab.ic.uff.br/dataset/EntityRelatednessTestData_v3.nt.gz> , <https://ndownloader.figshare.com/articles/5007983/versions/1> , <http://swlab.ic.uff.br/dataset/EntityRelatednessTestData_v3.rdf.gz> , <http://swlab.ic.uff.br/dataset/EntityRelatednessTestData_v3.ttl.gz> ;
         void:entities           34880 ;
-        void:feature            <http://www.w3.org/ns/formats/N-Triples> , <http://www.w3.org/ns/formats/RDF_XML> , < http://www.w3.org/ns/formats/RDF_JSON> , <http://www.w3.org/ns/formats/Turtle> ;
-        void:propertyPartition  :id-b4244dea-fb8c-4813-989c-815ed31c354f , :id-9b66b596-ba31-4f59-a33c-e10f72fd1da3 , :id-91ca71f1-9914-4145-92e7-3a93d4ed1089 , :id-bd469986-484f-4104-8633-17a08eee9542 , :id-0d20bf53-fa55-417d-b4ca-27188766224d , :id-05db657f-2800-4eff-b0d9-a3420fc3f666 , :id-ff2ea838-4863-413b-9a6a-062164429750 , :id-11957cb6-47dc-408a-aa0e-1691461584e9 , :id-0697446f-1dab-42f8-b289-5dedcba4219c , :id-edf58f10-e31e-46fc-b23d-2b74d7434651 , :id-9cbb0921-1972-466c-99d1-80caa009b42a , :id-b21d5de4-2b56-46b6-969e-b369e6b6a50f , :id-fb93e6ac-6e9a-43d3-8170-dfa555c82d6c , :id-3f825032-763f-4907-9efc-fe9972fca531 ;
-        void:rootResource       rsc:id-e85c6d47-5f5f-4a0a-9f95-b4190054c843 , rsc:id-624bc6fa-32ec-4304-b386-d9df7833d743 , rsc:id-21b78df7-c028-4f12-8b47-4030a89ab3e4 , rsc:id-3d0571b7-5772-4dfc-8067-e0cba56a788a , rsc:id-2bf047c0-22e3-4452-9bfb-395c7cf572e4 , rsc:id-20d2c926-af22-46a5-a92b-c2fa915a98ee , rsc:id-9808aab1-874a-4edc-9476-c7eb23d9826d , rsc:id-1687d807-3cb4-4367-a84e-fbf5980aa837 , rsc:id-1530e2b3-a117-49a2-bd64-dfdbec07b012 , rsc:id-f00c898a-bf7e-412a-8a38-1ab7a6e9a7ea , rsc:id-d86c2326-b468-42e7-9167-12d40d5e9d01 , rsc:id-c9967889-f159-4d13-922f-d6923f0819ca , rsc:id-5501decb-6d8d-47a3-848f-3c3670e64e43 , rsc:id-cc1188eb-e8ff-42a2-b78c-80d57abed40c , rsc:id-4dec3367-3423-4a8e-9d38-f632c0a2a9ae , rsc:id-ccc775ef-9817-4abe-a00c-a162612b0903 , rsc:id-875dd402-4815-4eea-affa-a3dd619efd20 , rsc:id-1d5b6533-dd5b-45c1-a18c-ddf1d7e5dfad , rsc:id-56f0194a-8a1a-4f73-becc-3576db1ba35a , rsc:id-4d149fe6-940c-44a3-bc46-5ee08237f664 , rsc:id-69b62c69-c81a-4153-8867-76ef2c846b5f , rsc:id-07682fa1-bd07-4a74-a7e9-720f44e38bf8 , rsc:id-0b50d737-aa9f-41d1-972e-92369fd33925 , rsc:id-fcc1d10a-c85b-4124-b9bc-9fcacd268bf5 , rsc:id-8915f29f-bf94-4b49-bd44-457df5c436c9 , rsc:id-6fb9b212-ee40-47ff-92ea-ebad14c80635 , rsc:id-622826ff-f491-469b-ae5a-51d6258d25fd , rsc:id-0d6e9bdf-4270-49bd-b67b-871ce59d0efa , rsc:id-5f01606d-e130-49d9-924b-64a3fdbb9ee8 , rsc:id-0aa56b12-9e9a-4676-9ac7-cbae538f3def , rsc:id-1f2a2008-7605-4bec-847b-9194df46af9c , rsc:id-b992d06c-c02c-42f4-b978-6fafef0a9613 , rsc:id-5913521d-9fdd-4c7f-a5b0-66c31306981c , rsc:id-379caff5-db25-476c-ab74-34bc6b76e078 , rsc:id-4f3b4a91-b3bc-4f09-833a-b35507891cc5 , rsc:id-95036341-84cf-4830-b081-4f1a85cd0293 , rsc:id-72f61973-f576-4407-a1aa-0d79d812c215 , rsc:id-86c103b9-2fc8-4ea6-a4a4-7ed3354e2ee2 , rsc:id-d7779767-334e-4199-8e67-b6567d435177 , rsc:id-72ec0c67-14f3-49c5-af32-f630142ed891 ;
-        void:sparqlEndpoint     <http://swlab.paes-leme.name:8080/fuseki/dataset.html?tab=query&ds=/EntityRelatednessTestData_v3> ;
-        void:subset             :LinksToLastFM_v3 , :LinksToDBpedia_v3 , :LinksToIMDB_v3 ;
+        void:feature            <http://www.w3.org/ns/formats/N-Triples> , <http://www.w3.org/ns/formats/Turtle> , <http://www.w3.org/ns/formats/RDF_XML> , < http://www.w3.org/ns/formats/RDF_JSON> ;
+        void:propertyPartition  :id-37fc3f87-705a-46a9-9d31-3862395a1bf3 , :id-050827a2-e743-49d0-9153-4f12668ab604 , :id-9cb2b84a-97a5-4e53-b2a4-38ce7d74e3d4 , :id-918bac5a-8d02-4451-8fa8-4d74da7a2918 , :id-de71f30a-357f-4b12-ae3e-755711612267 , :id-8584ad20-1d2a-4238-896a-2acb87b70404 , :id-2e7ee5c9-b0fd-4f8a-80e5-c5948fd712b9 , :id-7893258d-b7a9-41f6-aec9-6a6a05f280ef , :id-cdf343ef-030b-4445-adcb-8bf8f1b5cde5 , :id-b04975c1-70f0-4d6a-a3e4-fb8dd8cb2fff , :id-433f03e0-f06d-4965-9cd6-ae908d29fe04 , :id-f966e1a5-cdee-42a0-821a-46238e9bf1de , :id-fd65c339-213b-4783-88ca-f461f816a682 , :id-588ebd4f-b36b-4380-af79-d8bf10106593 ;
+        void:rootResource       rsc:id-2d6fbc98-c6e3-4696-bdca-f295c1775a5e , rsc:id-84817473-8eb5-4648-9c9e-a05c436279e8 , rsc:id-bc1db739-45cd-429f-9f06-b7132608b586 , rsc:id-fd6b5898-80cb-44cf-ae1e-1f72daafea09 , rsc:id-e477da2d-1c60-45dd-a194-a22a1bf831be , rsc:id-135369f3-b730-4082-9f0e-458cb9dccb37 , rsc:id-7af91489-9159-4271-b0a9-9e7246f61f3f , rsc:id-7eac882c-8e85-4fc3-a28e-fa9c2ad2f85f , rsc:id-2f66ca8a-def5-487f-84c1-c41e18cd7bf8 , rsc:id-ab6cfa74-c618-4005-a06d-74b9139468e5 , rsc:id-bc8b0aab-84a1-41e2-87f2-80a4e0194b2e , rsc:id-f8c03a32-4173-4921-841d-de92bb75e98c , rsc:id-df29c424-a617-4173-ab0d-e27c82fabff4 , rsc:id-4b6a486b-1a6d-4cea-8474-d0fb58d8ce2d , rsc:id-50e5365e-34be-4b35-9acf-4ebc21b57d3a , rsc:id-1fa36b66-959c-402a-ae8f-20b88f8492b2 , rsc:id-501a7170-ef77-4d2f-9b28-37681b5f322b , rsc:id-34533b36-a969-4b30-bca4-8337d3e3dc67 , rsc:id-fc94548f-8cc6-4ead-9fbd-6caa0fe30ed5 , rsc:id-6a2a2596-5ccf-47c7-83e1-604acda6ff75 , rsc:id-c5fcceb2-bb95-48d2-ba6f-dce707f3adc6 , rsc:id-d128288a-65b8-4061-a028-eb791f25d303 , rsc:id-1ca08ebd-c36c-4b9f-a063-9d609e4f747f , rsc:id-cdd30d27-e7d1-4c31-b363-b18b593f7e54 , rsc:id-c1090418-5509-4867-a545-fa7b91c649cb , rsc:id-1799afa5-7c9a-4da5-8a4d-c6802ac3d385 , rsc:id-fb5530f9-c572-4d4e-ac45-e703c08b0741 , rsc:id-48552b26-4bd8-475b-9d8b-bdc063cc17a2 , rsc:id-5fe06f9b-2691-4cac-8c7b-255f2c2d07e2 , rsc:id-403b9370-8211-4fc9-881a-5151a6f32b5f , rsc:id-8735485f-2127-48f2-9560-56be354313c5 , rsc:id-045bac88-c6e5-4938-bea5-ad108cc2a836 , rsc:id-6f4d0dbb-0503-4d7a-a03a-1e22e511c2e6 , rsc:id-00aec8e2-440f-45c2-a06a-de74b185af21 , rsc:id-797ad57a-84da-4a9f-8a88-f247252fe18a , rsc:id-6b110727-2084-4d37-82ca-a918e78f5d16 , rsc:id-ba0f317a-f2ba-4508-9476-cef432cec94a , rsc:id-fd7b59b1-969d-409b-af89-beeaa5c1a5a2 , rsc:id-75698bf0-039c-41e6-acf9-5f3b61fbbd4b , rsc:id-49382302-9e2e-46ec-87b0-718c11994cbe ;
+        void:sparqlEndpoint     <http://swlab.ic.uff.br/fuseki/dataset.html?tab=query&ds=/EntityRelatednessTestData_v3> ;
+        void:subset             :LinksToDBpedia_v3 , :LinksToLastFM_v3 , :LinksToIMDB_v3 ;
         void:triples            180961 ;
-        void:uriRegexPattern    "^http://swlab\\.ic\\.uff\\.br/dataset/(.+)\\.rdf.gz$" , "^http://swlab\\.ic\\.uff\\.br/dataset/(.+)\\.nt.gz$" , "^http://swlab\\.ic\\.uff\\.br/dataset/(.+)\\.ttl.gz$" , "^http://swlab\\.ic\\.uff\\.br/dataset/(.+)\\.json.gz$" ;
-        void:uriSpace           "http://swlab.paes-leme.name:8080/resource/" ;
+        void:uriRegexPattern    "^http://swlab\\.ic\\.uff\\.br/dataset/(.+)\\.nt.gz$" , "^http://swlab\\.ic\\.uff\\.br/dataset/(.+)\\.ttl.gz$" , "^http://swlab\\.ic\\.uff\\.br/dataset/(.+)\\.json.gz$" , "^http://swlab\\.ic\\.uff\\.br/dataset/(.+)\\.rdf.gz$" ;
+        void:uriSpace           "http://swlab.ic.uff.br/resource/" ;
         void:vocabulary         erel: ;
-        foaf:homepage           <http://swlab.paes-leme.name:8080/dataset/EntityRelatednessTestData_v3> ;
+        foaf:homepage           <http://swlab.ic.uff.br/dataset/EntityRelatednessTestData_v3> ;
         foaf:page               erel: .
 
-:id-05db657f-2800-4eff-b0d9-a3420fc3f666
+:id-050827a2-e743-49d0-9153-4f12668ab604
         a              void:Dataset ;
-        void:property  erel:hasListOfPathElements ;
+        void:property  erel:rankPosition ;
         void:triples   1995 .
 
-:id-8d498c8b-26cf-452b-86fd-cf7d8ea023e8
+:id-a265228a-59d5-4aab-88f7-4cc4713ab9ea
         a             void:Dataset ;
-        void:class    erel:ListOfPathElements ;
-        void:triples  16025 .
+        void:class    erel:id-c5f2a7ea-7e9c-4e6a-b5e2-2983b1db7408 ;
+        void:triples  327 .
 
-:id-bd4c1420-022a-43ef-b7f7-dc4d5f10cc5f
-        a             void:Dataset ;
-        void:class    erel:Path ;
-        void:triples  1995 .
+:id-cdf343ef-030b-4445-adcb-8bf8f1b5cde5
+        a              void:Dataset ;
+        void:property  rdfs:label ;
+        void:triples   18794 .
 
-:LinksToIMDB_v3  a           void:Linkset ;
-        void:linkPredicate   owl:sameAs ;
-        void:objectsTarget   <http://www.imdb.com> ;
-        void:subjectsTarget  :EntityRelatednessTestData_v3 ;
-        void:triples         514 .
+:id-de71f30a-357f-4b12-ae3e-755711612267
+        a              void:Dataset ;
+        void:property  erel:entity2 ;
+        void:triples   40 .
 
 :LinksToDBpedia_v3  a        void:Linkset ;
         void:linkPredicate   owl:sameAs ;
@@ -149,10 +108,61 @@
         void:subjectsTarget  :EntityRelatednessTestData_v3 ;
         void:triples         755 .
 
-:id-3b56c2d3-a58e-4b84-b3df-e92bf0a19443
+:id-588ebd4f-b36b-4380-af79-d8bf10106593
+        a              void:Dataset ;
+        void:property  erel:entity1 ;
+        void:triples   40 .
+
+:id-b04975c1-70f0-4d6a-a3e4-fb8dd8cb2fff
+        a              void:Dataset ;
+        void:property  void:inDataset ;
+        void:triples   34880 .
+
+:id-a7530bc6-34f6-4330-b5ad-a554f25a05d8
         a             void:Dataset ;
-        void:class    erel:id-f9877621-cac4-4b4a-b037-eccb57ea7797 ;
-        void:triples  327 .
+        void:class    erel:id-600d0956-7a90-4aac-82a2-80e3fcefca69 ;
+        void:triples  317 .
+
+:id-433f03e0-f06d-4965-9cd6-ae908d29fe04
+        a              void:Dataset ;
+        void:property  erel:entity ;
+        void:triples   9010 .
+
+:id-9cb2b84a-97a5-4e53-b2a4-38ce7d74e3d4
+        a              void:Dataset ;
+        void:property  erel:hasPath ;
+        void:triples   1995 .
+
+:id-9d3f3f4b-8035-4d3b-a1c3-783aa4f14cb6
+        a             void:Dataset ;
+        void:class    erel:id-99f1e13c-cfcb-4551-9b85-e94a9908f693 ;
+        void:triples  57 .
+
+:id-8c923a96-e3a8-42b9-8a79-e05e589e935e
+        a             void:Dataset ;
+        void:class    erel:EntityPair ;
+        void:triples  40 .
+
+:id-f4915532-c9a9-4afd-942c-4fd691514be8
+        a             void:Dataset ;
+        void:class    erel:Category ;
+        void:triples  5 .
+
+:LinksToIMDB_v3  a           void:Linkset ;
+        void:linkPredicate   owl:sameAs ;
+        void:objectsTarget   <http://www.imdb.com> ;
+        void:subjectsTarget  :EntityRelatednessTestData_v3 ;
+        void:triples         514 .
+
+:id-37fc3f87-705a-46a9-9d31-3862395a1bf3
+        a              void:Dataset ;
+        void:property  erel:hasListOfPathElements ;
+        void:triples   1995 .
+
+:id-5a5dc81c-eac8-4d9e-8b2f-341991b658c7
+        a             void:Dataset ;
+        void:class    erel:id-08e8f411-eaf1-4746-aeaa-4c3563007c57 ;
+        void:triples  28 .
 
 :LinksToLastFM_v3  a         void:Linkset ;
         void:linkPredicate   owl:sameAs ;
@@ -160,32 +170,22 @@
         void:subjectsTarget  :EntityRelatednessTestData_v3 ;
         void:triples         216 .
 
-:id-fb93e6ac-6e9a-43d3-8170-dfa555c82d6c
+:id-918bac5a-8d02-4451-8fa8-4d74da7a2918
         a              void:Dataset ;
-        void:property  erel:hasPath ;
-        void:triples   1995 .
+        void:property  erel:position ;
+        void:triples   16025 .
 
-:       a                void:DatasetDescription ;
-        dcterms:creator  "http://www.ic.uff.br/~lapaesleme/foaf.rdf#me" ;
-        dcterms:title    "Description of the available datasets at http://swlab.paes-leme.name:8080/" ;
-        foaf:topic       :EntityRelatednessTestData_v3 .
-
-:id-a7f7c870-4cdd-479c-bac7-286bbe049748
-        a             void:Dataset ;
-        void:class    rdf:Property ;
-        void:triples  61 .
-
-:id-9cbb0921-1972-466c-99d1-80caa009b42a
+:id-fd65c339-213b-4783-88ca-f461f816a682
         a              void:Dataset ;
         void:property  erel:score ;
         void:triples   18020 .
 
-:id-b21d5de4-2b56-46b6-969e-b369e6b6a50f
-        a              void:Dataset ;
-        void:property  erel:entity ;
-        void:triples   9010 .
+:id-e319ea6f-9ad1-4d87-882f-703a00452ac1
+        a             void:Dataset ;
+        void:class    erel:EntityElement ;
+        void:triples  9010 .
 
-:id-0d20bf53-fa55-417d-b4ca-27188766224d
-        a              void:Dataset ;
-        void:property  erel:rankPosition ;
-        void:triples   1995 .
+:id-681db7ec-9000-444e-ab59-805767fb6fae
+        a             void:Dataset ;
+        void:class    rdf:Property ;
+        void:triples  61 .
