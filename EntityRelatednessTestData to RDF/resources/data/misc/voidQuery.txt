@@ -1,0 +1,106 @@
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+prefix foaf: <http://xmlns.com/foaf/0.1/>
+prefix dcterms: <http://purl.org/dc/terms/>
+prefix void: <http://rdfs.org/ns/void#>
+prefix mydom: <http://swlab.ic.uff.br/>
+prefix erel: <http://swlab.ic.uff.br/ontology/EntityRelatednessTestData_v1/#>
+prefix rsc: <http://swlab.ic.uff.br/resource/>
+prefix : <http://swlab.ic.uff.br/void.ttl#>
+
+construct {
+  ?dataset a void:Dataset.
+  ?dataset void:triples ?triples.
+  ?dataset void:entities ?entities.
+  ?dataset void:distinctSubjects ?distinctSubjects.
+  ?dataset void:distinctObjects ?distinctObjects.
+  ?dataset void:classes ?classes.
+  ?dataset void:properties ?properties.
+
+  ?dataset void:classPartition ?classPartition.
+  ?classPartition a void:Dataset.
+  ?classPartition void:class ?class.
+  ?classPartition void:triples ?triplesInPartition.
+
+  ?dataset void:propertyPartition ?propertyPartition.
+  ?propertyPartition a void:Dataset.
+  ?propertyPartition void:property ?property.
+  ?propertyPartition void:triples ?triplesInPartition.
+
+  ?dataset void:subset ?linkset.
+  ?linkset a void:Linkset.
+  ?linkset void:subjectsTarget ?linkset.
+  ?linkset void:objectsTarget ?objectsTarget.
+  ?linkset void:linkPredicate ?linkPredicate.
+  ?linkset void:triples ?triplesInLinkset.
+}
+where {
+  {bind (:EntityRelatednessTestData_v3 as ?dataset)
+    {select (count(?s) as ?triples) where {{?s ?p [].} union {graph ?g {?s ?p [].}}}}
+
+    union
+    {select (count(distinct ?s) as ?distinctSubjects) where {{?s ?p [].} union {graph ?g {?s ?p [].}}}}
+
+    union
+    {select (count(distinct ?o) as ?distinctObjects) where {{[] ?p ?o.} union {graph ?g {[] ?p ?o.}}}}
+
+    union
+    {select (count(distinct ?o) as ?classes) where {{[] a ?o.} union {graph ?g {[] a ?o.}}}}
+
+    union
+    {select (count(distinct ?p) as ?properties) where {{[] ?p [].} union {graph ?g {[] ?p [].}}}}
+
+    union
+    {select (count(distinct ?s) as ?entities)
+      where {{?s ?p []. filter (regex(str(?s),str(rsc:)))}
+        union {graph ?g {?s ?p []. filter( regex(str(?s),str(rsc:)) )}}}}
+
+    union
+    {SELECT ?classPartition ?class ?triplesInPartition
+     WHERE {{SELECT ?class (count(?s) as ?triplesInPartition)
+        	 WHERE {{?s a|erel:type ?class.} union {graph ?g {?s a|erel:type ?class.}}}
+             GROUP BY ?class}
+            bind (iri(str(:)+"id-"+STRUUID()) as ?classPartition)}}
+
+    union
+    {select ?propertyPartition ?property ?triplesInPartition
+     where {{select ?property (count(?s) as ?triplesInPartition)
+             where {{?s ?property [].} union {graph ?g {?s ?property [].}}}
+             group by ?property}
+            bind (iri(str(:)+"id-"+STRUUID()) as ?propertyPartition)}}
+
+    #union
+  	#{select ?linkset ?objectsTarget ?linkPredicate ?triplesInLinkset
+  	# where {{select ?objectsTarget ?linkPredicate (count(?s) as ?triplesInLinkset)
+    # 		where {{?s ?linkPredicate ?o. filter( isIRI(?o)) }
+    #        	   union {graph ?g {?s ?linkPredicate ?o. filter( isIRI(?o))}}
+	#	           bind( replace( str(?o), "(#|/)[^#/]*$", "$1" ) as ?objectsTarget )
+  	#		       #bind(iri("http://"+REPLACE(str(?o), "^(?:.*?://)?(?:.*?@)?([^:]+?)(:\\d+)?((/.*)|$)", "$1")+"/") AS ?objectsTarget)
+  	#		       filter (!regex(str(?objectsTarget),str(mydom:)))}
+    #        group by ?objectsTarget ?linkPredicate}
+    #       bind (iri(str(:)+"id-"+STRUUID()) as ?linkset)}}
+	#}
+
+    union
+    {select ?linkset ?objectsTarget ?linkPredicate (count (?s) as ?triplesInLinkset)
+     WHERE {{?s owl:sameAs ?o.
+             filter regex (str(?o), "http://dbpedia.org")
+             bind (:LinksToDBpedia_v3 as ?linkset)
+             bind (<http://dbpedia.org/resource/DBpedia> as ?objectsTarget)
+             bind (owl:sameAs as ?linkPredicate)}
+
+            union {?s owl:sameAs ?o.
+                   filter regex (str(?o), "https://www.last.fm")
+                   bind (:LinksToLastFM_v3 as ?linkset)
+                   bind (<http://lastfm.rdfize.com/meta.n3#Dataset> as ?objectsTarget)
+                   bind (owl:sameAs as ?linkPredicate)}
+
+            union {?s owl:sameAs ?o.
+                   filter regex (str(?o), "http://www.imdb.com")
+                   bind (:LinksToIMDB_v3 as ?linkset)
+                   bind (<http://www.imdb.com> as ?objectsTarget)
+                   bind (owl:sameAs as ?linkPredicate)}}
+     group by ?linkset ?objectsTarget ?linkPredicate }
+  }
+}

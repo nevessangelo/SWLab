@@ -32,10 +32,8 @@ public class MovieEntityMappings extends HashMap<String, ArrayList<Pair>> {
                         if (cols.length == 4) {
                             cols[0] = cols[0].trim();
                             cols[1] = cols[1].trim();
-                            cols[2] = cols[2].trim().replaceFirst("^ttp://", "http://");
-                            cols[2] = replaceLast(cols[2], "/", "");
-                            cols[3] = cols[3].trim().replaceFirst("^ttp://", "http://");
-                            cols[3] = replaceLast(cols[3], "/", "");
+                            cols[2] = cols[2].trim().replaceFirst("^ttp://", "http://").replaceAll("/*$", "");
+                            cols[3] = cols[3].trim().replaceFirst("^ttp://", "http://").replaceAll("/*$", "");
                             ArrayList<Pair> lista = get(name);
                             if (lista == null) {
                                 lista = new ArrayList<>();
@@ -52,15 +50,5 @@ public class MovieEntityMappings extends HashMap<String, ArrayList<Pair>> {
                 Logger.getLogger(MovieEntityMappings.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    }
-
-    public static String replaceLast(String string, String toReplace, String replacement) {
-        int pos = string.lastIndexOf(toReplace);
-        if (pos > -1)
-            return string.substring(0, pos)
-                    + replacement
-                    + string.substring(pos + toReplace.length(), string.length());
-        else
-            return string;
     }
 }

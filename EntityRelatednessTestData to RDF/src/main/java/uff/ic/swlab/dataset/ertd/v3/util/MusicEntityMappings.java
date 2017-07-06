@@ -37,16 +37,13 @@ public class MusicEntityMappings extends HashMap<String, ArrayList<Pair>> {
                         if (cols.length == 4) {
                             cols[0] = cols[0].trim();
                             cols[1] = cols[1].trim();
-                            cols[2] = cols[2].trim().replaceFirst("^ttp://", "http://");
-                            cols[2] = replaceLast(cols[2], "/", "");
-                            cols[3] = cols[3].trim().replaceFirst("^ttp://", "http://");
-                            cols[3] = replaceLast(cols[3], "/", "");
+                            cols[2] = cols[2].trim().replaceFirst("^ttp://", "http://").replaceAll("/*$", "");
+                            cols[3] = cols[3].trim().replaceFirst("^ttp://", "http://").replaceAll("/*$", "");
                             lista.add(new Pair(cols[0], cols[1], cols[2], cols[3]));
                         } else if (cols.length == 3 && cols[0].equals("Arthur_Fogel")) {
                             cols[0] = cols[0].trim();
                             cols[1] = cols[1].trim();
-                            cols[2] = cols[2].trim().replaceFirst("^ttp://", "http://");
-                            cols[2] = replaceLast(cols[2], "/", "");
+                            cols[2] = cols[2].trim().replaceFirst("^ttp://", "http://").replaceAll("/*$", "");
                             lista.add(new Pair(cols[0], cols[1], cols[2], null));
                         } else
                             System.out.println(String.format("Error: class -> %1s, file -> %1s, line -> %1s.", "MusicEntityMappings", f.getName(), linha));
@@ -58,15 +55,5 @@ public class MusicEntityMappings extends HashMap<String, ArrayList<Pair>> {
                 Logger.getLogger(MusicEntityMappings.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    }
-
-    public static String replaceLast(String string, String toReplace, String replacement) {
-        int pos = string.lastIndexOf(toReplace);
-        if (pos > -1)
-            return string.substring(0, pos)
-                    + replacement
-                    + string.substring(pos + toReplace.length(), string.length());
-        else
-            return string;
     }
 }
